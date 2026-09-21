@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic SEO - قالب ماجيك سيو احترافي</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#0066cc',
+                            darkBlue: '#004a99',
+                            green: '#00a859',
+                            accent: '#ff9900'
+                        }
+                    },
+                    fontFamily: {
+                        arabic: ['Tajawal', 'Cairo', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Tajawal', 'Cairo', sans-serif;
+            background-color: #f4f6f9;
+            color: #333;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        .dark body {
+            background-color: #121824;
+            color: #e2e8f0;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        .dark ::-webkit-scrollbar-track {
+            background: #1a202c;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #0066cc;
+            border-radius: 4px;
+        }
+
+        /* Card Hover Effects */
+        .post-card-overlay {
+            background: linear-gradient(180deg, rgba(0,0,0,0) 20%, rgba(0,0,0,0.85) 100%);
+        }
+
+        .zoom-img {
+            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        
+        .card-container:hover .zoom-img {
+            transform: scale(1.08);
+        }
+
+        /* Pulsing floating menu icon effect */
+        .floating-btn {
+            transition: all 0.25s ease-in-out;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        .floating-btn:hover {
+            transform: translateX(-4px) scale(1.05);
+        }
+        
+        /* Modal Animation */
+        .modal-enter {
+            animation: modalFadeIn 0.3s forwards cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: scale(0.95) translateY(10px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 dark:bg-[#111827] text-gray-800 dark:text-gray-100 antialiased min-h-screen pb-12">
+
+    <!-- Top Header Bar -->
+    <header class="bg-[#0052a3] text-white text-xs py-2 shadow-sm border-b border-blue-700/50">
+        <div class="max-w-7xl mx-auto px-4 flex flex-wrap justify-between items-center gap-2">
+            <!-- Social Links -->
+            <div class="flex items-center space-x-3 space-x-reverse">
+                <a href="#" class="w-6 h-6 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"><i class="fab fa-youtube text-xs"></i></a>
+                <a href="#" class="w-6 h-6 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"><i class="fab fa-twitter text-xs"></i></a>
+                <a href="#" class="w-6 h-6 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"><i class="fab fa-facebook-f text-xs"></i></a>
+                <a href="#" class="w-6 h-6 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-colors"><i class="fas font-bold fa-b text-xs"></i></a>
+            </div>
+            
+            <!-- Secondary Navigation -->
+            <nav class="flex items-center space-x-4 space-x-reverse font-medium">
+                <a href="#" class="hover:underline transition-all">سياسة الخصوصية</a>
+                <span class="text-blue-300">•</span>
+                <a href="#" class="hover:underline transition-all">الأرشيف</a>
+                <span class="text-blue-300">•</span>
+                <a href="#" class="hover:underline transition-all">اتصل بنا</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Logo Bar -->
+    <div class="bg-white dark:bg-[#1f2937] py-4 shadow-sm border-b border-gray-200 dark:border-gray-800 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
+            
+            <!-- Logo Section -->
+            <div class="flex items-center gap-3 cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                <!-- Magic SEO Brand Icon -->
+                <div class="relative flex items-center justify-center w-12 h-12 bg-gradient-to-tr from-blue-700 to-emerald-500 rounded-xl text-white shadow-md shadow-blue-500/20">
+                    <i class="fas fa-wand-magic-sparkles text-2xl animate-pulse"></i>
+                    <span class="absolute -top-1 -right-1 bg-emerald-500 text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full border-2 border-white dark:border-gray-800">PRO</span>
+                </div>
+                <div>
+                    <div class="flex items-center gap-1.5 text-xs font-bold tracking-widest text-emerald-600 dark:text-emerald-400 uppercase">
+                        <span>BLOGGER TEMPLATE</span>
+                        <i class="fas fa-plus text-[10px] text-blue-600"></i>
+                    </div>
+                    <h1 class="text-2xl sm:text-3xl font-black text-gray-900 dark:text-white tracking-tight flex items-center gap-1">
+                        MAGIC <span class="text-blue-600 dark:text-blue-400">SEO</span>
+                    </h1>
+                </div>
+            </div>
+
+            <!-- Header Actions / Search Button -->
+            <div class="flex items-center gap-3">
+                <button onclick="toggleSearchModal()" class="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2.5 rounded-lg shadow-sm transition-all font-medium text-sm">
+                    <i class="fas fa-search"></i>
+                    <span class="hidden sm:inline">بحث في الموقع...</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <nav class="bg-white dark:bg-[#1f2937] border-b border-gray-200 dark:border-gray-800 sticky top-0 z-30 shadow-sm transition-colors">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex items-center justify-between overflow-x-auto scrollbar-none">
+                <ul class="flex items-center text-sm font-bold text-gray-700 dark:text-gray-200 whitespace-nowrap">
+                    <li>
+                        <a href="#" class="block py-3.5 px-4 text-blue-600 dark:text-blue-400 border-b-2 border-blue-600 dark:border-blue-400 bg-blue-50/50 dark:bg-blue-950/30">
+                            <i class="fas fa-home ml-1"></i> الرئيسية
+                        </a>
+                    </li>
+                    <li class="relative group">
+                        <a href="#kitchen" class="block py-3.5 px-4 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-1">
+                            مطبخ [ميجا 1] <i class="fas fa-chevron-down text-[10px] opacity-60"></i>
+                        </a>
+                        <!-- Mega Menu Dropdown -->
+                        <div class="absolute right-0 top-full hidden group-hover:block w-64 bg-white dark:bg-gray-800 shadow-xl rounded-b-lg border border-gray-100 dark:border-gray-700 py-2 z-50">
+                            <a href="#" class="block px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 text-xs">أطباق رئيسية</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 text-xs">حلويات شرقية</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 text-xs">مأكولات سريعة</a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#variety" class="block py-3.5 px-4 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                            منوعات [ميجا 2]
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#nutrition" class="block py-3.5 px-4 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                            تغذية [ميجا 3]
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#beauty" class="block py-3.5 px-4 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                            جمال
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#colors" class="block py-3.5 px-4 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                            دلالات الالوان
+                        </a>
+                    </li>
+                    <li class="relative group">
+                        <a href="#" class="block py-3.5 px-4 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-1">
+                            قائمة <i class="fas fa-chevron-down text-[10px] opacity-60"></i>
+                        </a>
+                        <div class="absolute right-0 top-full hidden group-hover:block w-48 bg-white dark:bg-gray-800 shadow-xl rounded-b-lg border border-gray-100 dark:border-gray-700 py-2 z-50">
+                            <a href="#" class="block px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 text-xs">تقنية وموبايل</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 text-xs">سياحة وسفر</a>
+                            <a href="#" class="block px-4 py-2 hover:bg-blue-50 dark:hover:bg-gray-700 text-xs">صحة ولياقة</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main class="max-w-7xl mx-auto px-4 mt-6">
+        
+        <!-- Section Header: "مقالات عشوائية" -->
+        <div class="flex items-center justify-between mb-4 bg-white dark:bg-[#1f2937] p-3.5 rounded-xl shadow-sm border border-gray-200/80 dark:border-gray-800">
+            <div class="flex items-center gap-2">
+                <span class="w-1.5 h-6 bg-blue-600 rounded-full"></span>
+                <h2 class="text-lg font-bold text-gray-900 dark:text-white">مقالات عشوائية</h2>
+            </div>
+            <button onclick="shuffleArticles()" class="text-xs bg-blue-600 hover:bg-blue-700 text-white px-3 py-1.5 rounded-lg transition-colors font-medium flex items-center gap-1.5">
+                <i class="fas fa-arrows-rotate"></i>
+                <span>عرض المزيد</span>
+            </button>
+        </div>
+
+        <!-- 9-Card Asymmetric Hero Grid (Matching the image replica) -->
+        <div id="hero-grid" class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-3">
+            
+            <!-- Top Left Column (2 Vertical Stacked Cards) -->
+            <div class="md:col-span-1 flex flex-col gap-3">
+                
+                <!-- Card 1: Babel -->
+                <div onclick="openArticleModal('1')" class="card-container relative h-48 rounded-xl overflow-hidden cursor-pointer shadow-sm group">
+                    <img src="https://images.unsplash.com/photo-1548625149-fc4a29cf7092?auto=format&fit=crop&w=600&q=80" alt="مدينة بابل" class="zoom-img w-full h-full object-cover">
+                    <div class="post-card-overlay absolute inset-0 flex flex-col justify-between p-3 text-white">
+                        <div class="flex justify-start">
+                            <span class="bg-red-700 text-[11px] font-bold px-2 py-0.5 rounded shadow">مدن عربية</span>
+                        </div>
+                        <div>
+                            <div class="text-[10px] text-gray-300 flex items-center gap-1 mb-1">
+                                <i class="far fa-clock"></i> منذ شهر
+                            </div>
+                            <h3 class="font-bold text-sm leading-tight group-hover:text-blue-300 transition-colors">
+                                ما هي مدينة بابل وما تاريخها وموقعها
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Bethlehem -->
+                <div onclick="openArticleModal('2')" class="card-container relative h-48 rounded-xl overflow-hidden cursor-pointer shadow-sm group">
+                    <img src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=600&q=80" alt="بيت لحم" class="zoom-img w-full h-full object-cover">
+                    <div class="post-card-overlay absolute inset-0 flex flex-col justify-between p-3 text-white">
+                        <div class="flex justify-start">
+                            <span class="bg-blue-800 text-[11px] font-bold px-2 py-0.5 rounded shadow">مدن عربية</span>
+                        </div>
+                        <div>
+                            <div class="text-[10px] text-gray-300 flex items-center gap-1 mb-1">
+                                <i class="far fa-clock"></i> منذ شهر
+                            </div>
+                            <h3 class="font-bold text-sm leading-tight group-hover:text-blue-300 transition-colors">
+                                مدينة بيت لحم وسبب تسميتها
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Center Giant Feature Card (Jerusalem / القدس) -->
+            <div onclick="openArticleModal('3')" class="card-container md:col-span-2 relative h-[396px] rounded-xl overflow-hidden cursor-pointer shadow-md group">
+                <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=80" alt="القدس" class="zoom-img w-full h-full object-cover">
+                <div class="post-card-overlay absolute inset-0 flex flex-col justify-between p-5 text-white">
+                    <div class="flex justify-start">
+                        <span class="bg-red-700 text-xs font-bold px-2.5 py-1 rounded shadow">مدن عربية</span>
+                    </div>
+                    <div class="max-w-xl">
+                        <div class="text-xs text-gray-300 flex items-center gap-1 mb-1.5">
+                            <i class="far fa-clock"></i> منذ شهر
+                        </div>
+                        <h3 class="font-black text-xl sm:text-2xl leading-snug mb-2 group-hover:text-blue-300 transition-colors">
+                            مدينة القدس وتاريخها العريق
+                        </h3>
+                        <p class="text-xs text-gray-200 line-clamp-2 font-normal leading-relaxed">
+                            القدس تُعتبر مدينة القدس مهد الديانات السماوية الثلاث الإنسانية والمسيحية واليهودية، ويرجع تاريخها إلى الآلاف من السنين...
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Top Right Column (2 Vertical Stacked Cards) -->
+            <div class="md:col-span-1 flex flex-col gap-3">
+                
+                <!-- Card 4: Mecca -->
+                <div onclick="openArticleModal('4')" class="card-container relative h-48 rounded-xl overflow-hidden cursor-pointer shadow-sm group">
+                    <img src="https://images.unsplash.com/photo-1591604466107-ec97de577aff?auto=format&fit=crop&w=600&q=80" alt="مكة" class="zoom-img w-full h-full object-cover">
+                    <div class="post-card-overlay absolute inset-0 flex flex-col justify-between p-3 text-white">
+                        <div class="flex justify-start">
+                            <span class="bg-blue-800 text-[11px] font-bold px-2 py-0.5 rounded shadow">مدن عربية</span>
+                        </div>
+                        <div>
+                            <div class="text-[10px] text-gray-300 flex items-center gap-1 mb-1">
+                                <i class="far fa-clock"></i> منذ شهر
+                            </div>
+                            <h3 class="font-bold text-sm leading-tight group-hover:text-blue-300 transition-colors">
+                                مدينة مكة وسبب بناء الكعبة بها
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5: Seven Hills -->
+                <div onclick="openArticleModal('5')" class="card-container relative h-48 rounded-xl overflow-hidden cursor-pointer shadow-sm group">
+                    <img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=600&q=80" alt="مدينة التلال" class="zoom-img w-full h-full object-cover">
+                    <div class="post-card-overlay absolute inset-0 flex flex-col justify-between p-3 text-white">
+                        <div class="flex justify-start">
+                            <span class="bg-red-700 text-[11px] font-bold px-2 py-0.5 rounded shadow">مدن عربية</span>
+                        </div>
+                        <div>
+                            <div class="text-[10px] text-gray-300 flex items-center gap-1 mb-1">
+                                <i class="far fa-clock"></i> منذ شهر
+                            </div>
+                            <h3 class="font-bold text-sm leading-tight group-hover:text-blue-300 transition-colors">
+                                مدينة التلال السبع وتاريخها
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Row: 4 Small Horizontal/Square Cards -->
+            <div class="col-span-1 md:col-span-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 mt-1">
+                
+                <!-- Card 6: Dates & Milk Diet -->
+                <div onclick="openArticleModal('6')" class="card-container relative h-44 rounded-xl overflow-hidden cursor-pointer shadow-sm group">
+                    <img src="https://images.unsplash.com/photo-1598153346810-860daa814c4b?auto=format&fit=crop&w=500&q=80" alt="تمر ولبن" class="zoom-img w-full h-full object-cover">
+                    <div class="post-card-overlay absolute inset-0 flex flex-col justify-between p-3 text-white">
+                        <div class="flex justify-start">
+                            <span class="bg-emerald-700 text-[11px] font-bold px-2 py-0.5 rounded shadow">تغذية</span>
+                        </div>
+                        <div>
+                            <div class="text-[10px] text-gray-300 flex items-center gap-1 mb-1">
+                                <i class="far fa-clock"></i> منذ شهر
+                            </div>
+                            <h3 class="font-bold text-xs sm:text-sm leading-tight group-hover:text-blue-300 transition-colors">
+                                رجيم التمر واللبن لمدة اسبوعين
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 7: WhatsApp -->
+                <div onclick="openArticleModal('7')" class="card-container relative h-44 rounded-xl overflow-hidden cursor-pointer shadow-sm group">
+                    <img src="https://images.unsplash.com/photo-1614680376593-902f749f7b2c?auto=format&fit=crop&w=500&q=80" alt="واتساب" class="zoom-img w-full h-full object-cover">
+                    <div class="post-card-overlay absolute inset-0 flex flex-col justify-between p-3 text-white">
+                        <div class="flex justify-start">
+                            <span class="bg-blue-900 text-[11px] font-bold px-2 py-0.5 rounded shadow">التقنية</span>
+                        </div>
+                        <div>
+                            <div class="text-[10px] text-gray-300 flex items-center gap-1 mb-1">
+                                <i class="far fa-clock"></i> منذ شهر
+                            </div>
+                            <h3 class="font-bold text-xs sm:text-sm leading-tight group-hover:text-blue-300 transition-colors">
+                                لمحـه عن تطبيق الواتساب
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 8: Hawawshi Cooking -->
+                <div onclick="openArticleModal('8')" class="card-container relative h-44 rounded-xl overflow-hidden cursor-pointer shadow-sm group">
+                    <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=500&q=80" alt="الحواوشي" class="zoom-img w-full h-full object-cover">
+                    <div class="post-card-overlay absolute inset-0 flex flex-col justify-between p-3 text-white">
+                        <div class="flex justify-start">
+                            <span class="bg-indigo-700 text-[11px] font-bold px-2 py-0.5 rounded shadow">مطبخ</span>
+                        </div>
+                        <div>
+                            <div class="text-[10px] text-gray-300 flex items-center gap-1 mb-1">
+                                <i class="far fa-clock"></i> منذ شهر
+                            </div>
+                            <h3 class="font-bold text-xs sm:text-sm leading-tight group-hover:text-blue-300 transition-colors">
+                                الحواوشي المصري بخلطة الست غالية
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 9: Makeup / Beauty -->
+                <div onclick="openArticleModal('9')" class="card-container relative h-44 rounded-xl overflow-hidden cursor-pointer shadow-sm group">
+                    <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=500&q=80" alt="بلاشر" class="zoom-img w-full h-full object-cover">
+                    <div class="post-card-overlay absolute inset-0 flex flex-col justify-between p-3 text-white">
+                        <div class="flex justify-start">
+                            <span class="bg-rose-700 text-[11px] font-bold px-2 py-0.5 rounded shadow">اخبار الموضة</span>
+                        </div>
+                        <div>
+                            <div class="text-[10px] text-gray-300 flex items-center gap-1 mb-1">
+                                <i class="far fa-clock"></i> منذ شهر
+                            </div>
+                            <h3 class="font-bold text-xs sm:text-sm leading-tight group-hover:text-blue-300 transition-colors">
+                                كيفية وضع البلاشر حسب شكل الوجه
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Category Feeds Grid (Kitchen, Beauty, Nutrition) -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+            
+            <!-- Category 1: Kitchen (مطبخ) -->
+            <section id="kitchen" class="bg-white dark:bg-[#1f2937] p-4 rounded-xl shadow-sm border border-gray-200/80 dark:border-gray-800">
+                <div class="flex items-center justify-between mb-4 border-b dark:border-gray-700 pb-2.5">
+                    <h3 class="text-base font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-blue-600"></span> مطبخ
+                    </h3>
+                    <button class="text-xs bg-blue-600 hover:bg-blue-700 text-white px-2.5 py-1 rounded">عرض المزيد</button>
+                </div>
+
+                <!-- Main Featured Post in Kitchen -->
+                <div onclick="openArticleModal('8')" class="cursor-pointer group mb-4">
+                    <div class="relative h-40 rounded-lg overflow-hidden mb-2">
+                        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=500&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <span class="absolute top-2 right-2 bg-red-700 text-white text-[10px] font-bold px-2 py-0.5 rounded">مطبخ</span>
+                    </div>
+                    <h4 class="font-bold text-sm text-gray-800 dark:text-gray-100 group-hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                        الحواوشي المصري بخلطة الست غالية الشهيرة
+                    </h4>
+                </div>
+
+                <!-- Small List Items -->
+                <div class="space-y-3 pt-2 border-t dark:border-gray-700">
+                    <div onclick="openArticleModal('8')" class="flex gap-3 cursor-pointer group items-center">
+                        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=150&q=80" class="w-14 h-14 rounded-lg object-cover flex-shrink-0">
+                        <div>
+                            <h5 class="text-xs font-bold text-gray-700 dark:text-gray-200 group-hover:text-blue-600 dark:hover:text-blue-400 line-clamp-2">سلطة الخضار الصحية بخلطة إيطالية</h5>
+                            <span class="text-[10px] text-gray-400">منذ أسبوعين</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Category 2: Beauty (جمال) -->
+            <section id="beauty" class="bg-white dark:bg-[#1f2937] p-4 rounded-xl shadow-sm border border-gray-200/80 dark:border-gray-800">
+                <div class="flex items-center justify-between mb-4 border-b dark:border-gray-700 pb-2.5">
+                    <h3 class="text-base font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-pink-600"></span> جمال
+                    </h3>
+                    <button class="text-xs bg-blue-600 hover:bg-blue-700 text-white px-2.5 py-1 rounded">عرض المزيد</button>
+                </div>
+
+                <div onclick="openArticleModal('9')" class="cursor-pointer group mb-4">
+                    <div class="relative h-40 rounded-lg overflow-hidden mb-2">
+                        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=500&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <span class="absolute top-2 right-2 bg-blue-900 text-white text-[10px] font-bold px-2 py-0.5 rounded">اخبار الموضة</span>
+                    </div>
+                    <h4 class="font-bold text-sm text-gray-800 dark:text-gray-100 group-hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                        كيفية وضع البلاشر حسب شكل الوجه بالتفصيل
+                    </h4>
+                </div>
+
+                <div class="space-y-3 pt-2 border-t dark:border-gray-700">
+                    <div onclick="openArticleModal('9')" class="flex gap-3 cursor-pointer group items-center">
+                        <img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=150&q=80" class="w-14 h-14 rounded-lg object-cover flex-shrink-0">
+                        <div>
+                            <h5 class="text-xs font-bold text-gray-700 dark:text-gray-200 group-hover:text-blue-600 dark:hover:text-blue-400 line-clamp-2">أفضل طرق تبييض الأسنان وتقويتها طبيعياً</h5>
+                            <span class="text-[10px] text-gray-400">منذ 3 أسابيع</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Category 3: Nutrition (تغذية) -->
+            <section id="nutrition" class="bg-white dark:bg-[#1f2937] p-4 rounded-xl shadow-sm border border-gray-200/80 dark:border-gray-800">
+                <div class="flex items-center justify-between mb-4 border-b dark:border-gray-700 pb-2.5">
+                    <h3 class="text-base font-bold text-gray-900 dark:text-white flex items-center gap-2">
+                        <span class="w-2 h-2 rounded-full bg-emerald-600"></span> تغذية
+                    </h3>
+                    <button class="text-xs bg-blue-600 hover:bg-blue-700 text-white px-2.5 py-1 rounded">عرض المزيد</button>
+                </div>
+
+                <div onclick="openArticleModal('6')" class="cursor-pointer group mb-4">
+                    <div class="relative h-40 rounded-lg overflow-hidden mb-2">
+                        <img src="https://images.unsplash.com/photo-1598153346810-860daa814c4b?auto=format&fit=crop&w=500&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <span class="absolute top-2 right-2 bg-emerald-700 text-white text-[10px] font-bold px-2 py-0.5 rounded">تغذية</span>
+                    </div>
+                    <h4 class="font-bold text-sm text-gray-800 dark:text-gray-100 group-hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                        رجيم التمر واللبن الفعال لمدة اسبوعين
+                    </h4>
+                </div>
+
+                <div class="space-y-3 pt-2 border-t dark:border-gray-700">
+                    <div onclick="openArticleModal('6')" class="flex gap-3 cursor-pointer group items-center">
+                        <img src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?auto=format&fit=crop&w=150&q=80" class="w-14 h-14 rounded-lg object-cover flex-shrink-0">
+                        <div>
+                            <h5 class="text-xs font-bold text-gray-700 dark:text-gray-200 group-hover:text-blue-600 dark:hover:text-blue-400 line-clamp-2">فوائد تناول الفواكه الموسمية للجسم</h5>
+                            <span class="text-[10px] text-gray-400">منذ شهر</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+    </main>
+
+    <!-- Floating Action Toolbar (Replica of SEO Plus floating widgets on the right side) -->
+    <aside class="fixed top-1/2 -translate-y-1/2 left-3 z-40 flex flex-col gap-2.5">
+        
+        <!-- Home Button -->
+        <button onclick="window.scrollTo({top:0, behavior:'smooth'})" title="الرئيسية" class="floating-btn w-10 h-10 rounded-full bg-amber-500 hover:bg-amber-600 text-white flex items-center justify-center shadow-lg">
+            <i class="fas fa-home text-sm"></i>
+        </button>
+
+        <!-- Search Button -->
+        <button onclick="toggleSearchModal()" title="بحث" class="floating-btn w-10 h-10 rounded-full bg-rose-700 hover:bg-rose-800 text-white flex items-center justify-center shadow-lg">
+            <i class="fas fa-search text-sm"></i>
+        </button>
+
+        <!-- Grid/List Switcher -->
+        <button onclick="toggleGridStyle()" title="تغيير الشكل" class="floating-btn w-10 h-10 rounded-full bg-sky-600 hover:bg-sky-700 text-white flex items-center justify-center shadow-lg">
+            <i class="fas fa-th-large text-sm"></i>
+        </button>
+
+        <!-- Dark/Light Mode Toggle -->
+        <button onclick="toggleDarkMode()" title="وضع المظهر (داكن/فاتح)" class="floating-btn w-10 h-10 rounded-full bg-cyan-800 hover:bg-cyan-900 text-white flex items-center justify-center shadow-lg">
+            <i class="fas fa-moon text-sm dark:hidden"></i>
+            <i class="fas fa-sun text-sm hidden dark:block"></i>
+        </button>
+
+        <!-- Back to Top Arrow -->
+        <button onclick="window.scrollTo({top:0, behavior:'smooth'})" title="إلى الأعلى" class="floating-btn w-10 h-10 rounded-full bg-blue-900 hover:bg-blue-950 text-white flex items-center justify-center shadow-lg">
+            <i class="fas fa-chevron-up text-sm"></i>
+        </button>
+
+        <!-- Settings / Template Customizer Button -->
+        <button onclick="toggleSettingsDrawer()" title="إعدادات القالب Magic SEO" class="floating-btn w-10 h-10 rounded-full bg-blue-600 hover:bg-blue-700 text-white flex items-center justify-center shadow-lg animate-spin-slow">
+            <i class="fas fa-cog text-sm"></i>
+        </button>
+
+    </aside>
+
+    <!-- Article Viewer Modal -->
+    <div id="article-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-white dark:bg-gray-900 w-full max-w-3xl rounded-2xl shadow-2xl overflow-hidden modal-enter my-8 relative border border-gray-200 dark:border-gray-800">
+            
+            <!-- Close Modal Button -->
+            <button onclick="closeArticleModal()" class="absolute top-4 left-4 z-10 w-9 h-9 bg-black/50 hover:bg-black/80 text-white rounded-full flex items-center justify-center transition-colors">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <!-- Article Header Image -->
+            <div class="relative h-64 sm:h-80 w-full">
+                <img id="modal-img" src="" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+                <div class="absolute bottom-4 right-4 left-4 text-white">
+                    <span id="modal-category" class="bg-blue-600 text-xs font-bold px-2.5 py-1 rounded shadow mb-2 inline-block"></span>
+                    <h2 id="modal-title" class="text-xl sm:text-3xl font-extrabold leading-snug"></h2>
+                    <div class="flex items-center gap-4 text-xs text-gray-300 mt-2">
+                        <span><i class="far fa-calendar ml-1"></i> 2026-09-20</span>
+                        <span><i class="far fa-user ml-1"></i> بواسطة فريق ماجيك سيو</span>
+                        <span><i class="far fa-eye ml-1"></i> 1,420 مشاهدة</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Article Content Body -->
+            <div class="p-6 sm:p-8 space-y-4 text-gray-800 dark:text-gray-200 leading-relaxed text-sm sm:text-base">
+                <p id="modal-content-intro" class="font-semibold text-lg text-blue-700 dark:text-blue-400 border-r-4 border-blue-600 pr-3"></p>
+                <p>
+                    هذا النص هو مثال لنص يمكن أن يستبدل في نفس المساحة، لقد تم توليد هذا النص من مولد النص العربى، حيث يمكنك أن تولد مثل هذا النص أو العديد من النصوص الأخرى إضافة إلى زيادة عدد الحروف التى يولدها التطبيق.
+                </p>
+                <div class="bg-blue-50 dark:bg-gray-800 p-4 rounded-xl border border-blue-100 dark:border-gray-700 text-xs sm:text-sm">
+                    <i class="fas fa-lightbulb text-amber-500 ml-2"></i>
+                    <strong>معلومة سريعة:</strong> يتميز قالب Magic SEO بتهيئة فائقة السرعة لمحركات البحث ومعايير SEO المتقدمة.
+                </div>
+                <p>
+                    إذا كنت تحتاج إلى عدد أكبر من الفقرات يتيح لك مولد النص العربى زيادة عدد الفقرات كما تريد، النص لن يبدو مقسماً ولا يحوي أخطاء لغوية، مولد النص العربى مفيد لمصممي المواقع على وجه الخصوص.
+                </p>
+
+                <!-- Article Share Buttons -->
+                <div class="pt-6 border-t dark:border-gray-800 flex flex-wrap items-center justify-between gap-3">
+                    <span class="font-bold text-sm">مشاركة المقال:</span>
+                    <div class="flex items-center gap-2">
+                        <button class="bg-[#1877f2] text-white px-3 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1.5 hover:opacity-90">
+                            <i class="fab fa-facebook-f"></i> فيسبوك
+                        </button>
+                        <button class="bg-[#1da1f2] text-white px-3 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1.5 hover:opacity-90">
+                            <i class="fab fa-twitter"></i> تويتر
+                        </button>
+                        <button class="bg-[#25d366] text-white px-3 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1.5 hover:opacity-90">
+                            <i class="fab fa-whatsapp"></i> واتساب
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Search Overlay Modal -->
+    <div id="search-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm hidden items-start justify-center pt-20 px-4">
+        <div class="bg-white dark:bg-gray-900 w-full max-w-xl rounded-2xl shadow-2xl p-6 modal-enter border border-gray-200 dark:border-gray-800">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="font-bold text-lg text-gray-900 dark:text-white flex items-center gap-2">
+                    <i class="fas fa-search text-blue-600"></i> البحث في مقالات Magic SEO
+                </h3>
+                <button onclick="toggleSearchModal()" class="text-gray-400 hover:text-gray-600 dark:hover:text-white">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <div class="relative mb-4">
+                <input type="text" id="search-input" onkeyup="filterArticles()" placeholder="اكتب للبحث (مثال: القدس، بابل، حواوشي)..." class="w-full bg-gray-100 dark:bg-gray-800 border-2 border-transparent focus:border-blue-600 rounded-xl px-4 py-3 pl-10 text-sm outline-none text-gray-800 dark:text-gray-100 transition-all">
+                <i class="fas fa-search absolute left-3 top-3.5 text-gray-400"></i>
+            </div>
+
+            <!-- Live Search Results List -->
+            <div id="search-results" class="space-y-2 max-h-60 overflow-y-auto pr-1">
+                <p class="text-xs text-gray-400 text-center py-4">ابتدئ الكتابة لإظهار المقالات المطابقة...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Magic SEO Template Customizer Drawer -->
+    <div id="settings-drawer" class="fixed inset-y-0 right-0 z-50 w-80 bg-white dark:bg-gray-900 shadow-2xl border-l border-gray-200 dark:border-gray-800 transform translate-x-full transition-transform duration-300 p-6 flex flex-col justify-between">
+        <div>
+            <div class="flex items-center justify-between border-b dark:border-gray-800 pb-4 mb-6">
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-sliders text-blue-600"></i>
+                    <h3 class="font-bold text-gray-900 dark:text-white">إعدادات قالب Magic SEO</h3>
+                </div>
+                <button onclick="toggleSettingsDrawer()" class="text-gray-400 hover:text-gray-600 dark:hover:text-white">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div class="space-y-6">
+                <!-- Version Info -->
+                <div class="bg-blue-50 dark:bg-gray-800/60 p-3 rounded-xl border border-blue-100 dark:border-gray-700">
+                    <div class="text-xs font-bold text-blue-700 dark:text-blue-400">الإصدار الحالي: V8.5 (Magic Edition)</div>
+                    <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-1">تمت إعادة تصميم القالب بالكامل بأحدث تقنيات الويب السريعة.</p>
+                </div>
+
+                <!-- Theme Mode -->
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-2">وضع الألوان:</label>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="setThemeMode('light')" class="py-2 px-3 border dark:border-gray-700 rounded-lg text-xs font-bold flex items-center justify-center gap-2 hover:bg-gray-50 dark:hover:bg-gray-800">
+                            <i class="fas fa-sun text-amber-500"></i> فاتح
+                        </button>
+                        <button onclick="setThemeMode('dark')" class="py-2 px-3 border dark:border-gray-700 rounded-lg text-xs font-bold flex items-center justify-center gap-2 hover:bg-gray-50 dark:hover:bg-gray-800">
+                            <i class="fas fa-moon text-blue-400"></i> داكن
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Accent Color Picker -->
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-2">اللون الرئيسي للقالب:</label>
+                    <div class="flex items-center gap-3">
+                        <button onclick="changeAccent('#0066cc')" class="w-8 h-8 rounded-full bg-[#0066cc] ring-2 ring-offset-2 ring-blue-600"></button>
+                        <button onclick="changeAccent('#059669')" class="w-8 h-8 rounded-full bg-[#059669]"></button>
+                        <button onclick="changeAccent('#dc2626')" class="w-8 h-8 rounded-full bg-[#dc2626]"></button>
+                        <button onclick="changeAccent('#7c3aed')" class="w-8 h-8 rounded-full bg-[#7c3aed]"></button>
+                    </div>
+                </div>
+
+                <!-- Blogger Features Checklist -->
+                <div>
+                    <label class="block text-xs font-bold text-gray-700 dark:text-gray-300 mb-2">ميزات القالب المُمفعلة:</label>
+                    <ul class="text-xs space-y-2 text-gray-600 dark:text-gray-300">
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-500"></i> دعم ميجا ميني متطور</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-500"></i> سرعة تحميل فائقة (100% SEO)</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-500"></i> التوافق مع شاشات الجوال</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-500"></i> إعلانات جاهزة ومربحة</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="pt-4 border-t dark:border-gray-800 text-center">
+            <button onclick="alert('تم نسخ كود القالب إلى الحافظة!')" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-2.5 rounded-xl text-xs flex items-center justify-center gap-2 shadow">
+                <i class="fas fa-code"></i> نسخ كود Magic SEO
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Footer -->
+    <footer class="bg-white dark:bg-[#1f2937] border-t border-gray-200 dark:border-gray-800 mt-12 py-8 transition-colors">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500 dark:text-gray-400">
+                <div class="flex items-center gap-2 font-bold text-gray-800 dark:text-white">
+                    <i class="fas fa-wand-magic-sparkles text-blue-600"></i>
+                    <span>Magic SEO Template &copy; 2026 - جميع الحقوق محفوظة</span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="#" class="hover:text-blue-600">الرئيسية</a>
+                    <a href="#" class="hover:text-blue-600">سياسة الخصوصية</a>
+                    <a href="#" class="hover:text-blue-600">من نحن</a>
+                    <a href="#" class="hover:text-blue-600">اتصل بنا</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Article Database for Modal & Live Search
+        const articlesDB = [
+            {
+                id: '1',
+                title: 'ما هي مدينة بابل وما تاريخها وموقعها',
+                category: 'مدن عربية',
+                image: 'https://images.unsplash.com/photo-1548625149-fc4a29cf7092?auto=format&fit=crop&w=800&q=80',
+                intro: 'تعتبر مدينة بابل العراقية واحدة من أقدم وأشهر المدن التاريخية في العالم القديم...'
+            },
+            {
+                id: '2',
+                title: 'مدينة بيت لحم وسبب تسميتها',
+                category: 'مدن عربية',
+                image: 'https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=800&q=80',
+                intro: 'بيت لحم هي مدينة فلسطينية تاريخية ذات مكانة دينية رفيعة في كافة أنحاء العالم...'
+            },
+            {
+                id: '3',
+                title: 'مدينة القدس وتاريخها العريق',
+                category: 'مدن عربية',
+                image: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=80',
+                intro: 'القدس تُعتبر مهد الديانات السماوية، وتزخر بالمعالم التاريخية والدينية الخالدة عبر العصور...'
+            },
+            {
+                id: '4',
+                title: 'مدينة مكة وسبب بناء الكعبة بها',
+                category: 'مدن عربية',
+                image: 'https://images.unsplash.com/photo-1591604466107-ec97de577aff?auto=format&fit=crop&w=800&q=80',
+                intro: 'مكة المكرمة قِبلة المسلمين، تحتضن المسجد الحرام والكعبة المشرفة وهي أقدس بقعة على وجه الأرض...'
+            },
+            {
+                id: '5',
+                title: 'مدينة التلال السبع وتاريخها',
+                category: 'مدن عربية',
+                image: 'https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=800&q=80',
+                intro: 'لقب التلال السبع أُطلق على عدة مدن تاريخية حول العالم تم بناء معالمها فوق مرتفعات جبلية...'
+            },
+            {
+                id: '6',
+                title: 'رجيم التمر واللبن لمدة اسبوعين',
+                category: 'تغذية',
+                image: 'https://images.unsplash.com/photo-1598153346810-860daa814c4b?auto=format&fit=crop&w=800&q=80',
+                intro: 'يعتبر نظام رجيم التمر واللبن من الأنظمة الغنية بالعناصر الغذائية السريعة المفعول للتنحيف...'
+            },
+            {
+                id: '7',
+                title: 'لمحـه عن تطبيق الواتساب',
+                category: 'التقنية',
+                image: 'https://images.unsplash.com/photo-1614680376593-902f749f7b2c?auto=format&fit=crop&w=800&q=80',
+                intro: 'تطبيق الواتساب يعد المنصة الأكثر شعبية في عالم المراسلات الفورية والتواصل الاجتماعي...'
+            },
+            {
+                id: '8',
+                title: 'الحواوشي المصري بخلطة الست غالية',
+                category: 'مطبخ',
+                image: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&q=80',
+                intro: 'طريقة عمل الحواوشي المصري الأصلي المقرمش بالخلطة السحرية والبهارات المميزة...'
+            },
+            {
+                id: '9',
+                title: 'كيفية وضع البلاشر حسب شكل الوجه',
+                category: 'اخبار الموضة',
+                image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80',
+                intro: 'خطوات بسيطة ومحترفة لتوزيع أحمر الخدود (البلاشر) بشكل يبرز جمال وسحر تقاطيع وجهك...'
+            }
+        ];
+
+        // Toggle Dark Mode Functionality
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+        }
+
+        function setThemeMode(mode) {
+            if (mode === 'dark') {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        }
+
+        // Article Modal Trigger
+        function openArticleModal(id) {
+            const article = articlesDB.find(a => a.id === id) || articlesDB[2];
+            document.getElementById('modal-img').src = article.image;
+            document.getElementById('modal-category').innerText = article.category;
+            document.getElementById('modal-title').innerText = article.title;
+            document.getElementById('modal-content-intro').innerText = article.intro;
+            
+            const modal = document.getElementById('article-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeArticleModal() {
+            const modal = document.getElementById('article-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // Search Overlay Trigger & Filter
+        function toggleSearchModal() {
+            const modal = document.getElementById('search-modal');
+            if (modal.classList.contains('hidden')) {
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                document.getElementById('search-input').focus();
+            } else {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }
+        }
+
+        function filterArticles() {
+            const query = document.getElementById('search-input').value.toLowerCase().trim();
+            const resultsContainer = document.getElementById('search-results');
+            
+            if (!query) {
+                resultsContainer.innerHTML = '<p class="text-xs text-gray-400 text-center py-4">ابتدئ الكتابة لإظهار المقالات المطابقة...</p>';
+                return;
+            }
+
+            const matches = articlesDB.filter(a => a.title.includes(query) || a.category.includes(query));
+
+            if (matches.length === 0) {
+                resultsContainer.innerHTML = '<p class="text-xs text-rose-500 text-center py-4">لم يتم العثور على مقالات مطابقة.</p>';
+                return;
+            }
+
+            resultsContainer.innerHTML = matches.map(a => `
+                <div onclick="closeSearchAndOpen('${a.id}')" class="flex items-center gap-3 p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg cursor-pointer transition-colors">
+                    <img src="${a.image}" class="w-12 h-12 rounded-lg object-cover">
+                    <div>
+                        <h4 class="text-xs font-bold text-gray-800 dark:text-gray-200">${a.title}</h4>
+                        <span class="text-[10px] text-blue-600 dark:text-blue-400">${a.category}</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function closeSearchAndOpen(id) {
+            toggleSearchModal();
+            openArticleModal(id);
+        }
+
+        // Template Settings Drawer Toggle
+        function toggleSettingsDrawer() {
+            const drawer = document.getElementById('settings-drawer');
+            drawer.classList.toggle('translate-x-full');
+        }
+
+        // Grid Style Switcher Demo Effect
+        let isCompactGrid = false;
+        function toggleGridStyle() {
+            const heroGrid = document.getElementById('hero-grid');
+            isCompactGrid = !isCompactGrid;
+            if (isCompactGrid) {
+                heroGrid.style.gap = '0.25rem';
+            } else {
+                heroGrid.style.gap = '0.75rem';
+            }
+        }
+
+        // Shuffle articles demo animation
+        function shuffleArticles() {
+            const heroGrid = document.getElementById('hero-grid');
+            heroGrid.style.opacity = '0.4';
+            setTimeout(() => {
+                heroGrid.style.opacity = '1';
+            }, 300);
+        }
+
+        // Accent color changer
+        function changeAccent(color) {
+            document.querySelectorAll('.bg-blue-600').forEach(el => {
+                el.style.backgroundColor = color;
+            });
+        }
+
+        // Close modals on clicking outside content
+        window.onclick = function(event) {
+            const articleModal = document.getElementById('article-modal');
+            const searchModal = document.getElementById('search-modal');
+            if (event.target === articleModal) closeArticleModal();
+            if (event.target === searchModal) toggleSearchModal();
+        }
+    </script>
+</body>
+</html>
