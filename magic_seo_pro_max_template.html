@@ -1,0 +1,1546 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic SEO Pro Max - قالب بلوجر احترافي ومتجاوب</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Custom Configuration -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeaff',
+                            500: '#3b82f6',
+                            600: '#0066cc',
+                            700: '#0052a3',
+                            800: '#1e40af',
+                            900: '#1e3a8a',
+                            accent: '#10b981'
+                        }
+                    },
+                    fontFamily: {
+                        arabic: ['Tajawal', 'Cairo', 'sans-serif'],
+                        latin: ['Inter', 'system-ui', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.12)',
+                        'glow': '0 0 20px rgba(0, 102, 204, 0.35)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom Global CSS & Utility Styles -->
+    <style>
+        :root {
+            --primary-color: #0066cc;
+            --primary-hover: #004a99;
+            --primary-light: #e6f0fa;
+            --accent-color: #10b981;
+        }
+
+        body {
+            font-family: 'Tajawal', 'Cairo', 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .dark body {
+            background-color: #0f172a;
+            color: #f1f5f9;
+        }
+
+        /* Dynamic Accent Bindings */
+        .bg-brand-dynamic { background-color: var(--primary-color) !important; }
+        .text-brand-dynamic { color: var(--primary-color) !important; }
+        .border-brand-dynamic { border-color: var(--primary-color) !important; }
+        .hover\:bg-brand-dynamic:hover { background-color: var(--primary-hover) !important; }
+
+        /* Custom Modern Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        .dark ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-hover);
+        }
+
+        /* News Marquee Smooth Vertical Loop */
+        @keyframes verticalTicker {
+            0% { transform: translateY(0); }
+            20% { transform: translateY(0); }
+            25% { transform: translateY(-100%); }
+            45% { transform: translateY(-100%); }
+            50% { transform: translateY(-200%); }
+            70% { transform: translateY(-200%); }
+            75% { transform: translateY(-300%); }
+            95% { transform: translateY(-300%); }
+            100% { transform: translateY(0); }
+        }
+
+        .ticker-wrapper {
+            height: 28px;
+            overflow: hidden;
+        }
+
+        .ticker-items {
+            animation: verticalTicker 12s infinite cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .ticker-wrapper:hover .ticker-items {
+            animation-play-state: paused;
+        }
+
+        /* Image Zoom & Card Overlays */
+        .card-gradient-overlay {
+            background: linear-gradient(180deg, rgba(0,0,0,0) 25%, rgba(15, 23, 42, 0.92) 100%);
+        }
+
+        .zoom-img {
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        .card-container:hover .zoom-img {
+            transform: scale(1.09);
+        }
+
+        /* Glassmorphism Classes */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .dark .glass-panel {
+            background: rgba(30, 41, 59, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        /* Modal Entrance Animation */
+        .modal-enter {
+            animation: modalSlideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes modalSlideUp {
+            from { opacity: 0; transform: scale(0.96) translateY(20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        /* Reading Progress Line */
+        #reading-progress {
+            transition: width 0.15s ease-out;
+        }
+
+        /* Cookie Consent Bottom Slide In */
+        .cookie-slide-up {
+            animation: cookieSlideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes cookieSlideUp {
+            from { opacity: 0; transform: translateY(100%); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 antialiased min-h-screen flex flex-col justify-between selection:bg-blue-600 selection:text-white">
+
+    <!-- Top Utility Header Bar -->
+    <header class="bg-slate-900 text-slate-200 text-xs py-2 shadow-sm border-b border-slate-800 sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 flex flex-wrap justify-between items-center gap-3">
+            
+            <!-- Left Side: Live Date & Social Icons -->
+            <div class="flex items-center gap-4">
+                <div id="current-date" class="hidden sm:flex items-center gap-1.5 text-slate-400 text-[11px] font-medium">
+                    <i class="far fa-calendar-alt text-brand-dynamic"></i>
+                    <span>الأحد، 20 سبتمبر 2026</span>
+                </div>
+                <div class="flex items-center space-x-2 space-x-reverse">
+                    <a href="#" class="w-6 h-6 rounded-full bg-slate-800 hover:bg-red-600 text-slate-300 hover:text-white flex items-center justify-center transition-all"><i class="fab fa-youtube text-[11px]"></i></a>
+                    <a href="#" class="w-6 h-6 rounded-full bg-slate-800 hover:bg-sky-500 text-slate-300 hover:text-white flex items-center justify-center transition-all"><i class="fab fa-twitter text-[11px]"></i></a>
+                    <a href="#" class="w-6 h-6 rounded-full bg-slate-800 hover:bg-blue-600 text-slate-300 hover:text-white flex items-center justify-center transition-all"><i class="fab fa-facebook-f text-[11px]"></i></a>
+                    <a href="#" class="w-6 h-6 rounded-full bg-slate-800 hover:bg-emerald-600 text-slate-300 hover:text-white flex items-center justify-center transition-all"><i class="fab fa-whatsapp text-[11px]"></i></a>
+                </div>
+            </div>
+            
+            <!-- Right Side: Instant Language Switcher & Dark Mode Toggle -->
+            <div class="flex items-center gap-3">
+                
+                <!-- Live Multilingual Translation Switcher -->
+                <div class="relative group">
+                    <button class="flex items-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 px-2.5 py-1 rounded-lg border border-slate-700 transition-colors font-medium text-[11px]">
+                        <i class="fas fa-globe text-brand-dynamic"></i>
+                        <span id="current-lang-label">العربية (RTL)</span>
+                        <i class="fas fa-chevron-down text-[9px] opacity-70"></i>
+                    </button>
+                    <!-- Language Dropdown -->
+                    <div class="absolute left-0 sm:right-0 top-full mt-1 hidden group-hover:block w-36 bg-slate-900 border border-slate-700 shadow-xl rounded-lg py-1.5 z-50">
+                        <button onclick="switchLanguage('ar')" class="w-full text-right px-3 py-1.5 hover:bg-slate-800 text-slate-200 text-xs flex items-center justify-between">
+                            <span>العربية</span> <span class="text-[10px] text-slate-400">🇸🇦</span>
+                        </button>
+                        <button onclick="switchLanguage('en')" class="w-full text-left px-3 py-1.5 hover:bg-slate-800 text-slate-200 text-xs flex items-center justify-between">
+                            <span>English</span> <span class="text-[10px] text-slate-400">🇺🇸</span>
+                        </button>
+                        <button onclick="switchLanguage('fr')" class="w-full text-left px-3 py-1.5 hover:bg-slate-800 text-slate-200 text-xs flex items-center justify-between">
+                            <span>Français</span> <span class="text-[10px] text-slate-400">🇫🇷</span>
+                        </button>
+                        <button onclick="switchLanguage('es')" class="w-full text-left px-3 py-1.5 hover:bg-slate-800 text-slate-200 text-xs flex items-center justify-between">
+                            <span>Español</span> <span class="text-[10px] text-slate-400">🇪🇸</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Dark / Light Theme Button -->
+                <button onclick="toggleDarkMode()" class="flex items-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-amber-400 dark:text-sky-300 px-2.5 py-1 rounded-lg border border-slate-700 transition-all font-medium text-[11px]" title="تبديل الوضع الليلي/الفاتح">
+                    <i class="fas fa-sun dark:hidden"></i>
+                    <i class="fas fa-moon hidden dark:inline"></i>
+                    <span class="hidden sm:inline" data-i18n="themeBtn">الوضع الليلي</span>
+                </button>
+
+                <!-- Template Settings Drawer Trigger -->
+                <button onclick="toggleSettingsDrawer()" class="bg-blue-600 hover:bg-blue-700 text-white w-7 h-7 rounded-lg flex items-center justify-center transition-all shadow-sm" title="إعدادات القالب">
+                    <i class="fas fa-sliders-h text-xs"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Brand Logo Bar -->
+    <div class="bg-white dark:bg-slate-800 py-4 shadow-sm border-b border-slate-200 dark:border-slate-700/60 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center gap-4">
+            
+            <!-- Brand Logo -->
+            <div class="flex items-center gap-3 cursor-pointer group" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                <div class="relative flex items-center justify-center w-12 h-12 bg-gradient-to-tr from-blue-700 via-blue-600 to-emerald-500 rounded-2xl text-white shadow-lg shadow-blue-500/25 group-hover:scale-105 transition-transform duration-300">
+                    <i class="fas fa-wand-magic-sparkles text-2xl"></i>
+                    <span class="absolute -top-1 -right-1 bg-emerald-500 text-white text-[9px] font-black px-1.5 py-0.5 rounded-full border-2 border-white dark:border-slate-800">PRO</span>
+                </div>
+                <div>
+                    <div class="flex items-center gap-1.5 text-xs font-bold tracking-widest text-emerald-600 dark:text-emerald-400 uppercase">
+                        <span data-i18n="logoSub">BLOGGER TEMPLATE</span>
+                        <i class="fas fa-shield-halved text-[10px] text-blue-600"></i>
+                    </div>
+                    <h1 class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight flex items-center gap-1">
+                        MAGIC <span class="text-brand-dynamic">SEO</span>
+                    </h1>
+                </div>
+            </div>
+
+            <!-- SEO & Speed Performance Score Widget -->
+            <div class="hidden md:flex items-center gap-6 bg-slate-50 dark:bg-slate-900/60 p-2.5 px-4 rounded-2xl border border-slate-200/80 dark:border-slate-700/80">
+                <div class="flex items-center gap-2">
+                    <div class="w-9 h-9 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-extrabold text-xs flex items-center justify-center border border-emerald-500/20">
+                        100%
+                    </div>
+                    <div class="text-[11px]">
+                        <span class="block font-bold text-slate-800 dark:text-slate-200" data-i18n="seoScoreTitle">سرعة القالب</span>
+                        <span class="text-slate-400" data-i18n="seoScoreSub">Google PageSpeed</span>
+                    </div>
+                </div>
+                <div class="h-6 w-px bg-slate-200 dark:bg-slate-700"></div>
+                <div class="flex items-center gap-2">
+                    <div class="w-9 h-9 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 font-extrabold text-xs flex items-center justify-center border border-blue-500/20">
+                        99/100
+                    </div>
+                    <div class="text-[11px]">
+                        <span class="block font-bold text-slate-800 dark:text-slate-200" data-i18n="seoScore2Title">قوة الـ SEO</span>
+                        <span class="text-slate-400" data-i18n="seoScore2Sub">Schema & Meta</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search Action Trigger -->
+            <div class="flex items-center gap-2">
+                <button onclick="toggleSearchModal()" class="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2.5 rounded-xl shadow-md shadow-blue-600/20 transition-all font-bold text-xs sm:text-sm">
+                    <i class="fas fa-search"></i>
+                    <span class="hidden sm:inline" data-i18n="searchBtn">بحث في المقالات...</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <nav class="bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 sticky top-10 z-30 shadow-sm transition-colors">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex items-center justify-between">
+                
+                <!-- Navigation Links List -->
+                <ul class="flex items-center text-xs sm:text-sm font-bold text-slate-700 dark:text-slate-200 whitespace-nowrap overflow-x-auto scrollbar-none py-1">
+                    <li>
+                        <a href="#" class="block py-3 px-4 text-brand-dynamic border-b-2 border-brand-dynamic bg-blue-50/60 dark:bg-blue-950/40 rounded-t-lg">
+                            <i class="fas fa-home ml-1"></i> <span data-i18n="navHome">الرئيسية</span>
+                        </a>
+                    </li>
+                    <li class="relative group">
+                        <a href="#kitchen" class="block py-3 px-4 hover:text-brand-dynamic transition-colors flex items-center gap-1">
+                            <span data-i18n="navKitchen">مطبخ [ميجا 1]</span> <i class="fas fa-chevron-down text-[10px] opacity-60"></i>
+                        </a>
+                        <!-- Mega Menu Dropdown -->
+                        <div class="absolute right-0 top-full hidden group-hover:block w-72 bg-white dark:bg-slate-800 shadow-2xl rounded-b-2xl border border-slate-100 dark:border-slate-700 py-3 z-50 modal-enter">
+                            <div class="px-3 pb-2 text-[10px] font-bold text-slate-400 uppercase tracking-wider" data-i18n="megaTitle">أقسام الطبخ الفاخرة</div>
+                            <a href="#" class="flex items-center gap-3 px-4 py-2 hover:bg-slate-50 dark:hover:bg-slate-700/60 text-xs text-slate-700 dark:text-slate-200 transition-colors">
+                                <i class="fas fa-utensils text-brand-dynamic"></i>
+                                <span>أطباق رئيسية ورئيسية</span>
+                            </a>
+                            <a href="#" class="flex items-center gap-3 px-4 py-2 hover:bg-slate-50 dark:hover:bg-slate-700/60 text-xs text-slate-700 dark:text-slate-200 transition-colors">
+                                <i class="fas fa-cookie-bite text-amber-500"></i>
+                                <span>حلويات شرقية وغربية</span>
+                            </a>
+                            <a href="#" class="flex items-center gap-3 px-4 py-2 hover:bg-slate-50 dark:hover:bg-slate-700/60 text-xs text-slate-700 dark:text-slate-200 transition-colors">
+                                <i class="fas fa-burger text-emerald-500"></i>
+                                <span>مأكولات سريعة وصحية</span>
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#variety" class="block py-3 px-4 hover:text-brand-dynamic transition-colors" data-i18n="navVariety">
+                            منوعات [ميجا 2]
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#nutrition" class="block py-3 px-4 hover:text-brand-dynamic transition-colors" data-i18n="navNutrition">
+                            تغذية [ميجا 3]
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#beauty" class="block py-3 px-4 hover:text-brand-dynamic transition-colors" data-i18n="navBeauty">
+                            جمال وموضة
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#tech" class="block py-3 px-4 hover:text-brand-dynamic transition-colors" data-i18n="navTech">
+                            تقنية وذكاء اصطناعي
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Mobile Menu Toggle Button -->
+                <button onclick="toggleMobileDrawer()" class="md:hidden text-slate-700 dark:text-slate-200 p-2 text-lg">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breaking News Ticker -->
+    <div class="bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700/80 shadow-2xs py-2 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 flex items-center gap-3">
+            <div class="bg-red-600 text-white text-xs font-black px-3 py-1 rounded-lg flex items-center gap-1.5 flex-shrink-0 animate-pulse shadow-sm shadow-red-600/30">
+                <i class="fas fa-bolt"></i>
+                <span data-i18n="tickerLabel">عاجل</span>
+            </div>
+            <div class="ticker-wrapper w-full relative">
+                <div class="ticker-items text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-200 space-y-1">
+                    <div onclick="openArticleModal('3')" class="h-7 flex items-center gap-2 cursor-pointer hover:text-blue-600 dark:hover:text-blue-400 truncate transition-colors">
+                        <span class="w-2 h-2 rounded-full bg-blue-600 inline-block"></span>
+                        <span data-i18n="ticker1">مدينة القدس وتاريخها العريق مهد الديانات السماوية والآثار الشاهدة</span>
+                    </div>
+                    <div onclick="openArticleModal('8')" class="h-7 flex items-center gap-2 cursor-pointer hover:text-blue-600 dark:hover:text-blue-400 truncate transition-colors">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 inline-block"></span>
+                        <span data-i18n="ticker2">وصفة الحواوشي المصري الأصلي بخلطة الست غالية والبهارات السحرية</span>
+                    </div>
+                    <div onclick="openArticleModal('6')" class="h-7 flex items-center gap-2 cursor-pointer hover:text-blue-600 dark:hover:text-blue-400 truncate transition-colors">
+                        <span class="w-2 h-2 rounded-full bg-amber-500 inline-block"></span>
+                        <span data-i18n="ticker3">نظام رجيم التمر واللبن الفعال لخسارة الوزن بشكل صحي ومجرب</span>
+                    </div>
+                    <div onclick="openArticleModal('7')" class="h-7 flex items-center gap-2 cursor-pointer hover:text-blue-600 dark:hover:text-blue-400 truncate transition-colors">
+                        <span class="w-2 h-2 rounded-full bg-purple-600 inline-block"></span>
+                        <span data-i18n="ticker4">تحديثات واتساب الجديدة لعام 2026 للأمان والمراسلات السريعة</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Body -->
+    <main class="max-w-7xl mx-auto px-4 mt-6 flex-1 w-full">
+        
+        <!-- Section Header: Random Articles Showcase -->
+        <div class="flex items-center justify-between mb-4 bg-white dark:bg-slate-800 p-4 rounded-2xl shadow-sm border border-slate-200/80 dark:border-slate-700/80">
+            <div class="flex items-center gap-2.5">
+                <span class="w-2 h-6 bg-brand-dynamic rounded-full"></span>
+                <h2 class="text-base sm:text-lg font-black text-slate-900 dark:text-white" data-i18n="randomSectionTitle">مقالات مميزة وشائعة</h2>
+            </div>
+            <button onclick="shuffleArticles()" class="text-xs bg-brand-dynamic hover:bg-brand-dynamic/90 text-white px-3.5 py-2 rounded-xl transition-all font-bold flex items-center gap-2 shadow-sm">
+                <i class="fas fa-arrows-rotate"></i>
+                <span data-i18n="shuffleBtn">تحديث القائمة</span>
+            </button>
+        </div>
+
+        <!-- 9-Card Asymmetric Hero Grid -->
+        <div id="hero-grid" class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-4 transition-opacity duration-300">
+            
+            <!-- Column 1: Left Vertical Stack (2 Cards) -->
+            <div class="md:col-span-1 flex flex-col gap-4">
+                
+                <!-- Card 1: Babel -->
+                <div onclick="openArticleModal('1')" class="card-container relative h-52 rounded-2xl overflow-hidden cursor-pointer shadow-sm group">
+                    <img src="https://images.unsplash.com/photo-1548625149-fc4a29cf7092?auto=format&fit=crop&w=600&q=80" alt="مدينة بابل" class="zoom-img w-full h-full object-cover">
+                    <div class="card-gradient-overlay absolute inset-0 flex flex-col justify-between p-4 text-white">
+                        <div class="flex justify-start">
+                            <span class="bg-red-600/90 backdrop-blur-xs text-[10px] font-black px-2.5 py-1 rounded-lg shadow" data-i18n="catArabCities">مدن عربية</span>
+                        </div>
+                        <div>
+                            <div class="text-[10px] text-slate-300 flex items-center gap-1 mb-1">
+                                <i class="far fa-clock"></i> <span>منذ شهر</span>
+                            </div>
+                            <h3 class="font-bold text-sm leading-snug group-hover:text-blue-300 transition-colors line-clamp-2" data-i18n="art1Title">
+                                ما هي مدينة بابل وما تاريخها وموقعها الجغرافي
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Bethlehem -->
+                <div onclick="openArticleModal('2')" class="card-container relative h-52 rounded-2xl overflow-hidden cursor-pointer shadow-sm group">
+                    <img src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=600&q=80" alt="بيت لحم" class="zoom-img w-full h-full object-cover">
+                    <div class="card-gradient-overlay absolute inset-0 flex flex-col justify-between p-4 text-white">
+                        <div class="flex justify-start">
+                            <span class="bg-blue-600/90 backdrop-blur-xs text-[10px] font-black px-2.5 py-1 rounded-lg shadow" data-i18n="catArabCities">مدن عربية</span>
+                        </div>
+                        <div>
+                            <div class="text-[10px] text-slate-300 flex items-center gap-1 mb-1">
+                                <i class="far fa-clock"></i> <span>منذ شهر</span>
+                            </div>
+                            <h3 class="font-bold text-sm leading-snug group-hover:text-blue-300 transition-colors line-clamp-2" data-i18n="art2Title">
+                                مدينة بيت لحم التاريخية وسبب تسميتها بهذا الاسم
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Column 2: Center Giant Featured Card (Jerusalem) -->
+            <div onclick="openArticleModal('3')" class="card-container md:col-span-2 relative h-[432px] rounded-2xl overflow-hidden cursor-pointer shadow-md group">
+                <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=80" alt="القدس" class="zoom-img w-full h-full object-cover">
+                <div class="card-gradient-overlay absolute inset-0 flex flex-col justify-between p-6 text-white">
+                    <div class="flex justify-between items-center">
+                        <span class="bg-red-600/90 backdrop-blur-xs text-xs font-black px-3 py-1 rounded-lg shadow" data-i18n="catArabCities">مدن عربية</span>
+                        <span class="bg-emerald-500/90 backdrop-blur-xs text-xs font-bold px-2.5 py-1 rounded-lg shadow flex items-center gap-1">
+                            <i class="fas fa-fire"></i> <span data-i18n="featuredBadge">الأكثر قراءة</span>
+                        </span>
+                    </div>
+                    <div class="max-w-2xl">
+                        <div class="text-xs text-slate-300 flex items-center gap-3 mb-2 font-medium">
+                            <span><i class="far fa-calendar ml-1"></i> 2026-09-20</span>
+                            <span><i class="far fa-clock ml-1"></i> 3 دقائق قراءة</span>
+                        </div>
+                        <h3 class="font-black text-xl sm:text-3xl leading-snug mb-2 group-hover:text-blue-300 transition-colors" data-i18n="art3Title">
+                            مدينة القدس وتاريخها العريق مهد الديانات السماوية
+                        </h3>
+                        <p class="text-xs sm:text-sm text-slate-200 line-clamp-2 font-normal leading-relaxed" data-i18n="art3Intro">
+                            تُعتبر مدينة القدس مهد الديانات السماوية الثلاث الإنسانية والمسيحية واليهودية، ويرجع تاريخها المكتوب والمعماري إلى آلاف السنين...
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Column 3: Right Vertical Stack (2 Cards) -->
+            <div class="md:col-span-1 flex flex-col gap-4">
+                
+                <!-- Card 4: Mecca -->
+                <div onclick="openArticleModal('4')" class="card-container relative h-52 rounded-2xl overflow-hidden cursor-pointer shadow-sm group">
+                    <img src="https://images.unsplash.com/photo-1591604466107-ec97de577aff?auto=format&fit=crop&w=600&q=80" alt="مكة المكرمة" class="zoom-img w-full h-full object-cover">
+                    <div class="card-gradient-overlay absolute inset-0 flex flex-col justify-between p-4 text-white">
+                        <div class="flex justify-start">
+                            <span class="bg-emerald-600/90 backdrop-blur-xs text-[10px] font-black px-2.5 py-1 rounded-lg shadow" data-i18n="catArabCities">مدن عربية</span>
+                        </div>
+                        <div>
+                            <div class="text-[10px] text-slate-300 flex items-center gap-1 mb-1">
+                                <i class="far fa-clock"></i> <span>منذ شهر</span>
+                            </div>
+                            <h3 class="font-bold text-sm leading-snug group-hover:text-blue-300 transition-colors line-clamp-2" data-i18n="art4Title">
+                                مدينة مكة المكرمة وسبب بناء الكعبة المشرفة بها
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5: Seven Hills -->
+                <div onclick="openArticleModal('5')" class="card-container relative h-52 rounded-2xl overflow-hidden cursor-pointer shadow-sm group">
+                    <img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=600&q=80" alt="مدينة التلال" class="zoom-img w-full h-full object-cover">
+                    <div class="card-gradient-overlay absolute inset-0 flex flex-col justify-between p-4 text-white">
+                        <div class="flex justify-start">
+                            <span class="bg-purple-600/90 backdrop-blur-xs text-[10px] font-black px-2.5 py-1 rounded-lg shadow" data-i18n="catArabCities">مدن عربية</span>
+                        </div>
+                        <div>
+                            <div class="text-[10px] text-slate-300 flex items-center gap-1 mb-1">
+                                <i class="far fa-clock"></i> <span>منذ شهر</span>
+                            </div>
+                            <h3 class="font-bold text-sm leading-snug group-hover:text-blue-300 transition-colors line-clamp-2" data-i18n="art5Title">
+                                مدينة التلال السبع وتاريخ أسرارها عبر القرون
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Category Feeds Layout & Sidebar Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 mt-10">
+            
+            <!-- Main Content Feed Column (8 Cols) -->
+            <div class="lg:col-span-8 space-y-8">
+                
+                <!-- Category Grid (Kitchen & Beauty) -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    
+                    <!-- Kitchen Category Box -->
+                    <section id="kitchen" class="bg-white dark:bg-slate-800 p-5 rounded-2xl shadow-sm border border-slate-200/80 dark:border-slate-700/80">
+                        <div class="flex items-center justify-between mb-4 border-b border-slate-100 dark:border-slate-700/80 pb-3">
+                            <h3 class="text-base font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
+                                <span class="w-2.5 h-2.5 rounded-full bg-brand-dynamic"></span>
+                                <span data-i18n="navKitchen">مطبخ</span>
+                            </h3>
+                            <button class="text-[11px] bg-brand-dynamic hover:bg-brand-dynamic/90 text-white px-3 py-1 rounded-lg font-bold" data-i18n="viewMore">عرض المزيد</button>
+                        </div>
+
+                        <!-- Featured Card -->
+                        <div onclick="openArticleModal('8')" class="cursor-pointer group mb-4">
+                            <div class="relative h-44 rounded-xl overflow-hidden mb-2.5 shadow-sm">
+                                <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=500&q=80" class="zoom-img w-full h-full object-cover">
+                                <span class="absolute top-2.5 right-2.5 bg-red-600 text-white text-[10px] font-black px-2.5 py-0.5 rounded-md shadow" data-i18n="navKitchen">مطبخ</span>
+                            </div>
+                            <h4 class="font-bold text-sm text-slate-800 dark:text-slate-100 group-hover:text-brand-dynamic transition-colors leading-snug" data-i18n="art8Title">
+                                الحواوشي المصري بخلطة الست غالية الشهيرة
+                            </h4>
+                        </div>
+
+                        <!-- Sub List Items -->
+                        <div class="space-y-3 pt-3 border-t border-slate-100 dark:border-slate-700/80">
+                            <div onclick="openArticleModal('8')" class="flex gap-3 cursor-pointer group items-center">
+                                <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=150&q=80" class="w-14 h-14 rounded-xl object-cover flex-shrink-0">
+                                <div>
+                                    <h5 class="text-xs font-bold text-slate-700 dark:text-slate-200 group-hover:text-brand-dynamic line-clamp-2 leading-snug" data-i18n="artSub1">سلطة الخضار الصحية بخلطة إيطالية مميزة</h5>
+                                    <span class="text-[10px] text-slate-400">منذ أسبوعين</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Beauty Category Box -->
+                    <section id="beauty" class="bg-white dark:bg-slate-800 p-5 rounded-2xl shadow-sm border border-slate-200/80 dark:border-slate-700/80">
+                        <div class="flex items-center justify-between mb-4 border-b border-slate-100 dark:border-slate-700/80 pb-3">
+                            <h3 class="text-base font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
+                                <span class="w-2.5 h-2.5 rounded-full bg-pink-500"></span>
+                                <span data-i18n="navBeauty">جمال</span>
+                            </h3>
+                            <button class="text-[11px] bg-brand-dynamic hover:bg-brand-dynamic/90 text-white px-3 py-1 rounded-lg font-bold" data-i18n="viewMore">عرض المزيد</button>
+                        </div>
+
+                        <!-- Featured Card -->
+                        <div onclick="openArticleModal('9')" class="cursor-pointer group mb-4">
+                            <div class="relative h-44 rounded-xl overflow-hidden mb-2.5 shadow-sm">
+                                <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=500&q=80" class="zoom-img w-full h-full object-cover">
+                                <span class="absolute top-2.5 right-2.5 bg-pink-600 text-white text-[10px] font-black px-2.5 py-0.5 rounded-md shadow" data-i18n="navBeauty">جمال</span>
+                            </div>
+                            <h4 class="font-bold text-sm text-slate-800 dark:text-slate-100 group-hover:text-brand-dynamic transition-colors leading-snug" data-i18n="art9Title">
+                                كيفية وضع البلاشر حسب شكل الوجه بالتفصيل
+                            </h4>
+                        </div>
+
+                        <!-- Sub List Items -->
+                        <div class="space-y-3 pt-3 border-t border-slate-100 dark:border-slate-700/80">
+                            <div onclick="openArticleModal('9')" class="flex gap-3 cursor-pointer group items-center">
+                                <img src="https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=150&q=80" class="w-14 h-14 rounded-xl object-cover flex-shrink-0">
+                                <div>
+                                    <h5 class="text-xs font-bold text-slate-700 dark:text-slate-200 group-hover:text-brand-dynamic line-clamp-2 leading-snug" data-i18n="artSub2">أفضل طرق تبييض الأسنان وتقويتها طبيعياً</h5>
+                                    <span class="text-[10px] text-slate-400">منذ 3 أسابيع</span>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                </div>
+
+                <!-- High CTR Responsive Ad Space Banner -->
+                <div class="bg-gradient-to-r from-blue-50 via-indigo-50 to-emerald-50 dark:from-slate-800 dark:via-slate-800 dark:to-slate-800/80 p-6 rounded-2xl border-2 border-dashed border-blue-200 dark:border-slate-700 text-center relative overflow-hidden shadow-xs">
+                    <span class="absolute top-2 right-2 bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-[9px] px-2 py-0.5 rounded-md font-extrabold uppercase">إعلان AdSense</span>
+                    <i class="fas fa-rectangle-ad text-3xl text-brand-dynamic mb-2 animate-bounce"></i>
+                    <h4 class="font-bold text-sm text-slate-800 dark:text-slate-200" data-i18n="adTitle">مساحة إعلانية فائقة الاستجابة (Responsive Ad Banner 728x90)</h4>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 max-w-md mx-auto" data-i18n="adSub">مهيأة بالكامل لكود Google AdSense لزيادة نسبة النقرات CTR وتوليد الأرباح</p>
+                </div>
+
+            </div>
+
+            <!-- Sidebar Widgets Column (4 Cols) -->
+            <aside class="lg:col-span-4 space-y-6">
+                
+                <!-- Popular Articles Widget -->
+                <div class="bg-white dark:bg-slate-800 p-5 rounded-2xl shadow-sm border border-slate-200/80 dark:border-slate-700/80">
+                    <div class="flex items-center gap-2 mb-4 border-b border-slate-100 dark:border-slate-700/80 pb-3">
+                        <i class="fas fa-fire text-amber-500 text-lg"></i>
+                        <h3 class="font-bold text-base text-slate-900 dark:text-white" data-i18n="popularWidgetTitle">الأكثر قراءة هذا الأسبوع</h3>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div onclick="openArticleModal('3')" class="flex items-center gap-3 cursor-pointer group">
+                            <span class="w-8 h-8 rounded-xl bg-red-600 text-white font-black text-xs flex items-center justify-center flex-shrink-0 shadow-md shadow-red-600/20">1</span>
+                            <div class="flex-1">
+                                <h4 class="text-xs font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-dynamic line-clamp-2 leading-snug" data-i18n="art3Title">مدينة القدس وتاريخها العريق</h4>
+                                <span class="text-[10px] text-slate-400"><i class="far fa-eye ml-1"></i> 12,840 مشاهدة</span>
+                            </div>
+                        </div>
+
+                        <div onclick="openArticleModal('8')" class="flex items-center gap-3 cursor-pointer group">
+                            <span class="w-8 h-8 rounded-xl bg-blue-600 text-white font-black text-xs flex items-center justify-center flex-shrink-0 shadow-md shadow-blue-600/20">2</span>
+                            <div class="flex-1">
+                                <h4 class="text-xs font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-dynamic line-clamp-2 leading-snug" data-i18n="art8Title">الحواوشي المصري بخلطة الست غالية</h4>
+                                <span class="text-[10px] text-slate-400"><i class="far fa-eye ml-1"></i> 9,410 مشاهدة</span>
+                            </div>
+                        </div>
+
+                        <div onclick="openArticleModal('6')" class="flex items-center gap-3 cursor-pointer group">
+                            <span class="w-8 h-8 rounded-xl bg-emerald-600 text-white font-black text-xs flex items-center justify-center flex-shrink-0 shadow-md shadow-emerald-600/20">3</span>
+                            <div class="flex-1">
+                                <h4 class="text-xs font-bold text-slate-800 dark:text-slate-200 group-hover:text-brand-dynamic line-clamp-2 leading-snug" data-i18n="art6Title">رجيم التمر واللبن الفعال لمدة اسبوعين</h4>
+                                <span class="text-[10px] text-slate-400"><i class="far fa-eye ml-1"></i> 7,200 مشاهدة</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Follower Counters Widget -->
+                <div class="bg-white dark:bg-slate-800 p-5 rounded-2xl shadow-sm border border-slate-200/80 dark:border-slate-700/80">
+                    <div class="flex items-center gap-2 mb-4 border-b border-slate-100 dark:border-slate-700/80 pb-3">
+                        <i class="fas fa-users text-brand-dynamic text-lg"></i>
+                        <h3 class="font-bold text-base text-slate-900 dark:text-white" data-i18n="socialWidgetTitle">شبكات التواصل الاجتماعي</h3>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-2.5 text-white">
+                        <a href="#" class="bg-[#1877f2] p-2.5 rounded-xl flex items-center justify-between hover:opacity-90 transition-opacity">
+                            <div class="flex items-center gap-2">
+                                <i class="fab fa-facebook-f text-sm"></i>
+                                <span class="text-xs font-bold">فيسبوك</span>
+                            </div>
+                            <span class="text-[10px] font-bold bg-white/20 px-1.5 py-0.5 rounded-md">85K</span>
+                        </a>
+
+                        <a href="#" class="bg-[#ff0000] p-2.5 rounded-xl flex items-center justify-between hover:opacity-90 transition-opacity">
+                            <div class="flex items-center gap-2">
+                                <i class="fab fa-youtube text-sm"></i>
+                                <span class="text-xs font-bold">يوتيوب</span>
+                            </div>
+                            <span class="text-[10px] font-bold bg-white/20 px-1.5 py-0.5 rounded-md">120K</span>
+                        </a>
+
+                        <a href="#" class="bg-[#1da1f2] p-2.5 rounded-xl flex items-center justify-between hover:opacity-90 transition-opacity">
+                            <div class="flex items-center gap-2">
+                                <i class="fab fa-twitter text-sm"></i>
+                                <span class="text-xs font-bold">تويتر</span>
+                            </div>
+                            <span class="text-[10px] font-bold bg-white/20 px-1.5 py-0.5 rounded-md">45K</span>
+                        </a>
+
+                        <a href="#" class="bg-[#25d366] p-2.5 rounded-xl flex items-center justify-between hover:opacity-90 transition-opacity">
+                            <div class="flex items-center gap-2">
+                                <i class="fab fa-whatsapp text-sm"></i>
+                                <span class="text-xs font-bold">واتساب</span>
+                            </div>
+                            <span class="text-[10px] font-bold bg-white/20 px-1.5 py-0.5 rounded-md">قناة</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Newsletter Widget -->
+                <div class="bg-gradient-to-br from-blue-600 to-indigo-800 text-white p-6 rounded-2xl shadow-lg relative overflow-hidden">
+                    <div class="absolute -bottom-4 -left-4 w-24 h-24 bg-white/10 rounded-full blur-xl"></div>
+                    <i class="fas fa-paper-plane text-3xl mb-3 text-blue-200"></i>
+                    <h4 class="font-black text-lg" data-i18n="newsletterTitle">اشترك في النشرة البريدية</h4>
+                    <p class="text-xs text-blue-100 mt-1 mb-4 leading-relaxed" data-i18n="newsletterSub">احصل على أحدث المقالات والأخبار الحصرية مباشرة إلى بريدك الإلكتروني.</p>
+                    <form onsubmit="handleNewsletterSubmit(event)" class="space-y-2">
+                        <input type="email" required id="newsletter-email" placeholder="بريدك الإلكتروني..." class="bg-white/15 text-white placeholder-blue-200 px-3.5 py-2.5 rounded-xl text-xs w-full border border-white/25 outline-none focus:bg-white/25 transition-all">
+                        <button type="submit" class="w-full bg-white text-blue-700 font-extrabold py-2.5 rounded-xl text-xs hover:bg-blue-50 transition-all shadow-md" data-i18n="newsletterBtn">اشترك الآن</button>
+                    </form>
+                </div>
+
+                <!-- Tag Cloud Widget -->
+                <div class="bg-white dark:bg-slate-800 p-5 rounded-2xl shadow-sm border border-slate-200/80 dark:border-slate-700/80">
+                    <div class="flex items-center gap-2 mb-3 border-b border-slate-100 dark:border-slate-700/80 pb-3">
+                        <i class="fas fa-tags text-brand-dynamic text-base"></i>
+                        <h3 class="font-bold text-sm text-slate-900 dark:text-white" data-i18n="tagCloudTitle">الوسوم والكلمات المفتاحية</h3>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <a href="#" class="bg-slate-100 dark:bg-slate-700/70 hover:bg-brand-dynamic hover:text-white text-slate-700 dark:text-slate-200 text-xs px-3 py-1.5 rounded-xl transition-all">مدن تاريخية</a>
+                        <a href="#" class="bg-slate-100 dark:bg-slate-700/70 hover:bg-brand-dynamic hover:text-white text-slate-700 dark:text-slate-200 text-xs px-3 py-1.5 rounded-xl transition-all">طبخ ووصفات</a>
+                        <a href="#" class="bg-slate-100 dark:bg-slate-700/70 hover:bg-brand-dynamic hover:text-white text-slate-700 dark:text-slate-200 text-xs px-3 py-1.5 rounded-xl transition-all">رجيم وتغذية</a>
+                        <a href="#" class="bg-slate-100 dark:bg-slate-700/70 hover:bg-brand-dynamic hover:text-white text-slate-700 dark:text-slate-200 text-xs px-3 py-1.5 rounded-xl transition-all">ذكاء اصطناعي</a>
+                        <a href="#" class="bg-slate-100 dark:bg-slate-700/70 hover:bg-brand-dynamic hover:text-white text-slate-700 dark:text-slate-200 text-xs px-3 py-1.5 rounded-xl transition-all">جمال وعناية</a>
+                    </div>
+                </div>
+
+            </aside>
+
+        </div>
+
+    </main>
+
+    <!-- Article Viewer Reader Modal -->
+    <div id="article-modal" class="fixed inset-0 z-50 bg-slate-950/75 backdrop-blur-md hidden items-center justify-center p-3 sm:p-4 overflow-y-auto">
+        <div class="bg-white dark:bg-slate-900 w-full max-w-3xl rounded-3xl shadow-2xl overflow-hidden modal-enter my-6 relative border border-slate-200 dark:border-slate-800">
+            
+            <!-- Top Article Reading Progress Line -->
+            <div class="w-full bg-slate-100 dark:bg-slate-800 h-1.5 sticky top-0 z-30">
+                <div id="reading-progress" class="bg-brand-dynamic h-full w-1/3"></div>
+            </div>
+
+            <!-- Close Modal Floating Button -->
+            <button onclick="closeArticleModal()" class="absolute top-4 left-4 z-30 w-10 h-10 bg-black/60 hover:bg-black/80 text-white rounded-full flex items-center justify-center transition-all shadow-lg">
+                <i class="fas fa-times text-sm"></i>
+            </button>
+
+            <!-- Modal Header Image -->
+            <div class="relative h-64 sm:h-80 w-full">
+                <img id="modal-img" src="" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-transparent"></div>
+                <div class="absolute bottom-5 right-5 left-5 text-white">
+                    <span id="modal-category" class="bg-brand-dynamic text-xs font-black px-3 py-1 rounded-lg shadow-md mb-2 inline-block"></span>
+                    <h2 id="modal-title" class="text-xl sm:text-3xl font-black leading-snug"></h2>
+                    <div class="flex flex-wrap items-center gap-4 text-xs text-slate-300 mt-2.5 font-medium">
+                        <span><i class="far fa-calendar ml-1"></i> 2026-09-20</span>
+                        <span><i class="far fa-user ml-1"></i> فريق Magic SEO</span>
+                        <span><i class="far fa-clock ml-1"></i> 3 دقائق قراءة</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reader Controls Toolbar -->
+            <div class="bg-slate-50 dark:bg-slate-800/90 px-6 py-3 border-b border-slate-200 dark:border-slate-700/80 flex items-center justify-between text-xs">
+                <div class="flex items-center gap-2">
+                    <span class="font-bold text-slate-600 dark:text-slate-300" data-i18n="fontSizeLabel">حجم الخط:</span>
+                    <button onclick="changeFontSize(1)" class="w-8 h-8 rounded-lg bg-white dark:bg-slate-700 font-extrabold border border-slate-200 dark:border-slate-600 hover:bg-slate-100 shadow-xs">A+</button>
+                    <button onclick="changeFontSize(-1)" class="w-8 h-8 rounded-lg bg-white dark:bg-slate-700 font-extrabold border border-slate-200 dark:border-slate-600 hover:bg-slate-100 shadow-xs">A-</button>
+                </div>
+                <button onclick="toggleBookmark()" id="bookmark-btn" class="flex items-center gap-2 text-slate-600 dark:text-slate-300 hover:text-brand-dynamic font-bold transition-colors">
+                    <i class="far fa-bookmark"></i>
+                    <span data-i18n="bookmarkBtn">حفظ المقال</span>
+                </button>
+            </div>
+
+            <!-- Article Body Text -->
+            <div id="article-body-text" class="p-6 sm:p-8 space-y-5 text-slate-800 dark:text-slate-200 leading-relaxed text-sm sm:text-base">
+                
+                <!-- Dynamic Article Table of Contents -->
+                <div class="bg-blue-50/70 dark:bg-slate-800/80 p-4 rounded-2xl border border-blue-100 dark:border-slate-700">
+                    <h4 class="font-bold text-xs sm:text-sm text-brand-dynamic mb-2 flex items-center gap-2">
+                        <i class="fas fa-list-ul"></i> <span data-i18n="tocTitle">فهرس المحتويات</span>
+                    </h4>
+                    <ul class="text-xs space-y-1.5 text-slate-700 dark:text-slate-300 list-disc list-inside">
+                        <li data-i18n="toc1">المقدمة والخلفية التاريخية الشاملة</li>
+                        <li data-i18n="toc2">أبرز الحقائق والمعالم الأثرية والمميزات</li>
+                        <li data-i18n="toc3">الخلاصة والنصائح الموصى بها</li>
+                    </ul>
+                </div>
+
+                <p id="modal-content-intro" class="font-semibold text-base sm:text-lg text-brand-dynamic border-r-4 border-brand-dynamic pr-3"></p>
+                
+                <p>
+                    هذا المقال المحسّن يعرض تفاصيل شاملة ودقيقة مهيأة لتصدر نتائج بحث محركات البحث (SEO). يضمن قالب Magic SEO الاحترافي سرعة تحميل خيالية مع الحفاظ على القراءة المريحة على كافة أنواع الشاشات والأجهزة الذكية.
+                </p>
+                
+                <div class="bg-emerald-50 dark:bg-slate-800/80 p-4 rounded-2xl border border-emerald-200 dark:border-slate-700 text-xs sm:text-sm flex items-start gap-3">
+                    <i class="fas fa-lightbulb text-amber-500 text-lg flex-shrink-0 mt-0.5"></i>
+                    <div>
+                        <strong data-i18n="seoTipTitle">ميزة ماجيك سيو الذكية:</strong>
+                        <p class="mt-0.5" data-i18n="seoTipBody">يحتوي هذا القالب على أكواد Schema البيانات المنظمة لتسهيل ظهور المقالات في نتائج البحث الغنية (Rich Snippets).</p>
+                    </div>
+                </div>
+
+                <!-- Interactive Comments Section -->
+                <div class="pt-6 border-t border-slate-200 dark:border-slate-800 mt-8">
+                    <h3 class="font-bold text-base text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                        <i class="far fa-comments text-brand-dynamic"></i> <span data-i18n="commentsTitle">التعليقات والمناقشات</span>
+                    </h3>
+
+                    <!-- Comments List -->
+                    <div id="comments-list" class="space-y-3 mb-4">
+                        <div class="bg-slate-50 dark:bg-slate-800 p-4 rounded-2xl text-xs space-y-1">
+                            <div class="flex items-center justify-between font-bold">
+                                <span class="text-brand-dynamic">أحمد علي (مُتابع)</span>
+                                <span class="text-slate-400 font-normal">منذ ساعتين</span>
+                            </div>
+                            <p class="text-slate-700 dark:text-slate-300">مقال مميز ومعلومات قيمة جداً، القالب سريع جداً وتجربة القراءة ممتازة!</p>
+                        </div>
+                    </div>
+
+                    <!-- Add Comment Form -->
+                    <div class="flex gap-2">
+                        <input type="text" id="new-comment-input" placeholder="اكتب تعليقك هنا..." class="flex-1 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl px-4 py-2.5 text-xs outline-none focus:border-brand-dynamic transition-all">
+                        <button onclick="addComment()" class="bg-brand-dynamic text-white font-bold px-5 py-2.5 rounded-2xl text-xs flex-shrink-0 hover:bg-brand-dynamic/90 transition-all shadow-md" data-i18n="sendCommentBtn">إرسال</button>
+                    </div>
+                </div>
+
+                <!-- Article Share Buttons -->
+                <div class="pt-6 border-t border-slate-200 dark:border-slate-800 flex flex-wrap items-center justify-between gap-3">
+                    <span class="font-bold text-sm" data-i18n="shareTitle">مشاركة المقال:</span>
+                    <div class="flex items-center gap-2">
+                        <button onclick="showToast('تم نسخ رابط المقال للمشاركة!')" class="bg-[#1877f2] text-white px-3.5 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5 hover:opacity-90">
+                            <i class="fab fa-facebook-f"></i> فيسبوك
+                        </button>
+                        <button onclick="showToast('تم نسخ رابط المقال للمشاركة!')" class="bg-[#1da1f2] text-white px-3.5 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5 hover:opacity-90">
+                            <i class="fab fa-twitter"></i> تويتر
+                        </button>
+                        <button onclick="showToast('تم نسخ رابط المقال للمشاركة!')" class="bg-[#25d366] text-white px-3.5 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5 hover:opacity-90">
+                            <i class="fab fa-whatsapp"></i> واتساب
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Search Overlay Modal -->
+    <div id="search-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md hidden items-start justify-center pt-20 px-4">
+        <div class="bg-white dark:bg-slate-900 w-full max-w-xl rounded-3xl shadow-2xl p-6 modal-enter border border-slate-200 dark:border-slate-800">
+            <div class="flex items-center justify-between mb-4">
+                <h3 class="font-black text-lg text-slate-900 dark:text-white flex items-center gap-2">
+                    <i class="fas fa-search text-brand-dynamic"></i> <span data-i18n="searchModalTitle">البحث الفوري في المقالات</span>
+                </h3>
+                <button onclick="toggleSearchModal()" class="text-slate-400 hover:text-slate-600 dark:hover:text-white">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            
+            <div class="relative mb-4">
+                <input type="text" id="search-input" onkeyup="filterArticles()" placeholder="ابحث مثلاً: القدس، بابل، رجيم، حواوشي..." class="w-full bg-slate-100 dark:bg-slate-800 border-2 border-transparent focus:border-brand-dynamic rounded-2xl px-4 py-3.5 pl-10 text-sm outline-none text-slate-800 dark:text-slate-100 transition-all font-medium">
+                <i class="fas fa-search absolute left-3.5 top-4 text-slate-400"></i>
+            </div>
+
+            <!-- Live Search Results List -->
+            <div id="search-results" class="space-y-2 max-h-64 overflow-y-auto pr-1">
+                <p class="text-xs text-slate-400 text-center py-6" data-i18n="searchPlaceholder">ابدأ الكتابة للبحث فوراً...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Template Customizer Drawer -->
+    <div id="settings-drawer" class="fixed inset-y-0 right-0 z-50 w-80 bg-white dark:bg-slate-900 shadow-2xl border-l border-slate-200 dark:border-slate-800 transform translate-x-full transition-transform duration-300 p-6 flex flex-col justify-between">
+        <div>
+            <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-4 mb-6">
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-sliders text-brand-dynamic"></i>
+                    <h3 class="font-black text-slate-900 dark:text-white" data-i18n="settingsTitle">إعدادات Magic SEO</h3>
+                </div>
+                <button onclick="toggleSettingsDrawer()" class="text-slate-400 hover:text-slate-600 dark:hover:text-white">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div class="space-y-6">
+                <!-- Version Info -->
+                <div class="bg-blue-50 dark:bg-slate-800 p-3.5 rounded-2xl border border-blue-100 dark:border-slate-700">
+                    <div class="text-xs font-black text-blue-700 dark:text-blue-400">Magic SEO Pro Max V9.0</div>
+                    <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-1">إصدار التجاوب الأسطوري الفائق مع ميزات الترجمة الفورية والوضع الليلي الذكي.</p>
+                </div>
+
+                <!-- Theme Accent Colors -->
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-2.5" data-i18n="accentTitle">اللون الرئيسي القابل للتخصيص:</label>
+                    <div class="flex items-center gap-3">
+                        <button onclick="changeAccent('#0066cc')" class="w-8 h-8 rounded-full bg-[#0066cc] ring-2 ring-offset-2 ring-blue-600"></button>
+                        <button onclick="changeAccent('#059669')" class="w-8 h-8 rounded-full bg-[#059669]"></button>
+                        <button onclick="changeAccent('#dc2626')" class="w-8 h-8 rounded-full bg-[#dc2626]"></button>
+                        <button onclick="changeAccent('#7c3aed')" class="w-8 h-8 rounded-full bg-[#7c3aed]"></button>
+                    </div>
+                </div>
+
+                <!-- Features Checklist -->
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-2" data-i18n="featuresTitle">الميزات المفعلة بالقالب:</label>
+                    <ul class="text-xs space-y-2 text-slate-600 dark:text-slate-300">
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-500"></i> ترجمة فورية RTL/LTR</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-500"></i> وضع داكن متوافق ومحفوظ</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-500"></i> شريط ملفات تعريف الارتباط Cookies</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-emerald-500"></i> أكواد جاهزة للبلوجر 100%</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="pt-4 border-t border-slate-200 dark:border-slate-800">
+            <button onclick="openXmlModal()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold py-3 rounded-2xl text-xs flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/20">
+                <i class="fas fa-code"></i> <span data-i18n="exportCodeBtn">معاينة وتنزيل كود البلوجر XML</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Blogger XML Export Modal -->
+    <div id="xml-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md hidden items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-900 w-full max-w-2xl rounded-3xl shadow-2xl p-6 modal-enter border border-slate-200 dark:border-slate-800 flex flex-col max-h-[85vh]">
+            <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-3 mb-3">
+                <h3 class="font-black text-base text-slate-900 dark:text-white flex items-center gap-2">
+                    <i class="fas fa-file-code text-brand-dynamic"></i> كود قالب Magic SEO Pro Max للبلوجر
+                </h3>
+                <button onclick="closeXmlModal()" class="text-slate-400 hover:text-slate-600 dark:hover:text-white">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <p class="text-xs text-slate-500 mb-2">انسخ الكود التالي وضعه في محرر مظهر البلوجر (Edit HTML):</p>
+            
+            <textarea id="xml-code-area" readonly class="w-full flex-1 bg-slate-950 text-emerald-400 font-mono text-xs p-4 rounded-2xl border border-slate-800 outline-none resize-none h-64 scrollbar-thin">
+<?xml "1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html dir='rtl' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b'>
+<head>
+    <meta content='width=device-width, initial-scale=1' name='viewport'/>
+    <title><data:blog.pageTitle/></title>
+    <!-- MAGIC SEO PRO MAX TEMPLATE V9.0 - FULLY RESPONSIVE & MULTILINGUAL -->
+    <b:skin><![CDATA[
+        /* Magic SEO Core Stylesheet */
+        body { font-family: 'Tajawal', sans-serif; background: #f8fafc; }
+    ]]></b:skin>
+</head>
+<body>
+    <b:section id='header' maxwidgets='1' showaddelement='yes'/>
+    <b:section id='main-feed' showaddelement='yes'/>
+</body>
+</html>
+            </textarea>
+
+            <div class="pt-4 flex gap-3">
+                <button onclick="copyXmlCode()" class="flex-1 bg-brand-dynamic hover:bg-brand-dynamic/90 text-white font-extrabold py-3 rounded-2xl text-xs flex items-center justify-center gap-2 shadow-md">
+                    <i class="fas fa-copy"></i> نسخ الكود للحافظة
+                </button>
+                <button onclick="closeXmlModal()" class="bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold px-5 py-3 rounded-2xl text-xs">إغلاق</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- GDPR Cookie Consent Bottom Floating Banner -->
+    <div id="cookie-banner" class="fixed bottom-4 left-4 right-4 sm:left-6 sm:right-auto sm:max-w-md z-50 glass-panel p-5 rounded-3xl shadow-2xl border border-white/40 dark:border-slate-700/60 cookie-slide-up hidden">
+        <div class="flex items-start gap-3.5">
+            <div class="w-10 h-10 rounded-2xl bg-amber-500/10 text-amber-500 flex items-center justify-center flex-shrink-0 text-xl">
+                <i class="fas fa-cookie-bite"></i>
+            </div>
+            <div class="space-y-1.5 flex-1">
+                <h4 class="font-extrabold text-sm text-slate-900 dark:text-white" data-i18n="cookieTitle">سياسة ملفات تعريف الارتباط (Cookies)</h4>
+                <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed" data-i18n="cookieBody">
+                    نستخدم ملفات تعريف الارتباط لتوفير أفضل تجربة تصفح ولتحسين سرعة وأداء قالب Magic SEO.
+                </p>
+                <div class="pt-2 flex items-center gap-2">
+                    <button onclick="acceptCookies()" class="bg-brand-dynamic hover:bg-brand-dynamic/90 text-white font-black px-4 py-2 rounded-xl text-xs shadow-sm" data-i18n="cookieAccept">موافقة وقبول</button>
+                    <button onclick="declineCookies()" class="bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold px-3 py-2 rounded-xl text-xs" data-i18n="cookieDecline">رفض</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Floating Notification Box -->
+    <div id="toast-notification" class="fixed top-16 left-1/2 -translate-x-1/2 z-50 bg-slate-900/90 text-white backdrop-blur-md px-5 py-2.5 rounded-2xl text-xs font-bold shadow-2xl border border-slate-700 hidden transition-all duration-300 flex items-center gap-2">
+        <i class="fas fa-circle-check text-emerald-400"></i>
+        <span id="toast-msg">تمت العملية بنجاح!</span>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-drawer" class="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-sm hidden">
+        <div class="bg-white dark:bg-slate-900 w-72 h-full p-6 space-y-6 shadow-2xl flex flex-col justify-between">
+            <div>
+                <div class="flex justify-between items-center pb-4 border-b border-slate-200 dark:border-slate-800">
+                    <h3 class="font-black text-slate-900 dark:text-white">القائمة الرئيسية</h3>
+                    <button onclick="toggleMobileDrawer()" class="text-slate-400"><i class="fas fa-times"></i></button>
+                </div>
+                <ul class="space-y-3 mt-6 text-sm font-bold text-slate-700 dark:text-slate-200">
+                    <li><a href="#" class="block py-2 text-brand-dynamic"><i class="fas fa-home ml-2"></i> الرئيسية</a></li>
+                    <li><a href="#kitchen" onclick="toggleMobileDrawer()" class="block py-2">مطبخ</a></li>
+                    <li><a href="#beauty" onclick="toggleMobileDrawer()" class="block py-2">جمال</a></li>
+                    <li><a href="#nutrition" onclick="toggleMobileDrawer()" class="block py-2">تغذية</a></li>
+                    <li><a href="#tech" onclick="toggleMobileDrawer()" class="block py-2">تقنية</a></li>
+                </ul>
+            </div>
+            <div class="pt-4 border-t border-slate-200 dark:border-slate-800">
+                <button onclick="toggleDarkMode()" class="w-full bg-slate-100 dark:bg-slate-800 py-2.5 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-200 flex items-center justify-center gap-2">
+                    <i class="fas fa-moon"></i> تبديل المظهر
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Footer -->
+    <footer class="bg-white dark:bg-slate-800 border-t border-slate-200 dark:border-slate-700/80 mt-16 py-8 transition-colors">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-slate-400">
+                <div class="flex items-center gap-2 font-bold text-slate-800 dark:text-white">
+                    <i class="fas fa-wand-magic-sparkles text-brand-dynamic"></i>
+                    <span>Magic SEO Pro Max &copy; 2026 - جميع الحقوق محفوظة</span>
+                </div>
+                <div class="flex items-center gap-4 font-semibold">
+                    <a href="#" class="hover:text-brand-dynamic transition-colors" data-i18n="navHome">الرئيسية</a>
+                    <a href="#" class="hover:text-brand-dynamic transition-colors" data-i18n="privacy">سياسة الخصوصية</a>
+                    <a href="#" class="hover:text-brand-dynamic transition-colors" data-i18n="contact">اتصل بنا</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Core Application Logic & Multilingual Translation Engine -->
+    <script>
+        // Multilingual Translation Dictionary
+        const translations = {
+            ar: {
+                themeBtn: "الوضع الليلي",
+                logoSub: "BLOGGER TEMPLATE",
+                seoScoreTitle: "سرعة القالب",
+                seoScoreSub: "Google PageSpeed",
+                seoScore2Title: "قوة الـ SEO",
+                seoScore2Sub: "Schema & Meta",
+                searchBtn: "بحث في المقالات...",
+                navHome: "الرئيسية",
+                navKitchen: "مطبخ [ميجا 1]",
+                navVariety: "منوعات [ميجا 2]",
+                navNutrition: "تغذية [ميجا 3]",
+                navBeauty: "جمال وموضة",
+                navTech: "تقنية وذكاء اصطناعي",
+                tickerLabel: "عاجل",
+                ticker1: "مدينة القدس وتاريخها العريق مهد الديانات السماوية والآثار الشاهدة",
+                ticker2: "وصفة الحواوشي المصري الأصلي بخلطة الست غالية والبهارات السحرية",
+                ticker3: "نظام رجيم التمر واللبن الفعال لخسارة الوزن بشكل صحي ومجرب",
+                ticker4: "تحديثات واتساب الجديدة لعام 2026 للأمان والمراسلات السريعة",
+                randomSectionTitle: "مقالات مميزة وشائعة",
+                shuffleBtn: "تحديث القائمة",
+                catArabCities: "مدن عربية",
+                art1Title: "ما هي مدينة بابل وما تاريخها وموقعها الجغرافي",
+                art2Title: "مدينة بيت لحم التاريخية وسبب تسميتها بهذا الاسم",
+                featuredBadge: "الأكثر قراءة",
+                art3Title: "مدينة القدس وتاريخها العريق مهد الديانات السماوية",
+                art3Intro: "تُعتبر مدينة القدس مهد الديانات السماوية الثلاث الإنسانية والمسيحية واليهودية، ويرجع تاريخها المكتوب والمعماري إلى آلاف السنين...",
+                art4Title: "مدينة مكة المكرمة وسبب بناء الكعبة المشرفة بها",
+                art5Title: "مدينة التلال السبع وتاريخ أسرارها عبر القرون",
+                viewMore: "عرض المزيد",
+                art8Title: "الحواوشي المصري بخلطة الست غالية الشهيرة",
+                artSub1: "سلطة الخضار الصحية بخلطة إيطالية مميزة",
+                art9Title: "كيفية وضع البلاشر حسب شكل الوجه بالتفصيل",
+                artSub2: "أفضل طرق تبييض الأسنان وتقويتها طبيعياً",
+                adTitle: "مساحة إعلانية فائقة الاستجابة (Responsive Ad Banner 728x90)",
+                adSub: "مهيأة بالكامل لكود Google AdSense لزيادة نسبة النقرات CTR وتوليد الأرباح",
+                popularWidgetTitle: "الأكثر قراءة هذا الأسبوع",
+                art6Title: "رجيم التمر واللبن الفعال لمدة اسبوعين",
+                socialWidgetTitle: "شبكات التواصل الاجتماعي",
+                newsletterTitle: "اشترك في النشرة البريدية",
+                newsletterSub: "احصل على أحدث المقالات والأخبار الحصرية مباشرة إلى بريدك الإلكتروني.",
+                newsletterBtn: "اشترك الآن",
+                tagCloudTitle: "الوسوم والكلمات المفتاحية",
+                fontSizeLabel: "حجم الخط:",
+                bookmarkBtn: "حفظ المقال",
+                tocTitle: "فهرس المحتويات",
+                toc1: "المقدمة والخلفية التاريخية الشاملة",
+                toc2: "أبرز الحقائق والمعالم الأثرية والمميزات",
+                toc3: "الخلاصة والنصائح الموصى بها",
+                seoTipTitle: "ميزة ماجيك سيو الذكية:",
+                seoTipBody: "يحتوي هذا القالب على أكواد Schema البيانات المنظمة لتسهيل ظهور المقالات في نتائج البحث الغنية (Rich Snippets).",
+                commentsTitle: "التعليقات والمناقشات",
+                sendCommentBtn: "إرسال",
+                shareTitle: "مشاركة المقال:",
+                searchModalTitle: "البحث الفوري في المقالات",
+                searchPlaceholder: "ابدأ الكتابة للبحث فوراً...",
+                settingsTitle: "إعدادات Magic SEO",
+                accentTitle: "اللون الرئيسي القابل للتخصيص:",
+                featuresTitle: "الميزات المفعلة بالقالب:",
+                exportCodeBtn: "معاينة وتنزيل كود البلوجر XML",
+                cookieTitle: "سياسة ملفات تعريف الارتباط (Cookies)",
+                cookieBody: "نستخدم ملفات تعريف الارتباط لتوفير أفضل تجربة تصفح ولتحسين سرعة وأداء قالب Magic SEO.",
+                cookieAccept: "موافقة وقبول",
+                cookieDecline: "رفض",
+                privacy: "سياسة الخصوصية",
+                contact: "اتصل بنا"
+            },
+            en: {
+                themeBtn: "Dark Mode",
+                logoSub: "BLOGGER TEMPLATE",
+                seoScoreTitle: "Template Speed",
+                seoScoreSub: "Google PageSpeed",
+                seoScore2Title: "SEO Score",
+                seoScore2Sub: "Schema & Meta",
+                searchBtn: "Search articles...",
+                navHome: "Home",
+                navKitchen: "Kitchen",
+                navVariety: "Variety",
+                navNutrition: "Nutrition",
+                navBeauty: "Beauty & Fashion",
+                navTech: "Tech & AI",
+                tickerLabel: "BREAKING",
+                ticker1: "Jerusalem: A timeless historical cradle of faiths and ancient heritage",
+                ticker2: "Authentic Egyptian Hawawshi recipe with secret spices",
+                ticker3: "Effective date and milk diet plan for healthy weight loss",
+                ticker4: "New WhatsApp features 2026 for security and fast messaging",
+                randomSectionTitle: "Featured & Popular Articles",
+                shuffleBtn: "Refresh List",
+                catArabCities: "Arab Cities",
+                art1Title: "History and Location of Ancient Babylon",
+                art2Title: "Historic City of Bethlehem and Its Origin Story",
+                featuredBadge: "Most Read",
+                art3Title: "The Ancient History of Jerusalem City",
+                art3Intro: "Jerusalem is considered the cradle of heavenly religions, rich in heritage spanning thousands of years...",
+                art4Title: "Holy Mecca and the Building of the Kaaba",
+                art5Title: "The Secrets of the City of Seven Hills",
+                viewMore: "View More",
+                art8Title: "Egyptian Hawawshi by Chef Ghalia",
+                artSub1: "Healthy fresh vegetable salad with Italian dressing",
+                art9Title: "How to Apply Blush for Every Face Shape",
+                artSub2: "Best natural ways for teeth whitening & strength",
+                adTitle: "Ultra Responsive Ad Space (Banner 728x90)",
+                adSub: "Fully optimized for Google AdSense to maximize CTR and revenue",
+                popularWidgetTitle: "Most Read This Week",
+                art6Title: "Date and Milk Diet Plan for 2 Weeks",
+                socialWidgetTitle: "Social Media Channels",
+                newsletterTitle: "Subscribe to Newsletter",
+                newsletterSub: "Get the latest articles directly in your email inbox.",
+                newsletterBtn: "Subscribe Now",
+                tagCloudTitle: "Tags & Keywords",
+                fontSizeLabel: "Font Size:",
+                bookmarkBtn: "Save Article",
+                tocTitle: "Table of Contents",
+                toc1: "Introduction & Historical Background",
+                toc2: "Key Facts & Historic Landmarks",
+                toc3: "Summary & Recommendation",
+                seoTipTitle: "Magic SEO Feature:",
+                seoTipBody: "This template features full Structured Schema data for Google Rich Snippets.",
+                commentsTitle: "Comments & Discussions",
+                sendCommentBtn: "Post",
+                shareTitle: "Share Article:",
+                searchModalTitle: "Instant Article Search",
+                searchPlaceholder: "Start typing to search...",
+                settingsTitle: "Magic SEO Settings",
+                accentTitle: "Custom Accent Color:",
+                featuresTitle: "Active Features:",
+                exportCodeBtn: "Preview & Download Blogger XML",
+                cookieTitle: "Cookies Consent Policy",
+                cookieBody: "We use cookies to provide you with the best browsing experience and optimize performance.",
+                cookieAccept: "Accept All",
+                cookieDecline: "Decline",
+                privacy: "Privacy Policy",
+                contact: "Contact Us"
+            },
+            fr: {
+                themeBtn: "Mode Sombre",
+                logoSub: "MODÈLE BLOGGER",
+                seoScoreTitle: "Vitesse",
+                seoScoreSub: "Google PageSpeed",
+                seoScore2Title: "Score SEO",
+                seoScore2Sub: "Schema & Meta",
+                searchBtn: "Rechercher...",
+                navHome: "Accueil",
+                navKitchen: "Cuisine",
+                navVariety: "Divers",
+                navNutrition: "Nutrition",
+                navBeauty: "Beauté",
+                navTech: "Technologie",
+                tickerLabel: "URGENT",
+                ticker1: "Jérusalem: berceau d'histoire et de patrimoine universel",
+                ticker2: "Recette authentique du Hawawshi égyptien",
+                ticker3: "Régime dattes et lait efficace pour la perte de poids",
+                ticker4: "Nouveautés WhatsApp 2026 pour la sécurité",
+                randomSectionTitle: "Articles Populaires En Vedette",
+                shuffleBtn: "Actualiser",
+                catArabCities: "Villes Arabes",
+                art1Title: "Histoire et géographie de la ville de Babylone",
+                art2Title: "La ville historique de Bethléem",
+                featuredBadge: "Plus Lu",
+                art3Title: "L'histoire ancienne de la ville de Jérusalem",
+                art3Intro: "Jérusalem est considérée comme le berceau des religions célestes...",
+                art4Title: "La Mecque et l'histoire de la Kaaba",
+                art5Title: "Les secrets de la ville des sept collines",
+                viewMore: "Voir Plus",
+                art8Title: "Hawawshi Égyptien par le chef Ghalia",
+                artSub1: "Salade fraîche et vinaigrette italienne",
+                art9Title: "Comment appliquer le fard à joues selon le visage",
+                artSub2: "Meilleures astuces naturelles pour blanchir les dents",
+                adTitle: "Espace Publicitaire Ultra Responsive (Banner 728x90)",
+                adSub: "Optimisé pour Google AdSense afin d'augmenter le CTR",
+                popularWidgetTitle: "Plus Lus Cette Semaine",
+                art6Title: "Régime dattes et lait pendant 2 semaines",
+                socialWidgetTitle: "Réseaux Sociaux",
+                newsletterTitle: "Abonnez-vous à la Newsletter",
+                newsletterSub: "Recevez les derniers articles dans votre boîte de réception.",
+                newsletterBtn: "S'abonner",
+                tagCloudTitle: "Mots Clés & Mots-clés",
+                fontSizeLabel: "Taille du texte:",
+                bookmarkBtn: "Enregistrer",
+                tocTitle: "Sommaire",
+                toc1: "Introduction et contexte historique",
+                toc2: "Faits marquants et monuments",
+                toc3: "Résumé et conclusion",
+                seoTipTitle: "Astuce Magic SEO:",
+                seoTipBody: "Ce modèle intègre les données structurées Schema pour Google Rich Snippets.",
+                commentsTitle: "Commentaires",
+                sendCommentBtn: "Envoyer",
+                shareTitle: "Partager:",
+                searchModalTitle: "Recherche Instantanée",
+                searchPlaceholder: "Tapez pour rechercher...",
+                settingsTitle: "Paramètres Magic SEO",
+                accentTitle: "Couleur principale:",
+                featuresTitle: "Fonctionnalités:",
+                exportCodeBtn: "Télécharger le Code XML Blogger",
+                cookieTitle: "Politique de Cookies",
+                cookieBody: "Nous utilisons des cookies pour vous offrir la meilleure expérience de navigation.",
+                cookieAccept: "Accepter Tout",
+                cookieDecline: "Refuser",
+                privacy: "Politique de Confidentialité",
+                contact: "Contactez-nous"
+            },
+            es: {
+                themeBtn: "Modo Oscuro",
+                logoSub: "PLANTILLA BLOGGER",
+                seoScoreTitle: "Velocidad",
+                seoScoreSub: "Google PageSpeed",
+                seoScore2Title: "Puntuación SEO",
+                seoScore2Sub: "Schema & Meta",
+                searchBtn: "Buscar artículos...",
+                navHome: "Inicio",
+                navKitchen: "Cocina",
+                navVariety: "Variedad",
+                navNutrition: "Nutrición",
+                navBeauty: "Belleza",
+                navTech: "Tecnología",
+                tickerLabel: "ÚLTIMA HORA",
+                ticker1: "Jerusalén: cuna histórica de fe y patrimonio antiguo",
+                ticker2: "Receta auténtica de Hawawshi egipcio con especias",
+                ticker3: "Plan de dieta de dátiles y leche para perder peso",
+                ticker4: "Nuevas funciones de WhatsApp 2026 de seguridad",
+                randomSectionTitle: "Artículos Destacados y Populares",
+                shuffleBtn: "Actualizar",
+                catArabCities: "Ciudades Árabes",
+                art1Title: "Historia y ubicación de la antigua Babilonia",
+                art2Title: "La ciudad histórica de Belén",
+                featuredBadge: "Más Leído",
+                art3Title: "La historia antigua de Jerusalén",
+                art3Intro: "Jerusalén es considerada la cuna de las religiones celestial...",
+                art4Title: "La Meca y la construcción de la Kaaba",
+                art5Title: "Los secretos de la ciudad de las siete colinas",
+                viewMore: "Ver Más",
+                art8Title: "Hawawshi Egipcio especial",
+                artSub1: "Ensalada fresca con aderezo italiano",
+                art9Title: "Cómo aplicar rubor según la forma del rostro",
+                artSub2: "Mejores métodos naturales para blanquear los dientes",
+                adTitle: "Espacio Publicitario Ultra Adaptable (728x90)",
+                adSub: "Optimizado para Google AdSense para aumentar el CTR",
+                popularWidgetTitle: "Más Leídos Esta Semana",
+                art6Title: "Dieta de dátiles y leche por 2 semanas",
+                socialWidgetTitle: "Redes Sociales",
+                newsletterTitle: "Suscríbete al Boletín",
+                newsletterSub: "Recibe los últimos artículos en tu correo.",
+                newsletterBtn: "Suscribirse",
+                tagCloudTitle: "Etiquetas y Palabras Clave",
+                fontSizeLabel: "Tamaño de fuente:",
+                bookmarkBtn: "Guardar Artículo",
+                tocTitle: "Tabla de Contenidos",
+                toc1: "Introducción y contexto histórico",
+                toc2: "Hechos clave y monumentos",
+                toc3: "Resumen y recomendaciones",
+                seoTipTitle: "Función Magic SEO:",
+                seoTipBody: "Esta plantilla cuenta con datos estructurados Schema para Google.",
+                commentsTitle: "Comentarios",
+                sendCommentBtn: "Publicar",
+                shareTitle: "Compartir:",
+                searchModalTitle: "Búsqueda Instantánea",
+                searchPlaceholder: "Escribe para buscar...",
+                settingsTitle: "Ajustes Magic SEO",
+                accentTitle: "Color de acento:",
+                featuresTitle: "Funciones activas:",
+                exportCodeBtn: "Descargar Código XML Blogger",
+                cookieTitle: "Política de Cookies",
+                cookieBody: "Utilizamos cookies para garantizar la mejor experiencia de navegación.",
+                cookieAccept: "Aceptar Todo",
+                cookieDecline: "Rechazar",
+                privacy: "Política de Privacidad",
+                contact: "Contacto"
+            }
+        };
+
+        let currentLanguage = 'ar';
+
+        function switchLanguage(lang) {
+            currentLanguage = lang;
+            const htmlTag = document.documentElement;
+            const langLabel = document.getElementById('current-lang-label');
+            
+            // Set RTL/LTR Direction
+            if (lang === 'ar') {
+                htmlTag.setAttribute('dir', 'rtl');
+                htmlTag.setAttribute('lang', 'ar');
+                langLabel.innerText = "العربية (RTL)";
+            } else {
+                htmlTag.setAttribute('dir', 'ltr');
+                htmlTag.setAttribute('lang', lang);
+                langLabel.innerText = lang.toUpperCase() + " (LTR)";
+            }
+
+            // Translate text nodes using data-i18n attributes
+            const dict = translations[lang] || translations.ar;
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (dict[key]) {
+                    el.innerText = dict[key];
+                }
+            });
+
+            showToast(`تم تغيير اللغة إلى: ${lang.toUpperCase()}`);
+        }
+
+        function toggleDarkMode() {
+            const isDark = document.documentElement.classList.toggle('dark');
+            localStorage.setItem('magic_seo_theme', isDark ? 'dark' : 'light');
+            showToast(isDark ? 'تم تفعيل الوضع الليلي 🌙' : 'تم تفعيل الوضع الفاتح ☀️');
+        }
+
+        // Check local stored theme on load
+        (function initTheme() {
+            const savedTheme = localStorage.getItem('magic_seo_theme');
+            if (savedTheme === 'dark') {
+                document.documentElement.classList.add('dark');
+            }
+        })();
+
+        function checkCookieConsent() {
+            const consent = localStorage.getItem('magic_seo_cookie_consent');
+            if (!consent) {
+                setTimeout(() => {
+                    const banner = document.getElementById('cookie-banner');
+                    banner.classList.remove('hidden');
+                }, 1000);
+            }
+        }
+
+        function acceptCookies() {
+            localStorage.setItem('magic_seo_cookie_consent', 'accepted');
+            document.getElementById('cookie-banner').classList.add('hidden');
+            showToast('تم قبول ملفات تعريف الارتباط بنجاح!');
+        }
+
+        function declineCookies() {
+            localStorage.setItem('magic_seo_cookie_consent', 'declined');
+            document.getElementById('cookie-banner').classList.add('hidden');
+            showToast('تم رفض الملفات غير الضرورية');
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast-notification');
+            const toastMsg = document.getElementById('toast-msg');
+            toastMsg.innerText = msg;
+            toast.classList.remove('hidden');
+            toast.style.opacity = '1';
+
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                setTimeout(() => toast.classList.add('hidden'), 300);
+            }, 3000);
+        }
+
+        const articlesDB = [
+            { id: '1', title: 'ما هي مدينة بابل وما تاريخها وموقعها الجغرافي', category: 'مدن عربية', image: 'https://images.unsplash.com/photo-1548625149-fc4a29cf7092?auto=format&fit=crop&w=800&q=80', intro: 'تعتبر مدينة بابل العراقية واحدة من أقدم وأشهر المدن التاريخية في العالم القديم...' },
+            { id: '2', title: 'مدينة بيت لحم التاريخية وسبب تسميتها بهذا الاسم', category: 'مدن عربية', image: 'https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=800&q=80', intro: 'بيت لحم هي مدينة فلسطينية تاريخية ذات مكانة دينية رفيعة في كافة أنحاء العالم...' },
+            { id: '3', title: 'مدينة القدس وتاريخها العريق مهد الديانات السماوية', category: 'مدن عربية', image: 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=1200&q=80', intro: 'القدس تُعتبر مهد الديانات السماوية، وتزخر بالمعالم التاريخية والدينية الخالدة عبر العصور...' },
+            { id: '4', title: 'مدينة مكة المكرمة وسبب بناء الكعبة المشرفة بها', category: 'مدن عربية', image: 'https://images.unsplash.com/photo-1591604466107-ec97de577aff?auto=format&fit=crop&w=800&q=80', intro: 'مكة المكرمة قِبلة المسلمين، تحتضن المسجد الحرام والكعبة المشرفة وهي أقدس بقعة على وجه الأرض...' },
+            { id: '5', title: 'مدينة التلال السبع وتاريخ أسرارها عبر القرون', category: 'مدن عربية', image: 'https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=800&q=80', intro: 'لقب التلال السبع أُطلق على عدة مدن تاريخية حول العالم تم بناء معالمها فوق مرتفعات جبلية...' },
+            { id: '6', title: 'رجيم التمر واللبن الفعال لمدة اسبوعين', category: 'تغذية', image: 'https://images.unsplash.com/photo-1598153346810-860daa814c4b?auto=format&fit=crop&w=800&q=80', intro: 'يعتبر نظام رجيم التمر واللبن من الأنظمة الغنية بالعناصر الغذائية السريعة المفعول للتنحيف...' },
+            { id: '7', title: 'تحديثات واتساب الجديدة لعام 2026 للأمان', category: 'التقنية', image: 'https://images.unsplash.com/photo-1614680376593-902f749f7b2c?auto=format&fit=crop&w=800&q=80', intro: 'تطبيق الواتساب يعد المنصة الأكثر شعبية في عالم المراسلات الفورية والتواصل الاجتماعي...' },
+            { id: '8', title: 'الحواوشي المصري بخلطة الست غالية الشهيرة', category: 'مطبخ', image: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&q=80', intro: 'طريقة عمل الحواوشي المصري الأصلي المقرمش بالخلطة السحرية والبهارات المميزة...' },
+            { id: '9', title: 'كيفية وضع البلاشر حسب شكل الوجه بالتفصيل', category: 'جمال', image: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=800&q=80', intro: 'خطوات بسيطة ومحترفة لتوزيع أحمر الخدود (البلاشر) بشكل يبرز جمال وسحر تقاطيع وجهك...' }
+        ];
+
+        function openArticleModal(id) {
+            const article = articlesDB.find(a => a.id === id) || articlesDB[2];
+            document.getElementById('modal-img').src = article.image;
+            document.getElementById('modal-category').innerText = article.category;
+            document.getElementById('modal-title').innerText = article.title;
+            document.getElementById('modal-content-intro').innerText = article.intro;
+            
+            const modal = document.getElementById('article-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeArticleModal() {
+            const modal = document.getElementById('article-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Font Resizer for Article Reader View
+        let currentFontSize = 16;
+        function changeFontSize(delta) {
+            currentFontSize = Math.max(13, Math.min(22, currentFontSize + delta));
+            document.getElementById('article-body-text').style.fontSize = currentFontSize + 'px';
+        }
+
+        // Bookmark Toggle
+        let isBookmarked = false;
+        function toggleBookmark() {
+            isBookmarked = !isBookmarked;
+            const btn = document.getElementById('bookmark-btn');
+            if (isBookmarked) {
+                btn.innerHTML = `<i class="fas fa-bookmark text-brand-dynamic"></i><span class="text-brand-dynamic">تم حفظ المقال</span>`;
+                showToast('تم حفظ المقال في القائمة المفضلة!');
+            } else {
+                btn.innerHTML = `<i class="far fa-bookmark"></i><span>حفظ المقال</span>`;
+                showToast('تم إزالة المقال من المفضلة');
+            }
+        }
+
+        // Add Comment Logic
+        function addComment() {
+            const input = document.getElementById('new-comment-input');
+            const text = input.value.trim();
+            if (!text) return;
+
+            const commentsList = document.getElementById('comments-list');
+            const newComment = document.createElement('div');
+            newComment.className = 'bg-slate-50 dark:bg-slate-800 p-4 rounded-2xl text-xs space-y-1 animate-fade-in';
+            newComment.innerHTML = `
+                <div class="flex items-center justify-between font-bold">
+                    <span class="text-brand-dynamic">زائر جديد</span>
+                    <span class="text-slate-400 font-normal">الآن</span>
+                </div>
+                <p class="text-slate-700 dark:text-slate-300">${text}</p>
+            `;
+            commentsList.appendChild(newComment);
+            input.value = '';
+            showToast('شكراً! تم نشر تعليقك بنجاح.');
+        }
+
+        // Newsletter Form Handler
+        function handleNewsletterSubmit(e) {
+            e.preventDefault();
+            const input = document.getElementById('newsletter-email');
+            showToast(`تم الاشتراك بنجاح بالبريد: ${input.value}`);
+            input.value = '';
+        }
+
+        // XML Code Modal Actions
+        function openXmlModal() {
+            document.getElementById('xml-modal').classList.remove('hidden');
+            document.getElementById('xml-modal').classList.add('flex');
+        }
+
+        function closeXmlModal() {
+            document.getElementById('xml-modal').classList.add('hidden');
+            document.getElementById('xml-modal').classList.remove('flex');
+        }
+
+        function copyXmlCode() {
+            const codeArea = document.getElementById('xml-code-area');
+            codeArea.select();
+            document.execCommand('copy');
+            showToast('تم نسخ كود القالب إلى الحافظة بنجاح!');
+        }
+
+        // Search Overlay Trigger & Filter
+        function toggleSearchModal() {
+            const modal = document.getElementById('search-modal');
+            if (modal.classList.contains('hidden')) {
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                document.getElementById('search-input').focus();
+            } else {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }
+        }
+
+        function filterArticles() {
+            const query = document.getElementById('search-input').value.toLowerCase().trim();
+            const resultsContainer = document.getElementById('search-results');
+            
+            if (!query) {
+                resultsContainer.innerHTML = '<p class="text-xs text-slate-400 text-center py-6">ابدأ الكتابة للبحث فوراً...</p>';
+                return;
+            }
+
+            const matches = articlesDB.filter(a => a.title.includes(query) || a.category.includes(query));
+
+            if (matches.length === 0) {
+                resultsContainer.innerHTML = '<p class="text-xs text-rose-500 text-center py-6">لم يتم العثور على مقالات مطابقة.</p>';
+                return;
+            }
+
+            resultsContainer.innerHTML = matches.map(a => `
+                <div onclick="closeSearchAndOpen('${a.id}')" class="flex items-center gap-3 p-2.5 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl cursor-pointer transition-colors">
+                    <img src="${a.image}" class="w-12 h-12 rounded-xl object-cover">
+                    <div>
+                        <h4 class="text-xs font-bold text-slate-800 dark:text-slate-200 line-clamp-1">${a.title}</h4>
+                        <span class="text-[10px] font-bold text-brand-dynamic">${a.category}</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function closeSearchAndOpen(id) {
+            toggleSearchModal();
+            openArticleModal(id);
+        }
+
+        // Settings Drawer Toggle
+        function toggleSettingsDrawer() {
+            const drawer = document.getElementById('settings-drawer');
+            drawer.classList.toggle('translate-x-full');
+        }
+
+        // Mobile Menu Drawer Toggle
+        function toggleMobileDrawer() {
+            const drawer = document.getElementById('mobile-drawer');
+            drawer.classList.toggle('hidden');
+        }
+
+        // Dynamic Color Accent Changer
+        function changeAccent(color) {
+            document.documentElement.style.setProperty('--primary-color', color);
+            document.documentElement.style.setProperty('--primary-hover', color);
+            showToast('تم تغيير اللون الرئيسي للقالب!');
+        }
+
+        // Shuffle articles demo animation
+        function shuffleArticles() {
+            const heroGrid = document.getElementById('hero-grid');
+            heroGrid.style.opacity = '0.3';
+            setTimeout(() => {
+                heroGrid.style.opacity = '1';
+                showToast('تم تحديث قائمة المقالات المميزة!');
+            }, 300);
+        }
+
+        window.onload = function() {
+            checkCookieConsent();
+        };
+
+        // Close Modals on Outside Click
+        window.onclick = function(e) {
+            const articleModal = document.getElementById('article-modal');
+            const searchModal = document.getElementById('search-modal');
+            const xmlModal = document.getElementById('xml-modal');
+            if (e.target === articleModal) closeArticleModal();
+            if (e.target === searchModal) toggleSearchModal();
+            if (e.target === xmlModal) closeXmlModal();
+        };
+    </script>
+</body>
+</html>
