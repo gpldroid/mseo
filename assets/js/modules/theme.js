@@ -1,0 +1,3 @@
+export function setTheme(mode){document.documentElement.classList.toggle("dark",mode==="dark");document.documentElement.classList.toggle("light",mode!=="dark");localStorage.setItem("mseo-theme",mode);}
+function init(){const saved=localStorage.getItem("mseo-theme")||"light";setTheme(saved);document.addEventListener("click",e=>{const b=e.target.closest('[data-action="theme"]');if(b)setTheme(document.documentElement.classList.contains("dark")?"light":"dark");});}
+if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",init);else init();
