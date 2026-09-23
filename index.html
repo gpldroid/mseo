@@ -29,68 +29,12 @@
 
     <!-- Custom Global CSS & Utility Styles -->
     <link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/site.css">
 </head>
 <body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 antialiased min-h-screen flex flex-col justify-between selection:bg-blue-600 selection:text-white">
 
     <!-- Top Utility Header Bar -->
-    <header class="bg-slate-900 text-slate-200 text-xs py-2 shadow-sm border-b border-slate-800 sticky top-0 z-40">
-        <div class="max-w-7xl mx-auto px-4 flex flex-wrap justify-between items-center gap-3">
-            
-            <!-- Left Side: Live Date & Social Icons -->
-            <div class="flex items-center gap-4">
-                <div id="current-date" class="hidden sm:flex items-center gap-1.5 text-slate-400 text-[11px] font-medium">
-                    <i class="far fa-calendar-alt text-brand-dynamic"></i>
-                    <span>الأحد، 20 سبتمبر 2026</span>
-                </div>
-                <div class="flex items-center space-x-2 space-x-reverse">
-                    <a href="#" class="w-6 h-6 rounded-full bg-slate-800 hover:bg-red-600 text-slate-300 hover:text-white flex items-center justify-center transition-all"><i class="fab fa-youtube text-[11px]"></i></a>
-                    <a href="#" class="w-6 h-6 rounded-full bg-slate-800 hover:bg-sky-500 text-slate-300 hover:text-white flex items-center justify-center transition-all"><i class="fab fa-twitter text-[11px]"></i></a>
-                    <a href="#" class="w-6 h-6 rounded-full bg-slate-800 hover:bg-blue-600 text-slate-300 hover:text-white flex items-center justify-center transition-all"><i class="fab fa-facebook-f text-[11px]"></i></a>
-                    <a href="#" class="w-6 h-6 rounded-full bg-slate-800 hover:bg-emerald-600 text-slate-300 hover:text-white flex items-center justify-center transition-all"><i class="fab fa-whatsapp text-[11px]"></i></a>
-                </div>
-            </div>
-            
-            <!-- Right Side: Instant Language Switcher & Dark Mode Toggle -->
-            <div class="flex items-center gap-3">
-                
-                <!-- Live Multilingual Translation Switcher -->
-                <div class="relative group">
-                    <button class="flex items-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 px-2.5 py-1 rounded-lg border border-slate-700 transition-colors font-medium text-[11px]">
-                        <i class="fas fa-globe text-brand-dynamic"></i>
-                        <span id="current-lang-label">العربية (RTL)</span>
-                        <i class="fas fa-chevron-down text-[9px] opacity-70"></i>
-                    </button>
-                    <!-- Language Dropdown -->
-                    <div class="absolute left-0 sm:right-0 top-full mt-1 hidden group-hover:block w-36 bg-slate-900 border border-slate-700 shadow-xl rounded-lg py-1.5 z-50">
-                        <button data-action="language" data-lang="ar" class="w-full text-right px-3 py-1.5 hover:bg-slate-800 text-slate-200 text-xs flex items-center justify-between">
-                            <span>العربية</span> <span class="text-[10px] text-slate-400">🇸🇦</span>
-                        </button>
-                        <button data-action="language" data-lang="en" class="w-full text-left px-3 py-1.5 hover:bg-slate-800 text-slate-200 text-xs flex items-center justify-between">
-                            <span>English</span> <span class="text-[10px] text-slate-400">🇺🇸</span>
-                        </button>
-                        <button data-action="language" data-lang="fr" class="w-full text-left px-3 py-1.5 hover:bg-slate-800 text-slate-200 text-xs flex items-center justify-between">
-                            <span>Français</span> <span class="text-[10px] text-slate-400">🇫🇷</span>
-                        </button>
-                        <button data-action="language" data-lang="es" class="w-full text-left px-3 py-1.5 hover:bg-slate-800 text-slate-200 text-xs flex items-center justify-between">
-                            <span>Español</span> <span class="text-[10px] text-slate-400">🇪🇸</span>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Dark / Light Theme Button -->
-                <button data-action="theme" class="flex items-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-amber-400 dark:text-sky-300 px-2.5 py-1 rounded-lg border border-slate-700 transition-all font-medium text-[11px]" title="تبديل الوضع الليلي/الفاتح">
-                    <i class="fas fa-sun dark:hidden"></i>
-                    <i class="fas fa-moon hidden dark:inline"></i>
-                    <span class="hidden sm:inline" data-i18n="themeBtn">الوضع الليلي</span>
-                </button>
-
-                <!-- Template Settings Drawer Trigger -->
-                <button data-action="settings" class="bg-blue-600 hover:bg-blue-700 text-white w-7 h-7 rounded-lg flex items-center justify-center transition-all shadow-sm" title="إعدادات القالب">
-                    <i class="fas fa-sliders-h text-xs"></i>
-                </button>
-            </div>
-        </div>
-    </header>
+    <div data-site-header></div>
 
     <!-- Brand Logo Bar -->
     <div class="bg-white dark:bg-slate-800 py-4 shadow-sm border-b border-slate-200 dark:border-slate-700/60 transition-colors">
@@ -670,6 +614,7 @@
     <b:section id='header' maxwidgets='1' showaddelement='yes'/>
     <b:section id='main-feed' showaddelement='yes'/>
 <script type="module" src="assets/js/main.js"></script>
+<script src="assets/js/site.js"></script>
 </body>
 </html>
             </textarea>
@@ -733,21 +678,7 @@
     </div>
 
     <!-- Main Footer -->
-    <footer class="bg-white dark:bg-slate-800 border-t border-slate-200 dark:border-slate-700/80 mt-16 py-8 transition-colors">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 dark:text-slate-400">
-                <div class="flex items-center gap-2 font-bold text-slate-800 dark:text-white">
-                    <i class="fas fa-wand-magic-sparkles text-brand-dynamic"></i>
-                    <span>MSEO AI & Web &copy; 2026 - جميع الحقوق محفوظة</span>
-                </div>
-                <div class="flex items-center gap-4 font-semibold">
-                    <a href="#" class="hover:text-brand-dynamic transition-colors" data-i18n="navHome">الرئيسية</a>
-                    <a href="pages/privacy.html" class="hover:text-brand-dynamic transition-colors" data-i18n="privacy">سياسة الخصوصية</a>
-                    <a href="pages/contact.html" class="hover:text-brand-dynamic transition-colors" data-i18n="contact">اتصل بنا</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <div data-site-footer></div>
 
     <!-- Core Application Logic & Multilingual Translation Engine -->
     
