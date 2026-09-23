@@ -1,9 +1,50 @@
-import { articlesDB } from "./data/articles.js";
-const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
-const toast=m=>{const b=$("#toast-notification"),t=$("#toast-msg");if(!b||!t)return;t.textContent=m;b.classList.remove("hidden");b.style.opacity="1";clearTimeout(window.__toastTimer);window.__toastTimer=setTimeout(()=>{b.style.opacity="0";setTimeout(()=>b.classList.add("hidden"),300)},2600)};
-function initTheme(){document.documentElement.classList.toggle("dark",localStorage.getItem("magic_seo_theme")==="dark")}
-function toggleTheme(){const d=document.documentElement.classList.toggle("dark");localStorage.setItem("magic_seo_theme",d?"dark":"light");toast(d?"تم تفعيل الوضع الليلي 🌙":"تم تفعيل الوضع الفاتح ☀️")}
-function changeAccent(c){document.documentElement.style.setProperty("--primary-color",c);document.documentElement.style.setProperty("--primary-hover",c);localStorage.setItem("magic_seo_accent",c);toast("تم تغيير اللون الرئيسي للقالب")}
-function renderSearch(q=""){const box=$("#search-results");if(!box)return;q=q.trim().toLowerCase();if(!q){box.innerHTML='<p class="text-xs text-slate-400 text-center py-6">ابدأ الكتابة للبحث فوراً...</p>';return}const ms=articlesDB.filter(a=>[a.title,a.category,a.excerpt,...a.tags].join(" ").toLowerCase().includes(q));if(!ms.length){box.innerHTML='<p class="text-xs text-rose-500 text-center py-6">لم يتم العثور على مقالات مطابقة.</p>';return}box.innerHTML=ms.map(a=>`<a href="post.html?id=${a.id}" class="flex items-center gap-3 p-2.5 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-colors"><img src="${a.image}" alt="${a.title}" class="w-12 h-12 rounded-xl object-cover"><div><h4 class="text-xs font-bold text-slate-800 dark:text-slate-200 line-clamp-1">${a.title}</h4><span class="text-[10px] font-bold text-brand-dynamic">${a.category}</span></div></a>`).join("")}
-function drawer(id){const d=$("#"+id);if(!d)return;id==="mobile-drawer"?d.classList.toggle("hidden"):d.classList.toggle("translate-x-full")}
-document.addEventListener("DOMContentLoaded",()=>{initTheme();const c=localStorage.getItem("magic_seo_accent");if(c){document.documentElement.style.setProperty("--primary-color",c);document.documentElement.style.setProperty("--primary-hover",c)}const l=localStorage.getItem("magic_seo_language")||"ar";document.documentElement.lang=l;document.documentElement.dir=l==="ar"?"rtl":"ltr";$$("[data-article-id]").forEach(e=>e.addEventListener("click",()=>location.href=`post.html?id=${e.dataset.articleId}`));$("#search-input")?.addEventListener("input",e=>renderSearch(e.target.value));if(!localStorage.getItem("magic_seo_cookie_consent"))setTimeout(()=>$("#cookie-banner")?.classList.remove("hidden"),700);document.addEventListener("click",e=>{const el=e.target.closest("[data-action],[data-toast]");if(!el)return;if(el.dataset.toast)toast(el.dataset.toast);const x=el.dataset.action;if(x==="theme")toggleTheme();if(x==="settings")drawer("settings-drawer");if(x==="mobile-drawer")drawer("mobile-drawer");if(x==="search"){const m=$("#search-modal");m?.classList.contains("hidden")?(m.classList.remove("hidden"),m.classList.add("flex"),$("#search-input")?.focus()):(m.classList.add("hidden"),m.classList.remove("flex"))}if(x==="language"){const lang=el.dataset.lang;document.documentElement.lang=lang;document.documentElement.dir=lang==="ar"?"rtl":"ltr";localStorage.setItem("magic_seo_language",lang);toast("تم تغيير اللغة إلى: "+lang.toUpperCase())}if(x==="accent")changeAccent(el.dataset.color);if(x==="cookie-accept"){localStorage.setItem("magic_seo_cookie_consent","accepted");$("#cookie-banner")?.classList.add("hidden");toast("تم قبول ملفات تعريف الارتباط")}if(x==="cookie-decline"){localStorage.setItem("magic_seo_cookie_consent","declined");$("#cookie-banner")?.classList.add("hidden");toast("تم رفض الملفات غير الضرورية")}if(x==="scroll-top")scrollTo({top:0,behavior:"smooth"});if(x==="shuffle"){const g=$("#hero-grid");if(g){g.style.opacity=".3";setTimeout(()=>{g.style.opacity="1";toast("تم تحديث قائمة المقالات المميزة")},280)}}if(x==="xml-open"||x==="xml-close"||x==="xml-copy"||x==="font-size"||x==="bookmark"||x==="comment")toast("تم نقل هذه الوظيفة إلى بنية المقالات المنفصلة")})})
+import "./modules/theme.js";
+import "./modules/ui.js";
+
+const normalizeText = value => (value || "").replace(/\s+/g, " ").trim().toLowerCase();
+
+function initDate(){
+  const el=document.querySelector("#current-date");
+  if(!el) return;
+  const d=new Intl.DateTimeFormat("ar-MA",{weekday:"long",year:"numeric",month:"long",day:"numeric"}).format(new Date());
+  const span=el.querySelector("span"); if(span) span.textContent=d;
+}
+
+function initArticleLinks(){
+  document.querySelectorAll("[data-article-link]").forEach(el=>{
+    const href=el.getAttribute("data-article-link");
+    if(!href) return;
+    if(el.tagName.toLowerCase()!=="a"){
+      el.setAttribute("role","link");
+      el.setAttribute("tabindex","0");
+      el.addEventListener("click",()=>location.href=href);
+      el.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();location.href=href;}});
+    }
+  });
+}
+
+function initSearch(){
+  const input=document.querySelector("#search-input"), results=document.querySelector("#search-results");
+  if(!input||!results) return;
+  const cards=[...document.querySelectorAll("[data-article-link]")].map(el=>({
+    href:el.getAttribute("data-article-link"),
+    text:normalizeText(el.textContent),
+    title:(el.querySelector("h2,h3,h4,h5")?.textContent||el.textContent).trim()
+  }));
+  const unique=[...new Map(cards.map(x=>[x.href,x])).values()];
+  const render=q=>{
+    const query=normalizeText(q);
+    if(!query){results.innerHTML='<p class="text-xs text-slate-400 text-center py-6">ابدأ الكتابة للبحث في المقالات...</p>';return;}
+    const hits=unique.filter(x=>x.text.includes(query)).slice(0,8);
+    results.innerHTML=hits.length?hits.map(x=>'<a class="block p-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800" href="'+x.href+'"><span class="font-bold text-sm">'+x.title+'</span></a>').join(""):'<p class="text-xs text-slate-400 text-center py-6">لا توجد نتائج مطابقة.</p>';
+  };
+  input.addEventListener("input",e=>render(e.target.value));
+}
+
+function initCookies(){
+ const b=document.querySelector("#cookie-banner"); if(!b) return;
+ if(localStorage.getItem("mseo-cookie-choice")) b.classList.add("hidden"); else b.classList.remove("hidden");
+ document.querySelectorAll('[data-action="cookie-accept"],[data-action="cookie-decline"]').forEach(btn=>btn.addEventListener("click",()=>{localStorage.setItem("mseo-cookie-choice",btn.dataset.action);b.classList.add("hidden");}));
+}
+
+document.addEventListener("DOMContentLoaded",()=>{initDate();initArticleLinks();initSearch();initCookies();});
