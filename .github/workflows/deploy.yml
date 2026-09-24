@@ -27,6 +27,8 @@ jobs:
         run: npm install --no-audit --no-fund
       - name: Build production CSS
         run: npm run build
+      - name: Generate sitemap
+        run: node scripts/generate-sitemap.mjs
       - name: Validate local links
         run: node scripts/validate-site.mjs
       - name: Configure Pages
