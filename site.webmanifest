@@ -1,0 +1,20 @@
+{
+  "name": "MSEO AI & Web",
+  "short_name": "MSEO",
+  "description": "منصة عربية للأدلة والمقالات العملية حول الذكاء الاصطناعي وتطوير المواقع والبرمجة وSEO.",
+  "start_url": "/mseo/",
+  "scope": "/mseo/",
+  "display": "standalone",
+  "dir": "rtl",
+  "lang": "ar",
+  "theme_color": "#0b1220",
+  "background_color": "#f5f7fb",
+  "icons": [
+    {
+      "src": "assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
