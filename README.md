@@ -1,36 +1,29 @@
-# Magic SEO Pro Max
+# MSEO AI & Web
 
-## العربية
+موقع عربي ثابت لنشر الأدلة والمقالات العملية حول الذكاء الاصطناعي وتطوير المواقع والبرمجة وSEO.
 
-تمت إعادة بناء المشروع إلى بنية نشر احترافية تفصل **المقالات Posts** عن **الصفحات Pages** وعن الواجهة والمنطق البرمجي.
+## Architecture
 
-### البنية
+- `index.html`: الصفحة الرئيسية.
+- `articles/`: المقالات المنشورة كصفحات HTML مستقلة.
+- `pages/`: صفحات التصنيفات والصفحات الثابتة.
+- `assets/css/site.css`: نظام التصميم المشترك Header/Footer/Responsive/Search.
+- `assets/css/style.css`: أنماط المحتوى الموجودة في المشروع.
+- `assets/js/site.js`: المحرك المشترك للمظهر والقائمة والبحث والـHeader/Footer.
+- `assets/js/main.js`: نقطة توافق للمشروع القديم وتستدعي المحرك المشترك.
+- `.github/workflows/deploy.yml`: النشر التلقائي إلى GitHub Pages.
+- `sitemap.xml` و`robots.txt`: ملفات الزحف والفهرسة.
 
-- `index.html` — الصفحة الرئيسية.
-- `post.html` — قالب واحد يعرض أي مقال عبر `?id=`.
-- `pages/about.html` — من نحن.
-- `pages/privacy.html` — سياسة الخصوصية.
-- `pages/contact.html` — اتصل بنا.
-- `pages/terms.html` — شروط الاستخدام.
-- `assets/css/style.css` — جميع CSS المخصص.
-- `assets/js/data/articles.js` — قاعدة المقالات ومحتوى Posts.
-- `assets/js/main.js` — وظائف الصفحة الرئيسية.
-- `assets/js/post.js` — محرك عرض المقال.
-- `assets/js/tailwind-config.js` — إعداد Tailwind الخارجي.
+## قواعد التطوير
 
-تمت إزالة CSS وJavaScript المضمنين من `index.html`، وأصبحت بطاقات المقالات تعتمد على روابط ديناميكية إلى `post.html`.
+1. كل مقال يجب أن يملك عنواناً ووصفاً وcanonical فريداً.
+2. المقالات لا تستخدم `post.html?id=`؛ كل مقال له URL ثابت داخل `articles/`.
+3. استخدم المسارات النسبية للـCSS/JS داخل الصفحات المتداخلة.
+4. لا تضع بيانات حساسة أو مفاتيح API في المستودع.
+5. صفحة `pages/admin.html` غير مفهرسة ولا تمثل نظام مصادقة.
 
-## English
+## GitHub Pages
 
-Magic SEO Pro Max now uses a maintainable static publishing architecture that separates posts, pages, content data, styling, and behavior.
+المشروع static ولا يحتاج إلى backend. Workflow الموجود في `.github/workflows/deploy.yml` يرفع محتوى المستودع مباشرة إلى GitHub Pages عند كل push إلى `main`.
 
-- `index.html`: homepage
-- `post.html`: reusable post template
-- `pages/`: static pages
-- `assets/css/style.css`: custom CSS
-- `assets/js/data/articles.js`: article database
-- `assets/js/main.js`: homepage controller
-- `assets/js/post.js`: post renderer
-- `assets/js/tailwind-config.js`: external Tailwind configuration
-
-The project is suitable for static hosting and GitHub Pages.
+URL المتوقع: https://gpldroid.github.io/mseo/
