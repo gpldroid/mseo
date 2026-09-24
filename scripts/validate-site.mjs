@@ -24,16 +24,16 @@ for(const file of html){
   if(excluded.has(rel)) continue;
   const source=await readFile(file,"utf8");
   const count=(re,flags="g")=>[...source.matchAll(new RegExp(re,flags))].length;
-  if(!/<title>\\s*[^<]+<\\/title>/i.test(source)) seoErrors.push(rel+" -> missing title");
+  if(!/<title>\s*[^<]+<\/title>/i.test(source)) seoErrors.push(rel+" -> missing title");
   if(!/<meta name="description" content="[^"]+">/i.test(source)) seoErrors.push(rel+" -> missing meta description");
   if(count('<link rel="canonical"')!==1) seoErrors.push(rel+" -> canonical count must be 1");
   if(!/<meta name="robots" content="index,follow/i.test(source)) seoErrors.push(rel+" -> missing indexable robots directive");
   if(!/property="og:title"/i.test(source)) seoErrors.push(rel+" -> missing Open Graph title");
   if(!/name="twitter:card"/i.test(source)) seoErrors.push(rel+" -> missing Twitter card");
-  if(rel.startsWith("articles/") && !/<script type="application\\/ld\\+json">[\\s\\S]*"@type":"Article"/i.test(source)) seoErrors.push(rel+" -> missing Article JSON-LD");
+  if(rel.startsWith("articles/") && !/<script type="application\/ld\+json">[\s\S]*"@type":"Article"/i.test(source)) seoErrors.push(rel+" -> missing Article JSON-LD");
 }
 if(seoErrors.length){
-  console.error("SEO validation failed:\\n"+seoErrors.join("\\n"));
+  console.error("SEO validation failed:\n"+seoErrors.join("\n"));
   process.exit(1);
 }
 const missing=[];
