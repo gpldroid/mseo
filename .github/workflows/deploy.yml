@@ -1,6 +1,8 @@
-name: Deploy MSEO to GitHub Pages
+name: Validate and Deploy MSEO
 on:
   push:
+    branches: [main]
+  pull_request:
     branches: [main]
   workflow_dispatch:
 permissions:
@@ -29,6 +31,7 @@ jobs:
             data/articles.json
             sitemap.xml
   deploy:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     needs: validate
     runs-on: ubuntu-latest
     environment:
