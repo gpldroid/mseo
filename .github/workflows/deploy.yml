@@ -1,6 +1,8 @@
-name: Deploy MSEO to GitHub Pages
+name: Validate and Deploy MSEO
 on:
   push:
+    branches: [main]
+  pull_request:
     branches: [main]
   workflow_dispatch:
 permissions:
@@ -11,30 +13,40 @@ concurrency:
   group: github-pages
   cancel-in-progress: true
 jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v7
+        with:
+          node-version: "20.x"
+      - run: npm install --no-audit --no-fund
+      - run: npm run build
+      - run: node scripts/generate-sitemap.mjs
+      - run: node scripts/validate-site.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mseo-validation
+          path: |
+            data/articles.json
+            sitemap.xml
   deploy:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: validate
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Checkout
-        uses: actions/checkout@v6
-      - name: Use Node.js
-        uses: actions/setup-node@v7
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v7
         with:
           node-version: "20.x"
-      - name: Install build dependencies
-        run: npm install --no-audit --no-fund
-      - name: Build production CSS
-        run: npm run build
-      - name: Generate sitemap
-        run: node scripts/generate-sitemap.mjs
-      - name: Validate local links
-        run: node scripts/validate-site.mjs
-      - name: Configure Pages
-        uses: actions/configure-pages@v5
-      - name: Upload static site
-        uses: actions/upload-pages-artifact@v4
+      - run: npm install --no-audit --no-fund
+      - run: npm run build
+      - run: node scripts/generate-sitemap.mjs
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
         with:
           path: .
       - name: Deploy
