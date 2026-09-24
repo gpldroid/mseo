@@ -1,7 +1,7 @@
 import { readdir, readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 const root=process.cwd(),dir=join(root,"articles"),base="https://gpldroid.github.io/mseo/articles/";
-const icons={"الذكاء الاصطناعي":"fa-robot","تطوير المواقع":"fa-code","تصميم المواقع":"fa-palette","البرمجة":"fa-js","SEO":"fa-chart-line"};
+const icons={"الذكاء الاصطناعي":"fa-robot","تطوير المواقع":"fa-code","تصميم المواقع":"fa-palette","البرمجة":"fa-js","SEO":"fa-chart-line","الأدوات والتقنيات":"fa-screwdriver-wrench","الأداء وتجربة المستخدم":"fa-gauge-high"};
 const meta=(h,n,p=false)=>{const a=p?"property":"name",q=new RegExp("<meta\\s+[^>]*"+a+"=[\"']"+n+"[\"'][^>]*content=[\"']([^\"']+)[\"'][^>]*>","i"),m=h.match(q)||h.match(new RegExp("<meta\\s+[^>]*content=[\"']([^\"']+)[\"'][^>]*"+a+"=[\"']"+n+"[\"']","i"));return m?m[1].trim():""};
 const title=h=>(h.match(/<title>\s*([^<]+?)\s*<\/title>/i)||[,""])[1].trim();
 const articleData=h=>{for(const b of h.matchAll(/<script\s+type=["']application\/ld\+json["']>([\s\S]*?)<\/script>/gi)){try{const d=JSON.parse(b[1]);if(d["@type"]==="Article")return d}catch{}}return{}};
