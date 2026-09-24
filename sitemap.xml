@@ -1,1 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://gpldroid.github.io/mseo/</loc><changefreq>weekly</changefreq></url><url><loc>https://gpldroid.github.io/mseo/articles/ai-coding-prompts.html</loc><changefreq>weekly</changefreq></url><url><loc>https://gpldroid.github.io/mseo/articles/ai-website-builder-guide.html</loc><changefreq>weekly</changefreq></url><url><loc>https://gpldroid.github.io/mseo/articles/css-modern-design.html</loc><changefreq>weekly</changefreq></url><url><loc>https://gpldroid.github.io/mseo/articles/github-pages-deploy.html</loc><changefreq>weekly</changefreq></url><url><loc>https://gpldroid.github.io/mseo/articles/html-semantic-seo.html</loc><changefreq>weekly</changefreq></url><url><loc>https://gpldroid.github.io/mseo/articles/javascript-clean-code.html</loc><changefreq>weekly</changefreq></url><url><loc>https://gpldroid.github.io/mseo/articles/seo-content-strategy.html</loc><changefreq>weekly</changefreq></url><url><loc>https://gpldroid.github.io/mseo/articles/structured-data-guide.html</loc><changefreq>weekly</changefreq></url><url><loc>https://gpldroid.github.io/mseo/articles/web-performance-core.html</loc><changefreq>weekly</changefreq></url><url><loc>https://gpldroid.github.io/mseo/pages/web-development.html</loc><changefreq>weekly</changefreq></url><url><loc>https://gpldroid.github.io/mseo/pages/web-design.html</loc><changefreq>weekly</changefreq></url><url><loc>https://gpldroid.github.io/mseo/pages/programming.html</loc><changefreq>weekly</changefreq></url><url><loc>https://gpldroid.github.io/mseo/pages/seo.html</loc><changefreq>weekly</changefreq></url><url><loc>https://gpldroid.github.io/mseo/pages/about.html</loc><changefreq>weekly</changefreq></url><url><loc>https://gpldroid.github.io/mseo/pages/contact.html</loc><changefreq>weekly</changefreq></url><url><loc>https://gpldroid.github.io/mseo/pages/privacy.html</loc><changefreq>weekly</changefreq></url><url><loc>https://gpldroid.github.io/mseo/pages/terms.html</loc><changefreq>weekly</changefreq></url></urlset>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url><loc>https://gpldroid.github.io/mseo/</loc><changefreq>weekly</changefreq></url>
+<url><loc>https://gpldroid.github.io/mseo/articles/ai-coding-prompts.html</loc><changefreq>monthly</changefreq></url>
+<url><loc>https://gpldroid.github.io/mseo/articles/ai-website-builder-guide.html</loc><changefreq>monthly</changefreq></url>
+<url><loc>https://gpldroid.github.io/mseo/articles/css-modern-design.html</loc><changefreq>monthly</changefreq></url>
+<url><loc>https://gpldroid.github.io/mseo/articles/github-pages-deploy.html</loc><changefreq>monthly</changefreq></url>
+<url><loc>https://gpldroid.github.io/mseo/articles/html-semantic-seo.html</loc><changefreq>monthly</changefreq></url>
+<url><loc>https://gpldroid.github.io/mseo/articles/javascript-clean-code.html</loc><changefreq>monthly</changefreq></url>
+<url><loc>https://gpldroid.github.io/mseo/articles/seo-content-strategy.html</loc><changefreq>monthly</changefreq></url>
+<url><loc>https://gpldroid.github.io/mseo/articles/structured-data-guide.html</loc><changefreq>monthly</changefreq></url>
+<url><loc>https://gpldroid.github.io/mseo/articles/web-performance-core.html</loc><changefreq>monthly</changefreq></url>
+<url><loc>https://gpldroid.github.io/mseo/pages/ai.html</loc><changefreq>weekly</changefreq></url>
+<url><loc>https://gpldroid.github.io/mseo/pages/web-development.html</loc><changefreq>weekly</changefreq></url>
+<url><loc>https://gpldroid.github.io/mseo/pages/web-design.html</loc><changefreq>weekly</changefreq></url>
+<url><loc>https://gpldroid.github.io/mseo/pages/programming.html</loc><changefreq>weekly</changefreq></url>
+<url><loc>https://gpldroid.github.io/mseo/pages/seo.html</loc><changefreq>weekly</changefreq></url>
+<url><loc>https://gpldroid.github.io/mseo/pages/about.html</loc><changefreq>weekly</changefreq></url>
+<url><loc>https://gpldroid.github.io/mseo/pages/contact.html</loc><changefreq>weekly</changefreq></url>
+<url><loc>https://gpldroid.github.io/mseo/pages/privacy.html</loc><changefreq>weekly</changefreq></url>
+<url><loc>https://gpldroid.github.io/mseo/pages/terms.html</loc><changefreq>weekly</changefreq></url>
+</urlset>
