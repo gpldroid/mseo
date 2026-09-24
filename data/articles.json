@@ -1,11 +1,92 @@
 [
-{"slug":"ai-website-builder-guide","file":"ai-website-builder-guide.html","title":"كيفية إنشاء موقع احترافي بالذكاء الاصطناعي من الصفر في 2026","category":"الذكاء الاصطناعي","description":"دليل عملي للتخطيط وبناء موقع حديث بالذكاء الاصطناعي.","icon":"fa-robot"},
-{"slug":"ai-coding-prompts","file":"ai-coding-prompts.html","title":"أفضل Prompts لبرمجة المواقع بالذكاء الاصطناعي: من الفكرة إلى كود قابل للصيانة","category":"الذكاء الاصطناعي","description":"أمثلة عملية لصياغة Prompts دقيقة لكتابة ومراجعة الكود.","icon":"fa-wand-magic-sparkles"},
-{"slug":"html-semantic-seo","file":"html-semantic-seo.html","title":"دليل HTML الدلالي: كيف تبني صفحات ويب أفضل للـSEO والوصول","category":"تطوير المواقع","description":"بنية HTML الدلالية وعلاقتها بالوصول ومحركات البحث.","icon":"fa-code"},
-{"slug":"css-modern-design","file":"css-modern-design.html","title":"CSS الحديث لتصميم مواقع احترافية: Grid وFlexbox وResponsive Design","category":"تصميم المواقع","description":"أساسيات CSS الحديثة لبناء واجهات متجاوبة.","icon":"fa-palette"},
-{"slug":"javascript-clean-code","file":"javascript-clean-code.html","title":"JavaScript للمواقع: تنظيم الكود وتقليل الأخطاء وتحسين الأداء","category":"البرمجة","description":"ممارسات عملية لتنظيم JavaScript وتحسين الصيانة.","icon":"fa-js"},
-{"slug":"seo-content-strategy","file":"seo-content-strategy.html","title":"استراتيجية محتوى SEO للمواقع التقنية: الكلمات المفتاحية والنية والروابط الداخلية","category":"SEO","description":"منهج عملي لبناء محتوى يخدم نية البحث.","icon":"fa-chart-line"},
-{"slug":"github-pages-deploy","file":"github-pages-deploy.html","title":"نشر موقع HTML وCSS وJavaScript على GitHub Pages خطوة بخطوة","category":"تطوير المواقع","description":"دليل النشر والاستضافة على GitHub Pages.","icon":"fa-github"},
-{"slug":"structured-data-guide","file":"structured-data-guide.html","title":"Schema Markup للمقالات: كيف تستخدم البيانات المنظمة بطريقة صحيحة","category":"SEO","description":"شرح عملي للبيانات المنظمة والمخططات المناسبة للمقالات.","icon":"fa-sitemap"},
-{"slug":"web-performance-core","file":"web-performance-core.html","title":"تحسين سرعة الموقع وCore Web Vitals: دليل عملي للمطورين","category":"تطوير المواقع","description":"خطوات عملية لتحسين الأداء وتجربة المستخدم.","icon":"fa-gauge-high"}
+  {
+    "slug": "ai-website-builder-guide",
+    "file": "ai-website-builder-guide.html",
+    "title": "كيفية إنشاء موقع احترافي بالذكاء الاصطناعي من الصفر في 2026",
+    "category": "الذكاء الاصطناعي",
+    "subcategory": "بناء المواقع بالذكاء الاصطناعي",
+    "tags": ["AI Website Builder", "إنشاء المواقع", "أدوات الذكاء الاصطناعي", "تطوير المواقع", "Prompt Engineering"],
+    "description": "دليل عملي للتخطيط وبناء موقع حديث بالذكاء الاصطناعي.",
+    "icon": "fa-robot"
+  },
+  {
+    "slug": "ai-coding-prompts",
+    "file": "ai-coding-prompts.html",
+    "title": "أفضل Prompts لبرمجة المواقع بالذكاء الاصطناعي: من الفكرة إلى كود قابل للصيانة",
+    "category": "الذكاء الاصطناعي",
+    "subcategory": "AI للمطورين",
+    "tags": ["AI Coding", "Prompts", "Prompt Engineering", "برمجة المواقع", "مراجعة الكود", "كود قابل للصيانة"],
+    "description": "أمثلة عملية لصياغة Prompts دقيقة لكتابة ومراجعة الكود.",
+    "icon": "fa-wand-magic-sparkles"
+  },
+  {
+    "slug": "html-semantic-seo",
+    "file": "html-semantic-seo.html",
+    "title": "دليل HTML الدلالي: كيف تبني صفحات ويب أفضل للـSEO والوصول",
+    "category": "تطوير المواقع",
+    "subcategory": "HTML",
+    "tags": ["HTML5", "HTML الدلالي", "Semantic HTML", "SEO التقني", "إمكانية الوصول", "بنية الصفحة"],
+    "description": "بنية HTML الدلالية وعلاقتها بالوصول ومحركات البحث.",
+    "icon": "fa-code"
+  },
+  {
+    "slug": "css-modern-design",
+    "file": "css-modern-design.html",
+    "title": "CSS الحديث لتصميم مواقع احترافية: Grid وFlexbox وResponsive Design",
+    "category": "تصميم المواقع",
+    "subcategory": "Responsive Design",
+    "tags": ["CSS", "Flexbox", "CSS Grid", "Responsive Design", "تصميم متجاوب", "واجهات الويب"],
+    "description": "أساسيات CSS الحديثة لبناء واجهات متجاوبة.",
+    "icon": "fa-palette"
+  },
+  {
+    "slug": "javascript-clean-code",
+    "file": "javascript-clean-code.html",
+    "title": "JavaScript للمواقع: تنظيم الكود وتقليل الأخطاء وتحسين الأداء",
+    "category": "البرمجة",
+    "subcategory": "JavaScript",
+    "tags": ["JavaScript", "Clean Code", "تنظيم الكود", "Debugging", "صيانة الكود", "أداء JavaScript"],
+    "description": "ممارسات عملية لتنظيم JavaScript وتحسين الصيانة.",
+    "icon": "fa-js"
+  },
+  {
+    "slug": "seo-content-strategy",
+    "file": "seo-content-strategy.html",
+    "title": "استراتيجية محتوى SEO للمواقع التقنية: الكلمات المفتاحية والنية والروابط الداخلية",
+    "category": "SEO",
+    "subcategory": "Content SEO",
+    "tags": ["استراتيجية المحتوى", "Keyword Research", "نية البحث", "الروابط الداخلية", "SEO للمحتوى", "المواقع التقنية"],
+    "description": "منهج عملي لبناء محتوى يخدم نية البحث.",
+    "icon": "fa-chart-line"
+  },
+  {
+    "slug": "github-pages-deploy",
+    "file": "github-pages-deploy.html",
+    "title": "نشر موقع HTML وCSS وJavaScript على GitHub Pages خطوة بخطوة",
+    "category": "تطوير المواقع",
+    "subcategory": "الاستضافة والنشر",
+    "tags": ["GitHub Pages", "نشر المواقع", "استضافة المواقع", "Git", "HTML", "JavaScript"],
+    "description": "دليل النشر والاستضافة على GitHub Pages.",
+    "icon": "fa-github"
+  },
+  {
+    "slug": "structured-data-guide",
+    "file": "structured-data-guide.html",
+    "title": "Schema Markup للمقالات: كيف تستخدم البيانات المنظمة بطريقة صحيحة",
+    "category": "SEO",
+    "subcategory": "Technical SEO",
+    "tags": ["Schema Markup", "Structured Data", "JSON-LD", "Article Schema", "SEO التقني", "Rich Results"],
+    "description": "شرح عملي للبيانات المنظمة والمخططات المناسبة للمقالات.",
+    "icon": "fa-sitemap"
+  },
+  {
+    "slug": "web-performance-core",
+    "file": "web-performance-core.html",
+    "title": "تحسين سرعة الموقع وCore Web Vitals: دليل عملي للمطورين",
+    "category": "أداء المواقع",
+    "subcategory": "Core Web Vitals",
+    "tags": ["Core Web Vitals", "سرعة الموقع", "LCP", "INP", "CLS", "PageSpeed Insights"],
+    "description": "خطوات عملية لتحسين الأداء وتجربة المستخدم.",
+    "icon": "fa-gauge-high"
+  }
 ]
