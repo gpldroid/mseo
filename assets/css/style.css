@@ -306,3 +306,9 @@ html.dark .site-header .site-top-inner span,
 html.dark .site-header .site-top-inner time {
   color: var(--muted) !important;
 }
+
+/* Article cards: editorial cover image integrated with the Neumorphism surface */
+.site-card-media{display:block;overflow:hidden;margin:-10px -10px 20px;border-radius:18px;background:var(--surface);box-shadow:var(--shadow-in);aspect-ratio:16/9}
+.site-card-media img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .3s ease}
+.site-card:hover .site-card-media img{transform:scale(1.025)}
+.site-card-media:focus-visible{outline:3px solid color-mix(in srgb,var(--brand) 35%,transparent);outline-offset:3px}
