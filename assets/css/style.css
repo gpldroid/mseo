@@ -22,8 +22,8 @@ html{scroll-behavior:smooth}
 body{
  margin:0!important;min-height:100vh;overflow-x:hidden;
  background:var(--bg)!important;color:var(--text)!important;
- font-family:"Tajawal","Cairo",system-ui,-apple-system,"Segoe UI",sans-serif!important;
- line-height:1.8!important;transition:background .3s,color .3s
+ font-family:"Tahoma","Arial","Segoe UI",sans-serif!important;
+ font-size:16px!important;line-height:1.75!important;transition:background .3s,color .3s
 }
 a{color:inherit}
 button,input,select,textarea{font:inherit}
@@ -92,7 +92,7 @@ button,input,select,textarea{font:inherit}
 }
 .site-hero h1{
  max-width:900px!important;margin:0 auto 18px!important;
- font-size:clamp(2.3rem,6vw,4.7rem)!important;line-height:1.12!important;
+ font-size:clamp(2.1rem,4.5vw,3.8rem)!important;line-height:1.12!important;
  letter-spacing:-.045em!important;font-weight:950!important;text-shadow:1px 1px 1px rgba(255,255,255,.5)
 }
 .site-hero p{max-width:720px!important;margin:0 auto 30px!important;color:var(--muted)!important;font-size:1.06rem!important}
@@ -112,7 +112,7 @@ button,input,select,textarea{font:inherit}
 /* Sections / controls */
 .site-section{padding:70px 0!important}
 .site-section-head{margin-bottom:28px!important;align-items:flex-end!important}
-.site-section-head h2{font-size:2rem!important;letter-spacing:-.03em!important;margin:5px 0!important}
+.site-section-head h2{font-size:1.65rem!important;letter-spacing:-.03em!important;margin:5px 0!important}
 .site-section-head>a{font-weight:950!important;color:var(--brand)!important}
 .site-filter{display:grid!important;grid-template-columns:1fr 260px!important;gap:16px!important;margin-bottom:28px!important}
 .site-filter input,.site-filter select{
@@ -360,12 +360,12 @@ html.dark .site-header .site-top-inner time {
 .site-load-more[hidden]{display:none!important}
 .site-footer{margin-top:50px!important;background:var(--surface)!important;color:var(--text)!important;border:0!important;box-shadow:0 -10px 24px rgba(163,171,186,.18)!important}
 html.dark .site-footer{box-shadow:0 -10px 24px rgba(0,0,0,.2)!important}
-.site-footer-grid{grid-template-columns:1.5fr 1fr 1fr .8fr!important;gap:30px!important;padding:55px 0!important}
-.site-footer h2,.site-footer h3{color:var(--text)!important;margin:0 0 12px!important}
+.site-footer-grid{grid-template-columns:minmax(280px,1.7fr) repeat(2,minmax(150px,1fr)) minmax(120px,.8fr)!important;gap:38px!important;padding:52px 0 44px!important}
+.site-footer h2,.site-footer h3{color:var(--text)!important;margin:0 0 14px!important;font-size:1.05rem!important;line-height:1.5!important}.site-footer h2{font-size:1.35rem!important;font-weight:950!important}.site-footer p{max-width:360px!important;font-size:.9rem!important;line-height:1.9!important;margin:0!important}
 .site-footer p,.site-footer a{color:var(--muted)!important}
 .site-footer a:hover{color:var(--brand)!important}
-.site-footer-links{display:grid!important;gap:8px!important}
+.site-footer-links{display:grid!important;gap:10px!important}.site-footer-links a{font-size:.88rem!important;line-height:1.7!important;text-decoration:none!important}
 .site-social{width:40px!important;height:40px!important;border:0!important;border-radius:13px!important;background:var(--surface)!important;box-shadow:var(--shadow-out-sm)!important}
-.site-footer-bottom{border-top:0!important;padding:16px 0!important;box-shadow:var(--shadow-in)!important;color:var(--muted)!important}
-@media(max-width:1000px){.site-footer-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+.site-footer-bottom{border-top:0!important;padding:17px 0!important;font-size:.78rem!important;box-shadow:var(--shadow-in)!important;color:var(--muted)!important}
+@media(max-width:1000px){.site-footer-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:28px!important}}
 @media(max-width:680px){.site-footer-grid{grid-template-columns:1fr!important}}
