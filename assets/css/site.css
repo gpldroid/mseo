@@ -498,75 +498,17 @@ color: var(--mseo-muted);
 /* --------------------------------------------------------------------------
 6. Footer Section
 -------------------------------------------------------------------------- */
-.site-footer {
-margin-top: 48px;
-background: #0b1220;
-color: #cbd5e1;
-border-top: 1px solid #1e293b;
-}
-
-.site-footer-grid {
-display: grid;
-grid-template-columns: 1.45fr 1fr 1fr 0.9fr;
-gap: 30px;
-padding: 42px 0;
-}
-
-.site-footer h2,
-.site-footer h3 {
-color: #ffffff;
-margin: 0 0 12px;
-font-size: 1rem;
-}
-
-.site-footer p {
-margin: 0;
-color: #94a3b8;
-font-size: 0.86rem;
-}
-
-.site-footer a {
-color: #cbd5e1;
-text-decoration: none;
-font-size: 0.84rem;
-}
-
-.site-footer-links {
-display: grid;
-gap: 7px;
-}
-
-.site-socials {
-display: flex;
-flex-wrap: wrap;
-gap: 8px;
-margin-top: 18px;
-}
-
-.site-social {
-width: 38px;
-height: 38px;
-border: 1px solid #334155;
-border-radius: 11px;
-display: grid !important;
-place-items: center;
-background: #111827;
-transition: transform var(--mseo-transition), background-color var(--mseo-transition);
-}
-
-.site-social:hover {
-color: #ffffff;
-background: #1e293b;
-transform: translateY(-2px);
-}
-
-.site-footer-bottom {
-border-top: 1px solid #1e293b;
-padding: 16px 0;
-text-align: center;
-font-size: 0.76rem;
-color: #94a3b8;
-}
+.site-footer{margin-top:50px;background:var(--surface);color:var(--text);border:0;box-shadow:0 -10px 24px rgba(163,171,186,.18)}
+html.dark .site-footer{box-shadow:0 -10px 24px rgba(0,0,0,.2)}
+.site-footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr .8fr;gap:30px;padding:55px 0}
+.site-footer h2,.site-footer h3{color:var(--text);margin:0 0 12px}
+.site-footer p,.site-footer a{color:var(--muted)}
+.site-footer a:hover{color:var(--brand)}
+.site-footer-links{display:grid;gap:7px}
+.site-socials{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.site-social{width:40px;height:40px;border:0;border-radius:13px;display:grid!important;place-items:center;background:var(--surface);box-shadow:var(--shadow-out-sm);transition:.2s ease}
+.site-social:hover{color:var(--brand);transform:translateY(-2px)}
+.site-footer-bottom{border-top:0;padding:16px 0;text-align:center;font-size:.76rem;color:var(--muted);box-shadow:var(--shadow-in)}
 
 /* --------------------------------------------------------------------------
 7. Modals, Search & UI Components
