@@ -61,3 +61,14 @@ main>article .prose th{background:var(--surface-2);font-weight:800}
  .site-article-tools{margin-top:28px}
  .site-footer-grid{grid-template-columns:1fr!important}
 }
+
+/* Mobile menu refinement */
+.site-mobile-toggle{display:none!important}
+.site-mobile-menu .site-container{display:flex;flex-direction:column;gap:10px;padding-top:8px}
+.site-mobile-menu a{display:flex;align-items:center;justify-content:flex-start;gap:10px;min-height:48px;padding:12px 16px;border-radius:var(--radius-sm);background:var(--surface);box-shadow:var(--shadow-out-sm);color:var(--text);text-decoration:none;font-weight:800;line-height:1.6}
+.site-mobile-menu a:hover,.site-mobile-menu a[aria-current="page"]{color:var(--brand);box-shadow:var(--shadow-in)}
+@media(max-width:768px){
+ .site-mobile-toggle{display:grid!important}
+ .site-mobile-menu{padding:8px 0 18px}
+ .site-mobile-menu .site-container{gap:10px}
+}
