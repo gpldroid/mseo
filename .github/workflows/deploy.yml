@@ -30,6 +30,7 @@ jobs:
           path: |
             data/articles.json
             sitemap.xml
+            rss.xml
   deploy:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     needs: validate
