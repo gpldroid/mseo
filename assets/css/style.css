@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap');
-
 :root{
   --bg:#eef2f7;--surface:#eef2f7;--surface-2:#e4e9f2;--text:#1e293b;--muted:#64748b;
   --brand:#4f46e5;--brand-hover:#4338ca;--brand-light:#e0e7ff;--accent:#06b6d4;--success:#10b981;
@@ -395,3 +393,16 @@ html.dark .article-main .article-keywords span:nth-of-type(6){color:#f0a0a9}
 .site-scroll-tools .site-theme-toggle:active{
   transform:translateY(1px);
 }
+
+
+/* PageSpeed / accessibility refinements — preserves the existing visual design */
+:root{--muted:#475569}
+[data-site-header]{min-height:116px}
+a{transition:color .2s ease,background-color .2s ease,border-color .2s ease,transform .2s ease,opacity .2s ease}
+.site-header{transition:background-color .3s ease,color .3s ease,border-color .3s ease}
+.site-card,.site-featured-item,.site-footer-panel,.site-scroll-btn{transition:transform .2s ease,opacity .2s ease,border-color .2s ease,background-color .2s ease!important}
+.site-scroll-btn.show{transition:opacity .2s ease,visibility .2s ease,transform .2s ease!important}
+.site-card-media{display:block}
+.site-card-media img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
+.site-read{cursor:default}
+@media(max-width:768px){[data-site-header]{min-height:100px}}
