@@ -10,24 +10,25 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        brand: {
-          50: "#eff6ff",
-          100: "#dbeaff",
-          500: "#3b82f6",
-          600: "#0066cc",
-          700: "#0052a3",
-          800: "#1e40af",
-          900: "#1e3a8a",
-          accent: "#10b981"
+        mseo: {
+          primary: "#4f46e5",
+          blue: "#3b82f6",
+          purple: "#8b5cf6",
+          emerald: "#10b981",
+          bg: "#f8fafc",
+          dark: "#0f172a",
+          card: "#ffffff",
+          "dark-card": "#1e293b"
         }
       },
       fontFamily: {
-        arabic: ["Tajawal", "Cairo", "sans-serif"],
+        arabic: ["Readex Pro", "Cairo", "sans-serif"],
         latin: ["Inter", "system-ui", "sans-serif"]
       },
       boxShadow: {
-        glass: "0 8px 32px 0 rgba(0, 0, 0, 0.12)",
-        glow: "0 0 20px rgba(0, 102, 204, 0.35)"
+        glass: "0 8px 32px rgba(15, 23, 42, .12)",
+        soft: "0 10px 30px rgba(15, 23, 42, .07)",
+        glow: "0 0 24px rgba(79, 70, 229, .28)"
       }
     }
   },
