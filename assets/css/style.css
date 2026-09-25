@@ -371,11 +371,27 @@ html.dark .article-main .article-keywords span:nth-of-type(6){color:#f0a0a9}
   flex:0 0 auto;
   direction:rtl;
 }
-.site-mainbar .site-action{order:10;flex:0 0 44px}
-.site-mainbar .site-action-theme{order:30}
+.site-mainbar .site-action{
+  order:10;
+  flex:0 0 44px;
+}
 .site-mainbar .site-action-menu{order:40}
 @media(max-width:768px){
   .site-mainbar{gap:12px}
   .site-mainbar .site-actions{gap:8px}
   .site-mainbar .site-action{width:42px;height:42px}
+}
+
+/* Floating theme control: grouped with scroll tools */
+.site-scroll-tools .site-theme-toggle{
+  opacity:1;
+  visibility:visible;
+  transform:none;
+  order:1;
+}
+.site-scroll-tools .site-theme-toggle:hover{
+  transform:translateY(-3px) scale(1.02);
+}
+.site-scroll-tools .site-theme-toggle:active{
+  transform:translateY(1px);
 }
