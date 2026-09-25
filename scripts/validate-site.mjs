@@ -63,6 +63,18 @@ for(const f of html){
       if(!categoryPath)errors.push(rel+" -> unknown category: "+article.category);
       else if(!s.includes(base+"/"+categoryPath))errors.push(rel+" -> breadcrumb category link mismatch");
       if(!s.includes(">"+article.category+"</span>"))errors.push(rel+" -> visible breadcrumb category mismatch");
+
+      const featuredImage=s.match(/<article\\b[^>]*>[\\s\\S]*?<img\\b[^>]*>/i)?.[0]||"";
+      if(!featuredImage)errors.push(rel+" -> missing featured image");
+      else{
+        const alt=match(/\\balt="([^"]+)"/i,featuredImage);
+        const keywords=match(/<meta name="keywords" content="([^"]+)"/i,s)
+          .split(",").map(x=>x.trim()).filter(Boolean);
+        if(!alt)errors.push(rel+" -> featured image missing alt");
+        else if(keywords.length && !keywords.some(k=>alt.toLowerCase().includes(k.toLowerCase()))){
+          errors.push(rel+" -> featured image alt does not contain an article keyword");
+        }
+      }
     }
   }
 
