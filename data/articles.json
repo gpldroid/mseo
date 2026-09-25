@@ -6,18 +6,20 @@
     "category": "الذكاء الاصطناعي",
     "subcategory": "بناء المواقع بالذكاء الاصطناعي",
     "tags": [
-      "AI Website Builder",
-      "إنشاء المواقع",
-      "أدوات الذكاء الاصطناعي",
-      "تطوير المواقع",
-      "Prompt Engineering"
+      "AI Tools",
+      "ChatGPT",
+      "AI Coding"
     ],
-    "description": "دليل عملي للتخطيط وبناء موقع حديث بالذكاء الاصطناعي.",
+    "description": "دليل عملي للتخطيط وبناء موقع حديث بالذكاء الاصطناعي من الفكرة إلى النشر والتحسين.",
     "icon": "fa-robot",
     "author": "عماد الدين لمراني",
     "authorUrl": "https://gpldroid.github.io/mseo/pages/author-emad.html",
     "datePublished": "2026-09-23",
-    "dateModified": "2026-09-23"
+    "dateModified": "2026-09-25",
+    "type": "Pillar",
+    "intent": "Informational",
+    "focusKeyword": "إنشاء موقع بالذكاء الاصطناعي",
+    "status": "published"
   },
   {
     "slug": "ai-coding-prompts",
@@ -27,18 +29,20 @@
     "subcategory": "AI للمطورين",
     "tags": [
       "AI Coding",
-      "Prompts",
       "Prompt Engineering",
-      "برمجة المواقع",
-      "مراجعة الكود",
-      "كود قابل للصيانة"
+      "HTML",
+      "JavaScript"
     ],
-    "description": "أمثلة عملية لصياغة Prompts دقيقة لكتابة ومراجعة الكود.",
+    "description": "أمثلة عملية لصياغة Prompts دقيقة لكتابة ومراجعة HTML وCSS وJavaScript باستخدام أدوات الذكاء الاصطناعي.",
     "icon": "fa-wand-magic-sparkles",
     "author": "عماد الدين لمراني",
     "authorUrl": "https://gpldroid.github.io/mseo/pages/author-emad.html",
     "datePublished": "2026-09-18",
-    "dateModified": "2026-09-23"
+    "dateModified": "2026-09-25",
+    "type": "Cluster",
+    "intent": "Informational",
+    "focusKeyword": "Prompts برمجة المواقع",
+    "status": "published"
   },
   {
     "slug": "html-semantic-seo",
@@ -47,61 +51,67 @@
     "category": "تطوير المواقع",
     "subcategory": "HTML",
     "tags": [
-      "HTML5",
-      "HTML الدلالي",
+      "HTML",
       "Semantic HTML",
-      "SEO التقني",
-      "إمكانية الوصول",
-      "بنية الصفحة"
+      "Technical SEO",
+      "Accessibility"
     ],
-    "description": "بنية HTML الدلالية وعلاقتها بالوصول ومحركات البحث.",
+    "description": "دليل عملي لاستخدام عناصر HTML الدلالية لبناء صفحات أوضح للمستخدمين ومحركات البحث.",
     "icon": "fa-code",
     "author": "عماد الدين لمراني",
     "authorUrl": "https://gpldroid.github.io/mseo/pages/author-emad.html",
     "datePublished": "2026-09-22",
-    "dateModified": "2026-09-23"
+    "dateModified": "2026-09-25",
+    "type": "Pillar",
+    "intent": "Informational",
+    "focusKeyword": "HTML الدلالي",
+    "status": "published"
   },
   {
     "slug": "css-modern-design",
     "file": "css-modern-design.html",
     "title": "CSS الحديث لتصميم مواقع احترافية: Grid وFlexbox وResponsive Design",
-    "category": "تصميم المواقع",
+    "category": "تطوير المواقع",
     "subcategory": "Responsive Design",
     "tags": [
       "CSS",
       "Flexbox",
       "CSS Grid",
-      "Responsive Design",
-      "تصميم متجاوب",
-      "واجهات الويب"
+      "Responsive Design"
     ],
-    "description": "أساسيات CSS الحديثة لبناء واجهات متجاوبة.",
+    "description": "شرح عملي لبناء واجهات متجاوبة باستخدام CSS وFlexbox وGrid مع مراعاة الهاتف وتجربة المستخدم.",
     "icon": "fa-palette",
     "author": "عماد الدين لمراني",
     "authorUrl": "https://gpldroid.github.io/mseo/pages/author-emad.html",
     "datePublished": "2026-09-21",
-    "dateModified": "2026-09-23"
+    "dateModified": "2026-09-25",
+    "type": "Cluster",
+    "intent": "Informational",
+    "focusKeyword": "Responsive Design",
+    "status": "published"
   },
   {
     "slug": "javascript-clean-code",
     "file": "javascript-clean-code.html",
     "title": "JavaScript للمواقع: تنظيم الكود وتقليل الأخطاء وتحسين الأداء",
-    "category": "البرمجة",
+    "category": "تطوير المواقع",
     "subcategory": "JavaScript",
     "tags": [
       "JavaScript",
       "Clean Code",
-      "تنظيم الكود",
       "Debugging",
-      "صيانة الكود",
-      "أداء JavaScript"
+      "Web Performance"
     ],
-    "description": "ممارسات عملية لتنظيم JavaScript وتحسين الصيانة.",
+    "description": "ممارسات عملية لتنظيم JavaScript وتقليل الأخطاء وتحسين صيانة وأداء كود الويب.",
     "icon": "fa-js",
     "author": "عماد الدين لمراني",
     "authorUrl": "https://gpldroid.github.io/mseo/pages/author-emad.html",
     "datePublished": "2026-09-20",
-    "dateModified": "2026-09-23"
+    "dateModified": "2026-09-25",
+    "type": "Cluster",
+    "intent": "Informational",
+    "focusKeyword": "تنظيم كود JavaScript",
+    "status": "published"
   },
   {
     "slug": "seo-content-strategy",
@@ -110,19 +120,21 @@
     "category": "SEO",
     "subcategory": "Content SEO",
     "tags": [
-      "استراتيجية المحتوى",
+      "SEO Content",
       "Keyword Research",
-      "نية البحث",
-      "الروابط الداخلية",
-      "SEO للمحتوى",
-      "المواقع التقنية"
+      "Search Intent",
+      "Internal Linking"
     ],
-    "description": "منهج عملي لبناء محتوى يخدم نية البحث.",
+    "description": "منهج عملي لبناء Topic Clusters ومحتوى يخدم نية البحث مع ربط داخلي يقلل تداخل الكلمات المفتاحية.",
     "icon": "fa-chart-line",
     "author": "عماد الدين لمراني",
     "authorUrl": "https://gpldroid.github.io/mseo/pages/author-emad.html",
     "datePublished": "2026-09-19",
-    "dateModified": "2026-09-23"
+    "dateModified": "2026-09-25",
+    "type": "Pillar",
+    "intent": "Informational",
+    "focusKeyword": "استراتيجية محتوى SEO",
+    "status": "published"
   },
   {
     "slug": "github-pages-deploy",
@@ -132,18 +144,20 @@
     "subcategory": "الاستضافة والنشر",
     "tags": [
       "GitHub Pages",
-      "نشر المواقع",
-      "استضافة المواقع",
-      "Git",
       "HTML",
-      "JavaScript"
+      "JavaScript",
+      "Hosting"
     ],
-    "description": "دليل النشر والاستضافة على GitHub Pages.",
+    "description": "شرح عملي لنشر موقع HTML وCSS وJavaScript على GitHub Pages وربطه بنطاق مخصص.",
     "icon": "fa-github",
     "author": "عماد الدين لمراني",
     "authorUrl": "https://gpldroid.github.io/mseo/pages/author-emad.html",
     "datePublished": "2026-09-17",
-    "dateModified": "2026-09-23"
+    "dateModified": "2026-09-25",
+    "type": "Cluster",
+    "intent": "Transactional",
+    "focusKeyword": "GitHub Pages",
+    "status": "published"
   },
   {
     "slug": "structured-data-guide",
@@ -153,18 +167,20 @@
     "subcategory": "Technical SEO",
     "tags": [
       "Schema Markup",
-      "Structured Data",
       "JSON-LD",
       "Article Schema",
-      "SEO التقني",
-      "Rich Results"
+      "Technical SEO"
     ],
-    "description": "شرح عملي للبيانات المنظمة والمخططات المناسبة للمقالات.",
+    "description": "شرح عملي لإضافة Article Schema وBreadcrumbList باستخدام JSON-LD والتحقق من صحة البيانات المنظمة.",
     "icon": "fa-sitemap",
     "author": "عماد الدين لمراني",
     "authorUrl": "https://gpldroid.github.io/mseo/pages/author-emad.html",
     "datePublished": "2026-09-16",
-    "dateModified": "2026-09-23"
+    "dateModified": "2026-09-25",
+    "type": "Cluster",
+    "intent": "Informational",
+    "focusKeyword": "Schema Markup للمقالات",
+    "status": "published"
   },
   {
     "slug": "web-performance-core",
@@ -174,17 +190,196 @@
     "subcategory": "Core Web Vitals",
     "tags": [
       "Core Web Vitals",
-      "سرعة الموقع",
       "LCP",
       "INP",
       "CLS",
       "PageSpeed Insights"
     ],
-    "description": "خطوات عملية لتحسين الأداء وتجربة المستخدم.",
+    "description": "دليل عملي لفهم Core Web Vitals وتشخيص وتحسين LCP وINP وCLS وأداء صفحات الويب.",
     "icon": "fa-gauge-high",
     "author": "عماد الدين لمراني",
     "authorUrl": "https://gpldroid.github.io/mseo/pages/author-emad.html",
     "datePublished": "2026-09-15",
-    "dateModified": "2026-09-23"
+    "dateModified": "2026-09-25",
+    "type": "Pillar",
+    "intent": "Informational",
+    "focusKeyword": "Core Web Vitals",
+    "status": "published"
+  },
+  {
+    "slug": "ai-javascript-code-review",
+    "file": "ai-javascript-code-review.html",
+    "title": "كيف تستخدم الذكاء الاصطناعي لمراجعة وتحسين كود JavaScript؟",
+    "category": "الذكاء الاصطناعي",
+    "subcategory": "AI للمطورين",
+    "tags": [
+      "AI Coding",
+      "JavaScript",
+      "ChatGPT"
+    ],
+    "description": "تعلم طريقة استخدام الذكاء الاصطناعي لاكتشاف أخطاء JavaScript وتحسين تنظيم الكود والأداء مع خطوات تحقق عملية.",
+    "icon": "fa-code",
+    "author": "عماد الدين لمراني",
+    "authorUrl": "https://gpldroid.github.io/mseo/pages/author-emad.html",
+    "datePublished": "2026-09-27",
+    "dateModified": "2026-09-25",
+    "type": "Cluster",
+    "intent": "Informational",
+    "focusKeyword": "تحسين كود JavaScript بالذكاء الاصطناعي",
+    "status": "planned"
+  },
+  {
+    "slug": "new-site-seo-guide",
+    "file": "new-site-seo-guide.html",
+    "title": "دليل SEO للمواقع الجديدة: من اختيار الكلمات المفتاحية إلى أول ظهور في Google",
+    "category": "SEO",
+    "subcategory": "SEO للمواقع الجديدة",
+    "tags": [
+      "On-Page SEO",
+      "Technical SEO",
+      "SEO Content"
+    ],
+    "description": "خطة عملية لتحسين SEO لموقع جديد تبدأ من نية البحث والكلمات المفتاحية وتنتهي بالفهرسة والربط الداخلي.",
+    "icon": "fa-magnifying-glass-chart",
+    "author": "عماد الدين لمراني",
+    "authorUrl": "https://gpldroid.github.io/mseo/pages/author-emad.html",
+    "datePublished": "2026-09-28",
+    "dateModified": "2026-09-25",
+    "type": "Pillar",
+    "intent": "Informational",
+    "focusKeyword": "SEO للمواقع الجديدة",
+    "status": "planned"
+  },
+  {
+    "slug": "seo-topic-clusters",
+    "file": "seo-topic-clusters.html",
+    "title": "استراتيجية محتوى SEO: كيف تبني Topic Clusters بدون تكرار الكلمات المفتاحية؟",
+    "category": "SEO",
+    "subcategory": "Content SEO",
+    "tags": [
+      "SEO Content",
+      "Internal Linking",
+      "Keyword Research"
+    ],
+    "description": "تعلم بناء Topic Clusters وربط المقالات داخلياً بطريقة منظمة تساعد على تغطية الموضوع وتقليل تداخل الكلمات المفتاحية.",
+    "icon": "fa-diagram-project",
+    "author": "عماد الدين لمراني",
+    "authorUrl": "https://gpldroid.github.io/mseo/pages/author-emad.html",
+    "datePublished": "2026-09-29",
+    "dateModified": "2026-09-25",
+    "type": "Cluster",
+    "intent": "Informational",
+    "focusKeyword": "استراتيجية محتوى SEO",
+    "status": "planned"
+  },
+  {
+    "slug": "lcp-optimization",
+    "file": "lcp-optimization.html",
+    "title": "كيفية تحسين LCP وتسريع ظهور المحتوى الرئيسي في صفحات الويب",
+    "category": "أداء المواقع",
+    "subcategory": "Core Web Vitals",
+    "tags": [
+      "LCP",
+      "PageSpeed Insights",
+      "Performance"
+    ],
+    "description": "خطوات عملية لتشخيص مشكلة LCP وتحسين الصور والخطوط وCSS والموارد التي تؤثر في سرعة ظهور المحتوى الرئيسي.",
+    "icon": "fa-bolt",
+    "author": "عماد الدين لمراني",
+    "authorUrl": "https://gpldroid.github.io/mseo/pages/author-emad.html",
+    "datePublished": "2026-10-05",
+    "dateModified": "2026-09-25",
+    "type": "Cluster",
+    "intent": "Informational",
+    "focusKeyword": "تحسين LCP",
+    "status": "planned"
+  },
+  {
+    "slug": "cls-optimization",
+    "file": "cls-optimization.html",
+    "title": "كيفية تقليل CLS ومنع تحرك عناصر الصفحة أثناء التحميل",
+    "category": "أداء المواقع",
+    "subcategory": "Core Web Vitals",
+    "tags": [
+      "CLS",
+      "Core Web Vitals",
+      "UX"
+    ],
+    "description": "دليل عملي لاكتشاف أسباب CLS وتقليل تحرك الصور والإعلانات والعناصر أثناء تحميل صفحات الموقع.",
+    "icon": "fa-arrows-up-down",
+    "author": "عماد الدين لمراني",
+    "authorUrl": "https://gpldroid.github.io/mseo/pages/author-emad.html",
+    "datePublished": "2026-10-06",
+    "dateModified": "2026-09-25",
+    "type": "Cluster",
+    "intent": "Informational",
+    "focusKeyword": "تقليل CLS",
+    "status": "planned"
+  },
+  {
+    "slug": "google-search-console-guide",
+    "file": "google-search-console-guide.html",
+    "title": "Google Search Console للمبتدئين: دليل تحليل ظهور موقعك في Google",
+    "category": "أدوات وتقنيات الويب",
+    "subcategory": "Google Search Console",
+    "tags": [
+      "Google Search Console",
+      "SEO",
+      "Indexing"
+    ],
+    "description": "دليل عملي للمبتدئين لفهم تقارير Google Search Console ومراقبة الفهرسة والظهور والنقرات والكلمات المفتاحية.",
+    "icon": "fa-chart-column",
+    "author": "عماد الدين لمراني",
+    "authorUrl": "https://gpldroid.github.io/mseo/pages/author-emad.html",
+    "datePublished": "2026-10-07",
+    "dateModified": "2026-09-25",
+    "type": "Pillar",
+    "intent": "Informational",
+    "focusKeyword": "Google Search Console",
+    "status": "planned"
+  },
+  {
+    "slug": "sitemap-xml-guide",
+    "file": "sitemap-xml-guide.html",
+    "title": "Sitemap XML: ما هي وكيف تنشئ Sitemap صحيحة لموقعك؟",
+    "category": "أدوات وتقنيات الويب",
+    "subcategory": "Crawling",
+    "tags": [
+      "Sitemap",
+      "XML",
+      "Google"
+    ],
+    "description": "شرح Sitemap XML وأفضل طريقة لإنشائها وإضافتها إلى Google Search Console لمساعدة محركات البحث على اكتشاف صفحات الموقع.",
+    "icon": "fa-sitemap",
+    "author": "عماد الدين لمراني",
+    "authorUrl": "https://gpldroid.github.io/mseo/pages/author-emad.html",
+    "datePublished": "2026-10-08",
+    "dateModified": "2026-09-25",
+    "type": "Cluster",
+    "intent": "Informational",
+    "focusKeyword": "Sitemap XML",
+    "status": "planned"
+  },
+  {
+    "slug": "robots-txt-guide",
+    "file": "robots-txt-guide.html",
+    "title": "robots.txt: الدليل الصحيح للتحكم في زحف محركات البحث إلى موقعك",
+    "category": "أدوات وتقنيات الويب",
+    "subcategory": "Crawling",
+    "tags": [
+      "Robots.txt",
+      "Crawling",
+      "Technical SEO"
+    ],
+    "description": "تعلم كيفية كتابة robots.txt بشكل صحيح والتحكم في الزحف دون منع Google من الوصول إلى الصفحات التي تريد فهرستها.",
+    "icon": "fa-robot",
+    "author": "عماد الدين لمراني",
+    "authorUrl": "https://gpldroid.github.io/mseo/pages/author-emad.html",
+    "datePublished": "2026-10-09",
+    "dateModified": "2026-09-25",
+    "type": "Cluster",
+    "intent": "Informational",
+    "focusKeyword": "robots.txt",
+    "status": "planned"
   }
 ]
