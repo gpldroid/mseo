@@ -46,7 +46,7 @@ scroll-behavior: smooth;
 
 body {
 margin: 0;
-background: var(--mseo-bg);
+background:  black;
 color: var(--mseo-text);
 font-family: "Readex Pro", "Cairo", "Inter", system-ui, sans-serif;
 line-height: 1.8;
