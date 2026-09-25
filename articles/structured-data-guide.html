@@ -43,12 +43,26 @@
 <div class="flex flex-wrap gap-2 mb-4 article-meta"><span class="bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-full article-category">SEO</span><time datetime="2026-09-16" class="text-xs text-slate-500 px-2 py-1.5 article-date">16 سبتمبر 2026</time></div>
 <h1 class="text-2xl sm:text-4xl font-black leading-tight text-slate-950 dark:text-white">Schema Markup للمقالات: كيف تستخدم البيانات المنظمة بطريقة صحيحة</h1>
 <p class="mt-5 text-base leading-8 text-slate-600 dark:text-slate-300 article-lead">شرح عملي لبيانات Article وBreadcrumbList وWebSite وكيفية استخدامها لشرح محتوى الصفحات لمحركات البحث دون ادعاءات أو بيانات مضللة.</p>
-<div class="mt-8 prose prose-slate max-w-none dark:prose-invert"><section><h2>ما هي البيانات المنظمة؟</h2><p>هي صيغة منظمة تساعد محركات البحث على فهم نوع المحتوى وخصائصه. JSON-LD من أكثر الصيغ شيوعًا، ويمكن وضعه في head أو body.</p></section>
-<section><h2>Article Schema</h2><p>صفحة المقال يمكن أن تصف العنوان والمؤلف وتاريخ النشر والصورة والناشر. يجب أن تتطابق هذه القيم مع المعلومات الظاهرة في الصفحة.</p></section>
-<section><h2>BreadcrumbList</h2><p>يساعد وصف مسار الصفحة مثل الرئيسية > SEO > عنوان المقال على توضيح بنية الموقع. لا تضف مسارًا غير موجود فعليًا في الصفحة.</p></section>
-<section><h2>أخطاء شائعة</h2><p>لا تضف تقييمات أو أسعارًا أو حقولًا لا تظهر في المحتوى. لا تستخدم البيانات المنظمة كوسيلة لحشو كلمات أو تقديم معلومات مزيفة.</p></section>
-<section><h2>الاختبار والتحديث</h2><p>بعد إضافة Schema استخدم أدوات Google المناسبة للتحقق من الصيغة، ثم راقب Search Console عند توفر بيانات الموقع.</p></section>
-<section><h2>الخلاصة</h2><p>Schema طبقة تفسيرية مفيدة، لكنها لا تعوض المحتوى الجيد أو البنية الصحيحة أو تجربة المستخدم.</p></section></div>
+<div class="mt-8 prose prose-slate max-w-none dark:prose-invert">
+<section><h2>ما الذي تفعله البيانات المنظمة فعلًا؟</h2><p>البيانات المنظمة هي وصف منظم لمحتوى الصفحة يساعد الأنظمة على فهم عناصره، مثل أنها مقال، ومن هو مؤلفه، ومتى نُشر. لا تغيّر النص الظاهر للمستخدم ولا تعوّض عن صفحة ضعيفة؛ قيمتها في توضيح المعلومات الموجودة أصلًا.</p></section>
+<section><h2>اختر النوع الذي يطابق الصفحة</h2><p>للمقال يمكن استخدام <code>Article</code> أو <code>BlogPosting</code> بحسب الحالة. وإذا كان للصفحة مسار تنقل ظاهر، يمكن وصفه بـ<code>BreadcrumbList</code>. القاعدة العملية هي أن يكون المخطط وصفًا أمينًا للصفحة، لا مجموعة حقول نضيفها على أمل الحصول على مظهر خاص في نتائج البحث.</p></section>
+<section><h2>مثال Article باستخدام JSON-LD</h2><pre><code>{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "عنوان المقال",
+  "author": {
+    "@type": "Person",
+    "name": "اسم المؤلف",
+    "url": "https://example.com/author/"
+  },
+  "datePublished": "2026-09-25",
+  "image": "https://example.com/article.jpg"
+}</code></pre><p>القيم هنا يجب أن تكون حقيقية ومطابقة للصفحة. إذا كان اسم المؤلف أو التاريخ أو الصورة مختلفًا في المحتوى الظاهر، أصلح المصدر نفسه بدل كتابة قيمة أخرى داخل JSON-LD.</p></section>
+<section><h2>المؤلف والتواريخ والصورة</h2><p>عند وصف المقال، اجعل المؤلف شخصًا أو جهة حقيقية يمكن التعرف إليها، واستخدم تاريخ النشر أو التعديل الفعلي. الصورة الموصوفة في المخطط ينبغي أن تمثل المقال وأن تكون متاحة لمحركات البحث. لا تضف بيانات اعتماد أو روابط اجتماعية لمجرد تحسين المظهر إذا لم تكن لديك معلومات موثوقة عنها.</p></section>
+<section><h2>BreadcrumbList يجب أن يطابق المسار الظاهر</h2><p>إذا كانت الصفحة تعرض «الرئيسية ← التصنيف ← المقال»، فيجب أن يعكس المخطط هذا المسار نفسه. لا تنشئ مسارًا وهميًا فقط لأن بنية البيانات تسمح به؛ الهدف هو وصف هيكل الموقع كما يراه المستخدم.</p></section>
+<section><h2>أخطاء شائعة في Schema</h2><p>من أكثر الأخطاء شيوعًا نسخ مخطط من صفحة أخرى، إضافة تقييمات أو أسعار غير موجودة، أو ترك بيانات قديمة بعد تعديل المقال. كذلك لا تكرر نفس المعلومات بصيغ متناقضة بين HTML وJSON-LD.</p></section>
+<section><h2>الاختبار والصيانة</h2><p>بعد النشر، اختبر صحة البيانات المنظمة بأدوات Google المناسبة وتابع Search Console عندما تتوفر بيانات كافية. وعند تغيير العنوان أو المؤلف أو الصورة أو التاريخ، حدّث المخطط مع المحتوى بدل ترك نسخة قديمة منه.</p></section>
+<section><h2>الخلاصة</h2><p>استخدم Schema كطبقة وصف دقيقة فوق صفحة مفيدة أصلًا. التطابق مع المحتوى الظاهر، البساطة، وصحة البيانات أهم من كثرة الأنواع والحقول.</p></section></div>
 <section class="mt-10 p-5 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700 article-sources">
 <h2 class="text-xl font-black mb-3">مصادر وروابط موثوقة</h2><ul class="list-disc pr-6 space-y-2"><li><a href="https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data" target="_blank" rel="noopener noreferrer">Google: Structured Data</a></li><li><a href="https://developers.google.com/search/docs/appearance/structured-data/article" target="_blank" rel="noopener noreferrer">Google: Article structured data</a></li><li><a href="https://schema.org/Article" target="_blank" rel="noopener noreferrer">Schema.org</a></li></ul>
 </section>
