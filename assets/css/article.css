@@ -513,10 +513,3 @@ html.dark .article-main .article-sources li:nth-child(3) a{color:#86efac}
 }
 
 
-
-/* Shared PageSpeed / accessibility refinements */
-a{transition:color .2s ease,background-color .2s ease,border-color .2s ease,transform .2s ease,opacity .2s ease}
-.site-card,.site-featured-item,.site-footer-panel,.site-scroll-btn{transition:transform .2s ease,opacity .2s ease,border-color .2s ease,background-color .2s ease!important}
-.site-scroll-btn.show{transition:opacity .2s ease,visibility .2s ease,transform .2s ease!important}
-.site-card-media{display:block}
-.site-card-media img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
