@@ -71,7 +71,11 @@ button,input,select,textarea{font:inherit;color:inherit;background:none;border:n
 
 .site-read-btn,.site-read{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:var(--radius-sm);background:var(--surface);color:var(--brand);font-weight:800;font-size:.88rem;box-shadow:var(--shadow-out-sm);transition:all .2s ease}.site-read-btn:hover,.site-read:hover{box-shadow:var(--shadow-in);transform:translateY(1px)}
 
-.site-load-more-wrap{display:flex;justify-content:center;margin-top:45px}
+
+.load-more-wrap,.site-load-more-wrap{display:flex;justify-content:center;margin-top:45px}
+.load-more-btn,.site-load-more{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;border-radius:var(--radius-md);background:var(--surface);color:var(--brand);font-weight:800;box-shadow:var(--shadow-out);cursor:pointer;transition:all .25s ease;border:none}
+.load-more-btn:hover,.site-load-more:hover{transform:translateY(-2px)}
+.load-more-btn:active,.site-load-more:active{box-shadow:var(--shadow-in);transform:translateY(1px)}
 .site-footer{margin-top:80px;background:var(--surface);border-top:1px solid var(--border-subtle);box-shadow:0 -12px 30px rgba(166,180,200,.2)}html.dark .site-footer{box-shadow:0 -12px 30px rgba(0,0,0,.35)}
 
 .site-socials{display:flex;gap:12px}
