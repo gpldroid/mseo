@@ -587,10 +587,10 @@ html.dark .article-main .article-sources li:nth-child(3) a{color:#86efac}
   }
 }
 
-/* Featured topics strip: contextual navigation between header and latest articles */
+/* Featured topics strip: balanced spacing after the header */
 .site-featured-topics{
-  margin-top:6px;
-  padding-top:4px;
+  margin-top:0;
+  padding-top:10px;
 }
 .site-featured-head{
   margin-bottom:14px;
