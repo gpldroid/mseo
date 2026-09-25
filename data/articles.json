@@ -251,28 +251,6 @@
     "status": "planned"
   },
   {
-    "slug": "seo-topic-clusters",
-    "file": "seo-topic-clusters.html",
-    "title": "استراتيجية محتوى SEO: كيف تبني Topic Clusters بدون تكرار الكلمات المفتاحية؟",
-    "category": "SEO",
-    "subcategory": "Content SEO",
-    "tags": [
-      "SEO Content",
-      "Internal Linking",
-      "Keyword Research"
-    ],
-    "description": "تعلم بناء Topic Clusters وربط المقالات داخلياً بطريقة منظمة تساعد على تغطية الموضوع وتقليل تداخل الكلمات المفتاحية.",
-    "icon": "fa-diagram-project",
-    "author": "عماد الدين لمراني",
-    "authorUrl": "https://gpldroid.github.io/mseo/pages/author-emad.html",
-    "datePublished": "2026-09-29",
-    "dateModified": "2026-09-25",
-    "type": "Cluster",
-    "intent": "Informational",
-    "focusKeyword": "استراتيجية محتوى SEO",
-    "status": "planned"
-  },
-  {
     "slug": "lcp-optimization",
     "file": "lcp-optimization.html",
     "title": "كيفية تحسين LCP وتسريع ظهور المحتوى الرئيسي في صفحات الويب",
@@ -358,28 +336,6 @@
     "type": "Cluster",
     "intent": "Informational",
     "focusKeyword": "Sitemap XML",
-    "status": "planned"
-  },
-  {
-    "slug": "robots-txt-guide",
-    "file": "robots-txt-guide.html",
-    "title": "robots.txt: الدليل الصحيح للتحكم في زحف محركات البحث إلى موقعك",
-    "category": "أدوات وتقنيات الويب",
-    "subcategory": "Crawling",
-    "tags": [
-      "Robots.txt",
-      "Crawling",
-      "Technical SEO"
-    ],
-    "description": "تعلم كيفية كتابة robots.txt بشكل صحيح والتحكم في الزحف دون منع Google من الوصول إلى الصفحات التي تريد فهرستها.",
-    "icon": "fa-robot",
-    "author": "عماد الدين لمراني",
-    "authorUrl": "https://gpldroid.github.io/mseo/pages/author-emad.html",
-    "datePublished": "2026-10-09",
-    "dateModified": "2026-09-25",
-    "type": "Cluster",
-    "intent": "Informational",
-    "focusKeyword": "robots.txt",
     "status": "planned"
   }
 ]
