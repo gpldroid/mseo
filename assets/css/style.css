@@ -1,0 +1,672 @@
+/* STREAMING_CHUNK:Defining root variables and theme colors... /
+/ ==========================================================
+MSEO AI & Web — Main CSS Architecture
+========================================================== */
+
+/* Design Tokens & Theme Variables */
+:root, html.light {
+--bg-main: #f8fafc;
+--bg-surface: #ffffff;
+--bg-surface-hover: #f1f5f9;
+--bg-hero: linear-gradient(135deg, #f0f6ff 0%, #e0f2fe 50%, #f8fafc 100%);
+--bg-header: rgba(255, 255, 255, 0.85);
+--bg-footer: #0f172a;
+
+--text-main: #0f172a;
+--text-muted: #64748b;
+--text-kicker: #2563eb;
+--text-footer: #94a3b8;
+
+--border-main: #e2e8f0;
+--border-hover: #cbd5e1;
+
+--primary-btn-bg: #2563eb;
+--primary-btn-text: #ffffff;
+--primary-btn-hover: #1d4ed8;
+
+--secondary-btn-bg: #ffffff;
+--secondary-btn-text: #0f172a;
+--secondary-btn-border: #cbd5e1;
+--secondary-btn-hover-border: #2563eb;
+
+--card-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+--card-shadow-hover: 0 12px 30px -4px rgba(37, 99, 235, 0.12);
+--accent-glow: rgba(37, 99, 235, 0.15);
+--focus-ring: 0 0 0 3px rgba(37, 99, 235, 0.25);
+
+
+}
+
+/* Dark Theme Variables */
+html.dark {
+--bg-main: #0b1220;
+--bg-surface: #111827;
+--bg-surface-hover: #1f2937;
+--bg-hero: linear-gradient(135deg, #0b1220 0%, #0f172a 60%, #1e1b4b 100%);
+--bg-header: rgba(11, 18, 32, 0.85);
+--bg-footer: #030712;
+
+--text-main: #f8fafc;
+--text-muted: #94a3b8;
+--text-kicker: #60a5fa;
+--text-footer: #64748b;
+
+--border-main: #1e293b;
+--border-hover: #334155;
+
+--primary-btn-bg: #3b82f6;
+--primary-btn-text: #ffffff;
+--primary-btn-hover: #2563eb;
+
+--secondary-btn-bg: #1e293b;
+--secondary-btn-text: #f8fafc;
+--secondary-btn-border: #334155;
+--secondary-btn-hover-border: #60a5fa;
+
+--card-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.4);
+--card-shadow-hover: 0 12px 30px -4px rgba(59, 130, 246, 0.25);
+--accent-glow: rgba(59, 130, 246, 0.25);
+--focus-ring: 0 0 0 3px rgba(96, 165, 250, 0.3);
+
+
+}
+
+/* STREAMING_CHUNK:Setting up base CSS reset and typography... /
+/ Base Resets & Global Styles */
+*, *::before, *::after {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+
+html {
+scroll-behavior: smooth;
+-webkit-text-size-adjust: 100%;
+}
+
+body {
+font-family: 'Tajawal', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+background-color: var(--bg-main);
+color: var(--text-main);
+line-height: 1.6;
+transition: background-color 0.3s ease, color 0.3s ease;
+min-height: 100vh;
+display: flex;
+flex-direction: column;
+overflow-x: hidden;
+}
+
+main {
+flex-grow: 1;
+}
+
+a {
+color: inherit;
+text-decoration: none;
+}
+
+button, input, select {
+font-family: inherit;
+}
+
+/* STREAMING_CHUNK:Styling main layout containers... /
+/ Layout Containers */
+.site-container {
+width: 100%;
+max-width: 1280px;
+margin-left: auto;
+margin-right: auto;
+padding-left: 1.25rem;
+padding-right: 1.25rem;
+}
+
+.site-section {
+padding-top: 4rem;
+padding-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+.site-section {
+padding-top: 5rem;
+padding-bottom: 5rem;
+}
+}
+
+/* STREAMING_CHUNK:Formatting sticky site header and navigation... /
+/ Header Component ([data-site-header]) */
+[data-site-header] {
+position: sticky;
+top: 0;
+z-index: 50;
+background: var(--bg-header);
+backdrop-filter: blur(12px);
+-webkit-backdrop-filter: blur(12px);
+border-bottom: 1px solid var(--border-main);
+transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.header-inner {
+display: flex;
+align-items: center;
+justify-content: space-between;
+height: 4.25rem;
+}
+
+.header-logo {
+display: flex;
+align-items: center;
+gap: 0.75rem;
+text-decoration: none;
+}
+
+.header-logo-icon {
+width: 2.5rem;
+height: 2.5rem;
+border-radius: 0.75rem;
+background: linear-gradient(135deg, #2563eb, #10b981);
+color: #ffffff;
+display: flex;
+align-items: center;
+justify-content: center;
+font-weight: 900;
+font-size: 1.25rem;
+box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+}
+
+.header-logo-text {
+font-weight: 800;
+font-size: 1.125rem;
+color: var(--text-main);
+display: flex;
+align-items: center;
+gap: 0.5rem;
+}
+
+.header-nav {
+display: none;
+align-items: center;
+gap: 0.5rem;
+}
+
+@media (min-width: 768px) {
+.header-nav {
+display: flex;
+}
+}
+
+.header-nav a {
+padding: 0.5rem 0.875rem;
+border-radius: 0.5rem;
+font-size: 0.875rem;
+font-weight: 600;
+color: var(--text-muted);
+transition: all 0.2s ease;
+}
+
+.header-nav a:hover,
+.header-nav a.active {
+color: var(--text-main);
+background: var(--bg-surface-hover);
+}
+
+.theme-toggle-btn {
+width: 2.5rem;
+height: 2.5rem;
+border-radius: 0.75rem;
+background: var(--bg-surface);
+border: 1px solid var(--border-main);
+color: var(--text-main);
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
+transition: all 0.2s ease;
+}
+
+.theme-toggle-btn:hover {
+border-color: var(--border-hover);
+transform: scale(1.05);
+}
+
+/* STREAMING_CHUNK:Designing hero section with background gradients... /
+/ Hero Section (.site-hero) */
+.site-hero {
+position: relative;
+padding: 5rem 0 4.5rem;
+background: var(--bg-hero);
+border-bottom: 1px solid var(--border-main);
+text-align: center;
+overflow: hidden;
+}
+
+.site-hero::before {
+content: '';
+position: absolute;
+top: 25%;
+left: 50%;
+transform: translate(-50%, -50%);
+width: 600px;
+height: 600px;
+background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+pointer-events: none;
+z-index: 0;
+}
+
+.site-hero .site-container {
+position: relative;
+z-index: 10;
+}
+
+.site-kicker {
+display: inline-block;
+padding: 0.35rem 1rem;
+border-radius: 9999px;
+font-size: 0.8125rem;
+font-weight: 800;
+letter-spacing: 0.05em;
+color: var(--text-kicker);
+background: rgba(37, 99, 235, 0.1);
+border: 1px solid rgba(37, 99, 235, 0.25);
+margin-bottom: 1.5rem;
+text-transform: uppercase;
+}
+
+.site-hero h1 {
+font-size: 2.125rem;
+font-weight: 900;
+color: var(--text-main);
+line-height: 1.25;
+max-width: 52rem;
+margin: 0 auto 1.25rem;
+letter-spacing: -0.02em;
+}
+
+@media (min-width: 768px) {
+.site-hero h1 {
+font-size: 3.5rem;
+}
+}
+
+.site-hero p {
+font-size: 1.125rem;
+color: var(--text-muted);
+max-width: 42rem;
+margin: 0 auto 2.5rem;
+line-height: 1.8;
+}
+
+/* Hero Actions & Buttons */
+.site-hero-actions {
+display: flex;
+flex-wrap: wrap;
+align-items: center;
+justify-content: center;
+gap: 1rem;
+}
+
+.site-primary {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+padding: 0.875rem 2rem;
+border-radius: 0.75rem;
+background: var(--primary-btn-bg);
+color: var(--primary-btn-text);
+font-weight: 700;
+font-size: 1rem;
+transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+box-shadow: 0 4px 16px rgba(37, 99, 235, 0.3);
+}
+
+.site-primary:hover {
+background: var(--primary-btn-hover);
+transform: translateY(-2px);
+box-shadow: 0 8px 24px rgba(37, 99, 235, 0.4);
+}
+
+.site-secondary {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+padding: 0.875rem 2rem;
+border-radius: 0.75rem;
+background: var(--secondary-btn-bg);
+color: var(--secondary-btn-text);
+border: 1px solid var(--secondary-btn-border);
+font-weight: 700;
+font-size: 1rem;
+transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.site-secondary:hover {
+border-color: var(--secondary-btn-hover-border);
+color: var(--text-kicker);
+transform: translateY(-2px);
+}
+
+/* STREAMING_CHUNK:Building section headers and filter inputs... /
+/ Section Header & Filters */
+.site-section-head {
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-items: flex-start;
+gap: 1rem;
+margin-bottom: 2rem;
+}
+
+@media (min-width: 640px) {
+.site-section-head {
+flex-direction: row;
+align-items: flex-end;
+}
+}
+
+.site-section-head h2 {
+font-size: 1.875rem;
+font-weight: 800;
+color: var(--text-main);
+margin-top: 0.25rem;
+}
+
+.site-section-head a {
+color: var(--text-kicker);
+font-weight: 700;
+font-size: 0.9375rem;
+display: inline-flex;
+align-items: center;
+gap: 0.5rem;
+transition: transform 0.2s ease;
+}
+
+.site-section-head a:hover {
+transform: translateX(-4px);
+}
+
+/* Filter Bar */
+.site-filter {
+display: flex;
+flex-direction: column;
+gap: 1rem;
+margin-bottom: 2.5rem;
+}
+
+@media (min-width: 640px) {
+.site-filter {
+flex-direction: row;
+}
+}
+
+.site-filter input[type="search"],
+.site-filter select {
+background: var(--bg-surface);
+border: 1px solid var(--border-main);
+color: var(--text-main);
+border-radius: 0.75rem;
+padding: 0.875rem 1.25rem;
+font-size: 0.9375rem;
+outline: none;
+transition: all 0.2s ease;
+}
+
+.site-filter input[type="search"]:focus,
+.site-filter select:focus {
+border-color: var(--text-kicker);
+box-shadow: var(--focus-ring);
+}
+
+.site-filter input[type="search"] {
+flex-grow: 1;
+}
+
+/* STREAMING_CHUNK:Constructing article grid and card styles... /
+/ Article Cards Grid (.site-card-grid) */
+.site-card-grid {
+display: grid;
+grid-template-columns: 1fr;
+gap: 1.75rem;
+}
+
+@media (min-width: 640px) {
+.site-card-grid {
+grid-template-columns: repeat(2, 1fr);
+}
+}
+
+@media (min-width: 1024px) {
+.site-card-grid {
+grid-template-columns: repeat(3, 1fr);
+}
+}
+
+/* Article Card */
+.article-card {
+background: var(--bg-surface);
+border: 1px solid var(--border-main);
+border-radius: 1.25rem;
+padding: 1.75rem;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+box-shadow: var(--card-shadow);
+transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.article-card:hover {
+border-color: var(--border-hover);
+transform: translateY(-4px);
+box-shadow: var(--card-shadow-hover);
+}
+
+.article-card-badge {
+display: inline-block;
+padding: 0.25rem 0.75rem;
+border-radius: 9999px;
+font-size: 0.75rem;
+font-weight: 700;
+background: rgba(37, 99, 235, 0.1);
+color: var(--text-kicker);
+border: 1px solid rgba(37, 99, 235, 0.2);
+margin-bottom: 1rem;
+align-self: flex-start;
+}
+
+.article-card h3 {
+font-size: 1.25rem;
+font-weight: 800;
+color: var(--text-main);
+margin-bottom: 0.75rem;
+line-height: 1.4;
+}
+
+.article-card p {
+font-size: 0.875rem;
+color: var(--text-muted);
+line-height: 1.6;
+margin-bottom: 1.5rem;
+}
+
+.article-card-footer {
+padding-top: 1rem;
+border-top: 1px solid var(--border-main);
+display: flex;
+align-items: center;
+justify-content: space-between;
+font-size: 0.75rem;
+color: var(--text-muted);
+}
+
+.article-card-btn {
+color: var(--text-kicker);
+font-weight: 700;
+background: none;
+border: none;
+cursor: pointer;
+display: flex;
+align-items: center;
+gap: 0.35rem;
+padding: 0;
+transition: transform 0.2s ease;
+}
+
+.article-card-btn:hover {
+transform: translateX(-3px);
+}
+
+/* STREAMING_CHUNK:Styling category feature grid items... /
+/ Feature Grid (.site-feature-grid) */
+.site-feature-grid {
+display: grid;
+grid-template-columns: 1fr;
+gap: 1.25rem;
+}
+
+@media (min-width: 640px) {
+.site-feature-grid {
+grid-template-columns: repeat(2, 1fr);
+}
+}
+
+@media (min-width: 1024px) {
+.site-feature-grid {
+grid-template-columns: repeat(3, 1fr);
+}
+}
+
+.site-feature-grid a {
+display: flex;
+flex-direction: column;
+padding: 1.75rem;
+background: var(--bg-surface);
+border: 1px solid var(--border-main);
+border-radius: 1.25rem;
+transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+box-shadow: var(--card-shadow);
+position: relative;
+overflow: hidden;
+}
+
+.site-feature-grid a:hover {
+border-color: var(--text-kicker);
+transform: translateY(-4px);
+box-shadow: var(--card-shadow-hover);
+}
+
+.site-feature-grid a i {
+font-size: 2.25rem;
+color: var(--text-kicker);
+margin-bottom: 1.25rem;
+transition: transform 0.3s ease;
+}
+
+.site-feature-grid a:hover i {
+transform: scale(1.1);
+}
+
+.site-feature-grid a strong {
+font-size: 1.25rem;
+font-weight: 800;
+color: var(--text-main);
+margin-bottom: 0.5rem;
+}
+
+.site-feature-grid a span {
+font-size: 0.875rem;
+color: var(--text-muted);
+}
+
+/* STREAMING_CHUNK:Formatting global site footer... /
+/ Footer Component ([data-site-footer]) */
+[data-site-footer] {
+background: var(--bg-footer);
+border-top: 1px solid var(--border-main);
+color: var(--text-footer);
+padding: 3rem 0 2.5rem;
+margin-top: auto;
+}
+
+.footer-inner {
+display: flex;
+flex-direction: column;
+gap: 2rem;
+}
+
+@media (min-width: 768px) {
+.footer-inner {
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+}
+}
+
+.footer-brand {
+display: flex;
+align-items: center;
+gap: 0.75rem;
+}
+
+.footer-copy {
+font-size: 0.875rem;
+}
+
+/* STREAMING_CHUNK:Adding modal dialogs and overlay styles... /
+/ Modal Overlay & Box */
+.modal-overlay {
+position: fixed;
+inset: 0;
+background: rgba(0, 0, 0, 0.75);
+backdrop-filter: blur(8px);
+-webkit-backdrop-filter: blur(8px);
+z-index: 100;
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 1rem;
+opacity: 0;
+pointer-events: none;
+transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+opacity: 1;
+pointer-events: auto;
+}
+
+.modal-box {
+background: var(--bg-surface);
+border: 1px solid var(--border-main);
+border-radius: 1.5rem;
+max-width: 720px;
+width: 100%;
+max-height: 85vh;
+overflow-y: auto;
+padding: 2rem;
+box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+position: relative;
+transform: translateY(20px);
+transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal-box {
+transform: translateY(0);
+}
+
+/* STREAMING_CHUNK:Configuring custom scrollbars and utility classes... /
+/ Custom Scrollbars */
+::-webkit-scrollbar {
+width: 8px;
+height: 8px;
+}
+
+::-webkit-scrollbar-track {
+background: var(--bg-main);
+}
+
+::-webkit-scrollbar-thumb {
+background: var(--border-hover);
+border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+background: var(--text-muted);
+}
