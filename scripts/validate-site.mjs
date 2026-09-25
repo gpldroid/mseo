@@ -68,10 +68,11 @@ for(const f of html){
       if(!featuredImage)errors.push(rel+" -> missing featured image");
       else{
         const alt=match(/\\balt="([^"]+)"/i,featuredImage);
-        const keywords=match(/<meta name="keywords" content="([^"]+)"/i,s)
-          .split(",").map(x=>x.trim()).filter(Boolean);
+        const src=match(/\\bsrc="([^"]+)"/i,featuredImage);
+        const keywords=match(/<meta name="keywords" content="([^"]+)"/i,s).split(",").map(x=>x.trim()).filter(Boolean);
         if(!alt)errors.push(rel+" -> featured image missing alt");
-        else if(keywords.length && !keywords.some(k=>alt.toLowerCase().includes(k.toLowerCase()))){
+        if(!src || !src.startsWith("../assets/images/"))errors.push(rel+" -> featured image must be local under assets/images");
+        if(keywords.length && alt && !keywords.some(k=>alt.toLowerCase().includes(k.toLowerCase()))){
           errors.push(rel+" -> featured image alt does not contain an article keyword");
         }
       }
