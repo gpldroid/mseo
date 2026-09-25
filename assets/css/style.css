@@ -34,7 +34,7 @@ button,input,select,textarea{font:inherit;color:inherit;background:none;border:n
 .site-mainbar{display:flex;align-items:center;justify-content:space-between;padding:12px 24px;min-height:72px;gap:20px}
 .site-brand{display:flex;align-items:center;gap:12px;font-size:1.55rem;font-weight:900;letter-spacing:-.02em;color:var(--text);flex-shrink:0}
 .site-brand-mark{width:46px;height:46px;border-radius:var(--radius-sm);background:var(--surface);color:var(--brand);display:grid;place-items:center;box-shadow:var(--shadow-out-sm);font-size:1.3rem;transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
-.site-brand:hover .site-brand-mark{transform:scale(1.08) rotate(5deg)}.site-brand span b{color:var(--brand)}
+.site-brand:hover .site-brand-mark{transform:scale(1.08) rotate(-5deg)}.site-brand span b{color:var(--brand)}
 .site-nav{display:flex;align-items:center;gap:6px;background:var(--surface);padding:6px 12px;border-radius:var(--radius-md);box-shadow:var(--shadow-in)}
 .site-nav a{display:inline-flex;align-items:center;gap:8px;padding:9px 18px;border-radius:var(--radius-sm);font-size:.94rem;font-weight:800;color:var(--muted);white-space:nowrap}
 .site-nav a:hover,.site-nav a.active,.site-nav a[aria-current="page"]{color:var(--brand);background:var(--surface);box-shadow:var(--shadow-out-sm)}
