@@ -48,7 +48,7 @@ for(const f of html){
   if(!one(/<h1\b/gi,s))errors.push(rel+" -> exactly one H1");
 
   const canonical=match(/<link rel="canonical" href="([^"]+)"/i,s);
-  const expected=rel==="index.html"?base:base+"/"+rel;
+  const expected=rel==="index.html"?base+"/":base+"/"+rel;
   if(canonical!==expected)errors.push(rel+" -> canonical mismatch: "+canonical);
 
   const ogUrl=match(/<meta property="og:url" content="([^"]+)"/i,s);
@@ -64,11 +64,11 @@ for(const f of html){
       else if(!s.includes(base+"/"+categoryPath))errors.push(rel+" -> breadcrumb category link mismatch");
       if(!s.includes(">"+article.category+"</span>"))errors.push(rel+" -> visible breadcrumb category mismatch");
 
-      const featuredImage=s.match(/<article\\b[^>]*>[\\s\\S]*?<img\\b[^>]*>/i)?.[0]||"";
+      const featuredImage=s.match(/<article\b[^>]*>[\s\S]*?<img\b[^>]*>/i)?.[0]||"";
       if(!featuredImage)errors.push(rel+" -> missing featured image");
       else{
-        const alt=match(/\\balt="([^"]+)"/i,featuredImage);
-        const src=match(/\\bsrc="([^"]+)"/i,featuredImage);
+        const alt=match(/\balt="([^"]+)"/i,featuredImage);
+        const src=match(/\bsrc="([^"]+)"/i,featuredImage);
         const keywords=match(/<meta name="keywords" content="([^"]+)"/i,s).split(",").map(x=>x.trim()).filter(Boolean);
         if(!alt)errors.push(rel+" -> featured image missing alt");
         if(!src || !src.startsWith("../assets/images/"))errors.push(rel+" -> featured image must be local under assets/images");
