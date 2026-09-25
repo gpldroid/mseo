@@ -1,1 +1,17 @@
-{"name":"mseo-ai-web","version":"1.1.0","private":true,"description":"MSEO AI & Web static publishing site","scripts":{"build:catalog":"node scripts/generate-article-catalog.mjs","build:css":"tailwindcss -i ./assets/css/tailwind.input.css -o ./assets/css/tailwind.css --minify","build":"npm run build:catalog && npm run build:css","validate":"npm run build:catalog && node scripts/generate-sitemap.mjs && node scripts/validate-site.mjs"},"devDependencies":{"@tailwindcss/typography":"0.5.16","tailwindcss":"3.4.17"}}
+{
+  "name": "mseo-ai-web",
+  "version": "1.1.0",
+  "private": true,
+  "description": "MSEO AI & Web static publishing site",
+  "scripts": {
+    "build:catalog": "node scripts/generate-article-catalog.mjs",
+    "build:css": "tailwindcss -i ./assets/css/tailwind.input.css -o ./assets/css/tailwind.css --minify",
+    "build": "npm run build:catalog && npm run build:css && npm run build:rss",
+    "validate": "npm run build && node scripts/generate-sitemap.mjs && node scripts/validate-site.mjs",
+    "build:rss": "node scripts/generate-rss.mjs"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "0.5.16",
+    "tailwindcss": "3.4.17"
+  }
+}
