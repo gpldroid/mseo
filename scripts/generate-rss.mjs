@@ -33,13 +33,13 @@ const items = [...articles]
   .join("\n");
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>MSEO AI &amp; Web</title>
     <link>${siteUrl}/</link>
     <description>أدلة ومقالات عملية في الذكاء الاصطناعي وتطوير المواقع والبرمجة وSEO.</description>
     <language>ar</language>
-    <link>${feedUrl}</link>
+    <atom:link href="${feedUrl}" rel="self" type="application/rss+xml" />
 ${items}
   </channel>
 </rss>
