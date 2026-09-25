@@ -1,0 +1,12 @@
+# Cloudflare Workers static assets: exclude build/development files
+node_modules/
+.git/
+.github/
+scripts/
+README.md
+package.json
+package-lock.json
+bun.lock
+wrangler.toml
+wrangler.json
+wrangler.jsonc
