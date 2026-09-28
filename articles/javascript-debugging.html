@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b1220">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="color-scheme" content="light dark">
+<title>Debugging في JavaScript: دليل اكتشاف الأخطاء وإصلاحها | MSEO</title>
+<meta name="description" content="دليل عملي لـDebugging في JavaScript: قراءة أخطاء Console وStack Trace، استخدام DevTools وBreakpoints، فحص Network وتتبع السبب الجذري وإصلاح الأخطاء بطريقة منهجية.">
+<meta name="keywords" content="JavaScript Debugging, JavaScript debugging, console, DevTools, breakpoints, errors, debugging techniques">
+<meta name="author" content="MSEO Editorial">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://gpldroid.github.io/mseo/articles/javascript-debugging.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Debugging في JavaScript: دليل اكتشاف الأخطاء وإصلاحها">
+<meta property="og:description" content="دليل عملي لتشخيص أخطاء JavaScript باستخدام Console وDevTools وBreakpoints وNetwork بدل التخمين.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=85">
+<meta property="og:url" content="https://gpldroid.github.io/mseo/articles/javascript-debugging.html">
+<meta property="og:site_name" content="MSEO">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Debugging في JavaScript: دليل اكتشاف الأخطاء وإصلاحها">
+<meta name="twitter:description" content="دليل عملي لتشخيص أخطاء JavaScript باستخدام أدوات المطور وخطوات قابلة للتكرار.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=85">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Debugging في JavaScript: دليل اكتشاف الأخطاء وإصلاحها","description":"دليل عملي لـDebugging في JavaScript باستخدام Console وDevTools وBreakpoints وNetwork وتتبع السبب الجذري.","image":["https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=85"],"datePublished":"2026-09-28","dateModified":"2026-09-28","author":{"@type":"Organization","name":"MSEO Editorial"},"publisher":{"@type":"Organization","name":"MSEO","url":"https://gpldroid.github.io/mseo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://gpldroid.github.io/mseo/articles/javascript-debugging.html"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"الرئيسية","item":"https://gpldroid.github.io/mseo/"},{"@type":"ListItem","position":2,"name":"البرمجة","item":"https://gpldroid.github.io/mseo/pages/programming.html"},{"@type":"ListItem","position":3,"name":"Debugging في JavaScript: دليل اكتشاف الأخطاء وإصلاحها","item":"https://gpldroid.github.io/mseo/articles/javascript-debugging.html"}]}</script>
+<link rel="stylesheet" href="../assets/css/site.css">
+<link rel="stylesheet" href="../assets/css/tailwind.css">
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 antialiased">
+<div data-site-header></div>
+<main class="max-w-4xl mx-auto px-4 py-8">
+<nav aria-label="مسار التنقل" class="text-xs text-slate-500 mb-5"><a href="../index.html">الرئيسية</a> <span> / </span> <span>البرمجة</span> <span> / </span> <span>Debugging في JavaScript: دليل اكتشاف الأخطاء وإصلاحها</span></nav>
+<article class="bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden">
+<img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=85" alt="Debugging في JavaScript" width="1400" height="800" loading="eager" fetchpriority="high" decoding="async" class="w-full aspect-video object-cover">
+<div class="p-6 sm:p-10">
+<div class="flex flex-wrap gap-2 mb-4"><span class="bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-full">البرمجة</span><time datetime="2026-09-28" class="text-xs text-slate-500 px-2 py-1.5">28 سبتمبر 2026</time></div>
+<h1 class="text-2xl sm:text-4xl font-black leading-tight text-slate-950 dark:text-white">Debugging في JavaScript: دليل اكتشاف الأخطاء وإصلاحها</h1>
+<p class="mt-5 text-base leading-8 text-slate-600 dark:text-slate-300">من Console وStack Trace إلى Breakpoints وNetwork: منهج عملي لتحديد مكان الخطأ وسببه ثم اختبار الإصلاح بدل الاعتماد على التخمين.</p>
+<div class="mt-8 prose prose-slate max-w-none dark:prose-invert">
+<section><h2>ما هو Debugging في JavaScript؟</h2><p>Debugging هو عملية تشخيص السلوك غير المتوقع في البرنامج وتحديد السبب ثم إصلاحه والتحقق من أن الإصلاح لم يسبب مشكلة جديدة. الهدف ليس إخفاء رسالة الخطأ فقط، بل فهم أين بدأ الخلل ولماذا ظهرت نتيجته.</p></section>
+<section><h2>ابدأ بإعادة إنتاج المشكلة</h2><p>قبل تعديل الكود، اكتب خطوات قصيرة لإعادة المشكلة: الصفحة أو المسار الذي يسببها، المدخلات المستخدمة، والنتيجة المتوقعة مقابل النتيجة الفعلية. إذا لم تستطع إعادة الخطأ، اجمع معلومات أكثر بدل تغيير عدة أسطر عشوائيًا.</p></section>
+<section><h2>اقرأ Console وStack Trace</h2><p>رسالة الخطأ في Console تعطيك غالبًا نوع المشكلة ومكانًا تقريبيًا لها. ابحث عن اسم الملف ورقم السطر وسلسلة الاستدعاءات في Stack Trace، ثم ابدأ من أول إطار مرتبط بكود مشروعك.</p><pre><code>const user = null;
+console.log(user.name); // TypeError</code></pre><p>في هذا المثال لا يكفي حذف السطر؛ اسأل لماذا كانت قيمة <code>user</code> تساوي <code>null</code> في هذه النقطة.</p></section>
+<section><h2>استخدم Breakpoints بدل console.log فقط</h2><p>ضع Breakpoint قبل السطر الذي تظهر عنده المشكلة، ثم نفذ الكود خطوة بخطوة. راقب قيم المتغيرات، Call Stack، وScope. هذه الطريقة مفيدة عندما يكون الخطأ نتيجة تغير قيمة عبر عدة دوال.</p><p>يمكن أيضًا استخدام conditional breakpoint عندما تريد التوقف فقط إذا تحققت حالة معينة، مثل وصول <code>items.length</code> إلى صفر.</p></section>
+<section><h2>راقب Network عند مشاكل API</h2><p>إذا كان الكود يعتمد على <code>fetch</code>، افتح تبويب Network وتحقق من الطلب نفسه: URL، method، status code، headers، وResponse. افصل بين فشل الطلب وفشل معالجة البيانات بعد وصولها.</p><pre><code>const response = await fetch("/api/articles");
+if (!response.ok) {
+  throw new Error(`HTTP error: ${response.status}`);
+}
+const data = await response.json();</code></pre></section>
+<section><h2>ميّز بين أنواع الأخطاء الشائعة</h2><ul><li><strong>SyntaxError:</strong> مشكلة في صياغة الكود تمنع تفسيره كما هو مكتوب.</li><li><strong>ReferenceError:</strong> استخدام اسم غير معروف في النطاق الحالي.</li><li><strong>TypeError:</strong> تنفيذ عملية غير مناسبة للقيمة الحالية، مثل الوصول إلى خاصية على <code>null</code>.</li><li><strong>أخطاء منطقية:</strong> الكود يعمل دون استثناء واضح لكنه يعطي نتيجة غير صحيحة.</li></ul></section>
+<section><h2>تتبع القيمة قبل تتبع السطر</h2><p>عندما تكون النتيجة خاطئة، لا تفترض أن السطر الذي عرض النتيجة هو مصدر المشكلة. تتبع البيانات إلى الخلف: من أين جاءت القيمة؟ هل تغير نوعها؟ هل وصلت استجابة API كما توقعت؟ هل حدثت العملية قبل أن تصبح البيانات جاهزة؟</p></section>
+<section><h2>استخدم خطوات صغيرة قابلة للاختبار</h2><p>غيّر فرضية واحدة في كل مرة، ثم أعد إنتاج المشكلة. إذا أصلحت ثلاث نقاط دفعة واحدة، يصعب معرفة أي تغيير عالج السبب وأي تغيير أخفى عرضًا آخر. بعد الإصلاح اختبر الحالة الأصلية وحالة قريبة منها.</p></section>
+<section><h2>Debugging في DOM والأحداث</h2><p>عند عدم استجابة زر أو نموذج، تحقق أولًا من وجود العنصر ومن تسجيل المستمع على العنصر الصحيح. افحص أيضًا ما إذا كان السكربت يعمل قبل اكتمال DOM أو إذا كان هناك عنصر متغير بعد تحميل الصفحة.</p><pre><code>const button = document.querySelector("#save");
+
+if (!button) {
+  throw new Error("زر الحفظ غير موجود");
+}
+
+button.addEventListener("click", saveData);</code></pre></section>
+<section><h2>لا تخلط Debugging مع Clean Code</h2><p>تحسين بنية الكود يساعد على منع بعض الأخطاء، لكنه ليس بديلًا عن تشخيص مشكلة محددة. إذا كانت مهمتك فهم تنظيم الملفات والمسؤوليات وقابلية الصيانة، راجع <a href="javascript-clean-code.html">دليل JavaScript للكود القابل للصيانة</a>. أما هذا المقال فيركز على اكتشاف الخطأ وتتبع سببه.</p></section>
+<section><h2>سير عمل عملي لإصلاح الخطأ</h2><ol><li>أعد إنتاج المشكلة وسجل النتيجة المتوقعة والفعلية.</li><li>اقرأ رسالة الخطأ وStack Trace.</li><li>ضع Breakpoint أو أضف تسجيلًا مؤقتًا في نقطة مناسبة.</li><li>افحص قيم المدخلات والبيانات والـDOM أو Network حسب نوع المشكلة.</li><li>كوّن فرضية عن السبب الجذري واختبرها بتغيير صغير.</li><li>أعد الاختبار للحالة الأصلية وحالات قريبة.</li><li>نظف أدوات التشخيص المؤقتة ووثق السبب إذا كان الخطأ قابلًا للتكرار.</li></ol></section>
+<section><h2>الخلاصة</h2><p>Debugging الجيد يبدأ بمشكلة قابلة لإعادة الإنتاج ثم يجمع الأدلة قبل تعديل الكود. Console وStack Trace وBreakpoints وNetwork ليست أدوات منفصلة؛ هي طرق لرؤية الحالة الفعلية للبرنامج واختبار فرضية محددة.</p></section>
+</div>
+<section class="mt-10 p-5 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700">
+<h2 class="text-xl font-black mb-3">مصادر وروابط موثوقة</h2>
+<ul class="list-disc pr-6 space-y-2"><li><a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Client-side_tools/Browser_DevTools" target="_blank" rel="noopener noreferrer">MDN: Browser developer tools</a></li><li><a href="https://developer.chrome.com/docs/devtools/javascript/" target="_blank" rel="noopener noreferrer">Chrome DevTools: JavaScript debugging</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch" target="_blank" rel="noopener noreferrer">MDN: Using Fetch</a></li></ul>
+</section>
+<div class="mt-8 pt-6 border-t border-slate-200 dark:border-slate-700 flex flex-wrap gap-2 text-xs"><span class="font-bold">كلمات مفتاحية:</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">JavaScript Debugging</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">DevTools</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">console</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">breakpoints</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">JavaScript errors</span></div>
+</div></article>
+<section class="mt-8"><h2 class="text-xl font-black mb-4">اقرأ أيضًا</h2><div class="grid sm:grid-cols-2 gap-3"><a href="javascript-beginners-guide.html" class="block bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-4 hover:-translate-y-0.5 transition"><strong>JavaScript للمبتدئين: الأساسيات التي تحتاجها لبناء مواقع تفاعلية</strong><span class="block text-xs text-slate-500 mt-2">البرمجة</span></a><a href="javascript-clean-code.html" class="block bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-4 hover:-translate-y-0.5 transition"><strong>JavaScript للمواقع: تنظيم الكود وتقليل الأخطاء وتحسين الأداء</strong><span class="block text-xs text-slate-500 mt-2">البرمجة</span></a><a href="web-performance-core.html" class="block bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-4 hover:-translate-y-0.5 transition"><strong>تحسين سرعة الموقع وCore Web Vitals: دليل عملي للمطورين</strong><span class="block text-xs text-slate-500 mt-2">أداء المواقع</span></a></div></section>
+</main>
+<div data-site-footer></div>
+<script src="../assets/js/site.js" defer></script>
+</body></html>
