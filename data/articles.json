@@ -181,5 +181,23 @@
     ],
     "description": "خطوات عملية لتحسين الأداء وتجربة المستخدم.",
     "icon": "fa-gauge-high"
+  },
+  {
+    "slug": "git-github-beginners",
+    "file": "git-github-beginners.html",
+    "title": "Git وGitHub للمبتدئين: إدارة إصدارات مشاريع الويب خطوة بخطوة",
+    "category": "تطوير المواقع",
+    "subcategory": "Git & GitHub",
+    "tags": [
+      "Git للمبتدئين",
+      "GitHub للمبتدئين",
+      "Git basics",
+      "GitHub repository",
+      "commit",
+      "branch",
+      "pull request"
+    ],
+    "description": "دليل عملي لتعلم Git وGitHub للمبتدئين وفهم المستودعات والـcommit والفروع والمزامنة وPull Request.",
+    "icon": "fa-code-branch"
   }
 ]
