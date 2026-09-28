@@ -199,5 +199,24 @@
     ],
     "description": "دليل عملي لتعلم Git وGitHub للمبتدئين وفهم المستودعات والـcommit والفروع والمزامنة وPull Request.",
     "icon": "fa-code-branch"
+  },
+  {
+    "slug": "javascript-beginners-guide",
+    "file": "javascript-beginners-guide.html",
+    "title": "JavaScript للمبتدئين: الأساسيات التي تحتاجها لبناء مواقع تفاعلية",
+    "category": "البرمجة",
+    "subcategory": "JavaScript",
+    "tags": [
+      "JavaScript للمبتدئين",
+      "JavaScript basics",
+      "variables",
+      "functions",
+      "arrays",
+      "objects",
+      "DOM",
+      "events"
+    ],
+    "description": "دليل عملي لفهم أساسيات JavaScript من المتغيرات والدوال والمصفوفات والكائنات إلى DOM والأحداث وبناء أول تفاعل في صفحات الويب.",
+    "icon": "fa-js"
   }
 ]
