@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b1220">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="color-scheme" content="light dark">
+<title>Prompt Engineering للمطورين: كيف تكتب Prompts أفضل لكتابة ومراجعة الكود | MSEO</title>
+<meta name="description" content="دليل عملي لـPrompt Engineering للمطورين: بناء الطلب من السياق والهدف والقيود والمخرجات، ثم تحسينه بالتكرار والاختبار والمراجعة.">
+<meta name="keywords" content="Prompt Engineering للمطورين, prompts للبرمجة, coding prompts, code review prompts, تحسين مخرجات AI">
+<meta name="author" content="MSEO Editorial">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://gpldroid.github.io/mseo/articles/prompt-engineering-developers.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Prompt Engineering للمطورين: كيف تكتب Prompts أفضل لكتابة ومراجعة الكود">
+<meta property="og:description" content="منهجية عملية لبناء Prompts أوضح للمطورين وتحسين مخرجات أدوات الذكاء الاصطناعي في البرمجة والمراجعة والتصحيح.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1400&q=85">
+<meta property="og:url" content="https://gpldroid.github.io/mseo/articles/prompt-engineering-developers.html">
+<meta property="og:site_name" content="MSEO">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Prompt Engineering للمطورين: كيف تكتب Prompts أفضل لكتابة ومراجعة الكود">
+<meta name="twitter:description" content="منهجية عملية لبناء Prompts أوضح للمطورين وتحسين مخرجات أدوات الذكاء الاصطناعي.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1400&q=85">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Prompt Engineering للمطورين: كيف تكتب Prompts أفضل لكتابة ومراجعة الكود","description":"دليل عملي لـPrompt Engineering للمطورين: بناء الطلب من السياق والهدف والقيود والمخرجات، ثم تحسينه بالتكرار والاختبار والمراجعة.","image":["https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1400&q=85"],"datePublished":"2026-09-28","dateModified":"2026-09-28","author":{"@type":"Organization","name":"MSEO Editorial"},"publisher":{"@type":"Organization","name":"MSEO","url":"https://gpldroid.github.io/mseo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://gpldroid.github.io/mseo/articles/prompt-engineering-developers.html"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"الرئيسية","item":"https://gpldroid.github.io/mseo/"},{"@type":"ListItem","position":2,"name":"الذكاء الاصطناعي","item":"https://gpldroid.github.io/mseo/pages/ai.html"},{"@type":"ListItem","position":3,"name":"Prompt Engineering للمطورين: كيف تكتب Prompts أفضل لكتابة ومراجعة الكود","item":"https://gpldroid.github.io/mseo/articles/prompt-engineering-developers.html"}]}</script>
+<link rel="stylesheet" href="../assets/css/site.css">
+<link rel="stylesheet" href="../assets/css/tailwind.css">
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 antialiased">
+<div data-site-header></div>
+<main class="max-w-4xl mx-auto px-4 py-8">
+<nav aria-label="مسار التنقل" class="text-xs text-slate-500 mb-5"><a href="../index.html">الرئيسية</a> <span> / </span> <span>الذكاء الاصطناعي</span> <span> / </span> <span>Prompt Engineering للمطورين</span></nav>
+<article class="bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden">
+<img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1400&q=85" alt="Prompt Engineering للمطورين وكتابة الكود بمساعدة الذكاء الاصطناعي" width="1400" height="800" loading="eager" fetchpriority="high" decoding="async" class="w-full aspect-video object-cover">
+<div class="p-6 sm:p-10">
+<div class="flex flex-wrap gap-2 mb-4"><span class="bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-full">الذكاء الاصطناعي</span><time datetime="2026-09-28" class="text-xs text-slate-500 px-2 py-1.5">28 سبتمبر 2026</time></div>
+<h1 class="text-2xl sm:text-4xl font-black leading-tight text-slate-950 dark:text-white">Prompt Engineering للمطورين: كيف تكتب Prompts أفضل لكتابة ومراجعة الكود</h1>
+<p class="mt-5 text-base leading-8 text-slate-600 dark:text-slate-300">منهجية عملية لبناء Prompts واضحة للمطورين عبر تحديد الهدف والسياق والقيود وشكل المخرجات، ثم تحسين الطلب بالتجربة والتحقق بدل الاعتماد على التخمين.</p>
+<div class="mt-8 prose prose-slate max-w-none dark:prose-invert">
+<section><h2>ما هو Prompt Engineering للمطورين؟</h2><p>هو تنظيم الطلب الموجّه إلى نموذج الذكاء الاصطناعي بحيث يحصل على المعلومات التي يحتاجها لتنفيذ مهمة برمجية محددة. الهدف ليس كتابة جملة طويلة، بل تقليل الغموض وتحديد ما يجب فعله وما يجب تجنبه وكيف تريد استلام النتيجة.</p></section>
+<section><h2>العناصر الأساسية للـPrompt الجيد</h2><ol><li><strong>الهدف:</strong> ما النتيجة التي تريد الوصول إليها؟</li><li><strong>السياق:</strong> ما المشروع أو الملف أو التقنية والإصدار الذي يعمل ضمنه الطلب؟</li><li><strong>المدخلات:</strong> ما الكود أو الخطأ أو المتطلبات التي يجب أن يعتمد عليها النموذج؟</li><li><strong>القيود:</strong> ما الذي يجب ألا يتغير؟ وهل توجد متطلبات للأداء أو الوصول أو التوافق؟</li><li><strong>شكل المخرجات:</strong> هل تريد diff، كودًا كاملًا، قائمة خطوات، شرحًا، أو اختبارات؟</li><li><strong>معايير القبول:</strong> كيف ستعرف أن النتيجة صحيحة وقابلة للدمج؟</li></ol></section>
+<section><h2>حوّل المهمة الكبيرة إلى خطوات قابلة للمراجعة</h2><p>طلب «أعد بناء المشروع بالكامل» يخلق مساحة كبيرة للتخمين ويجعل مراجعة النتيجة صعبة. الأفضل تقسيم المهمة إلى تحليل، خطة، تنفيذ محدود، ثم اختبار ومراجعة. اطلب أولًا تحديد الملفات المتأثرة والافتراضات، وبعدها نفّذ أصغر تغيير يحقق الهدف.</p><p>هذه الطريقة مفيدة خصوصًا في المشاريع التي تحتوي على عدة ملفات أو تعتمد على واجهات برمجية ومكتبات خارجية.</p></section>
+<section><h2>استخدم السياق دون إغراق النموذج بالمعلومات</h2><p>أرسل المعلومات المرتبطة بالمهمة فقط: اسم الملف، الجزء المتأثر، السلوك المتوقع، الخطأ الحالي، والإصدارات المهمة. إذا كان هناك قرار معماري أو قيد لا يمكن تغييره، صرّح به. السياق غير المرتبط قد يجعل الطلب أطول دون أن يجعله أوضح.</p></section>
+<section><h2>كيف تكتب Prompt لكتابة كود جديد؟</h2><p>ابدأ بالوظيفة المطلوبة ثم حدّد البيئة والقيود والمخرجات. مثال منهجي: «أنشئ مكوّنًا لفعل X، باستخدام Y، داخل الملف Z، مع الحفاظ على الواجهة الحالية، ودعم الهاتف وإمكانية الوصول، ثم أعطني الكود والتغييرات المطلوبة واختبارات للحالات الأساسية».</p><p>المثال هنا يوضح <strong>بنية الطلب</strong> وليس Prompt جاهزًا لنسخه؛ لأن التفاصيل الصحيحة تختلف حسب المشروع.</p></section>
+<section><h2>كيف تكتب Prompt لمراجعة الكود؟</h2><p>حدد نطاق المراجعة ومعاييرها بدل طلب «راجع الكود». اطلب فحص المنطق، الحالات الطرفية، الأمان، الأداء، قابلية الصيانة والاختبارات، ثم اطلب ربط كل ملاحظة بالجزء المتأثر وشرح درجة أهميتها قبل اقتراح التعديل.</p></section>
+<section><h2>Prompt لتصحيح الأخطاء</h2><p>أعطِ النموذج رسالة الخطأ، السلوك المتوقع، السلوك الفعلي، خطوات إعادة المشكلة، البيئة والإصدار، والجزء الأصغر من الكود الذي يعيد إنتاجها. اطلب منه أولًا اقتراح فرضيات مرتبة ثم طريقة التحقق منها، بدل القفز مباشرة إلى إعادة كتابة الملف.</p></section>
+<section><h2>التكرار أفضل من محاولة كتابة Prompt مثالي من أول مرة</h2><p>إذا كانت النتيجة غير دقيقة، لا تضف عشرات التعليمات عشوائيًا. حدد أين أخفقت النتيجة: هل فهم الهدف خطأ؟ هل نقص السياق؟ هل شكل المخرجات غير مناسب؟ ثم عدّل عنصرًا واحدًا أو أكثر واختبر من جديد. احتفظ بالطلبات التي أعطت نتائج قابلة للتكرار.</p></section>
+<section><h2>اجعل التحقق جزءًا من الـPrompt وسير العمل</h2><p>المخرجات التي تبدو مقنعة قد تحتوي على أخطاء. اطلب من النموذج اقتراح اختبارات أو حالات طرفية، لكن لا تجعل ذلك بديلًا عن تشغيل الاختبارات الفعلية وlint والبناء وفحص السلوك في بيئة التشغيل. وعند استخدام مكتبة أو API، راجع وثائق الإصدار الحالي بدل الاعتماد على ذاكرة النموذج.</p></section>
+<section><h2>أخطاء شائعة في Prompt Engineering</h2><ul><li>هدف عام بلا نتيجة قابلة للقياس.</li><li>إخفاء القيود المهمة ثم توقع أن يخمنها النموذج.</li><li>طلب تغييرات كثيرة في ملفات متعددة دفعة واحدة دون خطة.</li><li>عدم تحديد شكل المخرجات، فيصعب تطبيق النتيجة أو مراجعتها.</li><li>إرسال أسرار ومفاتيح API أو بيانات حساسة ضمن السياق.</li><li>اعتبار إجابة النموذج دليلًا على صحة الكود دون اختبار.</li></ul></section>
+<section><h2>Prompt Engineering مقابل Prompts الجاهزة</h2><p>إذا كنت تبحث عن أمثلة مباشرة لمهام كتابة HTML وCSS وJavaScript أو مراجعة الكود، فمقال <a href="ai-coding-prompts.html">أفضل Prompts لبرمجة المواقع بالذكاء الاصطناعي</a> يخدم هذا الاستخدام. أما هذا المقال فيشرح كيف تبني الطلب بنفسك وتعدّله عندما تختلف المهمة أو المشروع.</p></section>
+<section><h2>الخلاصة</h2><p>Prompt Engineering للمطورين هو مهارة في تعريف المشكلة بوضوح: هدف محدد، سياق كافٍ، قيود صريحة، مخرجات قابلة للتطبيق ومعايير تحقق واضحة. كلما كانت المهمة أكبر، زادت أهمية تقسيمها إلى خطوات صغيرة يمكن مراجعتها واختبارها.</p></section>
+</div>
+<section class="mt-10 p-5 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700">
+<h2 class="text-xl font-black mb-3">مصادر وروابط موثوقة</h2><ul class="list-disc pr-6 space-y-2"><li><a href="https://developers.openai.com/" target="_blank" rel="noopener noreferrer">OpenAI Developers</a></li><li><a href="https://docs.github.com/en/copilot" target="_blank" rel="noopener noreferrer">GitHub Copilot Documentation</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web" target="_blank" rel="noopener noreferrer">MDN Web Docs</a></li></ul>
+</section>
+<div class="mt-8 pt-6 border-t border-slate-200 dark:border-slate-700 flex flex-wrap gap-2 text-xs">
+<span class="font-bold">كلمات مفتاحية:</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">Prompt Engineering للمطورين</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">coding prompts</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">prompts للبرمجة</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">code review prompts</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">تحسين مخرجات AI</span>
+</div>
+</div></article>
+<section class="mt-8"><h2 class="text-xl font-black mb-4">اقرأ أيضًا</h2><div class="grid sm:grid-cols-2 gap-3"><a href="ai-coding-prompts.html" class="block bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-4 hover:-translate-y-0.5 transition"><strong>أفضل Prompts لبرمجة المواقع بالذكاء الاصطناعي: من الفكرة إلى كود قابل للصيانة</strong><span class="block text-xs text-slate-500 mt-2">الذكاء الاصطناعي</span></a><a href="ai-developer-tools.html" class="block bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-4 hover:-translate-y-0.5 transition"><strong>أفضل أدوات الذكاء الاصطناعي للمطورين في 2026</strong><span class="block text-xs text-slate-500 mt-2">الذكاء الاصطناعي</span></a><a href="javascript-clean-code.html" class="block bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-4 hover:-translate-y-0.5 transition"><strong>JavaScript للمواقع: تنظيم الكود وتقليل الأخطاء وتحسين الأداء</strong><span class="block text-xs text-slate-500 mt-2">البرمجة</span></a></div></section>
+</main>
+<div data-site-footer></div>
+<script src="../assets/js/site.js" defer></script>
+</body></html>
