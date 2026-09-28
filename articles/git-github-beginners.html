@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b1220">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="color-scheme" content="light dark">
+<title>Git وGitHub للمبتدئين: إدارة إصدارات مشاريع الويب خطوة بخطوة | MSEO</title>
+<meta name="description" content="دليل عملي لتعلم Git وGitHub للمبتدئين: المستودع، commit، branch، remote، push وpull وPull Request مع سير عمل بسيط لمشاريع الويب.">
+<meta name="keywords" content="Git للمبتدئين, GitHub للمبتدئين, Git basics, GitHub repository, commit, branch, pull request">
+<meta name="author" content="MSEO Editorial">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://gpldroid.github.io/mseo/articles/git-github-beginners.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git وGitHub للمبتدئين: إدارة إصدارات مشاريع الويب خطوة بخطوة">
+<meta property="og:description" content="دليل عملي لتعلم Git وGitHub للمبتدئين وفهم المستودعات والـcommit والفروع والمزامنة وPull Request.">
+<meta property="og:url" content="https://gpldroid.github.io/mseo/articles/git-github-beginners.html">
+<meta property="og:site_name" content="MSEO">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Git وGitHub للمبتدئين: إدارة إصدارات مشاريع الويب خطوة بخطوة">
+<meta name="twitter:description" content="دليل عملي لتعلم Git وGitHub للمبتدئين وفهم المستودعات والـcommit والفروع والمزامنة وPull Request.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Git وGitHub للمبتدئين: إدارة إصدارات مشاريع الويب خطوة بخطوة","description":"دليل عملي لتعلم Git وGitHub للمبتدئين: المستودع، commit، branch، remote، push وpull وPull Request مع سير عمل بسيط لمشاريع الويب.","datePublished":"2026-09-28","dateModified":"2026-09-28","author":{"@type":"Organization","name":"MSEO Editorial"},"publisher":{"@type":"Organization","name":"MSEO","url":"https://gpldroid.github.io/mseo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://gpldroid.github.io/mseo/articles/git-github-beginners.html"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"الرئيسية","item":"https://gpldroid.github.io/mseo/"},{"@type":"ListItem","position":2,"name":"تطوير المواقع","item":"https://gpldroid.github.io/mseo/pages/web-development.html"},{"@type":"ListItem","position":3,"name":"Git وGitHub للمبتدئين: إدارة إصدارات مشاريع الويب خطوة بخطوة","item":"https://gpldroid.github.io/mseo/articles/git-github-beginners.html"}]}</script>
+<link rel="stylesheet" href="../assets/css/site.css">
+<link rel="stylesheet" href="../assets/css/tailwind.css">
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 antialiased">
+<div data-site-header></div>
+<main class="max-w-4xl mx-auto px-4 py-8">
+<nav aria-label="مسار التنقل" class="text-xs text-slate-500 mb-5"><a href="../index.html">الرئيسية</a> <span> / </span> <span>تطوير المواقع</span> <span> / </span> <span>Git وGitHub للمبتدئين</span></nav>
+<article class="bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden">
+<div class="p-6 sm:p-10">
+<div class="flex flex-wrap gap-2 mb-4"><span class="bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-full">تطوير المواقع</span><time datetime="2026-09-28" class="text-xs text-slate-500 px-2 py-1.5">28 سبتمبر 2026</time></div>
+<h1 class="text-2xl sm:text-4xl font-black leading-tight text-slate-950 dark:text-white">Git وGitHub للمبتدئين: إدارة إصدارات مشاريع الويب خطوة بخطوة</h1>
+<p class="mt-5 text-base leading-8 text-slate-600 dark:text-slate-300">دليل عملي لفهم Git وGitHub وبناء سير عمل بسيط لحفظ تغييرات مشاريع الويب، إنشاء الفروع، مزامنة العمل وفتح Pull Request.</p>
+<div class="mt-8 prose prose-slate max-w-none dark:prose-invert">
+<section><h2>ما الفرق بين Git وGitHub؟</h2><p>Git هو نظام لإدارة الإصدارات يعمل على جهازك ويسجل تاريخ التغييرات في المشروع. أما GitHub فهو منصة لاستضافة مستودعات Git والتعاون عليها عبر الإنترنت. لذلك يمكنك استخدام Git دون GitHub، لكن الجمع بينهما مفيد عندما تريد نسخة بعيدة من المشروع أو تعمل مع فريق.</p></section>
+<section><h2>مصطلحات Git التي تحتاجها أولًا</h2><ul><li><strong>Repository:</strong> مجلد المشروع مع تاريخ التغييرات الذي يديره Git.</li><li><strong>Commit:</strong> لقطة موصوفة من تغييرات تريد تسجيلها في التاريخ.</li><li><strong>Branch:</strong> مسار مستقل للعمل على ميزة أو إصلاح دون تغيير الفرع الأساسي مباشرة.</li><li><strong>Remote:</strong> مستودع بعيد مرتبط بالمشروع المحلي، وغالبًا يكون على GitHub.</li><li><strong>Push:</strong> إرسال الـcommits المحلية إلى المستودع البعيد.</li><li><strong>Pull:</strong> جلب ودمج التغييرات من المستودع البعيد إلى العمل المحلي.</li><li><strong>Pull Request:</strong> طلب لمراجعة تغييرات فرع قبل دمجها في فرع آخر على GitHub.</li></ul></section>
+<section><h2>إنشاء أول مستودع Git</h2><p>بعد تثبيت Git، انتقل إلى مجلد مشروعك ثم نفّذ <code>git init</code>. بعدها استخدم <code>git status</code> لمعرفة الملفات التي تغيرت، و<code>git add</code> لاختيار ما سيدخل في الـcommit، ثم <code>git commit</code> لتسجيل التغيير.</p><pre><code>git init
+git status
+git add .
+git commit -m "Initial project"</code></pre><p>اختر رسائل commits تصف التغيير بوضوح بدل رسائل عامة مثل "update" أو "changes".</p></section>
+<section><h2>ربط المشروع بـGitHub</h2><p>أنشئ مستودعًا جديدًا على GitHub، ثم اربطه بالمشروع المحلي عبر remote. المثال التالي يستخدم اسم <code>origin</code> وهو الاسم الشائع للمستودع البعيد.</p><pre><code>git remote add origin https://github.com/USERNAME/REPOSITORY.git
+git branch -M main
+git push -u origin main</code></pre><p>استبدل الرابط باسم المستخدم والمستودع الفعليين. لا تضع كلمات المرور أو مفاتيح API داخل ملفات المشروع أو في commits.</p></section>
+<section><h2>لماذا نستخدم Branch؟</h2><p>بدل تنفيذ كل العمل مباشرة على <code>main</code>، أنشئ فرعًا للميزة أو الإصلاح. بهذه الطريقة يبقى الفرع الأساسي أكثر استقرارًا ويمكن مراجعة التغيير قبل دمجه.</p><pre><code>git switch -c feature/contact-form
+# عدّل الملفات واختبرها
+git add .
+git commit -m "Add contact form"
+git push -u origin feature/contact-form</code></pre></section>
+<section><h2>كيف يعمل Pull Request؟</h2><p>بعد رفع الفرع إلى GitHub، يمكنك فتح Pull Request من فرع الميزة إلى <code>main</code>. أضف وصفًا يشرح ما تغير، وما الذي اختبرته، وأي نقاط تحتاج مراجعة. بعد المراجعة والاختبارات يمكن دمج التغيير ثم حذف الفرع إذا لم تعد تحتاجه.</p></section>
+<section><h2>متى تستخدم clone وpull؟</h2><p>استخدم <code>git clone</code> عندما تريد إنشاء نسخة محلية من مستودع موجود. وإذا كان المستودع المحلي موجودًا بالفعل وتريد جلب آخر تغييرات من الفريق، استخدم <code>git pull</code> بعد التأكد من حالة عملك.</p><pre><code>git clone https://github.com/USERNAME/REPOSITORY.git
+cd REPOSITORY
+git pull</code></pre></section>
+<section><h2>سير عمل بسيط لمشروع ويب</h2><ol><li>اسحب آخر تغييرات من الفرع الأساسي عند الحاجة.</li><li>أنشئ branch باسم يصف المهمة.</li><li>عدّل الملفات واختبر الموقع محليًا.</li><li>سجّل تغييرات صغيرة وواضحة في commits.</li><li>ارفع الفرع إلى GitHub.</li><li>افتح Pull Request وراجع التغييرات.</li><li>ادمج التغيير بعد اكتمال المراجعة والاختبارات.</li></ol></section>
+<section><h2>أخطاء شائعة عند البداية</h2><ul><li>العمل مباشرة على <code>main</code> في كل مهمة.</li><li>إنشاء commit واحد ضخم يحتوي تغييرات غير مترابطة.</li><li>رفع ملفات سرية مثل مفاتيح API أو ملفات إعداد محلية.</li><li>استخدام <code>git add .</code> دون مراجعة ما سيُسجّل في المشروع.</li><li>سحب تغييرات جديدة مع وجود عمل محلي غير محفوظ دون فهم حالة الشجرة.</li></ul><p>قبل أي عملية حساسة، استخدم <code>git status</code> وراجع الفرق عبر <code>git diff</code>.</p></section>
+<section><h2>Git وGitHub عند نشر موقعك</h2><p>Git يسجل تطور المشروع، بينما GitHub يمكن أن يكون المستودع المركزي الذي تحفظ فيه النسخ وتراجع التغييرات. إذا كان هدفك التالي هو نشر موقع ثابت على GitHub Pages، فانتقل إلى <a href="github-pages-deploy.html">دليل نشر الموقع على GitHub Pages</a>؛ ذلك المقال يركز على النشر والاستضافة، وليس على أساسيات Git.</p></section>
+<section><h2>الخلاصة</h2><p>تعلم Git لا يحتاج إلى حفظ عشرات الأوامر من البداية. افهم دورة العمل: تعديل، status، add، commit، branch، push، ثم Pull Request عند التعاون. مع تكرار هذه الدورة ستصبح إدارة إصدارات مشروع الويب عملية طبيعية بدل أن تكون خطوة منفصلة ومربكة.</p></section>
+</div>
+<section class="mt-10 p-5 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700">
+<h2 class="text-xl font-black mb-3">مصادر وروابط موثوقة</h2><ul class="list-disc pr-6 space-y-2"><li><a href="https://git-scm.com/book/en/v2" target="_blank" rel="noopener noreferrer">Pro Git Book</a></li><li><a href="https://docs.github.com/en/get-started" target="_blank" rel="noopener noreferrer">GitHub Docs — Get started</a></li><li><a href="https://docs.github.com/en/pull-requests" target="_blank" rel="noopener noreferrer">GitHub Docs — Pull requests</a></li></ul>
+</section>
+<div class="mt-8 pt-6 border-t border-slate-200 dark:border-slate-700 flex flex-wrap gap-2 text-xs"><span class="font-bold">كلمات مفتاحية:</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">Git للمبتدئين</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">GitHub للمبتدئين</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">Git basics</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">GitHub repository</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">commit</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">branch</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">pull request</span></div>
+</div></article>
+<section class="mt-8"><h2 class="text-xl font-black mb-4">اقرأ أيضًا</h2><div class="grid sm:grid-cols-2 gap-3"><a href="github-pages-deploy.html" class="block bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-4 hover:-translate-y-0.5 transition"><strong>نشر موقع HTML وCSS وJavaScript على GitHub Pages خطوة بخطوة</strong><span class="block text-xs text-slate-500 mt-2">تطوير المواقع</span></a><a href="ai-website-builder-guide.html" class="block bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-4 hover:-translate-y-0.5 transition"><strong>كيفية إنشاء موقع احترافي بالذكاء الاصطناعي من الصفر في 2026</strong><span class="block text-xs text-slate-500 mt-2">الذكاء الاصطناعي</span></a><a href="html-semantic-seo.html" class="block bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-4 hover:-translate-y-0.5 transition"><strong>دليل HTML الدلالي: كيف تبني صفحات ويب أفضل للـSEO والوصول</strong><span class="block text-xs text-slate-500 mt-2">تطوير المواقع</span></a></div></section>
+</main>
+<div data-site-footer></div>
+<script src="../assets/js/site.js" defer></script>
+</body></html>
