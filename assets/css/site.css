@@ -617,3 +617,240 @@ main > article + section a:hover{
     transition:none;
   }
 }
+
+
+/* Neumorphism typography + article polish v2 */
+:root{
+  --neo-border:rgba(148,163,184,.12);
+  --neo-link:#1d4ed8;
+  --neo-accent:#2563eb;
+  --neo-inset:inset 4px 4px 10px var(--neo-shadow-dark),inset -4px -4px 10px var(--neo-shadow-light);
+}
+.dark{
+  --neo-border:rgba(148,163,184,.08);
+  --neo-link:#60a5fa;
+  --neo-accent:#60a5fa;
+}
+
+/* Consistent page rhythm */
+main{min-width:0}
+.site-section{position:relative}
+.site-section-head h2,.site-hero h1{letter-spacing:-.025em}
+.site-hero p,
+.site-section-head p,
+.site-card p,
+.site-feature-grid span{
+  text-wrap:pretty;
+}
+
+/* Neumorphic surfaces: avoid competing legacy borders */
+.site-card,
+.site-feature-grid a,
+.site-search,
+.cookie-consent,
+main > article,
+main > article + section a{
+  border:1px solid var(--neo-border)!important;
+}
+.site-card,
+.site-feature-grid a,
+main > article + section a{
+  background:var(--neo-surface)!important;
+}
+.site-card p{color:var(--neo-muted)}
+.dark .site-card p{color:var(--neo-muted)}
+
+/* Article shell */
+main > article{
+  width:100%;
+  box-sizing:border-box;
+  overflow:hidden;
+  background:var(--neo-surface)!important;
+  box-shadow:12px 12px 28px var(--neo-shadow-dark),-12px -12px 28px var(--neo-shadow-light)!important;
+}
+main > article > img:first-child{
+  display:block;
+  width:100%;
+  max-height:520px;
+  object-fit:cover;
+  border:0!important;
+  border-radius:0;
+}
+main > article > div{
+  box-sizing:border-box;
+  padding:clamp(24px,5vw,52px)!important;
+}
+
+/* Article heading, lead and metadata */
+main > article h1{
+  margin:0;
+  max-width:900px;
+  font-size:clamp(1.85rem,4vw,3rem)!important;
+  line-height:1.35!important;
+  letter-spacing:-.03em;
+  font-weight:900;
+  color:var(--neo-text)!important;
+  text-wrap:balance;
+}
+main > article > div > p:first-of-type{
+  max-width:780px;
+  margin:1.25rem auto 0 0;
+  color:var(--neo-muted)!important;
+  font-size:clamp(1rem,1.5vw,1.12rem)!important;
+  line-height:2!important;
+  text-wrap:pretty;
+}
+main > article .prose{
+  width:100%;
+  max-width:760px;
+  margin-inline:auto;
+  color:var(--neo-text);
+  font-size:1.03rem!important;
+  line-height:2.05!important;
+}
+main > article .prose section{margin:0;padding:0}
+main > article .prose p{
+  margin:0 0 1.25rem;
+  color:var(--neo-muted);
+  font-size:1em;
+  line-height:2.05;
+  text-wrap:pretty;
+}
+main > article .prose p:last-child{margin-bottom:0}
+main > article .prose h2{
+  margin:2.65rem 0 .9rem;
+  padding-inline-start:15px;
+  color:var(--neo-text)!important;
+  font-size:clamp(1.3rem,2.5vw,1.65rem)!important;
+  line-height:1.55!important;
+  letter-spacing:-.015em;
+}
+main > article .prose h3{
+  margin:2rem 0 .75rem;
+  color:var(--neo-text)!important;
+  font-size:1.15rem!important;
+  line-height:1.65!important;
+}
+main > article .prose h2:first-child{margin-top:0}
+main > article .prose ul,
+main > article .prose ol{
+  margin:1rem 0 1.35rem;
+  padding-inline-start:1.55rem;
+}
+main > article .prose li{
+  margin:.55rem 0;
+  padding-inline-start:.25rem;
+  color:var(--neo-muted);
+  line-height:1.95;
+}
+main > article .prose strong{color:var(--neo-text);font-weight:800}
+main > article .prose a{
+  color:var(--neo-link);
+  font-weight:700;
+  text-decoration-thickness:1.5px;
+  text-underline-offset:3px;
+}
+main > article .prose a:hover{text-decoration-thickness:2px}
+
+/* Code, quotes and tables */
+main > article .prose blockquote{
+  margin:1.6rem 0;
+  padding:1.1rem 1.2rem;
+  border:0!important;
+  border-inline-start:4px solid var(--neo-accent)!important;
+  border-radius:16px;
+  background:var(--neo-surface)!important;
+  color:var(--neo-muted);
+  box-shadow:var(--neo-inset);
+}
+main > article .prose pre{
+  margin:1.5rem 0;
+  padding:1.1rem 1.2rem;
+  border-radius:16px;
+  box-shadow:var(--neo-inset);
+}
+main > article .prose :not(pre)>code{
+  background:var(--neo-surface)!important;
+  color:var(--neo-text)!important;
+  box-shadow:var(--neo-inset);
+  border:1px solid var(--neo-border);
+}
+main > article .prose table{
+  width:100%;
+  margin:1.6rem 0;
+  border-collapse:separate;
+  border-spacing:0;
+  overflow:hidden;
+  border-radius:16px;
+  box-shadow:var(--neo-inset);
+}
+main > article .prose th,
+main > article .prose td{
+  border:0!important;
+  border-bottom:1px solid var(--neo-border)!important;
+  background:transparent!important;
+  color:var(--neo-muted);
+}
+main > article .prose th{color:var(--neo-text);font-weight:800}
+main > article .prose tr:last-child td{border-bottom:0!important}
+
+/* Article utility areas: sources + tags */
+main > article > div > section:not(.prose),
+main > article > div > div:last-child{
+  border-color:var(--neo-border)!important;
+}
+main > article > div > section:not(.prose){
+  background:var(--neo-surface)!important;
+  border:1px solid var(--neo-border)!important;
+  border-radius:18px!important;
+  box-shadow:var(--neo-inset);
+}
+main > article > div > section:not(.prose) h2{color:var(--neo-text)!important}
+main > article > div > section:not(.prose) a{color:var(--neo-link)}
+main > article > div > div:last-child span:not(.font-bold){
+  background:var(--neo-surface)!important;
+  color:var(--neo-muted)!important;
+  border:1px solid var(--neo-border);
+  box-shadow:3px 3px 7px var(--neo-shadow-dark),-3px -3px 7px var(--neo-shadow-light);
+}
+
+/* Read-more cards */
+main > article + section{margin-top:2.2rem!important;margin-bottom:1rem}
+main > article + section > h2{
+  color:var(--neo-text);
+  letter-spacing:-.02em;
+}
+main > article + section a{
+  min-height:100%;
+  box-sizing:border-box;
+  transition:transform .18s ease,box-shadow .18s ease;
+}
+main > article + section a strong{color:var(--neo-text)}
+main > article + section a span{color:var(--neo-muted)!important}
+
+/* Search/filter controls */
+.site-filter input,.site-filter select,.site-search input{
+  min-height:46px;
+  box-sizing:border-box;
+}
+.site-filter input::placeholder,.site-search input::placeholder{color:#94a3b8}
+
+/* Mobile typography and spacing */
+@media(max-width:760px){
+  main > article > div{padding:22px!important}
+  main > article h1{font-size:1.75rem!important;line-height:1.45!important}
+  main > article > div > p:first-of-type{font-size:.98rem!important;line-height:1.95!important}
+  main > article .prose{font-size:1rem!important;line-height:1.95!important}
+  main > article .prose p{line-height:1.95}
+  main > article .prose h2{margin-top:2.2rem}
+  main > article .prose ul,main > article .prose ol{padding-inline-start:1.35rem}
+}
+@media(max-width:480px){
+  main > article > img:first-child{max-height:280px}
+  main > article > div{padding:18px!important}
+  main > article h1{font-size:1.5rem!important}
+  .site-card{padding:18px}
+}
+@media(prefers-reduced-motion:reduce){
+  main > article + section a{transition:none}
+}
