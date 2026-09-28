@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b1220">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="color-scheme" content="light dark">
+<title>JavaScript للمبتدئين: الأساسيات التي تحتاجها لبناء مواقع تفاعلية | MSEO</title>
+<meta name="description" content="دليل JavaScript للمبتدئين يشرح المتغيرات والأنواع والشروط والحلقات والدوال والمصفوفات والكائنات وDOM والأحداث مع أمثلة عملية لبناء مواقع تفاعلية.">
+<meta name="keywords" content="JavaScript للمبتدئين, JavaScript basics, variables, functions, arrays, objects, DOM, events">
+<meta name="author" content="MSEO Editorial">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://gpldroid.github.io/mseo/articles/javascript-beginners-guide.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript للمبتدئين: الأساسيات التي تحتاجها لبناء مواقع تفاعلية">
+<meta property="og:description" content="دليل عملي لفهم أساسيات JavaScript وبناء أول تفاعل في صفحات الويب.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1627398242454-45a1465c2479?auto=format&fit=crop&w=1400&q=85">
+<meta property="og:url" content="https://gpldroid.github.io/mseo/articles/javascript-beginners-guide.html">
+<meta property="og:site_name" content="MSEO">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="JavaScript للمبتدئين: الأساسيات التي تحتاجها لبناء مواقع تفاعلية">
+<meta name="twitter:description" content="دليل عملي لفهم أساسيات JavaScript وبناء أول تفاعل في صفحات الويب.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1627398242454-45a1465c2479?auto=format&fit=crop&w=1400&q=85">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"JavaScript للمبتدئين: الأساسيات التي تحتاجها لبناء مواقع تفاعلية","description":"دليل JavaScript للمبتدئين يشرح المتغيرات والأنواع والشروط والحلقات والدوال والمصفوفات والكائنات وDOM والأحداث مع أمثلة عملية لبناء مواقع تفاعلية.","image":["https://images.unsplash.com/photo-1627398242454-45a1465c2479?auto=format&fit=crop&w=1400&q=85"],"datePublished":"2026-09-28","dateModified":"2026-09-28","author":{"@type":"Organization","name":"MSEO Editorial"},"publisher":{"@type":"Organization","name":"MSEO","url":"https://gpldroid.github.io/mseo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://gpldroid.github.io/mseo/articles/javascript-beginners-guide.html"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"الرئيسية","item":"https://gpldroid.github.io/mseo/"},{"@type":"ListItem","position":2,"name":"البرمجة","item":"https://gpldroid.github.io/mseo/pages/programming.html"},{"@type":"ListItem","position":3,"name":"JavaScript للمبتدئين: الأساسيات التي تحتاجها لبناء مواقع تفاعلية","item":"https://gpldroid.github.io/mseo/articles/javascript-beginners-guide.html"}]}</script>
+<link rel="stylesheet" href="../assets/css/site.css">
+<link rel="stylesheet" href="../assets/css/tailwind.css">
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 antialiased">
+<div data-site-header></div>
+<main class="max-w-4xl mx-auto px-4 py-8">
+<nav aria-label="مسار التنقل" class="text-xs text-slate-500 mb-5"><a href="../index.html">الرئيسية</a> <span> / </span> <span>البرمجة</span> <span> / </span> <span>JavaScript للمبتدئين: الأساسيات التي تحتاجها لبناء مواقع تفاعلية</span></nav>
+<article class="bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden">
+<img src="https://images.unsplash.com/photo-1627398242454-45a1465c2479?auto=format&fit=crop&w=1400&q=85" alt="JavaScript للمبتدئين" width="1400" height="800" loading="eager" fetchpriority="high" decoding="async" class="w-full aspect-video object-cover">
+<div class="p-6 sm:p-10">
+<div class="flex flex-wrap gap-2 mb-4"><span class="bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-full">البرمجة</span><time datetime="2026-09-28" class="text-xs text-slate-500 px-2 py-1.5">28 سبتمبر 2026</time></div>
+<h1 class="text-2xl sm:text-4xl font-black leading-tight text-slate-950 dark:text-white">JavaScript للمبتدئين: الأساسيات التي تحتاجها لبناء مواقع تفاعلية</h1>
+<p class="mt-5 text-base leading-8 text-slate-600 dark:text-slate-300">دليل عملي لفهم JavaScript من الصفر: المتغيرات والأنواع والشروط والحلقات والدوال والمصفوفات والكائنات، ثم ربط الكود بعناصر الصفحة والأحداث.</p>
+<div class="mt-8 prose prose-slate max-w-none dark:prose-invert">
+<section><h2>ما دور JavaScript في الموقع؟</h2><p>HTML يحدد بنية الصفحة، وCSS يهتم بالمظهر، بينما تضيف JavaScript السلوك والتفاعل. يمكن استخدامها مثلًا لفتح قائمة، التحقق من نموذج، تحديث محتوى عنصر أو جلب بيانات من API.</p></section>
+<section><h2>المتغيرات والأنواع الأساسية</h2><p>استخدم <code>const</code> عندما لا تحتاج إلى إعادة إسناد المتغير، و<code>let</code> عندما تتغير قيمته. من الأنواع الشائعة string وnumber وboolean وnull وundefined، وتوجد أيضًا كائنات ومصفوفات.</p><pre><code>const name = "MSEO";
+let count = 0;
+const isReady = true;</code></pre></section>
+<section><h2>الشروط والمقارنات</h2><p>تسمح <code>if</code> و<code>else</code> باتخاذ قرار حسب حالة البيانات. استخدم المقارنة الصارمة <code>===</code> و<code>!==</code> في الحالات المعتادة لتجنب التحويلات غير المقصودة للأنواع.</p><pre><code>if (count &gt; 0) {
+  console.log("يوجد محتوى");
+} else {
+  console.log("القائمة فارغة");
+}</code></pre></section>
+<section><h2>الحلقات</h2><p>عندما تحتاج إلى المرور على مجموعة عناصر، تساعدك <code>for</code> و<code>for...of</code> وطرق المصفوفات مثل <code>map</code> و<code>filter</code> و<code>forEach</code>. اختر الأسلوب الذي يجعل الغرض من الكود واضحًا.</p></section>
+<section><h2>الدوال: اجعل كل مهمة واضحة</h2><p>الدالة تجمع خطوات قابلة لإعادة الاستخدام. ابدأ باسم يصف ما تفعله، واجعل المدخلات والمخرجات واضحة بدل إنشاء دوال ضخمة تنفذ مهام كثيرة.</p><pre><code>function formatTitle(title) {
+  return title.trim().toUpperCase();
+}</code></pre></section>
+<section><h2>المصفوفات والكائنات</h2><p>المصفوفة مناسبة لقائمة مرتبة من القيم، بينما الكائن يجمع خصائص مرتبطة بكيان واحد. فهم الاثنين أساسي عند التعامل مع بيانات النماذج وواجهات API وعناصر الواجهة.</p><pre><code>const article = {
+  title: "JavaScript للمبتدئين",
+  tags: ["JavaScript", "Web"]
+};
+
+const tags = article.tags;</code></pre></section>
+<section><h2>DOM: اربط JavaScript بالصفحة</h2><p>يمكنك الوصول إلى عناصر HTML عبر DOM باستخدام <code>querySelector</code> وقراءة أو تغيير النص والخصائص عند الحاجة. اجعل اختيار العناصر محددًا وواضحًا.</p><pre><code>const button = document.querySelector("#toggle");
+const panel = document.querySelector("#panel");
+
+button.addEventListener("click", () =&gt; {
+  panel.hidden = !panel.hidden;
+});</code></pre></section>
+<section><h2>الأحداث Events</h2><p>الأحداث هي الطريقة الأساسية لجعل الصفحة تستجيب للمستخدم، مثل <code>click</code> و<code>input</code> و<code>submit</code>. استخدم <code>addEventListener</code> بدل خلط السلوك مع HTML عندما يكون ذلك مناسبًا.</p></section>
+<section><h2>التعامل مع البيانات غير المتزامنة</h2><p>بعد إتقان الأساسيات، تعلّم <code>fetch</code> و<code>async/await</code> للتعامل مع البيانات القادمة من API. لا تحتاج إلى البدء بها قبل فهم المتغيرات والدوال والأحداث.</p></section>
+<section><h2>كيف تتدرب كمبتدئ؟</h2><p>ابنِ مشاريع صغيرة بدل حفظ الصياغة فقط: عداد، قائمة مهام، نموذج تحقق بسيط أو فلتر لقائمة. بعد كل مشروع، جرّب تغيير متطلب واحد وراقب كيف يتغير الكود.</p></section>
+<section><h2>ما الذي تتعلمه بعد الأساسيات؟</h2><p>بعد فهم الأساسيات، انتقل إلى DOM وDebugging وAsync JavaScript ثم Modules والأداء. أما تنظيم الكود وقابليته للصيانة فله مسار منفصل مثل <a href="javascript-clean-code.html">دليل JavaScript للكود القابل للصيانة</a>.</p></section>
+<section><h2>الخلاصة</h2><p>تعلم JavaScript يبدأ بفهم المفاهيم الصغيرة ثم ربطها بسلوك حقيقي داخل الصفحة. لا تحتاج إلى حفظ كل API؛ الأهم أن تفهم المتغيرات والدوال والبيانات والأحداث وكيفية اختبار ما كتبته.</p></section>
+</div>
+<section class="mt-10 p-5 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700">
+<h2 class="text-xl font-black mb-3">مصادر وروابط موثوقة</h2>
+<ul class="list-disc pr-6 space-y-2"><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noopener noreferrer">MDN JavaScript</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting" target="_blank" rel="noopener noreferrer">MDN: Dynamic scripting with JavaScript</a></li><li><a href="https://javascript.info/" target="_blank" rel="noopener noreferrer">The Modern JavaScript Tutorial</a></li></ul>
+</section>
+<div class="mt-8 pt-6 border-t border-slate-200 dark:border-slate-700 flex flex-wrap gap-2 text-xs"><span class="font-bold">كلمات مفتاحية:</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">JavaScript للمبتدئين</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">JavaScript basics</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">variables</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">functions</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">DOM</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">events</span></div>
+</div></article>
+<section class="mt-8"><h2 class="text-xl font-black mb-4">اقرأ أيضًا</h2><div class="grid sm:grid-cols-2 gap-3"><a href="javascript-clean-code.html" class="block bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-4 hover:-translate-y-0.5 transition"><strong>JavaScript للمواقع: تنظيم الكود وتقليل الأخطاء وتحسين الأداء</strong><span class="block text-xs text-slate-500 mt-2">البرمجة</span></a><a href="html-semantic-seo.html" class="block bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-4 hover:-translate-y-0.5 transition"><strong>دليل HTML الدلالي: كيف تبني صفحات ويب أفضل للـSEO والوصول</strong><span class="block text-xs text-slate-500 mt-2">تطوير المواقع</span></a><a href="ai-coding-prompts.html" class="block bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-4 hover:-translate-y-0.5 transition"><strong>أفضل Prompts لبرمجة المواقع بالذكاء الاصطناعي</strong><span class="block text-xs text-slate-500 mt-2">الذكاء الاصطناعي</span></a></div></section>
+</main>
+<div data-site-footer></div>
+<script src="../assets/js/site.js" defer></script>
+</body></html>
