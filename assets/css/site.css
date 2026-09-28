@@ -854,3 +854,28 @@ main > article + section a span{color:var(--neo-muted)!important}
 @media(prefers-reduced-motion:reduce){
   main > article + section a{transition:none}
 }
+
+
+/* Runtime interaction safety */
+.cookie-consent{
+  pointer-events:auto;
+  user-select:text;
+  isolation:isolate;
+  animation:cookieSlideUp .35s cubic-bezier(.16,1,.3,1) both;
+}
+.cookie-consent-actions{
+  position:relative;
+  z-index:1;
+  pointer-events:auto;
+}
+.cookie-consent-actions button,
+.cookie-consent-actions a{
+  position:relative;
+  z-index:2;
+  pointer-events:auto;
+  touch-action:manipulation;
+}
+.cookie-consent[hidden]{display:none!important}
+@media(prefers-reduced-motion:reduce){
+  .cookie-consent{animation:none}
+}
