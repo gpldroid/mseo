@@ -16,12 +16,16 @@ jobs:
       - name: Extract archive
         run: |
           set -e
-          test -f mseo-main.zip
+          if [ ! -f mseo-main.zip ]; then
+            echo "Archive already extracted."
+            exit 0
+          fi
           rm -rf /tmp/mseo-extract
           mkdir -p /tmp/mseo-extract
           unzip -q -o mseo-main.zip -d /tmp/mseo-extract
           test -d /tmp/mseo-extract/mseo-main
           cp -a /tmp/mseo-extract/mseo-main/. .
+          rm -f .github/workflows/deploy.yml
           rm -rf /tmp/mseo-extract mseo-main.zip mseo-main
       - name: Commit extracted files
         run: |
@@ -31,4 +35,3 @@ jobs:
           if git diff --cached --quiet; then exit 0; fi
           git commit -m "Extract project files from bundled archive"
           git push
-# trigger extraction
