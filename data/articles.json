@@ -48,6 +48,22 @@
     "icon": "fa-screwdriver-wrench"
   },
   {
+    "slug": "prompt-engineering-developers",
+    "file": "prompt-engineering-developers.html",
+    "title": "Prompt Engineering للمطورين: كيف تكتب Prompts أفضل لكتابة ومراجعة الكود",
+    "category": "الذكاء الاصطناعي",
+    "subcategory": "Prompt Engineering",
+    "tags": [
+      "Prompt Engineering للمطورين",
+      "coding prompts",
+      "prompts للبرمجة",
+      "code review prompts",
+      "تحسين مخرجات AI"
+    ],
+    "description": "دليل عملي لبناء Prompts أوضح للمطورين عبر تحديد الهدف والسياق والقيود والمخرجات ثم تحسينها بالتكرار والاختبار والمراجعة.",
+    "icon": "fa-terminal"
+  },
+  {
     "slug": "html-semantic-seo",
     "file": "html-semantic-seo.html",
     "title": "دليل HTML الدلالي: كيف تبني صفحات ويب أفضل للـSEO والوصول",
