@@ -218,5 +218,22 @@
     ],
     "description": "دليل عملي لفهم أساسيات JavaScript من المتغيرات والدوال والمصفوفات والكائنات إلى DOM والأحداث وبناء أول تفاعل في صفحات الويب.",
     "icon": "fa-js"
+  },
+  {
+    "slug": "javascript-debugging",
+    "file": "javascript-debugging.html",
+    "title": "Debugging في JavaScript: دليل اكتشاف الأخطاء وإصلاحها",
+    "category": "البرمجة",
+    "subcategory": "Debugging",
+    "tags": [
+      "JavaScript Debugging",
+      "console",
+      "DevTools",
+      "breakpoints",
+      "errors",
+      "debugging techniques"
+    ],
+    "description": "دليل عملي لتشخيص أخطاء JavaScript باستخدام Console وDevTools وBreakpoints وNetwork وتتبع السبب الجذري قبل إصلاح الكود.",
+    "icon": "fa-bug"
   }
 ]
