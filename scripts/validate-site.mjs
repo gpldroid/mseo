@@ -48,7 +48,7 @@ for(const f of html){
   if(!one(/<h1\b/gi,s))errors.push(rel+" -> exactly one H1");
 
   const canonical=match(/<link rel="canonical" href="([^"]+)"/i,s);
-  const expected=rel==="index.html"?base:base+"/"+rel;
+  const expected=rel==="index.html"?base+"/":base+"/"+rel;
   if(canonical!==expected)errors.push(rel+" -> canonical mismatch: "+canonical);
 
   const ogUrl=match(/<meta property="og:url" content="([^"]+)"/i,s);
@@ -114,7 +114,7 @@ if(errors.length||broken.length){
 const expected=html
   .map(f=>relative(root,f).replaceAll("\\","/"))
   .filter(x=>!excluded.has(x))
-  .map(x=>x==="index.html"?base:base+"/"+x)
+  .map(x=>x==="index.html"?base+"/":base+"/"+x)
   .sort();
 
 const sitemap=await readFile(join(root,"sitemap.xml"),"utf8");
