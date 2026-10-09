@@ -1,0 +1,4 @@
+export const SITE={name:"MSEO AI & Web",baseUrl:"https://gpldroid.github.io/mseo",description:"منصة عربية للأدلة العملية حول الذكاء الاصطناعي وتطوير المواقع والبرمجة وSEO."};
+export const NAV=[["index.html","الرئيسية","house"],["pages/ai.html","الذكاء الاصطناعي","robot"],["pages/web-development.html","تطوير المواقع","code"],["pages/web-design.html","تصميم المواقع","palette"],["pages/programming.html","البرمجة","laptop-code"],["pages/seo.html","SEO","magnifying-glass-chart"],["pages/tools.html","الأدوات والتقنيات","screwdriver-wrench"],["pages/performance.html","الأداء وتجربة المستخدم","gauge-high"]];
+export const PATH={catalog:"data/articles.json",articleDir:"articles/",themeKey:"mseo-theme",consentKey:"mseo-cookie-consent"};
+export const ROOT=location.pathname.includes("/articles/")||location.pathname.includes("/pages/")?"../":"";
