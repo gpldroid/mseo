@@ -1,6 +1,6 @@
 import { $,escapeHTML,articleURL } from "./utils.js";
 
-const PAGE_SIZE=6;
+const PAGE_SIZE=8;
 
 export async function loadCatalog(url){
   try{
