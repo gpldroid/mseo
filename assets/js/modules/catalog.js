@@ -21,12 +21,18 @@ export function articleCard(article,root="",index=0){
   const icon=escapeHTML(article.icon||"fa-file-lines");
   const url=articleURL(article,root);
   const image=String(article.image||article.thumbnail||"").trim();
-  const imageUrl=/^https:\/\//i.test(image)||image.startsWith("/")?image:image?root+image.replace(/^\.\//,""):"";
-  const safeImage=/^(https:\/\/|\/)/i.test(imageUrl)?escapeHTML(imageUrl):"";
+  // GitHub Pages project sites live under /mseo/, so do not resolve local
+  // image paths from the domain root. Normalize root-relative and ./ paths.
+  const imageUrl=/^https?:\/\//i.test(image)
+    ? image
+    : image
+      ? root+image.replace(/^\.\//,"").replace(/^\/+/, "")
+      : "";
+  const safeImage=/^(https?:\/\/|\.\.\/|\/|[\w.-]+\/)/i.test(imageUrl)?escapeHTML(imageUrl):"";
   const number=String(index+1).padStart(2,"0");
   return `<article class="site-card site-article-card">
     <a class="site-article-thumb" href="${url}" tabindex="-1" aria-hidden="true">
-      ${safeImage?`<img src="${safeImage}" alt="" width="800" height="450" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.closest('.site-article-thumb').classList.add('is-image-missing');this.remove()">`:""}
+      ${safeImage?`<img src="${safeImage}" alt="" width="800" height="450" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="if(!this.dataset.proxyAttempted&&/^https?:\\/\\/images\\.unsplash\\.com\\//i.test(this.src)){this.dataset.proxyAttempted='1';this.src='https://images.weserv.nl/?url='+encodeURIComponent(this.src);return}this.closest('.site-article-thumb').classList.add('is-image-missing');this.remove()">`:""}
       <span class="site-article-thumb-fallback"><i class="fa-solid ${icon}" aria-hidden="true"></i></span>
       <span class="site-article-thumb-label">${category}</span>
     </a>
