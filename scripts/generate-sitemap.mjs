@@ -26,7 +26,7 @@ const changefreq = file => file === "index.html" || file.startsWith("pages/") ? 
 const today = new Date().toISOString().slice(0, 10);
 
 const urls = files.map(file => {
-  const path = file === "index.html" ? "" : "/" + file;
+  const path = file === "index.html" ? "/" : "/" + file;
   return `  <url><loc>${baseUrl}${path}</loc><lastmod>${today}</lastmod><changefreq>${changefreq(file)}</changefreq><priority>${priority(file)}</priority></url>`;
 });
 

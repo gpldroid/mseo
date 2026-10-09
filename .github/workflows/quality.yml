@@ -20,9 +20,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
       - name: Install dependencies
-        run: npm ci
+        run: npm install --no-audit --no-fund
+      - name: Verify pinned Bulma foundation
+        run: grep -q 'bulma@1.0.4/css/bulma.min.css' assets/css/site.css
       - name: Validate JavaScript modules and site SEO
         run: npm test
       - name: Build production assets
