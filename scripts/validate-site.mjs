@@ -64,10 +64,10 @@ for(const f of html){
       else if(!s.includes(base+"/"+categoryPath))errors.push(rel+" -> breadcrumb category link mismatch");
       if(!s.includes(">"+article.category+"</span>"))errors.push(rel+" -> visible breadcrumb category mismatch");
 
-      const featuredImage=s.match(/<article\\b[^>]*>[\\s\\S]*?<img\\b[^>]*>/i)?.[0]||"";
+      const featuredImage=s.match(/<article\b[^>]*>[\s\S]*?<img\b[^>]*>/i)?.[0]||"";
       if(!featuredImage)errors.push(rel+" -> missing featured image");
       else{
-        const alt=match(/\\balt="([^"]+)"/i,featuredImage);
+        const alt=match(/\balt="([^"]+)"/i,featuredImage);
         const keywords=match(/<meta name="keywords" content="([^"]+)"/i,s)
           .split(",").map(x=>x.trim()).filter(Boolean);
         if(!alt)errors.push(rel+" -> featured image missing alt");
@@ -107,7 +107,7 @@ for(const f of html){
 }
 
 if(errors.length||broken.length){
-  console.error([...errors,...broken].join("\\n"));
+  console.error([...errors,...broken].join("\n"));
   process.exit(1);
 }
 
