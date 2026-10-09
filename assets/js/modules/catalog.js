@@ -20,12 +20,13 @@ export function articleCard(article,root="",index=0){
   const description=escapeHTML(article.description||"اكتشف هذا الدليل العملي وتعرّف على أهم النقاط خطوة بخطوة.");
   const icon=escapeHTML(article.icon||"fa-file-lines");
   const url=articleURL(article,root);
-  const image=String(article.image||article.thumbnail||"");
-  const safeImage=/^https:\/\//i.test(image)?escapeHTML(image):"";
+  const image=String(article.image||article.thumbnail||"").trim();
+  const imageUrl=/^https:\/\//i.test(image)||image.startsWith("/")?image:image?root+image.replace(/^\.\//,""):"";
+  const safeImage=/^(https:\/\/|\/)/i.test(imageUrl)?escapeHTML(imageUrl):"";
   const number=String(index+1).padStart(2,"0");
   return `<article class="site-card site-article-card">
     <a class="site-article-thumb" href="${url}" tabindex="-1" aria-hidden="true">
-      ${safeImage?`<img src="${safeImage}" alt="" width="800" height="450" loading="lazy" decoding="async" onerror="this.closest('.site-article-thumb').classList.add('is-image-missing');this.remove()">`:""}
+      ${safeImage?`<img src="${safeImage}" alt="" width="800" height="450" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.closest('.site-article-thumb').classList.add('is-image-missing');this.remove()">`:""}
       <span class="site-article-thumb-fallback"><i class="fa-solid ${icon}" aria-hidden="true"></i></span>
       <span class="site-article-thumb-label">${category}</span>
     </a>
