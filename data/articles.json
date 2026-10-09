@@ -13,7 +13,8 @@
       "Prompt Engineering"
     ],
     "description": "دليل عملي للتخطيط وبناء موقع حديث بالذكاء الاصطناعي.",
-    "icon": "fa-robot"
+    "icon": "fa-robot",
+    "image": "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1400&q=85"
   },
   {
     "slug": "ai-coding-prompts",
@@ -30,7 +31,8 @@
       "كود قابل للصيانة"
     ],
     "description": "أمثلة عملية لصياغة Prompts دقيقة لكتابة ومراجعة الكود.",
-    "icon": "fa-wand-magic-sparkles"
+    "icon": "fa-wand-magic-sparkles",
+    "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1400&q=85"
   },
   {
     "slug": "ai-developer-tools",
@@ -45,7 +47,8 @@
       "AI Code Assistant"
     ],
     "description": "دليل عملي لاختيار أدوات الذكاء الاصطناعي للمطورين حسب حالة الاستخدام ومعايير الخصوصية والتكامل وجودة المخرجات.",
-    "icon": "fa-screwdriver-wrench"
+    "icon": "fa-screwdriver-wrench",
+    "image": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1400&q=85"
   },
   {
     "slug": "prompt-engineering-developers",
@@ -61,7 +64,8 @@
       "تحسين مخرجات AI"
     ],
     "description": "دليل عملي لبناء Prompts أوضح للمطورين عبر تحديد الهدف والسياق والقيود والمخرجات ثم تحسينها بالتكرار والاختبار والمراجعة.",
-    "icon": "fa-terminal"
+    "icon": "fa-terminal",
+    "image": "https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1400&q=85"
   },
   {
     "slug": "html-semantic-seo",
@@ -78,7 +82,8 @@
       "بنية الصفحة"
     ],
     "description": "بنية HTML الدلالية وعلاقتها بالوصول ومحركات البحث.",
-    "icon": "fa-code"
+    "icon": "fa-code",
+    "image": "https://images.unsplash.com/photo-1621839673705-6617adf9e890?auto=format&fit=crop&w=1400&q=85"
   },
   {
     "slug": "css-modern-design",
@@ -95,7 +100,8 @@
       "واجهات الويب"
     ],
     "description": "أساسيات CSS الحديثة لبناء واجهات متجاوبة.",
-    "icon": "fa-palette"
+    "icon": "fa-palette",
+    "image": "https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?auto=format&fit=crop&w=1400&q=85"
   },
   {
     "slug": "javascript-clean-code",
@@ -112,7 +118,8 @@
       "أداء JavaScript"
     ],
     "description": "ممارسات عملية لتنظيم JavaScript وتحسين الصيانة.",
-    "icon": "fa-js"
+    "icon": "fa-js",
+    "image": "https://images.unsplash.com/photo-1516116216624-53e697fedbea?auto=format&fit=crop&w=1400&q=85"
   },
   {
     "slug": "seo-content-strategy",
@@ -129,7 +136,8 @@
       "المواقع التقنية"
     ],
     "description": "منهج عملي لبناء محتوى يخدم نية البحث.",
-    "icon": "fa-chart-line"
+    "icon": "fa-chart-line",
+    "image": "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1400&q=85"
   },
   {
     "slug": "github-pages-deploy",
@@ -146,7 +154,8 @@
       "JavaScript"
     ],
     "description": "دليل النشر والاستضافة على GitHub Pages.",
-    "icon": "fa-github"
+    "icon": "fa-github",
+    "image": "https://images.unsplash.com/photo-1556075798-4825dfaaf498?auto=format&fit=crop&w=1400&q=85"
   },
   {
     "slug": "structured-data-guide",
@@ -163,7 +172,8 @@
       "Rich Results"
     ],
     "description": "شرح عملي للبيانات المنظمة والمخططات المناسبة للمقالات.",
-    "icon": "fa-sitemap"
+    "icon": "fa-sitemap",
+    "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1400&q=85"
   },
   {
     "slug": "web-performance-core",
@@ -180,7 +190,8 @@
       "PageSpeed Insights"
     ],
     "description": "خطوات عملية لتحسين الأداء وتجربة المستخدم.",
-    "icon": "fa-gauge-high"
+    "icon": "fa-gauge-high",
+    "image": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=85"
   },
   {
     "slug": "git-github-beginners",
@@ -198,7 +209,8 @@
       "pull request"
     ],
     "description": "دليل عملي لتعلم Git وGitHub للمبتدئين وفهم المستودعات والـcommit والفروع والمزامنة وPull Request.",
-    "icon": "fa-code-branch"
+    "icon": "fa-code-branch",
+    "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=85"
   },
   {
     "slug": "javascript-beginners-guide",
@@ -217,7 +229,8 @@
       "events"
     ],
     "description": "دليل عملي لفهم أساسيات JavaScript من المتغيرات والدوال والمصفوفات والكائنات إلى DOM والأحداث وبناء أول تفاعل في صفحات الويب.",
-    "icon": "fa-js"
+    "icon": "fa-js",
+    "image": "https://images.unsplash.com/photo-1627398242454-45a1465c2479?auto=format&fit=crop&w=1400&q=85"
   },
   {
     "slug": "javascript-debugging",
@@ -234,6 +247,7 @@
       "debugging techniques"
     ],
     "description": "دليل عملي لتشخيص أخطاء JavaScript باستخدام Console وDevTools وBreakpoints وNetwork وتتبع السبب الجذري قبل إصلاح الكود.",
-    "icon": "fa-bug"
+    "icon": "fa-bug",
+    "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=85"
   }
 ]
