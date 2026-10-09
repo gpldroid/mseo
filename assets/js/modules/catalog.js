@@ -90,7 +90,20 @@ export function mountCatalog(articles,root=""){
   const params=new URLSearchParams(location.search);
   if(search)search.value=params.get("q")||"";
   const pagination=ensurePagination(grid);
-  let page=1;
+  let page=1,categoryPage=1;
+  const categoryGrid=$("[data-category-grid]"),categoryMain=$("[data-category]");
+  let categoryPagination=null;
+  if(categoryGrid){
+    categoryPagination=$("#category-pagination");
+    if(!categoryPagination){
+      categoryPagination=document.createElement("nav");
+      categoryPagination.id="category-pagination";
+      categoryPagination.className="site-pagination";
+      categoryPagination.setAttribute("aria-label","التنقل بين صفحات التصنيف");
+      categoryPagination.setAttribute("role","navigation");
+      categoryGrid.insertAdjacentElement("afterend",categoryPagination);
+    }
+  }
   const render=()=>{
     const query=search?.value.trim()||params.get("q")||"",category=filter?.value||"";
     const rows=articles.filter(a=>matches(a,query,category));
@@ -106,10 +119,17 @@ export function mountCatalog(articles,root=""){
       }
       grid.setAttribute("aria-label",`المقالات، الصفحة ${page} من ${totalPages}`);
     }
-    const categoryGrid=$("[data-category-grid]"),categoryMain=$("[data-category]");
     if(categoryGrid&&categoryMain){
       const selected=articles.filter(a=>a.category===categoryMain.dataset.category);
-      categoryGrid.innerHTML=selected.map((a,i)=>articleCard(a,root,i)).join("")||'<p class="site-empty">لا توجد مقالات في هذا التصنيف بعد.</p>';
+      const categoryPages=Math.max(1,Math.ceil(selected.length/PAGE_SIZE));
+      categoryPage=Math.min(Math.max(1,categoryPage),categoryPages);
+      const categoryStart=(categoryPage-1)*PAGE_SIZE;
+      categoryGrid.innerHTML=selected.slice(categoryStart,categoryStart+PAGE_SIZE).map((a,i)=>articleCard(a,root,categoryStart+i)).join("")||'<p class="site-empty">لا توجد مقالات في هذا التصنيف بعد.</p>';
+      if(categoryPagination){
+        categoryPagination.innerHTML=paginationMarkup(categoryPage,categoryPages);
+        categoryPagination.hidden=categoryPages<2;
+      }
+      categoryGrid.setAttribute("aria-label",`مقالات التصنيف، الصفحة ${categoryPage} من ${categoryPages}`);
     }
   };
   search?.addEventListener("input",()=>{
@@ -125,6 +145,13 @@ export function mountCatalog(articles,root=""){
     page=Number(button.dataset.page)||1;
     render();
     $("#latest")?.scrollIntoView({behavior:"smooth",block:"start"});
+  });
+  categoryPagination?.addEventListener("click",event=>{
+    const button=event.target.closest("button[data-page]");
+    if(!button)return;
+    categoryPage=Number(button.dataset.page)||1;
+    render();
+    categoryGrid?.scrollIntoView({behavior:"smooth",block:"start"});
   });
   render();
 }
