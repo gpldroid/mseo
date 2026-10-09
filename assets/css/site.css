@@ -256,3 +256,6 @@ html.dark .site-page-button.is-current,html.dark .site-page-button[aria-current=
 @media(max-width:960px){.site-card-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.site-article-card-body{padding:18px}.site-article-title{font-size:1.02rem}}
 @media(max-width:600px){.site-card-grid{grid-template-columns:minmax(0,1fr);gap:16px}.site-article-card{border-radius:12px}.site-article-thumb{aspect-ratio:16/9}.site-article-card-body{padding:17px}.site-article-title{font-size:1.06rem;min-height:0}.site-article-description{min-height:0}.site-pagination{gap:6px;margin-top:25px}.site-page-button{min-width:39px;min-height:39px;padding:8px 10px}.site-page-prev,.site-page-next{font-size:.75rem}}
 @media(prefers-reduced-motion:reduce){.site-article-card,.site-article-thumb img,.site-read-arrow,.site-page-button{transition:none}.site-article-card:hover{transform:none}}
+
+/* Keep the decorative fallback visible if an external thumbnail fails. */
+.site-article-thumb{isolation:isolate}.site-article-thumb-fallback{z-index:0}.site-article-thumb img{position:relative;z-index:1}.site-article-thumb-label{z-index:2}
