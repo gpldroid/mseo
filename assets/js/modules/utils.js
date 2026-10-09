@@ -12,7 +12,7 @@ export const storage={
 };
 
 export const articleURL=(article,root="")=>{
-  const file=String(article?.file??"").replace(/^\\/+/, "");
+  const file=String(article?.file??"").replace(/^\/+/, "");
   return file && !file.split("/").some(part=>part===".."||part===".")
     ? root+"articles/"+file
     : root+"articles/";
