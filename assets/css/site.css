@@ -1,3 +1,5 @@
+/* Pinned Bulma foundation; MSEO overrides and RTL design tokens follow below. */
+@import url('https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css');
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@500;600;700;800;900&family=Noto+Sans+Arabic:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 @import url('./tokens.css');
 :root{color-scheme:light;--bg:#f7f7f2;--surface:#fff;--surface-2:#eef0e8;--text:#17251f;--muted:#64736b;--line:#dce2d9;--brand:#2f684b;--brand-2:#b6ef52;--brand-3:#1d4732;--good:#277b52;--header:#f7f7f2;--shadow:0 12px 35px rgba(23,37,31,.055);--radius:20px;--container:1160px;--font-ui:"Noto Sans Arabic",Tahoma,Arial,sans-serif;--font-heading:"Cairo","Noto Sans Arabic",sans-serif}
