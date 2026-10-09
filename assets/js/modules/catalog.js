@@ -20,7 +20,7 @@ export function articleCard(article,root="",index=0){
   const description=escapeHTML(article.description||"اكتشف هذا الدليل العملي وتعرّف على أهم النقاط خطوة بخطوة.");
   const icon=escapeHTML(article.icon||"fa-file-lines");
   const url=articleURL(article,root);
-  const image=String(article.image||article.thumbnail||"").trim();
+  const image=String(article.thumbnail||article.image||"").trim();
   // GitHub Pages project sites live under /mseo/, so do not resolve local
   // image paths from the domain root. Normalize root-relative and ./ paths.
   const imageUrl=/^https?:\/\//i.test(image)
