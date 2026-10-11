@@ -176,7 +176,7 @@ function Dashboard() {
   };
   const resetPassword = async () => {
     if (!loginEmail.trim()) return flash("أدخل البريد الإلكتروني أولًا.",true);
-    const { error: resetError } = await supabase.auth.resetPasswordForEmail(loginEmail.trim(),{redirectTo:window.location.origin});
+    const { error: resetError } = await supabase.auth.resetPasswordForEmail(loginEmail.trim(),{redirectTo:new URL(import.meta.env.BASE_URL,window.location.origin).toString()});
     if (resetError) flash(resetError.message,true); else flash("إذا كان البريد مسجلًا، ستصلك رسالة استعادة.");
   };
   const signUp = async () => {
