@@ -215,13 +215,22 @@ async function loadUsers() {
 }
 function renderUsers() {
   const search = $("userSearch").value.trim().toLowerCase(), users = state.users.filter(u => (u.email || "").toLowerCase().includes(search));
-  $("userRows").innerHTML = users.length ? users.map(u => '<tr><td><div class="table-title"><span class="table-title-icon">♙</span><div><strong>' + escapeHtml(u.email || "بدون بريد") + '</strong><small>' + escapeHtml(u.id.slice(0, 8)) + '…</small></div></div></td><td>' + dateLabel(u.created_at) + '</td><td>' + dateLabel(u.last_sign_in_at) + '</td><td><select class="user-role-select" data-role-user="' + u.id + '" ' + (u.id === state.user.id ? "disabled" : "") + '><option value="user" ' + (u.role === "user" ? "selected" : "") + '>مستخدم</option><option value="viewer" ' + (u.role === "viewer" ? "selected" : "") + '>قارئ</option><option value="editor" ' + (u.role === "editor" ? "selected" : "") + '>محرر</option><option value="admin" ' + (u.role === "admin" ? "selected" : "") + '>مدير</option></select></td><td><span class="status-pill ' + (u.email_confirmed ? "published" : "draft") + '">' + (u.email_confirmed ? "بريد مؤكد" : "بانتظار التأكيد") + '</span></td><td><button class="icon-button danger" data-delete-user="' + u.id + '" ' + (u.id === state.user.id ? "disabled" : "") + '>حذف</button></td></tr>').join("") : '<tr><td colspan="6" class="empty-cell">لا توجد حسابات مطابقة.</td></tr>';
+  $("userRows").innerHTML = users.length ? users.map(u => {
+    const banned = Boolean(u.banned_until && new Date(u.banned_until) > new Date());
+    return '<tr><td><div class="table-title"><span class="table-title-icon">♙</span><div><strong>' + escapeHtml(u.email || "بدون بريد") + '</strong><small>' + escapeHtml(u.id.slice(0, 8)) + '…</small></div></div></td><td>' + dateLabel(u.created_at) + '</td><td>' + dateLabel(u.last_sign_in_at) + '</td><td><select class="user-role-select" data-role-user="' + u.id + '" ' + (u.id === state.user.id ? "disabled" : "") + '><option value="user" ' + (u.role === "user" ? "selected" : "") + '>مستخدم</option><option value="viewer" ' + (u.role === "viewer" ? "selected" : "") + '>قارئ</option><option value="editor" ' + (u.role === "editor" ? "selected" : "") + '>محرر</option><option value="admin" ' + (u.role === "admin" ? "selected" : "") + '>مدير</option></select></td><td><span class="status-pill ' + (banned ? "archived" : u.email_confirmed ? "published" : "draft") + '">' + (banned ? "حساب معطّل" : u.email_confirmed ? "بريد مؤكد" : "بانتظار التأكيد") + '</span></td><td><div class="row-actions"><button class="icon-button" data-ban-user="' + u.id + '" data-banned="' + banned + '" ' + (u.id === state.user.id || u.role === "admin" ? "disabled" : "") + '>' + (banned ? "تفعيل" : "تعطيل") + '</button><button class="icon-button danger" data-delete-user="' + u.id + '" ' + (u.id === state.user.id ? "disabled" : "") + '>حذف</button></div></td></tr>';
+  }).join("") : '<tr><td colspan="6" class="empty-cell">لا توجد حسابات مطابقة.</td></tr>';
   $("userPageInfo").textContent = "المعروض: " + users.length + " — أول 50 مستخدمًا";
 }
 async function changeRole(userId, role) {
   if (!confirm("تأكيد تغيير صلاحية هذا الحساب إلى «" + (roleLabels[role] || role) + "»؟")) { await loadUsers(); return; }
   try { await edge("users:update-role", { user_id: userId, role }); toast("تم تحديث الصلاحية."); await loadUsers(); await loadOverview(); }
   catch (error) { toast(error.message, "error"); await loadUsers(); }
+}
+async function changeBan(userId, banned) {
+  const target = state.users.find(u => u.id === userId);
+  if (!target || !confirm((banned ? "تعطيل" : "إعادة تفعيل") + " حساب " + target.email + "؟")) return;
+  try { await edge("users:ban", { user_id: userId, banned }); toast(banned ? "تم تعطيل الحساب." : "تمت إعادة تفعيل الحساب."); await loadUsers(); }
+  catch (error) { toast(error.message, "error"); }
 }
 async function deleteUser(userId) {
   const target = state.users.find(u => u.id === userId);
@@ -284,7 +293,7 @@ async function githubLogin() {
   const { error } = await db.auth.signInWithOAuth({ provider: "github", options: { redirectTo: window.location.href.split("#")[0] } });
   if (error) showAuthMessage("تعذر بدء GitHub OAuth: " + error.message);
 }
-async function resetPassword() {
+async function signup() {\n  const email = $("email").value.trim(), password = $("password").value;\n  if (!email || password.length < 8) return showAuthMessage("أدخل بريدًا صالحًا وكلمة مرور من 8 أحرف على الأقل.");\n  const { data, error } = await db.auth.signUp({ email, password });\n  if (error) return showAuthMessage(error.message);\n  if (data.session) await establishSession(data.session);\n  showAuthMessage("تم إنشاء الحساب. لن تتمكن من دخول لوحة الإدارة حتى يمنحك المدير دورًا في mseo_admins؛ تحقق من بريدك لتأكيد الحساب إذا طُلب ذلك.", false);\n}\nasync function resetPassword() {
   const email = $("email").value.trim();
   if (!email) return showAuthMessage("أدخل البريد الإلكتروني أولًا.");
   const { error } = await db.auth.resetPasswordForEmail(email, { redirectTo: window.location.href.split("#")[0] });
@@ -294,7 +303,7 @@ async function resetPassword() {
 function bindEvents() {
   $("loginForm").addEventListener("submit", login);
   $("githubLogin").addEventListener("click", githubLogin);
-  $("forgotPassword").addEventListener("click", resetPassword);
+  $("forgotPassword").addEventListener("click", resetPassword);\n  $("signupButton").addEventListener("click", signup);
   $("deniedSignOut").addEventListener("click", signOut);
   $("signOut").addEventListener("click", signOut);
   $("mobileMenu").addEventListener("click", () => $("sidebar").classList.toggle("open"));
@@ -314,7 +323,7 @@ function bindEvents() {
   $("mediaGrid").addEventListener("click", async e => { const b = e.target.closest("button"); if (!b) return; if (b.dataset.copyUrl) { try { await navigator.clipboard.writeText(b.dataset.copyUrl); toast("تم نسخ الرابط."); } catch { prompt("انسخ الرابط:", b.dataset.copyUrl); } } if (b.dataset.deleteMedia) deleteMedia(b.dataset.deleteMedia); });
   $("refreshUsers").addEventListener("click", loadUsers); $("userSearch").addEventListener("input", renderUsers);
   $("userRows").addEventListener("change", e => { const el = e.target.closest("[data-role-user]"); if (el) changeRole(el.dataset.roleUser, el.value); });
-  $("userRows").addEventListener("click", e => { const el = e.target.closest("[data-delete-user]"); if (el) deleteUser(el.dataset.deleteUser); });
+  $("userRows").addEventListener("click", e => { const ban = e.target.closest("[data-ban-user]"); if (ban) changeBan(ban.dataset.banUser, ban.dataset.banned !== "true"); const el = e.target.closest("[data-delete-user]"); if (el) deleteUser(el.dataset.deleteUser); });
   $("refreshActivity").addEventListener("click", loadActivity); $("passwordForm").addEventListener("submit", updatePassword);
 }
 bindEvents();
