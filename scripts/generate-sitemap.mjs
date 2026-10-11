@@ -8,7 +8,7 @@ const excluded = new Set(["article.html", "pages/admin.html", "404.html"]);
 async function walk(dir) {
   const files = [];
   for (const entry of await readdir(dir, { withFileTypes: true })) {
-    if ([".git", ".github", "node_modules"].includes(entry.name)) continue;
+    if ([".git", ".github", "node_modules", "admin-dashboard", ".netlify-admin-build", "dist", "supabase", "scripts"].includes(entry.name)) continue;
     const path = join(dir, entry.name);
     if (entry.isDirectory()) files.push(...await walk(path));
     else if (entry.isFile() && entry.name.endsWith(".html")) files.push(path);
