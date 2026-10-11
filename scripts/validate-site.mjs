@@ -1,5 +1,5 @@
-import { readdir,readFile } from "node:fs/promises";
-import { join,normalize,relative } from "node:path";
+import { readdir, readFile, stat } from "node:fs/promises";
+import { dirname, join, normalize, relative } from "node:path";
 
 const root=process.cwd();
 const base="https://gpldroid.github.io/mseo";
@@ -101,8 +101,13 @@ for(const f of html){
     if(!u||schemes.includes(scheme)||u.startsWith("/")||u.startsWith("//")||u.startsWith("#"))continue;
     const clean=u.split("#")[0].split("?")[0];
     if(!clean)continue;
-    try{await readFile(normalize(join(f,"..",clean)));}
-    catch{broken.push(relative(root,f).replaceAll("\\","/")+" -> "+u);}
+    try {
+      let target = normalize(join(dirname(f), clean || "."));
+      if ((await stat(target)).isDirectory()) target = join(target, "index.html");
+      await readFile(target);
+    } catch {
+      broken.push(relative(root, f).replaceAll("\\", "/") + " -> " + u);
+    }
   }
 }
 
