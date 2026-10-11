@@ -3,4 +3,7 @@ Thumbs.db
 .vscode/
 .idea/
 node_modules/
+.netlify/
+.netlify-admin-build/
+dist/
 *.log

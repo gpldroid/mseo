@@ -1,0 +1,15 @@
+[build]
+  command = "npm run build && npm install --prefix admin-dashboard --no-audit --no-fund && VITE_BASE_PATH=/admin-dashboard/ MSEO_MONOREPO_BUILD=true npm run build --prefix admin-dashboard && node scripts/assemble-netlify.mjs"
+  publish = "dist"
+
+[[redirects]]
+  from = "/admin-dashboard/*"
+  to = "/admin-dashboard/index.html"
+  status = 200
+
+[[headers]]
+  for = "/admin-dashboard/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"

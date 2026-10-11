@@ -29,3 +29,17 @@ jobs:
         run: npm run build
       - name: Validate JavaScript modules and site SEO
         run: npm test
+      - name: Install dashboard dependencies
+        run: npm install --prefix admin-dashboard --no-audit --no-fund
+      - name: Build dashboard for the Netlify subpath
+        run: VITE_BASE_PATH=/admin-dashboard/ MSEO_MONOREPO_BUILD=true npm run build --prefix admin-dashboard
+        env:
+          VITE_SUPABASE_URL: https://example.supabase.co
+          VITE_SUPABASE_PUBLISHABLE_KEY: ci-placeholder-publishable-key
+      - name: Assemble and verify Netlify publish directory
+        run: |
+          node scripts/assemble-netlify.mjs
+          test -f dist/index.html
+          test -f dist/articles/ai-coding-prompts.html
+          test -f dist/admin-dashboard/index.html
+          find dist/admin-dashboard/assets -maxdepth 1 -type f -name '*.js' | grep -q .
