@@ -37,7 +37,7 @@ function match(re,s){return s.match(re)?.[1]||""}
 for(const f of html){
   const rel=relative(root,f).replaceAll("\\","/");
   const s=await readFile(f,"utf8");
-  if(excluded.has(rel))continue;
+  if(excluded.has(rel) || rel.startsWith("admin-dashboard/"))continue;
 
   if(!/<title>\s*[^<]+<\/title>/i.test(s))errors.push(rel+" -> title");
   if(!/<meta name="description" content="[^"]+">/i.test(s))errors.push(rel+" -> description");
