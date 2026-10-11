@@ -23,12 +23,12 @@ const escapeHtml = (value: unknown) => String(value ?? "").replace(/[&<>"']/g, (
 const slugOk = (slug: string) => /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug) && slug.length <= 100;
 
 Deno.serve(async (req) => {
-  if (req.method === "OPTIONS") return new Response("ok", { headers: corsHeaders(origin) });
-  if (req.method !== "POST") return reply({ error: "Method not allowed" }, 405, origin);
   const origin = req.headers.get("origin") ?? "";
   const reply = (body: unknown, status = 200) => json(body, status, origin);
+  if (req.method === "OPTIONS") return new Response("ok", { headers: corsHeaders(origin) });
+  if (req.method !== "POST") return reply({ error: "Method not allowed" }, 405);
   if (origin && !originAllowed(origin)) {
-    return reply({ error: "Origin not allowed" }, 403, origin);
+    return reply({ error: "Origin not allowed" }, 403);
   }
   const url = Deno.env.get("SUPABASE_URL");
   const anon = Deno.env.get("SUPABASE_ANON_KEY") ?? Deno.env.get("SUPABASE_PUBLISHABLE_KEY");
