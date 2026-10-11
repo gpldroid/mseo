@@ -1,5 +1,7 @@
 # MSEO Admin Dashboard (React + Vite)
 
+Build validation is enforced by the repository Admin Dashboard CI workflow.
+
 This app is an independent React/Vite admin interface for the existing MSEO Supabase project. It intentionally reuses the existing schema: mseo_admins, mseo_content_items, mseo_audit_logs, and the mseo-media bucket. It does not create duplicate profiles/posts tables.
 
 ## Local development
