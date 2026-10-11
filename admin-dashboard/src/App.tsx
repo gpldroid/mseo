@@ -101,17 +101,32 @@ function Dashboard() {
     try {
       const slug = form.slug.trim().toLowerCase().replace(/[^a-z0-9-]+/g,"-").replace(/^-+|-+$/g,"");
       if (!slug) throw new Error("أدخل رابطًا مختصرًا صالحًا (Slug).");
-      const payload = { ...form, slug, updated_by:auth.user.id, ...(editingId ? {} : {created_by:auth.user.id}) };
+      const previous = editingId ? content.find(item => item.id === editingId) : undefined;
+      const requestedStatus = form.status;
+      if (previous?.status === "published" && (requestedStatus !== "published" || previous.slug !== slug)) {
+        await edge("content:unpublish", { slug: previous.slug });
+      }
+      const databaseStatus = requestedStatus === "published" ? (previous?.status === "published" ? "published" : "draft") : requestedStatus;
+      const payload = { ...form, status: databaseStatus, slug, updated_by:auth.user.id, ...(editingId ? {} : {created_by:auth.user.id}) };
+      let contentId = editingId;
       if (editingId) {
         const { error: updateError } = await supabase.from("mseo_content_items").update(payload).eq("id", editingId);
         if (updateError) throw updateError;
-        await supabase.from("mseo_audit_logs").insert({actor_id:auth.user.id, action:"content.update", entity_type:"content", entity_id:editingId, details:{slug}});
       } else {
-        const { error: insertError } = await supabase.from("mseo_content_items").insert(payload);
+        const { data, error: insertError } = await supabase.from("mseo_content_items").insert(payload).select("id").single();
         if (insertError) throw insertError;
-        await supabase.from("mseo_audit_logs").insert({actor_id:auth.user.id, action:"content.create", entity_type:"content", entity_id:slug, details:{slug}});
+        contentId = data.id;
       }
-      setEditorOpen(false); await loadContent(); flash("تم حفظ المحتوى.");
+      if (requestedStatus === "published") {
+        await edge("content:publish", { slug, title:form.title, summary:form.summary, body_html:form.body_html, seo_title:form.seo_title, seo_description:form.seo_description, seo_keywords:[], cover_image_url:form.cover_image_url, content_type:form.content_type });
+        const { error: publishError } = await supabase.from("mseo_content_items").update({status:"published",published_at:new Date().toISOString(),updated_by:auth.user.id}).eq("id",contentId);
+        if (publishError) throw publishError;
+      } else if (requestedStatus === "archived" && previous?.status !== "published") {
+        const { error: archiveError } = await supabase.from("mseo_content_items").update({status:"archived",updated_by:auth.user.id}).eq("id",contentId);
+        if (archiveError) throw archiveError;
+      }
+      await supabase.from("mseo_audit_logs").insert({actor_id:auth.user.id, action:editingId?"content.update":"content.create", entity_type:"content", entity_id:contentId, details:{slug,status:requestedStatus}});
+      setEditorOpen(false); await loadContent(); flash(requestedStatus==="published"?"تم حفظ المحتوى ونشره إلى GitHub Pages.":"تم حفظ المحتوى.");
     } catch (e) { flash(e instanceof Error ? e.message : "تعذر حفظ المحتوى.", true); }
     finally { setBusy(false); }
   };
