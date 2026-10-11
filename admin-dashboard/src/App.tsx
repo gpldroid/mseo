@@ -133,8 +133,29 @@ function Dashboard() {
   };
   const deleteContent = async (item: ContentItem) => {
     if (!isAdmin || !window.confirm("حذف المحتوى «"+item.title+"» نهائيًا؟")) return;
-    const { error: deleteError } = await supabase.from("mseo_content_items").delete().eq("id", item.id);
-    if (deleteError) flash(deleteError.message,true); else { await loadContent(); flash("تم حذف المحتوى."); }
+    setBusy(true);
+    try {
+      // Remove the generated public page first; never leave a deleted DB item published.
+      if (item.status === "published") {
+        await edge("content:unpublish", { slug: item.slug });
+      }
+      const { error: deleteError } = await supabase.from("mseo_content_items").delete().eq("id", item.id);
+      if (deleteError) throw deleteError;
+      const { error: auditError } = await supabase.from("mseo_audit_logs").insert({
+        actor_id: auth.user?.id,
+        action: "content.delete",
+        entity_type: "content",
+        entity_id: item.id,
+        details: { slug: item.slug, status: item.status },
+      });
+      if (auditError) throw auditError;
+      await loadContent();
+      flash(item.status === "published" ? "تم حذف المحتوى وإزالة صفحته المنشورة." : "تم حذف المحتوى.");
+    } catch (e) {
+      flash(e instanceof Error ? e.message : "تعذر حذف المحتوى.", true);
+    } finally {
+      setBusy(false);
+    }
   };
   const uploadFiles = async (files: FileList|null) => {
     if (!files || !auth.user || !canEdit) return;
