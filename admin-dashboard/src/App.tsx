@@ -106,7 +106,7 @@ function Dashboard() {
       if (previous?.status === "published" && (requestedStatus !== "published" || previous.slug !== slug)) {
         await edge("content:unpublish", { slug: previous.slug });
       }
-      const databaseStatus = requestedStatus === "published" ? (previous?.status === "published" ? "published" : "draft") : requestedStatus;
+      const databaseStatus = requestedStatus === "published" ? (previous?.status === "published" && previous.slug === slug ? "published" : "draft") : requestedStatus;
       const payload = { ...form, status: databaseStatus, slug, updated_by:auth.user.id, ...(editingId ? {} : {created_by:auth.user.id}) };
       let contentId = editingId;
       if (editingId) {
