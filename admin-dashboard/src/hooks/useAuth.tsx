@@ -37,7 +37,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const value = useMemo<AuthValue>(() => ({
     session, user: session?.user ?? null, role, loading,
     signIn: async (email, password) => { const { error } = await supabase.auth.signInWithPassword({ email, password }); if (error) throw error; },
-    signInGitHub: async () => { const { error } = await supabase.auth.signInWithOAuth({ provider: "github", options: { redirectTo: window.location.origin } }); if (error) throw error; },
+    signInGitHub: async () => { const { error } = await supabase.auth.signInWithOAuth({ provider: "github", options: { redirectTo: new URL(import.meta.env.BASE_URL, window.location.origin).toString() } }); if (error) throw error; },
     signOut: async () => { const { error } = await supabase.auth.signOut(); if (error) throw error; setRole(null); },
     refreshRole,
   }), [session, role, loading]);
