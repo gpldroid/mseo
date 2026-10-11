@@ -5,7 +5,7 @@ const SUPABASE_KEY = "sb_publishable_rGb3srwFQ7aCbHipegsn1A_DmTFCpNX";
 const API_URL = SUPABASE_URL + "/functions/v1/mseo-admin-api";
 const $ = (id) => document.getElementById(id);
 const db = createClient(SUPABASE_URL, SUPABASE_KEY, { auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true } });
-const state = { user: null, role: null, content: [], contentPage: 1, contentPageSize: 10, users: [], media: [], currentView: "overview", toastTimer: null };
+const state = { user: null, role: null, content: [], contentPage: 1, contentPageSize: 10, users: [], usersPage: 1, usersHasNext: false, media: [], currentView: "overview", toastTimer: null };
 const roleLabels = { admin: "مدير النظام", editor: "محرر", viewer: "قارئ", user: "مستخدم" };
 const statusLabels = { draft: "مسودة", published: "منشور", archived: "مؤرشف" };
 const escapeHtml = (value) => String(value ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
@@ -210,7 +210,7 @@ async function loadUsers() {
   if (!isAdmin()) return;
   $("userRows").innerHTML = '<tr><td colspan="6" class="empty-cell">جارٍ تحميل المستخدمين…</td></tr>';
   try {
-    const result = await edge("users:list", { page: 1 }); state.users = result.users || []; renderUsers();
+    const result = await edge("users:list", { page: state.usersPage }); state.users = result.users || []; state.usersHasNext = state.users.length === 50; renderUsers();
   } catch (error) { $("userRows").innerHTML = '<tr><td colspan="6" class="empty-cell">' + escapeHtml(error.message) + '</td></tr>'; }
 }
 function renderUsers() {
@@ -219,7 +219,8 @@ function renderUsers() {
     const banned = Boolean(u.banned_until && new Date(u.banned_until) > new Date());
     return '<tr><td><div class="table-title"><span class="table-title-icon">♙</span><div><strong>' + escapeHtml(u.email || "بدون بريد") + '</strong><small>' + escapeHtml(u.id.slice(0, 8)) + '…</small></div></div></td><td>' + dateLabel(u.created_at) + '</td><td>' + dateLabel(u.last_sign_in_at) + '</td><td><select class="user-role-select" data-role-user="' + u.id + '" ' + (u.id === state.user.id ? "disabled" : "") + '><option value="user" ' + (u.role === "user" ? "selected" : "") + '>مستخدم</option><option value="viewer" ' + (u.role === "viewer" ? "selected" : "") + '>قارئ</option><option value="editor" ' + (u.role === "editor" ? "selected" : "") + '>محرر</option><option value="admin" ' + (u.role === "admin" ? "selected" : "") + '>مدير</option></select></td><td><span class="status-pill ' + (banned ? "archived" : u.email_confirmed ? "published" : "draft") + '">' + (banned ? "حساب معطّل" : u.email_confirmed ? "بريد مؤكد" : "بانتظار التأكيد") + '</span></td><td><div class="row-actions"><button class="icon-button" data-ban-user="' + u.id + '" data-banned="' + banned + '" ' + (u.id === state.user.id || u.role === "admin" ? "disabled" : "") + '>' + (banned ? "تفعيل" : "تعطيل") + '</button><button class="icon-button danger" data-delete-user="' + u.id + '" ' + (u.id === state.user.id ? "disabled" : "") + '>حذف</button></div></td></tr>';
   }).join("") : '<tr><td colspan="6" class="empty-cell">لا توجد حسابات مطابقة.</td></tr>';
-  $("userPageInfo").textContent = "المعروض: " + users.length + " — أول 50 مستخدمًا";
+  $("userPageInfo").textContent = "الصفحة " + state.usersPage + " · المعروض في هذه الصفحة: " + users.length + (state.usersHasNext ? " · توجد صفحة تالية" : " · نهاية القائمة");
+  $("prevUsersPage").disabled = state.usersPage <= 1; $("nextUsersPage").disabled = !state.usersHasNext;
 }
 async function changeRole(userId, role) {
   if (!confirm("تأكيد تغيير صلاحية هذا الحساب إلى «" + (roleLabels[role] || role) + "»؟")) { await loadUsers(); return; }
@@ -331,6 +332,8 @@ function bindEvents() {
   $("mediaUpload").addEventListener("change", e => { if (canEdit() && e.target.files?.length) uploadMedia([...e.target.files]); else if (!canEdit()) toast("لا تملك صلاحية رفع الوسائط.", "error"); });
   $("mediaGrid").addEventListener("click", async e => { const b = e.target.closest("button"); if (!b) return; if (b.dataset.copyUrl) { try { await navigator.clipboard.writeText(b.dataset.copyUrl); toast("تم نسخ الرابط."); } catch { prompt("انسخ الرابط:", b.dataset.copyUrl); } } if (b.dataset.deleteMedia) deleteMedia(b.dataset.deleteMedia); });
   $("refreshUsers").addEventListener("click", loadUsers); $("userSearch").addEventListener("input", renderUsers);
+  $("prevUsersPage").addEventListener("click", () => { if (state.usersPage > 1) { state.usersPage--; loadUsers(); } });
+  $("nextUsersPage").addEventListener("click", () => { if (state.usersHasNext) { state.usersPage++; loadUsers(); } });
   $("userRows").addEventListener("change", e => { const el = e.target.closest("[data-role-user]"); if (el) changeRole(el.dataset.roleUser, el.value); });
   $("userRows").addEventListener("click", e => { const ban = e.target.closest("[data-ban-user]"); if (ban) changeBan(ban.dataset.banUser, ban.dataset.banned !== "true"); const el = e.target.closest("[data-delete-user]"); if (el) deleteUser(el.dataset.deleteUser); });
   $("refreshActivity").addEventListener("click", loadActivity); $("passwordForm").addEventListener("submit", updatePassword);
