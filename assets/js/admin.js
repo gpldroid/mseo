@@ -293,7 +293,15 @@ async function githubLogin() {
   const { error } = await db.auth.signInWithOAuth({ provider: "github", options: { redirectTo: window.location.href.split("#")[0] } });
   if (error) showAuthMessage("تعذر بدء GitHub OAuth: " + error.message);
 }
-async function signup() {\n  const email = $("email").value.trim(), password = $("password").value;\n  if (!email || password.length < 8) return showAuthMessage("أدخل بريدًا صالحًا وكلمة مرور من 8 أحرف على الأقل.");\n  const { data, error } = await db.auth.signUp({ email, password });\n  if (error) return showAuthMessage(error.message);\n  if (data.session) await establishSession(data.session);\n  showAuthMessage("تم إنشاء الحساب. لن تتمكن من دخول لوحة الإدارة حتى يمنحك المدير دورًا في mseo_admins؛ تحقق من بريدك لتأكيد الحساب إذا طُلب ذلك.", false);\n}\nasync function resetPassword() {
+async function signup() {
+  const email = $("email").value.trim(), password = $("password").value;
+  if (!email || password.length < 8) return showAuthMessage("أدخل بريدًا صالحًا وكلمة مرور من 8 أحرف على الأقل.");
+  const { data, error } = await db.auth.signUp({ email, password });
+  if (error) return showAuthMessage(error.message);
+  if (data.session) await establishSession(data.session);
+  showAuthMessage("تم إنشاء الحساب. لن تتمكن من دخول لوحة الإدارة حتى يمنحك المدير دورًا في mseo_admins؛ تحقق من بريدك لتأكيد الحساب إذا طُلب ذلك.", false);
+}
+async function resetPassword() {
   const email = $("email").value.trim();
   if (!email) return showAuthMessage("أدخل البريد الإلكتروني أولًا.");
   const { error } = await db.auth.resetPasswordForEmail(email, { redirectTo: window.location.href.split("#")[0] });
@@ -303,7 +311,8 @@ async function signup() {\n  const email = $("email").value.trim(), password = $
 function bindEvents() {
   $("loginForm").addEventListener("submit", login);
   $("githubLogin").addEventListener("click", githubLogin);
-  $("forgotPassword").addEventListener("click", resetPassword);\n  $("signupButton").addEventListener("click", signup);
+  $("forgotPassword").addEventListener("click", resetPassword);
+  $("signupButton").addEventListener("click", signup);
   $("deniedSignOut").addEventListener("click", signOut);
   $("signOut").addEventListener("click", signOut);
   $("mobileMenu").addEventListener("click", () => $("sidebar").classList.toggle("open"));
