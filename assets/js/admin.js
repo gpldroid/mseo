@@ -245,14 +245,14 @@ async function loadMedia() {
   state.media = (data || []).filter(f => f.name && f.id);
   $("mediaGrid").innerHTML = state.media.length ? state.media.map(f => {
     const { data: url } = db.storage.from("mseo-media").getPublicUrl(f.name);
-    const isImage = /^image\//.test(f.metadata?.mimetype || "") || /\.(png|jpe?g|webp|gif|svg)$/i.test(f.name);
+    const isImage = /^image\//.test(f.metadata?.mimetype || "") || /\.(png|jpe?g|webp|gif)$/i.test(f.name);
     return '<article class="media-card"><div class="media-thumb">' + (isImage ? '<img loading="lazy" src="' + escapeHtml(url.publicUrl) + '" alt="' + escapeHtml(f.name) + '">' : '<span>▧</span>') + '</div><div class="media-meta"><strong title="' + escapeHtml(f.name) + '">' + escapeHtml(f.name) + '</strong><small>' + (f.metadata?.size ? (f.metadata.size / 1024).toFixed(0) + " KB" : "ملف وسائط") + '</small><div class="media-actions"><button class="icon-button" data-copy-url="' + escapeHtml(url.publicUrl) + '">نسخ الرابط</button>' + (isAdmin() ? '<button class="icon-button danger" data-delete-media="' + escapeHtml(f.name) + '">حذف</button>' : '') + '</div></div></article>';
   }).join("") : '<p class="empty-cell">المكتبة فارغة. ارفع صورة للبدء.</p>';
 }
 async function uploadMedia(files) {
   for (const file of files) {
     if (file.size > 10 * 1024 * 1024) { toast(file.name + ": الحجم أكبر من 10 MB.", "error"); continue; }
-    if (!/^image\/(jpeg|png|webp|gif|svg\+xml)$/.test(file.type)) { toast(file.name + ": نوع الملف غير مسموح.", "error"); continue; }
+    if (!/^image\/(jpeg|png|webp|gif)$/.test(file.type)) { toast(file.name + ": نوع الملف غير مسموح.", "error"); continue; }
     const safeName = file.name.normalize("NFKD").replace(/[^a-zA-Z0-9._-]+/g, "-").replace(/^-+|-+$/g, "").slice(-100) || "image";
     const path = new Date().toISOString().slice(0, 10) + "/" + crypto.randomUUID() + "-" + safeName;
     const { error } = await db.storage.from("mseo-media").upload(path, file, { upsert: false, contentType: file.type, cacheControl: "3600" });
