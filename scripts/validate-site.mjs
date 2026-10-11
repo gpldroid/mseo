@@ -118,7 +118,7 @@ if(errors.length||broken.length){
 
 const expected=html
   .map(f=>relative(root,f).replaceAll("\\","/"))
-  .filter(x=>!excluded.has(x))
+  .filter(x=>!excluded.has(x) && !x.startsWith("admin-dashboard/"))
   .map(x=>x==="index.html"?base+"/":base+"/"+x)
   .sort();
 
