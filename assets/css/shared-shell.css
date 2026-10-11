@@ -1,0 +1,11 @@
+/* Keep the homepage's shared shell identical to category and article pages. */
+.site-header{height:auto}
+.site-footer{margin-top:38px}
+.site-header .site-container,.site-footer .site-container{width:min(var(--container),calc(100% - 48px));margin-inline:auto}
+@media(max-width:720px){
+  .site-header{position:sticky;top:0}
+  .site-mainbar{grid-template-columns:minmax(0,1fr) auto;gap:12px;min-height:68px}
+  .site-nav{display:none}
+  .site-mobile-toggle{display:grid}
+  .site-top-inner{font-size:.65rem}
+}
