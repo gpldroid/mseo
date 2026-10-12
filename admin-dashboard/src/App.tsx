@@ -53,12 +53,12 @@ function Root() {
     const slug = form.slug.toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
     if (!slug) { setError("أدخل رابطًا مختصرًا صالحًا بالأحرف اللاتينية."); setBusy(false); return; }
     const { data: { user } } = await supabase.auth.getUser();
-    const payload = { title: form.title.trim(), slug, summary: form.summary, body_html: form.body_html, content_type: form.content_type, status: form.status, seo_title: form.seo_title, seo_description: form.seo_description, seo_keywords: form.seo_keywords.split(",").map(x => x.trim()).filter(Boolean), cover_image_url: form.cover_image_url, updated_by: user?.id, ...(editing ? {} : { created_by: user?.id }) };
+    const publishedAt = form.status === "published" ? (editing?.published_at ?? new Date().toISOString()) : null;
+    const payload = { title: form.title.trim(), slug, summary: form.summary, body_html: form.body_html, content_type: form.content_type, status: form.status, seo_title: form.seo_title, seo_description: form.seo_description, seo_keywords: form.seo_keywords.split(",").map(x => x.trim()).filter(Boolean), cover_image_url: form.cover_image_url, published_at: publishedAt, updated_by: user?.id, ...(editing ? {} : { created_by: user?.id }) };
     const result = editing
       ? await supabase.from("mseo_content_items").update(payload).eq("id", editing.id).select().single()
       : await supabase.from("mseo_content_items").insert(payload).select().single();
     if (result.error) { setError(result.error.message); setBusy(false); return; }
-    if (form.status === "published") await supabase.from("mseo_content_items").update({ published_at: new Date().toISOString() }).eq("id", result.data.id);
     await supabase.from("mseo_audit_logs").insert({ actor_id: user?.id, action: editing ? "content.updated" : "content.created", entity_type: form.content_type, entity_id: result.data.id, details: { title: form.title } });
     setShowEditor(false); setNotice("تم حفظ المحتوى بنجاح."); await load();
   };
