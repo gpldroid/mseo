@@ -4,7 +4,7 @@ A responsive Arabic-first CMS dashboard built with React, Vite, TypeScript, Supa
 
 ## What it manages
 
-- Articles and pages with draft, review, scheduled, published, and archived states
+- Articles and pages with draft, review, scheduled, published, and archived states; the current site import includes 14 articles and 13 existing pages
 - Editorial metadata: slug, locale, excerpt, categories, tags, featured image, SEO title/description, and canonical URL
 - Automatic content revisions and workspace audit events
 - Normalized categories/tags and content-to-taxonomy relationships (with legacy arrays retained for static-site publishing)
@@ -28,7 +28,7 @@ RLS policies remain authoritative; hiding a screen in React is not an authorizat
 
 ## Publishing
 
-The `mcms-publish` Edge Function requires a valid Supabase JWT and a publisher/owner/admin membership. It writes an HTML page into the configured `articles/` or `pages/` directory and updates `data/articles.json` for articles, which is the public site's catalogue. This preserves the static site's existing URL pattern and makes new articles discoverable from the homepage and archive.
+The `mcms-publish` Edge Function requires a valid Supabase JWT and a publisher/owner/admin membership. It writes an HTML page into the configured `articles/` or `pages/` directory, preserves the existing custom layout for imported pages, and updates `data/articles.json` for articles, which is the public site's catalogue. This preserves the static site's existing URL pattern and makes new articles discoverable from the homepage and archive.
 
 Set `GITHUB_TOKEN` as a Supabase Edge Function secret with write access to `gpldroid/mseo`. Never expose that token in Vite variables. If the token is absent, content can still be drafted in the CMS but publishing will return a clear configuration error.
 
