@@ -48,17 +48,17 @@ git commit -m "Initial project"</code></pre><p>اكتب رسالة commit توض
 <section><h2>ربط المشروع بـGitHub</h2><p>أنشئ مستودعًا جديدًا على GitHub، ثم اربطه بالمشروع المحلي عبر remote. المثال التالي يستخدم اسم <code>origin</code> وهو الاسم الشائع للمستودع البعيد.</p><pre><code>git remote add origin https://github.com/USERNAME/REPOSITORY.git
 git branch -M main
 git push -u origin main</code></pre><p>بدّل الرابط التجريبي بعنوان مستودعك الحقيقي. واحرص على عدم تضمين كلمات المرور أو مفاتيح API في ملفات المشروع أو سجل commits.</p></section>
-<section><h2>لماذا نستخدم Branch؟</h2><p>بدل تنفيذ كل العمل مباشرة على <code>main</code>، أنشئ فرعًا للميزة أو الإصلاح. بهذه الطريقة يبقى الفرع الأساسي أكثر استقرارًا ويمكن مراجعة التغيير قبل دمجه.</p><pre><code>git switch -c feature/contact-form
+<section><h2>لماذا نستخدم Branch؟</h2><p>بدلًا من إجراء جميع التعديلات على <code>main</code>، أنشئ فرعًا مستقلًا للميزة أو الإصلاح. يساعدك ذلك على إبقاء الفرع الأساسي مستقرًا ومراجعة التغييرات قبل دمجها.</p><pre><code>git switch -c feature/contact-form
 # عدّل الملفات واختبرها
 git add .
 git commit -m "Add contact form"
 git push -u origin feature/contact-form</code></pre></section>
 <section><h2>كيف يعمل Pull Request؟</h2><p>بعد رفع الفرع إلى GitHub، يمكنك فتح Pull Request من فرع الميزة إلى <code>main</code>. أضف وصفًا يشرح ما تغير، وما الذي اختبرته، وأي نقاط تحتاج مراجعة. بعد المراجعة والاختبارات يمكن دمج التغيير ثم حذف الفرع إذا لم تعد تحتاجه.</p></section>
-<section><h2>متى تستخدم clone وpull؟</h2><p>استخدم <code>git clone</code> عندما تريد إنشاء نسخة محلية من مستودع موجود. وإذا كان المستودع المحلي موجودًا بالفعل وتريد جلب آخر تغييرات من الفريق، استخدم <code>git pull</code> بعد التأكد من حالة عملك.</p><pre><code>git clone https://github.com/USERNAME/REPOSITORY.git
+<section><h2>متى تستخدم clone وpull؟</h2><p>استخدم <code>git clone</code> للحصول على نسخة محلية من مستودع قائم. أما إذا كان المستودع موجودًا على جهازك وتريد جلب تحديثات الفريق ودمجها، فاستخدم <code>git pull</code> بعد التحقق من حالة الملفات المحلية.</p><pre><code>git clone https://github.com/USERNAME/REPOSITORY.git
 cd REPOSITORY
 git pull</code></pre></section>
 <section><h2>سير عمل بسيط لمشروع ويب</h2><ol><li>اسحب آخر تغييرات من الفرع الأساسي عند الحاجة.</li><li>أنشئ branch باسم يصف المهمة.</li><li>عدّل الملفات واختبر الموقع محليًا.</li><li>سجّل تغييرات صغيرة وواضحة في commits.</li><li>ارفع الفرع إلى GitHub.</li><li>افتح Pull Request وراجع التغييرات.</li><li>ادمج التغيير بعد اكتمال المراجعة والاختبارات.</li></ol></section>
-<section><h2>أخطاء شائعة عند البداية</h2><ul><li>العمل مباشرة على <code>main</code> في كل مهمة.</li><li>إنشاء commit واحد ضخم يحتوي تغييرات غير مترابطة.</li><li>رفع ملفات سرية مثل مفاتيح API أو ملفات إعداد محلية.</li><li>استخدام <code>git add .</code> دون مراجعة ما سيُسجّل في المشروع.</li><li>سحب تغييرات جديدة مع وجود عمل محلي غير محفوظ دون فهم حالة الشجرة.</li></ul><p>قبل أي عملية حساسة، استخدم <code>git status</code> وراجع الفرق عبر <code>git diff</code>.</p></section>
+<section><h2>أخطاء شائعة عند البداية</h2><ul><li>العمل مباشرة على <code>main</code> في كل مهمة.</li><li>إنشاء commit واحد ضخم يحتوي تغييرات غير مترابطة.</li><li>رفع ملفات سرية مثل مفاتيح API أو ملفات إعداد محلية.</li><li>استخدام <code>git add .</code> دون مراجعة ما سيُسجّل في المشروع.</li><li>سحب تغييرات جديدة مع وجود عمل محلي غير محفوظ دون فهم حالة الشجرة.</li></ul><p>قبل أي خطوة قد تؤثر في عملك، افحص الملفات باستخدام <code>git status</code> واطّلع على تفاصيل التعديلات بواسطة <code>git diff</code>.</p></section>
 <section><h2>Git وGitHub عند نشر موقعك</h2><p>يتولى Git تتبّع تطور المشروع، بينما يوفّر GitHub مكانًا مركزيًا لاستضافة المستودع ومراجعة التغييرات. وإذا كانت خطوتك التالية هي نشر موقع ثابت على GitHub Pages، فراجع <a href="github-pages-deploy.html">دليل نشر الموقع على GitHub Pages</a>؛ ذلك المقال يركز على النشر والاستضافة، وليس على أساسيات Git.</p></section>
 <section><h2>الخلاصة</h2><p>ليس عليك حفظ عدد كبير من أوامر Git منذ اليوم الأول. ابدأ بفهم التسلسل الأساسي: عدّل الملفات، افحص status، أضف التغييرات، أنشئ commit، ثم استخدم branch وpush وPull Request عند التعاون. ومع الممارسة ستصبح إدارة إصدارات مشروعك جزءًا طبيعيًا من سير العمل.</p></section>
 </div>
