@@ -23,8 +23,8 @@ jobs:
           cache: npm
       - name: Install dependencies
         run: npm ci --no-audit --no-fund
-      - name: Verify pinned Bulma foundation
-        run: grep -q 'bulma@1.0.4/css/bulma.min.css' assets/css/site.css
+      - name: Verify unified public-site stylesheet
+        run: grep -q 'style.css' assets/css/site.css && grep -q 'style.css' assets/css/home-rebuild.css
       - name: Build generated catalogue and sitemap
         run: npm run build
       - name: Validate JavaScript modules and site SEO
