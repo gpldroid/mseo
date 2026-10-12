@@ -1,7 +1,7 @@
 /* MSEO progressive-enhancement bootstrap. */
 (() => {
   "use strict";
-  import("./modules/app.js").catch((error) => {
+  import("./modules/app.js?v=20261012-consent1").catch((error) => {
     console.error("[MSEO] Unable to load site modules.", error);
     document.documentElement.dataset.mseoReady = "error";
     const main = document.querySelector("main");
