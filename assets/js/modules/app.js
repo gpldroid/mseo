@@ -26,7 +26,18 @@ async function start(){
 
   try{
     const articles=await loadCatalog(ROOT+PATH.catalog);
-    mountCatalog(articles,ROOT);
+
+    // The redesigned homepage owns its own catalogue renderer and controls.
+    // Mounting the legacy renderer here would overwrite its cards and create
+    // a second pagination/search system on the same DOM nodes.
+    const usesRebuiltHomepage=Boolean(
+      document.querySelector("#article-search") &&
+      document.querySelector("#article-category") &&
+      document.querySelector("#category-grid")
+    );
+    if(!usesRebuiltHomepage) mountCatalog(articles,ROOT);
+
+    // Keep shared search/theme/mobile interactions available on every page.
     mountInteractions(articles,ROOT);
     document.querySelectorAll("main img").forEach((image,index)=>{
       if(index>0&&!image.loading)image.loading="lazy";
