@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { Code2, Palette, Plus, RefreshCw, Save, ShieldCheck, Trash2, Upload, Megaphone, Eye, EyeOff } from "lucide-react";
+import { Code2, Palette, RefreshCw, Save, ShieldCheck, Trash2, Megaphone, Eye, EyeOff } from "lucide-react";
 import { supabase } from "./lib/supabase";
 
 type AdSlot = { id: string; name: string; code: string; location: string; is_active: boolean; notes: string; updated_at: string };
@@ -99,20 +99,6 @@ export default function AdminTools({ role }: { role: string }) {
       setTheme(draftTheme); flash("تم حفظ إعدادات المظهر في Supabase.");
     } catch (e) { fail(e); } finally { setBusy(false); }
   };
-  const uploadImage = async (input: HTMLInputElement) => {
-    const image = input.files?.[0]; if (!image) return;
-    if (!image.type.startsWith("image/")) { fail(new Error("اختر ملف صورة صالحًا.")); return; }
-    if (image.size > 10 * 1024 * 1024) { fail(new Error("الحد الأقصى لحجم الصورة 10 ميغابايت.")); return; }
-    setBusy(true);
-    try {
-      const path = `articles/${Date.now()}-${image.name.replace(/[^a-zA-Z0-9._-]/g, "-")}`;
-      const { error: e } = await supabase.storage.from("mseo-media").upload(path, image, { upsert: false, contentType: image.type });
-      if (e) throw e;
-      const { data } = supabase.storage.from("mseo-media").getPublicUrl(path);
-      setAdForm(v => ({ ...v, code: v.code + (v.code ? "\n" : "") + data.publicUrl }));
-      flash("رُفعت الصورة إلى Supabase Storage. انسخ رابطها إلى المقال أو كود الإعلان حسب الحاجة.");
-    } catch (e) { fail(e); } finally { setBusy(false); input.value = ""; }
-  };
   const loadFile = async () => {
     setBusy(true);
     try {
@@ -157,7 +143,7 @@ export default function AdminTools({ role }: { role: string }) {
           <label className="full">ملاحظات<input value={adForm.notes} onChange={e => setAdForm(v => ({...v,notes:e.target.value}))} placeholder="معرّف الحملة أو تعليمات"/></label>
           <label className="checkbox-line"><input type="checkbox" checked={adForm.is_active} onChange={e => setAdForm(v => ({...v,is_active:e.target.checked}))}/> تفعيل الإعلان</label>
         </div>
-        <div className="tools-actions"><button className="btn primary" disabled={busy || !canManage} onClick={() => void saveAd()}><Save size={15}/> {adForm.id ? "تحديث الإعلان" : "إضافة إعلان"}</button><label className="btn secondary upload-label"><Upload size={15}/> رفع صورة<input type="file" accept="image/*" hidden onChange={e => e.currentTarget && void uploadImage(e.currentTarget)}/></label>{adForm.id && <button className="btn secondary" onClick={() => setAdForm({id:"",name:"",code:"",location:"header_top",notes:"",is_active:false})}>إلغاء التحرير</button>}</div>
+        <div className="tools-actions"><button className="btn primary" disabled={busy || !canManage} onClick={() => void saveAd()}><Save size={15}/> {adForm.id ? "تحديث الإعلان" : "إضافة إعلان"}</button>{adForm.id && <button className="btn secondary" onClick={() => setAdForm({id:"",name:"",code:"",location:"header_top",notes:"",is_active:false})}>إلغاء التحرير</button>}</div>
       </div>
       <div className="tool-card"><h3>الإعلانات المحفوظة</h3>
         {!ads.length && <p className="muted">لم تُضف إعلانات بعد.</p>}
