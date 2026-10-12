@@ -1,11 +1,14 @@
 import { readFile, access } from 'node:fs/promises';
 const root = new URL('../', import.meta.url);
 const required = [
-  'index.html','assets/css/style.css','assets/css/site.css','assets/css/home-rebuild.css',
-  'assets/js/site.js','assets/js/home-rebuild.js','assets/js/archive.js',
+  'index.html','assets/css/style.css','assets/js/site.js',
   'data/articles.json','pages/archive.html','sitemap.xml','pages/privacy.html','pages/terms.html'
 ];
 for (const path of required) await access(new URL(path, root));
+for (const path of ['assets/css/site.css','assets/css/tailwind.css','assets/css/home-rebuild.css','assets/js/home-rebuild.js','assets/js/archive.js']) {
+  try { await access(new URL(path, root)); throw new Error('Obsolete duplicate asset still exists: ' + path); }
+  catch (error) { if (error.message.startsWith('Obsolete duplicate asset')) throw error; }
+}
 const catalog = JSON.parse(await readFile(new URL('data/articles.json', root), 'utf8'));
 for (const item of catalog) await access(new URL('articles/' + item.file, root));
 const home = await readFile(new URL('index.html', root), 'utf8');
