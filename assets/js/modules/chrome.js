@@ -4,7 +4,8 @@ const FOOTER_LINKS = [
   ["pages/about.html","من نحن"],
   ["pages/contact.html","اتصل بنا"],
   ["pages/privacy.html","سياسة الخصوصية"],
-  ["pages/terms.html","شروط الاستخدام"]
+  ["pages/terms.html","شروط الاستخدام"],
+  ["pages/editorial-policy.html","سياسة التحرير"]
 ];
 const HOME_NAV = [
   ["index.html","الرئيسية"],
