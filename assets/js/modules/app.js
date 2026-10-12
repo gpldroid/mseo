@@ -10,12 +10,24 @@ async function start(){
   if(started)return;
   started=true;
   const root=document.documentElement;
+
+  // Shared site chrome and privacy notice must not depend on the catalogue.
+  // Mount them first so a network/data/rendering error cannot remove core UI.
   try{
     mountShell();
+  }catch(error){
+    console.error("[MSEO] Shared shell failed to mount.",error);
+  }
+  try{
+    mountCookieNotice();
+  }catch(error){
+    console.error("[MSEO] Cookie notice failed to mount.",error);
+  }
+
+  try{
     const articles=await loadCatalog(ROOT+PATH.catalog);
     mountCatalog(articles,ROOT);
     mountInteractions(articles,ROOT);
-    mountCookieNotice();
     document.querySelectorAll("main img").forEach((image,index)=>{
       if(index>0&&!image.loading)image.loading="lazy";
       if(!image.hasAttribute("decoding"))image.decoding="async";
