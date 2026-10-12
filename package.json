@@ -9,8 +9,9 @@
   "scripts": {
     "generate:catalog": "node scripts/generate-article-catalog.mjs",
     "generate:sitemap": "node scripts/generate-sitemap.mjs",
-    "build": "npm run generate:catalog && npm run generate:sitemap",
+    "build": "npm run sync:cms && npm run generate:catalog && npm run generate:sitemap",
     "test:js": "node scripts/check-javascript.mjs",
-    "test": "npm run test:js && node scripts/validate-site.mjs"
+    "test": "npm run test:js && node scripts/validate-site.mjs",
+    "sync:cms": "node scripts/sync-cms-content.mjs"
   }
 }
