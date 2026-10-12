@@ -263,5 +263,22 @@
     "icon": "fa-bug",
     "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=85",
     "thumbnail": "assets/images/article-thumbnails/javascript-debugging.svg"
+  },
+  {
+    "slug": "robots-txt-guide",
+    "file": "robots-txt-guide.html",
+    "title": "ملف robots.txt: دليل الإعداد الصحيح لتحسين SEO",
+    "category": "SEO",
+    "subcategory": "Technical SEO",
+    "tags": [
+      "robots.txt",
+      "SEO التقني",
+      "Googlebot",
+      "الزحف والفهرسة",
+      "Crawl Budget"
+    ],
+    "description": "دليل عملي لإنشاء ملف robots.txt وفهم قواعد Allow وDisallow والفرق بين الزحف والفهرسة واختبار الملف.",
+    "icon": "fa-robot",
+    "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=85"
   }
 ]
