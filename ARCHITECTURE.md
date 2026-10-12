@@ -1,30 +1,30 @@
 # MSEO — Architecture & Design System
 
-MSEO is a static-first Arabic RTL publishing site deployed on GitHub Pages. It intentionally avoids a server runtime and keeps article URLs crawlable as independent HTML documents.
+MSEO is a static-first Arabic RTL publishing site. Public pages are independent HTML documents so article content, canonical URLs, metadata, and structured data remain crawlable without a client-side application runtime.
 
-## Runtime architecture
+## Public website runtime
 
-- **Documents**: `index.html`, `pages/`, `articles/`, `404.html`; each published page owns its title, description, canonical URL and social metadata.
-- **Content data**: `data/articles.json` is the catalogue consumed by search and category listings. Article bodies remain in HTML for crawlability and resilience.
-- **Browser entry point**: `assets/js/site.js` is a small dynamic-import bootstrap with a user-friendly failure state.
-- **Feature modules**: `assets/js/modules/config.js` centralizes site paths and navigation; `utils.js` provides safe DOM/storage helpers; `catalog.js` loads and renders the catalogue; `shell.js` mounts shared header/footer, theme and consent; `interactions.js` owns search, mobile navigation and back-to-top; `app.js` composes startup.
-- **Styles**: `assets/css/site.css` is the shared design-system entry point. Design tokens live in `:root` and `html.dark`; shared layout and component classes are used across page families.
-- **Automation**: `scripts/generate-article-catalog.mjs` derives catalogue data from article metadata; `scripts/generate-sitemap.mjs` builds the sitemap; `scripts/validate-site.mjs` checks SEO metadata, links, categories and sitemap consistency.
+- **Documents:** `index.html`, `pages/`, `articles/`, and `404.html`.
+- **Single public stylesheet:** `assets/css/style.css`. It owns public-site design tokens, responsive layout, shared header/footer, article cards, navigation, dark mode, and consent-banner styles.
+- **Single public browser script:** `assets/js/site.js`. It mounts shared header/footer, theme and language controls, mobile navigation, search UI, cookie/local-storage notice, homepage catalogue, and archive filtering.
+- **Content index:** `data/articles.json` is generated from article metadata. Article bodies remain in HTML.
+- **Automation:** `scripts/generate-article-catalog.mjs`, `scripts/generate-sitemap.mjs`, and `scripts/validate-site.mjs` build and validate static content.
+- **Administration:** `pages/admin.html` and `admin-dashboard/` are a separate authenticated application with their own assets and build pipeline. They are intentionally isolated from the public site's CSS and JavaScript so public-site cleanup cannot break authentication, roles, or content editing.
 
-## Design principles
+## Asset policy
 
-1. Semantic HTML, Arabic language declaration and RTL direction.
-2. Mobile-first responsive layout, visible keyboard focus, accessible labels and reduced-motion support.
-3. Progressive enhancement: article content remains static HTML; JavaScript enhances discovery and navigation.
-4. No Java backend is required for GitHub Pages. JavaScript is the browser runtime language; Java can be introduced only if the project later gains a separate backend service.
-5. Keep third-party assets optional where practical and avoid adding a framework without a measurable benefit.
+1. Public pages load `assets/css/style.css` and `assets/js/site.js` as their shared local entry points.
+2. Do not reintroduce `assets/css/site.css`, `assets/css/tailwind.css`, `assets/css/home-rebuild.css`, `assets/js/archive.js`, or `assets/js/home-rebuild.js`.
+3. Keep article text and SEO metadata in HTML; JavaScript enhances navigation and discovery.
+4. Use semantic HTML, Arabic `lang`, RTL direction, visible focus states, and responsive layouts.
+5. Browser storage may be unavailable; storage errors must not prevent the header, footer, or content from rendering.
 
 ## Local validation
 
 ```sh
 npm ci
-npm run validate
+npm test
 npm run build
 ```
 
-Review the generated catalogue and sitemap diff before committing. Run the validation command on Node.js LTS.
+After a build, review catalogue and sitemap changes before committing. The production deployment is considered verified only after the GitHub Actions quality workflow succeeds and the live site is checked.
