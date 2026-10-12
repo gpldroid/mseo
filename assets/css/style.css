@@ -624,3 +624,75 @@ html[data-theme="reading"] .visual-window{transform:none}
 html[data-theme="reading"] .hero-visual{filter:saturate(.72)}
 @media(max-width:760px){html[data-theme="compact"] .mseo-header-inner{min-height:58px}html[data-theme="reading"] .prose{font-size:1rem}}
 @media(prefers-reduced-motion:reduce){html[data-theme] *,html[data-theme] *::before,html[data-theme] *::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important}}
+
+
+/* Article media: responsive sizing, stable layout and readable captions.
+   The first image in an article remains eager/high priority; body images should be lazy. */
+body:has(> main > article) > main > article > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center;
+  background: var(--surface-2);
+}
+.prose img,
+.prose video,
+.prose iframe,
+.prose figure {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.prose img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  margin: 1.75rem auto;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, .09);
+  object-fit: contain;
+}
+.prose figure {
+  min-width: 0;
+  margin: 1.75rem auto;
+}
+.prose figure img {
+  width: 100%;
+  margin: 0 auto;
+}
+.prose figcaption {
+  max-width: 70ch;
+  margin: .65rem auto 0;
+  color: var(--muted);
+  font-size: .875rem;
+  line-height: 1.75;
+  text-align: center;
+}
+.prose video,
+.prose iframe {
+  display: block;
+  width: 100%;
+  border: 0;
+  border-radius: 14px;
+}
+.prose table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+}
+@media (max-width: 600px) {
+  body:has(> main > article) > main > article > img {
+    aspect-ratio: 16 / 9;
+  }
+  .prose img {
+    margin-block: 1.25rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, .07);
+  }
+  .prose figure {
+    margin-block: 1.25rem;
+  }
+}
