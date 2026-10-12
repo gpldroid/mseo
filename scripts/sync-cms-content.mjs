@@ -8,7 +8,9 @@ const headers = { apikey: key, Authorization: `Bearer ${key}` };
 const escape = (value) => String(value ?? "").replace(/[&<>"']/g, (char) => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" })[char]);
 function safeHtml(html) {
   return String(html ?? "")
-    .replace(/<\/?(?:script|style|iframe|object|embed|form|input|button)\b[^>]*>/gi, "")
+    .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, "")
+    .replace(/<(?:style|iframe|object|embed|form)\b[^>]*>[\s\S]*?<\/(?:style|iframe|object|embed|form)>/gi, "")
+    .replace(/<\/?(?:style|iframe|object|embed|form|input|button)\b[^>]*>/gi, "")
     .replace(/\s+on[a-z]+\s*=\s*("[^"]*"|'[^']*'|[^\s>]+)/gi, "")
     .replace(/(href|src)\s*=\s*(['"])\s*(?:javascript|data):[^'"]*\2/gi, '$1="#"');
 }
