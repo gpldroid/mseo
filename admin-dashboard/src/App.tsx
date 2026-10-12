@@ -14,7 +14,7 @@ function slugify(value: string) {
 async function triggerContentPublish(slug: string, status: string) {
   const { data: { session } } = await supabase.auth.getSession();
   if (!session?.access_token) throw new Error("انتهت جلسة الدخول.");
-  const base = ((import.meta.env.VITE_ADMIN_API_URL as string | undefined)?.trim() || "https://mseopro.netlify.app/.netlify/functions").replace(/\\/$/, "");
+  const base = ((import.meta.env.VITE_ADMIN_API_URL as string | undefined)?.trim() || "https://mseopro.netlify.app/.netlify/functions").replace(/\/$/, "");
   const response = await fetch(`${base}/publish-content`, {
     method: "POST",
     headers: { "Content-Type": "application/json", Authorization: `Bearer ${session.access_token}` },
