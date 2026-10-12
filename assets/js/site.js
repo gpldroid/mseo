@@ -15,24 +15,23 @@
   ];
   const readPreference = (key) => { try { return localStorage.getItem(key); } catch (_) { return null; } };
   const writePreference = (key, value) => { try { localStorage.setItem(key, value); } catch (_) {} };
-  const t = (ar,en) => ar;
   const header = $('[data-site-header]') || $('[data-home-header]');
   if (header) {
     header.innerHTML = `
       <header class="mseo-header">
         <div class="mseo-header-inner">
-          <button class="mseo-icon-button mseo-menu-toggle" type="button" aria-label="${t('فتح القائمة','Open menu')}" aria-expanded="false" data-menu-toggle>☰</button>
-          <a class="mseo-brand" href="${link('index.html')}" aria-label="MSEO — ${t('الرئيسية','Home')}"><span class="mseo-brand-mark">M</span><span>MSEO</span></a>
-          <nav class="mseo-nav" data-main-nav aria-label="${t('القائمة الرئيسية','Main navigation')}">
+          <button class="mseo-icon-button mseo-menu-toggle" type="button" aria-label="${'فتح القائمة'}" aria-expanded="false" data-menu-toggle>☰</button>
+          <a class="mseo-brand" href="${link('index.html')}" aria-label="MSEO — ${'الرئيسية'}"><span class="mseo-brand-mark">M</span><span>MSEO</span></a>
+          <nav class="mseo-nav" data-main-nav aria-label="${'القائمة الرئيسية'}">
             ${navItems.map(([href,ar,en])=>`<a href="${link(href)}" ${((href==='index.html' && (path.endsWith('/mseo/') || path.endsWith('/index.html') || path === '/')) || (href!=='index.html' && path.endsWith('/'+href)))?'aria-current="page"':''}>${t(ar,en)}</a>`).join('')}
           </nav>
           <div class="mseo-actions">
-            <button class="mseo-icon-button" type="button" data-search-toggle aria-label="${t('فتح البحث','Open search')}" title="${t('بحث','Search')}">⌕</button>
-            <button class="mseo-icon-button" type="button" data-theme-toggle aria-label="${t('تبديل المظهر','Toggle theme')}" title="${t('الوضع الداكن','Dark mode')}">☾</button>
+            <button class="mseo-icon-button" type="button" data-search-toggle aria-label="${'فتح البحث'}" title="${'بحث'}">⌕</button>
+            <button class="mseo-icon-button" type="button" data-theme-toggle aria-label="${'تبديل المظهر'}" title="${'الوضع الداكن'}">☾</button>
             </div>
         </div>
         <div class="mseo-search-panel" data-search-panel>
-          <form action="${link('pages/archive.html')}" method="get"><label class="sr-only" for="mseo-global-search">${t('ابحث في المقالات','Search articles')}</label><input id="mseo-global-search" name="q" type="search" placeholder="${t('ابحث في مقالات MSEO…','Search MSEO articles…')}" /><button type="submit">${t('بحث','Search')}</button></form>
+          <form action="${link('pages/archive.html')}" method="get"><label class="sr-only" for="mseo-global-search">${'ابحث في المقالات'}</label><input id="mseo-global-search" name="q" type="search" placeholder="${'ابحث في مقالات MSEO…'}" /><button type="submit">${'بحث'}</button></form>
         </div>
       </header>`;
   }
@@ -41,11 +40,11 @@
     footer.innerHTML = `
       <footer class="mseo-footer"><div class="mseo-footer-inner">
         <div class="mseo-footer-grid">
-          <section><a class="mseo-brand" href="${link('index.html')}"><span class="mseo-brand-mark">M</span><span>MSEO</span></a><p>${t('مكتبة عربية للمقالات والأدلة التقنية العملية في الذكاء الاصطناعي والبرمجة وتطوير المواقع وتحسين محركات البحث.','An Arabic library of practical guides on AI, programming, web development and SEO.')}</p><div class="mseo-socials" aria-label="${t('روابط التواصل','Social links')}"><a href="https://github.com/gpldroid/mseo" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true" fill="currentColor"><path d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.56.1.76-.24.76-.54v-2.08c-3.1.67-3.76-1.32-3.76-1.32-.5-1.28-1.24-1.62-1.24-1.62-1.01-.69.08-.68.08-.68 1.12.08 1.71 1.15 1.71 1.15.99 1.7 2.6 1.21 3.23.93.1-.72.39-1.21.7-1.49-2.48-.28-5.09-1.24-5.09-5.51 0-1.22.44-2.21 1.15-2.99-.12-.28-.5-1.42.11-2.96 0 0 .94-.3 3.05 1.14a10.6 10.6 0 0 1 5.55 0c2.11-1.44 3.05-1.14 3.05-1.14.61 1.54.23 2.68.11 2.96.72.78 1.15 1.77 1.15 2.99 0 4.28-2.61 5.23-5.1 5.5.4.35.75 1.03.75 2.08v3.09c0 .3.2.65.77.54A11.1 11.1 0 0 0 12 .9Z"/></svg></a><a href="https://github.com/gpldroid/mseo/issues" target="_blank" rel="noopener noreferrer" aria-label="GitHub Issues" title="GitHub Issues"><svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M9 9h.01M15 9h.01M8.5 14.5a4.5 4.5 0 0 0 7 0M12 3v3"/></svg></a></div></section>
-          <section><h3>${t('استكشف الموقع','Explore')}</h3><div class="mseo-footer-links"><a href="${link('pages/archive.html')}">${t('أرشيف المقالات','Article archive')}</a><a href="${link('pages/about.html')}">${t('من نحن','About')}</a><a href="${link('pages/contact.html')}">${t('اتصل بنا','Contact')}</a><a href="${link('pages/editorial-policy.html')}">${t('السياسة التحريرية','Editorial policy')}</a></div></section>
-          <section><h3>${t('قانوني','Legal')}</h3><div class="mseo-footer-links"><a href="${link('pages/privacy.html')}">${t('سياسة الخصوصية','Privacy policy')}</a><a href="${link('pages/terms.html')}">${t('شروط الاستخدام','Terms of use')}</a></div></section>
+          <section><a class="mseo-brand" href="${link('index.html')}"><span class="mseo-brand-mark">M</span><span>MSEO</span></a><p>${'مكتبة عربية للمقالات والأدلة التقنية العملية في الذكاء الاصطناعي والبرمجة وتطوير المواقع وتحسين محركات البحث.'}</p><div class="mseo-socials" aria-label="${'روابط التواصل'}"><a href="https://github.com/gpldroid/mseo" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true" fill="currentColor"><path d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.56.1.76-.24.76-.54v-2.08c-3.1.67-3.76-1.32-3.76-1.32-.5-1.28-1.24-1.62-1.24-1.62-1.01-.69.08-.68.08-.68 1.12.08 1.71 1.15 1.71 1.15.99 1.7 2.6 1.21 3.23.93.1-.72.39-1.21.7-1.49-2.48-.28-5.09-1.24-5.09-5.51 0-1.22.44-2.21 1.15-2.99-.12-.28-.5-1.42.11-2.96 0 0 .94-.3 3.05 1.14a10.6 10.6 0 0 1 5.55 0c2.11-1.44 3.05-1.14 3.05-1.14.61 1.54.23 2.68.11 2.96.72.78 1.15 1.77 1.15 2.99 0 4.28-2.61 5.23-5.1 5.5.4.35.75 1.03.75 2.08v3.09c0 .3.2.65.77.54A11.1 11.1 0 0 0 12 .9Z"/></svg></a><a href="https://github.com/gpldroid/mseo/issues" target="_blank" rel="noopener noreferrer" aria-label="GitHub Issues" title="GitHub Issues"><svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M9 9h.01M15 9h.01M8.5 14.5a4.5 4.5 0 0 0 7 0M12 3v3"/></svg></a></div></section>
+          <section><h3>${'استكشف الموقع'}</h3><div class="mseo-footer-links"><a href="${link('pages/archive.html')}">${'أرشيف المقالات'}</a><a href="${link('pages/about.html')}">${'من نحن'}</a><a href="${link('pages/contact.html')}">${'اتصل بنا'}</a><a href="${link('pages/editorial-policy.html')}">${'السياسة التحريرية'}</a></div></section>
+          <section><h3>${'قانوني'}</h3><div class="mseo-footer-links"><a href="${link('pages/privacy.html')}">${'سياسة الخصوصية'}</a><a href="${link('pages/terms.html')}">${'شروط الاستخدام'}</a></div></section>
         </div>
-        <div class="mseo-copyright"><span>© <span data-current-year></span> MSEO — ${t('جميع الحقوق محفوظة','All rights reserved')}</span><span>${t('تصميم وتطوير','Designed and developed by')} <strong>Imad Limrani</strong></span></div>
+        <div class="mseo-copyright"><span>© <span data-current-year></span> MSEO — ${'جميع الحقوق محفوظة'}</span><span>${'تصميم وتطوير'} <strong>Imad Limrani</strong></span></div>
       </div></footer>`;
   }
   const year = $('[data-current-year]'); if (year) year.textContent = new Date().getFullYear();
@@ -54,7 +53,7 @@
   const preferredDark = matchMedia('(prefers-color-scheme: dark)').matches;
   document.documentElement.classList.toggle('dark', (savedTheme || (preferredDark?'dark':'light')) === 'dark');
   if (themeButton) {
-    const syncThemeIcon = () => { const dark=document.documentElement.classList.contains('dark'); themeButton.textContent=dark?'☀':'☾'; themeButton.title=dark?t('الوضع الفاتح','Light mode'):t('الوضع الداكن','Dark mode'); };
+    const syncThemeIcon = () => { const dark=document.documentElement.classList.contains('dark'); themeButton.textContent=dark?'☀':'☾'; themeButton.title=dark?'الوضع الفاتح':'الوضع الداكن'; };
     syncThemeIcon();
     themeButton.addEventListener('click',()=>{const dark=!document.documentElement.classList.contains('dark');document.documentElement.classList.toggle('dark',dark);writePreference('mseo-theme',dark?'dark':'light');syncThemeIcon();});
   }
