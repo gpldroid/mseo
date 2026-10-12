@@ -20,3 +20,8 @@ The GitHub file editor and Netlify build trigger run as Netlify Functions. Confi
 - `NETLIFY_BUILD_HOOK_URL` (Netlify Build Hook URL)
 
 The dashboard defaults to `https://mseopro.netlify.app/.netlify/functions`; override with `VITE_ADMIN_API_URL` only if functions live elsewhere.
+
+
+## CMS publishing flow
+
+When an editor saves or deletes content, the dashboard calls the protected `publish-content` Netlify Function. It commits a small sync marker to the configured GitHub branch; that push starts GitHub Pages and (when the Netlify site is connected to the same repository) Netlify builds. During the build, `npm run sync:cms` reads published rows from Supabase and generates static article/page HTML, the article catalogue, and sitemap entries. If the function is not configured, the content remains saved in Supabase and the dashboard shows a warning; configure the server-side variables above to enable automatic publishing.
