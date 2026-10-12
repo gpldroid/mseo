@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ar" dir="rtl" class="light">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101525"><meta name="robots" content="index,follow">
+<title>مولّد Schema Markup وبيانات JSON-LD | MSEO</title>
+<meta name="description" content="أنشئ بيانات Schema.org بصيغة JSON-LD لأنواع Article وOrganization وWebSite، وتحقق من صحة JSON وانسخ الكود لموقعك بسهولة.">
+<link rel="canonical" href="https://gpldroid.github.io/mseo/pages/schema-markup-generator.html">
+<meta property="og:type" content="website"><meta property="og:title" content="مولّد Schema Markup وبيانات JSON-LD | MSEO">
+<meta property="og:description" content="أنشئ بيانات منظمة لمحركات البحث بصيغة JSON-LD مباشرة من المتصفح."><meta property="og:url" content="https://gpldroid.github.io/mseo/pages/schema-markup-generator.html"><meta property="og:site_name" content="MSEO">
+<meta name="twitter:card" content="summary"><meta name="twitter:title" content="مولّد Schema Markup | MSEO"><meta name="twitter:description" content="أنشئ JSON-LD لأنواع Article وOrganization وWebSite.">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="manifest" href="../site.webmanifest">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"><link rel="stylesheet" href="../assets/css/style.css?v=20261012-images1">
+</head>
+<body><div data-site-header></div><main>
+<section class="site-hero"><div class="site-container"><nav class="site-breadcrumb" aria-label="مسار التنقل"><a href="../index.html">الرئيسية</a><span aria-hidden="true">/</span><a href="tools.html">الأدوات</a><span aria-hidden="true">/</span><span>مولّد Schema Markup</span></nav>
+<span class="site-kicker"><i class="fa-solid fa-code"></i> STRUCTURED DATA</span><h1>مولّد <strong>Schema Markup</strong></h1><p>أنشئ بيانات منظمة بصيغة JSON-LD تساعد محركات البحث على فهم محتوى موقعك. اختر النوع، أدخل التفاصيل، ثم انسخ الكود الناتج.</p>
+<div class="site-hero-tags"><span><i class="fa-solid fa-check"></i> تحقق من JSON</span><span><i class="fa-solid fa-shield-halved"></i> يعمل محليًا</span><span><i class="fa-solid fa-copy"></i> نسخ سريع</span></div></div></section>
+<section class="site-container site-section"><div class="schema-tool">
+<div class="schema-panel"><h2>إعداد البيانات</h2><p class="schema-muted">الحقول المعلّمة بنجمة مطلوبة. استخدم روابط كاملة تبدأ بـ https:// عند الحاجة.</p>
+<label for="schema-type">نوع البيانات المنظمة</label><select id="schema-type"><option value="Article">Article — مقال</option><option value="Organization">Organization — مؤسسة</option><option value="WebSite">WebSite — موقع ويب</option></select>
+<label for="schema-name" id="schema-name-label">عنوان المقال *</label><input id="schema-name" type="text" placeholder="مثال: دليل البيانات المنظمة" autocomplete="off">
+<label for="schema-url">رابط الصفحة *</label><input id="schema-url" type="url" placeholder="https://example.com/article" autocomplete="url">
+<label for="schema-description">الوصف</label><textarea id="schema-description" rows="3" placeholder="وصف موجز وواضح للمحتوى"></textarea>
+<div id="schema-article-fields"><label for="schema-author">اسم الكاتب</label><input id="schema-author" type="text" placeholder="اسم الكاتب"><label for="schema-publisher">اسم الناشر</label><input id="schema-publisher" type="text" placeholder="اسم المؤسسة أو الموقع"><label for="schema-date">تاريخ النشر</label><input id="schema-date" type="date"><label for="schema-image">رابط صورة المقال</label><input id="schema-image" type="url" placeholder="https://example.com/image.jpg"></div>
+<div id="schema-org-fields" hidden><label for="schema-logo">رابط الشعار</label><input id="schema-logo" type="url" placeholder="https://example.com/logo.png"></div>
+<div class="schema-actions"><button type="button" class="seo-button seo-button-primary" id="schema-generate">إنشاء JSON-LD</button><button type="button" class="seo-button" id="schema-example">تحميل مثال</button><button type="button" class="seo-button" id="schema-reset">مسح الحقول</button></div>
+<p class="schema-status" id="schema-status" role="status" aria-live="polite">أدخل البيانات ثم أنشئ الكود.</p>
+</div>
+<div class="schema-panel schema-output-panel"><div class="schema-output-head"><div><h2>الكود الناتج</h2><p class="schema-muted">أضف هذا الكود داخل وسم <code>&lt;head&gt;</code> في الصفحة المناسبة.</p></div><div class="schema-actions"><button type="button" class="seo-button" id="schema-copy">نسخ الكود</button><button type="button" class="seo-button" id="schema-download">تنزيل JSON</button></div></div>
+<textarea id="schema-output" rows="22" spellcheck="false" aria-label="كود JSON-LD الناتج" placeholder="سيظهر كود JSON-LD هنا..."></textarea>
+<p class="schema-note"><i class="fa-solid fa-circle-info" aria-hidden="true"></i> إنشاء JSON صالح لا يضمن ظهور نتيجة منسّقة في البحث. راجع البيانات وتحقق منها باستخدام أدوات اختبار البيانات المنظمة من Google قبل النشر.</p>
+</div></div></section>
+<section class="site-container site-section"><div class="site-card"><h2>نصائح قبل النشر</h2><ul><li>يجب أن تطابق البيانات محتوى الصفحة الفعلي، وألا تتضمن معلومات مضللة.</li><li>استخدم URL مطلقًا وصحيحًا، وتأكد من أن الصور متاحة للزحف عند إضافتها.</li><li>هذا المولّد يتحقق من صياغة JSON الأساسية، وليس من أهلية الصفحة لنتائج البحث المنسّقة.</li></ul></div></section>
+</main><div data-site-footer></div><script src="../assets/js/site.js?v=20261012-images1" defer></script><script src="../assets/js/schema-markup-generator.js?v=1" defer></script></body></html>
