@@ -49,14 +49,35 @@
   }
   const year = $('[data-current-year]'); if (year) year.textContent = new Date().getFullYear();
   const themeButton = $('[data-theme-toggle]');
+  const themes = [
+    {id:'editorial',label:'المجلة',icon:'▤',description:'تصميم تحريري متوازن'},
+    {id:'tech',label:'تقني داكن',icon:'⌘',description:'ألوان داكنة ولمسات تقنية'},
+    {id:'compact',label:'مكثف',icon:'▦',description:'مساحات أصغر ومحتوى أكثر'},
+    {id:'reading',label:'القراءة',icon:'Aa',description:'ألوان دافئة وعمود قراءة مريح'}
+  ];
+  const root = document.documentElement;
   const savedTheme = readPreference('mseo-theme');
-  const preferredDark = matchMedia('(prefers-color-scheme: dark)').matches;
-  document.documentElement.classList.toggle('dark', (savedTheme || (preferredDark?'dark':'light')) === 'dark');
-  if (themeButton) {
-    const syncThemeIcon = () => { const dark=document.documentElement.classList.contains('dark'); themeButton.textContent=dark?'☀':'☾'; themeButton.title=dark?'الوضع الفاتح':'الوضع الداكن'; };
-    syncThemeIcon();
-    themeButton.addEventListener('click',()=>{const dark=!document.documentElement.classList.contains('dark');document.documentElement.classList.toggle('dark',dark);writePreference('mseo-theme',dark?'dark':'light');syncThemeIcon();});
-  }
+  const validTheme = id => themes.some(theme => theme.id === id);
+  let activeTheme = validTheme(savedTheme) ? savedTheme : 'editorial';
+  const applyTheme = id => {
+    activeTheme = validTheme(id) ? id : 'editorial';
+    root.dataset.theme = activeTheme;
+    root.classList.toggle('dark', activeTheme === 'tech');
+    const theme = themes.find(item => item.id === activeTheme);
+    if (themeButton && theme) {
+      themeButton.textContent = theme.icon;
+      themeButton.title = 'المظهر الحالي: ' + theme.label + ' — اضغط للتبديل';
+      themeButton.setAttribute('aria-label', 'تغيير المظهر. الحالي: ' + theme.label);
+      themeButton.setAttribute('aria-pressed', String(activeTheme !== 'editorial'));
+    }
+  };
+  applyTheme(activeTheme);
+  if (themeButton) themeButton.addEventListener('click', () => {
+    const index = themes.findIndex(theme => theme.id === activeTheme);
+    const next = themes[(index + 1) % themes.length];
+    applyTheme(next.id);
+    writePreference('mseo-theme', next.id);
+  });
   const menuButton=$('[data-menu-toggle]'), nav=$('[data-main-nav]');
   if(menuButton&&nav){menuButton.addEventListener('click',()=>{const open=nav.classList.toggle('is-open');menuButton.setAttribute('aria-expanded',String(open));menuButton.textContent=open?'×':'☰';});nav.addEventListener('click',e=>{if(e.target.closest('a')){nav.classList.remove('is-open');menuButton.setAttribute('aria-expanded','false');menuButton.textContent='☰';}});}
   const searchButton=$('[data-search-toggle]'),searchPanel=$('[data-search-panel]');
