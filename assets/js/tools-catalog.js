@@ -13,7 +13,22 @@
     { icon: "schema", kicker: "البيانات المنظمة", title: "مولّد Schema Markup", description: "أنشئ بيانات منظمة بصيغة JSON-LD وتحقق من صياغتها.", href: "schema-markup-generator.html" },
     { icon: "palette", kicker: "تصميم الواجهات", title: "مولّد الألوان وتدرجات CSS", description: "ولّد لوحات ألوان وتدرجات وانسخ كود CSS.", href: "css-color-generator.html" },
     { icon: "layers", kicker: "تصميم الواجهات", title: "مولّد CSS Box Shadow", description: "خصص ظلال العناصر مع معاينة فورية للكود.", href: "css-box-shadow-generator.html" },
-    { icon: "minify", kicker: "أدوات المطورين", title: "ضاغط CSS وJavaScript", description: "قلّل المسافات الزائدة في ملفات الويب.", href: "css-js-minifier.html" }
+    { icon: "minify", kicker: "أدوات المطورين", title: "ضاغط CSS وJavaScript", description: "قلّل المسافات الزائدة في ملفات الويب.", href: "css-js-minifier.html" },
+    { icon: "search", kicker: "SEO", title: "معاينة نتيجة البحث SERP", titleEn: "SERP Snippet Preview", description: "عاين عنوان الصفحة والوصف كما قد يظهران في نتائج البحث.", descriptionEn: "Preview a title and description as a search snippet.", href: "serp-preview.html" },
+    { icon: "schema", kicker: "SEO", title: "مولّد XML Sitemap", titleEn: "XML Sitemap Generator", description: "أنشئ خريطة XML من روابط موقعك.", descriptionEn: "Generate an XML sitemap from URLs.", href: "sitemap-generator.html" },
+    { icon: "link", kicker: "SEO", title: "مخطط الروابط الداخلية", titleEn: "Internal Link Planner", description: "خطط روابط داخلية بين صفحات موقعك.", descriptionEn: "Plan internal links between pages.", href: "internal-link-planner.html" },
+    { icon: "code", kicker: "البرمجة", title: "محوّل JSON إلى CSV", titleEn: "JSON to CSV Converter", description: "حوّل مصفوفة JSON إلى CSV.", descriptionEn: "Convert a JSON array to CSV.", href: "json-to-csv.html" },
+    { icon: "link", kicker: "البرمجة", title: "ترميز وفك ترميز URL", titleEn: "URL Encoder / Decoder", description: "رمّز النصوص أو فك ترميزها.", descriptionEn: "Encode or decode URL text.", href: "url-encoder-decoder.html" },
+    { icon: "code", kicker: "البرمجة", title: "مختبر Regex", titleEn: "Regular Expression Tester", description: "اختبر التعبيرات النمطية على نصوصك.", descriptionEn: "Test regular expressions against text.", href: "regex-tester.html" },
+    { icon: "code", kicker: "البرمجة", title: "محوّل Base64", titleEn: "Base64 Encoder / Decoder", description: "حوّل النصوص إلى Base64 أو فك ترميزها مع دعم Unicode.", descriptionEn: "Encode or decode Base64 including Unicode.", href: "base64-converter.html" },
+    { icon: "palette", kicker: "التصميم", title: "فاحص التباين اللوني WCAG", titleEn: "WCAG Color Contrast Checker", description: "احسب تباين النص والخلفية وتحقق من WCAG.", descriptionEn: "Calculate text contrast and check WCAG.", href: "color-contrast-checker.html" },
+    { icon: "layers", kicker: "التصميم", title: "معاينة التصميم المتجاوب", titleEn: "Responsive Layout Preview", description: "عاين رابطًا في إطار هاتف أو لوحي أو سطح مكتب.", descriptionEn: "Preview a URL in a device-sized frame.", href: "responsive-preview.html" },
+    { icon: "palette", kicker: "التصميم", title: "منسّق ومخفّف SVG", titleEn: "SVG Optimizer", description: "نظّف كود SVG النصي وعاينه ثم نزّل الناتج.", descriptionEn: "Clean SVG source, preview and download.", href: "svg-optimizer.html" },
+    { icon: "layers", kicker: "الأداء", title: "ضغط الصور وتحويلها", titleEn: "Image Compressor & Converter", description: "اضغط الصور محليًا وصدّر JPEG أو WebP.", descriptionEn: "Compress images locally and export JPEG or WebP.", href: "image-compressor.html" },
+    { icon: "file-text", kicker: "الأداء", title: "محلّل حجم النص", titleEn: "Text Payload Size Analyzer", description: "احسب الكلمات والأحرف وحجم UTF-8.", descriptionEn: "Count words, characters and UTF-8 size.", href: "text-size-analyzer.html" },
+    { icon: "bot", kicker: "الذكاء الاصطناعي", title: "منشئ مطالبات الذكاء الاصطناعي", titleEn: "AI Prompt Builder", description: "أنشئ مطالبة منظمة من الهدف والجمهور والقيود.", descriptionEn: "Build a structured prompt from goals and constraints.", href: "ai-prompt-builder.html" },
+    { icon: "file-text", kicker: "المحتوى", title: "مولّد مخطط المقال", titleEn: "Blog Outline Generator", description: "أنشئ مخطط مقال بعناوين وأمثلة وخاتمة.", descriptionEn: "Generate an article outline with headings and examples.", href: "blog-outline-generator.html" },
+    { icon: "code", kicker: "المحتوى", title: "مقارنة النصوص واكتشاف الفروقات", titleEn: "Text Diff Checker", description: "قارن نصين سطرًا بسطر لاكتشاف التغييرات.", descriptionEn: "Compare two texts line by line.", href: "text-diff-checker.html" }
   ];
 
   const ICONS = {
