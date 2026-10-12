@@ -936,3 +936,15 @@ body{font-family:var(--ui-font,'Cairo',sans-serif)}
 @media(max-width:900px){.mseo-tools-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}}
 @media(max-width:560px){.mseo-tools-grid{grid-template-columns:minmax(0,1fr);gap:14px}.mseo-tool-card{min-height:0;padding:21px}}
 @media(prefers-reduced-motion:reduce){.mseo-tool-card,.mseo-tool-card-link span,.mseo-tools-toggle{transition:none}.mseo-tool-card:hover,.mseo-tools-toggle:hover{transform:none}}
+
+
+/* Consistent article-card thumbnails on the homepage and archive */
+.article-card{display:flex;flex-direction:column;min-width:0;overflow:hidden;padding:0}
+.article-card-media{display:block;position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;background:var(--surface-2);border-bottom:1px solid var(--line)}
+.article-card-media img,.article-card>a img{display:block;width:100%;height:100%;aspect-ratio:16/9;max-width:none;object-fit:cover;object-position:center;background:var(--surface-2);transition:transform .25s ease}
+.article-card:hover .article-card-media img,.article-card:hover>a img{transform:scale(1.025)}
+.article-card img.is-fallback{object-fit:contain;padding:18px;box-sizing:border-box}
+.article-card-body{flex:1;display:flex;flex-direction:column;align-items:flex-start;min-width:0}
+.article-card-body p{flex:1}
+.article-card-body .site-read{margin-top:auto}
+@media(prefers-reduced-motion:reduce){.article-card-media img,.article-card>a img{transition:none}.article-card:hover .article-card-media img,.article-card:hover>a img{transform:none}}
