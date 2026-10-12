@@ -42,7 +42,7 @@ function Root() {
 
   const startNew = () => {
     setEditing(null);
-    setForm({ title: "", slug: "", summary: "", body_html: "", content_type: "article", status: "draft", seo_title: "", seo_description: "", seo_keywords: "", cover_image_url: "" });
+    setForm({ title: "", slug: "", summary: "", body_html: "", content_type: "article", status: "draft", seo_title: "", seo_description: "", seo_keywords: "", categories: "", tags: "", cover_image_url: "" });
     setShowEditor(true);
   };
   const startEdit = (row: ContentRow) => {
