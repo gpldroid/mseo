@@ -495,3 +495,98 @@ footer h2, footer h3 {
     animation-iteration-count: 1 !important;
   }
 }
+
+
+/* Homepage editorial polish — keeps the landing page consistent with article typography. */
+.hero .hero-copy h1 {
+  max-width: 13ch;
+  margin: .55rem 0 1rem;
+  font-size: clamp(2.25rem, 5vw, 3.8rem);
+  line-height: 1.35;
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+.hero .hero-copy h1 em {
+  display: inline-block;
+  color: var(--brand);
+  font-style: normal;
+}
+.hero .hero-copy > p {
+  max-width: 62ch;
+  margin-block: 0 1.25rem;
+  font-size: clamp(1rem, 1.4vw, 1.125rem);
+  line-height: 1.95;
+}
+.hero .eyebrow,
+.section-kicker {
+  font-family: var(--font-arabic);
+  letter-spacing: 0;
+  line-height: 1.7;
+}
+.section-heading h2,
+.closing h2 {
+  text-wrap: balance;
+  letter-spacing: 0;
+}
+.section-heading p,
+.closing p {
+  max-width: 66ch;
+  font-size: 1rem;
+  line-height: 1.9;
+}
+.article-card h3,
+.category-card h3 {
+  font-family: var(--font-arabic);
+  font-size: 1.125rem;
+  line-height: 1.65;
+  text-wrap: pretty;
+}
+.article-card p,
+.category-card p {
+  font-size: .9375rem;
+  line-height: 1.85;
+}
+.article-card-body {
+  padding: clamp(16px, 2vw, 22px);
+}
+.article-card img,
+.category-card img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+.search-box input,
+.filter-box select {
+  font-family: var(--font-arabic);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.button {
+  font-family: var(--font-arabic);
+  line-height: 1.6;
+  min-height: 44px;
+}
+.loading-card,
+.load-error {
+  font-size: .95rem;
+  line-height: 1.9;
+}
+@media (max-width: 640px) {
+  .hero .hero-copy h1 {
+    max-width: 100%;
+    font-size: clamp(2rem, 8vw, 2.7rem);
+    line-height: 1.4;
+  }
+  .hero .hero-copy > p {
+    font-size: 1rem;
+    line-height: 1.95;
+  }
+  .section-heading p,
+  .closing p {
+    font-size: .96rem;
+  }
+  .article-card h3,
+  .category-card h3 {
+    font-size: 1.1rem;
+  }
+}
