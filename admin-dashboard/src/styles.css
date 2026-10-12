@@ -25,3 +25,5 @@
 @media(max-width:760px){.topic-grid{grid-template-columns:1fr;gap:12px}.site-status{align-items:flex-start;flex-wrap:wrap}.site-status a{margin-right:0}}
 
 .taxonomy-add{display:flex;gap:8px;margin:0 0 14px}.taxonomy-add input{flex:1;min-width:0}.taxonomy-open{flex:1;min-width:0;display:flex;align-items:center;gap:12px;border:0;background:transparent;color:inherit;text-align:right;padding:0}.taxonomy-open>span:nth-child(2){display:grid;gap:3px;flex:1;min-width:0}.taxonomy-row .icon-btn{width:30px;height:30px}
+
+.invite-form{display:grid;grid-template-columns:minmax(180px,1fr) 150px auto;gap:9px;margin-bottom:10px}.invite-form select{min-width:0}@media(max-width:650px){.invite-form{grid-template-columns:1fr}.invite-form .btn{width:100%}}
