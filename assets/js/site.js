@@ -15,8 +15,7 @@
   ];
   const readPreference = (key) => { try { return localStorage.getItem(key); } catch (_) { return null; } };
   const writePreference = (key, value) => { try { localStorage.setItem(key, value); } catch (_) {} };
-  const isEnglish = readPreference('mseo-ui-language') === 'en';
-  const t = (ar,en) => isEnglish ? en : ar;
+  const t = (ar,en) => ar;
   const header = $('[data-site-header]') || $('[data-home-header]');
   if (header) {
     header.innerHTML = `
@@ -30,8 +29,7 @@
           <div class="mseo-actions">
             <button class="mseo-icon-button" type="button" data-search-toggle aria-label="${t('فتح البحث','Open search')}" title="${t('بحث','Search')}">⌕</button>
             <button class="mseo-icon-button" type="button" data-theme-toggle aria-label="${t('تبديل المظهر','Toggle theme')}" title="${t('الوضع الداكن','Dark mode')}">☾</button>
-            <button class="mseo-icon-button" type="button" data-language-toggle aria-label="${t('تغيير لغة الواجهة','Switch interface language')}">${isEnglish?'عربي':'EN'}</button>
-          </div>
+            </div>
         </div>
         <div class="mseo-search-panel" data-search-panel>
           <form action="${link('pages/archive.html')}" method="get"><label class="sr-only" for="mseo-global-search">${t('ابحث في المقالات','Search articles')}</label><input id="mseo-global-search" name="q" type="search" placeholder="${t('ابحث في مقالات MSEO…','Search MSEO articles…')}" /><button type="submit">${t('بحث','Search')}</button></form>
@@ -64,8 +62,6 @@
   if(menuButton&&nav){menuButton.addEventListener('click',()=>{const open=nav.classList.toggle('is-open');menuButton.setAttribute('aria-expanded',String(open));menuButton.textContent=open?'×':'☰';});nav.addEventListener('click',e=>{if(e.target.closest('a')){nav.classList.remove('is-open');menuButton.setAttribute('aria-expanded','false');menuButton.textContent='☰';}});}
   const searchButton=$('[data-search-toggle]'),searchPanel=$('[data-search-panel]');
   if(searchButton&&searchPanel){searchButton.addEventListener('click',()=>{const open=searchPanel.classList.toggle('is-open');if(open)$('#mseo-global-search')?.focus();});}
-  const langButton=$('[data-language-toggle]');
-  if(langButton){langButton.addEventListener('click',()=>{const next=isEnglish?'ar':'en';writePreference('mseo-ui-language',next);/* Reload updates shared navigation labels. Article body stays in its authored language. */location.reload();});}
   const controls=document.createElement('div');controls.className='mseo-scroll-controls';controls.innerHTML='<button type="button" data-scroll-top aria-label="العودة إلى أعلى الصفحة" title="أعلى الصفحة">↑</button><button type="button" data-scroll-down aria-label="الانتقال إلى أسفل الصفحة" title="أسفل الصفحة">↓</button>';document.body.append(controls);
   const topButton=$('[data-scroll-top]',controls),downButton=$('[data-scroll-down]',controls);
   const onScroll=()=>topButton.classList.toggle('is-visible',window.scrollY>300);
