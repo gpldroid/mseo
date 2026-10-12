@@ -889,3 +889,7 @@ body{font-family:var(--ui-font,'Cairo',sans-serif)}
 .shadow-preset{border:1px solid var(--line);border-radius:999px;padding:8px 13px;background:var(--surface-2);color:var(--text);font:inherit}
 @media(max-width:850px){.shadow-studio{grid-template-columns:1fr}.shadow-stage{min-height:250px}}
 @media(max-width:480px){.shadow-stage{padding:22px 14px;min-height:220px}.shadow-code-head{align-items:flex-start;flex-direction:column}}
+
+/* Tool sharing artwork and CSS/JS minifier */
+.tool-promo-image{display:block;width:min(100%,520px);height:auto;aspect-ratio:1200/630;object-fit:cover;border-radius:16px;border:1px solid var(--line);margin:0 0 16px;background:var(--surface-2)}
+.minifier-page .min-code{min-height:220px;direction:ltr;text-align:left;unicode-bidi:plaintext;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.88rem;line-height:1.65}
