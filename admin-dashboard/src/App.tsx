@@ -8,7 +8,7 @@ import RichTextEditor from "./RichTextEditor";
 type ContentRow = {
   id: string; slug: string; title: string; summary: string; body_html: string;
   content_type: "article" | "page"; status: "draft" | "published" | "archived";
-  seo_title: string; seo_description: string; seo_keywords: string[]; cover_image_url: string;
+  seo_title: string; seo_description: string; seo_keywords: string[]; categories: string[]; tags: string[]; cover_image_url: string;
   created_at: string; updated_at: string; published_at: string | null;
 };
 
@@ -23,7 +23,7 @@ function Root() {
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
   const [showEditor, setShowEditor] = useState(false);
-  const [form, setForm] = useState({ title: "", slug: "", summary: "", body_html: "", content_type: "article" as "article" | "page", status: "draft" as "draft" | "published" | "archived", seo_title: "", seo_description: "", seo_keywords: "", cover_image_url: "" });
+  const [form, setForm] = useState({ title: "", slug: "", summary: "", body_html: "", content_type: "article" as "article" | "page", status: "draft" as "draft" | "published" | "archived", seo_title: "", seo_description: "", seo_keywords: "", categories: "", tags: "", cover_image_url: "" });
   const isAdmin = auth.role === "admin" || auth.role === "owner";
   const canEdit = isAdmin || auth.role === "editor";
 
@@ -47,7 +47,7 @@ function Root() {
   };
   const startEdit = (row: ContentRow) => {
     setEditing(row);
-    setForm({ title: row.title, slug: row.slug, summary: row.summary ?? "", body_html: row.body_html ?? "", content_type: row.content_type, status: row.status, seo_title: row.seo_title ?? "", seo_description: row.seo_description ?? "", seo_keywords: (row.seo_keywords ?? []).join(", "), cover_image_url: row.cover_image_url ?? "" });
+    setForm({ title: row.title, slug: row.slug, summary: row.summary ?? "", body_html: row.body_html ?? "", content_type: row.content_type, status: row.status, seo_title: row.seo_title ?? "", seo_description: row.seo_description ?? "", seo_keywords: (row.seo_keywords ?? []).join(", "), categories: (row.categories ?? []).join(", "), tags: (row.tags ?? []).join(", "), cover_image_url: row.cover_image_url ?? "" });
     setShowEditor(true);
   };
   const save = async (event: FormEvent) => {
@@ -56,7 +56,7 @@ function Root() {
     if (!slug) { setError("أدخل رابطًا مختصرًا صالحًا بالأحرف اللاتينية."); setBusy(false); return; }
     const { data: { user } } = await supabase.auth.getUser();
     const publishedAt = form.status === "published" ? (editing?.published_at ?? new Date().toISOString()) : null;
-    const payload = { title: form.title.trim(), slug, summary: form.summary, body_html: form.body_html, content_type: form.content_type, status: form.status, seo_title: form.seo_title, seo_description: form.seo_description, seo_keywords: form.seo_keywords.split(",").map(x => x.trim()).filter(Boolean), cover_image_url: form.cover_image_url, published_at: publishedAt, updated_by: user?.id, ...(editing ? {} : { created_by: user?.id }) };
+    const payload = { title: form.title.trim(), slug, summary: form.summary, body_html: form.body_html, content_type: form.content_type, status: form.status, seo_title: form.seo_title, seo_description: form.seo_description, seo_keywords: form.seo_keywords.split(",").map(x => x.trim()).filter(Boolean), categories: form.categories.split(",").map(x => x.trim()).filter(Boolean), tags: form.tags.split(",").map(x => x.trim()).filter(Boolean), cover_image_url: form.cover_image_url, published_at: publishedAt, updated_by: user?.id, ...(editing ? {} : { created_by: user?.id }) };
     const result = editing
       ? await supabase.from("mseo_content_items").update(payload).eq("id", editing.id).select().single()
       : await supabase.from("mseo_content_items").insert(payload).select().single();
@@ -109,7 +109,7 @@ function Root() {
       <div className="two-col"><label>نوع المحتوى<select value={form.content_type} onChange={e => setForm(v => ({...v, content_type:e.target.value as "article"|"page"}))}><option value="article">مقال</option><option value="page">صفحة</option></select></label><label>الحالة<select value={form.status} onChange={e => setForm(v => ({...v, status:e.target.value as ContentRow["status"]}))}><option value="draft">مسودة</option><option value="published">منشور</option><option value="archived">مؤرشف</option></select></label></div>
       <label>ملخص<textarea rows={2} value={form.summary} onChange={e => setForm(v => ({...v, summary:e.target.value}))}/></label><label className="full">محتوى المقال<RichTextEditor key={editing?.id ?? "new-content"} value={form.body_html} onChange={html => setForm(v => ({...v, body_html:html}))}/></label>
       <label>عنوان SEO<input maxLength={180} value={form.seo_title} onChange={e => setForm(v => ({...v, seo_title:e.target.value}))}/></label><label>وصف SEO<textarea rows={2} maxLength={320} value={form.seo_description} onChange={e => setForm(v => ({...v, seo_description:e.target.value}))}/></label>
-      <label>كلمات مفتاحية، مفصولة بفواصل<input value={form.seo_keywords} onChange={e => setForm(v => ({...v, seo_keywords:e.target.value}))}/></label><label>رابط صورة الغلاف<input type="url" value={form.cover_image_url} onChange={e => setForm(v => ({...v, cover_image_url:e.target.value}))}/></label>
+      <label>كلمات مفتاحية SEO، مفصولة بفواصل<input value={form.seo_keywords} onChange={e => setForm(v => ({...v, seo_keywords:e.target.value}))}/></label><label>التصنيفات، مفصولة بفواصل<input value={form.categories} onChange={e => setForm(v => ({...v, categories:e.target.value}))} placeholder="ذكاء اصطناعي، برمجة، SEO"/></label><label>الوسوم، مفصولة بفواصل<input value={form.tags} onChange={e => setForm(v => ({...v, tags:e.target.value}))} placeholder="React، Supabase، GitHub"/></label><label>رابط صورة الغلاف<input type="url" value={form.cover_image_url} onChange={e => setForm(v => ({...v, cover_image_url:e.target.value}))}/></label>
       </div><footer><button type="button" className="btn secondary" onClick={() => setShowEditor(false)}>إلغاء</button><button className="btn primary" disabled={busy}>{busy ? "جارٍ الحفظ…" : "حفظ المحتوى"}</button></footer></form></div>}
   </div>;
 }
