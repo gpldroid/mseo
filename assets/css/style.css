@@ -833,3 +833,9 @@ body{font-family:var(--ui-font,'Cairo',sans-serif)}
 .robots-generator-page .robots-output{min-height:260px;direction:ltr;text-align:left;unicode-bidi:plaintext;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.9rem;line-height:1.8;white-space:pre;tab-size:2}
 .robots-generator-page .robots-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
 @media(max-width:640px){.robots-generator-page .robots-fields-grid{grid-template-columns:1fr}.robots-generator-page .robots-field-full{grid-column:auto}.robots-generator-page .robots-output-heading{align-items:flex-start;flex-direction:column}}
+
+
+/* HTML entity converter */
+.entity-tool-page .he-textarea{min-height:170px;direction:auto;text-align:start;unicode-bidi:plaintext;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.92rem;line-height:1.8}
+.entity-tool-page .he-actions{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0 22px}
+.entity-tool-page .he-output-label{display:block;margin-top:18px}
