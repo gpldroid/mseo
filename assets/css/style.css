@@ -218,3 +218,280 @@ article ul,article ol,.post-body ul,.post-body ol,.article-body ul,.article-body
 .mseo-footer p,.site-footer p,footer p{font-size:.875rem;line-height:1.75}
 .mseo-footer a,.site-footer a,footer a{display:inline-block;padding-block:3px}
 @media(max-width:640px){body{line-height:1.8}article p,.post-body p,.article-body p,.prose p{font-size:1.05rem;line-height:1.85}article img,.post-body img,.article-body img,.prose img{border-radius:12px;margin-block:1.2rem}}
+
+/* Final editorial typography layer — Arabic-first, responsive, and accessible.
+   Keep this layer in the single public stylesheet: assets/css/style.css. */
+:root {
+  --font-arabic: "Cairo", "Tajawal", "Readex Pro", Tahoma, system-ui, sans-serif;
+  --reading-size: 1.125rem;
+  --reading-leading: 1.9;
+  --heading-leading: 1.3;
+  --reading-measure: 72ch;
+}
+html {
+  font-size: 16px;
+  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+body,
+button,
+input,
+select,
+textarea {
+  font-family: var(--font-arabic);
+}
+body {
+  font-size: 1rem;
+  line-height: 1.8;
+  letter-spacing: 0;
+  overflow-wrap: break-word;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-arabic);
+  color: var(--text);
+  font-weight: 800;
+  line-height: var(--heading-leading);
+  letter-spacing: 0;
+  text-wrap: pretty;
+  overflow-wrap: anywhere;
+}
+h1 { font-size: clamp(2rem, 4.5vw, 3.25rem); line-height: 1.25; font-weight: 900; }
+h2 { font-size: clamp(1.55rem, 3.1vw, 2.2rem); }
+h3 { font-size: clamp(1.25rem, 2.4vw, 1.65rem); }
+h4 { font-size: 1.125rem; }
+p { line-height: 1.8; }
+a {
+  text-underline-offset: .2em;
+  transition: color .18s ease, background-color .18s ease, border-color .18s ease;
+}
+a:hover { text-decoration-thickness: 2px; }
+a:focus-visible, button:focus-visible, input:focus-visible,
+select:focus-visible, textarea:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Article content: cover semantic article markup and common CMS/blog classes. */
+article .prose,
+article .post-body,
+article .article-body,
+.post-body,
+.post-body .post-body,
+.article-body,
+.article-content,
+.entry-content,
+.post-content,
+.prose {
+  font-family: var(--font-arabic);
+  font-size: var(--reading-size);
+  line-height: var(--reading-leading);
+  overflow-wrap: break-word;
+}
+article .prose p,
+article .post-body p,
+article .article-body p,
+.post-body p,
+.article-body p,
+.article-content p,
+.entry-content p,
+.post-content p,
+.prose p {
+  margin-block: 0 1.25em;
+  font-size: 1em;
+  line-height: var(--reading-leading);
+  letter-spacing: 0;
+}
+article .prose h1,
+article .post-body h1,
+article .article-body h1,
+.post-body h1,
+.article-body h1,
+.article-content h1,
+.entry-content h1,
+.post-content h1,
+.prose h1 {
+  margin-block: 0 1rem;
+  font-size: clamp(2rem, 4.5vw, 3.1rem);
+  line-height: 1.35;
+  font-weight: 900;
+}
+article .prose h2,
+article .post-body h2,
+article .article-body h2,
+.post-body h2,
+.article-body h2,
+.article-content h2,
+.entry-content h2,
+.post-content h2,
+.prose h2 {
+  margin-block: 2em .65em;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1.4;
+  font-weight: 800;
+}
+article .prose h3,
+article .post-body h3,
+article .article-body h3,
+.post-body h3,
+.article-body h3,
+.article-content h3,
+.entry-content h3,
+.post-content h3,
+.prose h3 {
+  margin-block: 1.6em .55em;
+  font-size: clamp(1.25rem, 2.3vw, 1.55rem);
+  line-height: 1.45;
+}
+article .prose h4,
+article .post-body h4,
+article .article-body h4,
+.post-body h4,
+.article-body h4,
+.article-content h4,
+.entry-content h4,
+.post-content h4,
+.prose h4 {
+  margin-block: 1.4em .5em;
+  font-size: 1.125rem;
+  line-height: 1.5;
+}
+article .prose p a,
+article .post-body p a,
+article .article-body p a,
+.post-body p a,
+.article-body p a,
+.article-content p a,
+.entry-content p a,
+.post-content p a,
+.prose p a {
+  color: var(--brand);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: .2em;
+}
+article .prose img,
+article .post-body img,
+article .article-body img,
+.post-body img,
+.article-body img,
+.article-content img,
+.entry-content img,
+.post-content img,
+.prose img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  margin: 1.5rem auto;
+  border-radius: 16px;
+  box-shadow: 0 8px 26px rgba(20, 35, 60, .10);
+}
+article .prose blockquote,
+article .post-body blockquote,
+article .article-body blockquote,
+.post-body blockquote,
+.article-body blockquote,
+.article-content blockquote,
+.entry-content blockquote,
+.post-content blockquote,
+.prose blockquote {
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+  border-inline-start: 4px solid var(--brand);
+  border-radius: 12px;
+  background: var(--surface-2);
+  line-height: 1.9;
+}
+article .prose ul, article .prose ol,
+article .post-body ul, article .post-body ol,
+article .article-body ul, article .article-body ol,
+.post-body ul, .post-body ol,
+.article-body ul, .article-body ol,
+.article-content ul, .article-content ol,
+.entry-content ul, .entry-content ol,
+.post-content ul, .post-content ol,
+.prose ul, .prose ol {
+  margin-block: 0 1.25em;
+  padding-inline-start: 1.5em;
+  line-height: var(--reading-leading);
+}
+article .prose li + li,
+.post-body li + li,
+.article-body li + li,
+.article-content li + li,
+.entry-content li + li,
+.post-content li + li,
+.prose li + li { margin-block-start: .35em; }
+article .prose pre, .post-body pre, .article-body pre,
+.article-content pre, .entry-content pre, .post-content pre, .prose pre {
+  max-width: 100%;
+  overflow-x: auto;
+  direction: ltr;
+  text-align: left;
+  padding: 1rem;
+  border-radius: 12px;
+  line-height: 1.65;
+}
+article .prose code, .post-body code, .article-body code,
+.article-content code, .entry-content code, .post-content code, .prose code {
+  overflow-wrap: anywhere;
+}
+article .prose table, .post-body table, .article-body table,
+.article-content table, .entry-content table, .post-content table, .prose table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+}
+article .prose hr, .post-body hr, .article-body hr,
+.article-content hr, .entry-content hr, .post-content hr, .prose hr {
+  margin-block: 2rem;
+  border: 0;
+  border-top: 1px solid var(--line);
+}
+
+/* Footer stays deliberately quieter than the reading area. */
+.mseo-footer, .site-footer, footer {
+  font-size: .875rem;
+  line-height: 1.75;
+}
+.mseo-footer p, .site-footer p, footer p {
+  font-size: .875rem;
+  line-height: 1.75;
+}
+.mseo-footer h2, .mseo-footer h3,
+.site-footer h2, .site-footer h3,
+footer h2, footer h3 {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.mseo-footer a, .site-footer a, footer a {
+  display: inline-block;
+  padding-block: .2rem;
+}
+.mseo-nav a { min-height: 42px; display: inline-flex; align-items: center; }
+.mseo-footer-links a { min-height: 30px; align-items: center; }
+
+@media (max-width: 640px) {
+  article .prose, article .post-body, article .article-body,
+  .post-body, .article-body, .article-content, .entry-content,
+  .post-content, .prose {
+    font-size: 1.0625rem;
+    line-height: 1.9;
+  }
+  article .prose img, article .post-body img, article .article-body img,
+  .post-body img, .article-body img, .article-content img,
+  .entry-content img, .post-content img, .prose img {
+    margin-block: 1.2rem;
+    border-radius: 12px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
