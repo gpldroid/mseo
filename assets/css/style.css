@@ -696,3 +696,10 @@ body:has(> main > article) > main > article > img {
     margin-block: 1.25rem;
   }
 }
+
+/* Dynamic theme tokens supplied by the Supabase public runtime */
+:root{--primary-color:#6559e8;--secondary-color:#101b2b;--ui-radius:14px;--ui-font:'Cairo',sans-serif}
+body{font-family:var(--ui-font,'Cairo',sans-serif)}
+.button-primary{background:var(--primary-color)!important;border-radius:var(--ui-radius)!important}
+.button,.category-card,.article-card,.loading-card,.search-box,.filter-box,.pagination button{border-radius:var(--ui-radius)!important}
+.site-header,[data-site-header],.site-footer,[data-home-footer]{--site-accent:var(--primary-color)}
