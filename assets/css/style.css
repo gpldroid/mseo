@@ -803,3 +803,11 @@ body{font-family:var(--ui-font,'Cairo',sans-serif)}
 .wc-secondary-metrics{margin-top:14px}
 @media(max-width:760px){.wc-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:420px){.wc-metrics{grid-template-columns:1fr}.wc-main-metric{padding:16px}}
+
+/* Text and URL slug converter */
+.slug-tool-page .ts-textarea{min-height:130px;direction:auto;text-align:start;font-family:var(--ui-font,'Cairo',sans-serif);font-size:1rem;line-height:1.9}
+.ts-controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:18px 0}
+.ts-control{display:grid;gap:7px;min-width:0}.ts-select{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--text)}
+.ts-options{display:flex;gap:14px 22px;flex-wrap:wrap;margin:16px 0 22px}.ts-options label{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:.9rem;font-weight:700}.ts-options input{accent-color:var(--brand);width:17px;height:17px}
+.ts-length{color:var(--muted);font-size:.82rem;margin-top:8px}
+@media(max-width:600px){.ts-controls{grid-template-columns:1fr}.ts-options{display:grid;gap:10px}}
