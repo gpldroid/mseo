@@ -58,7 +58,7 @@ function Root() {
   };
   const save = async (event: FormEvent) => {
     event.preventDefault(); setBusy(true); setError(""); setNotice("");
-    const slug = form.slug.toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+    const slug = slugify(form.slug || form.title);
     if (!slug) { setError("أدخل رابطًا مختصرًا صالحًا بالأحرف اللاتينية."); setBusy(false); return; }
     const { data: { user } } = await supabase.auth.getUser();
     const publishedAt = form.status === "published" ? (editing?.published_at ?? new Date().toISOString()) : null;
@@ -110,7 +110,7 @@ function Root() {
       <footer className="dashboard-footer"><span><CheckCircle2 size={15}/> اتصال Supabase مهيأ</span><span>قاعدة البيانات: mseo panel</span></footer>
     </main>
     {showEditor && <div className="modal-backdrop"><form className="editor-modal" onSubmit={save}><header><div><p className="eyebrow">CONTENT EDITOR</p><h2>{editing ? "تحرير المحتوى" : "إنشاء محتوى"}</h2></div><button type="button" className="icon-btn" onClick={() => setShowEditor(false)}>×</button></header><div className="editor-form">
-      <label>العنوان<input required maxLength={180} value={form.title} onChange={e => setForm(v => ({...v, title:e.target.value, seo_title:v.seo_title || e.target.value, slug:v.slug || e.target.value.toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")}))}/></label>
+      <label>العنوان<input required maxLength={180} value={form.title} onChange={e => setForm(v => ({...v, title:e.target.value, seo_title:v.seo_title || e.target.value, slug:v.slug || slugify(e.target.value)}))}/></label>
       <label>الرابط المختصر (أحرف لاتينية)<input required value={form.slug} onChange={e => setForm(v => ({...v, slug:e.target.value}))}/></label>
       <div className="two-col"><label>نوع المحتوى<select value={form.content_type} onChange={e => setForm(v => ({...v, content_type:e.target.value as "article"|"page"}))}><option value="article">مقال</option><option value="page">صفحة</option></select></label><label>الحالة<select value={form.status} onChange={e => setForm(v => ({...v, status:e.target.value as ContentRow["status"]}))}><option value="draft">مسودة</option><option value="published">منشور</option><option value="archived">مؤرشف</option></select></label></div>
       <label>ملخص<textarea rows={2} value={form.summary} onChange={e => setForm(v => ({...v, summary:e.target.value}))}/></label><label className="full">محتوى المقال<RichTextEditor key={editing?.id ?? "new-content"} value={form.body_html} onChange={html => setForm(v => ({...v, body_html:html}))}/></label>
