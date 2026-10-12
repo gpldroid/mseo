@@ -1,11 +1,31 @@
 import { createClient } from "@supabase/supabase-js";
-const DEFAULT_SUPABASE_URL="https://orphavymbbhupkoghzfc.supabase.co";
-const DEFAULT_SUPABASE_PUBLISHABLE_KEY="sb_publishable_RpbHUfWM6060_Shb1_-_zQ_WVDNrCzk";
-const url=(import.meta.env.VITE_SUPABASE_URL as string|undefined)?.trim()||DEFAULT_SUPABASE_URL;
-const key=(import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY as string|undefined)?.trim()||DEFAULT_SUPABASE_PUBLISHABLE_KEY;
-export const supabaseConfigured=Boolean(url&&key);
-export const supabase=createClient(url,key,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
-export type AdminRole="owner"|"admin"|"editor"|"publisher"|"viewer";
-export type ContentStatus="draft"|"in_review"|"scheduled"|"published"|"archived";
-export type SiteRecord={id:string;workspace_id:string;name:string;slug:string;base_url:string|null;github_owner:string|null;github_repo:string|null;github_branch:string;content_path:string;pages_path:string;assets_path:string;default_locale:string;enabled_locales:string[];publish_mode:string;is_active:boolean;created_at:string;updated_at:string};
-export type ContentItem={id:string;workspace_id:string;site_id:string;kind:"article"|"page";status:ContentStatus;slug:string;title:string;excerpt:string;body:Record<string,unknown>|string;locale:string;seo_title:string;seo_description:string;canonical_url:string|null;featured_image:string|null;tags:string[];categories:string[];author_id:string;scheduled_at:string|null;published_at:string|null;deleted_at:string|null;version:number;created_at:string;updated_at:string};
+
+const DEFAULT_SUPABASE_URL = "https://gjkwrxvlnmshcmsjdcfd.supabase.co";
+const DEFAULT_SUPABASE_PUBLISHABLE_KEY = "sb_publishable_rGb3srwFQ7aCbHipegsn1A_DmTFCpNX";
+
+const url = (import.meta.env.VITE_SUPABASE_URL as string | undefined)?.trim() || DEFAULT_SUPABASE_URL;
+const key = (import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY as string | undefined)?.trim() || DEFAULT_SUPABASE_PUBLISHABLE_KEY;
+
+export const supabaseConfigured = Boolean(url && key);
+export const supabase = createClient(url, key, {
+  auth: { persistSession: true, autoRefreshToken: true, detectSessionInUrl: true },
+});
+
+export type AdminRole = "owner" | "admin" | "editor" | "publisher" | "viewer";
+export type ContentStatus = "draft" | "in_review" | "scheduled" | "published" | "archived";
+export type SiteRecord = {
+  id: string; workspace_id: string; name: string; slug: string; base_url: string | null;
+  github_owner: string | null; github_repo: string | null; github_branch: string;
+  content_path: string; pages_path: string; assets_path: string; default_locale: string;
+  enabled_locales: string[]; publish_mode: string; is_active: boolean;
+  created_at: string; updated_at: string;
+};
+export type ContentItem = {
+  id: string; workspace_id: string; site_id: string; kind: "article" | "page";
+  status: ContentStatus; slug: string; title: string; excerpt: string;
+  body: Record<string, unknown> | string; locale: string; seo_title: string;
+  seo_description: string; canonical_url: string | null; featured_image: string | null;
+  tags: string[]; categories: string[]; author_id: string; scheduled_at: string | null;
+  published_at: string | null; deleted_at: string | null; version: number;
+  created_at: string; updated_at: string;
+};
