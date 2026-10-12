@@ -7,13 +7,7 @@ const FOOTER_LINKS = [
   ["pages/terms.html","شروط الاستخدام"],
   ["pages/editorial-policy.html","سياسة التحرير"]
 ];
-const HOME_NAV = [
-  ["index.html","الرئيسية"],
-  ["pages/ai.html","الذكاء الاصطناعي"],
-  ["pages/web-development.html","تطوير المواقع"],
-  ["pages/programming.html","البرمجة"],
-  ["pages/seo.html","SEO"]
-];
+const HOME_NAV = NAV.map(([url,label]) => [url,label]);
 const esc = value => String(value).replace(/[&<>"']/g, ch => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch]));
 
 function links(items, root, current = "", home = false) {
