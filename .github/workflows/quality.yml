@@ -27,7 +27,7 @@ jobs:
         run: |
           test -f assets/css/style.css
           test -f assets/js/site.js
-          ! grep -R -E 'assets/css/(site|tailwind|home-rebuild)\\.css|assets/js/(home-rebuild|archive)\\.js' --include='*.html' .
+          ! grep -R -E 'assets/css/(site|tailwind|home-rebuild)[.]css|assets/js/(home-rebuild|archive)[.]js' --include='*.html' .
       - name: Build generated catalogue and sitemap
         run: npm run build
       - name: Validate JavaScript modules and site SEO
