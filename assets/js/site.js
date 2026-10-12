@@ -55,14 +55,14 @@
     {id:'compact',label:'مكثف',icon:'▦',description:'مساحات أصغر ومحتوى أكثر'},
     {id:'reading',label:'القراءة',icon:'Aa',description:'ألوان دافئة وعمود قراءة مريح'}
   ];
-  const root = document.documentElement;
+  const documentRoot = document.documentElement;
   const savedTheme = readPreference('mseo-theme');
   const validTheme = id => themes.some(theme => theme.id === id);
   let activeTheme = validTheme(savedTheme) ? savedTheme : 'editorial';
   const applyTheme = id => {
     activeTheme = validTheme(id) ? id : 'editorial';
-    root.dataset.theme = activeTheme;
-    root.classList.toggle('dark', activeTheme === 'tech');
+    documentRoot.dataset.theme = activeTheme;
+    documentRoot.classList.toggle('dark', activeTheme === 'tech');
     const theme = themes.find(item => item.id === activeTheme);
     if (themeButton && theme) {
       themeButton.textContent = theme.icon;
