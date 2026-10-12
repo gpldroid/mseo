@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ar" dir="rtl" class="light">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#101525"><meta name="color-scheme" content="light dark">
+<title>مولّد robots.txt مجاني | إنشاء قواعد الزحف - MSEO</title>
+<meta name="description" content="أنشئ ملف robots.txt مخصصًا لمحركات البحث بسهولة. تحكّم في السماح بالزحف ومنعه، وأضف Sitemap، ثم انسخ الملف أو نزّله مجانًا.">
+<meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://gpldroid.github.io/mseo/pages/robots-txt-generator.html">
+<meta property="og:type" content="website"><meta property="og:title" content="مولّد robots.txt مجاني | MSEO"><meta property="og:description" content="أنشئ قواعد robots.txt وعاينها ثم نزّل الملف الجاهز."><meta property="og:url" content="https://gpldroid.github.io/mseo/pages/robots-txt-generator.html"><meta property="og:site_name" content="MSEO"><meta name="twitter:card" content="summary"><meta name="twitter:title" content="مولّد robots.txt مجاني | MSEO"><meta name="twitter:description" content="أنشئ ملف robots.txt بمحركات بحث وقواعد زحف قابلة للتخصيص.">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="manifest" href="../site.webmanifest"><link rel="stylesheet" href="../assets/css/style.css?v=20261012-images1">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"مولّد robots.txt من MSEO","url":"https://gpldroid.github.io/mseo/pages/robots-txt-generator.html","applicationCategory":"DeveloperApplication","operatingSystem":"Any","inLanguage":"ar","description":"أداة مجانية لإنشاء ملف robots.txt ومعاينة قواعد الزحف.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+</head>
+<body><div data-site-header></div>
+<main class="seo-tool-page robots-generator-page">
+<section class="site-hero"><div class="site-container"><nav class="site-breadcrumb" aria-label="مسار التنقل"><a href="../index.html">الرئيسية</a><span>/</span><a href="tools.html">الأدوات</a><span>/</span><span>مولّد robots.txt</span></nav><span class="site-kicker">MSEO FREE TOOL</span><h1>مولّد <strong>robots.txt</strong></h1><p>أنشئ قواعد واضحة لزواحف محركات البحث، أضف رابط خريطة الموقع، ثم انسخ الملف أو نزّله بصيغة جاهزة.</p><div class="seo-privacy-note"><span aria-hidden="true">🔒</span><span><strong>يعمل محليًا:</strong> تُعالج الإعدادات داخل المتصفح ولا تُرسل إلى خادم.</span></div></div></section>
+<section class="site-container site-section">
+<form id="robots-form" class="seo-analyzer-form">
+<div class="seo-form-heading"><div><span class="seo-eyebrow">إعدادات الزحف</span><h2>خصّص قواعد robots.txt</h2><p>اختر الزاحف وحدد المسارات التي تريد السماح بها أو منعها. اترك الحقول فارغة لتجاهل القاعدة.</p></div><button class="seo-button seo-button-quiet" id="robots-sample" type="button">تحميل مثال</button></div>
+<div class="robots-fields-grid">
+<div><label class="seo-field-label" for="robots-agent">User-agent (الزاحف)</label><select class="seo-input" id="robots-agent"><option value="*">كل الزواحف (*)</option><option value="Googlebot">Googlebot</option><option value="Bingbot">Bingbot</option><option value="custom">زاحف مخصص…</option></select><input class="seo-input robots-custom-agent" id="robots-custom-agent" placeholder="اسم الزاحف المخصص" maxlength="100" hidden><p class="seo-field-help">استخدم * لتطبيق القواعد على جميع الزواحف.</p></div>
+<div><label class="seo-field-label" for="robots-policy">السياسة الافتراضية</label><select class="seo-input" id="robots-policy"><option value="allow">السماح بالزحف (Allow all)</option><option value="block">منع الزحف بالكامل (Block all)</option></select><p class="seo-field-help">منع الزحف بالكامل يضيف Disallow: / وقد يمنع محركات البحث من الوصول إلى الموقع.</p></div>
+<div class="robots-field-full"><label class="seo-field-label" for="robots-allow">المسارات المسموح بها (Allow) — مسار في كل سطر</label><textarea class="seo-input robots-textarea" id="robots-allow" rows="3" placeholder="/public/&#10;/assets/"></textarea><p class="seo-field-help">أدخل مسارات URL تبدأ بـ /، وليس روابط كاملة.</p></div>
+<div class="robots-field-full"><label class="seo-field-label" for="robots-disallow">المسارات الممنوعة (Disallow) — مسار في كل سطر</label><textarea class="seo-input robots-textarea" id="robots-disallow" rows="3" placeholder="/admin/&#10;/private/"></textarea><p class="seo-field-help">لا تضع صفحات حساسة هنا باعتبارها وسيلة حماية؛ robots.txt ملف عام.</p></div>
+<div class="robots-field-full"><label class="seo-field-label" for="robots-sitemap">رابط خريطة الموقع (Sitemap) — اختياري</label><input class="seo-input" id="robots-sitemap" type="url" placeholder="https://example.com/sitemap.xml"><p class="seo-field-help">يجب أن يكون رابطًا مطلقًا يبدأ بـ https:// أو http://.</p></div>
+<div><label class="seo-field-label" for="robots-delay">Crawl-delay — اختياري (بالثواني)</label><input class="seo-input" id="robots-delay" type="number" min="1" max="120" step="1" placeholder="مثال: 5"><p class="seo-field-help">الدعم يختلف بين الزواحف؛ Googlebot لا يعتمد Crawl-delay في robots.txt.</p></div>
+</div>
+<div class="robots-warning" id="robots-warning" role="status" aria-live="polite" hidden></div>
+<div class="robots-output-heading"><div><span class="seo-eyebrow">المعاينة المباشرة</span><h2>ملف robots.txt الناتج</h2></div><span id="robots-line-count" class="site-tag">0 سطر</span></div>
+<textarea id="robots-output" class="seo-input robots-output" rows="12" readonly spellcheck="false" aria-label="محتوى ملف robots.txt"></textarea>
+<div class="seo-form-actions robots-actions"><button class="seo-button seo-button-primary" id="robots-copy" type="button">نسخ الملف</button><button class="seo-button" id="robots-download" type="button">تنزيل robots.txt</button><button class="seo-button seo-button-quiet" id="robots-reset" type="button">إعادة ضبط</button></div>
+<p id="robots-status" class="seo-status" aria-live="polite">عدّل أي حقل لمعاينة الملف تلقائيًا.</p>
+</form>
+</section>
+<section class="site-container site-section seo-guide"><div class="site-section-head"><div><span class="site-kicker">دليل سريع</span><h2>كيف تستخدم robots.txt بشكل صحيح؟</h2></div></div><div class="seo-guide-grid">
+<article class="seo-guide-card"><h3>1. ضع الملف في المكان الصحيح</h3><p>انشر الملف في المسار الجذري للمضيف الذي تريد التحكم بزواحفه، مثل <code>https://example.com/robots.txt</code>. راجع إعدادات الاستضافة خصوصًا عند استخدام مسار فرعي.</p></article>
+<article class="seo-guide-card"><h3>2. لا تحظر ملفات العرض المهمة</h3><p>تجنّب حظر CSS وJavaScript اللازمة لفهم الصفحة وعرضها، إلا إذا كان لديك سبب تقني واضح.</p></article>
+<article class="seo-guide-card"><h3>3. تذكّر حدود الملف</h3><p>robots.txt يوجّه الزواحف ولا يحمي المحتوى الخاص، ولا يضمن إزالة عنوان من نتائج البحث. استخدم المصادقة للمحتوى المحمي، ووسائل الفهرسة المناسبة عند الحاجة.</p></article>
+</div><div class="seo-guide-note"><strong>تنبيه:</strong> اختيار «منع الزحف بالكامل» ينشئ قاعدة <code>Disallow: /</code>. استخدمها فقط عندما تقصد منع الزاحف المحدد من زيارة جميع المسارات.</div></section>
+<section class="site-container site-section seo-faq"><h2>أسئلة شائعة</h2><details><summary>هل robots.txt يمنع ظهور الصفحة في نتائج البحث؟</summary><p>ليس بالضرورة. الملف يطلب من الزاحف عدم زيارة المسار، لكنه ليس وسيلة مضمونة لإخفاء الصفحة أو إزالتها من الفهرس.</p></details><details><summary>هل يجب إضافة Sitemap؟</summary><p>ليست إلزامية، لكنها قد تساعد محركات البحث على اكتشاف خريطة الموقع. أضف رابط XML المطلق والصحيح إذا كان متاحًا.</p></details><details><summary>هل تعمل Crawl-delay مع كل محركات البحث؟</summary><p>لا؛ تختلف طريقة الدعم حسب الزاحف، وGooglebot لا يدعم توجيه Crawl-delay داخل robots.txt.</p></details></section>
+<section class="site-container site-section seo-related"><h2>جرّب أدوات MSEO الأخرى</h2><div class="seo-related-links"><a href="meta-tags-generator.html">مولّد Meta Tags</a><a href="seo-analyzer.html">محلّل SEO</a><a href="json-formatter.html">منسّق JSON</a><a href="tools.html">كل الأدوات</a></div></section>
+</main><div data-site-footer></div><script src="../assets/js/robots-txt-generator.js?v=20261012-1" defer></script><script src="../assets/js/site.js?v=20261012-images1" defer></script>
+</body></html>
