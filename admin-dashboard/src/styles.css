@@ -23,3 +23,5 @@
 .status.in_review,.status.queued{color:#f6d58a;background:#4b3b1b}.status.scheduled,.status.running{color:#a8d7ff;background:#193a56}.status.succeeded{color:#91e5c0;background:#153d32}.status.failed{color:#ffaaaa;background:#4a222b}.status.archived{color:#a4afc2;background:#283447}
 .editor-form textarea{line-height:1.85}code{font-size:11px;color:#b9c5d9;overflow-wrap:anywhere}
 @media(max-width:760px){.topic-grid{grid-template-columns:1fr;gap:12px}.site-status{align-items:flex-start;flex-wrap:wrap}.site-status a{margin-right:0}}
+
+.taxonomy-add{display:flex;gap:8px;margin:0 0 14px}.taxonomy-add input{flex:1;min-width:0}.taxonomy-open{flex:1;min-width:0;display:flex;align-items:center;gap:12px;border:0;background:transparent;color:inherit;text-align:right;padding:0}.taxonomy-open>span:nth-child(2){display:grid;gap:3px;flex:1;min-width:0}.taxonomy-row .icon-btn{width:30px;height:30px}
