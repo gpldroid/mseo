@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b1220">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="color-scheme" content="light dark">
+<title>استخدام Fetch API في JavaScript: التعامل الصحيح مع الاستجابات والأخطاء | MSEO</title>
+<meta name="description" content="تعلم طلب البيانات من API باستخدام fetch وasync/await، والتحقق من status، ومعالجة JSON والأخطاء بطريقة قابلة للصيانة.">
+<meta name="keywords" content="JavaScript Fetch, Fetch API, REST API, HTTP errors, async await">
+<meta name="author" content="MSEO Editorial">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://gpldroid.github.io/mseo/articles/javascript-fetch-api-errors.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="استخدام Fetch API في JavaScript: التعامل الصحيح مع الاستجابات والأخطاء">
+<meta property="og:description" content="تعلم طلب البيانات من API باستخدام fetch وasync/await، والتحقق من status، ومعالجة JSON والأخطاء بطريقة قابلة للصيانة.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=85">
+<meta property="og:url" content="https://gpldroid.github.io/mseo/articles/javascript-fetch-api-errors.html">
+<meta property="og:site_name" content="MSEO">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="استخدام Fetch API في JavaScript: التعامل الصحيح مع الاستجابات والأخطاء">
+<meta name="twitter:description" content="تعلم طلب البيانات من API باستخدام fetch وasync/await، والتحقق من status، ومعالجة JSON والأخطاء بطريقة قابلة للصيانة.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=85">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"استخدام Fetch API في JavaScript: التعامل الصحيح مع الاستجابات والأخطاء","description":"تعلم طلب البيانات من API باستخدام fetch وasync/await، والتحقق من status، ومعالجة JSON والأخطاء بطريقة قابلة للصيانة.","image":["https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=85"],"datePublished":"2026-10-12","dateModified":"2026-10-12","author":{"@type":"Organization","name":"MSEO Editorial"},"publisher":{"@type":"Organization","name":"MSEO","url":"https://gpldroid.github.io/mseo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://gpldroid.github.io/mseo/articles/javascript-fetch-api-errors.html"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"الرئيسية","item":"https://gpldroid.github.io/mseo/"},{"@type":"ListItem","position":2,"name":"تطوير المواقع","item":"https://gpldroid.github.io/mseo/pages/web-development.html"},{"@type":"ListItem","position":3,"name":"استخدام Fetch API في JavaScript: التعامل الصحيح مع الاستجابات والأخطاء","item":"https://gpldroid.github.io/mseo/articles/javascript-fetch-api-errors.html"}]}</script>
+<link rel="stylesheet" href="../assets/css/style.css?v=20261012-images1">
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 antialiased">
+<div data-site-header></div>
+<main class="max-w-4xl mx-auto px-4 py-8">
+<nav aria-label="مسار التنقل" class="text-xs text-slate-500 mb-5"><a href="../index.html">الرئيسية</a> <span> / </span> <span>تطوير المواقع</span> <span> / </span> <span>استخدام Fetch API في JavaScript: التعامل الصحيح مع الاستجابات والأخطاء</span></nav>
+<article class="bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden">
+<img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=85" alt="استخدام Fetch API في JavaScript: التعامل الصحيح مع الاستجابات والأخطاء" width="1400" height="788" loading="eager" fetchpriority="high" decoding="async" class="w-full aspect-video object-cover">
+<div class="p-6 sm:p-10">
+<div class="flex flex-wrap gap-2 mb-4"><span class="bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-full">تطوير المواقع</span><time datetime="2026-10-12" class="text-xs text-slate-500 px-2 py-1.5">12 أكتوبر 2026</time></div>
+<h1 class="text-2xl sm:text-4xl font-black leading-tight text-slate-950 dark:text-white">استخدام Fetch API في JavaScript: التعامل الصحيح مع الاستجابات والأخطاء</h1>
+<p class="mt-5 text-base leading-8 text-slate-600 dark:text-slate-300">تعلم طلب البيانات من API باستخدام fetch وasync/await، والتحقق من status، ومعالجة JSON والأخطاء بطريقة قابلة للصيانة.</p>
+<div class="mt-8 prose prose-slate max-w-none dark:prose-invert"><section><h2>ما الذي تفعله Fetch API؟</h2><p>تتيح fetch إرسال طلبات HTTP من JavaScript والتعامل مع الاستجابة بصورة غير متزامنة. وهي مناسبة لجلب بيانات JSON أو إرسالها إلى خدمة ويب، لكن نجاح الوعد Promise لا يعني بالضرورة أن الخادم أعاد حالة HTTP ناجحة.</p></section>
+<section><h2>مثال آمن لجلب JSON</h2><p><pre><code>async function loadUsers() {
+  try {
+    const response = await fetch("/api/users");
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}`);
+    }
+    const users = await response.json();
+    return users;
+  } catch (error) {
+    console.error("تعذر تحميل المستخدمين:", error);
+    throw error;
+  }
+}</code></pre> يوضح المثال فصل طلب الشبكة عن التحقق من الحالة وتحويل الجسم إلى JSON.</p></section>
+<section><h2>لماذا نتحقق من response.ok؟</h2><p>عادةً ترفض fetch الوعد عند فشل الشبكة أو إلغاء الطلب، لكنها لا ترفضه تلقائيًا عند استجابات مثل 404 أو 500. لذلك افحص response.ok أو response.status قبل استخدام البيانات.</p></section>
+<section><h2>التعامل مع JSON غير الصالح</h2><p>قد يعيد الخادم استجابة فارغة أو نصًا ليس JSON صالحًا. استدعاء response.json() قد يرمي خطأ؛ لذا عالج هذا الاحتمال في طبقة مناسبة، وميّز بين أخطاء الشبكة وأخطاء HTTP وأخطاء تحليل المحتوى حتى لا تعرض رسالة مضللة.</p></section>
+<section><h2>إلغاء الطلبات الطويلة</h2><p>استخدم AbortController عندما يتغير البحث بسرعة أو يغادر المستخدم الشاشة. مرّر signal إلى fetch ثم استدعِ abort عند الحاجة. هذا يساعد على منع عرض نتائج قديمة بعد وصول طلب أحدث.</p></section>
+<section><h2>الأمان وCORS</h2><p>لا تضع مفاتيح سرية في JavaScript المرسل إلى المتصفح. سياسة CORS يحددها الخادم، ولا ينبغي محاولة تجاوزها من جهة العميل. تحقّق أيضًا من البيانات القادمة قبل إدراجها في DOM، واستخدم textContent بدل innerHTML عند عرض نص غير موثوق.</p></section>
+<section><h2>قائمة اختبار قبل النشر</h2><p>اختبر استجابة ناجحة، و404، وخطأ خادم، وانقطاع الشبكة، وJSON غير صالح، وطلبًا ملغى. اعرض للمستخدم حالة تحميل ورسالة خطأ مفهومة، ولا تسجل رموز الوصول أو بيانات شخصية في وحدة التحكم.</p></section>
+<section><h2>الخلاصة</h2><p>Fetch تصبح أكثر موثوقية عندما تجمع بين async/await وفحص HTTP ومعالجة التحليل والإلغاء. اجعل مسؤولية الطلب واضحة، وتجنب تكرار منطق الأخطاء في كل مكوّن.</p></section></div>
+<section class="mt-10 p-5 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700">
+<h2 class="text-xl font-black mb-3">مصادر وروابط موثوقة</h2><ul class="list-disc pr-6 space-y-2"><li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch" target="_blank" rel="noopener noreferrer">MDN: Using the Fetch API</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/API/AbortController" target="_blank" rel="noopener noreferrer">MDN: AbortController</a></li></ul>
+</section>
+<div class="mt-8 pt-6 border-t border-slate-200 dark:border-slate-700 flex flex-wrap gap-2 text-xs"><span class="font-bold">كلمات مفتاحية:</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">JavaScript Fetch</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">Fetch API</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">REST API</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">HTTP errors</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">async await</span></div>
+</div></article>
+</main>
+<div data-site-footer></div>
+<script src="../assets/js/site.js?v=20261012-images1" defer></script>
+</body></html>
