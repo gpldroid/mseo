@@ -794,3 +794,12 @@ body{font-family:var(--ui-font,'Cairo',sans-serif)}
 .meta-output-actions{display:flex;flex-wrap:wrap;gap:8px}
 .meta-output{min-height:320px}
 @media(max-width:600px){.meta-generator-page .meta-fields-grid{grid-template-columns:1fr}.meta-generator-page .meta-field-full{grid-column:auto}.meta-preview-heading,.meta-output-heading{align-items:flex-start;flex-direction:column}.meta-field-meta{align-items:flex-start;flex-direction:column;gap:2px}}
+
+/* Word counter tool */
+.word-counter-page .wc-textarea{min-height:260px;direction:auto;text-align:start;font-family:var(--ui-font,'Cairo',sans-serif);font-size:1rem;line-height:1.9}
+.wc-results{margin-top:22px}.wc-metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.wc-main-metric{padding:20px;display:flex;flex-direction:column;gap:3px}.wc-main-metric>span{color:var(--muted);font-weight:800;font-size:.92rem}
+.wc-main-metric>strong{font-size:clamp(1.7rem,4vw,2.4rem);line-height:1.4;overflow-wrap:anywhere;color:var(--text)}.wc-main-metric>small{color:var(--muted);font-size:.78rem}
+.wc-secondary-metrics{margin-top:14px}
+@media(max-width:760px){.wc-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:420px){.wc-metrics{grid-template-columns:1fr}.wc-main-metric{padding:16px}}
