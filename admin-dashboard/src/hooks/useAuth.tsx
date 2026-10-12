@@ -5,13 +5,11 @@ type AuthValue={session:Session|null;user:User|null;role:AdminRole|null;workspac
 const AuthContext=createContext<AuthValue|null>(null);
 
 function getOAuthRedirectUrl(){
- const hostname=window.location.hostname;
+ const {origin,hostname,pathname}=window.location;
  if(hostname==="gpldroid.github.io")return "https://gpldroid.github.io/mseo/admin-dashboard/";
- if(hostname==="mseopro.netlify.app")return "https://mseopro.netlify.app/admin-dashboard/";
- const callbackUrl=new URL(window.location.href);
- callbackUrl.search="";
- callbackUrl.hash="";
- return callbackUrl.toString();
+ const configuredPath=pathname.match(/^(.*\/admin-dashboard)(?:\/|$)/)?.[1];
+ const path=configuredPath?configuredPath+"/":"/admin-dashboard/";
+ return new URL(path,origin).toString();
 }
 
 export function AuthProvider({children}:{children:ReactNode}){
