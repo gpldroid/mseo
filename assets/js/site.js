@@ -72,3 +72,58 @@
   downButton.addEventListener('click',()=>window.scrollTo({top:document.documentElement.scrollHeight,behavior:'smooth'}));
   document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const target=$(a.getAttribute('href'));if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth',block:'start'});}}));
 })();
+/* Homepage content renderer: kept in this single shared public-site script. */
+(async () => {
+ const $ = (s, root=document) => root.querySelector(s);
+ const base = new URL('../../', import.meta.url);
+ const url = path => new URL(path, base).href;
+ const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const grid=$('#article-grid'), categoryGrid=$('#category-grid'), categorySelect=$('#article-category'), search=$('#article-search'), count=$('#results-count'), pagination=$('#pagination'), error=$('#load-error');
+ if (!grid || !categoryGrid) return;
+ let articles=[], page=1; const perPage=9;
+ try {
+   const response=await fetch(url('data/articles.json'), {cache:'no-cache'});
+   if (!response.ok) throw new Error('Could not load article catalogue');
+   articles=await response.json();
+   const cats=[...new Set(articles.map(a=>a.category).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'ar'));
+   categoryGrid.innerHTML=cats.map((c,i)=>'<a class="category-card" href="'+url('pages/archive.html')+'?category='+encodeURIComponent(c)+'"><span class="site-card-icon">'+['✳','⌘','◈','↗','⌁','⚙'][i%6]+'</span><h3>'+esc(c)+'</h3><p>استكشف الأدلة والمقالات في هذا المجال.</p><span class="site-read">تصفح المقالات ←</span></a>').join('');
+   if(categorySelect) categorySelect.innerHTML='<option value="">كل التصنيفات</option>'+cats.map(c=>'<option value="'+esc(c)+'">'+esc(c)+'</option>').join('');
+   const render=()=>{
+     const q=(search?.value||'').trim().toLocaleLowerCase('ar'), cat=categorySelect?.value||'';
+     const filtered=articles.filter(a=>(!cat||a.category===cat)&&(!q||[a.title,a.category,a.description,...(a.tags||[])].join(' ').toLocaleLowerCase('ar').includes(q)));
+     const pages=Math.max(1,Math.ceil(filtered.length/perPage)); page=Math.min(page,pages);
+     const items=filtered.slice((page-1)*perPage,page*perPage);
+     grid.innerHTML=items.length?items.map(a=>{
+       const articleUrl=url('articles/'+encodeURIComponent(a.file||a.slug+'.html'));
+       return '<article class="article-card"><a href="'+articleUrl+'"><img loading="lazy" decoding="async" src="'+esc(url(a.image||'assets/favicon.svg'))+'" alt="" onerror="this.style.display=\'none\'"></a><div class="article-card-body"><span class="article-category">'+esc(a.category)+'</span><h3><a href="'+articleUrl+'">'+esc(a.title)+'</a></h3><p>'+esc(a.description)+'</p><a class="site-read" href="'+articleUrl+'">اقرأ المقال ←</a></div></article>';
+     }).join(''):'<p class="loading-card">لا توجد مقالات تطابق البحث.</p>';
+     if(count) count.textContent='عرض '+items.length+' من '+filtered.length+' مقالًا';
+     if(pagination){pagination.hidden=pages<=1;pagination.innerHTML=Array.from({length:pages},(_,i)=>'<button type="button" '+(page===i+1?'aria-current="page"':'')+' data-page="'+(i+1)+'">'+(i+1)+'</button>').join('');pagination.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{page=Number(b.dataset.page);render();$('#articles')?.scrollIntoView({behavior:'smooth'});}));}
+   };
+   search?.addEventListener('input',()=>{page=1;render();});
+   categorySelect?.addEventListener('change',()=>{page=1;render();});
+   render();
+ } catch (e) {
+   if(error) error.hidden=false;
+   grid.innerHTML='<p class="loading-card">تعذر تحميل المقالات حاليًا. يرجى المحاولة لاحقًا.</p>';
+   if(count) count.textContent='تعذر تحميل الفهرس';
+ }
+})();
+
+/* Cookie consent: no non-essential cookies are set by this static site by default. */
+(() => {
+ const key='mseo-cookie-consent-v1';
+ let choice=null;
+ try { choice=localStorage.getItem(key); } catch (_) {}
+ if(choice) return;
+ const banner=document.createElement('section');
+ banner.className='mseo-cookie-banner';
+ banner.setAttribute('role','dialog');
+ banner.setAttribute('aria-label','إعدادات ملفات تعريف الارتباط');
+ banner.setAttribute('aria-live','polite');
+ banner.innerHTML='<div class="mseo-cookie-copy"><strong>خصوصيتك تهمنا</strong><p>يستخدم الموقع التخزين المحلي لحفظ تفضيلات الواجهة، مثل المظهر. لا يتم تفعيل ملفات تحليل أو إعلانات اختيارية من خلال هذه الرسالة.</p><a href="'+(location.pathname.includes('/articles/')||location.pathname.includes('/pages/')?'../':'./')+'pages/privacy.html">اقرأ سياسة الخصوصية</a></div><div class="mseo-cookie-actions"><button type="button" data-cookie-accept>موافق</button><button type="button" data-cookie-dismiss>إغلاق</button></div>';
+ const save=value=>{try{localStorage.setItem(key,value);}catch(_){}banner.remove();};
+ banner.querySelector('[data-cookie-accept]').addEventListener('click',()=>save('accepted'));
+ banner.querySelector('[data-cookie-dismiss]').addEventListener('click',()=>save('dismissed'));
+ document.body.append(banner);
+})();
