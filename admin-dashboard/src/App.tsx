@@ -11,6 +11,20 @@ function slugify(value: string) {
   return transliterated.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 }
 
+async function triggerContentPublish(slug: string, status: string) {
+  const { data: { session } } = await supabase.auth.getSession();
+  if (!session?.access_token) throw new Error("انتهت جلسة الدخول.");
+  const base = ((import.meta.env.VITE_ADMIN_API_URL as string | undefined)?.trim() || "https://mseopro.netlify.app/.netlify/functions").replace(/\\/$/, "");
+  const response = await fetch(`${base}/publish-content`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Authorization: `Bearer ${session.access_token}` },
+    body: JSON.stringify({ slug, status }),
+  });
+  const result = await response.json().catch(() => ({}));
+  if (!response.ok) throw new Error(result.error || `فشل تشغيل النشر (${response.status})`);
+  return result.message as string;
+}
+
 type ContentRow = {
   id: string; slug: string; title: string; summary: string; body_html: string;
   content_type: "article" | "page"; status: "draft" | "published" | "archived";
@@ -68,12 +82,19 @@ function Root() {
       : await supabase.from("mseo_content_items").insert(payload).select().single();
     if (result.error) { setError(result.error.message); setBusy(false); return; }
     await supabase.from("mseo_audit_logs").insert({ actor_id: user?.id, action: editing ? "content.updated" : "content.created", entity_type: form.content_type, entity_id: result.data.id, details: { title: form.title } });
-    setShowEditor(false); setNotice("تم حفظ المحتوى بنجاح."); await load();
+    let publishNotice = "تم حفظ المحتوى في Supabase.";
+    try { publishNotice = await triggerContentPublish(slug, form.status); }
+    catch (publishError) { publishNotice += " لكن تعذّر بدء النشر التلقائي: " + (publishError instanceof Error ? publishError.message : "خطأ غير معروف") + ". تحقق من إعدادات Netlify ثم شغّل البناء يدويًا."; }
+    setShowEditor(false); setNotice(publishNotice); await load();
   };
   const remove = async (row: ContentRow) => {
     if (!isAdmin || !window.confirm("هل تريد حذف هذا المحتوى نهائيًا؟")) return;
     const { error: e } = await supabase.from("mseo_content_items").delete().eq("id", row.id);
-    if (e) setError(e.message); else { setNotice("تم حذف المحتوى."); await load(); }
+    if (e) setError(e.message); else {
+      try { setNotice(await triggerContentPublish(row.slug, "deleted")); }
+      catch (publishError) { setNotice("تم حذف السجل، لكن تعذّر بدء إعادة البناء: " + (publishError instanceof Error ? publishError.message : "خطأ غير معروف")); }
+      await load();
+    }
   };
 
   if (auth.loading) return <div className="auth-shell"><div className="login-card"><div className="brand-mark">M</div><h1>MSEO Pro</h1><p>جارٍ التحقق من الجلسة والصلاحيات…</p></div></div>;
