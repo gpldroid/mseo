@@ -4,7 +4,7 @@ export default async (event) => {
   const headers = corsHeaders(event);
   if (event.httpMethod === "OPTIONS") return { statusCode: 204, headers, body: "" };
   try {
-    await requireAdmin(event, "editor");
+    await requireAdmin(event, event.httpMethod === "PUT" ? "admin" : "editor");
     const token = process.env.GITHUB_TOKEN;
     const owner = process.env.GITHUB_OWNER || "gpldroid";
     const repo = process.env.GITHUB_REPO || "mseo";
