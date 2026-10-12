@@ -1,6 +1,6 @@
 import {PATH,ROOT} from "./config.js";
 import {loadCatalog,mountCatalog} from "./catalog.js?v=20261009-articles4";
-import {mountShell,mountCookieNotice} from "./shell.js";
+import {mountShell,mountCookieNotice} from "./shell.js?v=20261012-consent1";
 import {mountInteractions} from "./interactions.js";
 import {onReady} from "./utils.js";
 
