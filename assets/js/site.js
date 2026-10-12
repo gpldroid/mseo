@@ -6,12 +6,12 @@
   const root = nested ? '../' : './';
   const link = (href) => root + href;
   const navItems = [
-    ['index.html','الرئيسية','Home'],
-    ['pages/ai.html','الذكاء الاصطناعي','AI'],
-    ['pages/web-development.html','تطوير المواقع','Web Dev'],
-    ['pages/programming.html','البرمجة','Programming'],
-    ['pages/seo.html','SEO','SEO'],
-    ['pages/archive.html','الأرشيف','Archive']
+    ['index.html','الرئيسية'],
+    ['pages/ai.html','الذكاء الاصطناعي'],
+    ['pages/web-development.html','تطوير المواقع'],
+    ['pages/programming.html','البرمجة'],
+    ['pages/seo.html','SEO'],
+    ['pages/archive.html','الأرشيف']
   ];
   const readPreference = (key) => { try { return localStorage.getItem(key); } catch (_) { return null; } };
   const writePreference = (key, value) => { try { localStorage.setItem(key, value); } catch (_) {} };
@@ -23,7 +23,7 @@
           <button class="mseo-icon-button mseo-menu-toggle" type="button" aria-label="${'فتح القائمة'}" aria-expanded="false" data-menu-toggle>☰</button>
           <a class="mseo-brand" href="${link('index.html')}" aria-label="MSEO — ${'الرئيسية'}"><span class="mseo-brand-mark">M</span><span>MSEO</span></a>
           <nav class="mseo-nav" data-main-nav aria-label="${'القائمة الرئيسية'}">
-            ${navItems.map(([href,ar,en])=>`<a href="${link(href)}" ${((href==='index.html' && (path.endsWith('/mseo/') || path.endsWith('/index.html') || path === '/')) || (href!=='index.html' && path.endsWith('/'+href)))?'aria-current="page"':''}>${t(ar,en)}</a>`).join('')}
+            ${navItems.map(([href,label])=>`<a href="${link(href)}" ${((href==='index.html' && (path.endsWith('/mseo/') || path.endsWith('/index.html') || path === '/')) || (href!=='index.html' && path.endsWith('/'+href)))?'aria-current="page"':''}>${label}</a>`).join('')}
           </nav>
           <div class="mseo-actions">
             <button class="mseo-icon-button" type="button" data-search-toggle aria-label="${'فتح البحث'}" title="${'بحث'}">⌕</button>
