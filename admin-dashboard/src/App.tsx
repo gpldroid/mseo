@@ -7,7 +7,7 @@ import RichTextEditor from "./RichTextEditor";
 
 const arabicLetters: Record<string, string> = { "ا":"a","أ":"a","إ":"i","آ":"aa","ء":"","ؤ":"u","ئ":"i","ب":"b","ت":"t","ث":"th","ج":"j","ح":"h","خ":"kh","د":"d","ذ":"dh","ر":"r","ز":"z","س":"s","ش":"sh","ص":"s","ض":"d","ط":"t","ظ":"z","ع":"a","غ":"gh","ف":"f","ق":"q","ك":"k","ل":"l","م":"m","ن":"n","ه":"h","و":"w","ي":"y","ى":"a","ة":"h","پ":"p","چ":"ch","گ":"g" };
 function slugify(value: string) {
-  const transliterated = value.normalize("NFKD").replace(/[\\u0300-\\u036f]/g, "").split("").map(char => arabicLetters[char] ?? char).join("");
+  const transliterated = value.normalize("NFKD").replace(/\p{M}/gu, "").split("").map(char => arabicLetters[char] ?? char).join("");
   return transliterated.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 }
 
