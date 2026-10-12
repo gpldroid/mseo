@@ -948,3 +948,9 @@ body{font-family:var(--ui-font,'Cairo',sans-serif)}
 .article-card-body p{flex:1}
 .article-card-body .site-read{margin-top:auto}
 @media(prefers-reduced-motion:reduce){.article-card-media img,.article-card>a img{transition:none}.article-card:hover .article-card-media img,.article-card:hover>a img{transform:none}}
+
+
+/* Tool card icons: match the existing site-card icon treatment without an icon-font dependency */
+.mseo-tool-card-icon{display:grid;place-items:center;flex:0 0 48px;width:48px;height:48px;box-sizing:border-box;margin:0 0 16px;border-radius:15px;background:var(--surface-2);color:var(--brand);font-size:1.2rem}
+.mseo-tool-card-icon svg{display:block;width:23px;height:23px;max-width:100%;stroke:currentColor}
+.mseo-tool-card-icon i{display:none}
