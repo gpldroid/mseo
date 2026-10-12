@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b1220">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="color-scheme" content="light dark">
+<title>CSS Container Queries: تصميم مكونات تتكيف مع المساحة المتاحة | MSEO</title>
+<meta name="description" content="شرح عملي لـ container-type و@container لبناء بطاقات ومكونات تتكيف مع عرض الحاوية بدل عرض الشاشة فقط.">
+<meta name="keywords" content="CSS Container Queries, @container, Responsive Components, CSS, تصميم متجاوب">
+<meta name="author" content="MSEO Editorial">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://gpldroid.github.io/mseo/articles/css-container-queries-guide.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS Container Queries: تصميم مكونات تتكيف مع المساحة المتاحة">
+<meta property="og:description" content="شرح عملي لـ container-type و@container لبناء بطاقات ومكونات تتكيف مع عرض الحاوية بدل عرض الشاشة فقط.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?auto=format&fit=crop&w=1400&q=85">
+<meta property="og:url" content="https://gpldroid.github.io/mseo/articles/css-container-queries-guide.html">
+<meta property="og:site_name" content="MSEO">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CSS Container Queries: تصميم مكونات تتكيف مع المساحة المتاحة">
+<meta name="twitter:description" content="شرح عملي لـ container-type و@container لبناء بطاقات ومكونات تتكيف مع عرض الحاوية بدل عرض الشاشة فقط.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?auto=format&fit=crop&w=1400&q=85">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"CSS Container Queries: تصميم مكونات تتكيف مع المساحة المتاحة","description":"شرح عملي لـ container-type و@container لبناء بطاقات ومكونات تتكيف مع عرض الحاوية بدل عرض الشاشة فقط.","image":["https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?auto=format&fit=crop&w=1400&q=85"],"datePublished":"2026-10-12","dateModified":"2026-10-12","author":{"@type":"Organization","name":"MSEO Editorial"},"publisher":{"@type":"Organization","name":"MSEO","url":"https://gpldroid.github.io/mseo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://gpldroid.github.io/mseo/articles/css-container-queries-guide.html"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"الرئيسية","item":"https://gpldroid.github.io/mseo/"},{"@type":"ListItem","position":2,"name":"تصميم المواقع","item":"https://gpldroid.github.io/mseo/pages/web-design.html"},{"@type":"ListItem","position":3,"name":"CSS Container Queries: تصميم مكونات تتكيف مع المساحة المتاحة","item":"https://gpldroid.github.io/mseo/articles/css-container-queries-guide.html"}]}</script>
+<link rel="stylesheet" href="../assets/css/style.css?v=20261012-images1">
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 antialiased">
+<div data-site-header></div>
+<main class="max-w-4xl mx-auto px-4 py-8">
+<nav aria-label="مسار التنقل" class="text-xs text-slate-500 mb-5"><a href="../index.html">الرئيسية</a> <span> / </span> <span>تصميم المواقع</span> <span> / </span> <span>CSS Container Queries: تصميم مكونات تتكيف مع المساحة المتاحة</span></nav>
+<article class="bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden">
+<img src="https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?auto=format&fit=crop&w=1400&q=85" alt="CSS Container Queries: تصميم مكونات تتكيف مع المساحة المتاحة" width="1400" height="788" loading="eager" fetchpriority="high" decoding="async" class="w-full aspect-video object-cover">
+<div class="p-6 sm:p-10">
+<div class="flex flex-wrap gap-2 mb-4"><span class="bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-full">تصميم المواقع</span><time datetime="2026-10-12" class="text-xs text-slate-500 px-2 py-1.5">12 أكتوبر 2026</time></div>
+<h1 class="text-2xl sm:text-4xl font-black leading-tight text-slate-950 dark:text-white">CSS Container Queries: تصميم مكونات تتكيف مع المساحة المتاحة</h1>
+<p class="mt-5 text-base leading-8 text-slate-600 dark:text-slate-300">شرح عملي لـ container-type و@container لبناء بطاقات ومكونات تتكيف مع عرض الحاوية بدل عرض الشاشة فقط.</p>
+<div class="mt-8 prose prose-slate max-w-none dark:prose-invert"><section><h2>لماذا نحتاج Container Queries؟</h2><p>تعتمد media queries عادةً على خصائص نافذة العرض، لكن المكوّن قد يظهر في شريط جانبي أو عمود ضيق أو مساحة واسعة داخل الصفحة نفسها. Container queries تسمح بتغيير تنسيق العنصر وفق حجم الحاوية التي يحتويها، ما يجعل المكوّن أكثر قابلية لإعادة الاستخدام.</p></section>
+<section><h2>تعريف حاوية للاستعلام</h2><p>أضف container-type: inline-size إلى العنصر الذي تريد قياس عرضه. هذا ينشئ سياقًا يمكن للاستعلامات أن تقرأ حجمه على المحور المضمّن.</p></section>
+<section><h2>مثال عملي</h2><p><pre><code>.product-card-wrapper {
+  container-type: inline-size;
+}
+
+.product-card {
+  display: grid;
+  gap: 1rem;
+}
+
+@container (min-width: 34rem) {
+  .product-card {
+    grid-template-columns: 9rem 1fr;
+    align-items: center;
+  }
+}</code></pre> عند اتساع الحاوية بما يكفي، يتحول محتوى البطاقة إلى عمودين. تأكد أن العنصر المستهدف داخل الحاوية وأن الاستعلام يقيس الحاوية المقصودة.</p></section>
+<section><h2>كيف تختلف عن Media Queries؟</h2><p>استخدم media queries عندما يعتمد القرار على خصائص الشاشة أو تفضيلات المستخدم مثل reduced motion. استخدم container queries عندما يعتمد تصميم المكوّن على المساحة المتاحة له داخل تخطيط أكبر. يمكن الجمع بين النهجين.</p></section>
+<section><h2>أخطاء شائعة</h2><p>لا تضف container-type إلى كل عنصر بلا حاجة؛ اختر حدود المكونات التي تحتاج استقلالًا في التخطيط. اختبر الحالات المتوسطة، وتأكد من عدم حدوث قص أو تمرير أفقي. انتبه أيضًا إلى أن بعض أنواع containment لها آثار على التخطيط، لذلك راجع سلوك العنصر في السياق الحقيقي.</p></section>
+<section><h2>اختبار المكوّن في أماكن متعددة</h2><p>جرّب البطاقة داخل شبكة واسعة وعمود جانبي وهاتف، ثم غيّر عرض الحاوية دون تغيير حجم نافذة المتصفح. هذه طريقة سريعة للتحقق من أن المكوّن يستجيب لحجمه الخاص فعلًا.</p></section>
+<section><h2>الخلاصة</h2><p>Container queries أداة قوية لبناء واجهات مكوّنية مرنة. ابدأ بمكوّن واحد واضح، وحدد نقاط التحول بناءً على المحتوى لا على أسماء الأجهزة، ثم اختبره ضمن تخطيطات مختلفة.</p></section></div>
+<section class="mt-10 p-5 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700">
+<h2 class="text-xl font-black mb-3">مصادر وروابط موثوقة</h2><ul class="list-disc pr-6 space-y-2"><li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_size_and_style_queries" target="_blank" rel="noopener noreferrer">MDN: CSS container queries</a></li><li><a href="https://web.dev/articles/container-queries" target="_blank" rel="noopener noreferrer">web.dev: CSS container queries</a></li></ul>
+</section>
+<div class="mt-8 pt-6 border-t border-slate-200 dark:border-slate-700 flex flex-wrap gap-2 text-xs"><span class="font-bold">كلمات مفتاحية:</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">CSS Container Queries</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">@container</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">Responsive Components</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">CSS</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">تصميم متجاوب</span></div>
+</div></article>
+</main>
+<div data-site-footer></div>
+<script src="../assets/js/site.js?v=20261012-images1" defer></script>
+</body></html>
