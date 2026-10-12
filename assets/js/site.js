@@ -23,7 +23,7 @@
           <button class="mseo-icon-button mseo-menu-toggle" type="button" aria-label="${t('فتح القائمة','Open menu')}" aria-expanded="false" data-menu-toggle>☰</button>
           <a class="mseo-brand" href="${link('index.html')}" aria-label="MSEO — ${t('الرئيسية','Home')}"><span class="mseo-brand-mark">M</span><span>MSEO</span></a>
           <nav class="mseo-nav" data-main-nav aria-label="${t('القائمة الرئيسية','Main navigation')}">
-            ${navItems.map(([href,ar,en])=>`<a href="${link(href)}" ${((href==='index.html' && (path.endsWith('/mseo/') || path.endsWith('/index.html'))) || (href!=='index.html' && path.endsWith('/'+href)))?'aria-current="page"':''}>${t(ar,en)}</a>`).join('')}
+            ${navItems.map(([href,ar,en])=>`<a href="${link(href)}" ${((href==='index.html' && (path.endsWith('/mseo/') || path.endsWith('/index.html') || path === '/')) || (href!=='index.html' && path.endsWith('/'+href)))?'aria-current="page"':''}>${t(ar,en)}</a>`).join('')}
           </nav>
           <div class="mseo-actions">
             <button class="mseo-icon-button" type="button" data-search-toggle aria-label="${t('فتح البحث','Open search')}" title="${t('بحث','Search')}">⌕</button>
