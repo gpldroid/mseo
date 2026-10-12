@@ -186,3 +186,9 @@ html.dark body:has(> main > article) > main > article {
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+
+/* Accessible cookie notice shared by all public pages. */
+.mseo-cookie-banner{position:fixed;z-index:1200;inset-inline:18px;bottom:18px;width:min(760px,calc(100% - 36px));margin-inline:auto;display:flex;align-items:center;justify-content:space-between;gap:22px;padding:20px 22px;background:var(--surface);color:var(--text);border:1px solid var(--line);border-radius:20px;box-shadow:0 22px 70px rgba(0,0,0,.22);direction:rtl}
+.mseo-cookie-copy{min-width:0}.mseo-cookie-copy strong{display:block;font-weight:900;font-size:1rem}.mseo-cookie-copy p{margin:5px 0;color:var(--muted);font-size:.86rem;line-height:1.8}.mseo-cookie-copy>a{font-size:.84rem;font-weight:800;text-decoration:underline;text-underline-offset:3px}.mseo-cookie-actions{display:flex;flex-shrink:0;gap:8px}.mseo-cookie-actions button{padding:9px 15px;border:1px solid var(--line);border-radius:11px;background:var(--surface-2);color:var(--text);font-weight:800}.mseo-cookie-actions [data-cookie-accept]{background:var(--brand);border-color:var(--brand);color:#fff}
+@media(max-width:600px){.mseo-cookie-banner{inset-inline:10px;bottom:10px;width:calc(100% - 20px);align-items:stretch;flex-direction:column;gap:12px;padding:16px;border-radius:16px}.mseo-cookie-actions{display:grid;grid-template-columns:1fr 1fr}.mseo-cookie-actions button{min-height:42px}}
