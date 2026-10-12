@@ -1,40 +1,55 @@
-# MSEO Admin Dashboard (React + Vite)
+# MSEO Pro Control Center
 
-Build validation is enforced by the repository Admin Dashboard CI workflow.
+A responsive Arabic-first CMS dashboard built with React, Vite, TypeScript, Supabase Auth/Postgres/Storage, and Recharts. The dashboard is deployed independently from the public static site and uses the MCMS schema in the Supabase project **CMS Project**.
 
-This app is an independent React/Vite admin interface for the existing MSEO Supabase project. It intentionally reuses the existing schema: mseo_admins, mseo_content_items, mseo_audit_logs, and the mseo-media bucket. It does not create duplicate profiles/posts tables.
+## What it manages
+
+- Articles and pages with draft, review, scheduled, published, and archived states
+- Editorial metadata: slug, locale, excerpt, categories, tags, featured image, SEO title/description, and canonical URL
+- Automatic content revisions and workspace audit events
+- Normalized categories/tags and content-to-taxonomy relationships (with legacy arrays retained for static-site publishing)
+- Private media storage with signed preview URLs
+- Site configuration and GitHub publishing history
+- Workspace members and role-aware screens
+- Responsive RTL interface with search, filtering, pagination, status charts, and dark visual styling
+
+## Data architecture
+
+- `mcms_workspaces` and `mcms_workspace_members`: workspace and access control
+- `mcms_sites`: site URL, GitHub repository/branch and content paths
+- `mcms_content`: article/page content, SEO metadata, status, and version
+- `mcms_content_revisions`: snapshots created by database triggers
+- `mcms_categories`, `mcms_tags`, `mcms_content_categories`, `mcms_content_tags`: normalized taxonomy
+- `mcms_media`: metadata for private Storage objects in the `mcms-media` bucket
+- `mcms_publish_runs`: publish job status and GitHub commit URLs
+- `mcms_audit_log`: workspace audit trail
+
+RLS policies remain authoritative; hiding a screen in React is not an authorization boundary. Roles are `owner`, `admin`, `editor`, `publisher`, and `viewer`. The browser uses only the Supabase publishable key.
+
+## Publishing
+
+The `mcms-publish` Edge Function requires a valid Supabase JWT and a publisher/owner/admin membership. It writes an HTML page into the configured `articles/` or `pages/` directory and updates `data/articles.json` for articles, which is the public site's catalogue. This preserves the static site's existing URL pattern and makes new articles discoverable from the homepage and archive.
+
+Set `GITHUB_TOKEN` as a Supabase Edge Function secret with write access to `gpldroid/mseo`. Never expose that token in Vite variables. If the token is absent, content can still be drafted in the CMS but publishing will return a clear configuration error.
 
 ## Local development
 
-    cp .env.example .env.local
-    # Set VITE_SUPABASE_URL and VITE_SUPABASE_PUBLISHABLE_KEY
-    npm install
-    npm run dev
+```bash
+cp .env.example .env.local
+# Optionally set VITE_SUPABASE_URL and VITE_SUPABASE_PUBLISHABLE_KEY
+npm install
+npm run dev
+```
 
-The browser key must be the Supabase publishable/anon key only. Never use a service-role key, database password, or GitHub personal access token in a Vite variable.
+The application includes a safe public-project fallback so the deployed Netlify dashboard can connect without a committed `.env.local`. Environment variables override the fallback for local/staging builds.
 
-## Authentication setup
+## Deployment
 
-1. In Supabase Auth, enable Email provider and GitHub provider if OAuth is wanted.
-2. Configure the GitHub OAuth App callback URL shown in Supabase Auth provider settings.
-3. Add the production dashboard origin to Supabase Auth URL Configuration (Site URL and Redirect URLs).
-4. The app checks mseo_admins after login. A signed-in user without an approved role sees an access-denied screen. Signup does not grant admin rights.
-5. admin can manage users and delete content/media; editor can edit content and upload media; viewer can read. RLS and the existing mseo-admin-api Edge Function remain authoritative.
-
-## Existing schema
-
-The project already has mseo_admins, mseo_content_items, mseo_content_revisions, and mseo_audit_logs, with RLS enabled. Do not apply a second generic profiles/posts schema over the production project. The dashboard expects the existing mseo-media bucket and the mseo-admin-api function for privileged Auth user management.
-
-## Deploy to Vercel or Netlify
-
-Recommended: create a Vercel/Netlify project connected to gpldroid/mseo, set Root Directory to admin-dashboard, build command to npm run build, output directory to dist. Add VITE_SUPABASE_URL and VITE_SUPABASE_PUBLISHABLE_KEY as environment variables for Production and Preview. Pushes to main will deploy after the feature branch is reviewed and merged.
-
-For GitHub Pages under a subpath, set VITE_BASE_PATH=/mseo/admin-dashboard/ and configure the hosting path and OAuth redirect URL accordingly. Vercel/Netlify is simpler for an independent dashboard URL.
+For Netlify, connect `gpldroid/mseo`, set the base directory/root directory to `admin-dashboard`, build command to `npm run build`, and publish directory to `dist`. Keep the dashboard origin in Supabase Auth URL Configuration (Site URL and Redirect URLs).
 
 ## Security notes
 
-- The dashboard is a public client. Publishable keys are not secrets; RLS is mandatory.
-- Never trust client-side route hiding as authorization.
-- Do not expose service-role keys, GitHub tokens, or server credentials in VITE_ variables.
-- Media uploads are restricted to JPEG, PNG, WebP, and GIF (10 MB client-side limit; server bucket restrictions apply).
-- Review Supabase Auth leaked-password protection in Dashboard > Authentication > Settings.
+- Do not put service-role keys, database passwords, or GitHub tokens in frontend variables.
+- Keep RLS enabled on all MCMS tables and review Supabase security/performance advisors after schema changes.
+- Media is stored in a private bucket; the UI uses signed URLs for temporary previews.
+- New signups do not automatically receive workspace membership.
