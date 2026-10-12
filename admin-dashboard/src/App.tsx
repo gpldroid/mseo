@@ -2,6 +2,8 @@ import { useCallback, useEffect, useState, type FormEvent } from "react";
 import { Activity, BookOpen, CheckCircle2, FilePlus2, Github, LogOut, RefreshCw, Search, ShieldCheck, Trash2 } from "lucide-react";
 import { AuthProvider, useAuth } from "./hooks/useAuth";
 import { supabase, supabaseConfigured } from "./lib/supabase";
+import AdminTools from "./AdminTools";
+import RichTextEditor from "./RichTextEditor";
 
 type ContentRow = {
   id: string; slug: string; title: string; summary: string; body_html: string;
@@ -98,6 +100,7 @@ function Root() {
       {!busy && !filtered.length && <div className="empty-state"><BookOpen size={30}/><p>لا يوجد محتوى مطابق. أنشئ أول مقال للبدء.</p></div>}
       {!!filtered.length && <div className="table-wrap"><table><thead><tr><th>العنوان</th><th>النوع</th><th>الحالة</th><th>آخر تعديل</th><th>الإجراءات</th></tr></thead><tbody>{filtered.map(row => <tr key={row.id}><td><strong>{row.title}</strong><small className="cell-sub">/{row.slug}</small></td><td>{row.content_type === "article" ? "مقال" : "صفحة"}</td><td><span className={"status " + row.status}>{row.status === "published" ? "منشور" : row.status === "draft" ? "مسودة" : "مؤرشف"}</span></td><td>{new Date(row.updated_at).toLocaleDateString("ar-MA")}</td><td><div className="row-actions">{canEdit && <button className="btn secondary small" onClick={() => startEdit(row)}>تحرير</button>}{isAdmin && <button className="icon-btn danger" aria-label="حذف" onClick={() => void remove(row)}><Trash2 size={15}/></button>}</div></td></tr>)}</tbody></table></div>}
       </section>
+      <AdminTools role={auth.role} />
       <footer className="dashboard-footer"><span><CheckCircle2 size={15}/> اتصال Supabase مهيأ</span><span>قاعدة البيانات: mseo panel</span></footer>
     </main>
     {showEditor && <div className="modal-backdrop"><form className="editor-modal" onSubmit={save}><header><div><p className="eyebrow">CONTENT EDITOR</p><h2>{editing ? "تحرير المحتوى" : "إنشاء محتوى"}</h2></div><button type="button" className="icon-btn" onClick={() => setShowEditor(false)}>×</button></header><div className="editor-form">
