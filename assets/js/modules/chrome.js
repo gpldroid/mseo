@@ -1,4 +1,4 @@
-import {NAV,ROOT,SITE} from "./config.js";
+import {NAV,ROOT} from "./config.js";
 
 const FOOTER_LINKS = [
   ["pages/about.html","من نحن"],
