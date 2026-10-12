@@ -1,3 +1,6 @@
+import {mountHomeChrome} from "./modules/chrome.js?v=20261012-shared-chrome";
+
+mountHomeChrome();
 const CATALOG_URL = new URL("./data/articles.json", document.baseURI);
 const PAGE_SIZE = 8;
 const $ = (selector, root = document) => root.querySelector(selector);
