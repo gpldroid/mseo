@@ -75,7 +75,7 @@
 /* Homepage content renderer: kept in this single shared public-site script. */
 (async () => {
  const $ = (s, root=document) => root.querySelector(s);
- const base = new URL('../../', import.meta.url);
+ const base = new URL(location.pathname.match(/\/(articles|pages)\//) ? '../' : './', location.href);
  const url = path => new URL(path, base).href;
  const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const grid=$('#article-grid'), categoryGrid=$('#category-grid'), categorySelect=$('#article-category'), search=$('#article-search'), count=$('#results-count'), pagination=$('#pagination'), error=$('#load-error');
