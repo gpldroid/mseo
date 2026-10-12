@@ -34,7 +34,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     if (!current?.user) { setRole(null); return; }
     const { data, error } = await supabase.from("mseo_admins").select("role").eq("user_id", current.user.id).maybeSingle();
     if (error) throw error;
-    setRole(data?.role as AdminRole ?? null);
+    setRole((data?.role as AdminRole | undefined) ?? null);
   };
 
   useEffect(() => {
