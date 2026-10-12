@@ -114,7 +114,8 @@
      const items=filtered.slice((page-1)*perPage,page*perPage);
      grid.innerHTML=items.length?items.map(a=>{
        const articleUrl=url('articles/'+encodeURIComponent(a.file||a.slug+'.html'));
-       return '<article class="article-card"><a href="'+articleUrl+'"><img loading="lazy" decoding="async" src="'+esc(url(a.image||'assets/favicon.svg'))+'" alt="" onerror="this.style.display=\'none\'"></a><div class="article-card-body"><span class="article-category">'+esc(a.category)+'</span><h3><a href="'+articleUrl+'">'+esc(a.title)+'</a></h3><p>'+esc(a.description)+'</p><a class="site-read" href="'+articleUrl+'">اقرأ المقال ←</a></div></article>';
+       const thumbnail = a.thumbnail || a.image || 'assets/favicon.svg';
+       return '<article class="article-card"><a class="article-card-media" href="'+articleUrl+'" tabindex="-1" aria-hidden="true"><img loading="lazy" decoding="async" src="'+esc(url(thumbnail))+'" alt="" onerror="this.onerror=null;this.src=\''+esc(url(a.image||'assets/favicon.svg'))+'\';this.classList.add(\'is-fallback\')"></a><div class="article-card-body"><span class="article-category">'+esc(a.category)+'</span><h3><a href="'+articleUrl+'">'+esc(a.title)+'</a></h3><p>'+esc(a.description)+'</p><a class="site-read" href="'+articleUrl+'">اقرأ المقال ←</a></div></article>';
      }).join(''):'<p class="loading-card">لا توجد مقالات تطابق البحث.</p>';
      if(count) count.textContent='عرض '+items.length+' من '+filtered.length+' مقالًا';
      if(pagination){pagination.hidden=pages<=1;pagination.innerHTML=Array.from({length:pages},(_,i)=>'<button type="button" '+(page===i+1?'aria-current="page"':'')+' data-page="'+(i+1)+'">'+(i+1)+'</button>').join('');pagination.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{page=Number(b.dataset.page);render();$('#articles')?.scrollIntoView({behavior:'smooth'});}));}
