@@ -29,7 +29,7 @@ async function addRuntime(directory) {
     let html = await readFile(path, 'utf8');
     if (!html.includes('data-mseo-runtime-loader')) {
       const loader = '<script data-mseo-runtime-loader>(function(){var s=document.createElement("script");s.src=(location.hostname==="gpldroid.github.io"?"/mseo":"")+"/site-runtime.js";s.async=false;document.head.appendChild(s)})();</script>';
-      html = html.replace('</body>', loader + '\\n</body>');
+      html = html.replace('</body>', loader + '\n</body>');
       await writeFile(path, html);
     }
   }
