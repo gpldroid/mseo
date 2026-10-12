@@ -12,10 +12,12 @@ async function start(){
   const root=document.documentElement;
   try{
     mountShell();
+    // Mount consent before any network/catalog work so every shared-shell page
+    // shows it even if loading the article catalogue fails.
+    mountCookieNotice();
     const articles=await loadCatalog(ROOT+PATH.catalog);
     mountCatalog(articles,ROOT);
     mountInteractions(articles,ROOT);
-    mountCookieNotice();
     document.querySelectorAll("main img").forEach((image,index)=>{
       if(index>0&&!image.loading)image.loading="lazy";
       if(!image.hasAttribute("decoding"))image.decoding="async";
