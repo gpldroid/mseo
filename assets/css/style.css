@@ -839,3 +839,17 @@ body{font-family:var(--ui-font,'Cairo',sans-serif)}
 .entity-tool-page .he-textarea{min-height:170px;direction:auto;text-align:start;unicode-bidi:plaintext;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.92rem;line-height:1.8}
 .entity-tool-page .he-actions{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0 22px}
 .entity-tool-page .he-output-label{display:block;margin-top:18px}
+
+
+/* Schema Markup generator */
+.schema-tool{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px;align-items:start}
+.schema-panel{min-width:0;padding:clamp(18px,3vw,28px);border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);box-shadow:var(--shadow)}
+.schema-panel h2{margin:0 0 8px;font-size:1.35rem}.schema-muted{color:var(--muted);font-size:.93rem;line-height:1.8;margin:0 0 18px}
+.schema-panel label{display:block;margin:16px 0 7px;font-weight:700;font-size:.94rem}
+.schema-panel input,.schema-panel select,.schema-panel textarea{display:block;width:100%;max-width:100%;border:1px solid var(--line);border-radius:12px;padding:12px 13px;background:var(--bg);color:var(--text);font:inherit;box-sizing:border-box}
+.schema-panel input:focus,.schema-panel select:focus,.schema-panel textarea:focus{outline:2px solid var(--brand);outline-offset:2px}
+.schema-panel textarea{resize:vertical;line-height:1.7}.schema-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px}.schema-actions button{font:inherit;cursor:pointer}
+.schema-output-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap}.schema-output-panel>textarea{direction:ltr;text-align:left;font:13px/1.65 ui-monospace,SFMono-Regular,Consolas,monospace;min-height:430px;white-space:pre;tab-size:2}
+.schema-status{margin:16px 0 0;padding:11px 13px;border-radius:10px;background:var(--surface-2);color:var(--muted);font-size:.92rem}.schema-status.is-success{color:#087f5b}.schema-status.is-error{color:#b42318}
+.schema-note{margin:15px 0 0;color:var(--muted);font-size:.9rem;line-height:1.8}.schema-note i{margin-left:5px}
+@media(max-width:850px){.schema-tool{grid-template-columns:1fr}.schema-output-panel>textarea{min-height:300px}}
