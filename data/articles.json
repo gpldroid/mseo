@@ -280,5 +280,90 @@
     "description": "دليل عملي لإنشاء ملف robots.txt وفهم قواعد Allow وDisallow والفرق بين الزحف والفهرسة واختبار الملف.",
     "icon": "fa-robot",
     "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=85"
+  },
+  {
+    "slug": "canonical-url-guide",
+    "file": "canonical-url-guide.html",
+    "title": "وسم Canonical في SEO: دليل عملي لتوحيد عناوين الصفحات",
+    "category": "SEO",
+    "subcategory": "Technical SEO",
+    "tags": [
+      "Canonical URL",
+      "rel canonical",
+      "SEO التقني",
+      "المحتوى المكرر",
+      "فهرسة الصفحات"
+    ],
+    "description": "تعلم كيف تختار عنوان URL الأساسي وتستخدم rel=canonical لتقليل التباس النسخ المتشابهة ومراجعة الأخطاء الشائعة.",
+    "icon": "fa-link",
+    "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=85"
+  },
+  {
+    "slug": "xml-sitemap-guide",
+    "file": "xml-sitemap-guide.html",
+    "title": "خريطة الموقع XML: طريقة إعداد Sitemap مفيدة لمحركات البحث",
+    "category": "SEO",
+    "subcategory": "Technical SEO",
+    "tags": [
+      "XML Sitemap",
+      "sitemap.xml",
+      "SEO التقني",
+      "اكتشاف الصفحات",
+      "Google Search Console"
+    ],
+    "description": "دليل عملي لاختيار الصفحات التي تستحق الظهور في خريطة الموقع وإنشائها واختبارها وتجنب الأخطاء.",
+    "icon": "fa-map",
+    "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85"
+  },
+  {
+    "slug": "javascript-fetch-api-errors",
+    "file": "javascript-fetch-api-errors.html",
+    "title": "استخدام Fetch API في JavaScript: التعامل الصحيح مع الاستجابات والأخطاء",
+    "category": "تطوير المواقع",
+    "subcategory": "JavaScript وواجهات API",
+    "tags": [
+      "JavaScript Fetch",
+      "Fetch API",
+      "REST API",
+      "HTTP errors",
+      "async await"
+    ],
+    "description": "تعلم طلب البيانات من API باستخدام fetch وasync/await، والتحقق من status، ومعالجة JSON والأخطاء بطريقة قابلة للصيانة.",
+    "icon": "fa-plug",
+    "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=85"
+  },
+  {
+    "slug": "web-accessibility-checklist",
+    "file": "web-accessibility-checklist.html",
+    "title": "إمكانية الوصول في المواقع: قائمة عملية لتحسين تجربة جميع المستخدمين",
+    "category": "تطوير المواقع",
+    "subcategory": "إمكانية الوصول",
+    "tags": [
+      "Web Accessibility",
+      "WCAG",
+      "HTML دلالي",
+      "Keyboard Navigation",
+      "ARIA"
+    ],
+    "description": "قائمة عملية لتحسين الوصول إلى موقعك عبر HTML الدلالي ولوحة المفاتيح والتباين والنماذج والاختبار.",
+    "icon": "fa-universal-access",
+    "image": "https://images.unsplash.com/photo-1552581234-26160f608093?auto=format&fit=crop&w=1400&q=85"
+  },
+  {
+    "slug": "css-container-queries-guide",
+    "file": "css-container-queries-guide.html",
+    "title": "CSS Container Queries: تصميم مكونات تتكيف مع المساحة المتاحة",
+    "category": "تصميم المواقع",
+    "subcategory": "CSS متقدم",
+    "tags": [
+      "CSS Container Queries",
+      "@container",
+      "Responsive Components",
+      "CSS",
+      "تصميم متجاوب"
+    ],
+    "description": "شرح عملي لـ container-type و@container لبناء بطاقات ومكونات تتكيف مع عرض الحاوية بدل عرض الشاشة فقط.",
+    "icon": "fa-cubes",
+    "image": "https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?auto=format&fit=crop&w=1400&q=85"
   }
 ]
