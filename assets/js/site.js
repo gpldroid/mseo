@@ -13,7 +13,9 @@
     ['pages/seo.html','SEO','SEO'],
     ['pages/archive.html','الأرشيف','Archive']
   ];
-  const isEnglish = localStorage.getItem('mseo-ui-language') === 'en';
+  const readPreference = (key) => { try { return localStorage.getItem(key); } catch (_) { return null; } };
+  const writePreference = (key, value) => { try { localStorage.setItem(key, value); } catch (_) {} };
+  const isEnglish = readPreference('mseo-ui-language') === 'en';
   const t = (ar,en) => isEnglish ? en : ar;
   const header = $('[data-site-header]') || $('[data-home-header]');
   if (header) {
@@ -50,20 +52,20 @@
   }
   const year = $('[data-current-year]'); if (year) year.textContent = new Date().getFullYear();
   const themeButton = $('[data-theme-toggle]');
-  const savedTheme = localStorage.getItem('mseo-theme');
+  const savedTheme = readPreference('mseo-theme');
   const preferredDark = matchMedia('(prefers-color-scheme: dark)').matches;
   document.documentElement.classList.toggle('dark', (savedTheme || (preferredDark?'dark':'light')) === 'dark');
   if (themeButton) {
     const syncThemeIcon = () => { const dark=document.documentElement.classList.contains('dark'); themeButton.textContent=dark?'☀':'☾'; themeButton.title=dark?t('الوضع الفاتح','Light mode'):t('الوضع الداكن','Dark mode'); };
     syncThemeIcon();
-    themeButton.addEventListener('click',()=>{const dark=!document.documentElement.classList.contains('dark');document.documentElement.classList.toggle('dark',dark);localStorage.setItem('mseo-theme',dark?'dark':'light');syncThemeIcon();});
+    themeButton.addEventListener('click',()=>{const dark=!document.documentElement.classList.contains('dark');document.documentElement.classList.toggle('dark',dark);writePreference('mseo-theme',dark?'dark':'light');syncThemeIcon();});
   }
   const menuButton=$('[data-menu-toggle]'), nav=$('[data-main-nav]');
   if(menuButton&&nav){menuButton.addEventListener('click',()=>{const open=nav.classList.toggle('is-open');menuButton.setAttribute('aria-expanded',String(open));menuButton.textContent=open?'×':'☰';});nav.addEventListener('click',e=>{if(e.target.closest('a')){nav.classList.remove('is-open');menuButton.setAttribute('aria-expanded','false');menuButton.textContent='☰';}});}
   const searchButton=$('[data-search-toggle]'),searchPanel=$('[data-search-panel]');
   if(searchButton&&searchPanel){searchButton.addEventListener('click',()=>{const open=searchPanel.classList.toggle('is-open');if(open)$('#mseo-global-search')?.focus();});}
   const langButton=$('[data-language-toggle]');
-  if(langButton){langButton.addEventListener('click',()=>{const next=isEnglish?'ar':'en';localStorage.setItem('mseo-ui-language',next);/* Reload updates shared navigation labels. Article body stays in its authored language. */location.reload();});}
+  if(langButton){langButton.addEventListener('click',()=>{const next=isEnglish?'ar':'en';writePreference('mseo-ui-language',next);/* Reload updates shared navigation labels. Article body stays in its authored language. */location.reload();});}
   const controls=document.createElement('div');controls.className='mseo-scroll-controls';controls.innerHTML='<button type="button" data-scroll-top aria-label="العودة إلى أعلى الصفحة" title="أعلى الصفحة">↑</button><button type="button" data-scroll-down aria-label="الانتقال إلى أسفل الصفحة" title="أسفل الصفحة">↓</button>';document.body.append(controls);
   const topButton=$('[data-scroll-top]',controls),downButton=$('[data-scroll-down]',controls);
   const onScroll=()=>topButton.classList.toggle('is-visible',window.scrollY>300);
