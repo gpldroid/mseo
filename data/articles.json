@@ -494,5 +494,24 @@
     "icon": "fa-sitemap",
     "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=85",
     "thumbnail": "assets/images/article-thumbnails/xml-sitemap-seo-guide.svg"
+  },
+  {
+    "slug": "google-search-console-indexing-errors",
+    "file": "google-search-console-indexing-errors.html",
+    "title": "أخطاء الفهرسة في Google Search Console: التشخيص والإصلاح",
+    "category": "SEO",
+    "subcategory": "Technical SEO وGoogle Search Console",
+    "tags": [
+      "Google Search Console",
+      "أخطاء الفهرسة",
+      "Page indexing",
+      "SEO تقني",
+      "noindex",
+      "canonical"
+    ],
+    "description": "دليل عملي لفهم تقارير الفهرسة والتمييز بين الاستبعاد المتوقع والأخطاء التي تحتاج إلى إصلاح.",
+    "icon": "fa-triangle-exclamation",
+    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "assets/images/article-thumbnails/google-search-console-indexing-errors.svg"
   }
 ]
