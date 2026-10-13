@@ -475,5 +475,24 @@
     "icon": "fa-filter",
     "image": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1400&q=85",
     "thumbnail": "assets/images/article-thumbnails/faceted-navigation-seo-guide.svg"
+  },
+  {
+    "slug": "xml-sitemap-seo-guide",
+    "file": "xml-sitemap-seo-guide.html",
+    "title": "دليل XML Sitemap وSEO: إنشاء خريطة موقع تساعد محركات البحث",
+    "category": "SEO",
+    "subcategory": "Technical SEO",
+    "tags": [
+      "XML Sitemap",
+      "خريطة الموقع",
+      "SEO تقني",
+      "Google Search Console",
+      "فهرسة الصفحات",
+      "robots.txt"
+    ],
+    "description": "دليل عملي لبناء خريطة XML Sitemap نظيفة، واختيار عناوين URL المناسبة، وإرسالها ومراقبة أخطائها في Google Search Console.",
+    "icon": "fa-sitemap",
+    "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "assets/images/article-thumbnails/xml-sitemap-seo-guide.svg"
   }
 ]
