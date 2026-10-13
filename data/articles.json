@@ -420,5 +420,23 @@
     "description": "دليل عملي لتحسين الصور عبر أسماء الملفات والنص البديل والصيغ الحديثة والأبعاد والتحميل الكسول وقياس الأداء.",
     "icon": "fa-image",
     "image": "https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&w=1400&q=85"
+  },
+  {
+    "slug": "hreflang-multilingual-seo-guide",
+    "file": "hreflang-multilingual-seo-guide.html",
+    "title": "وسم hreflang في SEO: دليل المواقع متعددة اللغات والمناطق",
+    "category": "SEO",
+    "subcategory": "SEO التقني والمواقع متعددة اللغات",
+    "tags": [
+      "hreflang",
+      "Multilingual SEO",
+      "International SEO",
+      "اللغة العربية",
+      "المواقع متعددة اللغات",
+      "canonical"
+    ],
+    "description": "تعلم إعداد hreflang للمواقع متعددة اللغات والمناطق، وربط النسخ البديلة، واستخدام رموز اللغة والمنطقة، واكتشاف الأخطاء الشائعة.",
+    "icon": "fa-language",
+    "image": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1400&q=85"
   }
 ]
