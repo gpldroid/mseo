@@ -456,5 +456,24 @@
     "description": "دليل عملي لفهم عرض صفحات JavaScript وتحسين المحتوى والروابط والبيانات الوصفية واختبارها في محركات البحث.",
     "icon": "fa-code",
     "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=85"
+  },
+  {
+    "slug": "faceted-navigation-seo-guide",
+    "file": "faceted-navigation-seo-guide.html",
+    "title": "SEO للتنقل متعدد الأوجه: إدارة صفحات الفلاتر ومنع تضخم الفهرسة",
+    "category": "SEO",
+    "subcategory": "Technical SEO والتنقل متعدد الأوجه",
+    "tags": [
+      "Faceted Navigation SEO",
+      "صفحات الفلاتر",
+      "URL Parameters",
+      "ميزانية الزحف",
+      "SEO تقني",
+      "المتاجر الإلكترونية"
+    ],
+    "description": "دليل عملي لإدارة صفحات الفلاتر والترتيب في المتاجر والمواقع الكبيرة، وضبط الروابط والزحف والفهرسة دون إهدار ميزانية الزحف.",
+    "icon": "fa-filter",
+    "image": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "assets/images/article-thumbnails/faceted-navigation-seo-guide.svg"
   }
 ]
