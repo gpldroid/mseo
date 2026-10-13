@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b1220">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="color-scheme" content="light dark">
+<title>الخطوط العربية في تصميم المواقع: دليل عملي لتحسين القراءة والواجهة | MSEO</title>
+<meta name="description" content="تعلم اختيار الخط العربي للمواقع وضبط أحجام العناوين وتباعد الأسطر والأوزان، مع أمثلة CSS عملية لتحسين القراءة على الهاتف والحاسوب.">
+<meta name="keywords" content="الخطوط العربية, تصميم المواقع, typography, Arabic web fonts, CSS, تجربة المستخدم, RTL">
+<meta name="author" content="MSEO Editorial">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://gpldroid.github.io/mseo/articles/arabic-web-typography-guide.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="الخطوط العربية في تصميم المواقع: دليل عملي لتحسين القراءة والواجهة">
+<meta property="og:description" content="خطوات عملية لاختيار الخط العربي وضبط المقاسات والتباعد والأوزان في واجهات الويب.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1400&q=85">
+<meta property="og:url" content="https://gpldroid.github.io/mseo/articles/arabic-web-typography-guide.html">
+<meta property="og:site_name" content="MSEO">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="الخطوط العربية في تصميم المواقع: دليل عملي لتحسين القراءة والواجهة">
+<meta name="twitter:description" content="خطوات عملية لاختيار الخط العربي وضبط المقاسات والتباعد والأوزان في واجهات الويب.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1400&q=85">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="../assets/css/style.css?v=20261012-images1">
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 antialiased">
+<div data-site-header></div>
+<main class="max-w-4xl mx-auto px-4 py-8">
+<nav aria-label="مسار التنقل" class="text-xs text-slate-500 mb-5"><a href="../index.html">الرئيسية</a> <span> / </span> <a href="../pages/web-design.html">تصميم المواقع</a> <span> / </span> <span>الخطوط العربية في تصميم المواقع</span></nav>
+<article class="bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden">
+<img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1400&q=85" alt="دفتر وقلم على مكتب أثناء كتابة النصوص" width="1400" height="788" loading="eager" fetchpriority="high" decoding="async" class="w-full aspect-video object-cover">
+<div class="p-6 sm:p-10">
+<div class="flex flex-wrap gap-2 mb-4"><span class="bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-full">تصميم المواقع</span><time datetime="2026-10-13" class="text-xs text-slate-500 px-2 py-1.5">13 أكتوبر 2026</time></div>
+<h1 class="text-2xl sm:text-4xl font-black leading-tight text-slate-950 dark:text-white">الخطوط العربية في تصميم المواقع: دليل عملي لتحسين القراءة والواجهة</h1>
+<p class="mt-5 text-base leading-8 text-slate-600 dark:text-slate-300">قد تبدو الواجهة مرتبة بالألوان والبطاقات، لكنها تظل متعبة إذا كان النص العربي صغيرًا أو متزاحمًا أو صعب التمييز. اختيار الخط ليس لمسة جمالية أخيرة؛ بل قرار يؤثر في وضوح المحتوى، وسهولة التصفح، وشعور الزائر بالثقة. في هذا الدليل سنحوّل مبادئ الطباعة العربية إلى خطوات يمكن تطبيقها مباشرة في CSS.</p>
+<div class="mt-8 prose prose-slate max-w-none dark:prose-invert">
+<section><h2>1. ابدأ بقابلية القراءة، لا باسم الخط</h2><p>لا يوجد خط واحد هو الأفضل لكل موقع. الخط المناسب هو الذي يظل واضحًا في حجم النص الفعلي، ويدعم الحروف العربية التي يحتاجها المحتوى، ويعرض الأوزان المطلوبة، ويعمل بصورة جيدة على الشاشات المختلفة. جرّب فقرة حقيقية تشمل حروفًا متصلة، وأرقامًا، وعلامات ترقيم، وكلمات عربية مع مصطلحات لاتينية؛ فمعاينة كلمة قصيرة لا تكشف كل مشكلات القراءة.</p><p>افحص شكل الحروف المتشابهة، ووضوح النقاط، والمسافة بين الكلمات، ومظهر الأرقام. وإذا كان الموقع يستخدم أكثر من لغة، فاختبر الانتقال بين العربية والإنجليزية داخل السطر نفسه بدل الاكتفاء بمعاينة كل لغة منفردة.</p></section>
+<section><h2>2. استخدم عددًا محدودًا من الخطوط والأوزان</h2><p>غالبًا يكفي خط أساسي للنصوص وخط ثانٍ للعناوين عند وجود سبب بصري واضح. كثرة الخطوط تجعل الهوية مشتتة وقد تزيد وقت تحميل الصفحة. وبالمثل، لا تطلب كل الأوزان المتاحة من خدمة الخطوط؛ حمّل الأوزان التي تستخدمها فعلًا، مثل العادي والمتوسط والعريض.</p><p>يمكنك البدء بخط نظام مناسب ثم الانتقال إلى خط ويب بعد اختباره على أجهزة مختلفة. وإذا استعملت خطًا خارجيًا، فراجع ترخيصه وطريقة استضافته، وفكّر في نسخة محلية عند الحاجة إلى تحكم أكبر في الخصوصية والأداء.</p></section>
+<section><h2>3. ابنِ سلّمًا واضحًا لأحجام النصوص</h2><p>حين تتغير أحجام العناوين عشوائيًا، يصعب على القارئ معرفة ما هو عنوان رئيسي وما هو تفصيل فرعي. ضع مجموعة أحجام ثابتة نسبيًا للنص الأساسي والعناوين والوصف والتعليقات، واستخدمها باستمرار في الصفحات المختلفة. يمكن جعل العناوين مرنة باستخدام <code>clamp()</code>، مع الحفاظ على حجم مريح على الهاتف.</p><pre><code>:root {
+  --font-body: 1rem;
+  --font-small: 0.875rem;
+  --font-h2: clamp(1.35rem, 2.5vw, 1.8rem);
+  --font-h1: clamp(1.8rem, 4vw, 2.7rem);
+}
+
+body {
+  font-size: var(--font-body);
+  line-height: 1.9;
+}
+
+h1 {
+  font-size: var(--font-h1);
+  line-height: 1.45;
+}
+
+h2 {
+  font-size: var(--font-h2);
+  line-height: 1.55;
+}</code></pre><p>هذه نقطة بداية وليست وصفة ثابتة؛ راجع النتائج مع الخط المختار، لأن الخطوط تختلف في ارتفاع الحروف والمساحة التي تحتاجها.</p></section>
+<section><h2>4. اضبط تباعد الأسطر وطول الفقرة</h2><p>النص العربي يحتاج مساحة رأسية كافية حتى لا تتداخل أشكال الحروف وعلاماتها بصريًا. جرّب قيمة <code>line-height</code> قريبة من 1.7 إلى 2 للنصوص الطويلة، ثم عدّلها حسب الخط والحجم. أما العناوين القصيرة فيمكن أن تستخدم تباعدًا أقل كي لا تبدو مفككة.</p><p>انتبه أيضًا إلى عرض منطقة القراءة. السطر الطويل يجعل العين تقطع مسافة كبيرة للعودة إلى بداية السطر التالي، بينما العمود الضيق جدًا يسبب التفافًا متكررًا. استخدم حدًا أقصى لعرض المحتوى واختبره على شاشة كبيرة وهاتف.</p><pre><code>.article-content {
+  max-width: 72ch;
+  margin-inline: auto;
+  line-height: 1.9;
+}
+
+.article-content p {
+  margin-block: 0 1.25rem;
+}</code></pre><p>وحدة <code>ch</code> تقدير مبني على عرض محرف الرقم صفر في الخط الحالي، لذلك اعتبرها نقطة انطلاق بصرية لا قياسًا مضمونًا لعدد الحروف العربية في السطر.</p></section>
+<section><h2>5. اختر الأوزان بحسب الوظيفة</h2><p>اجعل النص الأساسي بوزن مريح، واستخدم الوزن الأثقل للعناوين أو العناصر التي تحتاج إلى إبراز. إذا كان كل شيء عريضًا، فلن يبقى شيء بارزًا. وإذا كان وزن الخط الخفيف منخفض التباين على خلفية فاتحة، فقد يصبح مرهقًا لبعض القراء.</p><p>لا تعتمد على المتصفح لتوليد وزن غير متوفر من تلقاء نفسه؛ قد يبدو الوزن الاصطناعي مختلفًا عن التصميم المقصود. عرّف الأوزان التي حمّلتها فعلًا، وتأكد من ظهورها بشكل صحيح في أدوات المطور.</p></section>
+<section><h2>6. لا تخلط بين اتجاه النص واتجاه المكوّن</h2><p>في الواجهات العربية، اجعل اتجاه الصفحة أو المنطقة العربية واضحًا باستخدام <code>dir="rtl"</code>، لكن لا تفترض أن كل محتوى داخلها يجب أن يكون من اليمين إلى اليسار. عناوين URL، وأجزاء الكود، والبريد الإلكتروني، وبعض الأرقام قد تحتاج إلى اتجاه مستقل حتى لا تنقلب علامات الترقيم أو تختلط الأقواس.</p><pre><code>&lt;html lang="ar" dir="rtl"&gt;
+  &lt;body&gt;
+    &lt;p&gt;لتشغيل الأمر استخدم:
+      &lt;bdi dir="ltr"&gt;npm run build&lt;/bdi&gt;
+    &lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre><p>يساعد العنصر <code>bdi</code> على عزل اتجاه النص المضمّن عن اتجاه الفقرة المحيطة. وللتخطيطات، فضّل الخصائص المنطقية مثل <code>margin-inline-start</code> و<code>padding-inline</code> عندما تريد أن يعمل التنسيق في الاتجاهين دون كتابة قواعد منفصلة.</p></section>
+<section><h2>7. انتبه إلى تحميل الخط وأثره في الأداء</h2><p>قد يتأخر ظهور النص إذا انتظرت الصفحة ملف خط خارجيًا، وقد يتغير شكل النص أو تتبدل أبعاده بعد التحميل. استخدم قائمة خطوط احتياطية مناسبة، وحمّل ملفات الخط الضرورية فقط. ويمكن أن تساعد خاصية <code>font-display: swap</code> في إظهار نص بديل بسرعة بدل ترك النص مخفيًا أثناء انتظار الخط.</p><pre><code>@font-face {
+  font-family: "Site Arabic";
+  src: url("../assets/fonts/site-arabic.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+body {
+  font-family: "Site Arabic", Tahoma, Arial, sans-serif;
+}</code></pre><p>استبدل مسار الملف بمسار خط موجود بالفعل في مشروعك، ولا تضف هذا التعريف قبل توفير الملف والتحقق من ترخيصه. بعد ذلك اختبر سرعة ظهور النص، وتغيّر التخطيط أثناء التحميل، ومظهر الصفحة عند تعذر تحميل الخط.</p></section>
+<section><h2>8. قائمة مراجعة قبل النشر</h2><ul><li>اقرأ فقرة طويلة على الهاتف دون تكبير الصفحة.</li><li>تحقق من وضوح النص الأساسي والعناوين والتعليقات الصغيرة.</li><li>اختبر الخط الغامق والعادي، ولا تعتمد على وزن غير محمّل.</li><li>جرّب العربية مع الأرقام والمصطلحات الإنجليزية وعناوين URL.</li><li>تأكد من عدم ظهور تمرير أفقي أو تداخل في علامات الترقيم.</li><li>اختبر الصفحة مع تعطيل تحميل الخط الخارجي.</li><li>راجع التباين بين النص والخلفية، ولا تستخدم اللون وحده لنقل المعنى.</li></ul></section>
+<section><h2>الخلاصة</h2><p>الطباعة العربية الجيدة ناتجة عن مجموعة قرارات متناسقة: خط واضح، وأحجام هرمية، وتباعد مريح، وأوزان محدودة، واتجاه صحيح، وتحميل محسوب. لا تبدأ بتغيير كل القيم دفعة واحدة؛ عدّل عنصرًا، واختبره في سياق الصفحة، ثم احتفظ بما يحسّن القراءة فعلًا. الهدف ليس أن يبدو النص جميلًا في لقطة شاشة فحسب، بل أن يظل مريحًا حين يستخدمه الزائر لقراءة محتوى حقيقي.</p></section>
+</div>
+<section class="mt-10 p-5 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700">
+<h2 class="text-xl font-black mb-3">مصادر وروابط موثوقة</h2><ul class="list-disc pr-6 space-y-2"><li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/font" target="_blank" rel="noopener noreferrer">MDN: CSS font</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/line-height" target="_blank" rel="noopener noreferrer">MDN: line-height</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face" target="_blank" rel="noopener noreferrer">MDN: @font-face</a></li><li><a href="https://www.w3.org/International/articles/inline-bidi-markup/" target="_blank" rel="noopener noreferrer">W3C: Inline markup and bidirectional text in HTML</a></li></ul>
+</section>
+<div class="mt-8 pt-6 border-t border-slate-200 dark:border-slate-700 flex flex-wrap gap-2 text-xs"><span class="font-bold">كلمات مفتاحية:</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">الخطوط العربية</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">Arabic Typography</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">CSS</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">تصميم RTL</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">تجربة المستخدم</span></div>
+</div></article>
+</main>
+<div data-site-footer></div>
+<script src="../assets/js/site.js?v=20261012-images1" defer></script>
+</body></html>
