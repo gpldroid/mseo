@@ -41,8 +41,8 @@
 <div class="flex flex-wrap gap-2 mb-4"><span class="bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-full">تصميم المواقع</span><time datetime="2026-10-12" class="text-xs text-slate-500 px-2 py-1.5">12 أكتوبر 2026</time></div>
 <h1 class="text-2xl sm:text-4xl font-black leading-tight text-slate-950 dark:text-white">CSS Container Queries: تصميم مكونات تتكيف مع المساحة المتاحة</h1>
 <p class="mt-5 text-base leading-8 text-slate-600 dark:text-slate-300">شرح عملي لـ container-type و@container لبناء بطاقات ومكونات تتكيف مع عرض الحاوية بدل عرض الشاشة فقط.</p>
-<div class="mt-8 prose prose-slate max-w-none dark:prose-invert"><section><h2>لماذا نحتاج Container Queries؟</h2><p>تعتمد media queries عادةً على خصائص نافذة العرض، لكن المكوّن قد يظهر في شريط جانبي أو عمود ضيق أو مساحة واسعة داخل الصفحة نفسها. Container queries تسمح بتغيير تنسيق العنصر وفق حجم الحاوية التي يحتويها، ما يجعل المكوّن أكثر قابلية لإعادة الاستخدام.</p></section>
-<section><h2>تعريف حاوية للاستعلام</h2><p>أضف container-type: inline-size إلى العنصر الذي تريد قياس عرضه. هذا ينشئ سياقًا يمكن للاستعلامات أن تقرأ حجمه على المحور المضمّن.</p></section>
+<div class="mt-8 prose prose-slate max-w-none dark:prose-invert"><section><h2>لماذا نحتاج Container Queries؟</h2><p>تقيس media queries خصائص نافذة المتصفح غالبًا، بينما قد يوضع المكوّن نفسه داخل شريط جانبي ضيق أو مساحة عريضة في الصفحة. هنا تظهر فائدة Container Queries؛ إذ يمكنها تعديل تنسيق المكوّن وفق المساحة التي تمنحها له الحاوية، لا وفق عرض الشاشة وحده. وهذا يسهل إعادة استخدام المكوّن في أماكن مختلفة.</p></section>
+<section><h2>تعريف حاوية للاستعلام</h2><p>ضع الخاصية container-type: inline-size على العنصر الذي سيعمل حاويةً للاستعلام. بذلك يصبح بالإمكان تقييم عرض الحاوية على المحور المضمّن واستخدامه لتحديد التنسيق المناسب.</p></section>
 <section><h2>مثال عملي</h2><p><pre><code>.product-card-wrapper {
   container-type: inline-size;
 }
@@ -57,11 +57,11 @@
     grid-template-columns: 9rem 1fr;
     align-items: center;
   }
-}</code></pre> عند اتساع الحاوية بما يكفي، يتحول محتوى البطاقة إلى عمودين. تأكد أن العنصر المستهدف داخل الحاوية وأن الاستعلام يقيس الحاوية المقصودة.</p></section>
-<section><h2>كيف تختلف عن Media Queries؟</h2><p>استخدم media queries عندما يعتمد القرار على خصائص الشاشة أو تفضيلات المستخدم مثل reduced motion. استخدم container queries عندما يعتمد تصميم المكوّن على المساحة المتاحة له داخل تخطيط أكبر. يمكن الجمع بين النهجين.</p></section>
-<section><h2>أخطاء شائعة</h2><p>لا تضف container-type إلى كل عنصر بلا حاجة؛ اختر حدود المكونات التي تحتاج استقلالًا في التخطيط. اختبر الحالات المتوسطة، وتأكد من عدم حدوث قص أو تمرير أفقي. انتبه أيضًا إلى أن بعض أنواع containment لها آثار على التخطيط، لذلك راجع سلوك العنصر في السياق الحقيقي.</p></section>
-<section><h2>اختبار المكوّن في أماكن متعددة</h2><p>جرّب البطاقة داخل شبكة واسعة وعمود جانبي وهاتف، ثم غيّر عرض الحاوية دون تغيير حجم نافذة المتصفح. هذه طريقة سريعة للتحقق من أن المكوّن يستجيب لحجمه الخاص فعلًا.</p></section>
-<section><h2>الخلاصة</h2><p>Container queries أداة قوية لبناء واجهات مكوّنية مرنة. ابدأ بمكوّن واحد واضح، وحدد نقاط التحول بناءً على المحتوى لا على أسماء الأجهزة، ثم اختبره ضمن تخطيطات مختلفة.</p></section></div>
+}</code></pre> عندما تتوفر مساحة كافية داخل الحاوية، يعرض المثال البطاقة في عمودين بدل التخطيط الواحد. تأكد من أن العنصر الذي تريد تنسيقه يقع داخل الحاوية الصحيحة، وأن شرط الاستعلام مرتبط بالحاوية المقصودة.</p></section>
+<section><h2>كيف تختلف عن Media Queries؟</h2><p>اختر media queries للقرارات المرتبطة بالشاشة أو بإعدادات المستخدم، مثل تفضيل تقليل الحركة. أما إذا كان المطلوب تغيير المكوّن بحسب المساحة المتاحة له داخل التخطيط، فـcontainer queries أنسب. ويمكنك الجمع بين النوعين عندما يتطلب التصميم ذلك.</p></section>
+<section><h2>أخطاء شائعة</h2><p>لا تجعل كل عنصر حاوية للاستعلامات دون سبب؛ حدّد المكوّنات التي تحتاج فعلًا إلى الاستجابة لحجمها. اختبر العروض المتوسطة أيضًا، وتحقق من عدم قص المحتوى أو ظهور تمرير أفقي. تذكّر أن بعض أشكال containment تؤثر في سلوك التخطيط، لذا افحص النتيجة داخل الصفحة الفعلية.</p></section>
+<section><h2>اختبار المكوّن في أماكن متعددة</h2><p>اختبر البطاقة داخل شبكة كبيرة، ثم في عمود جانبي وعلى شاشة هاتف. غيّر عرض الحاوية مع إبقاء نافذة المتصفح بالحجم نفسه؛ فإذا تغيّر التنسيق تبعًا للحاوية، فهذا يؤكد أن المكوّن يستجيب للمساحة المخصصة له.</p></section>
+<section><h2>الخلاصة</h2><p>تمنحك Container Queries طريقة عملية لبناء مكوّنات مرنة قابلة لإعادة الاستخدام. ابدأ بمكوّن بسيط، واجعل نقاط التحول مرتبطة بما يحتاجه المحتوى من مساحة، لا بتصنيفات الأجهزة، ثم جرّبه في أكثر من تخطيط.</p></section></div>
 <section class="mt-10 p-5 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700">
 <h2 class="text-xl font-black mb-3">مصادر وروابط موثوقة</h2><ul class="list-disc pr-6 space-y-2"><li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_size_and_style_queries" target="_blank" rel="noopener noreferrer">MDN: CSS container queries</a></li><li><a href="https://web.dev/articles/container-queries" target="_blank" rel="noopener noreferrer">web.dev: CSS container queries</a></li></ul>
 </section>

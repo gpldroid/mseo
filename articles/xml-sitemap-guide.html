@@ -41,19 +41,19 @@
 <div class="flex flex-wrap gap-2 mb-4"><span class="bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-full">SEO</span><time datetime="2026-10-12" class="text-xs text-slate-500 px-2 py-1.5">12 أكتوبر 2026</time></div>
 <h1 class="text-2xl sm:text-4xl font-black leading-tight text-slate-950 dark:text-white">خريطة الموقع XML: طريقة إعداد Sitemap مفيدة لمحركات البحث</h1>
 <p class="mt-5 text-base leading-8 text-slate-600 dark:text-slate-300">دليل عملي لاختيار الصفحات التي تستحق الظهور في خريطة الموقع وإنشائها واختبارها وتجنب الأخطاء.</p>
-<div class="mt-8 prose prose-slate max-w-none dark:prose-invert"><section><h2>ما وظيفة خريطة الموقع؟</h2><p>ملف XML يقدّم لمحركات البحث قائمة بعناوين الصفحات المهمة التي تريد اكتشافها. وهو مفيد خصوصًا للمواقع الكبيرة أو الجديدة أو التي تحتوي صفحات عميقة، لكنه لا يضمن الزحف إلى كل عنوان أو فهرسته.</p></section>
-<section><h2>ما الصفحات التي أضيفها؟</h2><p>أدرج عناوين canonical الأساسية التي تريدها في نتائج البحث، وتأكد أنها تعيد استجابة ناجحة وتسمح بالفهرسة. استبعد صفحات البحث الداخلي والمرشحات غير المهمة وصفحات التحويل والعناوين المحجوبة أو التي تشير إلى canonical مختلف.</p></section>
+<div class="mt-8 prose prose-slate max-w-none dark:prose-invert"><section><h2>ما وظيفة خريطة الموقع؟</h2><p>تجمع خريطة الموقع بصيغة XML عناوين الصفحات التي تريد مساعدة محركات البحث على اكتشافها. وقد تكون مفيدة للمواقع الجديدة أو الكبيرة أو ذات الصفحات العميقة، لكنها لا تضمن زيارة كل عنوان أو إضافته إلى الفهرس.</p></section>
+<section><h2>ما الصفحات التي أضيفها؟</h2><p>أضف العناوين الأساسية التي ترغب في ظهورها بالبحث، وتحقق من أنها تعمل وتسمح بالفهرسة وتشير إلى النسخة canonical الصحيحة. استبعد صفحات البحث الداخلي والمرشحات غير الضرورية والتحويلات والصفحات المحجوبة أو التي تعلن عن عنوان أساسي مختلف.</p></section>
 <section><h2>مثال مبسط</h2><p><pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"&gt;
   &lt;url&gt;
     &lt;loc&gt;https://example.com/guide/&lt;/loc&gt;
     &lt;lastmod&gt;2026-10-12&lt;/lastmod&gt;
   &lt;/url&gt;
-&lt;/urlset&gt;</code></pre> استبدل المثال بعناوين موقعك. يجب أن يعكس lastmod آخر تعديل جوهري حقيقي، لا أن يتغير تلقائيًا بلا سبب.</p></section>
-<section><h2>أين أضع الملف؟</h2><p>غالبًا يوضع sitemap.xml في جذر الموقع، ويمكن الإشارة إليه في robots.txt باستخدام سطر Sitemap يتضمن عنوانًا مطلقًا. للمواقع الكبيرة يمكن استخدام فهرس خرائط يضم عدة ملفات ضمن حدود البروتوكول.</p></section>
-<section><h2>أخطاء تضعف جودة الخريطة</h2><p>تجنّب إدراج روابط تعيد 404 أو 301، أو عناوين noindex، أو نسخ غير أساسية، أو روابط محلية وتجريبية. كذلك لا تعتمد على priority وchangefreq بوصفهما ضمانًا لجدولة الزحف؛ الأهم هو صحة العناوين وأهميتها.</p></section>
-<section><h2>التحقق والمتابعة</h2><p>افحص صلاحية XML، وافتح الملف مباشرة للتأكد من عدم وجود أخطاء وصول، ثم أرسله عبر Google Search Console. راقب أخطاء القراءة والصفحات المكتشفة، لكن قيّم الفهرسة لكل صفحة على حدة لأن وجودها في الخريطة لا يفرض فهرستها.</p></section>
-<section><h2>الخلاصة</h2><p>خريطة الموقع الجيدة صغيرة بقدر الإمكان ومركزة على العناوين الأساسية القابلة للفهرسة. حدّثها آليًا من مصدر موثوق، وراجعها عند تغييرات بنية الموقع.</p></section></div>
+&lt;/urlset&gt;</code></pre> استبدل عنوان المثال بعنوان صفحة حقيقي من موقعك. وينبغي أن يعبّر lastmod عن آخر تعديل مهم في المحتوى، لا أن يُحدّث آليًا في كل مرة دون تغيير فعلي.</p></section>
+<section><h2>أين أضع الملف؟</h2><p>ضع sitemap.xml عادةً في جذر الموقع، وأشر إليه في robots.txt بسطر Sitemap يحتوي على العنوان الكامل. وإذا كان الموقع كبيرًا، فيمكن تنظيم الخرائط في ملف فهرس يربط عدة ملفات مع الالتزام بحدود بروتوكول الخرائط.</p></section>
+<section><h2>أخطاء تضعف جودة الخريطة</h2><p>لا تدرج صفحات مفقودة أو روابط تحويل أو صفحات تحمل noindex أو نسخًا غير أساسية أو عناوين بيئة التطوير. ولا تتعامل مع priority وchangefreq على أنهما ضمان لزيارة الصفحة؛ الأهم هو تقديم عناوين صحيحة وأساسية.</p></section>
+<section><h2>التحقق والمتابعة</h2><p>تحقق من سلامة XML وإمكانية فتح الملف، ثم أرسل الخريطة عبر Google Search Console. تابع أي أخطاء في القراءة وعدد العناوين المكتشفة، مع فحص حالة الفهرسة لكل صفحة على حدة؛ فإدراج الرابط في الخريطة لا يجبر محرك البحث على فهرسته.</p></section>
+<section><h2>الخلاصة</h2><p>الأفضل أن تقتصر الخريطة على الصفحات الأساسية التي يمكن فهرستها. أنشئها من مصدر موثوق، وحدّثها تلقائيًا عند تغير المحتوى أو بنية الموقع، وراجعها بعد عمليات النقل أو إعادة التصميم.</p></section></div>
 <section class="mt-10 p-5 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700">
 <h2 class="text-xl font-black mb-3">مصادر وروابط موثوقة</h2><ul class="list-disc pr-6 space-y-2"><li><a href="https://www.sitemaps.org/protocol.html" target="_blank" rel="noopener noreferrer">Sitemaps protocol</a></li><li><a href="https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap" target="_blank" rel="noopener noreferrer">Google Search Central: Build and submit a sitemap</a></li></ul>
 </section>
