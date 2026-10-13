@@ -964,3 +964,11 @@ body{font-family:var(--ui-font,'Cairo',sans-serif)}
 .mseo-socials a:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 .mseo-socials a:active{transform:translateY(0)}
 @media(prefers-reduced-motion:reduce){.mseo-socials a{transition:none}.mseo-socials a:hover{transform:none}}
+
+
+/* Bright green code text for article pages */
+body:has(> main > article) .prose pre,
+body:has(> main > article) .prose pre code,
+body:has(> main > article) .prose code {
+  color: #00ff00 !important;
+}
