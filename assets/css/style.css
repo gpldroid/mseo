@@ -966,14 +966,6 @@ body{font-family:var(--ui-font,'Cairo',sans-serif)}
 @media(prefers-reduced-motion:reduce){.mseo-socials a{transition:none}.mseo-socials a:hover{transform:none}}
 
 
-/* Bright green code text for article pages */
-body:has(> main > article) .prose pre,
-body:has(> main > article) .prose pre code,
-body:has(> main > article) .prose code {
-  color: #00ff00 !important;
-}
-
-
 /* Article code-block text color */
 body:has(> main > article) .prose pre,
 body:has(> main > article) .prose pre code {
