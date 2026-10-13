@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+<title id="title">الروابط الداخلية وSEO</title><desc id="desc">رسم توضيحي لصفحات مترابطة ضمن بنية موقع</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#101b35"/><stop offset="1" stop-color="#172f52"/></linearGradient><linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#56d6c7"/><stop offset="1" stop-color="#73a7ff"/></linearGradient></defs>
+<rect width="1200" height="630" rx="32" fill="url(#bg)"/>
+<g stroke="#8fb7e8" stroke-width="6" opacity=".7" fill="none"><path d="M600 315 L360 205"/><path d="M600 315 L840 205"/><path d="M600 315 L360 430"/><path d="M600 315 L840 430"/></g>
+<g fill="#203c62" stroke="url(#accent)" stroke-width="5"><rect x="490" y="255" width="220" height="120" rx="22"/><rect x="250" y="150" width="220" height="110" rx="20"/><rect x="730" y="150" width="220" height="110" rx="20"/><rect x="250" y="385" width="220" height="110" rx="20"/><rect x="730" y="385" width="220" height="110" rx="20"/></g>
+<g fill="none" stroke="#d9e8ff" stroke-width="8" stroke-linecap="round"><path d="M535 290 h130"/><path d="M535 315 h95"/><path d="M535 340 h115"/><path d="M295 185 h130"/><path d="M295 210 h100"/><path d="M775 185 h130"/><path d="M775 210 h100"/><path d="M295 420 h130"/><path d="M295 445 h100"/><path d="M775 420 h130"/><path d="M775 445 h100"/></g>
+<text x="600" y="565" text-anchor="middle" font-family="Arial,sans-serif" font-size="38" font-weight="700" fill="#f3f7ff">الروابط الداخلية و SEO</text>
+</svg>
