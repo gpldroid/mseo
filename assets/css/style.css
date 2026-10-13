@@ -972,3 +972,10 @@ body:has(> main > article) .prose pre code,
 body:has(> main > article) .prose code {
   color: #00ff00 !important;
 }
+
+
+/* Article code-block text color */
+body:has(> main > article) .prose pre,
+body:has(> main > article) .prose pre code {
+  color: #8b31f7 !important;
+}
