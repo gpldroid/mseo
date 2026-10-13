@@ -41,7 +41,7 @@
 <div class="flex flex-wrap gap-2 mb-4"><span class="bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-full">تطوير المواقع</span><time datetime="2026-10-12" class="text-xs text-slate-500 px-2 py-1.5">12 أكتوبر 2026</time></div>
 <h1 class="text-2xl sm:text-4xl font-black leading-tight text-slate-950 dark:text-white">استخدام Fetch API في JavaScript: التعامل الصحيح مع الاستجابات والأخطاء</h1>
 <p class="mt-5 text-base leading-8 text-slate-600 dark:text-slate-300">تعلم طلب البيانات من API باستخدام fetch وasync/await، والتحقق من status، ومعالجة JSON والأخطاء بطريقة قابلة للصيانة.</p>
-<div class="mt-8 prose prose-slate max-w-none dark:prose-invert"><section><h2>ما الذي تفعله Fetch API؟</h2><p>تتيح fetch إرسال طلبات HTTP من JavaScript والتعامل مع الاستجابة بصورة غير متزامنة. وهي مناسبة لجلب بيانات JSON أو إرسالها إلى خدمة ويب، لكن نجاح الوعد Promise لا يعني بالضرورة أن الخادم أعاد حالة HTTP ناجحة.</p></section>
+<div class="mt-8 prose prose-slate max-w-none dark:prose-invert"><section><h2>ما الذي تفعله Fetch API؟</h2><p>تسمح Fetch API بإرسال طلبات HTTP من JavaScript واستقبال نتائجها دون إيقاف بقية الصفحة. ويمكن استخدامها لجلب JSON أو إرسال بيانات إلى خدمة ويب، لكن اكتمال الوعد بنجاح لا يعني أن حالة HTTP نفسها ناجحة؛ لذلك يجب فحص الاستجابة قبل التعامل مع محتواها.</p></section>
 <section><h2>مثال آمن لجلب JSON</h2><p><pre><code>async function loadUsers() {
   try {
     const response = await fetch("/api/users");
@@ -55,11 +55,11 @@
     throw error;
   }
 }</code></pre> يوضح المثال فصل طلب الشبكة عن التحقق من الحالة وتحويل الجسم إلى JSON.</p></section>
-<section><h2>لماذا نتحقق من response.ok؟</h2><p>عادةً ترفض fetch الوعد عند فشل الشبكة أو إلغاء الطلب، لكنها لا ترفضه تلقائيًا عند استجابات مثل 404 أو 500. لذلك افحص response.ok أو response.status قبل استخدام البيانات.</p></section>
-<section><h2>التعامل مع JSON غير الصالح</h2><p>قد يعيد الخادم استجابة فارغة أو نصًا ليس JSON صالحًا. استدعاء response.json() قد يرمي خطأ؛ لذا عالج هذا الاحتمال في طبقة مناسبة، وميّز بين أخطاء الشبكة وأخطاء HTTP وأخطاء تحليل المحتوى حتى لا تعرض رسالة مضللة.</p></section>
+<section><h2>لماذا نتحقق من response.ok؟</h2><p>ترفض fetch الوعد عادةً عند تعذر الاتصال أو فشل الطلب على مستوى الشبكة، لكنها لا تعتبر حالات مثل 404 و500 أخطاءً ترفض الوعد تلقائيًا. افحص response.ok أو response.status صراحةً، ثم قرر كيف سيتعامل التطبيق مع الحالة قبل قراءة البيانات.</p></section>
+<section><h2>التعامل مع JSON غير الصالح</h2><p>ليس مضمونًا أن يحتوي كل رد على JSON صالح؛ فقد تكون الاستجابة فارغة أو يعيد الخادم نصًا مختلفًا عن المتوقع. وقد يفشل response.json() عند التحليل، لذا افصل هذا النوع من الأخطاء عن فشل الشبكة وحالات HTTP، كي تعرض رسالة مناسبة وتسهّل تشخيص السبب.</p></section>
 <section><h2>إلغاء الطلبات الطويلة</h2><p>استخدم AbortController عندما يتغير البحث بسرعة أو يغادر المستخدم الشاشة. مرّر signal إلى fetch ثم استدعِ abort عند الحاجة. هذا يساعد على منع عرض نتائج قديمة بعد وصول طلب أحدث.</p></section>
 <section><h2>الأمان وCORS</h2><p>لا تضع مفاتيح سرية في JavaScript المرسل إلى المتصفح. سياسة CORS يحددها الخادم، ولا ينبغي محاولة تجاوزها من جهة العميل. تحقّق أيضًا من البيانات القادمة قبل إدراجها في DOM، واستخدم textContent بدل innerHTML عند عرض نص غير موثوق.</p></section>
-<section><h2>قائمة اختبار قبل النشر</h2><p>اختبر استجابة ناجحة، و404، وخطأ خادم، وانقطاع الشبكة، وJSON غير صالح، وطلبًا ملغى. اعرض للمستخدم حالة تحميل ورسالة خطأ مفهومة، ولا تسجل رموز الوصول أو بيانات شخصية في وحدة التحكم.</p></section>
+<section><h2>قائمة اختبار قبل النشر</h2><p>قبل النشر، جرّب المسار الناجح وحالات 404 وأخطاء الخادم وانقطاع الاتصال وJSON غير الصالح وإلغاء الطلب. أظهر حالة تحميل ورسالة مفهومة عند الفشل، وتجنب تسجيل رموز الدخول أو البيانات الشخصية في وحدة التحكم.</p></section>
 <section><h2>الخلاصة</h2><p>Fetch تصبح أكثر موثوقية عندما تجمع بين async/await وفحص HTTP ومعالجة التحليل والإلغاء. اجعل مسؤولية الطلب واضحة، وتجنب تكرار منطق الأخطاء في كل مكوّن.</p></section></div>
 <section class="mt-10 p-5 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700">
 <h2 class="text-xl font-black mb-3">مصادر وروابط موثوقة</h2><ul class="list-disc pr-6 space-y-2"><li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch" target="_blank" rel="noopener noreferrer">MDN: Using the Fetch API</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/API/AbortController" target="_blank" rel="noopener noreferrer">MDN: AbortController</a></li></ul>
