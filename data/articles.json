@@ -438,5 +438,23 @@
     "description": "تعلم إعداد hreflang للمواقع متعددة اللغات والمناطق، وربط النسخ البديلة، واستخدام رموز اللغة والمنطقة، واكتشاف الأخطاء الشائعة.",
     "icon": "fa-language",
     "image": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1400&q=85"
+  },
+  {
+    "slug": "javascript-seo-rendering-guide",
+    "file": "javascript-seo-rendering-guide.html",
+    "title": "JavaScript SEO: دليل فهرسة المواقع المعتمدة على JavaScript",
+    "category": "SEO",
+    "subcategory": "JavaScript SEO وRendering",
+    "tags": [
+      "JavaScript SEO",
+      "Rendering",
+      "SSR",
+      "CSR",
+      "فهرسة JavaScript",
+      "SEO التقني"
+    ],
+    "description": "دليل عملي لفهم عرض صفحات JavaScript وتحسين المحتوى والروابط والبيانات الوصفية واختبارها في محركات البحث.",
+    "icon": "fa-code",
+    "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=85"
   }
 ]
