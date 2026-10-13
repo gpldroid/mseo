@@ -365,5 +365,23 @@
     "description": "شرح عملي لـ container-type و@container لبناء بطاقات ومكونات تتكيف مع عرض الحاوية بدل عرض الشاشة فقط.",
     "icon": "fa-cubes",
     "image": "https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?auto=format&fit=crop&w=1400&q=85"
+  },
+  {
+    "slug": "arabic-web-typography-guide",
+    "file": "arabic-web-typography-guide.html",
+    "title": "الخطوط العربية في تصميم المواقع: دليل عملي لتحسين القراءة والواجهة",
+    "category": "تصميم المواقع",
+    "subcategory": "الخطوط العربية وتجربة القراءة",
+    "tags": [
+      "الخطوط العربية",
+      "Arabic Typography",
+      "تصميم RTL",
+      "CSS",
+      "تجربة المستخدم",
+      "Web Fonts"
+    ],
+    "description": "تعلم اختيار الخط العربي للمواقع وضبط أحجام العناوين وتباعد الأسطر والأوزان، مع أمثلة CSS عملية لتحسين القراءة على الهاتف والحاسوب.",
+    "icon": "fa-font",
+    "image": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1400&q=85"
   }
 ]
