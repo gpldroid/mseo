@@ -127,6 +127,28 @@ button:focus-visible {
 <section><h2>قائمة اختبار قبل النشر</h2>
 <ul><li>هل يعمل التخطيط دون تمرير أفقي عند عرض ضيق؟</li><li>هل تبقى العناوين والأزرار واضحة عند تكبير النص؟</li><li>هل تعمل الروابط وعناصر التحكم بلوحة المفاتيح؟</li><li>هل صور المحتوى لها نصوص بديلة مناسبة وأبعاد مستقرة؟</li><li>هل الألوان والتباين مقبولان في الوضعين الفاتح والداكن إن كانا مدعومين؟</li><li>هل تُحترم إعدادات تقليل الحركة؟</li><li>هل التخطيط مفهوم عند وجود عنوان طويل أو محتوى غير متوقع؟</li></ul>
 <p>استخدم <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Responsive_Design" target="_blank" rel="noopener noreferrer">دليل التصميم المتجاوب من MDN</a>، وراجع <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Flexbox" target="_blank" rel="noopener noreferrer">Flexbox</a> و<a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Grids" target="_blank" rel="noopener noreferrer">CSS Grid</a> عند اختيار أداة التخطيط. التصميم الجيد نتيجة قرارات قابلة للاختبار، وليس مجموعة حيل بصرية.</p></section>
+<section><h2>ترتيب القواعد والتدرج في التحسين</h2>
+<p>تُقرأ قواعد CSS وفق ترتيبها ودرجة خصوصيتها ومصدرها، لذلك قد لا تعمل القاعدة الجديدة إذا كانت هناك قاعدة أخرى أكثر خصوصية أو تأتي لاحقًا في الشلال. قبل إضافة محدد معقد، افحص الأنماط المحسوبة في أدوات المطور وتحقق من الملف والسطر اللذين يحددان القيمة النهائية. اجعل المحددات بسيطة قدر الإمكان، وابتعد عن الاعتماد المتكرر على <code>!important</code> لأنه يجعل التعديل اللاحق أصعب.</p>
+<p>من المفيد بناء تخطيط أساسي يعمل على كل الشاشات، ثم إضافة تحسينات تدريجية عندما تتوفر المساحة. لا تجعل القاعدة الأساسية تعتمد على مؤثر حديث أو استعلام لا تدعمه بيئات جمهورك إذا كان ذلك سيخفي المحتوى. يمكن أن يبقى التخطيط العمودي صالحًا، ثم يتحول إلى أعمدة عند عرض أكبر. هذا يقلل حالات الفشل ويجعل المكوّن قابلًا للاستخدام حتى عند اختلاف قدرات المتصفح.</p>
+<pre><code>.profile {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+}
+@supports (display: grid) {
+  .profile {
+    align-items: start;
+  }
+}
+@media (min-width: 44rem) {
+  .profile {
+    grid-template-columns: 12rem minmax(0, 1fr);
+  }
+}</code></pre>
+<p>لا تحتاج إلى استخدام <code>@supports</code> لكل خاصية؛ استخدمه عندما توجد خطة بديلة فعلية لميزة قد لا تتوفر. أما الميزات الأساسية في التصميم، فراجع دعمها المستهدف واختبر السلوك في المتصفحات المهمة للموقع.</p></section>
+<section><h2>اختبار واقعي بدل الاكتفاء بالمعاينة</h2>
+<p>أنشئ مجموعة حالات اختبار صغيرة تتكرر مع كل تعديل: عنوان قصير وآخر طويل، فقرة كثيفة، صورة عريضة، رابط طويل، بطاقة بلا صورة، ونص عربي يتخلله مصطلح إنجليزي. تساعد هذه الحالات على كشف مشكلات التفاف النص والحدود الدنيا للأعمدة التي قد لا تظهر في بيانات تجريبية مثالية. اختبر أيضًا وضع التباين العالي أو إعدادات النظام التي يعتمد عليها جمهورك إذا كان الموقع يدعمها.</p>
+<p>إذا كان لديك أكثر من قالب، لا تختبر الصفحة الرئيسية وحدها. قد يعمل المكوّن في شبكة واسعة لكنه يتعطل داخل عمود جانبي أو حوار. جرّب إعادة استخدامه في سياقين مختلفين؛ فهذا اختبار عملي لجودة فصل المكوّن عن تخطيط الصفحة. دوّن نقطة التحول وسبب اختيارها، كي لا تتحول الأرقام إلى قرارات غامضة يصعب صيانتها لاحقًا.</p></section>
 <section><h2>مصادر موثوقة</h2><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noopener noreferrer">MDN: CSS</a></li><li><a href="https://web.dev/learn/design/" target="_blank" rel="noopener noreferrer">web.dev: Learn Design</a></li><li><a href="https://www.w3.org/WAI/WCAG22/Understanding/" target="_blank" rel="noopener noreferrer">W3C: فهم إرشادات WCAG 2.2</a></li></ul></section>
 </div>
 <div class="mt-8 pt-6 border-t border-slate-200 dark:border-slate-700 flex flex-wrap gap-2 text-xs">
