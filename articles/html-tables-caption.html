@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b1220">
+<meta name="color-scheme" content="light dark">
+<title>الجداول في HTML: th وtd وcaption وتنظيم البيانات | MSEO</title>
+<meta name="description" content="تعلم إنشاء جداول HTML مفهومة باستخدام caption وthead وtbody وth مع تحسين الوصول على الشاشات الصغيرة.">
+<meta name="keywords" content="HTML, تعلم HTML, شرح HTML بالعربية, دروس HTML للمبتدئين">
+<meta name="author" content="MSEO Editorial">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://gpldroid.github.io/mseo/articles/html-tables-caption.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="الجداول في HTML: th وtd وcaption وتنظيم البيانات">
+<meta property="og:description" content="تعلم إنشاء جداول HTML مفهومة باستخدام caption وthead وtbody وth مع تحسين الوصول على الشاشات الصغيرة.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1400&q=85">
+<meta property="og:image:alt" content="الجداول في HTML: th وtd وcaption وتنظيم البيانات">
+<meta property="og:url" content="https://gpldroid.github.io/mseo/articles/html-tables-caption.html">
+<meta property="og:site_name" content="MSEO">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="الجداول في HTML: th وtd وcaption وتنظيم البيانات">
+<meta name="twitter:description" content="تعلم إنشاء جداول HTML مفهومة باستخدام caption وthead وtbody وth مع تحسين الوصول على الشاشات الصغيرة.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1400&q=85">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"الجداول في HTML: th وtd وcaption وتنظيم البيانات","description":"تعلم إنشاء جداول HTML مفهومة باستخدام caption وthead وtbody وth مع تحسين الوصول على الشاشات الصغيرة.","image":["https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1400&q=85"],"datePublished":"2026-10-14","author":{"@type":"Organization","name":"MSEO Editorial"},"publisher":{"@type":"Organization","name":"MSEO","url":"https://gpldroid.github.io/mseo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://gpldroid.github.io/mseo/articles/html-tables-caption.html"}}</script>
+<link rel="stylesheet" href="../assets/css/style.css?v=20261012-images1">
+</head>
+<body>
+<div data-site-header></div>
+<main class="max-w-4xl mx-auto px-4 py-8">
+<nav aria-label="مسار التنقل" class="text-xs text-slate-500 mb-5"><a href="../index.html">الرئيسية</a> <span aria-hidden="true"> / </span><a href="../pages/web-development.html">تطوير المواقع</a> <span aria-hidden="true"> / </span><span>الجداول في HTML: th وtd وcaption وتنظيم البيانات</span></nav>
+<article class="bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden">
+<img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1400&q=85" alt="الجداول في HTML: th وtd وcaption وتنظيم البيانات" width="1400" height="788" loading="eager" fetchpriority="high" decoding="async" class="w-full aspect-video object-cover">
+<div class="p-6 sm:p-10">
+<div class="flex flex-wrap gap-2 mb-4"><span class="bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-full">تطوير المواقع</span><time datetime="2026-10-14" class="text-xs text-slate-500 px-2 py-1.5">14 أكتوبر 2026</time></div>
+<h1 class="text-2xl sm:text-4xl font-black leading-tight text-slate-950 dark:text-white">الجداول في HTML: th وtd وcaption وتنظيم البيانات</h1>
+<p class="mt-5 text-base leading-8 text-slate-600 dark:text-slate-300">تعلم إنشاء جداول HTML مفهومة باستخدام caption وthead وtbody وth مع تحسين الوصول على الشاشات الصغيرة.</p>
+<div class="mt-8 prose prose-slate max-w-none dark:prose-invert"><h2>متى يكون الجدول مناسبًا؟</h2><p>استخدم الجدول عندما تكون البيانات مرتبطة بعلاقات صفوف وأعمدة، مثل مقارنة مواصفات أو جدول مواعيد. لا تستخدم الجداول لبناء تخطيط الصفحة؛ CSS هو الأنسب لذلك.</p><h2>بنية الجدول</h2><pre><code>&lt;table&gt;
+  &lt;caption&gt;مواعيد الدروس&lt;/caption&gt;
+  &lt;thead&gt;&lt;tr&gt;&lt;th scope="col"&gt;اليوم&lt;/th&gt;&lt;th scope="col"&gt;الموضوع&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;&lt;th scope="row"&gt;الأحد&lt;/th&gt;&lt;td&gt;مقدمة HTML&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;th scope="row"&gt;الثلاثاء&lt;/th&gt;&lt;td&gt;الروابط والصور&lt;/td&gt;&lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre><p>يمثل <code>caption</code> عنوان الجدول، ويمثل <code>th</code> خلية عنوان، بينما تعرض <code>td</code> البيانات. تساعد قيمة <code>scope</code> على توضيح ما إذا كان العنوان يخص عمودًا أو صفًا.</p><h2>الجداول المعقدة</h2><p>عند وجود عناوين متعددة المستويات أو خلايا تمتد على عدة صفوف وأعمدة، خطط للعلاقات بعناية وقد تحتاج إلى ربط الخلايا بمعرّفات <code>id</code> وخصائص <code>headers</code>. لا تضف التعقيد إذا كان يمكن تبسيط الجدول.</p><h2>التجاوب وإمكانية الوصول</h2><p>أبقِ الجدول مقروءًا على الهاتف؛ يمكن وضعه داخل حاوية تسمح بالتمرير الأفقي عند الضرورة، مع عدم إخفاء البيانات المهمة. أضف تباينًا بصريًا واضحًا للعناوين، ولا تعتمد على اللون وحده لتمييز المعنى.</p><h2>أخطاء شائعة</h2><ul><li>استخدام الجدول للمسافات وتوزيع عناصر الواجهة.</li><li>ترك الجدول بلا عنوان عندما يحتاج السياق إلى توضيح.</li><li>استخدام خلايا بيانات عادية بدل خلايا العناوين المناسبة.</li></ul>
+<h2>مراجع موثوقة</h2><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener noreferrer">MDN Web Docs: HTML</a></li><li><a href="https://html.spec.whatwg.org/" target="_blank" rel="noopener noreferrer">WHATWG HTML Living Standard</a></li><li><a href="https://www.w3.org/WAI/" target="_blank" rel="noopener noreferrer">W3C Web Accessibility Initiative</a></li></ul>
+<h2>تابع سلسلة HTML</h2><p>تابع الدروس السابقة: <a href="html-what-is-html.html">ما هي HTML؟</a>، <a href="html-document-structure.html">بنية مستند HTML</a>، <a href="html-text-headings-links.html">العناوين والفقرات والروابط</a>، <a href="html-lists-images.html">القوائم والصور</a>، و<a href="html-forms-basics.html">أساسيات النماذج</a>.</p>
+</div>
+</div>
+</article>
+</main>
+<div data-site-footer></div>
+<script src="../assets/js/site.js?v=20261012-images1" defer></script>
+</body>
+</html>
