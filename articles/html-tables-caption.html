@@ -53,6 +53,11 @@
 &lt;/table&gt;</code></pre><p>على الهاتف، لا تصغّر النص إلى حد يصعب قراءته. يمكن وضع الجدول داخل حاوية ذات تمرير أفقي عند الضرورة مع إبقاء إشارة واضحة إلى إمكانية التمرير.</p>
 </div>
 </div>
+<div data-batch-deepening="true" class="p-6 sm:p-10 prose prose-slate max-w-none dark:prose-invert"><h2>اجعل الجدول مفهومًا لقارئ الشاشة</h2><p>استخدم الجداول للبيانات التي تربط صفوفًا بأعمدة، لا لترتيب تخطيط الصفحة. أضف <code>caption</code> يوضح موضوع الجدول، ووسوم <code>th</code> لعناوين الصفوف أو الأعمدة مع <code>scope</code> عندما يوضح العلاقة. الجداول الكبيرة تحتاج إلى بنية أوضح وربما تقسيم إلى وحدات أصغر بدل إجبار المستخدم على التنقل بين عشرات الأعمدة.</p><pre><code>&lt;table&gt;
+  &lt;caption&gt;مواعيد الدروس الأسبوعية&lt;/caption&gt;
+  &lt;thead&gt;&lt;tr&gt;&lt;th scope="col"&gt;اليوم&lt;/th&gt;&lt;th scope="col"&gt;الموعد&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+  &lt;tbody&gt;&lt;tr&gt;&lt;th scope="row"&gt;الاثنين&lt;/th&gt;&lt;td&gt;10:00&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;
+&lt;/table&gt;</code></pre><p>على الهاتف، وفر طريقة للوصول إلى البيانات دون قص عناوين الأعمدة. اختبر التكبير والتنقل الأفقي، وتأكد أن ترتيب القراءة يبقى منطقيًا.</p></div>
 </article>
 </main>
 <div data-site-footer></div>
