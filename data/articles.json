@@ -912,5 +912,53 @@
     "description": "قائمة عملية لاختبار الموقع على الهاتف تشمل العرض المتجاوب واللمس والنماذج والأداء وإمكانية الوصول والمهام الأساسية قبل النشر.",
     "icon": "fa-gauge-high",
     "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=85"
+  },
+  {
+    "slug": "website-update-regression-testing",
+    "file": "website-update-regression-testing.html",
+    "title": "اختبار الموقع بعد التحديث: اكتشاف الأعطال قبل أن يلاحظها المستخدم",
+    "category": "أداء المواقع",
+    "subcategory": "اختبار الانحدار والصيانة",
+    "tags": [
+      "اختبار الانحدار",
+      "Regression Testing",
+      "اختبار قبل النشر",
+      "جودة الموقع"
+    ],
+    "description": "خطوات عملية لاختبار الموقع بعد تحديث القالب أو المكتبات أو المحتوى، مع ترتيب اختبارات الانحدار وتوثيق النتائج وخطة التراجع.",
+    "icon": "fa-clipboard-check",
+    "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85"
+  },
+  {
+    "slug": "frontend-ui-testing-guide",
+    "file": "frontend-ui-testing-guide.html",
+    "title": "اختبار واجهة المستخدم: دليل عملي للأزرار والنماذج والتنقل",
+    "category": "تطوير المواقع",
+    "subcategory": "اختبار الواجهة وتجربة المستخدم",
+    "tags": [
+      "اختبار الواجهة",
+      "UI Testing",
+      "اختبار النماذج",
+      "سهولة الاستخدام"
+    ],
+    "description": "تعلم اختبار واجهات الويب يدويًا وبشكل منهجي، من حالات الأزرار والنماذج إلى التنقل ولوحة المفاتيح والتجاوب ورسائل الخطأ.",
+    "icon": "fa-list-check",
+    "image": "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1400&q=85"
+  },
+  {
+    "slug": "website-security-basics-checklist",
+    "file": "website-security-basics-checklist.html",
+    "title": "أساسيات أمان الموقع: قائمة تحقق عملية للمطورين",
+    "category": "البرمجة",
+    "subcategory": "أمن الويب",
+    "tags": [
+      "أمان الموقع",
+      "HTTPS",
+      "إدارة الأسرار",
+      "حماية الويب"
+    ],
+    "description": "قائمة أساسية لتحسين أمان موقع الويب تشمل HTTPS وإدارة الأسرار والتحديثات والصلاحيات والتحقق من المدخلات والنسخ الاحتياطية.",
+    "icon": "fa-shield-halved",
+    "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1400&q=85"
   }
 ]
