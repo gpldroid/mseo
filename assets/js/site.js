@@ -63,7 +63,7 @@
     {id:'tech',label:'تقني داكن',icon:'⌘',description:'ألوان داكنة ولمسات تقنية'},
     {id:'compact',label:'مكثف',icon:'▦',description:'مساحات أصغر ومحتوى أكثر'},
     {id:'reading',label:'القراءة',icon:'Aa',description:'ألوان دافئة وعمود قراءة مريح'},
-    {id:'mseo-blue',label:'أزرق MSEO',icon:'◈',description:'أزرق ملكي ولمسات تركواز'}
+    {id:'mseo-blue',label:'MSEO Prism',icon:'✧',description:'بنفسجي عميق ولمسات نعناعية بتأثيرات زجاجية'}
   ];
   const documentRoot = document.documentElement;
   const savedTheme = readPreference('mseo-theme');
