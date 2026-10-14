@@ -60,6 +60,17 @@ button.addEventListener("click", () =&gt; {
 &lt;/script&gt;</code></pre><p>تحدد HTML الزر والفقرة، وتنسق CSS الصنف <code>toggle</code>، وتغير JavaScript حالة العرض. حدّث الحالة الدلالية مثل <code>aria-expanded</code> مع التغيير المرئي.</p>
 </div>
 </div>
+<div data-batch-deepening="true" class="p-6 sm:p-10 prose prose-slate max-w-none dark:prose-invert"><h2>مثال يوضح حدود كل تقنية</h2><p>اجعل HTML مسؤولًا عن المحتوى ومعناه، وCSS عن التخطيط والعرض، وJavaScript عن السلوك الذي يستجيب لفعل المستخدم. الفصل بين المسؤوليات يسهل اختبار التغيير وتتبعه، ولا يمنع التقنيات من العمل معًا.</p><pre><code>&lt;button id="toggle" aria-expanded="false" aria-controls="details"&gt;عرض التفاصيل&lt;/button&gt;
+&lt;p id="details" hidden&gt;معلومات إضافية للمستخدم.&lt;/p&gt;
+&lt;script&gt;
+const button = document.querySelector('#toggle');
+const details = document.querySelector('#details');
+button.addEventListener('click', () =&gt; {
+  const expanded = button.getAttribute('aria-expanded') === 'true';
+  button.setAttribute('aria-expanded', String(!expanded));
+  details.hidden = expanded;
+});
+&lt;/script&gt;</code></pre><p>HTML يعرّف الزر والمحتوى، وJavaScript يبدل الحالة، بينما يمكن لـCSS إظهار مؤشر التركيز. في المشاريع الحقيقية ضع الشيفرة في ملفات واضحة وحمّل ملف JavaScript الخارجي باستخدام <code>defer</code> عندما يناسب ذلك.</p><h2>أين تضع التغيير؟</h2><ul><li>تغيير معنى المحتوى أو ترتيب دلالته: HTML.</li><li>تغيير العرض أو الاستجابة للشاشات: CSS.</li><li>تغيير الحالة أو التعامل مع الأحداث والطلبات: JavaScript.</li><li>حافظ على السلوك الأساسي دون JavaScript قدر الإمكان.</li></ul></div>
 </article>
 </main>
 <div data-site-footer></div>
