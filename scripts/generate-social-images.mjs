@@ -2,7 +2,7 @@ import { readdir, readFile, writeFile, mkdir } from 'node:fs/promises';
 import path from 'node:path';
 
 const root = process.cwd();
-const siteBase = new URL(process.env.URL || 'https://gpldroid.github.io/mseo/');
+const siteBase = new URL(process.env.MSEO_SITE_URL || process.env.URL || 'https://gpldroid.github.io/mseo/');
 const previewDir = path.join(root, 'assets/images/social-previews');
 const excluded = new Set(['404.html', 'pages/admin.html']);
 const htmlFiles = [];
