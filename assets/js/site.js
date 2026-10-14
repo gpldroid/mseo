@@ -100,43 +100,33 @@
   downButton.addEventListener('click',()=>window.scrollTo({top:document.documentElement.scrollHeight,behavior:'smooth'}));
   document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const target=$(a.getAttribute('href'));if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth',block:'start'});}}));
 })();
-/* Homepage content renderer: kept in this single shared public-site script. */
-(async () => {
- const $ = (s, root=document) => root.querySelector(s);
- const base = new URL(location.pathname.match(/\/(articles|pages)\//) ? '../' : './', location.href);
- const url = path => new URL(path, base).href;
- const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
- const grid=$('#article-grid'), categoryGrid=$('#category-grid'), categorySelect=$('#article-category'), search=$('#article-search'), count=$('#results-count'), pagination=$('#pagination'), error=$('#load-error');
- if (!grid || !categoryGrid) return;
- let articles=[], page=1; const perPage=9;
- try {
-   const response=await fetch(url('data/articles.json'), {cache:'no-cache'});
-   if (!response.ok) throw new Error('Could not load article catalogue');
-   articles=await response.json();
-   const cats=[...new Set(articles.map(a=>a.category).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'ar'));
-   categoryGrid.innerHTML=cats.map((c,i)=>'<a class="category-card" href="'+url('pages/archive.html')+'?category='+encodeURIComponent(c)+'"><span class="site-card-icon">'+['✳','⌘','◈','↗','⌁','⚙'][i%6]+'</span><h3>'+esc(c)+'</h3><p>استكشف الأدلة والمقالات في هذا المجال.</p><span class="site-read">تصفح المقالات ←</span></a>').join('');
-   if(categorySelect) categorySelect.innerHTML='<option value="">كل التصنيفات</option>'+cats.map(c=>'<option value="'+esc(c)+'">'+esc(c)+'</option>').join('');
-   const render=()=>{
-     const q=(search?.value||'').trim().toLocaleLowerCase('ar'), cat=categorySelect?.value||'';
-     const filtered=articles.filter(a=>(!cat||a.category===cat)&&(!q||[a.title,a.category,a.description,...(a.tags||[])].join(' ').toLocaleLowerCase('ar').includes(q)));
-     const pages=Math.max(1,Math.ceil(filtered.length/perPage)); page=Math.min(page,pages);
-     const items=filtered.slice((page-1)*perPage,page*perPage);
-     grid.innerHTML=items.length?items.map(a=>{
-       const articleUrl=url('articles/'+encodeURIComponent(a.file||a.slug+'.html'));
-       const thumbnail = a.thumbnail || a.image || 'assets/favicon.svg';
-       return '<article class="article-card"><a class="article-card-media" href="'+articleUrl+'" tabindex="-1" aria-hidden="true"><img loading="lazy" decoding="async" src="'+esc(url(thumbnail))+'" alt="" onerror="this.onerror=null;this.src=\''+esc(url(a.image||'assets/favicon.svg'))+'\';this.classList.add(\'is-fallback\')"></a><div class="article-card-body"><span class="article-category">'+esc(a.category)+'</span><h3><a href="'+articleUrl+'">'+esc(a.title)+'</a></h3><p>'+esc(a.description)+'</p><a class="site-read" href="'+articleUrl+'">اقرأ المقال ←</a></div></article>';
-     }).join(''):'<p class="loading-card">لا توجد مقالات تطابق البحث.</p>';
-     if(count) count.textContent='عرض '+items.length+' من '+filtered.length+' مقالًا';
-     if(pagination){pagination.hidden=pages<=1;pagination.innerHTML=Array.from({length:pages},(_,i)=>'<button type="button" '+(page===i+1?'aria-current="page"':'')+' data-page="'+(i+1)+'">'+(i+1)+'</button>').join('');pagination.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{page=Number(b.dataset.page);render();$('#articles')?.scrollIntoView({behavior:'smooth'});}));}
-   };
-   search?.addEventListener('input',()=>{page=1;render();});
-   categorySelect?.addEventListener('change',()=>{page=1;render();});
-   render();
- } catch (e) {
-   if(error) error.hidden=false;
-   grid.innerHTML='<p class="loading-card">تعذر تحميل المقالات حاليًا. يرجى المحاولة لاحقًا.</p>';
-   if(count) count.textContent='تعذر تحميل الفهرس';
- }
+/* Homepage content renderer: six-at-a-time progressive article reveal. */
+(async()=>{
+ const $=(s,r=document)=>r.querySelector(s),base=new URL(location.pathname.match(/\/(articles|pages)\//)?'../':'./',location.href),url=p=>new URL(p,base).href;
+ const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const grid=$('#article-grid'),catsGrid=$('#category-grid'),select=$('#article-category'),search=$('#article-search'),count=$('#results-count'),more=$('#pagination'),error=$('#load-error');
+ if(!grid||!catsGrid)return;
+ const batch=6;let articles=[],shown=batch;
+ try{
+  const res=await fetch(url('data/articles.json'),{cache:'no-cache'});if(!res.ok)throw Error();articles=await res.json();
+  const cats=[...new Set(articles.map(a=>a.category).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'ar'));
+  catsGrid.innerHTML=cats.map((cat,i)=>'<a class="category-card" href="'+url('pages/archive.html')+'?category='+encodeURIComponent(cat)+'"><span class="site-card-icon">'+['✳','⌘','◈','↗','⌁','⚙'][i%6]+'</span><h3>'+esc(cat)+'</h3><p>استكشف الأدلة والمقالات في هذا المجال.</p><span class="site-read">تصفح المقالات ←</span></a>').join('');
+  if(select)select.innerHTML='<option value="">كل التصنيفات</option>'+cats.map(cat=>'<option value="'+esc(cat)+'">'+esc(cat)+'</option>').join('');
+  function render(animateFrom=-1){
+   const q=(search?.value||'').trim().toLocaleLowerCase('ar'),cat=select?.value||'';
+   const filtered=articles.filter(a=>(!cat||a.category===cat)&&(!q||[a.title,a.category,a.description,...(a.tags||[])].join(' ').toLocaleLowerCase('ar').includes(q)));
+   shown=Math.min(shown,filtered.length);
+   grid.innerHTML=filtered.length?filtered.map((a,i)=>{
+    const href=url('articles/'+encodeURIComponent(a.file||a.slug+'.html')),img=a.thumbnail||a.image||'assets/favicon.svg';
+    return '<article class="article-card mseo-load-card"'+(i>=shown?' hidden':'')+(i>=animateFrom&&i<shown?' data-enter="1"':'')+'><a class="article-card-media" href="'+href+'" tabindex="-1" aria-hidden="true"><img loading="lazy" decoding="async" src="'+esc(url(img))+'" alt="" onerror="this.onerror=null;this.src=\''+esc(url(a.image||'assets/favicon.svg'))+'\';this.classList.add(\'is-fallback\')"></a><div class="article-card-body"><span class="article-category">'+esc(a.category)+'</span><h3><a href="'+href+'">'+esc(a.title)+'</a></h3><p>'+esc(a.description)+'</p><a class="site-read" href="'+href+'">اقرأ المقال ←</a></div></article>';
+   }).join(''):'<p class="loading-card">لا توجد مقالات تطابق البحث.</p>';
+   grid.querySelectorAll('[data-enter="1"]').forEach(el=>{el.classList.add('mseo-card-enter');el.removeAttribute('data-enter');});
+   if(count)count.textContent='عرض '+Math.min(shown,filtered.length)+' من '+filtered.length+' مقالًا';
+   const left=filtered.length-shown;
+   if(more){more.hidden=left<=0;more.innerHTML=left>0?'<button type="button" class="mseo-load-more" data-load-more>تحميل 6 مقالات إضافية <span aria-hidden="true">↓</span></button>':'';more.querySelector('[data-load-more]')?.addEventListener('click',()=>{const old=shown;shown=Math.min(shown+batch,filtered.length);render(old);});}
+  }
+  search?.addEventListener('input',()=>{shown=batch;render();});select?.addEventListener('change',()=>{shown=batch;render();});render();
+ }catch(e){if(error)error.hidden=false;grid.innerHTML='<p class="loading-card">تعذر تحميل المقالات حاليًا. يرجى المحاولة لاحقًا.</p>';if(count)count.textContent='تعذر تحميل الفهرس';}
 })();
 
 /* Cookie consent: no non-essential cookies are set by this static site by default. */
@@ -158,5 +148,24 @@
 })();
 
 
-/* Unified archive renderer: runs only on the archive page. */
-(() => {const $=s=>document.querySelector(s);const search=$('#archive-search'),select=$('#archive-category'),grid=$('#archive-grid'),count=$('#archive-count');const params=new URLSearchParams(location.search);let all=[];const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));fetch('../data/articles.json').then(r=>{if(!r.ok)throw Error();return r.json()}).then(data=>{all=data;const cats=[...new Set(all.map(a=>a.category).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'ar'));select.innerHTML='<option value="">كل التصنيفات</option>'+cats.map(c=>'<option value="'+esc(c)+'">'+esc(c)+'</option>').join('');select.value=params.get('category')||'';search.value=params.get('q')||'';render()}).catch(()=>{$('#archive-error').hidden=false;if(count)count.textContent='';grid.innerHTML='';});function render(){const q=(search.value||'').toLocaleLowerCase('ar').trim(),cat=select.value;const filtered=all.filter(a=>(!cat||a.category===cat)&&(!q||[a.title,a.description,a.category,...(a.tags||[])].join(' ').toLocaleLowerCase('ar').includes(q)));grid.innerHTML=filtered.length?filtered.map(a=>{const image=a.thumbnail||a.image||'assets/favicon.svg';const imageSrc=/^(?:https?:)?\/\//i.test(image)?image:'../'+image;const articleUrl='../articles/'+encodeURIComponent(a.file||a.slug+'.html');return '<article class="article-card"><a href="'+articleUrl+'"><img loading="lazy" decoding="async" src="'+esc(imageSrc)+'" alt=""></a><div class="article-card-body"><span class="article-category">'+esc(a.category)+'</span><h3><a href="'+articleUrl+'">'+esc(a.title)+'</a></h3><p>'+esc(a.description)+'</p><a class="site-read" href="'+articleUrl+'">اقرأ المقال ←</a></div></article>';}).join(''):'<p class="loading-card">لا توجد نتائج مطابقة.</p>';count.textContent='عدد المقالات: '+filtered.length;}search.addEventListener('input',render);select.addEventListener('change',render);})();
+/* Archive renderer: six articles initially, then six more per click. */
+(()=>{
+ const $=s=>document.querySelector(s),search=$('#archive-search'),select=$('#archive-category'),grid=$('#archive-grid'),count=$('#archive-count');
+ if(!search||!select||!grid||!count)return;
+ const params=new URLSearchParams(location.search),batch=6;let all=[],shown=batch;
+ let more=$('#archive-load-more');if(!more){more=document.createElement('div');more.id='archive-load-more';more.className='pagination';more.hidden=true;grid.insertAdjacentElement('afterend',more);}
+ const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ fetch('../data/articles.json').then(r=>{if(!r.ok)throw Error();return r.json();}).then(data=>{all=data;const cats=[...new Set(all.map(a=>a.category).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'ar'));select.innerHTML='<option value="">كل التصنيفات</option>'+cats.map(cat=>'<option value="'+esc(cat)+'">'+esc(cat)+'</option>').join('');select.value=params.get('category')||'';search.value=params.get('q')||'';render();}).catch(()=>{const err=$('#archive-error');if(err)err.hidden=false;count.textContent='';grid.innerHTML='';more.hidden=true;});
+ function render(animateFrom=-1){
+  const q=(search.value||'').toLocaleLowerCase('ar').trim(),cat=select.value;
+  const filtered=all.filter(a=>(!cat||a.category===cat)&&(!q||[a.title,a.description,a.category,...(a.tags||[])].join(' ').toLocaleLowerCase('ar').includes(q)));
+  shown=Math.min(shown,filtered.length);
+  grid.innerHTML=filtered.length?filtered.map((a,i)=>{const image=a.thumbnail||a.image||'assets/favicon.svg',src=/^(?:https?:)?\/\//i.test(image)?image:'../'+image,href='../articles/'+encodeURIComponent(a.file||a.slug+'.html');return '<article class="article-card mseo-load-card"'+(i>=shown?' hidden':'')+(i>=animateFrom&&i<shown?' data-enter="1"':'')+'><a href="'+href+'"><img loading="lazy" decoding="async" src="'+esc(src)+'" alt=""></a><div class="article-card-body"><span class="article-category">'+esc(a.category)+'</span><h3><a href="'+href+'">'+esc(a.title)+'</a></h3><p>'+esc(a.description)+'</p><a class="site-read" href="'+href+'">اقرأ المقال ←</a></div></article>';}).join(''):'<p class="loading-card">لا توجد نتائج مطابقة.</p>';
+  grid.querySelectorAll('[data-enter="1"]').forEach(el=>{el.classList.add('mseo-card-enter');el.removeAttribute('data-enter');});
+  count.textContent='عرض '+Math.min(shown,filtered.length)+' من '+filtered.length+' مقالًا';
+  const left=filtered.length-shown;more.hidden=left<=0;more.innerHTML=left>0?'<button type="button" class="mseo-load-more" data-load-more>تحميل 6 مقالات إضافية <span aria-hidden="true">↓</span></button>':'';
+  more.querySelector('[data-load-more]')?.addEventListener('click',()=>{const old=shown;shown=Math.min(shown+batch,filtered.length);render(old);});
+ }
+ search.addEventListener('input',()=>{shown=batch;render();});select.addEventListener('change',()=>{shown=batch;render();});
+})();
+
