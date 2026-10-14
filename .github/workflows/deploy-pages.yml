@@ -29,6 +29,9 @@ jobs:
       - name: Build public site data
         run: npm run build
 
+      - name: Generate contextual social images for pages missing in-content images
+        run: npm run generate:social-images
+
       - name: Install dashboard dependencies
         run: npm install --prefix admin-dashboard --no-audit --no-fund
 
