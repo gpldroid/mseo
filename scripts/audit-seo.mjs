@@ -34,21 +34,28 @@ let internalLinks = 0;
 
 for (const file of htmlFiles) {
   const html = await readFile(path.join(root, file), 'utf8');
-  const title = (html.match(/<title\b[^>]*>([\s\S]*?)<\/title>/i)?.[1] || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
-  const descTag = html.match(/<meta\b(?=[^>]*\bname\s*=\s*["']description["'])[^>]*>/i)?.[0] || '';
-  const description = attr(descTag, 'content').trim();
-  const canonicalTag = html.match(/<link\b(?=[^>]*\brel\s*=\s*["']canonical["'])[^>]*>/i)?.[0] || '';
-  const canonical = attr(canonicalTag, 'href').trim();
-  if (!title) critical.push(file + ': missing title');
-  if (!description) critical.push(file + ': missing meta description');
-  if (!canonical) critical.push(file + ': missing canonical URL');
-  else {
-    const expectedCanonical = file === 'index.html' ? siteBase.href : new URL(file, siteBase).href;
-    if (canonical !== expectedCanonical) critical.push(file + ': canonical mismatch; expected ' + expectedCanonical + ', found ' + canonical);
+  // Google Search Console verification files must remain untouched; they are not web pages.
+  // Skip only their SEO metadata checks while retaining the normal link audit.
+  const isGoogleVerificationFile = /^google[a-f0-9]+\.html$/i.test(path.basename(file));
+  if (!isGoogleVerificationFile) {
+    const title = (html.match(/<title\b[^>]*>([\s\S]*?)<\/title>/i)?.[1] || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+    const descTag = html.match(/<meta\b(?=[^>]*\bname\s*=\s*["']description["'])[^>]*>/i)?.[0] || '';
+    const description = attr(descTag, 'content').trim();
+    const canonicalTag = html.match(/<link\b(?=[^>]*\brel\s*=\s*["']canonical["'])[^>]*>/i)?.[0] || '';
+    const canonical = attr(canonicalTag, 'href').trim();
+    if (!title) critical.push(file + ': missing title');
+    if (!description) critical.push(file + ': missing meta description');
+    if (!canonical) critical.push(file + ': missing canonical URL');
+    else {
+      const expectedCanonical = file === 'index.html' ? siteBase.href : new URL(file, siteBase).href;
+      if (canonical !== expectedCanonical) critical.push(file + ': canonical mismatch; expected ' + expectedCanonical + ', found ' + canonical);
+    }
+    if (title) titlePages.set(title, [...(titlePages.get(title) || []), file]);
+    if (description) descPages.set(description, [...(descPages.get(description) || []), file]);
+    if (canonical) canonicalPages.set(canonical, [...(canonicalPages.get(canonical) || []), file]);
+  
+  
   }
-  if (title) titlePages.set(title, [...(titlePages.get(title) || []), file]);
-  if (description) descPages.set(description, [...(descPages.get(description) || []), file]);
-  if (canonical) canonicalPages.set(canonical, [...(canonicalPages.get(canonical) || []), file]);
 
   for (const match of html.matchAll(/<a\b[^>]*>/gi)) {
     const tag = match[0];
