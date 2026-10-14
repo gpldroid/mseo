@@ -16,6 +16,14 @@
   ];
   const readPreference = (key) => { try { return localStorage.getItem(key); } catch (_) { return null; } };
   const writePreference = (key, value) => { try { localStorage.setItem(key, value); } catch (_) {} };
+  // Load the optional theme stylesheet loader without replacing existing interactions.
+  if (!$('[data-mseo-theme-switcher-loader]')) {
+    const themeLoader = document.createElement('script');
+    themeLoader.src = link('assets/js/theme-switcher.js');
+    themeLoader.defer = true;
+    themeLoader.setAttribute('data-mseo-theme-switcher-loader', '');
+    document.head.appendChild(themeLoader);
+  }
   const header = $('[data-site-header]') || $('[data-home-header]');
   if (header) {
     header.innerHTML = `
@@ -54,7 +62,8 @@
     {id:'editorial',label:'المجلة',icon:'▤',description:'تصميم تحريري متوازن'},
     {id:'tech',label:'تقني داكن',icon:'⌘',description:'ألوان داكنة ولمسات تقنية'},
     {id:'compact',label:'مكثف',icon:'▦',description:'مساحات أصغر ومحتوى أكثر'},
-    {id:'reading',label:'القراءة',icon:'Aa',description:'ألوان دافئة وعمود قراءة مريح'}
+    {id:'reading',label:'القراءة',icon:'Aa',description:'ألوان دافئة وعمود قراءة مريح'},
+    {id:'mseo-blue',label:'أزرق MSEO',icon:'◈',description:'أزرق ملكي ولمسات تركواز'}
   ];
   const documentRoot = document.documentElement;
   const savedTheme = readPreference('mseo-theme');
