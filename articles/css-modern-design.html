@@ -41,15 +41,94 @@
 <div class="flex flex-wrap gap-2 mb-4"><span class="bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-full">تصميم المواقع</span><time datetime="2026-09-21" class="text-xs text-slate-500 px-2 py-1.5">21 سبتمبر 2026</time></div>
 <h1 class="text-2xl sm:text-4xl font-black leading-tight text-slate-950 dark:text-white">CSS الحديث لتصميم مواقع احترافية: Grid وFlexbox وResponsive Design</h1>
 <p class="mt-5 text-base leading-8 text-slate-600 dark:text-slate-300">دليل عملي لتصميم واجهات ويب حديثة ومتجاوبة باستخدام CSS Grid وFlexbox وMedia Queries وتحسين قابلية الاستخدام على الهاتف.</p>
-<div class="mt-8 prose prose-slate max-w-none dark:prose-invert"><section><h2>فكر في التصميم كنظام</h2><p>قبل التوسع في كتابة قواعد CSS، ضع مجموعة واضحة من القيم للمسافات وأحجام الخطوط واستدارة البطاقات وحالات hover وألوان النص والخلفية. يساعد هذا الاتساق على تقليل التعديلات اللاحقة ويمنح صفحات الموقع مظهرًا موحدًا.</p></section>
-<section><h2>Flexbox للتخطيطات الخطية</h2><p>يبرع Flexbox في ترتيب العناصر أفقيًا أو عموديًا، مع التحكم في محاذاتها وتوزيع الفراغات بينها. لذلك يناسب قوائم التنقل والأزرار وأشرطة الأدوات والبطاقات ذات التخطيط البسيط.</p></section>
-<section><h2>Grid للتخطيطات ثنائية الأبعاد</h2><p>يتيح CSS Grid بناء تخطيطات ثنائية الأبعاد وشبكات متعددة الأعمدة، وهو مفيد في صفحات المقالات ومجموعات البطاقات ولوحات التحكم. ابدأ بشبكة واضحة، ثم اضبط عدد الأعمدة ليتلاءم مع المساحة المتاحة.</p></section>
-<section><h2>Responsive Design</h2><p>لا تحصر التصميم في قياس شاشة واحد. اعتمد وحدات مرنة وصورًا تتكيف مع المساحة، وأضف Media Queries حيث تكون ضرورية. اختبر مواضع تغيّر التخطيط وفق احتياج المحتوى بدل توزيع نقاط التحول بصورة عشوائية.</p></section>
-<section><h2>الأداء وإمكانية الوصول</h2><p>قلّل المؤثرات التي تزيد التعقيد من دون فائدة واضحة، ووفّر تباينًا كافيًا بين النص والخلفية، مع إظهار حالة التركيز للروابط والأزرار. فالمظهر الجذاب وحده لا يكفي إذا كانت القراءة أو الاستخدام صعبين.</p></section>
-<section><h2>الخلاصة</h2><p>لا تُقاس حداثة CSS بعدد المؤثرات البصرية، بل بمدى اتساق التصميم وسهولة صيانته وتكيفه مع الشاشات وقدرته على إبراز المحتوى.</p></section></div>
-<section class="mt-10 p-5 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700">
-<h2 class="text-xl font-black mb-3">مصادر وروابط موثوقة</h2><ul class="list-disc pr-6 space-y-2"><li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noopener noreferrer">MDN CSS</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Flexbox" target="_blank" rel="noopener noreferrer">MDN Flexbox</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Grids" target="_blank" rel="noopener noreferrer">MDN Grid</a></li></ul>
-</section>
+<div class="mt-8 prose prose-slate max-w-none dark:prose-invert">
+<section><h2>ابدأ من المحتوى لا من حجم الشاشة</h2>
+<p>التصميم المتجاوب ليس نسخة مصغرة من تصميم سطح المكتب، بل طريقة لبناء واجهة تتغير عندما تتغير المساحة وطبيعة التفاعل. ابدأ بتحديد ما يحتاج القارئ إلى رؤيته أولًا، وما يمكن أن ينتقل إلى أسفل الصفحة، ثم اختر تخطيطًا يسمح للمحتوى بالتنفس. استخدم عرضًا أقصى منطقيًا للنصوص الطويلة، ومسافات متسقة، وأحجامًا مرنة بدل تثبيت كل شيء بأرقام جامدة.</p>
+<p>من المفيد إنشاء مجموعة صغيرة من المتغيرات للألوان والمسافات وأحجام الخطوط. تجعل متغيرات CSS التعديلات المستقبلية أكثر أمانًا، وتمنع ظهور درجات متقاربة من اللون نفسه أو قيم مسافات غير متناسقة في صفحات مختلفة.</p>
+<pre><code>:root {
+  --space-1: .5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --content-width: 72rem;
+  --text-color: #202938;
+}
+.page {
+  width: min(100% - 2rem, var(--content-width));
+  margin-inline: auto;
+}</code></pre>
+<p>استخدم الخصائص المنطقية مثل <code>margin-inline</code> و<code>padding-inline</code> في الواجهات التي تدعم العربية والإنجليزية. فهي تتعامل مع بداية السطر ونهايته بدل افتراض اليمين واليسار، ما يقلل الحاجة إلى قواعد منفصلة لكل اتجاه.</p></section>
+<section><h2>متى تختار Flexbox ومتى تختار Grid؟</h2>
+<p>يعمل Flexbox على محور أساسي واحد في كل مرة؛ لذلك يناسب صف أزرار، أو مجموعة عناصر تنقل، أو رأس بطاقة يحتوي عنوانًا وشارة. تستطيع تغيير اتجاهه باستخدام <code>flex-direction</code>، والتحكم في توزيع المساحة بواسطة <code>justify-content</code> ومحاذاة المحور الآخر بواسطة <code>align-items</code>. تذكّر أن <code>gap</code> غالبًا أوضح من إضافة هوامش متفرقة لكل عنصر.</p>
+<pre><code>.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: .75rem;
+}</code></pre>
+<p>أما Grid فيناسب تخطيط الصفوف والأعمدة معًا، مثل شبكة مقالات أو لوحة منتجات. عندما تريد عدد أعمدة يتغير تلقائيًا بحسب المساحة، جرّب <code>auto-fit</code> مع <code>minmax()</code> بدل كتابة نقطة تحول لكل عرض محتمل:</p>
+<pre><code>.article-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+  gap: 1.25rem;
+}
+.article-card {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}</code></pre>
+<p>تمنع <code>min(100%, 17rem)</code> العمود من تجاوز الحاوية الضيقة، بينما تسمح <code>minmax()</code> للأعمدة بالتمدد عند توفر المساحة. أضف <code>min-width: 0</code> إلى عناصر الشبكة عندما تتسبب الكلمات الطويلة أو عناصر المحتوى في تمدد العمود خارج حدوده.</p></section>
+<section><h2>نقاط التحول تُبنى حول المحتوى</h2>
+<p>لا توجد مجموعة واحدة من نقاط التحول تناسب كل المواقع. ابدأ بتخطيط مرن، ثم صغّر نافذة المعاينة تدريجيًا وحدد اللحظة التي تصبح فيها القائمة مزدحمة أو ينكسر العنوان أو تضيق البطاقة أكثر مما ينبغي. عند تلك النقطة أضف media query. هذا الأسلوب أفضل من استهداف أسماء أجهزة بعينها لأن الأجهزة وأحجام النوافذ تتغير.</p>
+<pre><code>.feature {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+@media (min-width: 48rem) {
+  .feature {
+    grid-template-columns: minmax(0, 1fr) minmax(15rem, .8fr);
+    align-items: center;
+  }
+}</code></pre>
+<p>اختبر على الأقل شاشة ضيقة بعرض 320 بكسل، وهاتفًا شائعًا، وجهازًا لوحيًا، وشاشة واسعة. جرّب كذلك تكبير النص إلى 200%، لأن واجهة تبدو سليمة عند الحجم الافتراضي قد تتسبب في تمرير أفقي عندما يكبر النص.</p></section>
+<section><h2>الصور والنصوص والمحتوى غير المتوقع</h2>
+<p>يجب ألا تفترض أن جميع الصور لها نسبة أبعاد واحدة أو أن كل عنوان يتكون من سطرين. استخدم <code>max-width: 100%</code> للصور، وحدد <code>height: auto</code> عند الحفاظ على أبعادها الأصلية. إذا كانت البطاقات تتطلب صورًا موحدة الارتفاع، فاختر <code>aspect-ratio</code> و<code>object-fit: cover</code> مع نص بديل يصف المعنى عند الحاجة، لا مجرد كلمة عامة مثل «صورة».</p>
+<pre><code>.card__image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+.card__title {
+  overflow-wrap: anywhere;
+}</code></pre>
+<p>لا تستخدم ارتفاعًا ثابتًا لكتلة النص إلا لسبب واضح؛ فقد يؤدي ذلك إلى قص المحتوى عند الترجمة أو تكبير الخط. تعامل مع المحتوى الحقيقي، بما فيه العناوين الطويلة والأوصاف الفارغة والصور التي لم تُحمّل، باعتباره جزءًا من التصميم وليس حالة استثنائية.</p></section>
+<section><h2>الحركة والتباين وإمكانية الوصول</h2>
+<p>تحقق من تباين النص والخلفية، واجعل الروابط قابلة للتمييز دون الاعتماد على اللون وحده. يجب أن يظهر مؤشر التركيز عند استخدام لوحة المفاتيح، وأن يكون ترتيب التنقل منطقيًا، وأن تمتلك عناصر التحكم أسماء واضحة. لا تزل <code>outline</code> لمجرد الشكل؛ استبدله بمؤشر تركيز مرئي إذا احتجت إلى تخصيصه.</p>
+<pre><code>a:focus-visible,
+button:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 3px;
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}</code></pre>
+<p>استخدم الحركة لتوضيح علاقة أو نتيجة، لا لإضافة ضوضاء بصرية. احترم إعداد <code>prefers-reduced-motion</code>، وتجنب تحريك مساحات كبيرة باستمرار، ولا تجعل معلومات مهمة متاحة فقط عند المرور بالفأرة لأن مستخدمي اللمس ولوحة المفاتيح قد لا يصلون إليها بالطريقة نفسها.</p></section>
+<section><h2>الأداء والصيانة</h2>
+<p>كل قاعدة إضافية تزيد تكلفة الفهم والصيانة حتى لو كانت تكلفتها الحسابية على المتصفح صغيرة. احذف القواعد المتعارضة والتكرار، وفضّل مكونات واضحة على سلاسل طويلة من المحددات شديدة الخصوصية. افحص CSS غير المستخدم، واضغط الملفات في عملية البناء إن كانت متاحة، وتجنب تحميل مكتبة ضخمة من أجل تأثير واحد بسيط.</p>
+<p>عند تشخيص مشكلة تخطيط، افتح أدوات المطور وتحقق من حجم الحاوية الفعلي، والأنماط المحسوبة، وأي عنصر يفرض حدًا أدنى للعرض. لا تبدأ بإضافة <code>!important</code>؛ ابحث عن القاعدة التي تسببت في التعارض ثم أصلح المصدر.</p></section>
+<section><h2>قائمة اختبار قبل النشر</h2>
+<ul><li>هل يعمل التخطيط دون تمرير أفقي عند عرض ضيق؟</li><li>هل تبقى العناوين والأزرار واضحة عند تكبير النص؟</li><li>هل تعمل الروابط وعناصر التحكم بلوحة المفاتيح؟</li><li>هل صور المحتوى لها نصوص بديلة مناسبة وأبعاد مستقرة؟</li><li>هل الألوان والتباين مقبولان في الوضعين الفاتح والداكن إن كانا مدعومين؟</li><li>هل تُحترم إعدادات تقليل الحركة؟</li><li>هل التخطيط مفهوم عند وجود عنوان طويل أو محتوى غير متوقع؟</li></ul>
+<p>استخدم <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Responsive_Design" target="_blank" rel="noopener noreferrer">دليل التصميم المتجاوب من MDN</a>، وراجع <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Flexbox" target="_blank" rel="noopener noreferrer">Flexbox</a> و<a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Grids" target="_blank" rel="noopener noreferrer">CSS Grid</a> عند اختيار أداة التخطيط. التصميم الجيد نتيجة قرارات قابلة للاختبار، وليس مجموعة حيل بصرية.</p></section>
+<section><h2>مصادر موثوقة</h2><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noopener noreferrer">MDN: CSS</a></li><li><a href="https://web.dev/learn/design/" target="_blank" rel="noopener noreferrer">web.dev: Learn Design</a></li><li><a href="https://www.w3.org/WAI/WCAG22/Understanding/" target="_blank" rel="noopener noreferrer">W3C: فهم إرشادات WCAG 2.2</a></li></ul></section>
+</div>
 <div class="mt-8 pt-6 border-t border-slate-200 dark:border-slate-700 flex flex-wrap gap-2 text-xs">
 <span class="font-bold">كلمات مفتاحية:</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">CSS</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">CSS Grid</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">Flexbox</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">Responsive Design</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">تصميم مواقع متجاوبة</span>
 </div>
