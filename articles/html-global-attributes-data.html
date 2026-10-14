@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b1220">
+<meta name="color-scheme" content="light dark">
+<title>خصائص HTML العامة: id وclass وlang وdata-* وhidden | MSEO</title>
+<meta name="description" content="شرح الخصائص العامة التي يمكن استخدامها مع عناصر HTML لتنظيم المحتوى وربطه بالأنماط والسلوك البرمجي.">
+<meta name="keywords" content="HTML, تعلم HTML, شرح HTML بالعربية, دروس HTML للمبتدئين">
+<meta name="author" content="MSEO Editorial">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://gpldroid.github.io/mseo/articles/html-global-attributes-data.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="خصائص HTML العامة: id وclass وlang وdata-* وhidden">
+<meta property="og:description" content="شرح الخصائص العامة التي يمكن استخدامها مع عناصر HTML لتنظيم المحتوى وربطه بالأنماط والسلوك البرمجي.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85">
+<meta property="og:image:alt" content="خصائص HTML العامة: id وclass وlang وdata-* وhidden">
+<meta property="og:url" content="https://gpldroid.github.io/mseo/articles/html-global-attributes-data.html">
+<meta property="og:site_name" content="MSEO">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="خصائص HTML العامة: id وclass وlang وdata-* وhidden">
+<meta name="twitter:description" content="شرح الخصائص العامة التي يمكن استخدامها مع عناصر HTML لتنظيم المحتوى وربطه بالأنماط والسلوك البرمجي.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"خصائص HTML العامة: id وclass وlang وdata-* وhidden","description":"شرح الخصائص العامة التي يمكن استخدامها مع عناصر HTML لتنظيم المحتوى وربطه بالأنماط والسلوك البرمجي.","image":["https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85"],"datePublished":"2026-10-14","author":{"@type":"Organization","name":"MSEO Editorial"},"publisher":{"@type":"Organization","name":"MSEO","url":"https://gpldroid.github.io/mseo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://gpldroid.github.io/mseo/articles/html-global-attributes-data.html"}}</script>
+<link rel="stylesheet" href="../assets/css/style.css?v=20261012-images1">
+</head>
+<body>
+<div data-site-header></div>
+<main class="max-w-4xl mx-auto px-4 py-8">
+<nav aria-label="مسار التنقل" class="text-xs text-slate-500 mb-5"><a href="../index.html">الرئيسية</a> <span aria-hidden="true"> / </span><a href="../pages/web-development.html">تطوير المواقع</a> <span aria-hidden="true"> / </span><span>خصائص HTML العامة: id وclass وlang وdata-* وhidden</span></nav>
+<article class="bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden">
+<img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85" alt="خصائص HTML العامة: id وclass وlang وdata-* وhidden" width="1400" height="788" loading="eager" fetchpriority="high" decoding="async" class="w-full aspect-video object-cover">
+<div class="p-6 sm:p-10">
+<div class="flex flex-wrap gap-2 mb-4"><span class="bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-full">تطوير المواقع</span><time datetime="2026-10-14" class="text-xs text-slate-500 px-2 py-1.5">14 أكتوبر 2026</time></div>
+<h1 class="text-2xl sm:text-4xl font-black leading-tight text-slate-950 dark:text-white">خصائص HTML العامة: id وclass وlang وdata-* وhidden</h1>
+<p class="mt-5 text-base leading-8 text-slate-600 dark:text-slate-300">شرح الخصائص العامة التي يمكن استخدامها مع عناصر HTML لتنظيم المحتوى وربطه بالأنماط والسلوك البرمجي.</p>
+<div class="mt-8 prose prose-slate max-w-none dark:prose-invert"><h2>ما الخصائص العامة؟</h2><p>الخصائص العامة يمكن استخدامها على عدد كبير من عناصر HTML، مع مراعاة أن لكل خاصية قواعدها. وهي تساعد في تعريف العناصر أو توضيح اللغة أو إضافة معلومات يحتاجها CSS وJavaScript.</p><h2>خصائص شائعة</h2><ul><li><code>id</code>: معرّف فريد داخل المستند.</li><li><code>class</code>: مجموعة أسماء لتطبيق أنماط أو تحديد عناصر.</li><li><code>lang</code>: اللغة المستخدمة في النص، مثل <code>lang="ar"</code>.</li><li><code>dir</code>: اتجاه النص مثل <code>rtl</code> أو <code>ltr</code>.</li><li><code>title</code>: معلومات إضافية عند الحاجة، لكنه ليس بديلًا عن تسمية مرئية.</li><li><code>hidden</code>: يخفي المحتوى من العرض المعتاد.</li></ul><pre><code>&lt;article id="lesson-3" class="lesson-card" lang="ar" dir="rtl" data-level="beginner"&gt;
+  &lt;h2&gt;درس للمبتدئين&lt;/h2&gt;
+&lt;/article&gt;</code></pre><h2>استخدام data-*</h2><p>يمكن تخزين بيانات مخصصة في خصائص مثل <code>data-level</code> ثم قراءتها من JavaScript عبر <code>element.dataset.level</code>. استخدمها للبيانات غير الحساسة التي تخص العنصر، وليس لكلمات المرور أو الأسرار أو الصلاحيات.</p><h2>أخطاء شائعة</h2><p>لا تكرر قيمة <code>id</code> في الصفحة؛ قد يؤدي ذلك إلى سلوك ملتبس في الروابط والبرمجة. لا تستخدم <code>hidden</code> لإخفاء معلومات ينبغي أن تبقى متاحة للمستخدم، ولا تعتمد على <code>title</code> وحده لتوفير تعليمات مهمة.</p><h2>قاعدة عملية</h2><p>أضف الخاصية عندما تخدم معنى أو وظيفة واضحة. الخصائص الزائدة تزيد التعقيد ولا تجعل الصفحة أفضل تلقائيًا.</p>
+<h2>مراجع موثوقة</h2><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener noreferrer">MDN Web Docs: HTML</a></li><li><a href="https://html.spec.whatwg.org/" target="_blank" rel="noopener noreferrer">WHATWG HTML Living Standard</a></li><li><a href="https://www.w3.org/WAI/" target="_blank" rel="noopener noreferrer">W3C Web Accessibility Initiative</a></li></ul>
+<h2>تابع سلسلة HTML</h2><p>تابع الدروس السابقة: <a href="html-what-is-html.html">ما هي HTML؟</a>، <a href="html-document-structure.html">بنية مستند HTML</a>، <a href="html-text-headings-links.html">العناوين والفقرات والروابط</a>، <a href="html-lists-images.html">القوائم والصور</a>، و<a href="html-forms-basics.html">أساسيات النماذج</a>.</p>
+</div>
+</div>
+</article>
+</main>
+<div data-site-footer></div>
+<script src="../assets/js/site.js?v=20261012-images1" defer></script>
+</body>
+</html>
