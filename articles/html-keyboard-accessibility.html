@@ -41,6 +41,12 @@
 }</code></pre><p>لا تزل مؤشر التركيز دون بديل واضح. جرّب التنقل باستخدام Tab وShift+Tab وEnter وSpace، وتأكد من أن ترتيب التركيز يتبع ترتيب القراءة وأن المستخدم لا يُحتجز داخل عنصر.</p><h2>اللغة والاتجاه</h2><p>حدد لغة المستند عبر <code>lang="ar"</code> واتجاهه عبر <code>dir="rtl"</code> عندما يكون المحتوى عربيًا. عند تضمين نص بلغة أخرى، عرّف لغته إن كان ذلك يساعد النطق بقارئ الشاشة.</p><h2>اختبارات عملية</h2><ul><li>تصفح الصفحة دون فأرة.</li><li>تحقق من وضوح التركيز والتباين.</li><li>اختبر النماذج ورسائل الأخطاء.</li><li>استخدم أداة تدقيق آلي مع اختبار يدوي؛ لا تكفي نتيجة الأداة وحدها لإثبات الوصول الكامل.</li></ul>
 <h2>مراجع موثوقة</h2><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener noreferrer">MDN Web Docs: HTML</a></li><li><a href="https://html.spec.whatwg.org/" target="_blank" rel="noopener noreferrer">WHATWG HTML Living Standard</a></li><li><a href="https://www.w3.org/WAI/" target="_blank" rel="noopener noreferrer">W3C Web Accessibility Initiative</a></li></ul>
 <h2>تابع سلسلة HTML</h2><p>تابع الدروس السابقة: <a href="html-what-is-html.html">ما هي HTML؟</a>، <a href="html-document-structure.html">بنية مستند HTML</a>، <a href="html-text-headings-links.html">العناوين والفقرات والروابط</a>، <a href="html-lists-images.html">القوائم والصور</a>، و<a href="html-forms-basics.html">أساسيات النماذج</a>.</p>
+<h2 data-expanded-all-articles="true">اختبار الوصول بلوحة المفاتيح</h2><p>ابدأ بالضغط على Tab للتنقل بين العناصر التفاعلية، واستخدم Shift+Tab للعودة، وEnter أو Space لتفعيل الأزرار بحسب سلوكها الطبيعي. يجب أن يكون ترتيب التركيز منطقيًا، وأن يكون مؤشر التركيز مرئيًا، وألا يقع المستخدم داخل نافذة أو قائمة دون وسيلة واضحة للخروج.</p><pre><code>button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 3px;
+}</code></pre><p>لا تزل مخطط التركيز باستخدام <code>outline: none</code> دون توفير بديل واضح. استخدم عناصر HTML الأصلية قبل بناء عناصر تفاعلية مخصصة، لأنها تقدم سلوك لوحة المفاتيح المتوقع افتراضيًا.</p><h2>مراجعة سريعة</h2><ul><li>كل وظيفة يمكن الوصول إليها بالفأرة يمكن الوصول إليها بلوحة المفاتيح.</li><li>لا توجد مصيدة تركيز داخل القوائم والنوافذ.</li><li>التسميات والتعليمات ورسائل الخطأ مفهومة دون الاعتماد على اللون وحده.</li></ul>
 </div>
 </div>
 </article>
