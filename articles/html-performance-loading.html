@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b1220">
+<meta name="color-scheme" content="light dark">
+<title>أداء HTML: التحميل الكسول وdefer وpreload وقياس السرعة | MSEO</title>
+<meta name="description" content="تحسين تحميل موارد الصفحة باستخدام خصائص HTML المناسبة مع فهم trade-offs وتجنب التحسينات العشوائية.">
+<meta name="keywords" content="HTML, تعلم HTML, شرح HTML بالعربية, دروس HTML للمبتدئين">
+<meta name="author" content="MSEO Editorial">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://gpldroid.github.io/mseo/articles/html-performance-loading.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="أداء HTML: التحميل الكسول وdefer وpreload وقياس السرعة">
+<meta property="og:description" content="تحسين تحميل موارد الصفحة باستخدام خصائص HTML المناسبة مع فهم trade-offs وتجنب التحسينات العشوائية.">
+<meta property="og:image" content="https://images.unsplash.com/photo-146174?auto=format&fit=crop&w=1400&q=85">
+<meta property="og:image:alt" content="أداء HTML: التحميل الكسول وdefer وpreload وقياس السرعة">
+<meta property="og:url" content="https://gpldroid.github.io/mseo/articles/html-performance-loading.html">
+<meta property="og:site_name" content="MSEO">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="أداء HTML: التحميل الكسول وdefer وpreload وقياس السرعة">
+<meta name="twitter:description" content="تحسين تحميل موارد الصفحة باستخدام خصائص HTML المناسبة مع فهم trade-offs وتجنب التحسينات العشوائية.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-146174?auto=format&fit=crop&w=1400&q=85">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"أداء HTML: التحميل الكسول وdefer وpreload وقياس السرعة","description":"تحسين تحميل موارد الصفحة باستخدام خصائص HTML المناسبة مع فهم trade-offs وتجنب التحسينات العشوائية.","image":["https://images.unsplash.com/photo-146174?auto=format&fit=crop&w=1400&q=85"],"datePublished":"2026-10-14","author":{"@type":"Organization","name":"MSEO Editorial"},"publisher":{"@type":"Organization","name":"MSEO","url":"https://gpldroid.github.io/mseo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://gpldroid.github.io/mseo/articles/html-performance-loading.html"}}</script>
+<link rel="stylesheet" href="../assets/css/style.css?v=20261012-images1">
+</head>
+<body>
+<div data-site-header></div>
+<main class="max-w-4xl mx-auto px-4 py-8">
+<nav aria-label="مسار التنقل" class="text-xs text-slate-500 mb-5"><a href="../index.html">الرئيسية</a> <span aria-hidden="true"> / </span><a href="../pages/web-development.html">تطوير المواقع</a> <span aria-hidden="true"> / </span><span>أداء HTML: التحميل الكسول وdefer وpreload وقياس السرعة</span></nav>
+<article class="bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden">
+<img src="https://images.unsplash.com/photo-146174?auto=format&fit=crop&w=1400&q=85" alt="أداء HTML: التحميل الكسول وdefer وpreload وقياس السرعة" width="1400" height="788" loading="eager" fetchpriority="high" decoding="async" class="w-full aspect-video object-cover">
+<div class="p-6 sm:p-10">
+<div class="flex flex-wrap gap-2 mb-4"><span class="bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-full">تطوير المواقع</span><time datetime="2026-10-14" class="text-xs text-slate-500 px-2 py-1.5">14 أكتوبر 2026</time></div>
+<h1 class="text-2xl sm:text-4xl font-black leading-tight text-slate-950 dark:text-white">أداء HTML: التحميل الكسول وdefer وpreload وقياس السرعة</h1>
+<p class="mt-5 text-base leading-8 text-slate-600 dark:text-slate-300">تحسين تحميل موارد الصفحة باستخدام خصائص HTML المناسبة مع فهم trade-offs وتجنب التحسينات العشوائية.</p>
+<div class="mt-8 prose prose-slate max-w-none dark:prose-invert"><h2>قلّل ما تحمّله الصفحة</h2><p>يبدأ تحسين الأداء باختيار موارد لازمة فقط، وضغط الصور، وتقليل الملفات غير المستخدمة. لا تضف تلميحات تحميل لمجرد أنها تبدو متقدمة؛ كل تلميح يجب أن يخدم موردًا مهمًا ومحددًا.</p><h2>التحميل الكسول للصور والإطارات</h2><pre><code>&lt;img src="images/example.jpg" alt="مثال توضيحي" width="800" height="500" loading="lazy"&gt;
+&lt;iframe src="https://example.com/embed" title="محتوى مضمّن" loading="lazy"&gt;&lt;/iframe&gt;</code></pre><p>استخدم <code>loading="lazy"</code> للموارد غير المرئية مبدئيًا. لا تؤخر عادةً صورة LCP الرئيسية التي يحتاجها المستخدم عند فتح الصفحة.</p><h2>تحميل JavaScript</h2><pre><code>&lt;script src="assets/js/site.js" defer&gt;&lt;/script&gt;</code></pre><p>يحمّل <code>defer</code> الملف بالتوازي مع تحليل HTML وينفذه بعد اكتمال التحليل، مع الحفاظ على ترتيب السكربتات المؤجلة. يختلف سلوكه عن <code>async</code> الذي ينفذ عند جاهزية الملف دون ضمان ترتيب التنفيذ.</p><h2>تلميحات الموارد</h2><p>يمكن استخدام <code>preload</code> لمورد حرج معروف، و<code>preconnect</code> لاتصال خارجي مهم. الإفراط في التلميحات قد ينافس الموارد الأكثر أهمية على النطاق الترددي. قِس قبل التغيير وبعده.</p><h2>كيف تقيس؟</h2><p>استخدم أدوات المتصفح وLighthouse وبيانات المستخدم الفعلية عندما تتوفر. راقب مؤشرات مثل LCP وCLS وINP، وافحص الشبكة والأخطاء. تختلف النتائج بحسب الجهاز والشبكة وحالة التخزين المؤقت؛ لا تدّعِ تحسنًا رقميًا دون قياس حقيقي.</p>
+<h2>مراجع موثوقة</h2><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener noreferrer">MDN Web Docs: HTML</a></li><li><a href="https://html.spec.whatwg.org/" target="_blank" rel="noopener noreferrer">WHATWG HTML Living Standard</a></li><li><a href="https://www.w3.org/WAI/" target="_blank" rel="noopener noreferrer">W3C Web Accessibility Initiative</a></li></ul>
+<h2>تابع سلسلة HTML</h2><p>تابع الدروس السابقة: <a href="html-what-is-html.html">ما هي HTML؟</a>، <a href="html-document-structure.html">بنية مستند HTML</a>، <a href="html-text-headings-links.html">العناوين والفقرات والروابط</a>، <a href="html-lists-images.html">القوائم والصور</a>، و<a href="html-forms-basics.html">أساسيات النماذج</a>.</p>
+</div>
+</div>
+</article>
+</main>
+<div data-site-footer></div>
+<script src="../assets/js/site.js?v=20261012-images1" defer></script>
+</body>
+</html>
