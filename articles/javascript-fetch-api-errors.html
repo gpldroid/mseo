@@ -64,7 +64,19 @@
 <section class="mt-10 p-5 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700">
 <h2 class="text-xl font-black mb-3">مصادر وروابط موثوقة</h2><ul class="list-disc pr-6 space-y-2"><li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch" target="_blank" rel="noopener noreferrer">MDN: Using the Fetch API</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/API/AbortController" target="_blank" rel="noopener noreferrer">MDN: AbortController</a></li></ul>
 </section>
-<div class="mt-8 pt-6 border-t border-slate-200 dark:border-slate-700 flex flex-wrap gap-2 text-xs"><span class="font-bold">كلمات مفتاحية:</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">JavaScript Fetch</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">Fetch API</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">REST API</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">HTTP errors</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">async await</span></div>
+<div class="mt-8 pt-6 border-t border-slate-200 dark:border-slate-700 flex flex-wrap gap-2 text-xs"><span class="font-bold">كلمات مفتاحية:</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">JavaScript Fetch</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">Fetch API</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">REST API</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">HTTP errors</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">async await</span>
+<h2 data-expanded-all-articles="true">التعامل مع حالات الشبكة والبيانات</h2><p>نجاح استدعاء <code>fetch()</code> لا يعني أن استجابة HTTP ناجحة؛ افحص <code>response.ok</code> أو رمز الحالة قبل التعامل مع البيانات. كما ينبغي مراعاة أن الاستجابة قد تكون فارغة أو غير صالحة بصيغة JSON.</p><pre><code>async function loadItems() {
+  const response = await fetch('/api/items');
+  if (!response.ok) {
+    throw new Error('تعذر تحميل العناصر');
+  }
+  return response.json();
+}
+
+loadItems()
+  .then(items => renderItems(items))
+  .catch(() => showMessage('حدث خطأ. حاول مرة أخرى.'));</code></pre><p>أضف حالة تحميل وحالة خطأ قابلة للفهم، وفكر في انتهاء المهلة وإلغاء الطلب عند مغادرة الصفحة. لا تعرض نصوص استجابة الخادم الخام للمستخدم دون مراجعة.</p>
+</div>
 </div></article>
 </main>
 <div data-site-footer></div>
