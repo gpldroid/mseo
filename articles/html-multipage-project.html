@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b1220">
+<meta name="color-scheme" content="light dark">
+<title>مشروع HTML متكامل للمبتدئين: بناء موقع من عدة صفحات | MSEO</title>
+<meta name="description" content="طبّق دروس HTML في مشروع صغير متعدد الصفحات يتضمن التنقل والمقالات والصور ونموذج تواصل وبنية قابلة للصيانة.">
+<meta name="keywords" content="HTML, تعلم HTML, شرح HTML بالعربية, دروس HTML للمبتدئين">
+<meta name="author" content="MSEO Editorial">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://gpldroid.github.io/mseo/articles/html-multipage-project.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="مشروع HTML متكامل للمبتدئين: بناء موقع من عدة صفحات">
+<meta property="og:description" content="طبّق دروس HTML في مشروع صغير متعدد الصفحات يتضمن التنقل والمقالات والصور ونموذج تواصل وبنية قابلة للصيانة.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85">
+<meta property="og:image:alt" content="مشروع HTML متكامل للمبتدئين: بناء موقع من عدة صفحات">
+<meta property="og:url" content="https://gpldroid.github.io/mseo/articles/html-multipage-project.html">
+<meta property="og:site_name" content="MSEO">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="مشروع HTML متكامل للمبتدئين: بناء موقع من عدة صفحات">
+<meta name="twitter:description" content="طبّق دروس HTML في مشروع صغير متعدد الصفحات يتضمن التنقل والمقالات والصور ونموذج تواصل وبنية قابلة للصيانة.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"مشروع HTML متكامل للمبتدئين: بناء موقع من عدة صفحات","description":"طبّق دروس HTML في مشروع صغير متعدد الصفحات يتضمن التنقل والمقالات والصور ونموذج تواصل وبنية قابلة للصيانة.","image":["https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85"],"datePublished":"2026-10-14","author":{"@type":"Organization","name":"MSEO Editorial"},"publisher":{"@type":"Organization","name":"MSEO","url":"https://gpldroid.github.io/mseo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://gpldroid.github.io/mseo/articles/html-multipage-project.html"}}</script>
+<link rel="stylesheet" href="../assets/css/style.css?v=20261012-images1">
+</head>
+<body>
+<div data-site-header></div>
+<main class="max-w-4xl mx-auto px-4 py-8">
+<nav aria-label="مسار التنقل" class="text-xs text-slate-500 mb-5"><a href="../index.html">الرئيسية</a> <span aria-hidden="true"> / </span><a href="../pages/web-development.html">تطوير المواقع</a> <span aria-hidden="true"> / </span><span>مشروع HTML متكامل للمبتدئين: بناء موقع من عدة صفحات</span></nav>
+<article class="bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden">
+<img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85" alt="مشروع HTML متكامل للمبتدئين: بناء موقع من عدة صفحات" width="1400" height="788" loading="eager" fetchpriority="high" decoding="async" class="w-full aspect-video object-cover">
+<div class="p-6 sm:p-10">
+<div class="flex flex-wrap gap-2 mb-4"><span class="bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-full">تطوير المواقع</span><time datetime="2026-10-14" class="text-xs text-slate-500 px-2 py-1.5">14 أكتوبر 2026</time></div>
+<h1 class="text-2xl sm:text-4xl font-black leading-tight text-slate-950 dark:text-white">مشروع HTML متكامل للمبتدئين: بناء موقع من عدة صفحات</h1>
+<p class="mt-5 text-base leading-8 text-slate-600 dark:text-slate-300">طبّق دروس HTML في مشروع صغير متعدد الصفحات يتضمن التنقل والمقالات والصور ونموذج تواصل وبنية قابلة للصيانة.</p>
+<div class="mt-8 prose prose-slate max-w-none dark:prose-invert"><h2>فكرة المشروع</h2><p>سننشئ موقعًا تعليميًا صغيرًا من ثلاث صفحات: الرئيسية، صفحة المقالات، وصفحة التواصل. الهدف التدرب على البنية والروابط والنماذج وإمكانية الوصول، وليس إنشاء نظام خلفي كامل.</p><h2>تنظيم الملفات</h2><pre><code>my-site/
+  index.html
+  articles/
+    index.html
+    first-lesson.html
+  contact.html
+  assets/
+    css/style.css
+    images/</code></pre><h2>قالب الصفحة</h2><pre><code>&lt;!doctype html&gt;
+&lt;html lang="ar" dir="rtl"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+  &lt;title&gt;موقعي التعليمي&lt;/title&gt;
+  &lt;meta name="description" content="موقع تعليمي يقدم دروسًا عملية للمبتدئين."&gt;
+  &lt;link rel="stylesheet" href="assets/css/style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;&lt;a href="index.html"&gt;الرئيسية&lt;/a&gt;&lt;/header&gt;
+  &lt;main&gt;&lt;h1&gt;مرحبًا بك&lt;/h1&gt;&lt;p&gt;ابدأ باستكشاف الدروس.&lt;/p&gt;&lt;/main&gt;
+  &lt;footer&gt;معلومات الموقع&lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><p>المسارات في المثال صحيحة لصفحة الجذر فقط؛ داخل مجلد <code>articles</code> تحتاج غالبًا إلى <code>../assets/...</code> أو روابط نسبية ملائمة لموضع الملف.</p><h2>التنقل والروابط</h2><p>أضف قائمة تنقل دلالية باستخدام <code>nav</code>، واكتب نصوص روابط تصف الوجهة. اختبر كل رابط بعد نقل الملفات، وتجنب الاعتماد على مسارات تعمل محليًا فقط أو على حالة أحرف مختلفة بين أنظمة التشغيل.</p><h2>صفحة التواصل</h2><pre><code>&lt;form action="/contact" method="post"&gt;
+  &lt;label for="name"&gt;الاسم&lt;/label&gt;
+  &lt;input id="name" name="name" autocomplete="name" required&gt;
+  &lt;label for="email"&gt;البريد الإلكتروني&lt;/label&gt;
+  &lt;input id="email" name="email" type="email" autocomplete="email" required&gt;
+  &lt;button type="submit"&gt;إرسال&lt;/button&gt;
+&lt;/form&gt;</code></pre><p>هذا النموذج يحتاج إلى خادم أو خدمة نماذج تستقبل الطلبات؛ HTML وحدها لا ترسل الرسائل إلى بريدك.</p><h2>قائمة التسليم</h2><ul><li>لكل صفحة عنوان ووصف وH1 واضح.</li><li>كل الصور لها نص بديل مناسب وأبعاد محددة.</li><li>التنقل يعمل بلوحة المفاتيح وعلى الهاتف.</li><li>الروابط والملفات لا تعيد أخطاء.</li><li>اختبر الصفحات باستخدام مدقق HTML، ثم راجع التصميم والتباين.</li></ul><p>بعد إنهاء المشروع، ارجع إلى <a href="html-document-structure.html">درس بنية المستند</a> و<a href="html-forms-basics.html">درس النماذج</a> لتحسين التفاصيل.</p>
+<h2>مراجع موثوقة</h2><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener noreferrer">MDN Web Docs: HTML</a></li><li><a href="https://html.spec.whatwg.org/" target="_blank" rel="noopener noreferrer">WHATWG HTML Living Standard</a></li><li><a href="https://www.w3.org/WAI/" target="_blank" rel="noopener noreferrer">W3C Web Accessibility Initiative</a></li></ul>
+<h2>تابع سلسلة HTML</h2><p>تابع الدروس السابقة: <a href="html-what-is-html.html">ما هي HTML؟</a>، <a href="html-document-structure.html">بنية مستند HTML</a>، <a href="html-text-headings-links.html">العناوين والفقرات والروابط</a>، <a href="html-lists-images.html">القوائم والصور</a>، و<a href="html-forms-basics.html">أساسيات النماذج</a>.</p>
+</div>
+</div>
+</article>
+</main>
+<div data-site-footer></div>
+<script src="../assets/js/site.js?v=20261012-images1" defer></script>
+</body>
+</html>
