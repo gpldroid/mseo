@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b1220">
+<meta name="color-scheme" content="light dark">
+<title>عنصر iframe في HTML: التضمين والأمان والخصوصية | MSEO</title>
+<meta name="description" content="تعرف إلى iframe وخصائص title وloading وsandbox ومتى ينبغي تجنب تضمين محتوى خارجي.">
+<meta name="keywords" content="HTML, تعلم HTML, شرح HTML بالعربية, دروس HTML للمبتدئين">
+<meta name="author" content="MSEO Editorial">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://gpldroid.github.io/mseo/articles/html-iframe-security.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="عنصر iframe في HTML: التضمين والأمان والخصوصية">
+<meta property="og:description" content="تعرف إلى iframe وخصائص title وloading وsandbox ومتى ينبغي تجنب تضمين محتوى خارجي.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=85">
+<meta property="og:image:alt" content="عنصر iframe في HTML: التضمين والأمان والخصوصية">
+<meta property="og:url" content="https://gpldroid.github.io/mseo/articles/html-iframe-security.html">
+<meta property="og:site_name" content="MSEO">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="عنصر iframe في HTML: التضمين والأمان والخصوصية">
+<meta name="twitter:description" content="تعرف إلى iframe وخصائص title وloading وsandbox ومتى ينبغي تجنب تضمين محتوى خارجي.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=85">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"عنصر iframe في HTML: التضمين والأمان والخصوصية","description":"تعرف إلى iframe وخصائص title وloading وsandbox ومتى ينبغي تجنب تضمين محتوى خارجي.","image":["https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=85"],"datePublished":"2026-10-14","author":{"@type":"Organization","name":"MSEO Editorial"},"publisher":{"@type":"Organization","name":"MSEO","url":"https://gpldroid.github.io/mseo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://gpldroid.github.io/mseo/articles/html-iframe-security.html"}}</script>
+<link rel="stylesheet" href="../assets/css/style.css?v=20261012-images1">
+</head>
+<body>
+<div data-site-header></div>
+<main class="max-w-4xl mx-auto px-4 py-8">
+<nav aria-label="مسار التنقل" class="text-xs text-slate-500 mb-5"><a href="../index.html">الرئيسية</a> <span aria-hidden="true"> / </span><a href="../pages/web-development.html">تطوير المواقع</a> <span aria-hidden="true"> / </span><span>عنصر iframe في HTML: التضمين والأمان والخصوصية</span></nav>
+<article class="bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden">
+<img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=85" alt="عنصر iframe في HTML: التضمين والأمان والخصوصية" width="1400" height="788" loading="eager" fetchpriority="high" decoding="async" class="w-full aspect-video object-cover">
+<div class="p-6 sm:p-10">
+<div class="flex flex-wrap gap-2 mb-4"><span class="bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-full">تطوير المواقع</span><time datetime="2026-10-14" class="text-xs text-slate-500 px-2 py-1.5">14 أكتوبر 2026</time></div>
+<h1 class="text-2xl sm:text-4xl font-black leading-tight text-slate-950 dark:text-white">عنصر iframe في HTML: التضمين والأمان والخصوصية</h1>
+<p class="mt-5 text-base leading-8 text-slate-600 dark:text-slate-300">تعرف إلى iframe وخصائص title وloading وsandbox ومتى ينبغي تجنب تضمين محتوى خارجي.</p>
+<div class="mt-8 prose prose-slate max-w-none dark:prose-invert"><h2>ما وظيفة iframe؟</h2><p>يعرض <code>iframe</code> صفحة أو محتوى خارجيًا داخل سياق الصفحة الحالية. قد يُستخدم لخرائط أو فيديو أو مستندات، لكنه يضيف موردًا خارجيًا وقد يؤثر في الأداء والخصوصية.</p><h2>مثال أساسي</h2><pre><code>&lt;iframe
+  src="https://example.com/embed"
+  title="محتوى توضيحي مضمّن"
+  width="640"
+  height="360"
+  loading="lazy"
+  referrerpolicy="strict-origin-when-cross-origin"&gt;
+&lt;/iframe&gt;</code></pre><p>استبدل عنوان المثال بمصدر موثوق يسمح بالتضمين. يشرح <code>title</code> وظيفة الإطار لمستخدمي تقنيات الوصول، بينما يساعد <code>loading="lazy"</code> في تأجيل تحميل الإطارات البعيدة عن مجال الرؤية.</p><h2>تقليل المخاطر</h2><p>تتيح <code>sandbox</code> فرض قيود على المحتوى المضمّن. ابدأ بأقل الصلاحيات ثم أضف ما تتطلبه الوظيفة فقط؛ الجمع بين <code>allow-scripts</code> و<code>allow-same-origin</code> قد يضعف العزل في بعض السيناريوهات، خصوصًا للمحتوى من المصدر نفسه. اختبر الوظيفة قبل نشر القيود.</p><pre><code>&lt;iframe src="https://example.com/embed" title="عرض تجريبي" sandbox loading="lazy"&gt;&lt;/iframe&gt;</code></pre><h2>الخصوصية والأداء</h2><p>لا تضمّن خدمات خارجية تلقائيًا إذا كانت ستتصل بخوادمها قبل أن يتوقع المستخدم ذلك. افهم سياسة الخصوصية وشروط الخدمة، ووفّر رابطًا بديلًا عند تعذر التضمين. اضبط الأبعاد لتقليل قفزات التخطيط.</p><h2>متى لا تستخدمه؟</h2><p>لا تستخدم iframe لمجرد تنسيق الصفحة أو عرض محتوى تستطيع كتابته مباشرة في HTML. كلما أمكن استخدام عنصر أصلي بسيط كان ذلك أسهل في الصيانة والوصول.</p>
+<h2>مراجع موثوقة</h2><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener noreferrer">MDN Web Docs: HTML</a></li><li><a href="https://html.spec.whatwg.org/" target="_blank" rel="noopener noreferrer">WHATWG HTML Living Standard</a></li><li><a href="https://www.w3.org/WAI/" target="_blank" rel="noopener noreferrer">W3C Web Accessibility Initiative</a></li></ul>
+<h2>تابع سلسلة HTML</h2><p>تابع الدروس السابقة: <a href="html-what-is-html.html">ما هي HTML؟</a>، <a href="html-document-structure.html">بنية مستند HTML</a>، <a href="html-text-headings-links.html">العناوين والفقرات والروابط</a>، <a href="html-lists-images.html">القوائم والصور</a>، و<a href="html-forms-basics.html">أساسيات النماذج</a>.</p>
+</div>
+</div>
+</article>
+</main>
+<div data-site-footer></div>
+<script src="../assets/js/site.js?v=20261012-images1" defer></script>
+</body>
+</html>

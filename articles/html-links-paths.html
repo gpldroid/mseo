@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b1220">
+<meta name="color-scheme" content="light dark">
+<title>روابط HTML والمسارات: الروابط الداخلية والخارجية والملفات | MSEO</title>
+<meta name="description" content="افهم href والمسارات النسبية والمطلقة وكيف تكتب روابط واضحة وآمنة داخل مواقع HTML.">
+<meta name="keywords" content="HTML, تعلم HTML, شرح HTML بالعربية, دروس HTML للمبتدئين">
+<meta name="author" content="MSEO Editorial">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://gpldroid.github.io/mseo/articles/html-links-paths.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="روابط HTML والمسارات: الروابط الداخلية والخارجية والملفات">
+<meta property="og:description" content="افهم href والمسارات النسبية والمطلقة وكيف تكتب روابط واضحة وآمنة داخل مواقع HTML.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85">
+<meta property="og:image:alt" content="روابط HTML والمسارات: الروابط الداخلية والخارجية والملفات">
+<meta property="og:url" content="https://gpldroid.github.io/mseo/articles/html-links-paths.html">
+<meta property="og:site_name" content="MSEO">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="روابط HTML والمسارات: الروابط الداخلية والخارجية والملفات">
+<meta name="twitter:description" content="افهم href والمسارات النسبية والمطلقة وكيف تكتب روابط واضحة وآمنة داخل مواقع HTML.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"روابط HTML والمسارات: الروابط الداخلية والخارجية والملفات","description":"افهم href والمسارات النسبية والمطلقة وكيف تكتب روابط واضحة وآمنة داخل مواقع HTML.","image":["https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85"],"datePublished":"2026-10-14","author":{"@type":"Organization","name":"MSEO Editorial"},"publisher":{"@type":"Organization","name":"MSEO","url":"https://gpldroid.github.io/mseo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://gpldroid.github.io/mseo/articles/html-links-paths.html"}}</script>
+<link rel="stylesheet" href="../assets/css/style.css?v=20261012-images1">
+</head>
+<body>
+<div data-site-header></div>
+<main class="max-w-4xl mx-auto px-4 py-8">
+<nav aria-label="مسار التنقل" class="text-xs text-slate-500 mb-5"><a href="../index.html">الرئيسية</a> <span aria-hidden="true"> / </span><a href="../pages/web-development.html">تطوير المواقع</a> <span aria-hidden="true"> / </span><span>روابط HTML والمسارات: الروابط الداخلية والخارجية والملفات</span></nav>
+<article class="bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden">
+<img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85" alt="روابط HTML والمسارات: الروابط الداخلية والخارجية والملفات" width="1400" height="788" loading="eager" fetchpriority="high" decoding="async" class="w-full aspect-video object-cover">
+<div class="p-6 sm:p-10">
+<div class="flex flex-wrap gap-2 mb-4"><span class="bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-full">تطوير المواقع</span><time datetime="2026-10-14" class="text-xs text-slate-500 px-2 py-1.5">14 أكتوبر 2026</time></div>
+<h1 class="text-2xl sm:text-4xl font-black leading-tight text-slate-950 dark:text-white">روابط HTML والمسارات: الروابط الداخلية والخارجية والملفات</h1>
+<p class="mt-5 text-base leading-8 text-slate-600 dark:text-slate-300">افهم href والمسارات النسبية والمطلقة وكيف تكتب روابط واضحة وآمنة داخل مواقع HTML.</p>
+<div class="mt-8 prose prose-slate max-w-none dark:prose-invert"><h2>الرابط في HTML</h2><p>ينشئ العنصر <code>a</code> رابطًا عندما يحتوي على الخاصية <code>href</code>. يجب أن يوضح نص الرابط وجهته أو الإجراء المتوقع بدل الاعتماد على عبارة عامة.</p><pre><code>&lt;a href="../articles/html-lists-images.html"&gt;شرح القوائم والصور&lt;/a&gt;
+&lt;a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener noreferrer"&gt;مرجع HTML على MDN&lt;/a&gt;</code></pre><h2>المسارات النسبية والمطلقة</h2><p>المسار النسبي مثل <code>../articles/example.html</code> يُفسر انطلاقًا من موقع الملف الحالي. أما الرابط المطلق فيتضمن البروتوكول واسم النطاق مثل <code>https://example.com/page</code>. استخدم المسارات النسبية للملفات داخل المشروع عندما تكون البنية ثابتة، والرابط المطلق عند الحاجة إلى وجهة كاملة.</p><h2>روابط المراسي والتنزيل</h2><pre><code>&lt;a href="#examples"&gt;انتقل إلى الأمثلة&lt;/a&gt;
+&lt;h2 id="examples"&gt;الأمثلة&lt;/h2&gt;
+&lt;a href="../files/guide.pdf" download&gt;تنزيل الدليل&lt;/a&gt;</code></pre><p>يجب أن تكون قيمة <code>id</code> فريدة داخل الصفحة. وقد يتجاهل المتصفح الخاصية <code>download</code> أو يتعامل معها بشكل مختلف بحسب المصدر وسياسات المتصفح.</p><h2>الأمان والوضوح</h2><p>إذا فتحت رابطًا في تبويب جديد باستخدام <code>target="_blank"</code>، فاستخدم <code>rel="noopener noreferrer"</code> كإجراء محافظ متوافق مع المتصفحات. لا تجعل الرابط يفتح نافذة جديدة دون حاجة، ونبّه المستخدم إذا كان سينتقل إلى ملف أو موقع خارجي عندما يكون ذلك مفيدًا.</p><h2>قائمة فحص</h2><ul><li>اختبر الروابط بعد نقل الملفات أو تغيير أسماءها.</li><li>تأكد من عدم وجود روابط مكسورة أو وجهات فارغة.</li><li>اجعل نص الرابط مفهومًا حتى خارج سياق الفقرة.</li></ul>
+<h2>مراجع موثوقة</h2><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener noreferrer">MDN Web Docs: HTML</a></li><li><a href="https://html.spec.whatwg.org/" target="_blank" rel="noopener noreferrer">WHATWG HTML Living Standard</a></li><li><a href="https://www.w3.org/WAI/" target="_blank" rel="noopener noreferrer">W3C Web Accessibility Initiative</a></li></ul>
+<h2>تابع سلسلة HTML</h2><p>تابع الدروس السابقة: <a href="html-what-is-html.html">ما هي HTML؟</a>، <a href="html-document-structure.html">بنية مستند HTML</a>، <a href="html-text-headings-links.html">العناوين والفقرات والروابط</a>، <a href="html-lists-images.html">القوائم والصور</a>، و<a href="html-forms-basics.html">أساسيات النماذج</a>.</p>
+</div>
+</div>
+</article>
+</main>
+<div data-site-footer></div>
+<script src="../assets/js/site.js?v=20261012-images1" defer></script>
+</body>
+</html>
