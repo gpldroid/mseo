@@ -46,6 +46,10 @@ function upsertMeta(head, attr, key, value) {
   const tag = '<meta ' + attr + '="' + key + '" content="' + esc(value) + '">';
   return re.test(head) ? head.replace(re, tag) : head + '\n' + tag;
 }
+function removeMeta(head, attr, key) {
+  const re = new RegExp('\\s*<meta\\b(?=[^>]*\\b' + attr + '\\s*=\\s*["\\x27]' + key + '["\\x27])[^>]*>', 'ig');
+  return head.replace(re, '');
+}
 await walk(root);
 await mkdir(previewDir, { recursive: true });
 let generated = 0, reused = 0, metadataFixed = 0;
@@ -62,6 +66,7 @@ for (const file of htmlFiles) {
   const main = mainMatch ? mainMatch[1] : '';
   const imgMatch = main.match(/<img\b[^>]*>/i);
   let imageUrl = '';
+  let generatedFallback = false;
   if (imgMatch) {
     const src = getAttr(imgMatch[0], 'src').trim();
     if (src && !/^(data:|blob:|javascript:)/i.test(src)) {
@@ -74,6 +79,7 @@ for (const file of htmlFiles) {
     const assetRel = 'assets/images/social-previews/' + slug + '.svg';
     await writeFile(path.join(root, assetRel), makeSvg(title, description, rel.split('/')[0]), 'utf8');
     imageUrl = new URL(assetRel, siteBase).href;
+    generatedFallback = true;
     // Keep fallback previews in metadata only. Never inject a second image into page content.
     generated++;
   }
@@ -82,8 +88,13 @@ for (const file of htmlFiles) {
   head = upsertMeta(head, 'property', 'og:image:alt', title);
   head = upsertMeta(head, 'name', 'twitter:card', 'summary_large_image');
   head = upsertMeta(head, 'name', 'twitter:image', imageUrl);
-  head = upsertMeta(head, 'property', 'og:image:width', '1200');
-  head = upsertMeta(head, 'property', 'og:image:height', '630');
+  if (generatedFallback) {
+    head = upsertMeta(head, 'property', 'og:image:width', '1200');
+    head = upsertMeta(head, 'property', 'og:image:height', '630');
+  } else {
+    head = removeMeta(head, 'property', 'og:image:width');
+    head = removeMeta(head, 'property', 'og:image:height');
+  }
   if (head !== originalHead) metadataFixed++;
   const rebuiltHead = '<head' + ((headMatch[0].match(/^<head\b([^>]*)>/i) || [,''])[1]) + '>' + head + '</head>';
   html = html.replace(headMatch[0], rebuiltHead);
