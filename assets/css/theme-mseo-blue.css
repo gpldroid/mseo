@@ -195,3 +195,96 @@ html[data-theme="mseo-blue"] .mseo-footer {
     animation-iteration-count: 1 !important;
   }
 }
+
+/* Button palette refinement: royal blue + teal + clear focus states. */
+html[data-theme="mseo-blue"] {
+  --button-primary: #2563eb;
+  --button-primary-hover: #1d4ed8;
+  --button-secondary: #0f766e;
+  --button-secondary-hover: #115e59;
+  --button-focus: #22d3ee;
+}
+html[data-theme="mseo-blue"] .button,
+html[data-theme="mseo-blue"] button,
+html[data-theme="mseo-blue"] .site-primary,
+html[data-theme="mseo-blue"] .site-secondary,
+html[data-theme="mseo-blue"] input[type="button"],
+html[data-theme="mseo-blue"] input[type="submit"],
+html[data-theme="mseo-blue"] input[type="reset"],
+html[data-theme="mseo-blue"] .mseo-search-panel button {
+  transition: background-color .2s ease, border-color .2s ease, color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+html[data-theme="mseo-blue"] .button-primary,
+html[data-theme="mseo-blue"] .site-primary,
+html[data-theme="mseo-blue"] button[type="submit"],
+html[data-theme="mseo-blue"] input[type="submit"] {
+  background: var(--button-primary);
+  border-color: var(--button-primary);
+  color: #fff;
+}
+html[data-theme="mseo-blue"] .button-primary:hover,
+html[data-theme="mseo-blue"] .site-primary:hover,
+html[data-theme="mseo-blue"] button[type="submit"]:hover,
+html[data-theme="mseo-blue"] input[type="submit"]:hover {
+  background: var(--button-primary-hover);
+  border-color: var(--button-primary-hover);
+  color: #fff;
+  box-shadow: 0 5px 14px rgba(37, 99, 235, .22);
+}
+html[data-theme="mseo-blue"] .button-secondary,
+html[data-theme="mseo-blue"] .site-secondary {
+  background: var(--button-secondary);
+  border-color: var(--button-secondary);
+  color: #fff;
+}
+html[data-theme="mseo-blue"] .button-secondary:hover,
+html[data-theme="mseo-blue"] .site-secondary:hover {
+  background: var(--button-secondary-hover);
+  border-color: var(--button-secondary-hover);
+  color: #fff;
+  box-shadow: 0 5px 14px rgba(15, 118, 110, .2);
+}
+html[data-theme="mseo-blue"] .hero .button-primary {
+  background: #22d3ee;
+  border-color: #22d3ee;
+  color: #083344;
+}
+html[data-theme="mseo-blue"] .hero .button-primary:hover {
+  background: #67e8f9;
+  border-color: #67e8f9;
+  color: #083344;
+}
+html[data-theme="mseo-blue"] .hero .button-secondary {
+  background: rgba(255, 255, 255, .12);
+  border-color: rgba(255, 255, 255, .5);
+  color: #fff;
+}
+html[data-theme="mseo-blue"] .hero .button-secondary:hover {
+  background: rgba(255, 255, 255, .22);
+  border-color: #fff;
+}
+html[data-theme="mseo-blue"] .mseo-search-panel button,
+html[data-theme="mseo-blue"] .toolbar button {
+  background: #2563eb;
+  border-color: #2563eb;
+  color: #fff;
+}
+html[data-theme="mseo-blue"] .mseo-search-panel button:hover,
+html[data-theme="mseo-blue"] .toolbar button:hover {
+  background: #1d4ed8;
+  border-color: #1d4ed8;
+}
+html[data-theme="mseo-blue"] button:focus-visible,
+html[data-theme="mseo-blue"] a.button:focus-visible,
+html[data-theme="mseo-blue"] input[type="button"]:focus-visible,
+html[data-theme="mseo-blue"] input[type="submit"]:focus-visible {
+  outline: 3px solid #22d3ee;
+  outline-offset: 3px;
+}
+html[data-theme="mseo-blue"] button:disabled,
+html[data-theme="mseo-blue"] .button:disabled {
+  opacity: .55;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
