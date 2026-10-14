@@ -74,7 +74,21 @@
 &lt;/body&gt;
 &lt;/html&gt;</code></pre><p>تحقق من الصفحة عبر أداة فحص HTML، ثم اختبرها على شاشة ضيقة. البنية الصحيحة تقلل أخطاء العرض لكنها لا تضمن وحدها جودة المحتوى أو ترتيبه في نتائج البحث.</p>
 </div>
-</div></article>
+<section data-batch-deepening="true"><h2>قالب بداية مناسب لصفحة عربية</h2><p>من المفيد البدء بقالب صغير ثابت ثم إضافة ما تحتاج إليه فعلًا. خاصية <code>lang</code> تعرّف لغة المستند، و<code>dir</code> تحدد اتجاه الكتابة الافتراضي، أما الترميز فيجب التصريح به مبكرًا حتى تُعرض الأحرف العربية بصورة صحيحة.</p><pre><code>&lt;!doctype html&gt;
+&lt;html lang="ar" dir="rtl"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+  &lt;title&gt;عنوان يصف الصفحة&lt;/title&gt;
+  &lt;meta name="description" content="ملخص دقيق لمحتوى الصفحة."&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;main&gt;
+    &lt;h1&gt;العنوان الرئيسي&lt;/h1&gt;
+    &lt;p&gt;محتوى الصفحة هنا.&lt;/p&gt;
+  &lt;/main&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><p>ضع المعلومات التي تصف الصفحة والموارد المطلوبة داخل <code>head</code>، بينما يوضع المحتوى الذي يراه المستخدم داخل <code>body</code>. لا تكرر <code>id</code> داخل المستند، ولا تضف وسومًا وصفية لمجرد ملء الرأس؛ استخدم البيانات التي تعكس المحتوى الحقيقي.</p><h2>تحقق من المستند عند التطوير</h2><ul><li>تأكد من وجود عنوان صفحة فريد ومفيد.</li><li>اختبر الصفحة مع تكبير النص وعلى شاشة صغيرة.</li><li>راجع ترتيب العناوين وبنية العناصر باستخدام أدوات المطور.</li><li>مرّر المستند عبر <a href="https://validator.w3.org/" target="_blank" rel="noopener noreferrer">مدقق W3C</a> لمعرفة أخطاء الترميز.</li></ul></section></div></article>
 </main>
 <div data-site-footer></div>
 <script src="../assets/js/site.js?v=20261012-images1" defer></script>
