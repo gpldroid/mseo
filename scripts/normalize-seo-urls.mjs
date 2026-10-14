@@ -6,7 +6,6 @@ const fallbackBase = 'https://gpldroid.github.io/mseo/';
 const siteBase = new URL(process.env.URL || fallbackBase);
 if (!siteBase.pathname.endsWith('/')) siteBase.pathname += '/';
 const canonicalPrefix = siteBase.href.replace(/\/$/, '');
-const legacyPrefix = 'https://gpldroid.github.io/mseo';
 const excludedDirs = new Set(['.git', 'node_modules', 'dist', 'admin-dashboard']);
 const excludedFiles = new Set(['404.html', 'pages/admin.html']);
 let updated = 0;
