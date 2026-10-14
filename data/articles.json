@@ -1,5 +1,334 @@
 [
   {
+    "slug": "html-advanced-inputs",
+    "file": "html-advanced-inputs.html",
+    "title": "أنواع حقول HTML المتقدمة: date وnumber وcheckbox وradio",
+    "category": "تطوير المواقع",
+    "subcategory": "HTML",
+    "tags": [
+      "HTML",
+      "input",
+      "نماذج HTML",
+      "checkbox",
+      "radio"
+    ],
+    "description": "تعرف إلى أنواع input المناسبة لاختيار التاريخ والأرقام والخيارات المتعددة والاختيار الأحادي مع أمثلة واضحة.",
+    "icon": "fa-code",
+    "image": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1400&q=85"
+  },
+  {
+    "slug": "html-audio-video",
+    "file": "html-audio-video.html",
+    "title": "الصوت والفيديو في HTML: استخدام audio وvideo وtrack",
+    "category": "تطوير المواقع",
+    "subcategory": "HTML",
+    "tags": [
+      "HTML",
+      "audio",
+      "video",
+      "وسائط الويب"
+    ],
+    "description": "تعلم تضمين الصوت والفيديو بعناصر HTML الأصلية وإضافة عناصر التحكم والترجمة مع مراعاة الوصول والأداء.",
+    "icon": "fa-code",
+    "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85"
+  },
+  {
+    "slug": "html-css-js-roles",
+    "file": "html-css-js-roles.html",
+    "title": "كيف تتعاون HTML وCSS وJavaScript في صفحة الويب؟",
+    "category": "تطوير المواقع",
+    "subcategory": "HTML",
+    "tags": [
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "تطوير الويب"
+    ],
+    "description": "افهم دور HTML في البنية وCSS في العرض وJavaScript في التفاعل من خلال مثال صغير قابل للتطوير.",
+    "icon": "fa-code",
+    "image": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=85"
+  },
+  {
+    "slug": "html-document-structure",
+    "file": "html-document-structure.html",
+    "title": "بنية صفحة HTML: شرح doctype وhead وbody ووسوم meta",
+    "category": "تطوير المواقع",
+    "subcategory": "HTML",
+    "tags": [
+      "HTML",
+      "doctype",
+      "head",
+      "body",
+      "meta"
+    ],
+    "description": "افهم بنية مستند HTML من البداية، ودور doctype وhtml وhead وbody ووسوم meta، مع مثال عربي صحيح وأخطاء يجب تجنبها.",
+    "icon": "fa-code",
+    "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=85"
+  },
+  {
+    "slug": "html-form-validation-accessibility",
+    "file": "html-form-validation-accessibility.html",
+    "title": "التحقق من نماذج HTML وإتاحة رسائل الخطأ",
+    "category": "تطوير المواقع",
+    "subcategory": "HTML",
+    "tags": [
+      "HTML",
+      "التحقق من النماذج",
+      "إمكانية الوصول",
+      "validation"
+    ],
+    "description": "تعلم استخدام required وpattern وminlength مع رسائل خطأ مفهومة وتجربة نموذج يمكن الوصول إليها.",
+    "icon": "fa-code",
+    "image": "https://images.unsplash.com/photo-1555065973-?auto=format&fit=crop&w=1400&q=85"
+  },
+  {
+    "slug": "html-forms-basics",
+    "file": "html-forms-basics.html",
+    "title": "نماذج HTML للمبتدئين: input وlabel وbutton والتحقق الأساسي",
+    "category": "تطوير المواقع",
+    "subcategory": "HTML",
+    "tags": [
+      "HTML",
+      "النماذج",
+      "input",
+      "label",
+      "button"
+    ],
+    "description": "تعلم إنشاء نموذج HTML واضح وسهل الوصول، مع label وinput وأنواع الحقول والأزرار وخصائص التحقق المدمجة وأفضل الممارسات.",
+    "icon": "fa-code",
+    "image": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1400&q=85"
+  },
+  {
+    "slug": "html-global-attributes-data",
+    "file": "html-global-attributes-data.html",
+    "title": "خصائص HTML العامة: id وclass وlang وdata-* وhidden",
+    "category": "تطوير المواقع",
+    "subcategory": "HTML",
+    "tags": [
+      "HTML",
+      "id",
+      "class",
+      "data attributes",
+      "lang"
+    ],
+    "description": "شرح الخصائص العامة التي يمكن استخدامها مع عناصر HTML لتنظيم المحتوى وربطه بالأنماط والسلوك البرمجي.",
+    "icon": "fa-code",
+    "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85"
+  },
+  {
+    "slug": "html-iframe-security",
+    "file": "html-iframe-security.html",
+    "title": "عنصر iframe في HTML: التضمين والأمان والخصوصية",
+    "category": "تطوير المواقع",
+    "subcategory": "HTML",
+    "tags": [
+      "HTML",
+      "iframe",
+      "الأمان",
+      "الخصوصية"
+    ],
+    "description": "تعرف إلى iframe وخصائص title وloading وsandbox ومتى ينبغي تجنب تضمين محتوى خارجي.",
+    "icon": "fa-code",
+    "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1400&q=85"
+  },
+  {
+    "slug": "html-keyboard-accessibility",
+    "file": "html-keyboard-accessibility.html",
+    "title": "إمكانية الوصول في HTML: لوحة المفاتيح والتركيز وقارئات الشاشة",
+    "category": "تطوير المواقع",
+    "subcategory": "HTML",
+    "tags": [
+      "HTML",
+      "إمكانية الوصول",
+      "لوحة المفاتيح",
+      "قارئات الشاشة"
+    ],
+    "description": "خطوات عملية لتحسين وصول صفحات HTML باستخدام العناصر الأصلية وتسميات واضحة وترتيب تركيز منطقي.",
+    "icon": "fa-code",
+    "image": "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1400&q=85"
+  },
+  {
+    "slug": "html-links-paths",
+    "file": "html-links-paths.html",
+    "title": "روابط HTML والمسارات: الروابط الداخلية والخارجية والملفات",
+    "category": "تطوير المواقع",
+    "subcategory": "HTML",
+    "tags": [
+      "HTML",
+      "الروابط",
+      "href",
+      "المسارات"
+    ],
+    "description": "افهم href والمسارات النسبية والمطلقة وكيف تكتب روابط واضحة وآمنة داخل مواقع HTML.",
+    "icon": "fa-code",
+    "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1400&q=85"
+  },
+  {
+    "slug": "html-lists-images",
+    "file": "html-lists-images.html",
+    "title": "القوائم والصور في HTML: أمثلة عملية مع النص البديل",
+    "category": "تطوير المواقع",
+    "subcategory": "HTML",
+    "tags": [
+      "HTML",
+      "القوائم",
+      "الصور",
+      "alt"
+    ],
+    "description": "تعلم إنشاء القوائم المرتبة وغير المرتبة وقوائم التعريف، وإضافة الصور في HTML مع alt مناسب وأبعاد تساعد على تجربة أفضل.",
+    "icon": "fa-code",
+    "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=85"
+  },
+  {
+    "slug": "html-multipage-project",
+    "file": "html-multipage-project.html",
+    "title": "مشروع HTML متكامل للمبتدئين: بناء موقع من عدة صفحات",
+    "category": "تطوير المواقع",
+    "subcategory": "HTML",
+    "tags": [
+      "HTML",
+      "مشروع عملي",
+      "صفحات متعددة",
+      "المبتدئين"
+    ],
+    "description": "طبّق دروس HTML في مشروع صغير متعدد الصفحات يتضمن التنقل والمقالات والصور ونموذج تواصل وبنية قابلة للصيانة.",
+    "icon": "fa-code",
+    "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85"
+  },
+  {
+    "slug": "html-performance-loading",
+    "file": "html-performance-loading.html",
+    "title": "أداء HTML: التحميل الكسول وdefer وpreload وقياس السرعة",
+    "category": "تطوير المواقع",
+    "subcategory": "HTML",
+    "tags": [
+      "HTML",
+      "الأداء",
+      "lazy loading",
+      "defer",
+      "preload"
+    ],
+    "description": "تحسين تحميل موارد الصفحة باستخدام خصائص HTML المناسبة مع فهم trade-offs وتجنب التحسينات العشوائية.",
+    "icon": "fa-code",
+    "image": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1400&q=85"
+  },
+  {
+    "slug": "html-responsive-images",
+    "file": "html-responsive-images.html",
+    "title": "الصور المتجاوبة في HTML: srcset وsizes وpicture",
+    "category": "تطوير المواقع",
+    "subcategory": "HTML",
+    "tags": [
+      "HTML",
+      "الصور المتجاوبة",
+      "srcset",
+      "sizes",
+      "picture"
+    ],
+    "description": "تعلم اختيار الصور المناسبة لأحجام الشاشات وكثافات العرض باستخدام srcset وsizes وpicture.",
+    "icon": "fa-code",
+    "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85"
+  },
+  {
+    "slug": "html-semantic-elements",
+    "file": "html-semantic-elements.html",
+    "title": "عناصر HTML الدلالية: استخدام header وmain وnav وarticle",
+    "category": "تطوير المواقع",
+    "subcategory": "HTML",
+    "tags": [
+      "HTML",
+      "Semantic HTML",
+      "header",
+      "main",
+      "nav",
+      "إمكانية الوصول"
+    ],
+    "description": "تعرف إلى العناصر الدلالية في HTML وكيف تختار البنية المناسبة لتحسين وضوح الصفحة وإمكانية الوصول.",
+    "icon": "fa-code",
+    "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=85"
+  },
+  {
+    "slug": "html-seo-metadata",
+    "file": "html-seo-metadata.html",
+    "title": "أساسيات SEO في HTML: title وdescription وcanonical والبيانات المنظمة",
+    "category": "تطوير المواقع",
+    "subcategory": "HTML",
+    "tags": [
+      "HTML",
+      "SEO",
+      "title",
+      "meta description",
+      "canonical"
+    ],
+    "description": "تعلم ضبط عناصر head المهمة لمحركات البحث مع أمثلة عملية وتجنب التكرار والتصريحات المضللة.",
+    "icon": "fa-code",
+    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=85"
+  },
+  {
+    "slug": "html-tables-caption",
+    "file": "html-tables-caption.html",
+    "title": "الجداول في HTML: th وtd وcaption وتنظيم البيانات",
+    "category": "تطوير المواقع",
+    "subcategory": "HTML",
+    "tags": [
+      "HTML",
+      "الجداول",
+      "caption",
+      "إمكانية الوصول"
+    ],
+    "description": "تعلم إنشاء جداول HTML مفهومة باستخدام caption وthead وtbody وth مع تحسين الوصول على الشاشات الصغيرة.",
+    "icon": "fa-code",
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=85"
+  },
+  {
+    "slug": "html-text-headings-links",
+    "file": "html-text-headings-links.html",
+    "title": "العناوين والفقرات والروابط في HTML: بناء محتوى سهل القراءة",
+    "category": "تطوير المواقع",
+    "subcategory": "HTML",
+    "tags": [
+      "HTML",
+      "العناوين",
+      "الفقرات",
+      "الروابط"
+    ],
+    "description": "تعلم تنظيم النصوص بعناوين HTML من h1 إلى h6، واستخدام الفقرات والروابط القابلة للوصول، مع أمثلة وأخطاء شائعة.",
+    "icon": "fa-code",
+    "image": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1400&q=85"
+  },
+  {
+    "slug": "html-validation-debugging",
+    "file": "html-validation-debugging.html",
+    "title": "التحقق من HTML وتصحيح الأخطاء: W3C وأدوات المتصفح",
+    "category": "تطوير المواقع",
+    "subcategory": "HTML",
+    "tags": [
+      "HTML",
+      "التحقق",
+      "تصحيح الأخطاء",
+      "W3C"
+    ],
+    "description": "تعلم اكتشاف أخطاء بنية HTML والروابط والخصائص باستخدام أدوات التحقق وفحص DOM في المتصفح.",
+    "icon": "fa-code",
+    "image": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1400&q=85"
+  },
+  {
+    "slug": "html-what-is-html",
+    "file": "html-what-is-html.html",
+    "title": "ما هي لغة HTML؟ دليل البداية لبناء أول صفحة ويب",
+    "category": "تطوير المواقع",
+    "subcategory": "HTML",
+    "tags": [
+      "HTML",
+      "المبتدئين",
+      "أول صفحة ويب",
+      "أساسيات HTML"
+    ],
+    "description": "تعرف على لغة HTML ودورها في بناء صفحات الويب، وكيف تكتب أول ملف HTML وتشغّله في المتصفح خطوة بخطوة، مع أمثلة عملية للمبتدئين.",
+    "icon": "fa-code",
+    "image": "https://images.unsplash.com/photo-1526378722484-bd91ca387e72?auto=format&fit=crop&w=1400&q=85"
+  },
+  {
     "slug": "ai-website-builder-guide",
     "file": "ai-website-builder-guide.html",
     "title": "كيفية إنشاء موقع احترافي بالذكاء الاصطناعي من الصفر في 2026",
@@ -532,314 +861,5 @@
     "icon": "fa-link",
     "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=85",
     "thumbnail": "assets/images/article-thumbnails/internal-linking-seo-guide.svg"
-  },
-  {
-    "slug": "html-advanced-inputs",
-    "file": "html-advanced-inputs.html",
-    "title": "أنواع حقول HTML المتقدمة: date وnumber وcheckbox وradio",
-    "category": "تطوير المواقع",
-    "subcategory": "HTML",
-    "tags": [
-      "HTML",
-      "input",
-      "نماذج HTML",
-      "checkbox",
-      "radio"
-    ],
-    "description": "تعرف إلى أنواع input المناسبة لاختيار التاريخ والأرقام والخيارات المتعددة والاختيار الأحادي مع أمثلة واضحة.",
-    "icon": "fa-code"
-  },
-  {
-    "slug": "html-audio-video",
-    "file": "html-audio-video.html",
-    "title": "الصوت والفيديو في HTML: استخدام audio وvideo وtrack",
-    "category": "تطوير المواقع",
-    "subcategory": "HTML",
-    "tags": [
-      "HTML",
-      "audio",
-      "video",
-      "وسائط الويب"
-    ],
-    "description": "تعلم تضمين الصوت والفيديو بعناصر HTML الأصلية وإضافة عناصر التحكم والترجمة مع مراعاة الوصول والأداء.",
-    "icon": "fa-code"
-  },
-  {
-    "slug": "html-css-js-roles",
-    "file": "html-css-js-roles.html",
-    "title": "كيف تتعاون HTML وCSS وJavaScript في صفحة الويب؟",
-    "category": "تطوير المواقع",
-    "subcategory": "HTML",
-    "tags": [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "تطوير الويب"
-    ],
-    "description": "افهم دور HTML في البنية وCSS في العرض وJavaScript في التفاعل من خلال مثال صغير قابل للتطوير.",
-    "icon": "fa-code"
-  },
-  {
-    "slug": "html-document-structure",
-    "file": "html-document-structure.html",
-    "title": "بنية صفحة HTML: شرح doctype وhead وbody ووسوم meta",
-    "category": "تطوير المواقع",
-    "subcategory": "HTML",
-    "tags": [
-      "HTML",
-      "doctype",
-      "head",
-      "body",
-      "meta"
-    ],
-    "description": "افهم بنية مستند HTML من البداية، ودور doctype وhtml وhead وbody ووسوم meta، مع مثال عربي صحيح وأخطاء يجب تجنبها.",
-    "icon": "fa-code"
-  },
-  {
-    "slug": "html-form-validation-accessibility",
-    "file": "html-form-validation-accessibility.html",
-    "title": "التحقق من نماذج HTML وإتاحة رسائل الخطأ",
-    "category": "تطوير المواقع",
-    "subcategory": "HTML",
-    "tags": [
-      "HTML",
-      "التحقق من النماذج",
-      "إمكانية الوصول",
-      "validation"
-    ],
-    "description": "تعلم استخدام required وpattern وminlength مع رسائل خطأ مفهومة وتجربة نموذج يمكن الوصول إليها.",
-    "icon": "fa-code"
-  },
-  {
-    "slug": "html-forms-basics",
-    "file": "html-forms-basics.html",
-    "title": "نماذج HTML للمبتدئين: input وlabel وbutton والتحقق الأساسي",
-    "category": "تطوير المواقع",
-    "subcategory": "HTML",
-    "tags": [
-      "HTML",
-      "النماذج",
-      "input",
-      "label",
-      "button"
-    ],
-    "description": "تعلم إنشاء نموذج HTML واضح وسهل الوصول، مع label وinput وأنواع الحقول والأزرار وخصائص التحقق المدمجة وأفضل الممارسات.",
-    "icon": "fa-code"
-  },
-  {
-    "slug": "html-global-attributes-data",
-    "file": "html-global-attributes-data.html",
-    "title": "خصائص HTML العامة: id وclass وlang وdata-* وhidden",
-    "category": "تطوير المواقع",
-    "subcategory": "HTML",
-    "tags": [
-      "HTML",
-      "id",
-      "class",
-      "data attributes",
-      "lang"
-    ],
-    "description": "شرح الخصائص العامة التي يمكن استخدامها مع عناصر HTML لتنظيم المحتوى وربطه بالأنماط والسلوك البرمجي.",
-    "icon": "fa-code"
-  },
-  {
-    "slug": "html-iframe-security",
-    "file": "html-iframe-security.html",
-    "title": "عنصر iframe في HTML: التضمين والأمان والخصوصية",
-    "category": "تطوير المواقع",
-    "subcategory": "HTML",
-    "tags": [
-      "HTML",
-      "iframe",
-      "الأمان",
-      "الخصوصية"
-    ],
-    "description": "تعرف إلى iframe وخصائص title وloading وsandbox ومتى ينبغي تجنب تضمين محتوى خارجي.",
-    "icon": "fa-code"
-  },
-  {
-    "slug": "html-keyboard-accessibility",
-    "file": "html-keyboard-accessibility.html",
-    "title": "إمكانية الوصول في HTML: لوحة المفاتيح والتركيز وقارئات الشاشة",
-    "category": "تطوير المواقع",
-    "subcategory": "HTML",
-    "tags": [
-      "HTML",
-      "إمكانية الوصول",
-      "لوحة المفاتيح",
-      "قارئات الشاشة"
-    ],
-    "description": "خطوات عملية لتحسين وصول صفحات HTML باستخدام العناصر الأصلية وتسميات واضحة وترتيب تركيز منطقي.",
-    "icon": "fa-code"
-  },
-  {
-    "slug": "html-links-paths",
-    "file": "html-links-paths.html",
-    "title": "روابط HTML والمسارات: الروابط الداخلية والخارجية والملفات",
-    "category": "تطوير المواقع",
-    "subcategory": "HTML",
-    "tags": [
-      "HTML",
-      "الروابط",
-      "href",
-      "المسارات"
-    ],
-    "description": "افهم href والمسارات النسبية والمطلقة وكيف تكتب روابط واضحة وآمنة داخل مواقع HTML.",
-    "icon": "fa-code"
-  },
-  {
-    "slug": "html-lists-images",
-    "file": "html-lists-images.html",
-    "title": "القوائم والصور في HTML: أمثلة عملية مع النص البديل",
-    "category": "تطوير المواقع",
-    "subcategory": "HTML",
-    "tags": [
-      "HTML",
-      "القوائم",
-      "الصور",
-      "alt"
-    ],
-    "description": "تعلم إنشاء القوائم المرتبة وغير المرتبة وقوائم التعريف، وإضافة الصور في HTML مع alt مناسب وأبعاد تساعد على تجربة أفضل.",
-    "icon": "fa-code"
-  },
-  {
-    "slug": "html-multipage-project",
-    "file": "html-multipage-project.html",
-    "title": "مشروع HTML متكامل للمبتدئين: بناء موقع من عدة صفحات",
-    "category": "تطوير المواقع",
-    "subcategory": "HTML",
-    "tags": [
-      "HTML",
-      "مشروع عملي",
-      "صفحات متعددة",
-      "المبتدئين"
-    ],
-    "description": "طبّق دروس HTML في مشروع صغير متعدد الصفحات يتضمن التنقل والمقالات والصور ونموذج تواصل وبنية قابلة للصيانة.",
-    "icon": "fa-code"
-  },
-  {
-    "slug": "html-performance-loading",
-    "file": "html-performance-loading.html",
-    "title": "أداء HTML: التحميل الكسول وdefer وpreload وقياس السرعة",
-    "category": "تطوير المواقع",
-    "subcategory": "HTML",
-    "tags": [
-      "HTML",
-      "الأداء",
-      "lazy loading",
-      "defer",
-      "preload"
-    ],
-    "description": "تحسين تحميل موارد الصفحة باستخدام خصائص HTML المناسبة مع فهم trade-offs وتجنب التحسينات العشوائية.",
-    "icon": "fa-code"
-  },
-  {
-    "slug": "html-responsive-images",
-    "file": "html-responsive-images.html",
-    "title": "الصور المتجاوبة في HTML: srcset وsizes وpicture",
-    "category": "تطوير المواقع",
-    "subcategory": "HTML",
-    "tags": [
-      "HTML",
-      "الصور المتجاوبة",
-      "srcset",
-      "sizes",
-      "picture"
-    ],
-    "description": "تعلم اختيار الصور المناسبة لأحجام الشاشات وكثافات العرض باستخدام srcset وsizes وpicture.",
-    "icon": "fa-code"
-  },
-  {
-    "slug": "html-semantic-elements",
-    "file": "html-semantic-elements.html",
-    "title": "عناصر HTML الدلالية: استخدام header وmain وnav وarticle",
-    "category": "تطوير المواقع",
-    "subcategory": "HTML",
-    "tags": [
-      "HTML",
-      "Semantic HTML",
-      "header",
-      "main",
-      "nav",
-      "إمكانية الوصول"
-    ],
-    "description": "تعرف إلى العناصر الدلالية في HTML وكيف تختار البنية المناسبة لتحسين وضوح الصفحة وإمكانية الوصول.",
-    "icon": "fa-code"
-  },
-  {
-    "slug": "html-seo-metadata",
-    "file": "html-seo-metadata.html",
-    "title": "أساسيات SEO في HTML: title وdescription وcanonical والبيانات المنظمة",
-    "category": "تطوير المواقع",
-    "subcategory": "HTML",
-    "tags": [
-      "HTML",
-      "SEO",
-      "title",
-      "meta description",
-      "canonical"
-    ],
-    "description": "تعلم ضبط عناصر head المهمة لمحركات البحث مع أمثلة عملية وتجنب التكرار والتصريحات المضللة.",
-    "icon": "fa-code"
-  },
-  {
-    "slug": "html-tables-caption",
-    "file": "html-tables-caption.html",
-    "title": "الجداول في HTML: th وtd وcaption وتنظيم البيانات",
-    "category": "تطوير المواقع",
-    "subcategory": "HTML",
-    "tags": [
-      "HTML",
-      "الجداول",
-      "caption",
-      "إمكانية الوصول"
-    ],
-    "description": "تعلم إنشاء جداول HTML مفهومة باستخدام caption وthead وtbody وth مع تحسين الوصول على الشاشات الصغيرة.",
-    "icon": "fa-code"
-  },
-  {
-    "slug": "html-text-headings-links",
-    "file": "html-text-headings-links.html",
-    "title": "العناوين والفقرات والروابط في HTML: بناء محتوى سهل القراءة",
-    "category": "تطوير المواقع",
-    "subcategory": "HTML",
-    "tags": [
-      "HTML",
-      "العناوين",
-      "الفقرات",
-      "الروابط"
-    ],
-    "description": "تعلم تنظيم النصوص بعناوين HTML من h1 إلى h6، واستخدام الفقرات والروابط القابلة للوصول، مع أمثلة وأخطاء شائعة.",
-    "icon": "fa-code"
-  },
-  {
-    "slug": "html-validation-debugging",
-    "file": "html-validation-debugging.html",
-    "title": "التحقق من HTML وتصحيح الأخطاء: W3C وأدوات المتصفح",
-    "category": "تطوير المواقع",
-    "subcategory": "HTML",
-    "tags": [
-      "HTML",
-      "التحقق",
-      "تصحيح الأخطاء",
-      "W3C"
-    ],
-    "description": "تعلم اكتشاف أخطاء بنية HTML والروابط والخصائص باستخدام أدوات التحقق وفحص DOM في المتصفح.",
-    "icon": "fa-code"
-  },
-  {
-    "slug": "html-what-is-html",
-    "file": "html-what-is-html.html",
-    "title": "ما هي لغة HTML؟ دليل البداية لبناء أول صفحة ويب",
-    "category": "تطوير المواقع",
-    "subcategory": "HTML",
-    "tags": [
-      "HTML",
-      "المبتدئين",
-      "أول صفحة ويب",
-      "أساسيات HTML"
-    ],
-    "description": "تعرف على لغة HTML ودورها في بناء صفحات الويب، وكيف تكتب أول ملف HTML وتشغّله في المتصفح خطوة بخطوة، مع أمثلة عملية للمبتدئين.",
-    "icon": "fa-code"
   }
 ]
