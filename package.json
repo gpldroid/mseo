@@ -13,6 +13,7 @@
     "test:js": "node scripts/check-javascript.mjs",
     "test": "npm run test:js && node scripts/validate-site.mjs",
     "sync:cms": "node scripts/sync-cms-content.mjs",
-    "generate:social-images": "node scripts/generate-social-images.mjs"
+    "generate:social-images": "node scripts/generate-social-images.mjs",
+    "audit:seo": "node scripts/audit-seo.mjs"
   }
 }
