@@ -44,7 +44,13 @@ function makeSvg(title, description, section) {
 function upsertMeta(head, attr, key, value) {
   const re = new RegExp('<meta\\b(?=[^>]*\\b' + attr + '\\s*=\\s*["\\x27]' + key + '["\\x27])[^>]*>', 'i');
   const tag = '<meta ' + attr + '="' + key + '" content="' + esc(value) + '">';
-  return re.test(head) ? head.replace(re, tag) : head + '\n' + tag;
+  let found = false;
+  head = head.replace(new RegExp(re.source, 'ig'), () => {
+    if (found) return '';
+    found = true;
+    return tag;
+  });
+  return found ? head : head + '\n' + tag;
 }
 function removeMeta(head, attr, key) {
   const re = new RegExp('\\s*<meta\\b(?=[^>]*\\b' + attr + '\\s*=\\s*["\\x27]' + key + '["\\x27])[^>]*>', 'ig');
