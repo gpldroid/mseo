@@ -45,6 +45,8 @@
 &lt;/button&gt;</code></pre><p>عند قراءة الخاصية في JavaScript استخدم <code>element.dataset.productId</code>. تعامل مع قيمها كنصوص غير موثوقة، وتحقق منها قبل استخدامها في عمليات حساسة.</p><h2>قائمة مراجعة</h2><ul><li>تأكد من عدم تكرار قيمة <code>id</code> داخل الصفحة.</li><li>لا تستخدم <code>hidden</code> لمحتوى يجب أن يبقى متاحًا لقارئ الشاشة.</li><li>استخدم أسماء خصائص واضحة ومتسقة مع معنى البيانات.</li></ul>
 </div>
 </div>
+<div data-batch-deepening="true" class="p-6 sm:p-10 prose prose-slate max-w-none dark:prose-invert"><h2>متى تستخدم id وclass وdata-*؟</h2><p><code>id</code> معرّف فريد للروابط الداخلية وربط التسميات، و<code>class</code> لتجميع عناصر تشترك في نمط أو سلوك، أما <code>data-*</code> فتخزن بيانات صغيرة مخصصة للتطبيق. لا تضع أسرارًا في خصائص data؛ يمكن قراءة قيمها من المتصفح.</p><pre><code>&lt;button class="js-tab" data-panel="settings" aria-controls="settings"&gt;الإعدادات&lt;/button&gt;
+&lt;section id="settings" hidden&gt;إعدادات الحساب&lt;/section&gt;</code></pre><p>يمكن قراءة القيمة عبر <code>element.dataset.panel</code>. إذا استُخدمت البيانات في عملية حساسة، تعامل معها كمدخل غير موثوق، ولا تُدرج نصوصًا غير موثوقة في HTML دون معالجة مناسبة.</p><h2>أخطاء تنظيمية شائعة</h2><ul><li>تكرار <code>id</code> في المستند نفسه.</li><li>اختيار أسماء class لا تعبّر عن وظيفتها.</li><li>تخزين حالة في DOM دون إبقائها متوافقة مع الواجهة.</li><li>إخفاء محتوى دون مراعاة توقيت إتاحته للمستخدم.</li></ul><p>راجع تفرد المعرفات واختبر الروابط الداخلية والتسميات. وثّق معنى قيم <code>data-*</code> حتى يبقى استخدامها واضحًا لفريق التطوير.</p></div>
 </article>
 </main>
 <div data-site-footer></div>
