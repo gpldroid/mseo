@@ -878,6 +878,7 @@
     ],
     "description": "شرح عملي لملفات قفل تبعيات GitHub Actions وطريقة إنشاء actions.lock ومراجعته وصيانته مع Dependabot للحد من مخاطر تغيّر الوسوم والفروع.",
     "icon": "fa-shield-halved",
-    "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=85"
+    "image": "https://gpldroid.github.io/mseo/assets/images/article-thumbnails/github-actions-workflow-lockfiles.svg",
+    "thumbnail": "assets/images/article-thumbnails/github-actions-workflow-lockfiles.svg"
   }
 ]
