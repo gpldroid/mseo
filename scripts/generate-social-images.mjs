@@ -44,7 +44,7 @@ function makeSvg(title, description, section) {
 function upsertMeta(head, attr, key, value) {
   const re = new RegExp('<meta\\b(?=[^>]*\\b' + attr + '\\s*=\\s*["\\x27]' + key + '["\\x27])[^>]*>', 'i');
   const tag = '<meta ' + attr + '="' + key + '" content="' + esc(value) + '">';
-  return re.test(head) ? head.replace(re, tag) : head.replace(/<\/head>/i, tag + '\n</head>');
+  return re.test(head) ? head.replace(re, tag) : head + '\n' + tag;
 }
 await walk(root);
 await mkdir(previewDir, { recursive: true });
