@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b1220">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../site.webmanifest">
+<title>دليل Lighthouse: فهم نتائج الفحص وإصلاح مشكلات الموقع | MSEO</title>
+<meta name="description" content="تعلم تشغيل Lighthouse وقراءة تقاريره وترتيب إصلاحات الأداء وإمكانية الوصول وSEO وفق الأثر، مع تجنب تفسير الدرجات بشكل مضلل.">
+<meta name="keywords" content="Lighthouse, إصلاح مشاكل Lighthouse, فحص أداء الموقع, Performance audit, Accessibility audit, SEO audit">
+<meta name="author" content="MSEO Editorial">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://gpldroid.github.io/mseo/articles/lighthouse-audit-fixes-guide.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="دليل Lighthouse: فهم نتائج الفحص وإصلاح مشكلات الموقع">
+<meta property="og:description" content="تعلم تشغيل Lighthouse وقراءة تقاريره وترتيب إصلاحات الأداء وإمكانية الوصول وSEO وفق الأثر، مع تجنب تفسير الدرجات بشكل مضلل.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=85">
+<meta property="og:url" content="https://gpldroid.github.io/mseo/articles/lighthouse-audit-fixes-guide.html">
+<meta property="og:site_name" content="MSEO">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="دليل Lighthouse: فهم نتائج الفحص وإصلاح مشكلات الموقع">
+<meta name="twitter:description" content="تعلم تشغيل Lighthouse وقراءة تقاريره وترتيب إصلاحات الأداء وإمكانية الوصول وSEO وفق الأثر، مع تجنب تفسير الدرجات بشكل مضلل.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=85">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"دليل Lighthouse: فهم نتائج الفحص وإصلاح مشكلات الموقع","description":"تعلم تشغيل Lighthouse وقراءة تقاريره وترتيب إصلاحات الأداء وإمكانية الوصول وSEO وفق الأثر، مع تجنب تفسير الدرجات بشكل مضلل.","image":["https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=85"],"datePublished":"2026-10-14","dateModified":"2026-10-14","author":{"@type":"Organization","name":"MSEO Editorial"},"publisher":{"@type":"Organization","name":"MSEO","url":"https://gpldroid.github.io/mseo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://gpldroid.github.io/mseo/articles/lighthouse-audit-fixes-guide.html"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"الرئيسية","item":"https://gpldroid.github.io/mseo/"},{"@type":"ListItem","position":2,"name":"أداء المواقع","item":"https://gpldroid.github.io/mseo/pages/performance.html"},{"@type":"ListItem","position":3,"name":"دليل Lighthouse: فهم نتائج الفحص وإصلاح مشكلات الموقع","item":"https://gpldroid.github.io/mseo/articles/lighthouse-audit-fixes-guide.html"}]}</script>
+<link rel="stylesheet" href="../assets/css/style.css?v=20261012-images1">
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 antialiased">
+<div data-site-header></div>
+<main class="max-w-4xl mx-auto px-4 py-8">
+<nav aria-label="مسار التنقل" class="text-xs text-slate-500 mb-5"><a href="../index.html">الرئيسية</a> <span> / </span> <a href="../pages/performance.html">أداء المواقع</a> <span> / </span> <span>دليل Lighthouse: فهم نتائج الفحص وإصلاح مشكلات الموقع</span></nav>
+<article class="bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden">
+<img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=85" alt="دليل Lighthouse: فهم نتائج الفحص وإصلاح مشكلات الموقع" width="1400" height="788" loading="eager" fetchpriority="high" decoding="async" class="w-full aspect-video object-cover">
+<div class="p-6 sm:p-10">
+<div class="flex flex-wrap gap-2 mb-4"><span class="bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-full">أداء المواقع</span><time datetime="2026-10-14" class="text-xs text-slate-500 px-2 py-1.5">14 أكتوبر 2026</time></div>
+<h1 class="text-2xl sm:text-4xl font-black leading-tight text-slate-950 dark:text-white">دليل Lighthouse: فهم نتائج الفحص وإصلاح مشكلات الموقع</h1>
+<p class="mt-5 text-base leading-8 text-slate-600 dark:text-slate-300">تعلم تشغيل Lighthouse وقراءة تقاريره وترتيب إصلاحات الأداء وإمكانية الوصول وSEO وفق الأثر، مع تجنب تفسير الدرجات بشكل مضلل.</p>
+<div class="mt-8 prose prose-slate max-w-none dark:prose-invert"><section><h2>ما الذي يقيسه Lighthouse؟</h2><p>Lighthouse أداة تدقيق تشغّل فحوصات على صفحة ويب وتعرض فرصًا ومشكلات ضمن فئات مثل الأداء وإمكانية الوصول وأفضل الممارسات وSEO. التقرير مفيد لتحديد الاتجاهات وأسباب محتملة للمشكلات، لكنه ليس حكمًا شاملًا على جودة الموقع ولا ضمانًا للترتيب في نتائج البحث.</p></section>
+<section><h2>طريقة تشغيل فحص قابل للمقارنة</h2><ol><li>افتح الصفحة التي تمثل المشكلة، وليس الصفحة الرئيسية تلقائيًا.</li><li>في Chrome DevTools افتح تبويب Lighthouse وحدد الفئات التي تريد فحصها.</li><li>اختر بيئة متقاربة بين الاختبارات، وأغلق التبويبات والعمليات الثقيلة قدر الإمكان.</li><li>شغّل الفحص أكثر من مرة إذا كانت النتائج متقلبة، وقارن النمط العام لا الرقم المنفرد.</li><li>افحص الصفحة على الهاتف والحاسوب عند اختلاف التصميم أو الموارد.</li></ol><p>تختلف نتائج المختبر حسب الجهاز والشبكة والتخزين المؤقت؛ لذلك لا تقارن اختبارًا على هاتف بطيء باختبار آخر في بيئة مختلفة وكأنهما تجربة واحدة.</p></section>
+<section><h2>كيف تقرأ تقرير الأداء؟</h2><p>ابدأ بالمؤشرات والأقسام التي تشرح التأخير بدل محاولة إصلاح كل توصية دفعة واحدة. راجع تحميل الصورة الرئيسية، والموارد التي تمنع العرض، وحجم JavaScript والعمل الطويل على الخيط الرئيسي، والخطوط والصور غير المحسّنة.</p><ul><li><strong>Largest Contentful Paint:</strong> حدّد العنصر الرئيسي المتأخر، وتحقق من وقت استجابة الخادم والصورة أو الخط الذي يحتاجه.</li><li><strong>Total Blocking Time:</strong> ابحث عن مهام JavaScript الطويلة والسكربتات غير الضرورية؛ هذا المؤشر المختبري ليس هو INP.</li><li><strong>Cumulative Layout Shift:</strong> أضف أبعادًا للصور والوسائط، واحتفظ بمساحة للعناصر التي تظهر لاحقًا.</li><li><strong>Opportunities وDiagnostics:</strong> تعامل معها كإشارات للتشخيص، وتحقق من أن التوصية تنطبق على الصفحة فعلًا.</li></ul><p>راجع أيضًا <a href="web-performance-core.html">شرح Core Web Vitals</a> لمعرفة الفرق بين قياسات المختبر وبيانات المستخدمين.</p></section>
+<section><h2>قراءة فئات إمكانية الوصول وSEO</h2><p>في إمكانية الوصول، ابدأ بالمشكلات التي تمنع معرفة اسم عنصر أو الوصول إلى وظيفة: تسميات الحقول، أسماء الروابط والأزرار، تباين النصوص، وبنية العناوين. استخدم <a href="../pages/color-contrast-checker.html">فاحص التباين</a> للتحقق من الألوان، ثم أكمل باختبار لوحة المفاتيح يدويًا.</p><p>في فئة SEO، افحص ما إذا كانت الصفحة تملك عنوانًا واضحًا، ورابطًا قابلاً للزحف، ووصفًا مناسبًا، وحالة استجابة صحيحة. لا يعني اجتياز فئة SEO أن الصفحة ستُفهرس أو ستحتل ترتيبًا محددًا؛ راجع كذلك <a href="google-search-console-indexing-errors.html">أخطاء الفهرسة</a> و<a href="html-seo-metadata.html">وسوم SEO في HTML</a>.</p></section>
+<section><h2>رتّب الإصلاحات حسب الأثر</h2><p>اجمع بين حجم المشكلة، وعدد الصفحات المتأثرة، وأهميتها للمستخدم، وكلفة الإصلاح. أعطِ الأولوية لعطل يمنع إتمام إجراء أو لمشكلة متكررة في قالب أساسي، قبل تحسين هامشي لا يغيّر التجربة فعليًا.</p><ol><li>دوّن المشكلة والدليل من التقرير والصفحات المتأثرة.</li><li>حدد السبب المحتمل وافحصه في DevTools أو الشبكة أو الكود.</li><li>غيّر عاملًا واحدًا أو مجموعة مترابطة يمكن تقييمها.</li><li>أعد الفحص في ظروف مشابهة وقارن المؤشرات.</li><li>تحقق من عدم تراجع الوصول أو الوظائف أو SEO بسبب الإصلاح.</li></ol></section>
+<section><h2>أخطاء شائعة عند استخدام Lighthouse</h2><ul><li>السعي إلى درجة 100 بأي ثمن ولو على حساب الوظيفة أو وضوح الواجهة.</li><li>تطبيق كل توصية دون فهم السبب أو أثرها في الصفحة.</li><li>الخلط بين بيانات المختبر والبيانات الميدانية لمستخدمي الموقع.</li><li>الاعتماد على صفحة واحدة مع وجود قوالب مختلفة في الموقع.</li><li>اعتبار درجة SEO وعدًا بالفهرسة أو ترتيب أعلى.</li></ul></section>
+<section><h2>الخلاصة</h2><p>استخدم Lighthouse كأداة تشخيص ضمن عملية تحسين متكررة: قِس، افهم السبب، أصلح، ثم أعد القياس. اربط النتائج باختبارات الاستخدام وبيانات المستخدمين الفعلية وتقارير البحث كلما توفرت.</p><p>ابدأ أيضًا من صفحة <a href="../pages/performance.html">الأداء وتجربة المستخدم</a>، وراجع <a href="website-quality-audit-checklist.html">قائمة تدقيق جودة الموقع</a> لتنظيم الفحص على مستوى الموقع كله.</p></section></div>
+<section class="mt-10 p-5 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700">
+<h2 class="text-xl font-black mb-3">مصادر وروابط موثوقة</h2>
+<ul class="list-disc pr-6 space-y-2">
+<li><a href="https://web.dev/articles/vitals" target="_blank" rel="noopener noreferrer">web.dev: Web Vitals</a></li>
+<li><a href="https://developer.chrome.com/docs/lighthouse/overview/" target="_blank" rel="noopener noreferrer">Chrome for Developers: Lighthouse overview</a></li>
+<li><a href="https://developers.google.com/search/docs/fundamentals/creating-helpful-content" target="_blank" rel="noopener noreferrer">Google Search Central: Creating helpful, reliable, people-first content</a></li>
+</ul>
+</section>
+<div class="mt-8 pt-6 border-t border-slate-200 dark:border-slate-700 flex flex-wrap gap-2 text-xs"><span class="font-bold">كلمات مفتاحية:</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">Lighthouse</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">Performance Audit</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">Accessibility Audit</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">SEO Audit</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">تحسين الأداء</span></div>
+</div></article></main>
+<div data-site-footer></div>
+<script src="../assets/js/site.js?v=20261012-images1" defer></script>
+</body></html>
