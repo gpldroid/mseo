@@ -47,6 +47,11 @@
 &lt;/video&gt;</code></pre><p>يتيح <code>track</code> إضافة ترجمة أو تسميات توضيحية بملف WebVTT. راجع توقيت النص ودقته، ووفّر تفريغًا نصيًا عندما يفيد ذلك في فهم المحتوى.</p><h2>الأداء والحقوق</h2><p>ملفات الوسائط الكبيرة قد تؤخر تحميل الصفحة. اضغطها، واختر إعدادات ترميز ملائمة، ولا تبدأ تحميل ملفات ضخمة دون داعٍ. تأكد أيضًا من امتلاكك حق نشر الوسائط أو استخدام ترخيص يسمح بذلك.</p>
 <h2>مراجع موثوقة</h2><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener noreferrer">MDN Web Docs: HTML</a></li><li><a href="https://html.spec.whatwg.org/" target="_blank" rel="noopener noreferrer">WHATWG HTML Living Standard</a></li><li><a href="https://www.w3.org/WAI/" target="_blank" rel="noopener noreferrer">W3C Web Accessibility Initiative</a></li></ul>
 <h2>تابع سلسلة HTML</h2><p>تابع الدروس السابقة: <a href="html-what-is-html.html">ما هي HTML؟</a>، <a href="html-document-structure.html">بنية مستند HTML</a>، <a href="html-text-headings-links.html">العناوين والفقرات والروابط</a>، <a href="html-lists-images.html">القوائم والصور</a>، و<a href="html-forms-basics.html">أساسيات النماذج</a>.</p>
+<h2 data-expanded-all-articles="true">إعداد وسائط قابلة للاستخدام</h2><p>اختر صيغة مدعومة على نطاق واسع، ووفّر بدائل عند الحاجة. أضف <code>controls</code> حتى لا يعتمد التشغيل على واجهة مخصصة غير مكتملة، وأرفق ترجمة نصية للفيديو الذي يتضمن حوارًا أو معلومات صوتية مهمة.</p><pre><code>&lt;video controls preload="metadata" width="640" poster="/images/preview.webp"&gt;
+  &lt;source src="/media/demo.mp4" type="video/mp4"&gt;
+  &lt;track src="/media/demo-ar.vtt" kind="captions" srclang="ar" label="العربية" default&gt;
+  متصفحك لا يدعم تشغيل الفيديو.
+&lt;/video&gt;</code></pre><h2>الأداء وإمكانية الوصول</h2><ul><li>استخدم صورة poster مضغوطة بدل تحميل ملف الفيديو كاملًا مبكرًا.</li><li>تجنب التشغيل التلقائي بالصوت؛ فهو يربك المستخدمين وقد يخالف تفضيلاتهم.</li><li>تحقق من الترجمة والتباين وإمكانية التحكم بلوحة المفاتيح.</li></ul>
 </div>
 </div>
 </article>

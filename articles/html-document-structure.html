@@ -62,7 +62,18 @@
 <h2>وسوم meta المهمة</h2><ul><li><code>charset="UTF-8"</code>: يحدد ترميزًا يدعم العربية ومجموعة واسعة من الحروف.</li><li><code>name="viewport"</code>: يساعد الصفحة على استخدام عرض الجهاز بصورة مناسبة.</li><li><code>name="description"</code>: يقدم وصفًا موجزًا قد تستخدمه محركات البحث في مقتطف النتيجة؛ لا يضمن ظهوره حرفيًا.</li><li><code>title</code>: يحدد عنوان المستند الذي يظهر غالبًا في تبويب المتصفح ونتائج البحث.</li></ul>
 <h2>أخطاء شائعة</h2><ul><li>وضع عنوان الصفحة المرئي داخل <code>head</code> بدل <code>body</code>.</li><li>تكرار وسوم العنوان أو الوصف بلا حاجة.</li><li>نسيان UTF-8، مما قد يؤدي إلى ظهور أحرف عربية مشوهة في بعض الحالات.</li><li>اعتبار وصف meta عامل ترتيب مضمون؛ وظيفته الأساسية وصف الصفحة والمساعدة في عرضها.</li></ul>
 <h2>تمرين</h2><p>أنشئ ملفًا يتضمن عنوانًا ووصفًا تعريفيًا باللغة العربية، ثم افتحه في المتصفح وتحقق من عنوان التبويب. جرّب تغيير قيمة <code>lang</code> ولاحظ كيف تصف اللغة المعلنة للمستند.</p>
-<h2>مصادر موثوقة</h2><ul><li><a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content">MDN: Structuring content with HTML</a></li><li><a href="https://developers.google.com/search/docs/appearance/snippet">Google Search Central: Control your snippets</a></li></ul></div>
+<h2>مصادر موثوقة</h2><ul><li><a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content">MDN: Structuring content with HTML</a></li><li><a href="https://developers.google.com/search/docs/appearance/snippet">Google Search Central: Control your snippets</a></li></ul><h2 data-expanded-all-articles="true">قائمة مراجعة لبنية المستند</h2><ul><li>استخدم <code>&lt;!doctype html&gt;</code> لتفعيل وضع العرض القياسي.</li><li>حدد لغة المستند عبر <code>lang="ar"</code> واتجاهه عبر <code>dir="rtl"</code> عندما تكون الصفحة عربية.</li><li>ضع الترميز ووسم viewport والعنوان والوصف داخل <code>head</code>.</li><li>اجعل المحتوى المرئي داخل <code>body</code> ولا تكرر المعرفات الفريدة.</li></ul><pre><code>&lt;!doctype html&gt;
+&lt;html lang="ar" dir="rtl"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+  &lt;title&gt;عنوان واضح للصفحة&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;main&gt;&lt;h1&gt;عنوان المحتوى&lt;/h1&gt;&lt;/main&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><p>تحقق من الصفحة عبر أداة فحص HTML، ثم اختبرها على شاشة ضيقة. البنية الصحيحة تقلل أخطاء العرض لكنها لا تضمن وحدها جودة المحتوى أو ترتيبه في نتائج البحث.</p>
+</div>
 </div></article>
 </main>
 <div data-site-footer></div>

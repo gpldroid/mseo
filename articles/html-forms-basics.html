@@ -67,7 +67,11 @@
 <h2>ممارسات الوصول والأمان</h2><ul><li>أضف تسمية مرئية لكل حقل وبيّن الحقول المطلوبة بوضوح.</li><li>تأكد من أن النموذج قابل للاستخدام بلوحة المفاتيح وأن مؤشر التركيز ظاهر.</li><li>اعرض رسائل خطأ مفهومة وحدد الحقل الذي يحتاج إلى تصحيح.</li><li>استخدم HTTPS عند نقل البيانات، ولا ترسل كلمات المرور أو المعلومات الحساسة إلى سجلات أو روابط URL.</li><li>استخدم <code>method="post"</code> عندما تكون البيانات مخصصة للإرسال في جسم الطلب؛ لا تجعل ذلك بديلًا عن تصميم أمني سليم.</li></ul>
 <h2>أخطاء شائعة</h2><ul><li>إضافة حقل بلا <code>name</code>، مما قد يمنع تضمينه في بيانات الإرسال المعتادة.</li><li>استخدام placeholder دون label.</li><li>الاعتقاد أن <code>required</code> يمنع كل الإدخالات غير الصحيحة أو الخبيثة.</li><li>إغفال توضيح ما سيحدث بعد إرسال النموذج.</li></ul>
 <h2>تمرين عملي</h2><p>أنشئ نموذج تواصل يحتوي الاسم والبريد والرسالة. جرّب إرساله فارغًا، وأدخل بريدًا غير صحيح، ثم اختبر التنقل بين الحقول باستخدام لوحة المفاتيح. تذكر أن المسار في المثال يحتاج إلى خادم حتى تتم معالجة الرسالة.</p>
-<h2>مصادر موثوقة</h2><ul><li><a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms">MDN: Forms</a></li><li><a href="https://www.w3.org/WAI/tutorials/forms/">W3C WAI: Forms Tutorial</a></li></ul></div>
+<h2>مصادر موثوقة</h2><ul><li><a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms">MDN: Forms</a></li><li><a href="https://www.w3.org/WAI/tutorials/forms/">W3C WAI: Forms Tutorial</a></li></ul>
+<h2 data-expanded-all-articles="true">تحسين النموذج قبل نشره</h2><p>اربط كل حقل بتسمية واضحة، واستخدم <code>name</code> حتى يدخل الحقل ضمن بيانات الإرسال، وحدد <code>autocomplete</code> للبيانات الشائعة مثل الاسم والبريد. إذا احتجت إلى مجموعة اختيارات مترابطة، فاجمعها داخل <code>fieldset</code> مع <code>legend</code> يشرح الغرض منها.</p><pre><code>&lt;label for="email"&gt;البريد الإلكتروني&lt;/label&gt;
+&lt;input id="email" name="email" type="email" autocomplete="email" required&gt;
+&lt;button type="submit"&gt;إرسال&lt;/button&gt;</code></pre><h2>اختبار عملي</h2><ul><li>جرّب النموذج بلوحة المفاتيح فقط وتأكد من ظهور التركيز.</li><li>اختبر الحقول الفارغة والقيم غير الصالحة ورسالة النجاح.</li><li>تأكد من أن وجهة <code>action</code> موجودة وتعالج البيانات بأمان.</li></ul>
+</div>
 </div></article>
 </main>
 <div data-site-footer></div>
