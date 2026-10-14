@@ -68,7 +68,11 @@
 <h2>مصادر موثوقة</h2><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img">MDN: The Image element</a></li><li><a href="https://www.w3.org/WAI/tutorials/images/">W3C WAI: Images Tutorial</a></li></ul>
 <h2 data-expanded-all-articles="true">النص البديل وأبعاد الصور</h2><p>اكتب قيمة <code>alt</code> بحسب وظيفة الصورة في السياق: الصورة المعلوماتية تحتاج وصفًا موجزًا لما تضيفه، أما الصورة الزخرفية التي لا تضيف معنى فيمكن استخدام <code>alt=""</code> لها. لا تكرر نصًا ظاهرًا بجوار الصورة داخل الوصف البديل دون حاجة.</p><pre><code>&lt;img src="/images/dashboard.webp" alt="لوحة تعرض مؤشرات أداء الموقع" width="1200" height="675" loading="lazy" decoding="async"&gt;</code></pre><p>تحديد العرض والارتفاع يساعد المتصفح على حجز المساحة وتقليل تحرك المحتوى. استخدم <code>loading="lazy"</code> للصور البعيدة عن بداية الصفحة، ولا تؤخر الصورة الرئيسية التي تظهر فورًا للمستخدم.</p><h2>اختيار القائمة الدلالية</h2><ul><li>استخدم <code>ul</code> لعناصر لا يعتمد ترتيبها على تسلسل، و<code>ol</code> للخطوات أو الترتيب المهم.</li><li>استخدم قائمة التعريفات للمصطلحات وأوصافها، لا لمجرد تنسيق التخطيط.</li><li>تأكد من أن بنية القائمة مفهومة عند قراءتها دون تنسيق CSS.</li></ul>
 </div>
-</div></article>
+</div><div data-batch-deepening="true" class="p-6 sm:p-10 prose prose-slate max-w-none dark:prose-invert"><h2>اكتب نصًا بديلًا يخدم المعنى</h2><p>النص البديل ليس وصفًا آليًا لكل ما يظهر في الصورة؛ بل ينقل المعلومة التي يحتاج إليها القارئ في سياق الصفحة. إذا كانت الصورة زخرفية بحتة فاستخدم <code>alt=""</code>، وإذا كانت رابطًا فليصف النص البديل وظيفة الرابط. لا تكرر الكلمات المفتاحية في alt ولا تبدأ كل وصف بعبارة «صورة لـ» دون داعٍ.</p><pre><code>&lt;figure&gt;
+  &lt;img src="chart.png" alt="ارتفع عدد الزيارات من يناير إلى مارس ثم استقر في أبريل" width="800" height="450"&gt;
+  &lt;figcaption&gt;الزيارات الشهرية خلال الربع الأول.&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre><p>للقوائم، استخدم <code>ol</code> عندما يكون الترتيب مهمًا و<code>ul</code> عندما تكون العناصر متساوية في الترتيب. لا تصنع القوائم يدويًا بعلامات أو فواصل إذا كانت عناصر HTML الدلالية أنسب.</p></div>
+</article>
 </main>
 <div data-site-footer></div>
 <script src="../assets/js/site.js?v=20261012-images1" defer></script>

@@ -181,7 +181,14 @@ button:focus-visible {
   gap: 1rem;
 }
 .card { min-width: 0; overflow-wrap: anywhere; }</code></pre><p>اختر Flexbox للتخطيط على محور واحد مثل صف الأزرار، وGrid عندما تحتاج إلى صفوف وأعمدة. اختبر 320 و375 و768 بكسل، والتكبير إلى 200%، وحالة التركيز بلوحة المفاتيح، وتباين النص. لا تجعل عدد الأعمدة ثابتًا إذا كانت مساحة الشاشة تتغير.</p><p>راجع <a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Responsive_Design" target="_blank" rel="noopener noreferrer">دليل التصميم المتجاوب في MDN</a>، ثم اختبر التخطيط بمحتوى طويل وصور متفاوتة الأبعاد قبل نشره.</p>
-</div></article>
+</div><div data-batch-deepening="true" class="p-6 sm:p-10 prose prose-slate max-w-none dark:prose-invert"><h2>اختبر التخطيط عند نقاط الانكسار الحقيقية</h2><p>لا تختَر نقاط media query بحسب أسماء الأجهزة؛ راقب متى يصبح المحتوى ضيقًا أو تبدأ العناصر في التداخل. استخدم Grid لتقسيم المساحة ثنائية الأبعاد، وFlexbox لتوزيع العناصر في محور واحد، ثم أضف قيودًا مثل <code>minmax()</code> و<code>min()</code> و<code>max()</code> لتقليل الحاجة إلى قيم ثابتة.</p><pre><code>.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: 1rem;
+}
+.card { min-width: 0; }
+img { max-width: 100%; height: auto; }</code></pre><p>اختبر نصوصًا طويلة وأزرارًا متعددة وصورًا بأبعاد مختلفة. لا تجعل التخطيط يعتمد على ارتفاع ثابت عندما يمكن أن يختلف طول المحتوى بين اللغات والأجهزة.</p></div>
+</article>
 <section class="mt-8"><h2 class="text-xl font-black mb-4">اقرأ أيضًا</h2><div class="grid sm:grid-cols-2 gap-3"><a href="ai-website-builder-guide.html" class="block bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-4 hover:-translate-y-0.5 transition"><strong>كيفية إنشاء موقع احترافي بالذكاء الاصطناعي من الصفر في 2026</strong><span class="block text-xs text-slate-500 mt-2">الذكاء الاصطناعي</span></a><a href="html-semantic-seo.html" class="block bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-4 hover:-translate-y-0.5 transition"><strong>دليل HTML الدلالي: كيف تبني صفحات ويب أفضل للـSEO والوصول</strong><span class="block text-xs text-slate-500 mt-2">تطوير المواقع</span></a><a href="javascript-clean-code.html" class="block bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-4 hover:-translate-y-0.5 transition"><strong>JavaScript للمواقع: تنظيم الكود وتقليل الأخطاء وتحسين الأداء</strong><span class="block text-xs text-slate-500 mt-2">البرمجة</span></a><a href="seo-content-strategy.html" class="block bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-4 hover:-translate-y-0.5 transition"><strong>استراتيجية محتوى SEO للمواقع التقنية: الكلمات المفتاحية والنية والروابط الداخلية</strong><span class="block text-xs text-slate-500 mt-2">SEO</span></a></div></section>
 </main>
 <div data-site-footer></div>

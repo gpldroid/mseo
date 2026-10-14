@@ -135,7 +135,12 @@
 <section><h2>مصادر موثوقة</h2><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_size_and_style_queries" target="_blank" rel="noopener noreferrer">MDN: Container size and style queries</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries" target="_blank" rel="noopener noreferrer">MDN: Container queries</a></li><li><a href="https://web.dev/articles/baseline" target="_blank" rel="noopener noreferrer">web.dev: Baseline وتوافق ميزات الويب</a></li></ul></section>
 </div>
 <div class="mt-8 pt-6 border-t border-slate-200 dark:border-slate-700 flex flex-wrap gap-2 text-xs"><span class="font-bold">كلمات مفتاحية:</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">CSS Container Queries</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">@container</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">Responsive Components</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">CSS</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">تصميم متجاوب</span></div>
-</div></article>
+</div><div data-batch-deepening="true" class="p-6 sm:p-10 prose prose-slate max-w-none dark:prose-invert"><h2>تحديد مسؤولية الحاوية</h2><p>Container Queries مفيدة عندما يتغير شكل المكوّن بحسب المساحة التي وُضع فيها، مثل بطاقة داخل عمود جانبي أو شبكة. ضع <code>container-type: inline-size</code> على العنصر الذي يملك مساحة التخطيط، ثم اجعل قواعد <code>@container</code> تعدّل المكوّن الداخلي. لا تضف حاوية جديدة لكل عنصر دون حاجة؛ اختر حدًا واضحًا بين المكوّن والصفحة.</p><pre><code>.card-region { container-type: inline-size; }
+.card { display: grid; gap: 1rem; }
+@container (min-width: 34rem) {
+  .card { grid-template-columns: 9rem 1fr; align-items: start; }
+}</code></pre><p>اختبر المكوّن في سياقات متعددة العرض، لا على الصفحة الرئيسية فقط. تحقق من أن الصور والنصوص الطويلة لا تتجاوز الحاوية، وأن التصميم الأساسي يبقى مفهومًا قبل تفعيل القاعدة المتقدمة.</p></div>
+</article>
 </main>
 <div data-site-footer></div>
 <script src="../assets/js/site.js?v=20261012-images1" defer></script>

@@ -56,6 +56,11 @@
 &gt;</code></pre><p>تأكد من أن الملفات المحددة موجودة فعلًا وأن أبعادها متناسبة. افتح أدوات المطور للتحقق من الملف الذي اختاره المتصفح، ثم اختبر على شاشة عالية الكثافة واتصال بطيء.</p>
 </div>
 </div>
+<div data-batch-deepening="true" class="p-6 sm:p-10 prose prose-slate max-w-none dark:prose-invert"><h2>اختيار srcset وpicture</h2><p>استخدم <code>srcset</code> عندما تتوفر نسخ من الصورة نفسها بأحجام مختلفة، و<code>sizes</code> لوصف العرض المتوقع للصورة في التخطيط. أما <code>picture</code> فيفيد عندما تريد اختيار ملفات أو قصاصات مختلفة وفق media query أو صيغة الصورة. لا تفترض أن المتصفح سيختار النسخة المناسبة إذا كانت بيانات الأحجام غير متوافقة مع CSS الفعلي.</p><pre><code>&lt;img src="photo-800.jpg"
+  srcset="photo-400.jpg 400w, photo-800.jpg 800w, photo-1200.jpg 1200w"
+  sizes="(max-width: 600px) 100vw, 800px"
+  width="800" height="600"
+  alt="وصف موجز للصورة"&gt;</code></pre><p>تحقق من الصورة التي يطلبها المتصفح عبر Network على عدة أحجام شاشات، واضبط الأبعاد لتقليل تغير التخطيط. استخدم نصًا بديلًا يصف الغرض، لا اسم الملف.</p></div>
 </article>
 </main>
 <div data-site-footer></div>

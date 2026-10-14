@@ -72,7 +72,12 @@
 &lt;input id="email" name="email" type="email" autocomplete="email" required&gt;
 &lt;button type="submit"&gt;إرسال&lt;/button&gt;</code></pre><h2>اختبار عملي</h2><ul><li>جرّب النموذج بلوحة المفاتيح فقط وتأكد من ظهور التركيز.</li><li>اختبر الحقول الفارغة والقيم غير الصالحة ورسالة النجاح.</li><li>تأكد من أن وجهة <code>action</code> موجودة وتعالج البيانات بأمان.</li></ul>
 </div>
-</div></article>
+<section data-batch-deepening="true"><h2>تحسين تجربة الإرسال والاستجابة</h2><p>قبل ربط النموذج بالخادم، حدد بوضوح ما البيانات المطلوبة ولماذا. لا تطلب معلومات لا تحتاج إليها، واستخدم <code>autocomplete</code> لتسهيل ملء الحقول الشائعة. بعد الإرسال يجب أن يحصل المستخدم على نتيجة مفهومة: تأكيد النجاح أو رسالة توضح المشكلة والخطوة التالية. لا تضع رسالة نجاح ثابتة في HTML إذا لم يتم إرسال البيانات فعلًا.</p><pre><code>&lt;label for="topic"&gt;موضوع الرسالة&lt;/label&gt;
+&lt;select id="topic" name="topic" required&gt;
+  &lt;option value=""&gt;اختر موضوعًا&lt;/option&gt;
+  &lt;option value="support"&gt;الدعم الفني&lt;/option&gt;
+  &lt;option value="feedback"&gt;اقتراح أو ملاحظة&lt;/option&gt;
+&lt;/select&gt;</code></pre><p>القيمة الفارغة للخيار الأول تجبر المستخدم على اختيار موضوع حقيقي عند وجود <code>required</code>. لا تستخدم ذلك لإجبار المستخدم على اختيارات غير ضرورية؛ اجعل كل حقل يخدم هدفًا واضحًا.</p><h2>قائمة اختبار قبل النشر</h2><ul><li>لكل حقل تسمية ظاهرة واسم إرسال مناسب.</li><li>ترتيب الانتقال بالزر Tab يتبع ترتيب القراءة المنطقي.</li><li>تظهر أخطاء الإدخال بجوار الحقل وتشرح طريقة التصحيح.</li><li>وجهة النموذج متاحة وتستخدم اتصالًا آمنًا.</li><li>يتم التحقق من المدخلات على الخادم مع التعامل الآمن مع البيانات.</li></ul></section></div></article>
 </main>
 <div data-site-footer></div>
 <script src="../assets/js/site.js?v=20261012-images1" defer></script>

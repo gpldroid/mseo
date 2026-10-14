@@ -56,6 +56,13 @@
 &lt;input id="delivery-date" name="deliveryDate" type="date" required&gt;</code></pre><h2>اختبار الحقول</h2><ul><li>اختبر إدخال قيمة صحيحة وأخرى غير صحيحة وحدود min وmax.</li><li>تحقق من وضوح التسمية والتعليمات على الهاتف ولوحة المفاتيح.</li><li>لا تعتمد على التحقق في المتصفح وحده؛ أعد التحقق من البيانات في الخادم.</li></ul>
 </div>
 </div>
+<div data-batch-deepening="true" class="p-6 sm:p-10 prose prose-slate max-w-none dark:prose-invert"><h2>اختيار الحقل المناسب حسب البيانات</h2><p>اختر نوع الحقل وفق معنى البيانات لا مظهره. يناسب <code>type="number"</code> القيم التي تدخل في عمليات حسابية، مع <code>min</code> و<code>max</code> و<code>step</code> عند الحاجة. أما رقم الهاتف أو الرمز البريدي الذي قد يبدأ بصفر فغالبًا يناسبه حقل نصي أو <code>tel</code> لأن قيمته ليست كمية حسابية.</p><pre><code>&lt;label for="quantity"&gt;الكمية&lt;/label&gt;
+&lt;input id="quantity" name="quantity" type="number" min="1" max="20" step="1" required&gt;
+&lt;fieldset&gt;
+  &lt;legend&gt;طريقة التواصل&lt;/legend&gt;
+  &lt;label&gt;&lt;input type="radio" name="contact" value="email" required&gt; البريد&lt;/label&gt;
+  &lt;label&gt;&lt;input type="radio" name="contact" value="phone"&gt; الهاتف&lt;/label&gt;
+&lt;/fieldset&gt;</code></pre><p>عناصر radio التي تمثل اختيارًا واحدًا تشترك في <code>name</code>، بينما تسمح checkbox بتحديد أكثر من خيار. امنح كل خيار <code>value</code> واضحًا واجمع الخيارات المترابطة داخل <code>fieldset</code> مع <code>legend</code>.</p><h2>اختبارات قبل الاعتماد</h2><ul><li>جرّب الحدود الدنيا والعليا والقيم غير الصالحة.</li><li>تأكد من وجود <code>name</code> وقيمة واضحة لكل خيار.</li><li>اختبر الحقول بلوحة المفاتيح وعلى شاشة هاتف.</li><li>تحقق من القيم مجددًا على الخادم؛ تحقق المتصفح قابل للتجاوز.</li></ul></div>
 </article>
 </main>
 <div data-site-footer></div>
