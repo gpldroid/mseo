@@ -861,5 +861,23 @@
     "icon": "fa-link",
     "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=85",
     "thumbnail": "assets/images/article-thumbnails/internal-linking-seo-guide.svg"
+  },
+  {
+    "slug": "github-actions-workflow-lockfiles",
+    "file": "github-actions-workflow-lockfiles.html",
+    "title": "GitHub Actions Workflow Lockfiles: دليل تأمين تبعيات CI/CD",
+    "category": "البرمجة",
+    "subcategory": "Git وGitHub",
+    "tags": [
+      "GitHub Actions",
+      "Workflow Lockfiles",
+      "CI/CD",
+      "أمان سلسلة التوريد",
+      "Dependabot",
+      "GitHub CLI"
+    ],
+    "description": "شرح عملي لملفات قفل تبعيات GitHub Actions وطريقة إنشاء actions.lock ومراجعته وصيانته مع Dependabot للحد من مخاطر تغيّر الوسوم والفروع.",
+    "icon": "fa-shield-halved",
+    "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=85"
   }
 ]
