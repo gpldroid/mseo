@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b1220">
+<meta name="color-scheme" content="light dark">
+<title>الصور المتجاوبة في HTML: srcset وsizes وpicture | MSEO</title>
+<meta name="description" content="تعلم اختيار الصور المناسبة لأحجام الشاشات وكثافات العرض باستخدام srcset وsizes وpicture.">
+<meta name="keywords" content="HTML, تعلم HTML, شرح HTML بالعربية, دروس HTML للمبتدئين">
+<meta name="author" content="MSEO Editorial">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://gpldroid.github.io/mseo/articles/html-responsive-images.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="الصور المتجاوبة في HTML: srcset وsizes وpicture">
+<meta property="og:description" content="تعلم اختيار الصور المناسبة لأحجام الشاشات وكثافات العرض باستخدام srcset وsizes وpicture.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85">
+<meta property="og:image:alt" content="الصور المتجاوبة في HTML: srcset وsizes وpicture">
+<meta property="og:url" content="https://gpldroid.github.io/mseo/articles/html-responsive-images.html">
+<meta property="og:site_name" content="MSEO">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="الصور المتجاوبة في HTML: srcset وsizes وpicture">
+<meta name="twitter:description" content="تعلم اختيار الصور المناسبة لأحجام الشاشات وكثافات العرض باستخدام srcset وsizes وpicture.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"الصور المتجاوبة في HTML: srcset وsizes وpicture","description":"تعلم اختيار الصور المناسبة لأحجام الشاشات وكثافات العرض باستخدام srcset وsizes وpicture.","image":["https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85"],"datePublished":"2026-10-14","author":{"@type":"Organization","name":"MSEO Editorial"},"publisher":{"@type":"Organization","name":"MSEO","url":"https://gpldroid.github.io/mseo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://gpldroid.github.io/mseo/articles/html-responsive-images.html"}}</script>
+<link rel="stylesheet" href="../assets/css/style.css?v=20261012-images1">
+</head>
+<body>
+<div data-site-header></div>
+<main class="max-w-4xl mx-auto px-4 py-8">
+<nav aria-label="مسار التنقل" class="text-xs text-slate-500 mb-5"><a href="../index.html">الرئيسية</a> <span aria-hidden="true"> / </span><a href="../pages/web-development.html">تطوير المواقع</a> <span aria-hidden="true"> / </span><span>الصور المتجاوبة في HTML: srcset وsizes وpicture</span></nav>
+<article class="bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden">
+<img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85" alt="الصور المتجاوبة في HTML: srcset وsizes وpicture" width="1400" height="788" loading="eager" fetchpriority="high" decoding="async" class="w-full aspect-video object-cover">
+<div class="p-6 sm:p-10">
+<div class="flex flex-wrap gap-2 mb-4"><span class="bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-full">تطوير المواقع</span><time datetime="2026-10-14" class="text-xs text-slate-500 px-2 py-1.5">14 أكتوبر 2026</time></div>
+<h1 class="text-2xl sm:text-4xl font-black leading-tight text-slate-950 dark:text-white">الصور المتجاوبة في HTML: srcset وsizes وpicture</h1>
+<p class="mt-5 text-base leading-8 text-slate-600 dark:text-slate-300">تعلم اختيار الصور المناسبة لأحجام الشاشات وكثافات العرض باستخدام srcset وsizes وpicture.</p>
+<div class="mt-8 prose prose-slate max-w-none dark:prose-invert"><h2>لماذا الصور المتجاوبة؟</h2><p>قد يحتاج الهاتف صورة أصغر من شاشة عالية الدقة. تتيح <code>srcset</code> و<code>sizes</code> للمتصفح اختيار مورد مناسب بناءً على مساحة العرض وكثافة الشاشة.</p><h2>اختيار الموارد بحسب العرض</h2><pre><code>&lt;img
+  src="images/photo-800.jpg"
+  srcset="images/photo-400.jpg 400w, images/photo-800.jpg 800w, images/photo-1200.jpg 1200w"
+  sizes="(max-width: 600px) 100vw, (max-width: 1000px) 80vw, 800px"
+  alt="واجهة حاسوب تعرض صفحة تعليمية"
+  width="1200" height="800"&gt;</code></pre><p>يصف <code>srcset</code> الملفات المتاحة وأحجامها، بينما يقدّر <code>sizes</code> عرض الصورة في التخطيط. يجب أن تعكس القيم الأبعاد الفعلية للملفات وتصميم الصفحة.</p><h2>استخدام picture</h2><pre><code>&lt;picture&gt;
+  &lt;source type="image/avif" srcset="images/hero.avif"&gt;
+  &lt;source type="image/webp" srcset="images/hero.webp"&gt;
+  &lt;img src="images/hero.jpg" alt="صورة توضيحية للدرس" width="1200" height="675"&gt;
+&lt;/picture&gt;</code></pre><p>يتيح <code>picture</code> تحديد مصادر أو صيغ بديلة، ويظل <code>img</code> هو العنصر الاحتياطي. اختبر الروابط وتأكد من توفر الملفات فعلًا.</p><h2>نص بديل وأداء</h2><p>اكتب نصًا بديلًا يخدم غرض الصورة، وحدد <code>width</code> و<code>height</code> لتقليل قفزات التخطيط. استخدم التحميل الكسول للصور البعيدة عن بداية الصفحة، وتجنب تأخير صورة العرض الرئيسية المهمة دون قياس أثر ذلك.</p>
+<h2>مراجع موثوقة</h2><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener noreferrer">MDN Web Docs: HTML</a></li><li><a href="https://html.spec.whatwg.org/" target="_blank" rel="noopener noreferrer">WHATWG HTML Living Standard</a></li><li><a href="https://www.w3.org/WAI/" target="_blank" rel="noopener noreferrer">W3C Web Accessibility Initiative</a></li></ul>
+<h2>تابع سلسلة HTML</h2><p>تابع الدروس السابقة: <a href="html-what-is-html.html">ما هي HTML؟</a>، <a href="html-document-structure.html">بنية مستند HTML</a>، <a href="html-text-headings-links.html">العناوين والفقرات والروابط</a>، <a href="html-lists-images.html">القوائم والصور</a>، و<a href="html-forms-basics.html">أساسيات النماذج</a>.</p>
+</div>
+</div>
+</article>
+</main>
+<div data-site-footer></div>
+<script src="../assets/js/site.js?v=20261012-images1" defer></script>
+</body>
+</html>
