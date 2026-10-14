@@ -39,7 +39,7 @@ function makeSvg(title, description, section) {
 '<rect x="112" y="112" width="10" height="60" rx="5" fill="url(#accent)"/><text x="150" y="151" fill="#a8bddf" font-family="Arial,sans-serif" font-size="21" font-weight="700" letter-spacing="4">MSEO · ' + esc(category) + '</text>' +
 '<text x="1080" y="264" text-anchor="end" direction="rtl" unicode-bidi="plaintext" fill="#f4f7ff" font-family="Arial, sans-serif" font-size="46" font-weight="700">' + t + '</text>' +
 '<foreignObject x="130" y="302" width="940" height="112"><div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Arial,sans-serif;color:#c7d6ee;font-size:25px;line-height:1.55;text-align:right;direction:rtl">' + d + '</div></foreignObject>' +
-'<path d="M132 466H1068" stroke="#7e96bd" stroke-opacity=".35"/><text x="132" y="506" fill="#65e2d1" font-family="Arial,sans-serif" font-size="22" font-weight="700">LEARN · BUILD · OPTIMIZE</text><text x="1068" y="506" text-anchor="end" fill="#c7d6ee" font-family="Arial,sans-serif" font-size="21">gpldroid.github.io/mseo</text></svg>';
+'<path d="M132 466H1068" stroke="#7e96bd" stroke-opacity=".35"/><text x="132" y="506" fill="#65e2d1" font-family="Arial,sans-serif" font-size="22" font-weight="700">LEARN · BUILD · OPTIMIZE</text><text x="1068" y="506" text-anchor="end" fill="#c7d6ee" font-family="Arial,sans-serif" font-size="21">' + esc(siteBase.host + siteBase.pathname.replace(/\\/$/, '')) + '</text></svg>';
 }
 function upsertMeta(head, attr, key, value) {
   const re = new RegExp('<meta\\b(?=[^>]*\\b' + attr + '\\s*=\\s*["\\x27]' + key + '["\\x27])[^>]*>', 'i');
@@ -84,9 +84,17 @@ for (const file of htmlFiles) {
     generated++;
   }
   const originalHead = head;
+  const pageUrl = new URL(rel, siteBase).href;
+  head = upsertMeta(head, 'property', 'og:type', rel.startsWith('articles/') ? 'article' : 'website');
+  head = upsertMeta(head, 'property', 'og:title', title);
+  head = upsertMeta(head, 'property', 'og:description', description);
+  head = upsertMeta(head, 'property', 'og:url', pageUrl);
+  head = upsertMeta(head, 'property', 'og:site_name', 'MSEO');
   head = upsertMeta(head, 'property', 'og:image', imageUrl);
   head = upsertMeta(head, 'property', 'og:image:alt', title);
   head = upsertMeta(head, 'name', 'twitter:card', 'summary_large_image');
+  head = upsertMeta(head, 'name', 'twitter:title', title);
+  head = upsertMeta(head, 'name', 'twitter:description', description);
   head = upsertMeta(head, 'name', 'twitter:image', imageUrl);
   if (generatedFallback) {
     head = upsertMeta(head, 'property', 'og:image:width', '1200');
