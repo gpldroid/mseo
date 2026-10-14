@@ -1,154 +1,263 @@
-/* MSEO Blue Theme — optional, scoped, RTL-friendly.
-   Loaded by the existing site theme system; does not replace core styles. */
+/* MSEO Prism — distinctive violet, ink and mint visual system.
+   Optional theme, scoped to the existing theme id to preserve compatibility. */
 html[data-theme="mseo-blue"] {
   color-scheme: light;
-  --bg: #ffffff;
+  --bg: #f7f6fb;
   --surface: #ffffff;
-  --surface-2: #f8fafc;
-  --text: #1e293b;
-  --muted: #64748b;
-  --line: #e2e8f0;
-  --brand: #1e40af;
-  --brand-2: #1e3a8a;
-  --accent: #06b6d4;
-  --header: rgba(255, 255, 255, .94);
-  --shadow: 0 8px 24px rgba(30, 64, 175, .08);
-  --radius: 12px;
+  --surface-2: #f0edf8;
+  --text: #211b31;
+  --muted: #716a82;
+  --line: #e6e0f0;
+  --brand: #6d28d9;
+  --brand-2: #4c1d95;
+  --accent: #b7f36b;
+  --header: rgba(250, 249, 255, .88);
+  --shadow: 0 12px 34px rgba(57, 35, 94, .09);
+  --radius: 18px;
+  --prism-ink: #171326;
+  --prism-violet: #8b5cf6;
+  --prism-lilac: #d8c8ff;
+  --prism-mint: #c5f777;
+  --prism-pink: #f5a7d7;
 }
 html[data-theme="mseo-blue"] body {
-  background: var(--bg);
+  background:
+    radial-gradient(ellipse at 8% 0%, rgba(216, 200, 255, .24), transparent 34rem),
+    var(--bg);
   color: var(--text);
 }
 html[data-theme="mseo-blue"] .mseo-header {
-  border-bottom-color: #dbeafe;
+  background: var(--header);
+  border-bottom: 1px solid rgba(109, 40, 217, .12);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
 }
 html[data-theme="mseo-blue"] .mseo-brand-mark {
+  border-radius: 12px;
+  color: var(--prism-ink);
+  background: linear-gradient(135deg, var(--prism-mint), #e4ffb5);
+  box-shadow: 0 5px 18px rgba(183, 243, 107, .3);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+html[data-theme="mseo-blue"] .mseo-brand:hover .mseo-brand-mark {
+  transform: rotate(-7deg) scale(1.06);
+  box-shadow: 0 8px 24px rgba(183, 243, 107, .42);
+}
+html[data-theme="mseo-blue"] .mseo-nav a {
   border-radius: 10px;
-  background: linear-gradient(135deg, #1e3a8a, #1e40af);
-  box-shadow: 0 7px 18px rgba(30, 64, 175, .22);
+  transition: color .22s ease, background .22s ease, transform .22s ease;
 }
 html[data-theme="mseo-blue"] .mseo-nav a:hover,
 html[data-theme="mseo-blue"] .mseo-nav a[aria-current="page"] {
-  background: #eff6ff;
-  color: #1e40af;
+  background: #eee7ff;
+  color: var(--brand);
 }
+html[data-theme="mseo-blue"] .mseo-nav a:hover { transform: translateY(-1px); }
 html[data-theme="mseo-blue"] .mseo-icon-button:hover {
-  background: #eff6ff;
-  border-color: #06b6d4;
-  color: #1e40af;
+  background: #eee7ff;
+  border-color: #c4b5fd;
+  color: var(--brand);
+  box-shadow: 0 5px 16px rgba(109, 40, 217, .1);
 }
 html[data-theme="mseo-blue"] .hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   margin: 20px auto 0;
   width: min(1240px, calc(100% - 32px));
-  border-radius: 16px;
-  background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 68%, #164e9b 100%);
+  border: 1px solid rgba(216, 200, 255, .25);
+  border-radius: 24px;
+  background:
+    radial-gradient(ellipse at 82% 18%, rgba(139, 92, 246, .55), transparent 35%),
+    radial-gradient(ellipse at 5% 100%, rgba(197, 247, 119, .14), transparent 38%),
+    linear-gradient(125deg, #171326 0%, #24183e 55%, #38205b 100%);
   color: #fff;
-  box-shadow: 0 18px 42px rgba(30, 64, 175, .18);
+  box-shadow: 0 24px 65px rgba(44, 26, 75, .22);
+}
+html[data-theme="mseo-blue"] .hero::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 280px;
+  height: 280px;
+  inset-inline-end: -100px;
+  top: -135px;
+  border: 1px solid rgba(197, 247, 119, .32);
+  border-radius: 50%;
+  box-shadow: 0 0 0 28px rgba(197, 247, 119, .035), 0 0 0 58px rgba(216, 200, 255, .035);
+  pointer-events: none;
 }
 html[data-theme="mseo-blue"] .hero .eyebrow,
 html[data-theme="mseo-blue"] .hero .hero-points,
 html[data-theme="mseo-blue"] .hero .hero-copy > p,
 html[data-theme="mseo-blue"] .hero .hero-bottom {
-  color: rgba(255, 255, 255, .88);
+  color: rgba(250, 247, 255, .82);
 }
 html[data-theme="mseo-blue"] .hero h1,
+html[data-theme="mseo-blue"] .hero h1 em { color: #fff; }
 html[data-theme="mseo-blue"] .hero h1 em {
-  color: #fff;
+  font-style: normal;
+  text-shadow: 0 0 30px rgba(216, 200, 255, .18);
 }
 html[data-theme="mseo-blue"] .hero .pulse {
-  background: #67e8f9;
-  box-shadow: 0 0 0 5px rgba(103, 232, 249, .18);
+  background: var(--prism-mint);
+  box-shadow: 0 0 0 5px rgba(197, 247, 119, .15), 0 0 22px rgba(197, 247, 119, .35);
 }
 html[data-theme="mseo-blue"] .hero .button-primary {
-  background: #06b6d4;
-  border-color: #06b6d4;
-  color: #083344;
+  background: var(--prism-mint);
+  border-color: var(--prism-mint);
+  color: #1d2630;
+  box-shadow: 0 8px 24px rgba(197, 247, 119, .16);
 }
 html[data-theme="mseo-blue"] .hero .button-primary:hover {
-  background: #67e8f9;
-  border-color: #67e8f9;
-  color: #083344;
+  background: #dcffab;
+  border-color: #dcffab;
+  color: #171326;
+  box-shadow: 0 10px 30px rgba(197, 247, 119, .28);
 }
 html[data-theme="mseo-blue"] .hero .button-secondary {
-  background: rgba(255, 255, 255, .1);
-  border-color: rgba(255, 255, 255, .35);
+  background: rgba(255, 255, 255, .07);
+  border-color: rgba(216, 200, 255, .45);
   color: #fff;
+  backdrop-filter: blur(8px);
+}
+html[data-theme="mseo-blue"] .hero .button-secondary:hover {
+  background: rgba(216, 200, 255, .16);
+  border-color: var(--prism-lilac);
 }
 html[data-theme="mseo-blue"] .hero .visual-window {
-  border-color: rgba(255, 255, 255, .28);
+  border-color: rgba(216, 200, 255, .28);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, .18);
 }
 html[data-theme="mseo-blue"] .hero .visual-content {
-  background: #fff;
-  color: #1e293b;
+  background: #fbfaff;
+  color: var(--text);
 }
 html[data-theme="mseo-blue"] .hero .visual-tag,
-html[data-theme="mseo-blue"] .hero .visual-bottom {
-  color: #1e40af;
-}
+html[data-theme="mseo-blue"] .hero .visual-bottom { color: var(--brand); }
 html[data-theme="mseo-blue"] .section,
-html[data-theme="mseo-blue"] .site-section {
-  background-color: transparent;
-}
+html[data-theme="mseo-blue"] .site-section { background-color: transparent; }
 html[data-theme="mseo-blue"] .section-heading h2,
-html[data-theme="mseo-blue"] .site-section-head h2 {
-  color: #1e293b;
-}
+html[data-theme="mseo-blue"] .site-section-head h2 { color: var(--prism-ink); }
 html[data-theme="mseo-blue"] .article-card,
 html[data-theme="mseo-blue"] .category-card,
 html[data-theme="mseo-blue"] .site-card,
 html[data-theme="mseo-blue"] .loading-card {
-  border-color: #e2e8f0;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(15, 23, 42, .05);
-  transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, .92);
+  box-shadow: 0 5px 20px rgba(42, 27, 68, .045);
+  transition: transform .28s cubic-bezier(.2,.8,.2,1), box-shadow .28s ease, border-color .28s ease;
 }
 html[data-theme="mseo-blue"] .article-card:hover,
 html[data-theme="mseo-blue"] .category-card:hover,
 html[data-theme="mseo-blue"] .site-card:hover {
-  transform: translateY(-4px);
-  border-color: #67e8f9;
-  box-shadow: 0 12px 28px rgba(30, 64, 175, .11);
+  transform: translateY(-6px);
+  border-color: #c4b5fd;
+  box-shadow: 0 18px 38px rgba(83, 46, 145, .13);
 }
+html[data-theme="mseo-blue"] .article-card img,
+html[data-theme="mseo-blue"] .category-card img,
+html[data-theme="mseo-blue"] .site-card img { transition: transform .45s ease; }
+html[data-theme="mseo-blue"] .article-card:hover img,
+html[data-theme="mseo-blue"] .category-card:hover img,
+html[data-theme="mseo-blue"] .site-card:hover img { transform: scale(1.035); }
 html[data-theme="mseo-blue"] .article-category,
 html[data-theme="mseo-blue"] .site-card > span:first-of-type {
   display: inline-flex;
   width: fit-content;
-  border-radius: 6px;
-  background: #cffafe;
-  color: #155e75;
-  padding: 3px 9px;
+  border-radius: 999px;
+  background: #eee7ff;
+  color: #5b21b6;
+  padding: 4px 10px;
+  font-weight: 650;
 }
 html[data-theme="mseo-blue"] .toolbar .search-box,
 html[data-theme="mseo-blue"] .toolbar .filter-box {
-  border-radius: 10px;
-  border-color: #cbd5e1;
+  border-radius: 12px;
+  border-color: #ded5ee;
   background: #fff;
 }
 html[data-theme="mseo-blue"] .toolbar input:focus,
 html[data-theme="mseo-blue"] .toolbar select:focus,
 html[data-theme="mseo-blue"] .mseo-search-panel input:focus {
-  border-color: #06b6d4;
-  outline-color: #06b6d4;
+  border-color: var(--prism-violet);
+  outline-color: var(--prism-violet);
+  box-shadow: 0 0 0 4px rgba(139, 92, 246, .12);
 }
 html[data-theme="mseo-blue"] .button,
+html[data-theme="mseo-blue"] button,
 html[data-theme="mseo-blue"] .site-primary,
 html[data-theme="mseo-blue"] .site-secondary,
-html[data-theme="mseo-blue"] .mseo-search-panel button {
-  transition: all .3s ease;
+html[data-theme="mseo-blue"] input[type="button"],
+html[data-theme="mseo-blue"] input[type="submit"],
+html[data-theme="mseo-blue"] input[type="reset"] {
+  transition: background-color .22s ease, border-color .22s ease, color .22s ease, box-shadow .22s ease, transform .22s ease;
 }
 html[data-theme="mseo-blue"] .button-primary,
-html[data-theme="mseo-blue"] .site-primary {
-  background: #1e40af;
-  border-color: #1e40af;
+html[data-theme="mseo-blue"] .site-primary,
+html[data-theme="mseo-blue"] button[type="submit"],
+html[data-theme="mseo-blue"] input[type="submit"],
+html[data-theme="mseo-blue"] .mseo-search-panel button,
+html[data-theme="mseo-blue"] .toolbar button {
+  background: linear-gradient(135deg, #7c3aed, #6d28d9);
+  border-color: #7c3aed;
   color: #fff;
+  box-shadow: 0 5px 16px rgba(109, 40, 217, .16);
 }
 html[data-theme="mseo-blue"] .button-primary:hover,
-html[data-theme="mseo-blue"] .site-primary:hover {
-  background: #1e3a8a;
-  border-color: #1e3a8a;
+html[data-theme="mseo-blue"] .site-primary:hover,
+html[data-theme="mseo-blue"] button[type="submit"]:hover,
+html[data-theme="mseo-blue"] input[type="submit"]:hover,
+html[data-theme="mseo-blue"] .mseo-search-panel button:hover,
+html[data-theme="mseo-blue"] .toolbar button:hover {
+  background: linear-gradient(135deg, #6d28d9, #4c1d95);
+  border-color: #6d28d9;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 9px 23px rgba(109, 40, 217, .25);
+}
+html[data-theme="mseo-blue"] .button-secondary,
+html[data-theme="mseo-blue"] .site-secondary {
+  background: #f1ecfb;
+  border-color: #ddd0f8;
+  color: #54229a;
+}
+html[data-theme="mseo-blue"] .button-secondary:hover,
+html[data-theme="mseo-blue"] .site-secondary:hover {
+  background: #e7dcfb;
+  border-color: #c4b5fd;
+  color: #3b176e;
+  transform: translateY(-2px);
+}
+html[data-theme="mseo-blue"] button:focus-visible,
+html[data-theme="mseo-blue"] a.button:focus-visible,
+html[data-theme="mseo-blue"] input[type="button"]:focus-visible,
+html[data-theme="mseo-blue"] input[type="submit"]:focus-visible {
+  outline: 3px solid #a3e635;
+  outline-offset: 3px;
+}
+html[data-theme="mseo-blue"] button:disabled,
+html[data-theme="mseo-blue"] .button:disabled {
+  opacity: .55;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
 }
 html[data-theme="mseo-blue"] .mseo-footer {
-  border-top: 1px solid #dbeafe;
+  border-top: 1px solid #e2d9f2;
+  background: linear-gradient(180deg, rgba(240, 237, 248, .35), rgba(240, 237, 248, .8));
+}
+html[data-theme="mseo-blue"] .mseo-scroll-controls button {
+  background: var(--prism-ink);
+  border: 1px solid rgba(216, 200, 255, .3);
+  color: var(--prism-mint);
+  box-shadow: 0 8px 22px rgba(23, 19, 38, .2);
+}
+html[data-theme="mseo-blue"] .mseo-scroll-controls button:hover {
+  background: var(--brand);
+  color: #fff;
+  transform: translateY(-2px);
 }
 @media (max-width: 900px) {
   html[data-theme="mseo-blue"] .hero {
@@ -159,9 +268,7 @@ html[data-theme="mseo-blue"] .mseo-footer {
     grid-template-columns: 1fr;
     gap: 24px;
   }
-  html[data-theme="mseo-blue"] .hero-visual {
-    min-height: 260px;
-  }
+  html[data-theme="mseo-blue"] .hero-visual { min-height: 260px; }
   html[data-theme="mseo-blue"] .article-grid,
   html[data-theme="mseo-blue"] .category-grid,
   html[data-theme="mseo-blue"] .site-card-grid {
@@ -173,7 +280,7 @@ html[data-theme="mseo-blue"] .mseo-footer {
     margin-top: 10px;
     width: calc(100% - 20px);
     padding: 38px 16px 20px;
-    border-radius: 12px;
+    border-radius: 18px;
   }
   html[data-theme="mseo-blue"] .article-grid,
   html[data-theme="mseo-blue"] .category-grid,
@@ -181,9 +288,7 @@ html[data-theme="mseo-blue"] .mseo-footer {
     grid-template-columns: minmax(0, 1fr);
   }
   html[data-theme="mseo-blue"] .section-heading,
-  html[data-theme="mseo-blue"] .site-section-head {
-    align-items: flex-start;
-  }
+  html[data-theme="mseo-blue"] .site-section-head { align-items: flex-start; }
 }
 @media (prefers-reduced-motion: reduce) {
   html[data-theme="mseo-blue"] *,
@@ -195,96 +300,3 @@ html[data-theme="mseo-blue"] .mseo-footer {
     animation-iteration-count: 1 !important;
   }
 }
-
-/* Button palette refinement: royal blue + teal + clear focus states. */
-html[data-theme="mseo-blue"] {
-  --button-primary: #2563eb;
-  --button-primary-hover: #1d4ed8;
-  --button-secondary: #0f766e;
-  --button-secondary-hover: #115e59;
-  --button-focus: #22d3ee;
-}
-html[data-theme="mseo-blue"] .button,
-html[data-theme="mseo-blue"] button,
-html[data-theme="mseo-blue"] .site-primary,
-html[data-theme="mseo-blue"] .site-secondary,
-html[data-theme="mseo-blue"] input[type="button"],
-html[data-theme="mseo-blue"] input[type="submit"],
-html[data-theme="mseo-blue"] input[type="reset"],
-html[data-theme="mseo-blue"] .mseo-search-panel button {
-  transition: background-color .2s ease, border-color .2s ease, color .2s ease, box-shadow .2s ease, transform .2s ease;
-}
-html[data-theme="mseo-blue"] .button-primary,
-html[data-theme="mseo-blue"] .site-primary,
-html[data-theme="mseo-blue"] button[type="submit"],
-html[data-theme="mseo-blue"] input[type="submit"] {
-  background: var(--button-primary);
-  border-color: var(--button-primary);
-  color: #fff;
-}
-html[data-theme="mseo-blue"] .button-primary:hover,
-html[data-theme="mseo-blue"] .site-primary:hover,
-html[data-theme="mseo-blue"] button[type="submit"]:hover,
-html[data-theme="mseo-blue"] input[type="submit"]:hover {
-  background: var(--button-primary-hover);
-  border-color: var(--button-primary-hover);
-  color: #fff;
-  box-shadow: 0 5px 14px rgba(37, 99, 235, .22);
-}
-html[data-theme="mseo-blue"] .button-secondary,
-html[data-theme="mseo-blue"] .site-secondary {
-  background: var(--button-secondary);
-  border-color: var(--button-secondary);
-  color: #fff;
-}
-html[data-theme="mseo-blue"] .button-secondary:hover,
-html[data-theme="mseo-blue"] .site-secondary:hover {
-  background: var(--button-secondary-hover);
-  border-color: var(--button-secondary-hover);
-  color: #fff;
-  box-shadow: 0 5px 14px rgba(15, 118, 110, .2);
-}
-html[data-theme="mseo-blue"] .hero .button-primary {
-  background: #22d3ee;
-  border-color: #22d3ee;
-  color: #083344;
-}
-html[data-theme="mseo-blue"] .hero .button-primary:hover {
-  background: #67e8f9;
-  border-color: #67e8f9;
-  color: #083344;
-}
-html[data-theme="mseo-blue"] .hero .button-secondary {
-  background: rgba(255, 255, 255, .12);
-  border-color: rgba(255, 255, 255, .5);
-  color: #fff;
-}
-html[data-theme="mseo-blue"] .hero .button-secondary:hover {
-  background: rgba(255, 255, 255, .22);
-  border-color: #fff;
-}
-html[data-theme="mseo-blue"] .mseo-search-panel button,
-html[data-theme="mseo-blue"] .toolbar button {
-  background: #2563eb;
-  border-color: #2563eb;
-  color: #fff;
-}
-html[data-theme="mseo-blue"] .mseo-search-panel button:hover,
-html[data-theme="mseo-blue"] .toolbar button:hover {
-  background: #1d4ed8;
-  border-color: #1d4ed8;
-}
-html[data-theme="mseo-blue"] button:focus-visible,
-html[data-theme="mseo-blue"] a.button:focus-visible,
-html[data-theme="mseo-blue"] input[type="button"]:focus-visible,
-html[data-theme="mseo-blue"] input[type="submit"]:focus-visible {
-  outline: 3px solid #22d3ee;
-  outline-offset: 3px;
-}
-html[data-theme="mseo-blue"] button:disabled,
-html[data-theme="mseo-blue"] .button:disabled {
-  opacity: .55;
-  cursor: not-allowed;
-  box-shadow: none;
-}
-
