@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b1220">
+<meta name="color-scheme" content="light dark">
+<title>القوائم والصور في HTML: أمثلة عملية مع النص البديل | MSEO</title>
+<meta name="description" content="تعلم إنشاء القوائم المرتبة وغير المرتبة وقوائم التعريف، وإضافة الصور في HTML مع alt مناسب وأبعاد تساعد على تجربة أفضل.">
+<meta name="keywords" content="HTML, تعلم HTML, شرح HTML بالعربية, دروس HTML للمبتدئين">
+<meta name="author" content="MSEO Editorial">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://gpldroid.github.io/mseo/articles/html-lists-images.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="القوائم والصور في HTML: أمثلة عملية مع النص البديل">
+<meta property="og:description" content="تعلم إنشاء القوائم المرتبة وغير المرتبة وقوائم التعريف، وإضافة الصور في HTML مع alt مناسب وأبعاد تساعد على تجربة أفضل.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85">
+<meta property="og:image:alt" content="حاسوب محمول ومواد تعليمية لتوضيح تنظيم المحتوى الرقمي">
+<meta property="og:url" content="https://gpldroid.github.io/mseo/articles/html-lists-images.html">
+<meta property="og:site_name" content="MSEO">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="القوائم والصور في HTML: أمثلة عملية مع النص البديل">
+<meta name="twitter:description" content="تعلم إنشاء القوائم المرتبة وغير المرتبة وقوائم التعريف، وإضافة الصور في HTML مع alt مناسب وأبعاد تساعد على تجربة أفضل.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"القوائم والصور في HTML: أمثلة عملية مع النص البديل","description":"تعلم إنشاء القوائم المرتبة وغير المرتبة وقوائم التعريف، وإضافة الصور في HTML مع alt مناسب وأبعاد تساعد على تجربة أفضل.","image":["https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85"],"datePublished":"2026-10-14","author":{"@type":"Organization","name":"MSEO Editorial"},"publisher":{"@type":"Organization","name":"MSEO","url":"https://gpldroid.github.io/mseo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://gpldroid.github.io/mseo/articles/html-lists-images.html"}}</script>
+<link rel="stylesheet" href="../assets/css/style.css?v=20261012-images1">
+</head>
+<body>
+<div data-site-header></div>
+<main class="max-w-4xl mx-auto px-4 py-8">
+<nav aria-label="مسار التنقل" class="text-xs text-slate-500 mb-5"><a href="../index.html">الرئيسية</a> <span aria-hidden="true"> / </span><a href="../pages/web-development.html">تطوير المواقع</a> <span aria-hidden="true"> / </span><span>القوائم والصور في HTML: أمثلة عملية مع النص البديل</span></nav>
+<article class="bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden">
+<img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85" alt="حاسوب محمول ومواد تعليمية لتوضيح تنظيم المحتوى الرقمي" width="1400" height="788" loading="eager" fetchpriority="high" decoding="async" class="w-full aspect-video object-cover">
+<div class="p-6 sm:p-10">
+<div class="flex flex-wrap gap-2 mb-4"><span class="bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-full">تطوير المواقع</span><time datetime="2026-10-14" class="text-xs text-slate-500 px-2 py-1.5">14 أكتوبر 2026</time></div>
+<h1 class="text-2xl sm:text-4xl font-black leading-tight text-slate-950 dark:text-white">القوائم والصور في HTML: أمثلة عملية مع النص البديل</h1>
+<p class="mt-5 text-base leading-8 text-slate-600 dark:text-slate-300">تعلم إنشاء القوائم المرتبة وغير المرتبة وقوائم التعريف، وإضافة الصور في HTML مع alt مناسب وأبعاد تساعد على تجربة أفضل.</p>
+<div class="mt-8 prose prose-slate max-w-none dark:prose-invert"><h2>متى تستخدم القوائم؟</h2><p>تساعد القوائم على عرض العناصر المرتبطة بطريقة يسهل مسحها بصريًا وقراءتها بالتقنيات المساعدة. اختر نوع القائمة بحسب طبيعة المعلومات، وليس بحسب شكلها فقط.</p>
+<h2>القائمة غير المرتبة ul</h2><p>استخدم <code>ul</code> عندما لا يكون ترتيب العناصر مهمًا:</p><pre><code>&lt;h2&gt;أدوات التعلم&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;محرر نصوص&lt;/li&gt;
+  &lt;li&gt;متصفح حديث&lt;/li&gt;
+  &lt;li&gt;مرجع HTML&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+<h2>القائمة المرتبة ol</h2><p>استخدم <code>ol</code> عندما يكون التسلسل مهمًا، مثل خطوات تنفيذ مهمة:</p><pre><code>&lt;ol&gt;
+  &lt;li&gt;أنشئ ملف index.html.&lt;/li&gt;
+  &lt;li&gt;اكتب هيكل الصفحة.&lt;/li&gt;
+  &lt;li&gt;افتح الملف في المتصفح.&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+<p>كل عنصر قائمة يوضع داخل <code>li</code>. لا تستخدم أرقامًا مكتوبة يدويًا داخل الفقرات لتعويض قائمة مرتبة حقيقية.</p>
+<h2>قوائم التعريف dl</h2><p>تلائم <code>dl</code> المصطلحات مع تعريفاتها، باستخدام <code>dt</code> للمصطلح و<code>dd</code> لوصفه:</p><pre><code>&lt;dl&gt;
+  &lt;dt&gt;HTML&lt;/dt&gt;
+  &lt;dd&gt;لغة ترميز تحدد بنية صفحة الويب.&lt;/dd&gt;
+  &lt;dt&gt;CSS&lt;/dt&gt;
+  &lt;dd&gt;لغة تصف مظهر الصفحة وتخطيطها.&lt;/dd&gt;
+&lt;/dl&gt;</code></pre>
+<h2>إضافة صورة إلى الصفحة</h2><pre><code>&lt;img
+  src="images/html-example.webp"
+  alt="مثال يوضح بنية مستند HTML داخل محرر الكود"
+  width="1200"
+  height="675"
+  loading="lazy"
+&gt;</code></pre><p>يشير <code>src</code> إلى ملف الصورة، ويقدم <code>alt</code> بديلًا نصيًا عند عدم رؤية الصورة أو عند استخدام قارئ شاشة. تساعد قيمتا <code>width</code> و<code>height</code> المتصفح على حجز مساحة للصورة وتقليل تحرك المحتوى أثناء التحميل. أما <code>loading="lazy"</code> فيناسب غالبًا الصور الواقعة أسفل الجزء الظاهر عند فتح الصفحة.</p>
+<h2>كيف تكتب نصًا بديلًا جيدًا؟</h2><ul><li>صف المعلومة أو الوظيفة التي تؤديها الصورة في سياق الصفحة.</li><li>اجعل النص موجزًا ودقيقًا، ولا تبدأ دائمًا بعبارة «صورة لـ» إذا كان السياق واضحًا.</li><li>لا تحشو النص بكلمات مفتاحية لا تصف الصورة.</li><li>إذا كانت الصورة زخرفية بحتة ولا تضيف معلومة، فاستخدم <code>alt=""</code>.</li><li>إذا كانت الصورة رابطًا، فاجعل البديل يوضح وجهة الرابط أو وظيفته.</li></ul>
+<h2>الأداء واختيار صيغة الصورة</h2><p>استخدم أبعادًا مناسبة لحجم العرض، واضغط الصور مع الحفاظ على جودة كافية. يمكن أن تقلل صيغ مثل WebP وAVIF حجم الملف في كثير من الحالات، لكن تحقق من التوافق وسلوك العرض في مشروعك. لا تستخدم التحميل الكسول للصورة الرئيسية الظاهرة فورًا دون سبب؛ فقد يؤخر عرضها.</p>
+<h2>أخطاء شائعة</h2><ul><li>إغفال <code>alt</code> عن الصور ذات المعنى.</li><li>كتابة وصف عام مثل «صورة» لا ينقل أي معلومة.</li><li>استخدام <code>ol</code> لعناصر لا يهم ترتيبها أو <code>ul</code> لخطوات مرتبة.</li><li>ترك الصور الكبيرة بلا ضغط أو أبعاد محددة.</li></ul>
+<h2>تمرين عملي</h2><p>أنشئ قائمة بالأدوات التي تحتاجها لتعلم HTML، ثم قائمة مرقمة من أربع خطوات لبناء صفحة. أضف صورة محلية واكتب نصًا بديلًا يشرح ما تعرضه فعلًا.</p>
+<h2>مصادر موثوقة</h2><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img">MDN: The Image element</a></li><li><a href="https://www.w3.org/WAI/tutorials/images/">W3C WAI: Images Tutorial</a></li></ul></div>
+</div></article>
+</main>
+<div data-site-footer></div>
+<script src="../assets/js/site.js?v=20261012-images1" defer></script>
+</body></html>
