@@ -108,7 +108,7 @@
  if(!grid||!catsGrid)return;
  const batch=6;let articles=[],shown=batch;const categoryPaths={'الذكاء الاصطناعي':'pages/ai.html','تطوير المواقع':'pages/web-development.html','البرمجة':'pages/programming.html','SEO':'pages/seo.html','تصميم المواقع':'pages/web-design.html','أداء المواقع':'pages/performance.html'};const normalize=s=>String(s??'').normalize('NFD').replace(/[\u064B-\u065F\u0670]/g,'').replace(/[أإآٱ]/g,'ا').replace(/ى/g,'ي').replace(/ة/g,'ه').replace(/[^\p{L}\p{N}]+/gu,' ').toLocaleLowerCase('ar').trim();const matches=(a,q)=>{const hay=normalize([a.title,a.category,a.subcategory,a.description,a.slug,a.file,...(a.tags||[])].join(' '));return normalize(q).split(' ').filter(Boolean).every(term=>hay.includes(term));};const categoryUrl=cat=>url(categoryPaths[cat]||('pages/archive.html?category='+encodeURIComponent(cat)));
  try{
-  const res=await fetch(url('data/articles.json'),{cache:'no-cache'});if(!res.ok)throw Error();articles=await res.json();articles.sort((a,b)=>Number(!!b.featured)-Number(!!a.featured));
+  const res=await fetch(url('data/articles.json'),{cache:'no-cache'});if(!res.ok)throw Error();articles=(await res.json()).reverse().sort((a,b)=>Number(!!b.featured)-Number(!!a.featured));
   const cats=[...new Set(articles.map(a=>a.category).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'ar'));
   catsGrid.innerHTML=cats.map((cat,i)=>'<a class="category-card" href="'+categoryUrl(cat)+'"><span class="site-card-icon">'+['✳','⌘','◈','↗','⌁','⚙'][i%6]+'</span><h3>'+esc(cat)+'</h3><p>استكشف الأدلة والمقالات في هذا المجال.</p><span class="site-read">تصفح المقالات ←</span></a>').join('');
   if(select)select.innerHTML='<option value="">كل التصنيفات</option>'+cats.map(cat=>'<option value="'+esc(cat)+'">'+esc(cat)+'</option>').join('');
