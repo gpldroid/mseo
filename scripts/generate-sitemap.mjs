@@ -1,5 +1,5 @@
 import { readFile, writeFile, readdir } from 'node:fs/promises';
-const base = 'https://gpldroid.github.io/mseo/';
+const base = new URL(process.env.URL || 'https://gpldroid.github.io/mseo/').href.replace(/\\/?$/, '/');
 const catalog = JSON.parse(await readFile(new URL('../data/articles.json', import.meta.url), 'utf8'));
 const pages = (await readdir(new URL('../pages/', import.meta.url))).filter(f => f.endsWith('.html') && f !== 'admin.html').sort();
 const today = new Date().toISOString().slice(0,10);
