@@ -861,5 +861,56 @@
     "icon": "fa-link",
     "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=85",
     "thumbnail": "assets/images/article-thumbnails/internal-linking-seo-guide.svg"
+  },
+  {
+    "slug": "website-quality-audit-checklist",
+    "file": "website-quality-audit-checklist.html",
+    "title": "تدقيق جودة الموقع: قائمة شاملة للأداء وSEO وإمكانية الوصول",
+    "category": "أداء المواقع",
+    "subcategory": "تدقيق جودة الموقع",
+    "tags": [
+      "تدقيق جودة الموقع",
+      "Website Quality Audit",
+      "Core Web Vitals",
+      "SEO",
+      "إمكانية الوصول"
+    ],
+    "description": "استخدم قائمة عملية لتقييم جودة موقعك عبر الأداء وإمكانية الوصول وSEO والأمان وسهولة الاستخدام، ثم رتّب الإصلاحات حسب أثرها.",
+    "icon": "fa-gauge-high",
+    "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85"
+  },
+  {
+    "slug": "lighthouse-audit-fixes-guide",
+    "file": "lighthouse-audit-fixes-guide.html",
+    "title": "دليل Lighthouse: فهم نتائج الفحص وإصلاح مشكلات الموقع",
+    "category": "أداء المواقع",
+    "subcategory": "Lighthouse والتشخيص",
+    "tags": [
+      "Lighthouse",
+      "Performance Audit",
+      "Accessibility Audit",
+      "SEO Audit",
+      "تحسين الأداء"
+    ],
+    "description": "تعلم تشغيل Lighthouse وقراءة تقاريره وترتيب إصلاحات الأداء وإمكانية الوصول وSEO وفق الأثر، مع تجنب تفسير الدرجات بشكل مضلل.",
+    "icon": "fa-gauge-high",
+    "image": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=85"
+  },
+  {
+    "slug": "mobile-website-quality-testing",
+    "file": "mobile-website-quality-testing.html",
+    "title": "اختبار جودة الموقع على الهاتف: دليل عملي قبل النشر",
+    "category": "أداء المواقع",
+    "subcategory": "اختبار جودة الهاتف",
+    "tags": [
+      "اختبار الهاتف",
+      "Mobile Usability",
+      "Responsive Testing",
+      "إمكانية الوصول",
+      "الأداء"
+    ],
+    "description": "قائمة عملية لاختبار الموقع على الهاتف تشمل العرض المتجاوب واللمس والنماذج والأداء وإمكانية الوصول والمهام الأساسية قبل النشر.",
+    "icon": "fa-gauge-high",
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=85"
   }
 ]
