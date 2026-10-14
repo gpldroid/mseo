@@ -35,10 +35,11 @@ for (const row of rows) {
   const title = escape(row.seo_title || row.title);
   const description = escape(row.seo_description || row.summary || "");
   const canonical = `https://gpldroid.github.io/mseo/${row.content_type === "page" ? "pages" : "articles"}/${file}`;
-  const rawImage = String(row.cover_image_url || "https://gpldroid.github.io/mseo/assets/favicon.svg").trim();
+  const publicBase = new URL(process.env.URL || "https://gpldroid.github.io/mseo/");
+  const rawImage = String(row.cover_image_url || new URL("assets/favicon.svg", publicBase).href).trim();
   const absoluteImage = /^https?:\/\//i.test(rawImage)
     ? rawImage
-    : new URL(rawImage, "https://gpldroid.github.io/mseo/").href;
+    : new URL(rawImage, publicBase).href;
   const image = escape(absoluteImage);
   const body = safeHtml(row.body_html);
   const html = `<!doctype html>
