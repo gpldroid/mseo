@@ -47,6 +47,13 @@
 &lt;/picture&gt;</code></pre><p>يتيح <code>picture</code> تحديد مصادر أو صيغ بديلة، ويظل <code>img</code> هو العنصر الاحتياطي. اختبر الروابط وتأكد من توفر الملفات فعلًا.</p><h2>نص بديل وأداء</h2><p>اكتب نصًا بديلًا يخدم غرض الصورة، وحدد <code>width</code> و<code>height</code> لتقليل قفزات التخطيط. استخدم التحميل الكسول للصور البعيدة عن بداية الصفحة، وتجنب تأخير صورة العرض الرئيسية المهمة دون قياس أثر ذلك.</p>
 <h2>مراجع موثوقة</h2><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener noreferrer">MDN Web Docs: HTML</a></li><li><a href="https://html.spec.whatwg.org/" target="_blank" rel="noopener noreferrer">WHATWG HTML Living Standard</a></li><li><a href="https://www.w3.org/WAI/" target="_blank" rel="noopener noreferrer">W3C Web Accessibility Initiative</a></li></ul>
 <h2>تابع سلسلة HTML</h2><p>تابع الدروس السابقة: <a href="html-what-is-html.html">ما هي HTML؟</a>، <a href="html-document-structure.html">بنية مستند HTML</a>، <a href="html-text-headings-links.html">العناوين والفقرات والروابط</a>، <a href="html-lists-images.html">القوائم والصور</a>، و<a href="html-forms-basics.html">أساسيات النماذج</a>.</p>
+<h2 data-expanded-all-articles="true">اختيار الصور بحسب حجم العرض</h2><p>استخدم <code>srcset</code> مع واصفات العرض عندما توفر نسخًا متعددة من الصورة نفسها، و<code>sizes</code> لوصف المساحة التي ستشغلها الصورة في التخطيط. أما <code>picture</code> فيناسب التوجيه الفني مثل تغيير القص أو الصيغة، وليس مجرد تصغير الصورة.</p><pre><code>&lt;img
+  src="/images/team-800.webp"
+  srcset="/images/team-400.webp 400w, /images/team-800.webp 800w, /images/team-1200.webp 1200w"
+  sizes="(max-width: 600px) 100vw, (max-width: 1000px) 80vw, 800px"
+  width="1200" height="800"
+  alt="فريق يعمل على مشروع رقمي"
+&gt;</code></pre><p>تأكد من أن الملفات المحددة موجودة فعلًا وأن أبعادها متناسبة. افتح أدوات المطور للتحقق من الملف الذي اختاره المتصفح، ثم اختبر على شاشة عالية الكثافة واتصال بطيء.</p>
 </div>
 </div>
 </article>
