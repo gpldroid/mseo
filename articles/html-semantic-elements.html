@@ -46,6 +46,15 @@
 &lt;footer&gt;حقوق النشر ومعلومات التواصل&lt;/footer&gt;</code></pre><h2>أخطاء شائعة</h2><p>لا تستخدم <code>section</code> بدلًا من كل <code>div</code> دون سبب موضوعي، ولا تضع عناصر التنقل داخل <code>nav</code> لمجرد أنها روابط عادية ضمن فقرة. اختر العنصر وفق المعنى الحقيقي للمحتوى.</p><h2>تحقق بنفسك</h2><p>افتح صفحة من مشروعك، وحدد الرأس والتنقل والمحتوى الأساسي والتذييل. استخدم أدوات المطور لفحص شجرة العناصر، ثم راجع الصفحة بلوحة المفاتيح.</p>
 <h2>مراجع موثوقة</h2><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener noreferrer">MDN Web Docs: HTML</a></li><li><a href="https://html.spec.whatwg.org/" target="_blank" rel="noopener noreferrer">WHATWG HTML Living Standard</a></li><li><a href="https://www.w3.org/WAI/" target="_blank" rel="noopener noreferrer">W3C Web Accessibility Initiative</a></li></ul>
 <h2>تابع سلسلة HTML</h2><p>تابع الدروس السابقة: <a href="html-what-is-html.html">ما هي HTML؟</a>، <a href="html-document-structure.html">بنية مستند HTML</a>، <a href="html-text-headings-links.html">العناوين والفقرات والروابط</a>، <a href="html-lists-images.html">القوائم والصور</a>، و<a href="html-forms-basics.html">أساسيات النماذج</a>.</p>
+<h2 data-expanded-all-articles="true">بنية دلالية قابلة للفهم</h2><p>استخدم <code>main</code> للمحتوى الأساسي الفريد للصفحة، و<code>nav</code> لمجموعة روابط التنقل، و<code>article</code> لمحتوى مستقل يمكن فهمه منفردًا، و<code>section</code> لمجموعة موضوعية لها عنوان. لا تختَر العنصر بناءً على شكله الافتراضي؛ يمكن تغيير المظهر عبر CSS دون التضحية بالمعنى.</p><pre><code>&lt;header&gt;&lt;nav aria-label="التنقل الرئيسي"&gt;...&lt;/nav&gt;&lt;/header&gt;
+&lt;main&gt;
+  &lt;article&gt;
+    &lt;h1&gt;عنوان المقال&lt;/h1&gt;
+    &lt;section aria-labelledby="steps-title"&gt;
+      &lt;h2 id="steps-title"&gt;الخطوات&lt;/h2&gt;
+    &lt;/section&gt;
+  &lt;/article&gt;
+&lt;/main&gt;</code></pre><p>تجنب استخدام العناصر الدلالية كوسيلة تنسيق فقط، ولا تكرر landmark رئيسيًا بلا داعٍ. افحص شجرة الوصول للتأكد من أن البنية الناتجة تطابق معنى المحتوى.</p>
 </div>
 </div>
 </article>
