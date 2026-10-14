@@ -2,7 +2,7 @@ import { readdir, readFile, writeFile, mkdir } from 'node:fs/promises';
 import path from 'node:path';
 
 const root = process.cwd();
-const siteBase = 'https://gpldroid.github.io/mseo/';
+const siteBase = new URL(process.env.URL || 'https://gpldroid.github.io/mseo/');
 const previewDir = path.join(root, 'assets/images/social-previews');
 const excluded = new Set(['404.html', 'pages/admin.html']);
 const htmlFiles = [];
@@ -74,13 +74,7 @@ for (const file of htmlFiles) {
     const assetRel = 'assets/images/social-previews/' + slug + '.svg';
     await writeFile(path.join(root, assetRel), makeSvg(title, description, rel.split('/')[0]), 'utf8');
     imageUrl = new URL(assetRel, siteBase).href;
-    const srcPath = (rel.includes('/') ? '../'.repeat(rel.split('/').length - 1) : '') + assetRel;
-    const figure = '<figure class="mseo-generated-content-image" style="margin:1.5rem auto;max-width:900px"><img src="' + srcPath + '" alt="' + esc(title) + '" width="1200" height="630" loading="lazy" decoding="async" style="display:block;width:100%;height:auto;border-radius:16px"><figcaption>' + esc(description) + '</figcaption></figure>';
-    if (mainMatch && !/mseo-generated-content-image/.test(main)) {
-      const h1Close = /<\/h1>/i.exec(main);
-      const insertAt = h1Close ? h1Close.index + h1Close[0].length : 0;
-      html = html.replace(main, main.slice(0, insertAt) + figure + main.slice(insertAt));
-    }
+    // Keep fallback previews in metadata only. Never inject a second image into page content.
     generated++;
   }
   const originalHead = head;
@@ -95,4 +89,4 @@ for (const file of htmlFiles) {
   html = html.replace(headMatch[0], rebuiltHead);
   await writeFile(file, html, 'utf8');
 }
-console.log('Social image audit complete: ' + htmlFiles.length + ' HTML pages checked; ' + generated + ' contextual SVG previews generated and inserted where no main image existed; ' + reused + ' existing main images reused; metadata updated on ' + metadataFixed + ' pages.');
+console.log('Social image audit complete: ' + htmlFiles.length + ' HTML pages checked; ' + generated + ' fallback SVG previews generated for metadata only; ' + reused + ' existing main images reused; metadata updated on ' + metadataFixed + ' pages.');
