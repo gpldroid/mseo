@@ -36,7 +36,7 @@ for (const row of rows) {
   const description = escape(row.seo_description || row.summary || "");
   const canonical = `https://gpldroid.github.io/mseo/${row.content_type === "page" ? "pages" : "articles"}/${file}`;
   const rawImage = String(row.cover_image_url || "https://gpldroid.github.io/mseo/assets/favicon.svg").trim();
-  const absoluteImage = /^https?:\\/\\//i.test(rawImage)
+  const absoluteImage = /^https?:\/\//i.test(rawImage)
     ? rawImage
     : new URL(rawImage, "https://gpldroid.github.io/mseo/").href;
   const image = escape(absoluteImage);
