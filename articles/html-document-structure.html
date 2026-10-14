@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b1220">
+<meta name="color-scheme" content="light dark">
+<title>بنية صفحة HTML: شرح doctype وhead وbody ووسوم meta | MSEO</title>
+<meta name="description" content="افهم بنية مستند HTML من البداية، ودور doctype وhtml وhead وbody ووسوم meta، مع مثال عربي صحيح وأخطاء يجب تجنبها.">
+<meta name="keywords" content="HTML, تعلم HTML, شرح HTML بالعربية, دروس HTML للمبتدئين">
+<meta name="author" content="MSEO Editorial">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://gpldroid.github.io/mseo/articles/html-document-structure.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="بنية صفحة HTML: شرح doctype وhead وbody ووسوم meta">
+<meta property="og:description" content="افهم بنية مستند HTML من البداية، ودور doctype وhtml وhead وbody ووسوم meta، مع مثال عربي صحيح وأخطاء يجب تجنبها.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=85">
+<meta property="og:image:alt" content="شاشة تعرض شيفرة برمجية لبنية صفحة ويب">
+<meta property="og:url" content="https://gpldroid.github.io/mseo/articles/html-document-structure.html">
+<meta property="og:site_name" content="MSEO">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="بنية صفحة HTML: شرح doctype وhead وbody ووسوم meta">
+<meta name="twitter:description" content="افهم بنية مستند HTML من البداية، ودور doctype وhtml وhead وbody ووسوم meta، مع مثال عربي صحيح وأخطاء يجب تجنبها.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=85">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"بنية صفحة HTML: شرح doctype وhead وbody ووسوم meta","description":"افهم بنية مستند HTML من البداية، ودور doctype وhtml وhead وbody ووسوم meta، مع مثال عربي صحيح وأخطاء يجب تجنبها.","image":["https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=85"],"datePublished":"2026-10-14","author":{"@type":"Organization","name":"MSEO Editorial"},"publisher":{"@type":"Organization","name":"MSEO","url":"https://gpldroid.github.io/mseo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://gpldroid.github.io/mseo/articles/html-document-structure.html"}}</script>
+<link rel="stylesheet" href="../assets/css/style.css?v=20261012-images1">
+</head>
+<body>
+<div data-site-header></div>
+<main class="max-w-4xl mx-auto px-4 py-8">
+<nav aria-label="مسار التنقل" class="text-xs text-slate-500 mb-5"><a href="../index.html">الرئيسية</a> <span aria-hidden="true"> / </span><a href="../pages/web-development.html">تطوير المواقع</a> <span aria-hidden="true"> / </span><span>بنية صفحة HTML: شرح doctype وhead وbody ووسوم meta</span></nav>
+<article class="bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden">
+<img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=85" alt="شاشة تعرض شيفرة برمجية لبنية صفحة ويب" width="1400" height="788" loading="eager" fetchpriority="high" decoding="async" class="w-full aspect-video object-cover">
+<div class="p-6 sm:p-10">
+<div class="flex flex-wrap gap-2 mb-4"><span class="bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-full">تطوير المواقع</span><time datetime="2026-10-14" class="text-xs text-slate-500 px-2 py-1.5">14 أكتوبر 2026</time></div>
+<h1 class="text-2xl sm:text-4xl font-black leading-tight text-slate-950 dark:text-white">بنية صفحة HTML: شرح doctype وhead وbody ووسوم meta</h1>
+<p class="mt-5 text-base leading-8 text-slate-600 dark:text-slate-300">افهم بنية مستند HTML من البداية، ودور doctype وhtml وhead وbody ووسوم meta، مع مثال عربي صحيح وأخطاء يجب تجنبها.</p>
+<div class="mt-8 prose prose-slate max-w-none dark:prose-invert"><h2>لماذا تحتاج الصفحة إلى بنية واضحة؟</h2><p>مستند HTML ليس مجموعة وسوم عشوائية؛ له هيكل يساعد المتصفح على تفسير المحتوى، ويساعد محركات البحث وتقنيات المساعدة على فهمه. يبدأ المستند بإعلان نوعه، ثم عنصر <code>html</code> الذي يحتوي قسم المعلومات <code>head</code> وقسم المحتوى <code>body</code>.</p>
+<h2>الهيكل الأساسي لمستند HTML</h2>
+<pre><code>&lt;!doctype html&gt;
+&lt;html lang="ar" dir="rtl"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+  &lt;meta name="description" content="دليل مبسط لتعلم HTML باللغة العربية."&gt;
+  &lt;title&gt;تعلم HTML بالعربية&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;
+    &lt;h1&gt;تعلم HTML&lt;/h1&gt;
+  &lt;/header&gt;
+  &lt;main&gt;
+    &lt;p&gt;هنا يبدأ محتوى الصفحة.&lt;/p&gt;
+  &lt;/main&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<h2>شرح أجزاء المستند</h2>
+<h3>إعلان doctype</h3><p>يكتب <code>&lt;!doctype html&gt;</code> في بداية الملف. وهو إعلان يطلب من المتصفح عرض الصفحة وفق وضع المعايير الحديث، وليس وسمًا يحتاج إلى إغلاق.</p>
+<h3>عنصر html واللغة والاتجاه</h3><p>العنصر <code>html</code> هو الجذر الذي يحتوي بقية المستند. استخدم <code>lang="ar"</code> عندما تكون اللغة الأساسية عربية، و<code>dir="rtl"</code> لضبط اتجاه النص. لا تعتمد على CSS وحده لتحديد اتجاه المحتوى الدلالي.</p>
+<h3>عنصر head</h3><p>يضم بيانات المستند: الترميز، وعنوان التبويب، والوصف التعريفي، وروابط ملفات CSS وأحيانًا بيانات منظمة. معظم هذه المعلومات لا تظهر كجزء من متن الصفحة.</p>
+<h3>عنصر body</h3><p>يضم المحتوى الذي يتفاعل معه الزائر، مثل العناوين والنصوص والصور والروابط والنماذج. ينبغي أن يكون المحتوى الأساسي واضحًا حتى لو تعطل JavaScript.</p>
+<h2>وسوم meta المهمة</h2><ul><li><code>charset="UTF-8"</code>: يحدد ترميزًا يدعم العربية ومجموعة واسعة من الحروف.</li><li><code>name="viewport"</code>: يساعد الصفحة على استخدام عرض الجهاز بصورة مناسبة.</li><li><code>name="description"</code>: يقدم وصفًا موجزًا قد تستخدمه محركات البحث في مقتطف النتيجة؛ لا يضمن ظهوره حرفيًا.</li><li><code>title</code>: يحدد عنوان المستند الذي يظهر غالبًا في تبويب المتصفح ونتائج البحث.</li></ul>
+<h2>أخطاء شائعة</h2><ul><li>وضع عنوان الصفحة المرئي داخل <code>head</code> بدل <code>body</code>.</li><li>تكرار وسوم العنوان أو الوصف بلا حاجة.</li><li>نسيان UTF-8، مما قد يؤدي إلى ظهور أحرف عربية مشوهة في بعض الحالات.</li><li>اعتبار وصف meta عامل ترتيب مضمون؛ وظيفته الأساسية وصف الصفحة والمساعدة في عرضها.</li></ul>
+<h2>تمرين</h2><p>أنشئ ملفًا يتضمن عنوانًا ووصفًا تعريفيًا باللغة العربية، ثم افتحه في المتصفح وتحقق من عنوان التبويب. جرّب تغيير قيمة <code>lang</code> ولاحظ كيف تصف اللغة المعلنة للمستند.</p>
+<h2>مصادر موثوقة</h2><ul><li><a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Structuring_content">MDN: Structuring content with HTML</a></li><li><a href="https://developers.google.com/search/docs/appearance/snippet">Google Search Central: Control your snippets</a></li></ul></div>
+</div></article>
+</main>
+<div data-site-footer></div>
+<script src="../assets/js/site.js?v=20261012-images1" defer></script>
+</body></html>
