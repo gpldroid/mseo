@@ -84,7 +84,14 @@ button.addEventListener('click', () => {
   output.textContent = 'مرحبًا بك!';
 });</code></pre><p>يتطلب المثال وجود عنصر زر بالمعرّف <code>greet</code> وعنصر إخراج بالمعرّف <code>output</code>. استخدم <code>textContent</code> للنص العادي بدل إدخال مدخلات المستخدم عبر <code>innerHTML</code> دون تنقية.</p><h2>تمرين واختبار</h2><ul><li>غيّر النص الذي يظهر عند النقر.</li><li>اختبر ما يحدث إن لم يعثر المحدد على العنصر.</li><li>جرّب تعطيل JavaScript ولاحظ هل تبقى المعلومات الأساسية مفهومة.</li></ul>
 </div>
-</div></article>
+</div><div data-batch-deepening="true" class="p-6 sm:p-10 prose prose-slate max-w-none dark:prose-invert"><h2>تدريب عملي: من المتغير إلى تحديث الواجهة</h2><p>قسّم أي تمرين JavaScript إلى خطوات صغيرة: اقرأ المدخلات، احسب الحالة الجديدة، ثم حدّث الواجهة. تجنب ربط كل منطق التطبيق مباشرة بعناصر DOM؛ ضع الحسابات في دوال مستقلة حتى يمكن اختبارها دون متصفح.</p><pre><code>function calculateTotal(price, quantity) {
+  if (!Number.isFinite(price) || !Number.isInteger(quantity) || quantity < 0) {
+    throw new Error('قيمة غير صالحة');
+  }
+  return price * quantity;
+}
+console.log(calculateTotal(12, 3));</code></pre><p>جرّب القيم الصحيحة والخاطئة، ثم اربط الدالة بحدث في الواجهة. تعلم قراءة رسائل Console وفحص القيم أثناء التنفيذ أهم من حفظ الصياغة وحدها.</p></div>
+</article>
 <section class="mt-8"><h2 class="text-xl font-black mb-4">اقرأ أيضًا</h2><div class="grid sm:grid-cols-2 gap-3"><a href="javascript-debugging.html" class="block bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-4 hover:-translate-y-0.5 transition"><strong>Debugging في JavaScript: دليل اكتشاف الأخطاء وإصلاحها</strong><span class="block text-xs text-slate-500 mt-2">البرمجة</span></a><a href="javascript-clean-code.html" class="block bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-4 hover:-translate-y-0.5 transition"><strong>JavaScript للمواقع: تنظيم الكود وتقليل الأخطاء وتحسين الأداء</strong><span class="block text-xs text-slate-500 mt-2">البرمجة</span></a><a href="html-semantic-seo.html" class="block bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-4 hover:-translate-y-0.5 transition"><strong>دليل HTML الدلالي: كيف تبني صفحات ويب أفضل للـSEO والوصول</strong><span class="block text-xs text-slate-500 mt-2">تطوير المواقع</span></a><a href="ai-coding-prompts.html" class="block bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-4 hover:-translate-y-0.5 transition"><strong>أفضل Prompts لبرمجة المواقع بالذكاء الاصطناعي</strong><span class="block text-xs text-slate-500 mt-2">الذكاء الاصطناعي</span></a></div></section>
 </main>
 <div data-site-footer></div>
