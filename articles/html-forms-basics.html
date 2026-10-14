@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b1220">
+<meta name="color-scheme" content="light dark">
+<title>نماذج HTML للمبتدئين: input وlabel وbutton والتحقق الأساسي | MSEO</title>
+<meta name="description" content="تعلم إنشاء نموذج HTML واضح وسهل الوصول، مع label وinput وأنواع الحقول والأزرار وخصائص التحقق المدمجة وأفضل الممارسات.">
+<meta name="keywords" content="HTML, تعلم HTML, شرح HTML بالعربية, دروس HTML للمبتدئين">
+<meta name="author" content="MSEO Editorial">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://gpldroid.github.io/mseo/articles/html-forms-basics.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="نماذج HTML للمبتدئين: input وlabel وbutton والتحقق الأساسي">
+<meta property="og:description" content="تعلم إنشاء نموذج HTML واضح وسهل الوصول، مع label وinput وأنواع الحقول والأزرار وخصائص التحقق المدمجة وأفضل الممارسات.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85">
+<meta property="og:image:alt" content="حاسوب محمول يعرض واجهة رقمية أثناء تعلم بناء النماذج">
+<meta property="og:url" content="https://gpldroid.github.io/mseo/articles/html-forms-basics.html">
+<meta property="og:site_name" content="MSEO">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="نماذج HTML للمبتدئين: input وlabel وbutton والتحقق الأساسي">
+<meta name="twitter:description" content="تعلم إنشاء نموذج HTML واضح وسهل الوصول، مع label وinput وأنواع الحقول والأزرار وخصائص التحقق المدمجة وأفضل الممارسات.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"نماذج HTML للمبتدئين: input وlabel وbutton والتحقق الأساسي","description":"تعلم إنشاء نموذج HTML واضح وسهل الوصول، مع label وinput وأنواع الحقول والأزرار وخصائص التحقق المدمجة وأفضل الممارسات.","image":["https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85"],"datePublished":"2026-10-14","author":{"@type":"Organization","name":"MSEO Editorial"},"publisher":{"@type":"Organization","name":"MSEO","url":"https://gpldroid.github.io/mseo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://gpldroid.github.io/mseo/articles/html-forms-basics.html"}}</script>
+<link rel="stylesheet" href="../assets/css/style.css?v=20261012-images1">
+</head>
+<body>
+<div data-site-header></div>
+<main class="max-w-4xl mx-auto px-4 py-8">
+<nav aria-label="مسار التنقل" class="text-xs text-slate-500 mb-5"><a href="../index.html">الرئيسية</a> <span aria-hidden="true"> / </span><a href="../pages/web-development.html">تطوير المواقع</a> <span aria-hidden="true"> / </span><span>نماذج HTML للمبتدئين: input وlabel وbutton والتحقق الأساسي</span></nav>
+<article class="bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden">
+<img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85" alt="حاسوب محمول يعرض واجهة رقمية أثناء تعلم بناء النماذج" width="1400" height="788" loading="eager" fetchpriority="high" decoding="async" class="w-full aspect-video object-cover">
+<div class="p-6 sm:p-10">
+<div class="flex flex-wrap gap-2 mb-4"><span class="bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-full">تطوير المواقع</span><time datetime="2026-10-14" class="text-xs text-slate-500 px-2 py-1.5">14 أكتوبر 2026</time></div>
+<h1 class="text-2xl sm:text-4xl font-black leading-tight text-slate-950 dark:text-white">نماذج HTML للمبتدئين: input وlabel وbutton والتحقق الأساسي</h1>
+<p class="mt-5 text-base leading-8 text-slate-600 dark:text-slate-300">تعلم إنشاء نموذج HTML واضح وسهل الوصول، مع label وinput وأنواع الحقول والأزرار وخصائص التحقق المدمجة وأفضل الممارسات.</p>
+<div class="mt-8 prose prose-slate max-w-none dark:prose-invert"><h2>ما هو نموذج HTML؟</h2><p>تسمح النماذج للمستخدم بإدخال معلومات وإرسالها، مثل نموذج التواصل أو البحث أو التسجيل. توفر HTML عناصر لوصف الحقول، لكن إرسال البيانات ومعالجتها فعليًا يحتاج إلى وجهة مناسبة على الخادم أو إلى خدمة متخصصة؛ وجود زر إرسال وحده لا ينشئ نظامًا خلفيًا.</p>
+<h2>نموذج بسيط وواضح</h2><pre><code>&lt;form action="/contact" method="post"&gt;
+  &lt;div&gt;
+    &lt;label for="name"&gt;الاسم&lt;/label&gt;
+    &lt;input id="name" name="name" type="text" autocomplete="name" required&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;label for="email"&gt;البريد الإلكتروني&lt;/label&gt;
+    &lt;input id="email" name="email" type="email" autocomplete="email" required&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;label for="message"&gt;رسالتك&lt;/label&gt;
+    &lt;textarea id="message" name="message" rows="5" required&gt;&lt;/textarea&gt;
+  &lt;/div&gt;
+  &lt;button type="submit"&gt;إرسال الرسالة&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+<p>المسار <code>/contact</code> مثال توضيحي؛ استبدله بعنوان نقطة المعالجة الحقيقية في مشروعك. لا تضع بيانات سرية في حقول النموذج على أساس أن HTML ستحميها.</p>
+<h2>لماذا نربط label بالحقل؟</h2><p>تربط قيمة <code>for</code> في <code>label</code> معرّف الحقل <code>id</code>. هذا يجعل اسم الحقل واضحًا لقارئات الشاشة، كما يسمح للمستخدم بالنقر على التسمية للتركيز على الحقل. لا تعتمد على placeholder بديلًا عن التسمية؛ قد يختفي النص أثناء الكتابة ولا يؤدي الدور نفسه.</p>
+<h2>اختيار نوع الحقل المناسب</h2><ul><li><code>type="text"</code> للنص العام.</li><li><code>type="email"</code> للبريد الإلكتروني، مع تحقق مبدئي من صيغة الإدخال.</li><li><code>type="tel"</code> لأرقام الهاتف، مع مراعاة اختلاف تنسيقاتها.</li><li><code>type="password"</code> لكلمة المرور؛ لا يعني ذلك أن البيانات تُرسل بأمان دون HTTPS ومعالجة خادمية سليمة.</li><li><code>textarea</code> للنصوص متعددة الأسطر.</li></ul>
+<h2>التحقق الأساسي من البيانات</h2><p>يمكن لخصائص مثل <code>required</code> و<code>minlength</code> و<code>maxlength</code> و<code>min</code> و<code>max</code> و<code>pattern</code> إضافة قواعد تحقق من جهة المتصفح. مثال:</p><pre><code>&lt;label for="username"&gt;اسم المستخدم&lt;/label&gt;
+&lt;input
+  id="username"
+  name="username"
+  type="text"
+  minlength="3"
+  maxlength="24"
+  required
+&gt;</code></pre>
+<p>هذا التحقق يحسن تجربة المستخدم لكنه ليس بديلًا عن التحقق على الخادم؛ يمكن تجاوز قيود المتصفح. لا تثق في البيانات القادمة من العميل دون فحصها مجددًا.</p>
+<h2>ممارسات الوصول والأمان</h2><ul><li>أضف تسمية مرئية لكل حقل وبيّن الحقول المطلوبة بوضوح.</li><li>تأكد من أن النموذج قابل للاستخدام بلوحة المفاتيح وأن مؤشر التركيز ظاهر.</li><li>اعرض رسائل خطأ مفهومة وحدد الحقل الذي يحتاج إلى تصحيح.</li><li>استخدم HTTPS عند نقل البيانات، ولا ترسل كلمات المرور أو المعلومات الحساسة إلى سجلات أو روابط URL.</li><li>استخدم <code>method="post"</code> عندما تكون البيانات مخصصة للإرسال في جسم الطلب؛ لا تجعل ذلك بديلًا عن تصميم أمني سليم.</li></ul>
+<h2>أخطاء شائعة</h2><ul><li>إضافة حقل بلا <code>name</code>، مما قد يمنع تضمينه في بيانات الإرسال المعتادة.</li><li>استخدام placeholder دون label.</li><li>الاعتقاد أن <code>required</code> يمنع كل الإدخالات غير الصحيحة أو الخبيثة.</li><li>إغفال توضيح ما سيحدث بعد إرسال النموذج.</li></ul>
+<h2>تمرين عملي</h2><p>أنشئ نموذج تواصل يحتوي الاسم والبريد والرسالة. جرّب إرساله فارغًا، وأدخل بريدًا غير صحيح، ثم اختبر التنقل بين الحقول باستخدام لوحة المفاتيح. تذكر أن المسار في المثال يحتاج إلى خادم حتى تتم معالجة الرسالة.</p>
+<h2>مصادر موثوقة</h2><ul><li><a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Forms">MDN: Forms</a></li><li><a href="https://www.w3.org/WAI/tutorials/forms/">W3C WAI: Forms Tutorial</a></li></ul></div>
+</div></article>
+</main>
+<div data-site-footer></div>
+<script src="../assets/js/site.js?v=20261012-images1" defer></script>
+</body></html>
