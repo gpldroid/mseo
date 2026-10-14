@@ -45,6 +45,13 @@
 &lt;/iframe&gt;</code></pre><p>استبدل عنوان المثال بمصدر موثوق يسمح بالتضمين. يشرح <code>title</code> وظيفة الإطار لمستخدمي تقنيات الوصول، بينما يساعد <code>loading="lazy"</code> في تأجيل تحميل الإطارات البعيدة عن مجال الرؤية.</p><h2>تقليل المخاطر</h2><p>تتيح <code>sandbox</code> فرض قيود على المحتوى المضمّن. ابدأ بأقل الصلاحيات ثم أضف ما تتطلبه الوظيفة فقط؛ الجمع بين <code>allow-scripts</code> و<code>allow-same-origin</code> قد يضعف العزل في بعض السيناريوهات، خصوصًا للمحتوى من المصدر نفسه. اختبر الوظيفة قبل نشر القيود.</p><pre><code>&lt;iframe src="https://example.com/embed" title="عرض تجريبي" sandbox loading="lazy"&gt;&lt;/iframe&gt;</code></pre><h2>الخصوصية والأداء</h2><p>لا تضمّن خدمات خارجية تلقائيًا إذا كانت ستتصل بخوادمها قبل أن يتوقع المستخدم ذلك. افهم سياسة الخصوصية وشروط الخدمة، ووفّر رابطًا بديلًا عند تعذر التضمين. اضبط الأبعاد لتقليل قفزات التخطيط.</p><h2>متى لا تستخدمه؟</h2><p>لا تستخدم iframe لمجرد تنسيق الصفحة أو عرض محتوى تستطيع كتابته مباشرة في HTML. كلما أمكن استخدام عنصر أصلي بسيط كان ذلك أسهل في الصيانة والوصول.</p>
 <h2>مراجع موثوقة</h2><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener noreferrer">MDN Web Docs: HTML</a></li><li><a href="https://html.spec.whatwg.org/" target="_blank" rel="noopener noreferrer">WHATWG HTML Living Standard</a></li><li><a href="https://www.w3.org/WAI/" target="_blank" rel="noopener noreferrer">W3C Web Accessibility Initiative</a></li></ul>
 <h2>تابع سلسلة HTML</h2><p>تابع الدروس السابقة: <a href="html-what-is-html.html">ما هي HTML؟</a>، <a href="html-document-structure.html">بنية مستند HTML</a>، <a href="html-text-headings-links.html">العناوين والفقرات والروابط</a>، <a href="html-lists-images.html">القوائم والصور</a>، و<a href="html-forms-basics.html">أساسيات النماذج</a>.</p>
+<h2 data-expanded-all-articles="true">تضمين أقل خطورة</h2><p>لا تضمّن صفحة خارجية إلا إذا كانت تضيف قيمة واضحة. امنح الإطار عنوانًا عبر <code>title</code>، وفعّل التحميل الكسول للمحتوى غير الظاهر أولًا، وقيّد الصلاحيات باستخدام <code>sandbox</code> عند توافق ذلك مع الوظيفة المطلوبة. لا تضف استثناءات للصلاحيات لمجرد أن المحتوى لم يعمل من أول محاولة.</p><pre><code>&lt;iframe
+  src="https://example.com/embed"
+  title="محتوى توضيحي مضمّن"
+  loading="lazy"
+  sandbox
+  referrerpolicy="strict-origin-when-cross-origin"
+&gt;&lt;/iframe&gt;</code></pre><p>هذا مثال توضيحي؛ قد تحتاج بعض الخدمات إلى صلاحيات محددة. راجع وثائق مزود التضمين واختبر ما إذا كان الإطار يعمل دون توسيع الصلاحيات أكثر من اللازم.</p><h2>اختبارات قبل النشر</h2><ul><li>تأكد من وضوح عنوان الإطار لمستخدمي قارئات الشاشة.</li><li>اختبر سياسة الخصوصية ومشاركة بيانات الإحالة.</li><li>راقب أثر الإطار على الأداء وتجربة الهاتف.</li></ul>
 </div>
 </div>
 </article>
