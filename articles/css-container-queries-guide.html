@@ -106,6 +106,24 @@
 <section><h2>اختبار المكوّن قبل إعادة استخدامه</h2>
 <ul><li>ضع البطاقة في عمود ضيق وآخر واسع.</li><li>اختبر عنوانًا من سطر واحد وآخر طويلًا جدًا.</li><li>جرّب صورة أفقية ومربعة وصورة لا تُحمّل.</li><li>تحقق من اتجاه RTL واللغة ذات الاتجاه LTR إذا كان الموقع متعدد اللغات.</li><li>استخدم لوحة المفاتيح وتأكد من أن التركيز لا يُقص داخل الحاوية.</li><li>افحص التكبير إلى 200% وتأكد من عدم ظهور تمرير أفقي غير ضروري.</li></ul>
 <p>تساعد أدوات المطور في معاينة أبعاد الحاوية ومعرفة أي استعلام ينطبق على العنصر. وإذا لم يتغير التخطيط، افحص أولًا ما إذا كانت الحاوية معرفة على العنصر الصحيح، ثم تأكد من أن العنصر الهدف داخلها، وبعد ذلك راجع الشرط العددي.</p></section>
+<section><h2>تسمية الحاويات واختيار الوحدات</h2>
+<p>عندما يحتوي التصميم على أكثر من حاوية، قد يكون الاستعلام غير المسمى مربكًا. امنح الحاوية اسمًا دالًا على دورها مثل <code>product-card</code> أو <code>sidebar-panel</code>، ثم استخدم الاسم داخل <code>@container</code>. الأسماء الواضحة لا تغيّر النتيجة التقنية فقط، بل تجعل القاعدة أسهل للفهم عندما يعود إليها مطور آخر بعد أشهر.</p>
+<pre><code>.dashboard-panel {
+  container: dashboard-panel / inline-size;
+}
+@container dashboard-panel (min-width: 32rem) {
+  .dashboard-panel__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem;
+  }
+}</code></pre>
+<p>يمكن استعمال وحدات نسبية في شروط الاستعلام، لكن تذكر أن العتبة يجب أن تعبّر عن احتياج المكوّن لا عن عرض جهاز معين. اختبر عندما يكون النص أكبر أو عندما تتغير إعدادات الخط الافتراضية، ولا تفترض أن <code>32rem</code> يساوي دائمًا عددًا ثابتًا من البكسلات لدى كل مستخدم.</p></section>
+<section><h2>بناء مكوّن مرن خطوة بخطوة</h2>
+<ol><li>اكتب HTML دلاليًا بسيطًا يوضح الصورة والعنوان والوصف والإجراء.</li><li>أنشئ تخطيطًا افتراضيًا عموديًا يعمل في المساحة الضيقة.</li><li>حدد العنصر الذي يملك العرض الفعلي للمكوّن، واجعله حاوية للاستعلام.</li><li>أضف شرطًا واحدًا يغيّر التخطيط عند وجود مساحة كافية.</li><li>اختبر نصوصًا طويلة وصورًا مختلفة، ثم عدّل العتبة إذا ظهر ازدحام.</li><li>راجع لوحة المفاتيح والتكبير واتجاه RTL إن كان المحتوى عربيًا.</li></ol>
+<p>هذا التسلسل يمنع تعقيد CSS قبل معرفة المشكلة. لا تضف استعلامات متعددة لتعديل تفاصيل صغيرة يمكن حلها باستخدام التخطيط المرن أو <code>gap</code> أو التفاف العناصر. ابدأ بأقل عدد من الحالات، ثم أضف قواعد أخرى فقط عندما يثبت الاختبار أن المكوّن يحتاج إليها.</p></section>
+<section><h2>ماذا عن استعلامات الأنماط؟</h2>
+<p>توجد إلى جانب استعلامات الحجم مفاهيم واستعمالات أخرى ضمن Container Queries، لكن لا تجعلها شرطًا لاستخدام الاستعلامات الأساسية. في معظم بطاقات المحتوى، يكون قياس العرض كافيًا لتغيير الأعمدة والمسافات. حافظ على قواعد بسيطة ومدعومة على نطاق واسع، وراجع توثيق المتصفح قبل اعتماد أي ميزة إضافية في مكوّن أساسي. الأهم أن يكون السلوك واضحًا عند غياب التحسين، وأن تظل المعلومات والإجراءات الضرورية متاحة.</p></section>
 <section><h2>مصادر موثوقة</h2><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_size_and_style_queries" target="_blank" rel="noopener noreferrer">MDN: Container size and style queries</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries" target="_blank" rel="noopener noreferrer">MDN: Container queries</a></li><li><a href="https://web.dev/articles/baseline" target="_blank" rel="noopener noreferrer">web.dev: Baseline وتوافق ميزات الويب</a></li></ul></section>
 </div>
 <div class="mt-8 pt-6 border-t border-slate-200 dark:border-slate-700 flex flex-wrap gap-2 text-xs"><span class="font-bold">كلمات مفتاحية:</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">CSS Container Queries</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">@container</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">Responsive Components</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">CSS</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">تصميم متجاوب</span></div>
