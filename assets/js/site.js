@@ -106,18 +106,18 @@
  const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const grid=$('#article-grid'),catsGrid=$('#category-grid'),select=$('#article-category'),search=$('#article-search'),count=$('#results-count'),more=$('#pagination'),error=$('#load-error');
  if(!grid||!catsGrid)return;
- const batch=6;let articles=[],shown=batch;
+ const batch=6;let articles=[],shown=batch;const categoryPaths={'الذكاء الاصطناعي':'pages/ai.html','تطوير المواقع':'pages/web-development.html','البرمجة':'pages/programming.html','SEO':'pages/seo.html','تصميم المواقع':'pages/web-design.html','أداء المواقع':'pages/performance.html'};const normalize=s=>String(s??'').normalize('NFD').replace(/[\u064B-\u065F\u0670]/g,'').replace(/[أإآٱ]/g,'ا').replace(/ى/g,'ي').replace(/ة/g,'ه').replace(/[^\p{L}\p{N}]+/gu,' ').toLocaleLowerCase('ar').trim();const matches=(a,q)=>{const hay=normalize([a.title,a.category,a.subcategory,a.description,a.slug,a.file,...(a.tags||[])].join(' '));return normalize(q).split(' ').filter(Boolean).every(term=>hay.includes(term));};const categoryUrl=cat=>url(categoryPaths[cat]||('pages/archive.html?category='+encodeURIComponent(cat)));
  try{
-  const res=await fetch(url('data/articles.json'),{cache:'no-cache'});if(!res.ok)throw Error();articles=await res.json();
+  const res=await fetch(url('data/articles.json'),{cache:'no-cache'});if(!res.ok)throw Error();articles=await res.json();articles.sort((a,b)=>Number(!!b.featured)-Number(!!a.featured));
   const cats=[...new Set(articles.map(a=>a.category).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'ar'));
-  catsGrid.innerHTML=cats.map((cat,i)=>'<a class="category-card" href="'+url('pages/archive.html')+'?category='+encodeURIComponent(cat)+'"><span class="site-card-icon">'+['✳','⌘','◈','↗','⌁','⚙'][i%6]+'</span><h3>'+esc(cat)+'</h3><p>استكشف الأدلة والمقالات في هذا المجال.</p><span class="site-read">تصفح المقالات ←</span></a>').join('');
+  catsGrid.innerHTML=cats.map((cat,i)=>'<a class="category-card" href="'+categoryUrl(cat)+'"><span class="site-card-icon">'+['✳','⌘','◈','↗','⌁','⚙'][i%6]+'</span><h3>'+esc(cat)+'</h3><p>استكشف الأدلة والمقالات في هذا المجال.</p><span class="site-read">تصفح المقالات ←</span></a>').join('');
   if(select)select.innerHTML='<option value="">كل التصنيفات</option>'+cats.map(cat=>'<option value="'+esc(cat)+'">'+esc(cat)+'</option>').join('');
   function render(animateFrom=-1){
-   const q=(search?.value||'').trim().toLocaleLowerCase('ar'),cat=select?.value||'';
-   const filtered=articles.filter(a=>(!cat||a.category===cat)&&(!q||[a.title,a.category,a.description,...(a.tags||[])].join(' ').toLocaleLowerCase('ar').includes(q)));
+   const q=(search?.value||'').trim(),cat=select?.value||'';
+   const filtered=articles.filter(a=>(!cat||a.category===cat)&&(!q||matches(a,q)));
    shown=Math.min(shown,filtered.length);
    grid.innerHTML=filtered.length?filtered.map((a,i)=>{
-    const href=url('articles/'+encodeURIComponent(a.file||a.slug+'.html')),img=a.thumbnail||a.image||'assets/favicon.svg';
+    const href=url('articles/'+encodeURIComponent(a.file||a.slug+'.html')),img=a.thumbnail||a.image||'assets/favicon.svg',catHref=categoryUrl(a.category);
     return '<article class="article-card mseo-load-card"'+(i>=shown?' hidden':'')+(i>=animateFrom&&i<shown?' data-enter="1"':'')+'><a class="article-card-media" href="'+href+'" tabindex="-1" aria-hidden="true"><img loading="lazy" decoding="async" src="'+esc(url(img))+'" alt="" onerror="this.onerror=null;this.src=\''+esc(url(a.image||'assets/favicon.svg'))+'\';this.classList.add(\'is-fallback\')"></a><div class="article-card-body"><span class="article-category">'+esc(a.category)+'</span><h3><a href="'+href+'">'+esc(a.title)+'</a></h3><p>'+esc(a.description)+'</p><a class="site-read" href="'+href+'">اقرأ المقال ←</a></div></article>';
    }).join(''):'<p class="loading-card">لا توجد مقالات تطابق البحث.</p>';
    grid.querySelectorAll('[data-enter="1"]').forEach(el=>{el.classList.add('mseo-card-enter');el.removeAttribute('data-enter');});
@@ -127,6 +127,14 @@
   }
   search?.addEventListener('input',()=>{shown=batch;render();});select?.addEventListener('change',()=>{shown=batch;render();});render();
  }catch(e){if(error)error.hidden=false;grid.innerHTML='<p class="loading-card">تعذر تحميل المقالات حاليًا. يرجى المحاولة لاحقًا.</p>';if(count)count.textContent='تعذر تحميل الفهرس';}
+})();
+
+/* Category pages: render every catalogue entry for the selected category. */
+(async()=>{
+ const section=document.querySelector('[data-category][data-category-grid]');if(!section)return;
+ const category=section.getAttribute('data-category'),grid=section.querySelector('[data-category-grid]');
+ const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ try{const r=await fetch('../data/articles.json',{cache:'no-cache'});if(!r.ok)throw Error();const all=await r.json(),items=all.filter(a=>a.category===category).reverse();if(!items.length){grid.innerHTML='<p class="loading-card">لا توجد مقالات منشورة في هذا التصنيف حاليًا.</p>';return;}grid.innerHTML=items.map(a=>{const href='../articles/'+encodeURIComponent(a.file||a.slug+'.html');return '<a class="site-card" href="'+href+'"><div class="site-card-icon"><i class="fa-solid fa-book-open"></i></div><span>'+esc(a.subcategory||category)+'</span><h3>'+esc(a.title)+'</h3><p>'+esc(a.description||'اقرأ الدليل الكامل من مكتبة MSEO.')+'</p><span class="site-read">اقرأ المقال <i class="fa-solid fa-arrow-left"></i></span></a>';}).join('');const badge=section.closest('.site-section')?.querySelector('.site-tag');if(badge)badge.textContent=items.length+' مقالًا';}catch(_){grid.insertAdjacentHTML('beforeend','<p class="loading-card">تعذر تحميل مقالات التصنيف. حدّث الصفحة بعد اكتمال النشر.</p>');}
 })();
 
 /* Cookie consent: no non-essential cookies are set by this static site by default. */
@@ -148,19 +156,21 @@
 })();
 
 
-/* Archive renderer: six articles initially, then six more per click. */
+/* Archive renderer: normalized multi-word search and category filters. */
 (()=>{
  const $=s=>document.querySelector(s),search=$('#archive-search'),select=$('#archive-category'),grid=$('#archive-grid'),count=$('#archive-count');
  if(!search||!select||!grid||!count)return;
  const params=new URLSearchParams(location.search),batch=6;let all=[],shown=batch;
  let more=$('#archive-load-more');if(!more){more=document.createElement('div');more.id='archive-load-more';more.className='pagination';more.hidden=true;grid.insertAdjacentElement('afterend',more);}
  const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
- fetch('../data/articles.json').then(r=>{if(!r.ok)throw Error();return r.json();}).then(data=>{all=data;const cats=[...new Set(all.map(a=>a.category).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'ar'));select.innerHTML='<option value="">كل التصنيفات</option>'+cats.map(cat=>'<option value="'+esc(cat)+'">'+esc(cat)+'</option>').join('');select.value=params.get('category')||'';search.value=params.get('q')||'';render();}).catch(()=>{const err=$('#archive-error');if(err)err.hidden=false;count.textContent='';grid.innerHTML='';more.hidden=true;});
+ const normalize=s=>String(s??'').normalize('NFD').replace(/[\u064B-\u065F\u0670]/g,'').replace(/[أإآٱ]/g,'ا').replace(/ى/g,'ي').replace(/ة/g,'ه').replace(/[^\p{L}\p{N}]+/gu,' ').toLocaleLowerCase('ar').trim();
+ const matches=(a,q)=>{const hay=normalize([a.title,a.description,a.category,a.subcategory,a.slug,a.file,...(a.tags||[])].join(' '));return normalize(q).split(' ').filter(Boolean).every(term=>hay.includes(term));};
+ fetch('../data/articles.json',{cache:'no-cache'}).then(r=>{if(!r.ok)throw Error();return r.json();}).then(data=>{all=data.slice().reverse();const cats=[...new Set(all.map(a=>a.category).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'ar'));select.innerHTML='<option value="">كل التصنيفات</option>'+cats.map(cat=>'<option value="'+esc(cat)+'">'+esc(cat)+'</option>').join('');select.value=params.get('category')||'';search.value=params.get('q')||'';render();}).catch(()=>{const err=$('#archive-error');if(err)err.hidden=false;count.textContent='';grid.innerHTML='';more.hidden=true;});
  function render(animateFrom=-1){
-  const q=(search.value||'').toLocaleLowerCase('ar').trim(),cat=select.value;
-  const filtered=all.filter(a=>(!cat||a.category===cat)&&(!q||[a.title,a.description,a.category,...(a.tags||[])].join(' ').toLocaleLowerCase('ar').includes(q)));
+  const q=(search.value||'').trim(),cat=select.value;
+  const filtered=all.filter(a=>(!cat||a.category===cat)&&(!q||matches(a,q)));
   shown=Math.min(shown,filtered.length);
-  grid.innerHTML=filtered.length?filtered.map((a,i)=>{const image=a.thumbnail||a.image||'assets/favicon.svg',src=/^(?:https?:)?\/\//i.test(image)?image:'../'+image,href='../articles/'+encodeURIComponent(a.file||a.slug+'.html');return '<article class="article-card mseo-load-card"'+(i>=shown?' hidden':'')+(i>=animateFrom&&i<shown?' data-enter="1"':'')+'><a href="'+href+'"><img loading="lazy" decoding="async" src="'+esc(src)+'" alt=""></a><div class="article-card-body"><span class="article-category">'+esc(a.category)+'</span><h3><a href="'+href+'">'+esc(a.title)+'</a></h3><p>'+esc(a.description)+'</p><a class="site-read" href="'+href+'">اقرأ المقال ←</a></div></article>';}).join(''):'<p class="loading-card">لا توجد نتائج مطابقة.</p>';
+  grid.innerHTML=filtered.length?filtered.map((a,i)=>{const image=a.thumbnail||a.image||'assets/favicon.svg',src=/^(?:https?:)?\/\//i.test(image)?image:'../'+image,href='../articles/'+encodeURIComponent(a.file||a.slug+'.html'),paths={'الذكاء الاصطناعي':'ai.html','تطوير المواقع':'web-development.html','البرمجة':'programming.html','SEO':'seo.html','تصميم المواقع':'web-design.html','أداء المواقع':'performance.html'},catHref=paths[a.category]||('archive.html?category='+encodeURIComponent(a.category));return '<article class="article-card mseo-load-card"'+(i>=shown?' hidden':'')+(i>=animateFrom&&i<shown?' data-enter="1"':'')+'><a href="'+href+'"><img loading="lazy" decoding="async" src="'+esc(src)+'" alt=""></a><div class="article-card-body"><a class="article-category" href="'+catHref+'">'+esc(a.category)+'</a><h3><a href="'+href+'">'+esc(a.title)+'</a></h3><p>'+esc(a.description)+'</p><a class="site-read" href="'+href+'">اقرأ المقال ←</a></div></article>';}).join(''):'<p class="loading-card">لا توجد نتائج مطابقة.</p>';
   grid.querySelectorAll('[data-enter="1"]').forEach(el=>{el.classList.add('mseo-card-enter');el.removeAttribute('data-enter');});
   count.textContent='عرض '+Math.min(shown,filtered.length)+' من '+filtered.length+' مقالًا';
   const left=filtered.length-shown;more.hidden=left<=0;more.innerHTML=left>0?'<button type="button" class="mseo-load-more" data-load-more>تحميل 6 مقالات إضافية <span aria-hidden="true">↓</span></button>':'';
@@ -168,4 +178,3 @@
  }
  search.addEventListener('input',()=>{shown=batch;render();});select.addEventListener('change',()=>{shown=batch;render();});
 })();
-
