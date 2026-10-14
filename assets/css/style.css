@@ -972,32 +972,40 @@ body:has(> main > article) .prose pre code {
   color: #8b31f7 !important;
 }
 
-/* Progressive article loading: shared by homepage and archive, preserving .article-card. */
+/* Progressive article loading — shared by homepage and archive. */
 .mseo-load-card[hidden] { display: none !important; }
 .pagination:has(.mseo-load-more) { justify-content: center; margin: 28px 0 36px; }
-.mseo-load-more {
+
+/* Match the site's primary buttons and use the active theme's design tokens. */
+.pagination .mseo-load-more {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  min-height: 48px;
-  padding: 12px 24px;
-  border: 1px solid var(--brand, #6d28d9);
-  border-radius: 999px;
-  background: var(--brand, #6d28d9);
+  gap: 9px;
+  min-height: 46px;
+  padding: 11px 18px;
+  border: 1px solid var(--brand);
+  border-radius: 13px;
+  background: var(--brand);
   color: #fff;
   font: inherit;
-  font-weight: 700;
+  font-weight: 800;
   cursor: pointer;
-  box-shadow: 0 8px 22px rgba(109, 40, 217, .16);
-  transition: transform .25s ease, box-shadow .25s ease, background-color .25s ease;
+  box-shadow: var(--shadow);
+  transition: transform .18s ease, background-color .18s ease, border-color .18s ease, box-shadow .18s ease;
 }
-.mseo-load-more:hover {
+.pagination .mseo-load-more:hover {
+  background: var(--brand-2);
+  border-color: var(--brand-2);
+  color: #fff;
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(109, 40, 217, .23);
+  box-shadow: 0 10px 24px color-mix(in srgb, var(--brand) 20%, transparent);
 }
-.mseo-load-more:active { transform: translateY(0); }
-.mseo-load-more:focus-visible { outline: 3px solid var(--accent, #c5f777); outline-offset: 4px; }
+.pagination .mseo-load-more:active { transform: translateY(0); }
+.pagination .mseo-load-more:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
 .mseo-card-enter { animation: mseo-card-fade-in .42s ease both; }
 @keyframes mseo-card-fade-in {
   from { opacity: 0; transform: translateY(14px); }
@@ -1005,6 +1013,6 @@ body:has(> main > article) .prose pre code {
 }
 @media (prefers-reduced-motion: reduce) {
   .mseo-card-enter { animation: none; }
-  .mseo-load-more { transition: none; }
+  .pagination .mseo-load-more { transition: none; }
 }
 
