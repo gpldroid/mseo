@@ -4,7 +4,7 @@ import path from 'node:path';
 const root = process.cwd();
 const siteBase = 'https://gpldroid.github.io/mseo/';
 const previewDir = path.join(root, 'assets/images/social-previews');
-const excluded = new Set(['404.html']);
+const excluded = new Set(['404.html', 'pages/admin.html']);
 const htmlFiles = [];
 
 async function walk(dir) {
