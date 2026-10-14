@@ -47,6 +47,17 @@ button.addEventListener("click", () =&gt; {
 });</code></pre><p>يحدّث المثال حالة الزر ويعرض المحتوى أو يخفيه. في التطبيقات الأكبر، ضع CSS وJavaScript في ملفات منفصلة لتسهيل الصيانة، وتجنب تضمين بيانات غير موثوقة في HTML عبر طرق قد تنفذها كتعليمات.</p><h2>التحسين التدريجي</h2><p>اجعل المحتوى الأساسي مفيدًا حتى قبل إضافة التفاعلات، واستخدم عناصر HTML الأصلية بدل إعادة اختراعها. اختبر لوحة المفاتيح، وحالة JavaScript المعطل، وأخطاء وحدة التحكم.</p>
 <h2>مراجع موثوقة</h2><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener noreferrer">MDN Web Docs: HTML</a></li><li><a href="https://html.spec.whatwg.org/" target="_blank" rel="noopener noreferrer">WHATWG HTML Living Standard</a></li><li><a href="https://www.w3.org/WAI/" target="_blank" rel="noopener noreferrer">W3C Web Accessibility Initiative</a></li></ul>
 <h2>تابع سلسلة HTML</h2><p>تابع الدروس السابقة: <a href="html-what-is-html.html">ما هي HTML؟</a>، <a href="html-document-structure.html">بنية مستند HTML</a>، <a href="html-text-headings-links.html">العناوين والفقرات والروابط</a>، <a href="html-lists-images.html">القوائم والصور</a>، و<a href="html-forms-basics.html">أساسيات النماذج</a>.</p>
+<h2 data-expanded-all-articles="true">مثال يوضح تعاون التقنيات الثلاث</h2><p>اجعل HTML مصدر البنية والمعنى، وCSS مسؤولًا عن المظهر، وJavaScript مسؤولًا عن التفاعل. الفصل يجعل المشروع أسهل في الفهم والصيانة عندما يكبر.</p><pre><code>&lt;button class="toggle" type="button" aria-expanded="false"&gt;عرض التفاصيل&lt;/button&gt;
+&lt;p id="details" hidden&gt;هذه هي التفاصيل الإضافية.&lt;/p&gt;
+&lt;script&gt;
+  const button = document.querySelector('.toggle');
+  const details = document.querySelector('#details');
+  button.addEventListener('click', () =&gt; {
+    const isOpen = button.getAttribute('aria-expanded') === 'true';
+    button.setAttribute('aria-expanded', String(!isOpen));
+    details.hidden = isOpen;
+  });
+&lt;/script&gt;</code></pre><p>تحدد HTML الزر والفقرة، وتنسق CSS الصنف <code>toggle</code>، وتغير JavaScript حالة العرض. حدّث الحالة الدلالية مثل <code>aria-expanded</code> مع التغيير المرئي.</p>
 </div>
 </div>
 </article>
