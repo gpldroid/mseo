@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>دليل CSS Flexbox: ترتيب العناصر ومحاذاتها بسهولة | MSEO</title>
+<meta name="description" content="تعلم CSS Flexbox خطوة بخطوة لفهم المحاذاة والمسافات والتخطيط المرن مع أمثلة عملية.">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://gpldroid.github.io/mseo/articles/css-flexbox-practical-guide.html">
+<meta property="og:type" content="article"><meta property="og:title" content="دليل CSS Flexbox: ترتيب العناصر ومحاذاتها بسهولة"><meta property="og:description" content="تعلم CSS Flexbox خطوة بخطوة مع أمثلة عملية."><meta property="og:image" content="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1400&q=85">
+<link rel="stylesheet" href="../assets/css/style.css?v=20261012-images1">
+</head><body><div data-site-header></div><main class="max-w-4xl mx-auto px-4 py-8"><nav aria-label="مسار التنقل" class="text-xs text-slate-500 mb-5"><a href="../index.html">الرئيسية</a> / <a href="../pages/web-development.html">تطوير المواقع</a> / CSS</nav><article class="bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden"><img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1400&q=85" alt="محرر أكواد لتطوير الويب" width="1400" height="788" class="w-full aspect-video object-cover"><div class="p-6 sm:p-10"><span>تطوير المواقع · CSS</span><h1 class="text-2xl sm:text-4xl font-black leading-tight">دليل CSS Flexbox: ترتيب العناصر ومحاذاتها بسهولة</h1><p class="mt-5 text-base leading-8">تعلم CSS Flexbox خطوة بخطوة لفهم المحورين والمحاذاة والمسافات وترتيب العناصر، مع أمثلة عملية لتصميم شريط تنقل وبطاقات مرنة.</p><div class="mt-8 prose prose-slate max-w-none dark:prose-invert"><h2>ما هو Flexbox؟</h2><p>Flexbox نظام تخطيط أحادي البعد في CSS، يساعدك على ترتيب العناصر في صف أو عمود والتحكم في محاذاتها وتوزيع المساحة. يناسب أشرطة التنقل ومجموعات الأزرار والبطاقات.</p><h2>تفعيل Flexbox</h2><pre><code>.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}</code></pre><p>تُطبّق الخصائص على الحاوية الأب. تحدد <code>display: flex</code> التخطيط، وتتحكم <code>align-items</code> في المحاذاة على المحور العرضي، بينما توزع <code>justify-content</code> العناصر على المحور الرئيسي. وتضيف <code>gap</code> مسافة موحدة بينها.</p><h2>إنشاء بطاقات مرنة</h2><pre><code>.card-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.card {
+  flex: 1 1 16rem;
+}</code></pre><p>تسمح <code>flex-wrap</code> للعناصر بالانتقال إلى سطر جديد عندما تضيق المساحة. وتعطي <code>flex: 1 1 16rem</code> كل بطاقة أساسًا مرنًا يسمح لها بالنمو والانكماش.</p><h2>فهم المحورين</h2><p>المحور الرئيسي يتبع قيمة <code>flex-direction</code>. عند استخدام <code>row</code> يكون أفقيًا في اتجاه الكتابة المعتاد، وعند استخدام <code>column</code> يصبح رأسيًا. لذلك يتغير تأثير المحاذاة بحسب اتجاه الحاوية.</p><h2>أخطاء شائعة</h2><ul><li>الخلط بين <code>justify-content</code> و<code>align-items</code>.</li><li>استخدام هوامش متعددة بدلًا من <code>gap</code> حيث تكون مناسبة.</li><li>عدم اختبار النصوص الطويلة على الشاشات الصغيرة.</li></ul><h2>متى تختار Grid بدلًا منه؟</h2><p>استخدم Flexbox عندما يكون التخطيط في محور واحد هو المطلوب. أما إذا احتجت إلى التحكم في صفوف وأعمدة مترابطة معًا، فقد يكون CSS Grid أنسب. ويمكن الجمع بين التقنيتين في الصفحة نفسها.</p><p>طبّق الأمثلة في ملف CSS صغير واختبرها على أحجام شاشات مختلفة. اكتشف المزيد من <a href="../pages/web-development.html">دروس تطوير المواقع</a> على MSEO.</p></div></div></article></main><div data-site-footer></div><script src="../assets/js/site.js" defer></script></body></html>
