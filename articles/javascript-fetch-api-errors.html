@@ -77,7 +77,14 @@ loadItems()
   .then(items => renderItems(items))
   .catch(() => showMessage('حدث خطأ. حاول مرة أخرى.'));</code></pre><p>أضف حالة تحميل وحالة خطأ قابلة للفهم، وفكر في انتهاء المهلة وإلغاء الطلب عند مغادرة الصفحة. لا تعرض نصوص استجابة الخادم الخام للمستخدم دون مراجعة.</p>
 </div>
-</div></article>
+</div><div data-batch-deepening="true" class="p-6 sm:p-10 prose prose-slate max-w-none dark:prose-invert"><h2>نمط صحيح للتعامل مع الاستجابات</h2><p>لا يرفض <code>fetch()</code> الوعد تلقائيًا عند استجابة HTTP مثل 404 أو 500؛ افحص <code>response.ok</code> أو <code>response.status</code> قبل تحليل البيانات. وقد يفشل تحليل JSON أيضًا إذا أعاد الخادم جسمًا فارغًا أو نصًا غير صالح، لذلك افصل بين أخطاء الشبكة وحالة HTTP وشكل البيانات.</p><pre><code>async function loadItems() {
+  const response = await fetch('/api/items');
+  if (!response.ok) throw new Error('HTTP ' + response.status);
+  const items = await response.json();
+  if (!Array.isArray(items)) throw new Error('Unexpected response');
+  return items;
+}</code></pre><p>المسار توضيحي. اعرض للمستخدم رسالة مفهومة وخيار إعادة المحاولة عند الحاجة، ولا تكشف تفاصيل تقنية حساسة. استخدم <code>AbortController</code> لإلغاء الطلبات التي لم تعد مطلوبة.</p></div>
+</article>
 </main>
 <div data-site-footer></div>
 <script src="../assets/js/site.js?v=20261012-images1" defer></script>
