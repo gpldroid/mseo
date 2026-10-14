@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+<title id="title">GitHub Actions Workflow Lockfiles: تأمين تبعيات CI/CD</title>
+<desc id="desc">رسم أصلي يوضح سير عمل GitHub Actions وملف قفل التبعيات والتحقق من commits.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#07111f"/><stop offset="1" stop-color="#193c68"/></linearGradient>
+  <linearGradient id="mint" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#5eead4"/><stop offset="1" stop-color="#60a5fa"/></linearGradient>
+  <pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse"><path d="M36 0H0V36" fill="none" stroke="#cbd5e1" stroke-opacity=".07"/></pattern>
+</defs>
+<rect width="1200" height="630" rx="32" fill="url(#bg)"/><rect width="1200" height="630" rx="32" fill="url(#grid)"/>
+<circle cx="1000" cy="130" r="190" fill="#2563eb" opacity=".12"/><circle cx="1000" cy="130" r="130" fill="none" stroke="#60a5fa" stroke-opacity=".45" stroke-width="2"/>
+<rect x="62" y="64" width="1076" height="502" rx="28" fill="#0b1728" fill-opacity=".78" stroke="#8aa8ca" stroke-opacity=".38"/>
+<text x="104" y="122" fill="#a8c3e3" font-family="Arial,sans-serif" font-size="21" font-weight="700" letter-spacing="3">MSEO · DEVELOPER SECURITY</text>
+<rect x="104" y="151" width="8" height="66" rx="4" fill="url(#mint)"/>
+<g font-family="Arial,sans-serif" fill="#fff" text-anchor="end">
+<text x="760" y="214" font-size="46" font-weight="700">تأمين تبعيات</text>
+<text x="760" y="278" font-size="46" font-weight="700">GitHub Actions</text>
+<text x="760" y="331" font-size="24" fill="#b9cce2">Workflow Lockfiles · دليل عملي</text>
+</g>
+<g transform="translate(820 365)">
+<rect width="250" height="130" rx="18" fill="#12263d" stroke="#456789"/>
+<rect x="18" y="18" width="214" height="94" rx="12" fill="#0b1728" stroke="#2d4d70"/>
+<path d="M44 42h22l12 12-12 12H44m44-24h36m-36 24h62" fill="none" stroke="#7dd3fc" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M44 84h96" stroke="#5eead4" stroke-width="5" stroke-linecap="round"/>
+<circle cx="190" cy="84" r="18" fill="#14532d" stroke="#5eead4" stroke-width="2"/>
+<path d="m181 84 6 6 12-14" fill="none" stroke="#bbf7d0" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<g fill="none" stroke="url(#mint)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+<path d="M165 360h110v-32h86"/><path d="M165 430h82v-26h114"/><path d="M165 500h130v-36h66"/>
+</g>
+<g fill="#102942" stroke="#5eead4" stroke-width="3">
+<circle cx="165" cy="360" r="10"/><circle cx="165" cy="430" r="10"/><circle cx="165" cy="500" r="10"/>
+<rect x="360" y="310" width="160" height="44" rx="12"/><rect x="360" y="382" width="160" height="44" rx="12"/><rect x="360" y="442" width="160" height="44" rx="12"/>
+</g>
+<g fill="#dbeafe" font-family="Arial,sans-serif" font-size="15" font-weight="700" text-anchor="middle"><text x="440" y="338">WORKFLOW YAML</text><text x="440" y="410">COMMIT SHA</text><text x="440" y="470">LOCKFILE</text></g>
+<text x="104" y="535" fill="#8da9c8" font-family="Arial,sans-serif" font-size="16">Pin dependencies. Review changes. Verify every run.</text>
+</svg>
