@@ -35,12 +35,16 @@ for (const row of rows) {
   const title = escape(row.seo_title || row.title);
   const description = escape(row.seo_description || row.summary || "");
   const canonical = `https://gpldroid.github.io/mseo/${row.content_type === "page" ? "pages" : "articles"}/${file}`;
-  const image = escape(row.cover_image_url || "../assets/favicon.svg");
+  const rawImage = String(row.cover_image_url || "https://gpldroid.github.io/mseo/assets/favicon.svg").trim();
+  const absoluteImage = /^https?:\\/\\//i.test(rawImage)
+    ? rawImage
+    : new URL(rawImage, "https://gpldroid.github.io/mseo/").href;
+  const image = escape(absoluteImage);
   const body = safeHtml(row.body_html);
   const html = `<!doctype html>
 <html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#101b2b"><title>${title} | MSEO</title><meta name="description" content="${description}">
-<link rel="canonical" href="${canonical}"><meta property="og:title" content="${title}"><meta property="og:description" content="${description}"><meta property="og:image" content="${image}">
+<link rel="canonical" href="${canonical}"><meta property="og:type" content="article"><meta property="og:title" content="${title}"><meta property="og:description" content="${description}"><meta property="og:image" content="${image}"><meta property="og:image:alt" content="${title}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${title}"><meta name="twitter:description" content="${description}"><meta name="twitter:image" content="${image}">
 <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../assets/css/style.css?v=20261012-images1"></head>
 <body><div data-site-header></div><main class="site-container cms-article-page" style="max-width:860px;margin:40px auto;padding:0 20px">
 <nav aria-label="مسار التنقل"><a href="../index.html">الرئيسية</a> / <a href="../pages/archive.html">المقالات</a></nav>
