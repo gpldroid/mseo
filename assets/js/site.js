@@ -131,7 +131,7 @@
 
 /* Category pages: render every catalogue entry for the selected category. */
 (async()=>{
- const section=document.querySelector('[data-category][data-category-grid]');if(!section)return;
+ const section=document.querySelector('[data-category]');if(!section)return;
  const category=section.getAttribute('data-category'),grid=section.querySelector('[data-category-grid]');
  const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  try{const r=await fetch('../data/articles.json',{cache:'no-cache'});if(!r.ok)throw Error();const all=await r.json(),items=all.filter(a=>a.category===category).reverse();if(!items.length){grid.innerHTML='<p class="loading-card">لا توجد مقالات منشورة في هذا التصنيف حاليًا.</p>';return;}grid.innerHTML=items.map(a=>{const href='../articles/'+encodeURIComponent(a.file||a.slug+'.html');return '<a class="site-card" href="'+href+'"><div class="site-card-icon"><i class="fa-solid fa-book-open"></i></div><span>'+esc(a.subcategory||category)+'</span><h3>'+esc(a.title)+'</h3><p>'+esc(a.description||'اقرأ الدليل الكامل من مكتبة MSEO.')+'</p><span class="site-read">اقرأ المقال <i class="fa-solid fa-arrow-left"></i></span></a>';}).join('');const badge=section.closest('.site-section')?.querySelector('.site-tag');if(badge)badge.textContent=items.length+' مقالًا';}catch(_){grid.insertAdjacentHTML('beforeend','<p class="loading-card">تعذر تحميل مقالات التصنيف. حدّث الصفحة بعد اكتمال النشر.</p>');}
