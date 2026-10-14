@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b1220">
+<meta name="color-scheme" content="light dark">
+<title>أنواع حقول HTML المتقدمة: date وnumber وcheckbox وradio | MSEO</title>
+<meta name="description" content="تعرف إلى أنواع input المناسبة لاختيار التاريخ والأرقام والخيارات المتعددة والاختيار الأحادي مع أمثلة واضحة.">
+<meta name="keywords" content="HTML, تعلم HTML, شرح HTML بالعربية, دروس HTML للمبتدئين">
+<meta name="author" content="MSEO Editorial">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://gpldroid.github.io/mseo/articles/html-advanced-inputs.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="أنواع حقول HTML المتقدمة: date وnumber وcheckbox وradio">
+<meta property="og:description" content="تعرف إلى أنواع input المناسبة لاختيار التاريخ والأرقام والخيارات المتعددة والاختيار الأحادي مع أمثلة واضحة.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85">
+<meta property="og:image:alt" content="أنواع حقول HTML المتقدمة: date وnumber وcheckbox وradio">
+<meta property="og:url" content="https://gpldroid.github.io/mseo/articles/html-advanced-inputs.html">
+<meta property="og:site_name" content="MSEO">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="أنواع حقول HTML المتقدمة: date وnumber وcheckbox وradio">
+<meta name="twitter:description" content="تعرف إلى أنواع input المناسبة لاختيار التاريخ والأرقام والخيارات المتعددة والاختيار الأحادي مع أمثلة واضحة.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"أنواع حقول HTML المتقدمة: date وnumber وcheckbox وradio","description":"تعرف إلى أنواع input المناسبة لاختيار التاريخ والأرقام والخيارات المتعددة والاختيار الأحادي مع أمثلة واضحة.","image":["https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85"],"datePublished":"2026-10-14","author":{"@type":"Organization","name":"MSEO Editorial"},"publisher":{"@type":"Organization","name":"MSEO","url":"https://gpldroid.github.io/mseo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://gpldroid.github.io/mseo/articles/html-advanced-inputs.html"}}</script>
+<link rel="stylesheet" href="../assets/css/style.css?v=20261012-images1">
+</head>
+<body>
+<div data-site-header></div>
+<main class="max-w-4xl mx-auto px-4 py-8">
+<nav aria-label="مسار التنقل" class="text-xs text-slate-500 mb-5"><a href="../index.html">الرئيسية</a> <span aria-hidden="true"> / </span><a href="../pages/web-development.html">تطوير المواقع</a> <span aria-hidden="true"> / </span><span>أنواع حقول HTML المتقدمة: date وnumber وcheckbox وradio</span></nav>
+<article class="bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden">
+<img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85" alt="أنواع حقول HTML المتقدمة: date وnumber وcheckbox وradio" width="1400" height="788" loading="eager" fetchpriority="high" decoding="async" class="w-full aspect-video object-cover">
+<div class="p-6 sm:p-10">
+<div class="flex flex-wrap gap-2 mb-4"><span class="bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-full">تطوير المواقع</span><time datetime="2026-10-14" class="text-xs text-slate-500 px-2 py-1.5">14 أكتوبر 2026</time></div>
+<h1 class="text-2xl sm:text-4xl font-black leading-tight text-slate-950 dark:text-white">أنواع حقول HTML المتقدمة: date وnumber وcheckbox وradio</h1>
+<p class="mt-5 text-base leading-8 text-slate-600 dark:text-slate-300">تعرف إلى أنواع input المناسبة لاختيار التاريخ والأرقام والخيارات المتعددة والاختيار الأحادي مع أمثلة واضحة.</p>
+<div class="mt-8 prose prose-slate max-w-none dark:prose-invert"><h2>اختيار نوع الحقل</h2><p>يؤثر نوع <code>input</code> في لوحة المفاتيح على الأجهزة المحمولة وفي أدوات المتصفح للتحقق والتعامل مع البيانات. اختر النوع الذي يناسب المعنى الفعلي للبيانات، لا المظهر فقط.</p><h2>التاريخ والأرقام</h2><pre><code>&lt;label for="start-date"&gt;تاريخ البداية&lt;/label&gt;
+&lt;input id="start-date" name="start-date" type="date" required&gt;
+&lt;label for="seats"&gt;عدد المقاعد&lt;/label&gt;
+&lt;input id="seats" name="seats" type="number" min="1" max="12" step="1"&gt;</code></pre><p>قد يختلف شكل منتقي التاريخ بين المتصفحات والأنظمة. لا تستخدم <code>number</code> للرموز أو أرقام الهاتف التي لا تُجرى عليها عمليات حسابية.</p><h2>checkbox وradio</h2><pre><code>&lt;fieldset&gt;
+  &lt;legend&gt;طرق التواصل المفضلة&lt;/legend&gt;
+  &lt;label&gt;&lt;input type="checkbox" name="contact" value="email"&gt; البريد الإلكتروني&lt;/label&gt;
+  &lt;label&gt;&lt;input type="checkbox" name="contact" value="phone"&gt; الهاتف&lt;/label&gt;
+&lt;/fieldset&gt;
+&lt;fieldset&gt;
+  &lt;legend&gt;نوع الحساب&lt;/legend&gt;
+  &lt;label&gt;&lt;input type="radio" name="account" value="personal" required&gt; شخصي&lt;/label&gt;
+  &lt;label&gt;&lt;input type="radio" name="account" value="business"&gt; أعمال&lt;/label&gt;
+&lt;/fieldset&gt;</code></pre><p>يسمح checkbox باختيار عدة قيم، أما radio فيستخدم الاسم نفسه للمجموعة كي يكون الاختيار واحدًا. يضيف <code>fieldset</code> و<code>legend</code> سياقًا واضحًا للمجموعة.</p><h2>قواعد التحقق</h2><p>تساعد خصائص مثل <code>min</code> و<code>max</code> و<code>step</code> و<code>required</code> على التحقق في المتصفح، لكنها لا تغني عن التحقق على الخادم. اختبر الحالات الحدية ورسائل الخطأ بلوحة المفاتيح وعلى أحجام شاشة مختلفة.</p>
+<h2>مراجع موثوقة</h2><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener noreferrer">MDN Web Docs: HTML</a></li><li><a href="https://html.spec.whatwg.org/" target="_blank" rel="noopener noreferrer">WHATWG HTML Living Standard</a></li><li><a href="https://www.w3.org/WAI/" target="_blank" rel="noopener noreferrer">W3C Web Accessibility Initiative</a></li></ul>
+<h2>تابع سلسلة HTML</h2><p>تابع الدروس السابقة: <a href="html-what-is-html.html">ما هي HTML؟</a>، <a href="html-document-structure.html">بنية مستند HTML</a>، <a href="html-text-headings-links.html">العناوين والفقرات والروابط</a>، <a href="html-lists-images.html">القوائم والصور</a>، و<a href="html-forms-basics.html">أساسيات النماذج</a>.</p>
+</div>
+</div>
+</article>
+</main>
+<div data-site-footer></div>
+<script src="../assets/js/site.js?v=20261012-images1" defer></script>
+</body>
+</html>
