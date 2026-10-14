@@ -16,18 +16,18 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="GitHub Actions Workflow Lockfiles: دليل تأمين تبعيات CI/CD">
 <meta property="og:description" content="تعرف إلى ملفات قفل تبعيات GitHub Actions، وطريقة إعداد actions.lock ومراجعة التحديثات وتقليل مخاطر تغيّر الوسوم والفروع.">
-<meta property="og:image" content="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=85">
+<meta property="og:image" content="https://gpldroid.github.io/mseo/assets/images/article-thumbnails/github-actions-workflow-lockfiles.svg">
 <meta property="og:url" content="https://gpldroid.github.io/mseo/articles/github-actions-workflow-lockfiles.html">
 <meta property="og:site_name" content="MSEO">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="GitHub Actions Workflow Lockfiles: دليل تأمين تبعيات CI/CD">
 <meta name="twitter:description" content="شرح عملي لملفات قفل تبعيات GitHub Actions وإنشاء actions.lock وصيانته مع Dependabot.">
-<meta name="twitter:image" content="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=85">
+<meta name="twitter:image" content="https://gpldroid.github.io/mseo/assets/images/article-thumbnails/github-actions-workflow-lockfiles.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"GitHub Actions Workflow Lockfiles: دليل تأمين تبعيات CI/CD","description":"شرح GitHub Actions Workflow Lockfiles وطريقة تثبيت تبعيات CI/CD على commits موثوقة، وإنشاء ملف actions.lock ومراجعته وصيانته مع Dependabot.","image":["https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=85"],"datePublished":"2026-10-14","dateModified":"2026-10-14","author":{"@type":"Organization","name":"MSEO Editorial"},"publisher":{"@type":"Organization","name":"MSEO","url":"https://gpldroid.github.io/mseo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://gpldroid.github.io/mseo/articles/github-actions-workflow-lockfiles.html"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"GitHub Actions Workflow Lockfiles: دليل تأمين تبعيات CI/CD","description":"شرح GitHub Actions Workflow Lockfiles وطريقة تثبيت تبعيات CI/CD على commits موثوقة، وإنشاء ملف actions.lock ومراجعته وصيانته مع Dependabot.","image":["https://gpldroid.github.io/mseo/assets/images/article-thumbnails/github-actions-workflow-lockfiles.svg"],"datePublished":"2026-10-14","dateModified":"2026-10-14","author":{"@type":"Organization","name":"MSEO Editorial"},"publisher":{"@type":"Organization","name":"MSEO","url":"https://gpldroid.github.io/mseo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://gpldroid.github.io/mseo/articles/github-actions-workflow-lockfiles.html"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"الرئيسية","item":"https://gpldroid.github.io/mseo/"},{"@type":"ListItem","position":2,"name":"البرمجة","item":"https://gpldroid.github.io/mseo/pages/programming.html"},{"@type":"ListItem","position":3,"name":"GitHub Actions Workflow Lockfiles: دليل تأمين تبعيات CI/CD","item":"https://gpldroid.github.io/mseo/articles/github-actions-workflow-lockfiles.html"}]}</script>
 <link rel="stylesheet" href="../assets/css/style.css?v=20261012-images1">
 </head>
@@ -36,7 +36,7 @@
 <main class="max-w-4xl mx-auto px-4 py-8">
 <nav aria-label="مسار التنقل" class="text-xs text-slate-500 mb-5"><a href="../index.html">الرئيسية</a> <span> / </span> <a href="../pages/programming.html">البرمجة</a> <span> / </span> <span>GitHub Actions Workflow Lockfiles</span></nav>
 <article class="bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden">
-<img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=85" alt="كتابة الشيفرة وأدوات تطوير البرمجيات" width="1400" height="788" loading="eager" fetchpriority="high" decoding="async" class="w-full aspect-video object-cover">
+<img src="https://gpldroid.github.io/mseo/assets/images/article-thumbnails/github-actions-workflow-lockfiles.svg" alt="كتابة الشيفرة وأدوات تطوير البرمجيات" width="1400" height="788" loading="eager" fetchpriority="high" decoding="async" class="w-full aspect-video object-cover">
 <div class="p-6 sm:p-10">
 <div class="flex flex-wrap gap-2 mb-4"><span class="bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-full">البرمجة</span><time datetime="2026-10-14" class="text-xs text-slate-500 px-2 py-1.5">14 أكتوبر 2026</time></div>
 <h1 class="text-2xl sm:text-4xl font-black leading-tight text-slate-950 dark:text-white">GitHub Actions Workflow Lockfiles: دليل عملي لتأمين تبعيات CI/CD</h1>
@@ -116,7 +116,7 @@ git diff</code></pre>
 <li><a href="https://github.com/github/gh-actions-lock" target="_blank" rel="noopener noreferrer">مستودع إضافة gh-actions-lock</a></li>
 </ul></section>
 </div></div></article>
-<section class="mt-8 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6"><h2 class="text-xl font-bold mb-3">تابع القراءة</h2><p class="text-slate-600 dark:text-slate-300 leading-7">لفهم سير العمل التعاوني، راجع أيضًا <a href="git-github-beginners.html">دليل Git وGitHub للمبتدئين</a>، ثم طبّق المراجعة بالفروع وطلبات الدمج على تغييرات التبعيات.</p><a class="inline-flex mt-3 font-bold text-blue-600 dark:text-blue-400" href="../pages/programming.html">المزيد من أدلة البرمجة ←</a></section>
+<section class="mt-8 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6"><h2 class="text-xl font-bold mb-3">تابع القراءة</h2><p class="text-slate-600 dark:text-slate-300 leading-7">لفهم سير العمل التعاوني، راجع أيضًا <a href="git-github-beginners.html">دليل Git وGitHub للمبتدئين</a>، ويمكنك أيضًا مراجعة <a href="github-pages-deploy.html">دليل نشر المواقع على GitHub Pages</a> لفهم نشر المشاريع وإدارة ملفاتها.، ثم طبّق المراجعة بالفروع وطلبات الدمج على تغييرات التبعيات.</p><a class="inline-flex mt-3 font-bold text-blue-600 dark:text-blue-400" href="../pages/programming.html">المزيد من أدلة البرمجة ←</a></section>
 </main>
 <div data-site-footer></div>
 <script src="../assets/js/site.js?v=20261012-images1" defer></script>
