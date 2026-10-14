@@ -65,7 +65,7 @@ for (const file of htmlFiles) {
   if (imgMatch) {
     const src = getAttr(imgMatch[0], 'src').trim();
     if (src && !/^(data:|blob:|javascript:)/i.test(src)) {
-      try { imageUrl = new URL(src, siteBase).href; } catch {}
+      try { imageUrl = new URL(src, new URL(rel, siteBase)).href; } catch {}
       if (imageUrl) reused++;
     }
   }
