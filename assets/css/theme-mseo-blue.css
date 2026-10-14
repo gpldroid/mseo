@@ -1,0 +1,197 @@
+/* MSEO Blue Theme — optional, scoped, RTL-friendly.
+   Loaded by the existing site theme system; does not replace core styles. */
+html[data-theme="mseo-blue"] {
+  color-scheme: light;
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --surface-2: #f8fafc;
+  --text: #1e293b;
+  --muted: #64748b;
+  --line: #e2e8f0;
+  --brand: #1e40af;
+  --brand-2: #1e3a8a;
+  --accent: #06b6d4;
+  --header: rgba(255, 255, 255, .94);
+  --shadow: 0 8px 24px rgba(30, 64, 175, .08);
+  --radius: 12px;
+}
+html[data-theme="mseo-blue"] body {
+  background: var(--bg);
+  color: var(--text);
+}
+html[data-theme="mseo-blue"] .mseo-header {
+  border-bottom-color: #dbeafe;
+}
+html[data-theme="mseo-blue"] .mseo-brand-mark {
+  border-radius: 10px;
+  background: linear-gradient(135deg, #1e3a8a, #1e40af);
+  box-shadow: 0 7px 18px rgba(30, 64, 175, .22);
+}
+html[data-theme="mseo-blue"] .mseo-nav a:hover,
+html[data-theme="mseo-blue"] .mseo-nav a[aria-current="page"] {
+  background: #eff6ff;
+  color: #1e40af;
+}
+html[data-theme="mseo-blue"] .mseo-icon-button:hover {
+  background: #eff6ff;
+  border-color: #06b6d4;
+  color: #1e40af;
+}
+html[data-theme="mseo-blue"] .hero {
+  margin: 20px auto 0;
+  width: min(1240px, calc(100% - 32px));
+  border-radius: 16px;
+  background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 68%, #164e9b 100%);
+  color: #fff;
+  box-shadow: 0 18px 42px rgba(30, 64, 175, .18);
+}
+html[data-theme="mseo-blue"] .hero .eyebrow,
+html[data-theme="mseo-blue"] .hero .hero-points,
+html[data-theme="mseo-blue"] .hero .hero-copy > p,
+html[data-theme="mseo-blue"] .hero .hero-bottom {
+  color: rgba(255, 255, 255, .88);
+}
+html[data-theme="mseo-blue"] .hero h1,
+html[data-theme="mseo-blue"] .hero h1 em {
+  color: #fff;
+}
+html[data-theme="mseo-blue"] .hero .pulse {
+  background: #67e8f9;
+  box-shadow: 0 0 0 5px rgba(103, 232, 249, .18);
+}
+html[data-theme="mseo-blue"] .hero .button-primary {
+  background: #06b6d4;
+  border-color: #06b6d4;
+  color: #083344;
+}
+html[data-theme="mseo-blue"] .hero .button-primary:hover {
+  background: #67e8f9;
+  border-color: #67e8f9;
+  color: #083344;
+}
+html[data-theme="mseo-blue"] .hero .button-secondary {
+  background: rgba(255, 255, 255, .1);
+  border-color: rgba(255, 255, 255, .35);
+  color: #fff;
+}
+html[data-theme="mseo-blue"] .hero .visual-window {
+  border-color: rgba(255, 255, 255, .28);
+}
+html[data-theme="mseo-blue"] .hero .visual-content {
+  background: #fff;
+  color: #1e293b;
+}
+html[data-theme="mseo-blue"] .hero .visual-tag,
+html[data-theme="mseo-blue"] .hero .visual-bottom {
+  color: #1e40af;
+}
+html[data-theme="mseo-blue"] .section,
+html[data-theme="mseo-blue"] .site-section {
+  background-color: transparent;
+}
+html[data-theme="mseo-blue"] .section-heading h2,
+html[data-theme="mseo-blue"] .site-section-head h2 {
+  color: #1e293b;
+}
+html[data-theme="mseo-blue"] .article-card,
+html[data-theme="mseo-blue"] .category-card,
+html[data-theme="mseo-blue"] .site-card,
+html[data-theme="mseo-blue"] .loading-card {
+  border-color: #e2e8f0;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(15, 23, 42, .05);
+  transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+}
+html[data-theme="mseo-blue"] .article-card:hover,
+html[data-theme="mseo-blue"] .category-card:hover,
+html[data-theme="mseo-blue"] .site-card:hover {
+  transform: translateY(-4px);
+  border-color: #67e8f9;
+  box-shadow: 0 12px 28px rgba(30, 64, 175, .11);
+}
+html[data-theme="mseo-blue"] .article-category,
+html[data-theme="mseo-blue"] .site-card > span:first-of-type {
+  display: inline-flex;
+  width: fit-content;
+  border-radius: 6px;
+  background: #cffafe;
+  color: #155e75;
+  padding: 3px 9px;
+}
+html[data-theme="mseo-blue"] .toolbar .search-box,
+html[data-theme="mseo-blue"] .toolbar .filter-box {
+  border-radius: 10px;
+  border-color: #cbd5e1;
+  background: #fff;
+}
+html[data-theme="mseo-blue"] .toolbar input:focus,
+html[data-theme="mseo-blue"] .toolbar select:focus,
+html[data-theme="mseo-blue"] .mseo-search-panel input:focus {
+  border-color: #06b6d4;
+  outline-color: #06b6d4;
+}
+html[data-theme="mseo-blue"] .button,
+html[data-theme="mseo-blue"] .site-primary,
+html[data-theme="mseo-blue"] .site-secondary,
+html[data-theme="mseo-blue"] .mseo-search-panel button {
+  transition: all .3s ease;
+}
+html[data-theme="mseo-blue"] .button-primary,
+html[data-theme="mseo-blue"] .site-primary {
+  background: #1e40af;
+  border-color: #1e40af;
+  color: #fff;
+}
+html[data-theme="mseo-blue"] .button-primary:hover,
+html[data-theme="mseo-blue"] .site-primary:hover {
+  background: #1e3a8a;
+  border-color: #1e3a8a;
+}
+html[data-theme="mseo-blue"] .mseo-footer {
+  border-top: 1px solid #dbeafe;
+}
+@media (max-width: 900px) {
+  html[data-theme="mseo-blue"] .hero {
+    width: min(100% - 24px, 1240px);
+    padding-inline: 20px;
+  }
+  html[data-theme="mseo-blue"] .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  html[data-theme="mseo-blue"] .hero-visual {
+    min-height: 260px;
+  }
+  html[data-theme="mseo-blue"] .article-grid,
+  html[data-theme="mseo-blue"] .category-grid,
+  html[data-theme="mseo-blue"] .site-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 600px) {
+  html[data-theme="mseo-blue"] .hero {
+    margin-top: 10px;
+    width: calc(100% - 20px);
+    padding: 38px 16px 20px;
+    border-radius: 12px;
+  }
+  html[data-theme="mseo-blue"] .article-grid,
+  html[data-theme="mseo-blue"] .category-grid,
+  html[data-theme="mseo-blue"] .site-card-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  html[data-theme="mseo-blue"] .section-heading,
+  html[data-theme="mseo-blue"] .site-section-head {
+    align-items: flex-start;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html[data-theme="mseo-blue"] *,
+  html[data-theme="mseo-blue"] *::before,
+  html[data-theme="mseo-blue"] *::after {
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
