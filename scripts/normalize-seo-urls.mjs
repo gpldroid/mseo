@@ -3,7 +3,7 @@ import path from 'node:path';
 
 const root = process.cwd();
 const fallbackBase = 'https://gpldroid.github.io/mseo/';
-const siteBase = new URL(process.env.URL || fallbackBase);
+const siteBase = new URL(process.env.MSEO_SITE_URL || process.env.URL || fallbackBase);
 if (!siteBase.pathname.endsWith('/')) siteBase.pathname += '/';
 const canonicalPrefix = siteBase.href.replace(/\/$/, '');
 const excludedDirs = new Set(['.git', 'node_modules', 'dist', 'admin-dashboard']);
