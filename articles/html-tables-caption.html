@@ -45,6 +45,12 @@
 &lt;/table&gt;</code></pre><p>يمثل <code>caption</code> عنوان الجدول، ويمثل <code>th</code> خلية عنوان، بينما تعرض <code>td</code> البيانات. تساعد قيمة <code>scope</code> على توضيح ما إذا كان العنوان يخص عمودًا أو صفًا.</p><h2>الجداول المعقدة</h2><p>عند وجود عناوين متعددة المستويات أو خلايا تمتد على عدة صفوف وأعمدة، خطط للعلاقات بعناية وقد تحتاج إلى ربط الخلايا بمعرّفات <code>id</code> وخصائص <code>headers</code>. لا تضف التعقيد إذا كان يمكن تبسيط الجدول.</p><h2>التجاوب وإمكانية الوصول</h2><p>أبقِ الجدول مقروءًا على الهاتف؛ يمكن وضعه داخل حاوية تسمح بالتمرير الأفقي عند الضرورة، مع عدم إخفاء البيانات المهمة. أضف تباينًا بصريًا واضحًا للعناوين، ولا تعتمد على اللون وحده لتمييز المعنى.</p><h2>أخطاء شائعة</h2><ul><li>استخدام الجدول للمسافات وتوزيع عناصر الواجهة.</li><li>ترك الجدول بلا عنوان عندما يحتاج السياق إلى توضيح.</li><li>استخدام خلايا بيانات عادية بدل خلايا العناوين المناسبة.</li></ul>
 <h2>مراجع موثوقة</h2><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener noreferrer">MDN Web Docs: HTML</a></li><li><a href="https://html.spec.whatwg.org/" target="_blank" rel="noopener noreferrer">WHATWG HTML Living Standard</a></li><li><a href="https://www.w3.org/WAI/" target="_blank" rel="noopener noreferrer">W3C Web Accessibility Initiative</a></li></ul>
 <h2>تابع سلسلة HTML</h2><p>تابع الدروس السابقة: <a href="html-what-is-html.html">ما هي HTML؟</a>، <a href="html-document-structure.html">بنية مستند HTML</a>، <a href="html-text-headings-links.html">العناوين والفقرات والروابط</a>، <a href="html-lists-images.html">القوائم والصور</a>، و<a href="html-forms-basics.html">أساسيات النماذج</a>.</p>
+
+<h2 data-expanded-all-articles="true">جعل الجدول مفهومًا للجميع</h2><p>استخدم الجداول للبيانات التي لها علاقة صفوف وأعمدة، لا لتقسيم تخطيط الصفحة. أضف <code>caption</code> يشرح موضوع الجدول، وميّز رؤوس الصفوف أو الأعمدة باستخدام <code>th</code>، وأضف <code>scope</code> عندما يساعد على توضيح العلاقة.</p><pre><code>&lt;table&gt;
+  &lt;caption&gt;مقارنة خطط الاشتراك&lt;/caption&gt;
+  &lt;thead&gt;&lt;tr&gt;&lt;th scope="col"&gt;الخطة&lt;/th&gt;&lt;th scope="col"&gt;السعر&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+  &lt;tbody&gt;&lt;tr&gt;&lt;th scope="row"&gt;أساسية&lt;/th&gt;&lt;td&gt;مجانية&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;
+&lt;/table&gt;</code></pre><p>على الهاتف، لا تصغّر النص إلى حد يصعب قراءته. يمكن وضع الجدول داخل حاوية ذات تمرير أفقي عند الضرورة مع إبقاء إشارة واضحة إلى إمكانية التمرير.</p>
 </div>
 </div>
 </article>
