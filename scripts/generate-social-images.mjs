@@ -90,7 +90,7 @@ for (const file of htmlFiles) {
     generated++;
   }
   const originalHead = head;
-  const pageUrl = new URL(rel, siteBase).href;
+  const pageUrl = rel === 'index.html' ? siteBase.href : new URL(rel, siteBase).href;
   head = upsertMeta(head, 'property', 'og:type', rel.startsWith('articles/') ? 'article' : 'website');
   head = upsertMeta(head, 'property', 'og:title', title);
   head = upsertMeta(head, 'property', 'og:description', description);
