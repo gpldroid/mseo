@@ -73,7 +73,14 @@ git diff
 git add README.md
 git commit -m "docs: update project guide"
 git push -u origin feature/update-readme</code></pre><p>الأوامر مثال توضيحي. لا تستخدم <code>git push --force</code> كحل افتراضي، ولا تضع مفاتيح API أو ملفات إعدادات خاصة في المستودع. استخدم pull request للمراجعة وتشغيل الاختبارات قبل الدمج.</p><h2>عند حدوث تعارض</h2><ul><li>اقرأ مقاطع التعارض وحدد التغيير الصحيح من كل طرف.</li><li>احذف علامات التعارض بعد حلها ثم شغّل الاختبارات.</li><li>راجع سجل commits قبل الدمج حتى تكون التغييرات مفهومة.</li></ul>
-</div></article>
+</div><div data-batch-deepening="true" class="p-6 sm:p-10 prose prose-slate max-w-none dark:prose-invert"><h2>سير عمل آمن للتغييرات الصغيرة</h2><p>قبل تعديل المشروع، تأكد من الفرع الحالي ونظافة شجرة العمل. أنشئ فرعًا باسم يصف المهمة، ثم اجعل كل commit يمثل تغييرًا يمكن شرحه ومراجعته. قبل فتح Pull Request، راجع الملفات المتغيرة وتأكد من عدم إدراج أسرار أو ملفات بناء مؤقتة.</p><pre><code>git status
+git switch -c docs/update-guide
+# عدّل الملفات ثم راجع التغيير
+git diff
+git add articles/example.html
+git commit -m "Improve practical guide"
+git push -u origin docs/update-guide</code></pre><p>الأوامر مثال توضيحي؛ غيّر اسم الفرع والملف وفق مشروعك. بعد دفع الفرع، افتح PR يوضح المشكلة والتغيير والاختبارات التي أجريتها. إذا ظهر تعارض، حدّث فرعك بحذر وراجع diff النهائي قبل الدمج.</p></div>
+</article>
 <section class="mt-8"><h2 class="text-xl font-black mb-4">اقرأ أيضًا</h2><div class="grid sm:grid-cols-2 gap-3"><a href="github-pages-deploy.html" class="block bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-4 hover:-translate-y-0.5 transition"><strong>نشر موقع HTML وCSS وJavaScript على GitHub Pages خطوة بخطوة</strong><span class="block text-xs text-slate-500 mt-2">تطوير المواقع</span></a><a href="ai-website-builder-guide.html" class="block bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-4 hover:-translate-y-0.5 transition"><strong>كيفية إنشاء موقع احترافي بالذكاء الاصطناعي من الصفر في 2026</strong><span class="block text-xs text-slate-500 mt-2">الذكاء الاصطناعي</span></a><a href="html-semantic-seo.html" class="block bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-4 hover:-translate-y-0.5 transition"><strong>دليل HTML الدلالي: كيف تبني صفحات ويب أفضل للـSEO والوصول</strong><span class="block text-xs text-slate-500 mt-2">تطوير المواقع</span></a></div></section>
 </main>
 <div data-site-footer></div>
