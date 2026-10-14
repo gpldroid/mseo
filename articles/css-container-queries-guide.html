@@ -41,30 +41,73 @@
 <div class="flex flex-wrap gap-2 mb-4"><span class="bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-full">تصميم المواقع</span><time datetime="2026-10-12" class="text-xs text-slate-500 px-2 py-1.5">12 أكتوبر 2026</time></div>
 <h1 class="text-2xl sm:text-4xl font-black leading-tight text-slate-950 dark:text-white">CSS Container Queries: تصميم مكونات تتكيف مع المساحة المتاحة</h1>
 <p class="mt-5 text-base leading-8 text-slate-600 dark:text-slate-300">شرح عملي لـ container-type و@container لبناء بطاقات ومكونات تتكيف مع عرض الحاوية بدل عرض الشاشة فقط.</p>
-<div class="mt-8 prose prose-slate max-w-none dark:prose-invert"><section><h2>لماذا نحتاج Container Queries؟</h2><p>تقيس media queries خصائص نافذة المتصفح غالبًا، بينما قد يوضع المكوّن نفسه داخل شريط جانبي ضيق أو مساحة عريضة في الصفحة. هنا تظهر فائدة Container Queries؛ إذ يمكنها تعديل تنسيق المكوّن وفق المساحة التي تمنحها له الحاوية، لا وفق عرض الشاشة وحده. وهذا يسهل إعادة استخدام المكوّن في أماكن مختلفة.</p></section>
-<section><h2>تعريف حاوية للاستعلام</h2><p>ضع الخاصية container-type: inline-size على العنصر الذي سيعمل حاويةً للاستعلام. بذلك يصبح بالإمكان تقييم عرض الحاوية على المحور المضمّن واستخدامه لتحديد التنسيق المناسب.</p></section>
-<section><h2>مثال عملي</h2><p><pre><code>.product-card-wrapper {
+<div class="mt-8 prose prose-slate max-w-none dark:prose-invert">
+<section><h2>ما المشكلة التي تحلها Container Queries؟</h2>
+<p>تعتمد media queries على خصائص نافذة العرض، مثل عرض الشاشة. لكن المكوّن الواحد قد يظهر في مواضع مختلفة داخل الموقع: بطاقة بعرض كامل في صفحة، وبطاقة صغيرة في عمود جانبي، وعنصرًا داخل نافذة منبثقة. قد تكون الشاشة واسعة في الحالات الثلاث، بينما تختلف المساحة الفعلية المتاحة للمكوّن اختلافًا كبيرًا.</p>
+<p>تسمح Container Queries للمكوّن بتغيير مظهره بحسب حجم الحاوية التي يحتويه. وهذا يجعل المكونات أكثر قابلية لإعادة الاستخدام ويقلل الحاجة إلى معرفة مكان استخدامها مسبقًا. لا تستبدل هذه التقنية media queries؛ بل تكملها. استخدم استعلامات الوسائط لقرارات الصفحة العامة، واستعلامات الحاوية لقرارات المكوّن الداخلية.</p></section>
+<section><h2>تعريف الحاوية بطريقة صحيحة</h2>
+<p>تحتاج أولًا إلى إعلان العنصر الذي سيُقاس حجمه. في أغلب مكونات الواجهات، يكفي <code>container-type: inline-size</code> لأن المطلوب هو الاستجابة لعرض الحاوية على المحور المضمّن. ويمكن إعطاء الحاوية اسمًا لتصبح الاستعلامات أوضح عندما توجد عدة حاويات متداخلة.</p>
+<pre><code>.product-card-shell {
   container-type: inline-size;
+  container-name: product-card;
+}</code></pre>
+<p>تذكّر أن العنصر الذي تُطبق عليه قاعدة <code>@container</code> لا يكون عادةً الحاوية نفسها، بل أحد العناصر التابعة لها. لذلك افصل بين غلاف المكوّن والمحتوى الذي يتغير تخطيطه. هذا الفصل يجعل حدود المسؤولية واضحة ويسهل اكتشاف الأخطاء.</p></section>
+<section><h2>بناء بطاقة تتحول من عمود إلى صف</h2>
+<p>ابدأ بتخطيط بسيط يعمل في المساحة الضيقة، ثم أضف تحسينًا عند اتساع الحاوية. هذا النهج «التدرج من البسيط» أكثر أمانًا من افتراض أن كل بطاقة تملك مساحة كافية منذ البداية.</p>
+<pre><code>.product-card-shell {
+  container: product-card / inline-size;
 }
-
 .product-card {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 1rem;
 }
-
-@container (min-width: 34rem) {
+.product-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+@container product-card (min-width: 34rem) {
   .product-card {
-    grid-template-columns: 9rem 1fr;
+    grid-template-columns: minmax(9rem, 0.8fr) minmax(0, 1.2fr);
     align-items: center;
   }
-}</code></pre> عندما تتوفر مساحة كافية داخل الحاوية، يعرض المثال البطاقة في عمودين بدل التخطيط الواحد. تأكد من أن العنصر الذي تريد تنسيقه يقع داخل الحاوية الصحيحة، وأن شرط الاستعلام مرتبط بالحاوية المقصودة.</p></section>
-<section><h2>كيف تختلف عن Media Queries؟</h2><p>اختر media queries للقرارات المرتبطة بالشاشة أو بإعدادات المستخدم، مثل تفضيل تقليل الحركة. أما إذا كان المطلوب تغيير المكوّن بحسب المساحة المتاحة له داخل التخطيط، فـcontainer queries أنسب. ويمكنك الجمع بين النوعين عندما يتطلب التصميم ذلك.</p></section>
-<section><h2>أخطاء شائعة</h2><p>لا تجعل كل عنصر حاوية للاستعلامات دون سبب؛ حدّد المكوّنات التي تحتاج فعلًا إلى الاستجابة لحجمها. اختبر العروض المتوسطة أيضًا، وتحقق من عدم قص المحتوى أو ظهور تمرير أفقي. تذكّر أن بعض أشكال containment تؤثر في سلوك التخطيط، لذا افحص النتيجة داخل الصفحة الفعلية.</p></section>
-<section><h2>اختبار المكوّن في أماكن متعددة</h2><p>اختبر البطاقة داخل شبكة كبيرة، ثم في عمود جانبي وعلى شاشة هاتف. غيّر عرض الحاوية مع إبقاء نافذة المتصفح بالحجم نفسه؛ فإذا تغيّر التنسيق تبعًا للحاوية، فهذا يؤكد أن المكوّن يستجيب للمساحة المخصصة له.</p></section>
-<section><h2>الخلاصة</h2><p>تمنحك Container Queries طريقة عملية لبناء مكوّنات مرنة قابلة لإعادة الاستخدام. ابدأ بمكوّن بسيط، واجعل نقاط التحول مرتبطة بما يحتاجه المحتوى من مساحة، لا بتصنيفات الأجهزة، ثم جرّبه في أكثر من تخطيط.</p></section></div>
-<section class="mt-10 p-5 rounded-2xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-700">
-<h2 class="text-xl font-black mb-3">مصادر وروابط موثوقة</h2><ul class="list-disc pr-6 space-y-2"><li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_size_and_style_queries" target="_blank" rel="noopener noreferrer">MDN: CSS container queries</a></li><li><a href="https://web.dev/articles/container-queries" target="_blank" rel="noopener noreferrer">web.dev: CSS container queries</a></li></ul>
-</section>
+}</code></pre>
+<p>في حاوية ضيقة تظهر الصورة والنص عموديًا، وعندما يتوفر عرض كافٍ يصبحان بجانب بعضهما. لاحظ استخدام <code>minmax(0, ...)</code> لتجنب تمدد الأعمدة بسبب المحتوى، وأن حد <code>34rem</code> هنا مثال وليس قيمة معيارية؛ اختبر مكوناتك لتحديد الحد المناسب لها.</p></section>
+<section><h2>استعلامات الحاوية مع الأنماط النصية</h2>
+<p>لا تقتصر الفائدة على الأعمدة. قد تحتاج بطاقة صغيرة إلى عنوان أقل بروزًا أو إخفاء وصف ثانوي عندما تكون المساحة محدودة، مع إبقائه ظاهرًا في المساحات الأكبر. لكن تجنب إخفاء معلومات يحتاج إليها المستخدم لمجرد ضيق الحاوية؛ الأفضل غالبًا إعادة ترتيبها أو تقليل المسافات أولًا.</p>
+<pre><code>.story-card {
+  padding: 1rem;
+}
+.story-card__summary {
+  font-size: .95rem;
+}
+@container (min-width: 28rem) {
+  .story-card {
+    padding: 1.5rem;
+  }
+  .story-card__title {
+    font-size: 1.35rem;
+  }
+}</code></pre>
+<p>يمكن أيضًا استخدام أسماء الحاويات لتقليل الالتباس في المكونات المتداخلة. عند كتابة استعلام غير مسمى، قد يطابق المتصفح أقرب حاوية مؤهلة؛ إذا كان التصميم يحتوي أكثر من مستوى، فالتسمية توضح الحاوية المقصودة وتقلل المفاجآت.</p></section>
+<section><h2>الفرق بين Container Queries وMedia Queries</h2>
+<ul><li><strong>Media Queries:</strong> مناسبة لتغيير بنية الصفحة العامة، أو إظهار قائمة تنقل مختلفة وفق عرض نافذة العرض، أو مراعاة تفضيلات النظام مثل تقليل الحركة.</li><li><strong>Container Queries:</strong> مناسبة لبطاقات المنتجات، ومكونات المقالات، وعناصر لوحة التحكم التي قد تظهر في أعمدة متفاوتة العرض.</li><li><strong>Flexbox وGrid:</strong> لا يزالان أداتي التخطيط داخل المكوّن؛ أما الاستعلام فيقرر متى تتغير القواعد.</li></ul>
+<p>في مشروع واقعي، قد تستخدم الأدوات الثلاث معًا: Grid لبناء شبكة الصفحة، وContainer Queries لتغيير بنية البطاقة بحسب عمودها، وMedia Queries لضبط رأس الموقع أو القائمة الرئيسية.</p></section>
+<section><h2>أخطاء شائعة وكيفية تشخيصها</h2>
+<h3>1. وضع الاستعلام على العنصر الخطأ</h3><p>إذا لم تتغير القواعد، تحقق من أن العنصر المستهدف تابع للحاوية المؤهلة وليس الحاوية نفسها. افحص بنية HTML قبل تغيير عتبة العرض.</p>
+<h3>2. اختيار عتبة غير مناسبة</h3><p>لا تنسخ قيمة من مثال آخر دون اختبار. جرّب المكوّن في أضيق وأوسع موضع يظهر فيه، ثم اختر العتبة التي تمنح النص والصورة مساحة حقيقية.</p>
+<h3>3. تجاهل المحتوى الطويل</h3><p>الأسماء الطويلة، والأسعار، والترجمات، والروابط قد تكشف تمددًا غير مرغوب. استخدم <code>min-width: 0</code> عند الحاجة، واسمح بالتفاف النص، ولا تعتمد على ارتفاع ثابت للنصوص.</p>
+<h3>4. توقع أن الحاوية تحل كل مشكلات التجاوب</h3><p>لا تزال الصور بحاجة إلى أبعاد مناسبة، والأزرار إلى مساحة قابلة للاستخدام، والتباين إلى مراجعة، والصفحة إلى اختبار على الشاشات المختلفة. الاستعلام يغيّر القواعد ولا يعوض عن التصميم الجيد.</p></section>
+<section><h2>التوافق وخطة الرجوع</h2>
+<p>أصبحت استعلامات حجم الحاوية مدعومة في المتصفحات الحديثة، لكن المشاريع قد تحتاج إلى دعم إصدارات قديمة أو بيئات مؤسسية محددة. راجع بيانات التوافق عند بدء التنفيذ، واختبر المتصفحات الفعلية التي يستخدمها جمهورك بدل افتراض أن بيئة التطوير تمثل الجميع.</p>
+<p>اجعل القاعدة الأساسية مفيدة من دون استعلام، ثم أضف التحسين داخل <code>@container</code>. إذا تجاهل متصفح قديم الاستعلام، سيظل المكوّن قابلًا للاستخدام بتخطيطه الأساسي. لا تعتمد على استعلام الحاوية لإخفاء محتوى ضروري أو لتمرير سلوك لا بد منه.</p></section>
+<section><h2>اختبار المكوّن قبل إعادة استخدامه</h2>
+<ul><li>ضع البطاقة في عمود ضيق وآخر واسع.</li><li>اختبر عنوانًا من سطر واحد وآخر طويلًا جدًا.</li><li>جرّب صورة أفقية ومربعة وصورة لا تُحمّل.</li><li>تحقق من اتجاه RTL واللغة ذات الاتجاه LTR إذا كان الموقع متعدد اللغات.</li><li>استخدم لوحة المفاتيح وتأكد من أن التركيز لا يُقص داخل الحاوية.</li><li>افحص التكبير إلى 200% وتأكد من عدم ظهور تمرير أفقي غير ضروري.</li></ul>
+<p>تساعد أدوات المطور في معاينة أبعاد الحاوية ومعرفة أي استعلام ينطبق على العنصر. وإذا لم يتغير التخطيط، افحص أولًا ما إذا كانت الحاوية معرفة على العنصر الصحيح، ثم تأكد من أن العنصر الهدف داخلها، وبعد ذلك راجع الشرط العددي.</p></section>
+<section><h2>مصادر موثوقة</h2><ul><li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_size_and_style_queries" target="_blank" rel="noopener noreferrer">MDN: Container size and style queries</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries" target="_blank" rel="noopener noreferrer">MDN: Container queries</a></li><li><a href="https://web.dev/articles/baseline" target="_blank" rel="noopener noreferrer">web.dev: Baseline وتوافق ميزات الويب</a></li></ul></section>
+</div>
 <div class="mt-8 pt-6 border-t border-slate-200 dark:border-slate-700 flex flex-wrap gap-2 text-xs"><span class="font-bold">كلمات مفتاحية:</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">CSS Container Queries</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">@container</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">Responsive Components</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">CSS</span><span class="bg-slate-100 dark:bg-slate-700 px-2 py-1 rounded">تصميم متجاوب</span></div>
 </div></article>
 </main>
