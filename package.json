@@ -14,6 +14,7 @@
     "test": "npm run test:js && node scripts/validate-site.mjs",
     "sync:cms": "node scripts/sync-cms-content.mjs",
     "generate:social-images": "node scripts/generate-social-images.mjs",
-    "audit:seo": "node scripts/audit-seo.mjs"
+    "audit:seo": "node scripts/audit-seo.mjs",
+    "audit:i18n": "node scripts/audit-translations.mjs"
   }
 }
