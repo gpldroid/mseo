@@ -5,6 +5,42 @@
   const nested = /\/(articles|pages)\//.test(path);
   const root = nested ? '../' : './';
   const link = (href) => root + href;
+
+  // Site-wide language switcher. Google Translate translates existing and dynamically
+  // rendered page content while leaving the original static content and URLs intact.
+  const supportedLanguages = ['ar', 'en', 'fr', 'es'];
+  const readTranslatedLanguage = () => {
+    const cookie = document.cookie.split(';').map(item => item.trim()).find(item => item.startsWith('googtrans=/ar/'));
+    const language = cookie ? cookie.split('/').pop() : 'ar';
+    return supportedLanguages.includes(language) ? language : 'ar';
+  };
+  const currentLanguage = readTranslatedLanguage();
+  const applyLanguageDirection = (language) => {
+    document.documentElement.lang = language;
+    document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';
+  };
+  applyLanguageDirection(currentLanguage);
+  window.googleTranslateElementInit = () => {
+    if (window.google?.translate?.TranslateElement && document.getElementById('mseo-google-translate')) {
+      new window.google.translate.TranslateElement({
+        pageLanguage: 'ar',
+        includedLanguages: 'ar,en,fr,es',
+        autoDisplay: false
+      }, 'mseo-google-translate');
+    }
+  };
+  const setSiteLanguage = (language) => {
+    if (!supportedLanguages.includes(language)) return;
+    if (language === 'ar') {
+      document.cookie = 'googtrans=; Max-Age=0; path=/; SameSite=Lax';
+      document.cookie = 'googtrans=; Max-Age=0; path=' + location.pathname.replace(/[^/]+$/, '') + '; SameSite=Lax';
+    } else {
+      document.cookie = 'googtrans=/ar/' + language + '; path=/; SameSite=Lax';
+    }
+    try { localStorage.setItem('mseo-language', language); } catch (_) {}
+    applyLanguageDirection(language);
+    location.reload();
+  };
   const navItems = [
     ['index.html','الرئيسية'],
     ['pages/ai.html','الذكاء الاصطناعي'],
@@ -37,6 +73,16 @@
           <div class="mseo-actions">
             <button class="mseo-icon-button" type="button" data-search-toggle aria-label="${'فتح البحث'}" title="${'بحث'}">⌕</button>
             <button class="mseo-icon-button" type="button" data-theme-toggle aria-label="${'تبديل المظهر'}" title="${'الوضع الداكن'}">☾</button>
+            <label class="mseo-language-control" aria-label="Language">
+              <span class="sr-only">Language</span>
+              <select data-language-select aria-label="Choose language" title="Language">
+                <option value="ar">العربية</option>
+                <option value="en">English</option>
+                <option value="fr">Français</option>
+                <option value="es">Español</option>
+              </select>
+            </label>
+            <div id="mseo-google-translate" class="mseo-google-translate" aria-hidden="true"></div>
             </div>
         </div>
         <div class="mseo-search-panel" data-search-panel>
@@ -88,6 +134,19 @@
     applyTheme(next.id);
     writePreference('mseo-theme', next.id);
   });
+  const languageSelect=$('[data-language-select]');
+  if (languageSelect) {
+    // Load the translator only after the shared header has created its mount element.
+    if (!document.getElementById('mseo-google-translate-script')) {
+      const translateScript = document.createElement('script');
+      translateScript.id = 'mseo-google-translate-script';
+      translateScript.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+      translateScript.async = true;
+      document.head.appendChild(translateScript);
+    }
+    languageSelect.value = currentLanguage;
+    languageSelect.addEventListener('change', () => setSiteLanguage(languageSelect.value));
+  }
   const menuButton=$('[data-menu-toggle]'), nav=$('[data-main-nav]');
   if(menuButton&&nav){menuButton.addEventListener('click',()=>{const open=nav.classList.toggle('is-open');menuButton.setAttribute('aria-expanded',String(open));menuButton.textContent=open?'×':'☰';});nav.addEventListener('click',e=>{if(e.target.closest('a')){nav.classList.remove('is-open');menuButton.setAttribute('aria-expanded','false');menuButton.textContent='☰';}});}
   const searchButton=$('[data-search-toggle]'),searchPanel=$('[data-search-panel]');
