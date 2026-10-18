@@ -26,6 +26,10 @@ A responsive Arabic-first CMS dashboard built with React, Vite, TypeScript, Supa
 
 RLS policies remain authoritative; hiding a screen in React is not an authorization boundary. Roles are `owner`, `admin`, `editor`, `publisher`, and `viewer`. The browser uses only the Supabase publishable key.
 
+## Content taxonomy
+
+The editor distinguishes target SEO keywords from semantic keywords and offers article/page-specific subtypes. The additive database migration and rollout notes are documented in [content taxonomy](docs/content-taxonomy.md). Review and apply the migration to the correct Supabase project before deploying the updated dashboard.
+
 ## Publishing
 
 The `mcms-publish` Edge Function requires a valid Supabase JWT and a publisher/owner/admin membership. It writes an HTML page into the configured `articles/` or `pages/` directory, preserves the existing custom layout for imported pages, and updates `data/articles.json` for articles, which is the public site's catalogue. This preserves the static site's existing URL pattern and makes new articles discoverable from the homepage and archive.
