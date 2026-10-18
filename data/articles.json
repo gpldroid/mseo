@@ -1,5 +1,25 @@
 [
   {
+    "slug": "seo-content-strategy",
+    "file": "seo-content-strategy.html",
+    "title": "استراتيجية محتوى SEO في 2026: دليل عملي",
+    "category": "SEO",
+    "subcategory": "استراتيجية المحتوى",
+    "tags": [
+      "استراتيجية محتوى SEO",
+      "خطة محتوى SEO",
+      "نية البحث",
+      "الكلمات المفتاحية",
+      "الروابط الداخلية"
+    ],
+    "description": "تعلم بناء استراتيجية محتوى SEO في 2026: من فهم نية البحث وتصنيف الموضوعات إلى الروابط الداخلية وقياس أداء المقالات.",
+    "icon": "fa-magnifying-glass-chart",
+    "image": "assets/images/article-thumbnails/seo-content-strategy-2026.svg",
+    "thumbnail": "assets/images/article-thumbnails/seo-content-strategy.svg",
+    "publishedAt": "2026-09-19",
+    "updatedAt": "2026-10-18"
+  },
+  {
     "slug": "seo-website-optimization-2026",
     "file": "seo-website-optimization-2026.html",
     "title": "تحسين المواقع لمحركات البحث في 2026: دليل شامل للمحتوى والأداء والفهرسة",
@@ -15,7 +35,9 @@
     ],
     "description": "دليل عملي لتحسين المحتوى والفهرسة والروابط الداخلية وسرعة الموقع وقياس نتائج SEO في 2026.",
     "icon": "fa-magnifying-glass-chart",
-    "image": "assets/images/article-thumbnails/seo-website-optimization-2026.svg"
+    "image": "assets/images/article-thumbnails/seo-website-optimization-2026.svg",
+    "publishedAt": "2026-10-15",
+    "updatedAt": "2026-10-15"
   },
   {
     "slug": "html-advanced-inputs",
@@ -474,25 +496,6 @@
     "icon": "fa-js",
     "image": "https://images.unsplash.com/photo-1516116216624-53e697fedbea?auto=format&fit=crop&w=1400&q=85",
     "thumbnail": "assets/images/article-thumbnails/javascript-clean-code.svg"
-  },
-  {
-    "slug": "seo-content-strategy",
-    "file": "seo-content-strategy.html",
-    "title": "استراتيجية محتوى SEO للمواقع التقنية: الكلمات المفتاحية والنية والروابط الداخلية",
-    "category": "SEO",
-    "subcategory": "Content SEO",
-    "tags": [
-      "استراتيجية المحتوى",
-      "Keyword Research",
-      "نية البحث",
-      "الروابط الداخلية",
-      "SEO للمحتوى",
-      "المواقع التقنية"
-    ],
-    "description": "منهج عملي لبناء محتوى يخدم نية البحث.",
-    "icon": "fa-chart-line",
-    "image": "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "assets/images/article-thumbnails/seo-content-strategy.svg"
   },
   {
     "slug": "github-pages-deploy",
