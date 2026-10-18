@@ -76,7 +76,7 @@ function Root() {
     if (!slug) { setError("أدخل رابطًا مختصرًا صالحًا بالأحرف اللاتينية."); setBusy(false); return; }
     const { data: { user } } = await supabase.auth.getUser();
     const publishedAt = form.status === "published" ? (editing?.published_at ?? new Date().toISOString()) : null;
-    const parseTerms = (value: string) => [...new Map(value.split(/[,،\n]/).map(x => x.trim()).filter(Boolean).map(x => [x.toLocaleLowerCase("ar"), x])).values()];
+    const parseTerms = (value: string) => { const seen = new Set<string>(); return value.split(/[,،\n]/).map(x => x.trim()).filter(x => { const key = x.toLocaleLowerCase("ar"); if (!x || seen.has(key)) return false; seen.add(key); return true; }); };
     const payload = { title: form.title.trim(), slug, summary: form.summary, body_html: form.body_html, content_type: form.content_type, post_type: form.post_type, status: form.status, seo_title: form.seo_title, seo_description: form.seo_description, seo_keywords: parseTerms(form.seo_keywords), semantic_keywords: parseTerms(form.semantic_keywords), categories: parseTerms(form.categories), tags: parseTerms(form.tags), cover_image_url: form.cover_image_url, published_at: publishedAt, updated_by: user?.id, ...(editing ? {} : { created_by: user?.id }) };
     const result = editing
       ? await supabase.from("mseo_content_items").update(payload).eq("id", editing.id).select().single()
