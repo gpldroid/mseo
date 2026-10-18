@@ -29,13 +29,6 @@
       }, 'mseo-google-translate');
     }
   };
-  if (!document.getElementById('mseo-google-translate-script')) {
-    const translateScript = document.createElement('script');
-    translateScript.id = 'mseo-google-translate-script';
-    translateScript.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-    translateScript.async = true;
-    document.head.appendChild(translateScript);
-  }
   const setSiteLanguage = (language) => {
     if (!supportedLanguages.includes(language)) return;
     if (language === 'ar') {
@@ -143,6 +136,14 @@
   });
   const languageSelect=$('[data-language-select]');
   if (languageSelect) {
+    // Load the translator only after the shared header has created its mount element.
+    if (!document.getElementById('mseo-google-translate-script')) {
+      const translateScript = document.createElement('script');
+      translateScript.id = 'mseo-google-translate-script';
+      translateScript.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+      translateScript.async = true;
+      document.head.appendChild(translateScript);
+    }
     languageSelect.value = currentLanguage;
     languageSelect.addEventListener('change', () => setSiteLanguage(languageSelect.value));
   }
