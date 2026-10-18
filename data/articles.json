@@ -1,5 +1,47 @@
 [
   {
+    "slug": "google-search-console-indexing-errors",
+    "file": "google-search-console-indexing-errors.html",
+    "title": "أخطاء الفهرسة في Google Search Console: التشخيص والإصلاح",
+    "category": "SEO",
+    "subcategory": "Technical SEO وGoogle Search Console",
+    "tags": [
+      "Google Search Console",
+      "أخطاء الفهرسة",
+      "Page indexing",
+      "SEO تقني",
+      "noindex",
+      "canonical"
+    ],
+    "description": "دليل عملي لفهم تقارير الفهرسة والتمييز بين الاستبعاد المتوقع والأخطاء التي تحتاج إلى إصلاح.",
+    "icon": "fa-triangle-exclamation",
+    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "assets/images/article-thumbnails/google-search-console-indexing-errors.svg",
+    "publishedAt": "2026-10-18",
+    "updatedAt": "2026-10-18"
+  },
+  {
+    "slug": "internal-linking-seo-guide",
+    "file": "internal-linking-seo-guide.html",
+    "title": "الروابط الداخلية وSEO: بناء بنية تربط صفحات الموقع",
+    "category": "SEO",
+    "subcategory": "Technical SEO وبنية الموقع",
+    "tags": [
+      "الروابط الداخلية",
+      "Internal Linking",
+      "SEO تقني",
+      "بنية الموقع",
+      "نص الرابط",
+      "الصفحات المعزولة"
+    ],
+    "description": "دليل عملي لتحسين الروابط الداخلية، وتنظيم بنية الموقع، واختيار نصوص الروابط، واكتشاف الصفحات المعزولة والروابط المكسورة.",
+    "icon": "fa-link",
+    "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "assets/images/article-thumbnails/internal-linking-seo-guide.svg",
+    "publishedAt": "2026-10-18",
+    "updatedAt": "2026-10-18"
+  },
+  {
     "slug": "seo-content-strategy",
     "file": "seo-content-strategy.html",
     "title": "استراتيجية محتوى SEO في 2026: دليل عملي",
@@ -54,7 +96,9 @@
     ],
     "description": "تعرف إلى أنواع input المناسبة لاختيار التاريخ والأرقام والخيارات المتعددة والاختيار الأحادي مع أمثلة واضحة.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1400&q=85"
+    "image": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1400&q=85",
+    "publishedAt": "2026-10-14",
+    "updatedAt": "2026-10-14"
   },
   {
     "slug": "html-audio-video",
@@ -70,7 +114,9 @@
     ],
     "description": "تعلم تضمين الصوت والفيديو بعناصر HTML الأصلية وإضافة عناصر التحكم والترجمة مع مراعاة الوصول والأداء.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85"
+    "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85",
+    "publishedAt": "2026-10-14",
+    "updatedAt": "2026-10-14"
   },
   {
     "slug": "html-css-js-roles",
@@ -86,7 +132,9 @@
     ],
     "description": "افهم دور HTML في البنية وCSS في العرض وJavaScript في التفاعل من خلال مثال صغير قابل للتطوير.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=85"
+    "image": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=85",
+    "publishedAt": "2026-10-14",
+    "updatedAt": "2026-10-14"
   },
   {
     "slug": "html-document-structure",
@@ -103,7 +151,9 @@
     ],
     "description": "افهم بنية مستند HTML من البداية، ودور doctype وhtml وhead وbody ووسوم meta، مع مثال عربي صحيح وأخطاء يجب تجنبها.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=85"
+    "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=85",
+    "publishedAt": "2026-10-14",
+    "updatedAt": "2026-10-14"
   },
   {
     "slug": "html-form-validation-accessibility",
@@ -119,7 +169,9 @@
     ],
     "description": "تعلم استخدام required وpattern وminlength مع رسائل خطأ مفهومة وتجربة نموذج يمكن الوصول إليها.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=85"
+    "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=85",
+    "publishedAt": "2026-10-14",
+    "updatedAt": "2026-10-14"
   },
   {
     "slug": "html-forms-basics",
@@ -136,7 +188,9 @@
     ],
     "description": "تعلم إنشاء نموذج HTML واضح وسهل الوصول، مع label وinput وأنواع الحقول والأزرار وخصائص التحقق المدمجة وأفضل الممارسات.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1400&q=85"
+    "image": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1400&q=85",
+    "publishedAt": "2026-10-14",
+    "updatedAt": "2026-10-14"
   },
   {
     "slug": "html-global-attributes-data",
@@ -153,7 +207,9 @@
     ],
     "description": "شرح الخصائص العامة التي يمكن استخدامها مع عناصر HTML لتنظيم المحتوى وربطه بالأنماط والسلوك البرمجي.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85"
+    "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
+    "publishedAt": "2026-10-14",
+    "updatedAt": "2026-10-14"
   },
   {
     "slug": "html-iframe-security",
@@ -169,7 +225,9 @@
     ],
     "description": "تعرف إلى iframe وخصائص title وloading وsandbox ومتى ينبغي تجنب تضمين محتوى خارجي.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1400&q=85"
+    "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1400&q=85",
+    "publishedAt": "2026-10-14",
+    "updatedAt": "2026-10-14"
   },
   {
     "slug": "html-keyboard-accessibility",
@@ -185,7 +243,9 @@
     ],
     "description": "خطوات عملية لتحسين وصول صفحات HTML باستخدام العناصر الأصلية وتسميات واضحة وترتيب تركيز منطقي.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1400&q=85"
+    "image": "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1400&q=85",
+    "publishedAt": "2026-10-14",
+    "updatedAt": "2026-10-14"
   },
   {
     "slug": "html-links-paths",
@@ -201,7 +261,9 @@
     ],
     "description": "افهم href والمسارات النسبية والمطلقة وكيف تكتب روابط واضحة وآمنة داخل مواقع HTML.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1400&q=85"
+    "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1400&q=85",
+    "publishedAt": "2026-10-14",
+    "updatedAt": "2026-10-14"
   },
   {
     "slug": "html-lists-images",
@@ -217,7 +279,9 @@
     ],
     "description": "تعلم إنشاء القوائم المرتبة وغير المرتبة وقوائم التعريف، وإضافة الصور في HTML مع alt مناسب وأبعاد تساعد على تجربة أفضل.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=85"
+    "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=85",
+    "publishedAt": "2026-10-14",
+    "updatedAt": "2026-10-14"
   },
   {
     "slug": "html-multipage-project",
@@ -233,7 +297,9 @@
     ],
     "description": "طبّق دروس HTML في مشروع صغير متعدد الصفحات يتضمن التنقل والمقالات والصور ونموذج تواصل وبنية قابلة للصيانة.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85"
+    "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
+    "publishedAt": "2026-10-14",
+    "updatedAt": "2026-10-14"
   },
   {
     "slug": "html-performance-loading",
@@ -250,7 +316,9 @@
     ],
     "description": "تحسين تحميل موارد الصفحة باستخدام خصائص HTML المناسبة مع فهم trade-offs وتجنب التحسينات العشوائية.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1400&q=85"
+    "image": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1400&q=85",
+    "publishedAt": "2026-10-14",
+    "updatedAt": "2026-10-14"
   },
   {
     "slug": "html-responsive-images",
@@ -267,7 +335,9 @@
     ],
     "description": "تعلم اختيار الصور المناسبة لأحجام الشاشات وكثافات العرض باستخدام srcset وsizes وpicture.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85"
+    "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85",
+    "publishedAt": "2026-10-14",
+    "updatedAt": "2026-10-14"
   },
   {
     "slug": "html-semantic-elements",
@@ -285,7 +355,9 @@
     ],
     "description": "تعرف إلى العناصر الدلالية في HTML وكيف تختار البنية المناسبة لتحسين وضوح الصفحة وإمكانية الوصول.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=85"
+    "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=85",
+    "publishedAt": "2026-10-14",
+    "updatedAt": "2026-10-14"
   },
   {
     "slug": "html-seo-metadata",
@@ -302,7 +374,9 @@
     ],
     "description": "تعلم ضبط عناصر head المهمة لمحركات البحث مع أمثلة عملية وتجنب التكرار والتصريحات المضللة.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=85"
+    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=85",
+    "publishedAt": "2026-10-14",
+    "updatedAt": "2026-10-14"
   },
   {
     "slug": "html-tables-caption",
@@ -318,7 +392,9 @@
     ],
     "description": "تعلم إنشاء جداول HTML مفهومة باستخدام caption وthead وtbody وth مع تحسين الوصول على الشاشات الصغيرة.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=85"
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=85",
+    "publishedAt": "2026-10-14",
+    "updatedAt": "2026-10-14"
   },
   {
     "slug": "html-text-headings-links",
@@ -334,7 +410,9 @@
     ],
     "description": "تعلم تنظيم النصوص بعناوين HTML من h1 إلى h6، واستخدام الفقرات والروابط القابلة للوصول، مع أمثلة وأخطاء شائعة.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1400&q=85"
+    "image": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1400&q=85",
+    "publishedAt": "2026-10-14",
+    "updatedAt": "2026-10-14"
   },
   {
     "slug": "html-validation-debugging",
@@ -350,7 +428,9 @@
     ],
     "description": "تعلم اكتشاف أخطاء بنية HTML والروابط والخصائص باستخدام أدوات التحقق وفحص DOM في المتصفح.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1400&q=85"
+    "image": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1400&q=85",
+    "publishedAt": "2026-10-14",
+    "updatedAt": "2026-10-14"
   },
   {
     "slug": "html-what-is-html",
@@ -366,155 +446,66 @@
     ],
     "description": "تعرف على لغة HTML ودورها في بناء صفحات الويب، وكيف تكتب أول ملف HTML وتشغّله في المتصفح خطوة بخطوة، مع أمثلة عملية للمبتدئين.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1526378722484-bd91ca387e72?auto=format&fit=crop&w=1400&q=85"
+    "image": "https://images.unsplash.com/photo-1526378722484-bd91ca387e72?auto=format&fit=crop&w=1400&q=85",
+    "publishedAt": "2026-10-14",
+    "updatedAt": "2026-10-14"
   },
   {
-    "slug": "ai-website-builder-guide",
-    "file": "ai-website-builder-guide.html",
-    "title": "كيفية إنشاء موقع احترافي بالذكاء الاصطناعي من الصفر في 2026",
-    "category": "الذكاء الاصطناعي",
-    "subcategory": "بناء المواقع بالذكاء الاصطناعي",
+    "slug": "website-quality-audit-checklist",
+    "file": "website-quality-audit-checklist.html",
+    "title": "تدقيق جودة الموقع: قائمة شاملة للأداء وSEO وإمكانية الوصول",
+    "category": "أداء المواقع",
+    "subcategory": "تدقيق جودة الموقع",
     "tags": [
-      "AI Website Builder",
-      "إنشاء المواقع",
-      "أدوات الذكاء الاصطناعي",
-      "تطوير المواقع",
-      "Prompt Engineering"
+      "تدقيق جودة الموقع",
+      "Website Quality Audit",
+      "Core Web Vitals",
+      "SEO",
+      "إمكانية الوصول"
     ],
-    "description": "دليل عملي للتخطيط وبناء موقع حديث بالذكاء الاصطناعي.",
-    "icon": "fa-robot",
-    "image": "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "assets/images/article-thumbnails/ai-website-builder-guide.svg"
+    "description": "استخدم قائمة عملية لتقييم جودة موقعك عبر الأداء وإمكانية الوصول وSEO والأمان وسهولة الاستخدام، ثم رتّب الإصلاحات حسب أثرها.",
+    "icon": "fa-gauge-high",
+    "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85",
+    "publishedAt": "2026-10-14",
+    "updatedAt": "2026-10-14"
   },
   {
-    "slug": "ai-coding-prompts",
-    "file": "ai-coding-prompts.html",
-    "title": "أفضل Prompts لبرمجة المواقع بالذكاء الاصطناعي: من الفكرة إلى كود قابل للصيانة",
-    "category": "الذكاء الاصطناعي",
-    "subcategory": "AI للمطورين",
+    "slug": "lighthouse-audit-fixes-guide",
+    "file": "lighthouse-audit-fixes-guide.html",
+    "title": "دليل Lighthouse: فهم نتائج الفحص وإصلاح مشكلات الموقع",
+    "category": "أداء المواقع",
+    "subcategory": "Lighthouse والتشخيص",
     "tags": [
-      "AI Coding",
-      "Prompts",
-      "Prompt Engineering",
-      "برمجة المواقع",
-      "مراجعة الكود",
-      "كود قابل للصيانة"
+      "Lighthouse",
+      "Performance Audit",
+      "Accessibility Audit",
+      "SEO Audit",
+      "تحسين الأداء"
     ],
-    "description": "أمثلة عملية لصياغة Prompts دقيقة لكتابة ومراجعة الكود.",
-    "icon": "fa-wand-magic-sparkles",
-    "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "assets/images/article-thumbnails/ai-coding-prompts.svg"
+    "description": "تعلم تشغيل Lighthouse وقراءة تقاريره وترتيب إصلاحات الأداء وإمكانية الوصول وSEO وفق الأثر، مع تجنب تفسير الدرجات بشكل مضلل.",
+    "icon": "fa-gauge-high",
+    "image": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=85",
+    "publishedAt": "2026-10-14",
+    "updatedAt": "2026-10-14"
   },
   {
-    "slug": "ai-developer-tools",
-    "file": "ai-developer-tools.html",
-    "title": "أفضل أدوات الذكاء الاصطناعي للمطورين في 2026",
-    "category": "الذكاء الاصطناعي",
-    "subcategory": "أدوات AI",
+    "slug": "mobile-website-quality-testing",
+    "file": "mobile-website-quality-testing.html",
+    "title": "اختبار جودة الموقع على الهاتف: دليل عملي قبل النشر",
+    "category": "أداء المواقع",
+    "subcategory": "اختبار جودة الهاتف",
     "tags": [
-      "AI Developer Tools",
-      "AI Coding Tools",
-      "أدوات برمجة بالذكاء الاصطناعي",
-      "AI Code Assistant"
-    ],
-    "description": "دليل عملي لاختيار أدوات الذكاء الاصطناعي للمطورين حسب حالة الاستخدام ومعايير الخصوصية والتكامل وجودة المخرجات.",
-    "icon": "fa-screwdriver-wrench",
-    "image": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "assets/images/article-thumbnails/ai-developer-tools.svg"
-  },
-  {
-    "slug": "prompt-engineering-developers",
-    "file": "prompt-engineering-developers.html",
-    "title": "Prompt Engineering للمطورين: كيف تكتب Prompts أفضل لكتابة ومراجعة الكود",
-    "category": "الذكاء الاصطناعي",
-    "subcategory": "Prompt Engineering",
-    "tags": [
-      "Prompt Engineering للمطورين",
-      "coding prompts",
-      "prompts للبرمجة",
-      "code review prompts",
-      "تحسين مخرجات AI"
-    ],
-    "description": "دليل عملي لبناء Prompts أوضح للمطورين عبر تحديد الهدف والسياق والقيود والمخرجات ثم تحسينها بالتكرار والاختبار والمراجعة.",
-    "icon": "fa-terminal",
-    "image": "https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "assets/images/article-thumbnails/prompt-engineering-developers.svg"
-  },
-  {
-    "slug": "html-semantic-seo",
-    "file": "html-semantic-seo.html",
-    "title": "دليل HTML الدلالي: كيف تبني صفحات ويب أفضل للـSEO والوصول",
-    "category": "تطوير المواقع",
-    "subcategory": "HTML",
-    "tags": [
-      "HTML5",
-      "HTML الدلالي",
-      "Semantic HTML",
-      "SEO التقني",
+      "اختبار الهاتف",
+      "Mobile Usability",
+      "Responsive Testing",
       "إمكانية الوصول",
-      "بنية الصفحة"
+      "الأداء"
     ],
-    "description": "بنية HTML الدلالية وعلاقتها بالوصول ومحركات البحث.",
-    "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1621839673705-6617adf9e890?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "assets/images/article-thumbnails/html-semantic-seo.svg"
-  },
-  {
-    "slug": "css-modern-design",
-    "file": "css-modern-design.html",
-    "title": "CSS الحديث لتصميم مواقع احترافية: Grid وFlexbox وResponsive Design",
-    "category": "تصميم المواقع",
-    "subcategory": "Responsive Design",
-    "tags": [
-      "CSS",
-      "Flexbox",
-      "CSS Grid",
-      "Responsive Design",
-      "تصميم متجاوب",
-      "واجهات الويب"
-    ],
-    "description": "أساسيات CSS الحديثة لبناء واجهات متجاوبة.",
-    "icon": "fa-palette",
-    "image": "https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "assets/images/article-thumbnails/css-modern-design.svg"
-  },
-  {
-    "slug": "javascript-clean-code",
-    "file": "javascript-clean-code.html",
-    "title": "JavaScript للمواقع: تنظيم الكود وتقليل الأخطاء وتحسين الأداء",
-    "category": "البرمجة",
-    "subcategory": "JavaScript",
-    "tags": [
-      "JavaScript",
-      "Clean Code",
-      "تنظيم الكود",
-      "Debugging",
-      "صيانة الكود",
-      "أداء JavaScript"
-    ],
-    "description": "ممارسات عملية لتنظيم JavaScript وتحسين الصيانة.",
-    "icon": "fa-js",
-    "image": "https://images.unsplash.com/photo-1516116216624-53e697fedbea?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "assets/images/article-thumbnails/javascript-clean-code.svg"
-  },
-  {
-    "slug": "github-pages-deploy",
-    "file": "github-pages-deploy.html",
-    "title": "نشر موقع HTML وCSS وJavaScript على GitHub Pages خطوة بخطوة",
-    "category": "تطوير المواقع",
-    "subcategory": "الاستضافة والنشر",
-    "tags": [
-      "GitHub Pages",
-      "نشر المواقع",
-      "استضافة المواقع",
-      "Git",
-      "HTML",
-      "JavaScript"
-    ],
-    "description": "دليل النشر والاستضافة على GitHub Pages.",
-    "icon": "fa-github",
-    "image": "https://images.unsplash.com/photo-1556075798-4825dfaaf498?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "assets/images/article-thumbnails/github-pages-deploy.svg"
+    "description": "قائمة عملية لاختبار الموقع على الهاتف تشمل العرض المتجاوب واللمس والنماذج والأداء وإمكانية الوصول والمهام الأساسية قبل النشر.",
+    "icon": "fa-gauge-high",
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=85",
+    "publishedAt": "2026-10-14",
+    "updatedAt": "2026-10-14"
   },
   {
     "slug": "structured-data-guide",
@@ -533,7 +524,371 @@
     "description": "شرح عملي للبيانات المنظمة والمخططات المناسبة للمقالات.",
     "icon": "fa-sitemap",
     "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "assets/images/article-thumbnails/structured-data-guide.svg"
+    "thumbnail": "assets/images/article-thumbnails/structured-data-guide.svg",
+    "publishedAt": "2026-09-16",
+    "updatedAt": "2026-10-14"
+  },
+  {
+    "slug": "arabic-web-typography-guide",
+    "file": "arabic-web-typography-guide.html",
+    "title": "الخطوط العربية في تصميم المواقع: دليل عملي لتحسين القراءة والواجهة",
+    "category": "تصميم المواقع",
+    "subcategory": "الخطوط العربية وتجربة القراءة",
+    "tags": [
+      "الخطوط العربية",
+      "Arabic Typography",
+      "تصميم RTL",
+      "CSS",
+      "تجربة المستخدم",
+      "Web Fonts"
+    ],
+    "description": "تعلم اختيار الخط العربي للمواقع وضبط أحجام العناوين وتباعد الأسطر والأوزان، مع أمثلة CSS عملية لتحسين القراءة على الهاتف والحاسوب.",
+    "icon": "fa-font",
+    "image": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1400&q=85",
+    "publishedAt": "2026-10-13",
+    "updatedAt": "2026-10-13"
+  },
+  {
+    "slug": "google-search-console-performance-report",
+    "file": "google-search-console-performance-report.html",
+    "title": "Google Search Console: دليل عملي لتحليل النقرات ومرات الظهور وتحسين صفحات موقعك",
+    "category": "SEO",
+    "subcategory": "تحليل الأداء وقياس نتائج البحث",
+    "tags": [
+      "Google Search Console",
+      "تحليل تقرير الأداء",
+      "مرات الظهور",
+      "معدل النقر CTR",
+      "تحسين SEO",
+      "استعلامات البحث"
+    ],
+    "description": "دليل عملي لتحليل النقرات ومرات الظهور والاستعلامات والصفحات في Google Search Console، وتحويل البيانات إلى قرارات تحسين SEO.",
+    "icon": "fa-chart-line",
+    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=85",
+    "publishedAt": "2026-10-13",
+    "updatedAt": "2026-10-13"
+  },
+  {
+    "slug": "seo-image-optimization-guide",
+    "file": "seo-image-optimization-guide.html",
+    "title": "تحسين الصور لمحركات البحث: دليل SEO للصور وسرعة الموقع",
+    "category": "SEO",
+    "subcategory": "Technical SEO وتحسين الصور",
+    "tags": [
+      "Image SEO",
+      "تحسين الصور",
+      "النص البديل ALT",
+      "ضغط الصور",
+      "WebP",
+      "AVIF",
+      "Google Images"
+    ],
+    "description": "دليل عملي لتحسين الصور عبر أسماء الملفات والنص البديل والصيغ الحديثة والأبعاد والتحميل الكسول وقياس الأداء.",
+    "icon": "fa-image",
+    "image": "https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&w=1400&q=85",
+    "publishedAt": "2026-10-13",
+    "updatedAt": "2026-10-13"
+  },
+  {
+    "slug": "hreflang-multilingual-seo-guide",
+    "file": "hreflang-multilingual-seo-guide.html",
+    "title": "وسم hreflang في SEO: دليل المواقع متعددة اللغات والمناطق",
+    "category": "SEO",
+    "subcategory": "SEO التقني والمواقع متعددة اللغات",
+    "tags": [
+      "hreflang",
+      "Multilingual SEO",
+      "International SEO",
+      "اللغة العربية",
+      "المواقع متعددة اللغات",
+      "canonical"
+    ],
+    "description": "تعلم إعداد hreflang للمواقع متعددة اللغات والمناطق، وربط النسخ البديلة، واستخدام رموز اللغة والمنطقة، واكتشاف الأخطاء الشائعة.",
+    "icon": "fa-language",
+    "image": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1400&q=85",
+    "publishedAt": "2026-10-13",
+    "updatedAt": "2026-10-13"
+  },
+  {
+    "slug": "javascript-seo-rendering-guide",
+    "file": "javascript-seo-rendering-guide.html",
+    "title": "JavaScript SEO: دليل فهرسة المواقع المعتمدة على JavaScript",
+    "category": "SEO",
+    "subcategory": "JavaScript SEO وRendering",
+    "tags": [
+      "JavaScript SEO",
+      "Rendering",
+      "SSR",
+      "CSR",
+      "فهرسة JavaScript",
+      "SEO التقني"
+    ],
+    "description": "دليل عملي لفهم عرض صفحات JavaScript وتحسين المحتوى والروابط والبيانات الوصفية واختبارها في محركات البحث.",
+    "icon": "fa-code",
+    "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=85",
+    "publishedAt": "2026-10-13",
+    "updatedAt": "2026-10-13"
+  },
+  {
+    "slug": "faceted-navigation-seo-guide",
+    "file": "faceted-navigation-seo-guide.html",
+    "title": "SEO للتنقل متعدد الأوجه: إدارة صفحات الفلاتر ومنع تضخم الفهرسة",
+    "category": "SEO",
+    "subcategory": "Technical SEO والتنقل متعدد الأوجه",
+    "tags": [
+      "Faceted Navigation SEO",
+      "صفحات الفلاتر",
+      "URL Parameters",
+      "ميزانية الزحف",
+      "SEO تقني",
+      "المتاجر الإلكترونية"
+    ],
+    "description": "دليل عملي لإدارة صفحات الفلاتر والترتيب في المتاجر والمواقع الكبيرة، وضبط الروابط والزحف والفهرسة دون إهدار ميزانية الزحف.",
+    "icon": "fa-filter",
+    "image": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "assets/images/article-thumbnails/faceted-navigation-seo-guide.svg",
+    "publishedAt": "2026-10-13",
+    "updatedAt": "2026-10-13"
+  },
+  {
+    "slug": "xml-sitemap-seo-guide",
+    "file": "xml-sitemap-seo-guide.html",
+    "title": "دليل XML Sitemap وSEO: إنشاء خريطة موقع تساعد محركات البحث",
+    "category": "SEO",
+    "subcategory": "Technical SEO",
+    "tags": [
+      "XML Sitemap",
+      "خريطة الموقع",
+      "SEO تقني",
+      "Google Search Console",
+      "فهرسة الصفحات",
+      "robots.txt"
+    ],
+    "description": "دليل عملي لبناء خريطة XML Sitemap نظيفة، واختيار عناوين URL المناسبة، وإرسالها ومراقبة أخطائها في Google Search Console.",
+    "icon": "fa-sitemap",
+    "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "assets/images/article-thumbnails/xml-sitemap-seo-guide.svg",
+    "publishedAt": "2026-10-13",
+    "updatedAt": "2026-10-13"
+  },
+  {
+    "slug": "robots-txt-guide",
+    "file": "robots-txt-guide.html",
+    "title": "ملف robots.txt: دليل الإعداد الصحيح لتحسين SEO",
+    "category": "SEO",
+    "subcategory": "Technical SEO",
+    "tags": [
+      "robots.txt",
+      "SEO التقني",
+      "Googlebot",
+      "الزحف والفهرسة",
+      "Crawl Budget"
+    ],
+    "description": "دليل عملي لإنشاء ملف robots.txt وفهم قواعد Allow وDisallow والفرق بين الزحف والفهرسة واختبار الملف.",
+    "icon": "fa-robot",
+    "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=85",
+    "publishedAt": "2026-10-12",
+    "updatedAt": "2026-10-12"
+  },
+  {
+    "slug": "canonical-url-guide",
+    "file": "canonical-url-guide.html",
+    "title": "وسم Canonical في SEO: دليل عملي لتوحيد عناوين الصفحات",
+    "category": "SEO",
+    "subcategory": "Technical SEO",
+    "tags": [
+      "Canonical URL",
+      "rel canonical",
+      "SEO التقني",
+      "المحتوى المكرر",
+      "فهرسة الصفحات"
+    ],
+    "description": "تعلم كيف تختار عنوان URL الأساسي وتستخدم rel=canonical لتقليل التباس النسخ المتشابهة ومراجعة الأخطاء الشائعة.",
+    "icon": "fa-link",
+    "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=85",
+    "publishedAt": "2026-10-12",
+    "updatedAt": "2026-10-12"
+  },
+  {
+    "slug": "xml-sitemap-guide",
+    "file": "xml-sitemap-guide.html",
+    "title": "خريطة الموقع XML: طريقة إعداد Sitemap مفيدة لمحركات البحث",
+    "category": "SEO",
+    "subcategory": "Technical SEO",
+    "tags": [
+      "XML Sitemap",
+      "sitemap.xml",
+      "SEO التقني",
+      "اكتشاف الصفحات",
+      "Google Search Console"
+    ],
+    "description": "دليل عملي لاختيار الصفحات التي تستحق الظهور في خريطة الموقع وإنشائها واختبارها وتجنب الأخطاء.",
+    "icon": "fa-map",
+    "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
+    "publishedAt": "2026-10-12",
+    "updatedAt": "2026-10-12"
+  },
+  {
+    "slug": "javascript-fetch-api-errors",
+    "file": "javascript-fetch-api-errors.html",
+    "title": "استخدام Fetch API في JavaScript: التعامل الصحيح مع الاستجابات والأخطاء",
+    "category": "تطوير المواقع",
+    "subcategory": "JavaScript وواجهات API",
+    "tags": [
+      "JavaScript Fetch",
+      "Fetch API",
+      "REST API",
+      "HTTP errors",
+      "async await"
+    ],
+    "description": "تعلم طلب البيانات من API باستخدام fetch وasync/await، والتحقق من status، ومعالجة JSON والأخطاء بطريقة قابلة للصيانة.",
+    "icon": "fa-plug",
+    "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=85",
+    "publishedAt": "2026-10-12",
+    "updatedAt": "2026-10-12"
+  },
+  {
+    "slug": "web-accessibility-checklist",
+    "file": "web-accessibility-checklist.html",
+    "title": "إمكانية الوصول في المواقع: قائمة عملية لتحسين تجربة جميع المستخدمين",
+    "category": "تطوير المواقع",
+    "subcategory": "إمكانية الوصول",
+    "tags": [
+      "Web Accessibility",
+      "WCAG",
+      "HTML دلالي",
+      "Keyboard Navigation",
+      "ARIA"
+    ],
+    "description": "قائمة عملية لتحسين الوصول إلى موقعك عبر HTML الدلالي ولوحة المفاتيح والتباين والنماذج والاختبار.",
+    "icon": "fa-universal-access",
+    "image": "https://images.unsplash.com/photo-1552581234-26160f608093?auto=format&fit=crop&w=1400&q=85",
+    "publishedAt": "2026-10-12",
+    "updatedAt": "2026-10-12"
+  },
+  {
+    "slug": "css-container-queries-guide",
+    "file": "css-container-queries-guide.html",
+    "title": "CSS Container Queries: تصميم مكونات تتكيف مع المساحة المتاحة",
+    "category": "تصميم المواقع",
+    "subcategory": "CSS متقدم",
+    "tags": [
+      "CSS Container Queries",
+      "@container",
+      "Responsive Components",
+      "CSS",
+      "تصميم متجاوب"
+    ],
+    "description": "شرح عملي لـ container-type و@container لبناء بطاقات ومكونات تتكيف مع عرض الحاوية بدل عرض الشاشة فقط.",
+    "icon": "fa-cubes",
+    "image": "https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?auto=format&fit=crop&w=1400&q=85",
+    "publishedAt": "2026-10-12",
+    "updatedAt": "2026-10-12"
+  },
+  {
+    "slug": "html-semantic-seo",
+    "file": "html-semantic-seo.html",
+    "title": "دليل HTML الدلالي: كيف تبني صفحات ويب أفضل للـSEO والوصول",
+    "category": "تطوير المواقع",
+    "subcategory": "HTML",
+    "tags": [
+      "HTML5",
+      "HTML الدلالي",
+      "Semantic HTML",
+      "SEO التقني",
+      "إمكانية الوصول",
+      "بنية الصفحة"
+    ],
+    "description": "بنية HTML الدلالية وعلاقتها بالوصول ومحركات البحث.",
+    "icon": "fa-code",
+    "image": "https://images.unsplash.com/photo-1621839673705-6617adf9e890?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "assets/images/article-thumbnails/html-semantic-seo.svg",
+    "publishedAt": "2026-09-22",
+    "updatedAt": "2026-10-12"
+  },
+  {
+    "slug": "css-modern-design",
+    "file": "css-modern-design.html",
+    "title": "CSS الحديث لتصميم مواقع احترافية: Grid وFlexbox وResponsive Design",
+    "category": "تصميم المواقع",
+    "subcategory": "Responsive Design",
+    "tags": [
+      "CSS",
+      "Flexbox",
+      "CSS Grid",
+      "Responsive Design",
+      "تصميم متجاوب",
+      "واجهات الويب"
+    ],
+    "description": "أساسيات CSS الحديثة لبناء واجهات متجاوبة.",
+    "icon": "fa-palette",
+    "image": "https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "assets/images/article-thumbnails/css-modern-design.svg",
+    "publishedAt": "2026-09-21",
+    "updatedAt": "2026-10-12"
+  },
+  {
+    "slug": "javascript-clean-code",
+    "file": "javascript-clean-code.html",
+    "title": "JavaScript للمواقع: تنظيم الكود وتقليل الأخطاء وتحسين الأداء",
+    "category": "البرمجة",
+    "subcategory": "JavaScript",
+    "tags": [
+      "JavaScript",
+      "Clean Code",
+      "تنظيم الكود",
+      "Debugging",
+      "صيانة الكود",
+      "أداء JavaScript"
+    ],
+    "description": "ممارسات عملية لتنظيم JavaScript وتحسين الصيانة.",
+    "icon": "fa-js",
+    "image": "https://images.unsplash.com/photo-1516116216624-53e697fedbea?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "assets/images/article-thumbnails/javascript-clean-code.svg",
+    "publishedAt": "2026-09-20",
+    "updatedAt": "2026-10-12"
+  },
+  {
+    "slug": "ai-coding-prompts",
+    "file": "ai-coding-prompts.html",
+    "title": "أفضل Prompts لبرمجة المواقع بالذكاء الاصطناعي: من الفكرة إلى كود قابل للصيانة",
+    "category": "الذكاء الاصطناعي",
+    "subcategory": "AI للمطورين",
+    "tags": [
+      "AI Coding",
+      "Prompts",
+      "Prompt Engineering",
+      "برمجة المواقع",
+      "مراجعة الكود",
+      "كود قابل للصيانة"
+    ],
+    "description": "أمثلة عملية لصياغة Prompts دقيقة لكتابة ومراجعة الكود.",
+    "icon": "fa-wand-magic-sparkles",
+    "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "assets/images/article-thumbnails/ai-coding-prompts.svg",
+    "publishedAt": "2026-09-18",
+    "updatedAt": "2026-10-12"
+  },
+  {
+    "slug": "github-pages-deploy",
+    "file": "github-pages-deploy.html",
+    "title": "نشر موقع HTML وCSS وJavaScript على GitHub Pages خطوة بخطوة",
+    "category": "تطوير المواقع",
+    "subcategory": "الاستضافة والنشر",
+    "tags": [
+      "GitHub Pages",
+      "نشر المواقع",
+      "استضافة المواقع",
+      "Git",
+      "HTML",
+      "JavaScript"
+    ],
+    "description": "دليل النشر والاستضافة على GitHub Pages.",
+    "icon": "fa-github",
+    "image": "https://images.unsplash.com/photo-1556075798-4825dfaaf498?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "assets/images/article-thumbnails/github-pages-deploy.svg",
+    "publishedAt": "2026-09-17",
+    "updatedAt": "2026-10-12"
   },
   {
     "slug": "web-performance-core",
@@ -552,7 +907,48 @@
     "description": "خطوات عملية لتحسين الأداء وتجربة المستخدم.",
     "icon": "fa-gauge-high",
     "image": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "assets/images/article-thumbnails/web-performance-core.svg"
+    "thumbnail": "assets/images/article-thumbnails/web-performance-core.svg",
+    "publishedAt": "2026-09-15",
+    "updatedAt": "2026-10-12"
+  },
+  {
+    "slug": "ai-developer-tools",
+    "file": "ai-developer-tools.html",
+    "title": "أفضل أدوات الذكاء الاصطناعي للمطورين في 2026",
+    "category": "الذكاء الاصطناعي",
+    "subcategory": "أدوات AI",
+    "tags": [
+      "AI Developer Tools",
+      "AI Coding Tools",
+      "أدوات برمجة بالذكاء الاصطناعي",
+      "AI Code Assistant"
+    ],
+    "description": "دليل عملي لاختيار أدوات الذكاء الاصطناعي للمطورين حسب حالة الاستخدام ومعايير الخصوصية والتكامل وجودة المخرجات.",
+    "icon": "fa-screwdriver-wrench",
+    "image": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "assets/images/article-thumbnails/ai-developer-tools.svg",
+    "publishedAt": "2026-09-28",
+    "updatedAt": "2026-09-28"
+  },
+  {
+    "slug": "prompt-engineering-developers",
+    "file": "prompt-engineering-developers.html",
+    "title": "Prompt Engineering للمطورين: كيف تكتب Prompts أفضل لكتابة ومراجعة الكود",
+    "category": "الذكاء الاصطناعي",
+    "subcategory": "Prompt Engineering",
+    "tags": [
+      "Prompt Engineering للمطورين",
+      "coding prompts",
+      "prompts للبرمجة",
+      "code review prompts",
+      "تحسين مخرجات AI"
+    ],
+    "description": "دليل عملي لبناء Prompts أوضح للمطورين عبر تحديد الهدف والسياق والقيود والمخرجات ثم تحسينها بالتكرار والاختبار والمراجعة.",
+    "icon": "fa-terminal",
+    "image": "https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "assets/images/article-thumbnails/prompt-engineering-developers.svg",
+    "publishedAt": "2026-09-28",
+    "updatedAt": "2026-09-28"
   },
   {
     "slug": "git-github-beginners",
@@ -572,7 +968,9 @@
     "description": "دليل عملي لتعلم Git وGitHub للمبتدئين وفهم المستودعات والـcommit والفروع والمزامنة وPull Request.",
     "icon": "fa-code-branch",
     "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "assets/images/article-thumbnails/git-github-beginners.svg"
+    "thumbnail": "assets/images/article-thumbnails/git-github-beginners.svg",
+    "publishedAt": "2026-09-28",
+    "updatedAt": "2026-09-28"
   },
   {
     "slug": "javascript-beginners-guide",
@@ -593,7 +991,9 @@
     "description": "دليل عملي لفهم أساسيات JavaScript من المتغيرات والدوال والمصفوفات والكائنات إلى DOM والأحداث وبناء أول تفاعل في صفحات الويب.",
     "icon": "fa-js",
     "image": "https://images.unsplash.com/photo-1627398242454-45a1465c2479?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "assets/images/article-thumbnails/javascript-beginners-guide.svg"
+    "thumbnail": "assets/images/article-thumbnails/javascript-beginners-guide.svg",
+    "publishedAt": "2026-09-28",
+    "updatedAt": "2026-09-28"
   },
   {
     "slug": "javascript-debugging",
@@ -612,326 +1012,28 @@
     "description": "دليل عملي لتشخيص أخطاء JavaScript باستخدام Console وDevTools وBreakpoints وNetwork وتتبع السبب الجذري قبل إصلاح الكود.",
     "icon": "fa-bug",
     "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "assets/images/article-thumbnails/javascript-debugging.svg"
+    "thumbnail": "assets/images/article-thumbnails/javascript-debugging.svg",
+    "publishedAt": "2026-09-28",
+    "updatedAt": "2026-09-28"
   },
   {
-    "slug": "robots-txt-guide",
-    "file": "robots-txt-guide.html",
-    "title": "ملف robots.txt: دليل الإعداد الصحيح لتحسين SEO",
-    "category": "SEO",
-    "subcategory": "Technical SEO",
+    "slug": "ai-website-builder-guide",
+    "file": "ai-website-builder-guide.html",
+    "title": "كيفية إنشاء موقع احترافي بالذكاء الاصطناعي من الصفر في 2026",
+    "category": "الذكاء الاصطناعي",
+    "subcategory": "بناء المواقع بالذكاء الاصطناعي",
     "tags": [
-      "robots.txt",
-      "SEO التقني",
-      "Googlebot",
-      "الزحف والفهرسة",
-      "Crawl Budget"
+      "AI Website Builder",
+      "إنشاء المواقع",
+      "أدوات الذكاء الاصطناعي",
+      "تطوير المواقع",
+      "Prompt Engineering"
     ],
-    "description": "دليل عملي لإنشاء ملف robots.txt وفهم قواعد Allow وDisallow والفرق بين الزحف والفهرسة واختبار الملف.",
+    "description": "دليل عملي للتخطيط وبناء موقع حديث بالذكاء الاصطناعي.",
     "icon": "fa-robot",
-    "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=85"
-  },
-  {
-    "slug": "canonical-url-guide",
-    "file": "canonical-url-guide.html",
-    "title": "وسم Canonical في SEO: دليل عملي لتوحيد عناوين الصفحات",
-    "category": "SEO",
-    "subcategory": "Technical SEO",
-    "tags": [
-      "Canonical URL",
-      "rel canonical",
-      "SEO التقني",
-      "المحتوى المكرر",
-      "فهرسة الصفحات"
-    ],
-    "description": "تعلم كيف تختار عنوان URL الأساسي وتستخدم rel=canonical لتقليل التباس النسخ المتشابهة ومراجعة الأخطاء الشائعة.",
-    "icon": "fa-link",
-    "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=85"
-  },
-  {
-    "slug": "xml-sitemap-guide",
-    "file": "xml-sitemap-guide.html",
-    "title": "خريطة الموقع XML: طريقة إعداد Sitemap مفيدة لمحركات البحث",
-    "category": "SEO",
-    "subcategory": "Technical SEO",
-    "tags": [
-      "XML Sitemap",
-      "sitemap.xml",
-      "SEO التقني",
-      "اكتشاف الصفحات",
-      "Google Search Console"
-    ],
-    "description": "دليل عملي لاختيار الصفحات التي تستحق الظهور في خريطة الموقع وإنشائها واختبارها وتجنب الأخطاء.",
-    "icon": "fa-map",
-    "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85"
-  },
-  {
-    "slug": "javascript-fetch-api-errors",
-    "file": "javascript-fetch-api-errors.html",
-    "title": "استخدام Fetch API في JavaScript: التعامل الصحيح مع الاستجابات والأخطاء",
-    "category": "تطوير المواقع",
-    "subcategory": "JavaScript وواجهات API",
-    "tags": [
-      "JavaScript Fetch",
-      "Fetch API",
-      "REST API",
-      "HTTP errors",
-      "async await"
-    ],
-    "description": "تعلم طلب البيانات من API باستخدام fetch وasync/await، والتحقق من status، ومعالجة JSON والأخطاء بطريقة قابلة للصيانة.",
-    "icon": "fa-plug",
-    "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=85"
-  },
-  {
-    "slug": "web-accessibility-checklist",
-    "file": "web-accessibility-checklist.html",
-    "title": "إمكانية الوصول في المواقع: قائمة عملية لتحسين تجربة جميع المستخدمين",
-    "category": "تطوير المواقع",
-    "subcategory": "إمكانية الوصول",
-    "tags": [
-      "Web Accessibility",
-      "WCAG",
-      "HTML دلالي",
-      "Keyboard Navigation",
-      "ARIA"
-    ],
-    "description": "قائمة عملية لتحسين الوصول إلى موقعك عبر HTML الدلالي ولوحة المفاتيح والتباين والنماذج والاختبار.",
-    "icon": "fa-universal-access",
-    "image": "https://images.unsplash.com/photo-1552581234-26160f608093?auto=format&fit=crop&w=1400&q=85"
-  },
-  {
-    "slug": "css-container-queries-guide",
-    "file": "css-container-queries-guide.html",
-    "title": "CSS Container Queries: تصميم مكونات تتكيف مع المساحة المتاحة",
-    "category": "تصميم المواقع",
-    "subcategory": "CSS متقدم",
-    "tags": [
-      "CSS Container Queries",
-      "@container",
-      "Responsive Components",
-      "CSS",
-      "تصميم متجاوب"
-    ],
-    "description": "شرح عملي لـ container-type و@container لبناء بطاقات ومكونات تتكيف مع عرض الحاوية بدل عرض الشاشة فقط.",
-    "icon": "fa-cubes",
-    "image": "https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?auto=format&fit=crop&w=1400&q=85"
-  },
-  {
-    "slug": "arabic-web-typography-guide",
-    "file": "arabic-web-typography-guide.html",
-    "title": "الخطوط العربية في تصميم المواقع: دليل عملي لتحسين القراءة والواجهة",
-    "category": "تصميم المواقع",
-    "subcategory": "الخطوط العربية وتجربة القراءة",
-    "tags": [
-      "الخطوط العربية",
-      "Arabic Typography",
-      "تصميم RTL",
-      "CSS",
-      "تجربة المستخدم",
-      "Web Fonts"
-    ],
-    "description": "تعلم اختيار الخط العربي للمواقع وضبط أحجام العناوين وتباعد الأسطر والأوزان، مع أمثلة CSS عملية لتحسين القراءة على الهاتف والحاسوب.",
-    "icon": "fa-font",
-    "image": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1400&q=85"
-  },
-  {
-    "slug": "google-search-console-performance-report",
-    "file": "google-search-console-performance-report.html",
-    "title": "Google Search Console: دليل عملي لتحليل النقرات ومرات الظهور وتحسين صفحات موقعك",
-    "category": "SEO",
-    "subcategory": "تحليل الأداء وقياس نتائج البحث",
-    "tags": [
-      "Google Search Console",
-      "تحليل تقرير الأداء",
-      "مرات الظهور",
-      "معدل النقر CTR",
-      "تحسين SEO",
-      "استعلامات البحث"
-    ],
-    "description": "دليل عملي لتحليل النقرات ومرات الظهور والاستعلامات والصفحات في Google Search Console، وتحويل البيانات إلى قرارات تحسين SEO.",
-    "icon": "fa-chart-line",
-    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=85"
-  },
-  {
-    "slug": "seo-image-optimization-guide",
-    "file": "seo-image-optimization-guide.html",
-    "title": "تحسين الصور لمحركات البحث: دليل SEO للصور وسرعة الموقع",
-    "category": "SEO",
-    "subcategory": "Technical SEO وتحسين الصور",
-    "tags": [
-      "Image SEO",
-      "تحسين الصور",
-      "النص البديل ALT",
-      "ضغط الصور",
-      "WebP",
-      "AVIF",
-      "Google Images"
-    ],
-    "description": "دليل عملي لتحسين الصور عبر أسماء الملفات والنص البديل والصيغ الحديثة والأبعاد والتحميل الكسول وقياس الأداء.",
-    "icon": "fa-image",
-    "image": "https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&w=1400&q=85"
-  },
-  {
-    "slug": "hreflang-multilingual-seo-guide",
-    "file": "hreflang-multilingual-seo-guide.html",
-    "title": "وسم hreflang في SEO: دليل المواقع متعددة اللغات والمناطق",
-    "category": "SEO",
-    "subcategory": "SEO التقني والمواقع متعددة اللغات",
-    "tags": [
-      "hreflang",
-      "Multilingual SEO",
-      "International SEO",
-      "اللغة العربية",
-      "المواقع متعددة اللغات",
-      "canonical"
-    ],
-    "description": "تعلم إعداد hreflang للمواقع متعددة اللغات والمناطق، وربط النسخ البديلة، واستخدام رموز اللغة والمنطقة، واكتشاف الأخطاء الشائعة.",
-    "icon": "fa-language",
-    "image": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1400&q=85"
-  },
-  {
-    "slug": "javascript-seo-rendering-guide",
-    "file": "javascript-seo-rendering-guide.html",
-    "title": "JavaScript SEO: دليل فهرسة المواقع المعتمدة على JavaScript",
-    "category": "SEO",
-    "subcategory": "JavaScript SEO وRendering",
-    "tags": [
-      "JavaScript SEO",
-      "Rendering",
-      "SSR",
-      "CSR",
-      "فهرسة JavaScript",
-      "SEO التقني"
-    ],
-    "description": "دليل عملي لفهم عرض صفحات JavaScript وتحسين المحتوى والروابط والبيانات الوصفية واختبارها في محركات البحث.",
-    "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=85"
-  },
-  {
-    "slug": "faceted-navigation-seo-guide",
-    "file": "faceted-navigation-seo-guide.html",
-    "title": "SEO للتنقل متعدد الأوجه: إدارة صفحات الفلاتر ومنع تضخم الفهرسة",
-    "category": "SEO",
-    "subcategory": "Technical SEO والتنقل متعدد الأوجه",
-    "tags": [
-      "Faceted Navigation SEO",
-      "صفحات الفلاتر",
-      "URL Parameters",
-      "ميزانية الزحف",
-      "SEO تقني",
-      "المتاجر الإلكترونية"
-    ],
-    "description": "دليل عملي لإدارة صفحات الفلاتر والترتيب في المتاجر والمواقع الكبيرة، وضبط الروابط والزحف والفهرسة دون إهدار ميزانية الزحف.",
-    "icon": "fa-filter",
-    "image": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "assets/images/article-thumbnails/faceted-navigation-seo-guide.svg"
-  },
-  {
-    "slug": "xml-sitemap-seo-guide",
-    "file": "xml-sitemap-seo-guide.html",
-    "title": "دليل XML Sitemap وSEO: إنشاء خريطة موقع تساعد محركات البحث",
-    "category": "SEO",
-    "subcategory": "Technical SEO",
-    "tags": [
-      "XML Sitemap",
-      "خريطة الموقع",
-      "SEO تقني",
-      "Google Search Console",
-      "فهرسة الصفحات",
-      "robots.txt"
-    ],
-    "description": "دليل عملي لبناء خريطة XML Sitemap نظيفة، واختيار عناوين URL المناسبة، وإرسالها ومراقبة أخطائها في Google Search Console.",
-    "icon": "fa-sitemap",
-    "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "assets/images/article-thumbnails/xml-sitemap-seo-guide.svg"
-  },
-  {
-    "slug": "google-search-console-indexing-errors",
-    "file": "google-search-console-indexing-errors.html",
-    "title": "أخطاء الفهرسة في Google Search Console: التشخيص والإصلاح",
-    "category": "SEO",
-    "subcategory": "Technical SEO وGoogle Search Console",
-    "tags": [
-      "Google Search Console",
-      "أخطاء الفهرسة",
-      "Page indexing",
-      "SEO تقني",
-      "noindex",
-      "canonical"
-    ],
-    "description": "دليل عملي لفهم تقارير الفهرسة والتمييز بين الاستبعاد المتوقع والأخطاء التي تحتاج إلى إصلاح.",
-    "icon": "fa-triangle-exclamation",
-    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "assets/images/article-thumbnails/google-search-console-indexing-errors.svg"
-  },
-  {
-    "slug": "internal-linking-seo-guide",
-    "file": "internal-linking-seo-guide.html",
-    "title": "الروابط الداخلية وSEO: بناء بنية تربط صفحات الموقع",
-    "category": "SEO",
-    "subcategory": "Technical SEO وبنية الموقع",
-    "tags": [
-      "الروابط الداخلية",
-      "Internal Linking",
-      "SEO تقني",
-      "بنية الموقع",
-      "نص الرابط",
-      "الصفحات المعزولة"
-    ],
-    "description": "دليل عملي لتحسين الروابط الداخلية، وتنظيم بنية الموقع، واختيار نصوص الروابط، واكتشاف الصفحات المعزولة والروابط المكسورة.",
-    "icon": "fa-link",
-    "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "assets/images/article-thumbnails/internal-linking-seo-guide.svg"
-  },
-  {
-    "slug": "website-quality-audit-checklist",
-    "file": "website-quality-audit-checklist.html",
-    "title": "تدقيق جودة الموقع: قائمة شاملة للأداء وSEO وإمكانية الوصول",
-    "category": "أداء المواقع",
-    "subcategory": "تدقيق جودة الموقع",
-    "tags": [
-      "تدقيق جودة الموقع",
-      "Website Quality Audit",
-      "Core Web Vitals",
-      "SEO",
-      "إمكانية الوصول"
-    ],
-    "description": "استخدم قائمة عملية لتقييم جودة موقعك عبر الأداء وإمكانية الوصول وSEO والأمان وسهولة الاستخدام، ثم رتّب الإصلاحات حسب أثرها.",
-    "icon": "fa-gauge-high",
-    "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85"
-  },
-  {
-    "slug": "lighthouse-audit-fixes-guide",
-    "file": "lighthouse-audit-fixes-guide.html",
-    "title": "دليل Lighthouse: فهم نتائج الفحص وإصلاح مشكلات الموقع",
-    "category": "أداء المواقع",
-    "subcategory": "Lighthouse والتشخيص",
-    "tags": [
-      "Lighthouse",
-      "Performance Audit",
-      "Accessibility Audit",
-      "SEO Audit",
-      "تحسين الأداء"
-    ],
-    "description": "تعلم تشغيل Lighthouse وقراءة تقاريره وترتيب إصلاحات الأداء وإمكانية الوصول وSEO وفق الأثر، مع تجنب تفسير الدرجات بشكل مضلل.",
-    "icon": "fa-gauge-high",
-    "image": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=85"
-  },
-  {
-    "slug": "mobile-website-quality-testing",
-    "file": "mobile-website-quality-testing.html",
-    "title": "اختبار جودة الموقع على الهاتف: دليل عملي قبل النشر",
-    "category": "أداء المواقع",
-    "subcategory": "اختبار جودة الهاتف",
-    "tags": [
-      "اختبار الهاتف",
-      "Mobile Usability",
-      "Responsive Testing",
-      "إمكانية الوصول",
-      "الأداء"
-    ],
-    "description": "قائمة عملية لاختبار الموقع على الهاتف تشمل العرض المتجاوب واللمس والنماذج والأداء وإمكانية الوصول والمهام الأساسية قبل النشر.",
-    "icon": "fa-gauge-high",
-    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=85"
+    "image": "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "assets/images/article-thumbnails/ai-website-builder-guide.svg",
+    "publishedAt": "2026-09-23",
+    "updatedAt": "2026-09-23"
   }
 ]
