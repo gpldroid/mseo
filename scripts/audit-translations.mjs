@@ -1,4 +1,4 @@
-import { readdir, readFile } from 'node:fs/promises';
+import { access, readdir, readFile } from 'node:fs/promises';
 import { join, relative, sep } from 'node:path';
 
 const root = process.cwd();
@@ -33,10 +33,15 @@ const localeRootCounts = Object.fromEntries(locales.map(locale => [
   locale,
   htmlFiles.filter(file => rel(file).startsWith(locale + '/')).length
 ]));
-const localeCatalogs = Object.fromEntries(locales.map(locale => [
-  locale,
-  htmlByPath.has(`data/i18n/articles.${locale}.json`)
-]));
+const localeCatalogs = Object.fromEntries(await Promise.all(locales.map(async locale => {
+  try {
+    await access(join(root, 'data', 'i18n', `articles.${locale}.json`));
+    return [locale, true];
+  } catch (error) {
+    if (error.code === 'ENOENT') return [locale, false];
+    throw error;
+  }
+})));
 const translatedArticles = Object.fromEntries(locales.map(locale => {
   const found = [...baseArticleFiles].filter(file => htmlByPath.has(`${locale}/articles/${file}`));
   return [locale, found];
