@@ -1093,9 +1093,23 @@ body:has(> main > article) .prose pre code {
 }
 
 
-/* Multilingual switcher: uses the same compact control styling as existing header actions. */
+/* Compact, accessible language preference control in the shared header. */
 .mseo-language-control{display:inline-flex;align-items:center;min-width:0}
 .mseo-language-control select{max-width:112px;height:42px;padding:0 9px;border:1px solid var(--line);border-radius:13px;background:var(--surface);color:var(--text);font:inherit;font-size:.82rem;font-weight:700;cursor:pointer}
 .mseo-language-control select:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
-.mseo-google-translate{position:fixed;left:-10000px;top:0;width:1px;height:1px;overflow:hidden}
-.goog-te-banner-frame,.goog-te-banner-frame.skiptranslate{display:none!important}
+
+/* Header refinements: keep alignment consistent and prevent long navigation labels
+   from forcing the action controls off-screen at intermediate viewport widths. */
+.mseo-header-inner{gap:clamp(10px,1.5vw,20px)}
+.mseo-nav{gap:3px}
+.mseo-nav a{padding:9px clamp(7px,0.9vw,12px);white-space:nowrap}
+.mseo-actions{flex-shrink:0}
+.mseo-language-control select{max-width:108px}
+@media(max-width:1080px) and (min-width:901px){
+  .mseo-header-inner{width:calc(100% - 24px);gap:8px}
+  .mseo-nav a{padding-inline:7px;font-size:.84rem}
+  .mseo-brand{font-size:1.2rem;gap:7px}
+  .mseo-brand-mark{width:36px;height:36px}
+  .mseo-icon-button{width:39px;height:39px}
+  .mseo-language-control select{max-width:90px;padding-inline:6px}
+}
