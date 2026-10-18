@@ -6,23 +6,6 @@
   const root = nested ? '../' : './';
   const link = (href) => root + href;
 
-  // Native language preference only. Actual localized pages/routes will be added
-  // separately; choosing a language must not pretend to translate this document.
-  const supportedLanguages = ['ar', 'en', 'fr', 'es'];
-  const readSiteLanguage = () => {
-    try {
-      const saved = localStorage.getItem('mseo-language');
-      return supportedLanguages.includes(saved) ? saved : 'ar';
-    } catch (_) {
-      return 'ar';
-    }
-  };
-  const currentLanguage = readSiteLanguage();
-  const applyLanguageDirection = (language) => {
-    document.documentElement.lang = language;
-    document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';
-  };
-  applyLanguageDirection(currentLanguage);
   const navItems = [
     ['index.html','الرئيسية'],
     ['pages/ai.html','الذكاء الاصطناعي'],
@@ -55,15 +38,6 @@
           <div class="mseo-actions">
             <button class="mseo-icon-button" type="button" data-search-toggle aria-label="${'فتح البحث'}" title="${'بحث'}">⌕</button>
             <button class="mseo-icon-button" type="button" data-theme-toggle aria-label="${'تبديل المظهر'}" title="${'الوضع الداكن'}">☾</button>
-            <label class="mseo-language-control" aria-label="Language">
-              <span class="sr-only">Language</span>
-              <select data-language-select aria-label="Choose language" title="Language">
-                <option value="ar">العربية</option>
-                <option value="en">English</option>
-                <option value="fr">Français</option>
-                <option value="es">Español</option>
-              </select>
-            </label>
             </div>
         </div>
         <div class="mseo-search-panel" data-search-panel>
@@ -115,17 +89,6 @@
     applyTheme(next.id);
     writePreference('mseo-theme', next.id);
   });
-  const languageSelect = $('[data-language-select]');
-  if (languageSelect) {
-    languageSelect.value = currentLanguage;
-    languageSelect.addEventListener('change', () => {
-      const language = languageSelect.value;
-      if (!supportedLanguages.includes(language)) return;
-      try { localStorage.setItem('mseo-language', language); } catch (_) {}
-      // Preserve accurate metadata without reloading into an untranslated language.
-      applyLanguageDirection(language);
-    });
-  }
   const menuButton=$('[data-menu-toggle]'), nav=$('[data-main-nav]');
   if(menuButton&&nav){menuButton.addEventListener('click',()=>{const open=nav.classList.toggle('is-open');menuButton.setAttribute('aria-expanded',String(open));menuButton.textContent=open?'×':'☰';});nav.addEventListener('click',e=>{if(e.target.closest('a')){nav.classList.remove('is-open');menuButton.setAttribute('aria-expanded','false');menuButton.textContent='☰';}});}
   const searchButton=$('[data-search-toggle]'),searchPanel=$('[data-search-panel]');
