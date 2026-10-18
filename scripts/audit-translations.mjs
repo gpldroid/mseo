@@ -35,7 +35,7 @@ const localeRootCounts = Object.fromEntries(locales.map(locale => [
 ]));
 const localeCatalogs = Object.fromEntries(await Promise.all(locales.map(async locale => {
   try {
-    await access(join(root, 'data', 'i18n', `articles.${locale}.json`));
+    await access(join(root, 'data', 'i18n', `${locale}.json`));
     return [locale, true];
   } catch (error) {
     if (error.code === 'ENOENT') return [locale, false];
