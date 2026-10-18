@@ -10,8 +10,9 @@
   // rendered page content while leaving the original static content and URLs intact.
   const supportedLanguages = ['ar', 'en', 'fr', 'es'];
   const readTranslatedLanguage = () => {
-    const match = document.cookie.match(/(?:^|;\\s*)googtrans=\\/ar\\/(ar|en|fr|es)(?:;|$)/);
-    return match ? match[1] : 'ar';
+    const cookie = document.cookie.split(';').map(item => item.trim()).find(item => item.startsWith('googtrans=/ar/'));
+    const language = cookie ? cookie.split('/').pop() : 'ar';
+    return supportedLanguages.includes(language) ? language : 'ar';
   };
   const currentLanguage = readTranslatedLanguage();
   const applyLanguageDirection = (language) => {
