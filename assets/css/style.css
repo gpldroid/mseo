@@ -1099,5 +1099,3 @@ body:has(> main > article) .prose pre code {
 .mseo-language-control select:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
 .mseo-google-translate{position:fixed;left:-10000px;top:0;width:1px;height:1px;overflow:hidden}
 .goog-te-banner-frame,.goog-te-banner-frame.skiptranslate{display:none!important}
-body{top:0!important}
-@media(max-width:600px){.mseo-language-control select{max-width:88px;height:38px;padding:0 5px;border-radius:11px;font-size:.75rem}}
