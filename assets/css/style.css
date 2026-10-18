@@ -1093,9 +1093,3 @@ body:has(> main > article) .prose pre code {
 }
 
 
-/* Multilingual switcher: uses the same compact control styling as existing header actions. */
-.mseo-language-control{display:inline-flex;align-items:center;min-width:0}
-.mseo-language-control select{max-width:112px;height:42px;padding:0 9px;border:1px solid var(--line);border-radius:13px;background:var(--surface);color:var(--text);font:inherit;font-size:.82rem;font-weight:700;cursor:pointer}
-.mseo-language-control select:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
-.mseo-google-translate{position:fixed;left:-10000px;top:0;width:1px;height:1px;overflow:hidden}
-.goog-te-banner-frame,.goog-te-banner-frame.skiptranslate{display:none!important}
