@@ -1094,8 +1094,36 @@ body:has(> main > article) .prose pre code {
 
 
 /* Multilingual switcher: uses the same compact control styling as existing header actions. */
-.mseo-language-control{display:inline-flex;align-items:center;min-width:0}
-.mseo-language-control select{max-width:112px;height:42px;padding:0 9px;border:1px solid var(--line);border-radius:13px;background:var(--surface);color:var(--text);font:inherit;font-size:.82rem;font-weight:700;cursor:pointer}
-.mseo-language-control select:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
-.mseo-google-translate{position:fixed;left:-10000px;top:0;width:1px;height:1px;overflow:hidden}
-.goog-te-banner-frame,.goog-te-banner-frame.skiptranslate{display:none!important}
+
+/* Header polish: consistent alignment, compact navigation, and resilient mobile controls. */
+.mseo-header{isolation:isolate}
+.mseo-header-inner{gap:clamp(10px,1.5vw,20px)}
+.mseo-brand{flex:0 0 auto;letter-spacing:-.025em}
+.mseo-nav{min-width:0;gap:3px}
+.mseo-nav a{padding:9px 10px;white-space:nowrap;transition:background .18s,color .18s}
+.mseo-actions{flex:0 0 auto;gap:8px}
+.mseo-icon-button{flex:0 0 auto;transition:border-color .18s,color .18s,background .18s,transform .18s}
+.mseo-icon-button:active{transform:scale(.96)}
+.mseo-search-panel{box-shadow:0 14px 24px rgba(26,42,75,.04)}
+@media(max-width:1100px){
+  .mseo-header-inner{gap:12px}
+  .mseo-nav{gap:1px}
+  .mseo-nav a{padding-inline:8px;font-size:.84rem}
+  .mseo-actions{gap:6px}
+}
+@media(max-width:900px){
+  .mseo-header-inner{position:relative}
+  .mseo-brand{margin-inline-end:auto}
+  .mseo-nav{z-index:1001}
+  .mseo-actions{margin-inline-start:0}
+}
+@media(max-width:600px){
+  .mseo-header-inner{gap:8px}
+  .mseo-brand{font-size:1.08rem;gap:7px}
+  .mseo-actions{gap:5px}
+  .mseo-icon-button{width:36px;height:36px}
+  .mseo-menu-toggle{order:0}
+  .mseo-search-panel form{gap:7px}
+  .mseo-search-panel input{padding:10px 12px}
+  .mseo-search-panel button{padding-inline:14px}
+}
