@@ -2,7 +2,7 @@
 
 ## Audit status
 
-The current public site is Arabic-first and uses standalone HTML documents, `data/articles.json` as the generated article catalogue, and `scripts/generate-sitemap.mjs` for sitemap output. The current sitemap inspected during this audit lists the root Arabic site and article paths under `/articles/`; it does not list locale-prefixed article URLs. Searches of the default branch did not find `hreflang` declarations. Therefore, translated article coverage and cross-language relationships are **not currently verified**.
+The current public site is Arabic-first and uses standalone HTML documents, `data/articles.json` as the generated article catalogue, and `scripts/generate-sitemap.mjs` for sitemap output. The inspected catalogue contains 53 article records and no `language`, `locale`, translation-group, or alternate-URL fields. The inspected sitemap has 43 URLs and no `/fr/`, `/es/`, `/en/`, or `/ru/` paths. The expected locale entry points and a representative translated article path were not found, and searches of the default branch did not find `hreflang` declarations. Therefore, translated article coverage and cross-language relationships are **not currently demonstrated under the proposed convention**; this does not prove translations do not exist outside the repository or under other naming conventions.
 
 This is an architecture proposal and audit record, not a claim that translated pages already exist or that the production site has been changed.
 
