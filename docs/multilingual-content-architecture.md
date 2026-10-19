@@ -2,7 +2,7 @@
 
 ## Audit status
 
-The current public site is Arabic-first and uses standalone HTML documents, `data/articles.json` as the generated article catalogue, and `scripts/generate-sitemap.mjs` for sitemap output. The inspected catalogue contains 53 article records and no `language`, `locale`, translation-group, or alternate-URL fields. The inspected sitemap has 43 URLs and no `/fr/`, `/es/`, `/en/`, or `/ru/` paths. The expected locale entry points and a representative translated article path were not found, and searches of the default branch did not find `hreflang` declarations. Therefore, translated article coverage and cross-language relationships are **not currently demonstrated under the proposed convention**; this does not prove translations do not exist outside the repository or under other naming conventions.
+The current public site is Arabic-first and uses standalone HTML documents, `data/articles.json` as the generated article catalogue, and `scripts/generate-sitemap.mjs` for sitemap output. The inspected Arabic catalogue contains 53 article records and no `language`, `locale`, translation-group, or alternate-URL fields. The inspected sitemap has 43 URLs and no `/fr/`, `/es/`, `/en/`, or `/ru/` paths. The four locale catalogues now contain one pilot record each for the SEO content strategy article, all marked `review` with no publication date. However, localized HTML entry pages and translated article URLs have not been created, and the sitemap remains unchanged. Thus there is still no published multilingual coverage under the proposed convention; this does not rule out translations outside the repository or under other naming conventions.
 
 This is an architecture proposal and audit record, not a claim that translated pages already exist or that the production site has been changed.
 
@@ -67,17 +67,18 @@ A translation group may be incomplete. Language-switch links must only point to 
 
 ## Implementation order
 
-1. Inventory actual locale directories and article files; compare them against the Arabic catalogue and report counts by locale.
-2. Add locale catalogue validation and translation-group consistency checks.
-3. Extend catalogue generation and sitemap generation to include published locale records only.
+1. [x] Inventory locale directories and article files against the Arabic catalogue; record baseline counts.
+2. [ ] Add locale catalogue validation and translation-group consistency checks.
+3. [ ] Extend catalogue generation and sitemap generation to include published locale records only.
 4. Add shared locale navigation and correct relative asset/base paths without changing Arabic defaults.
 5. Add reciprocal `hreflang`, canonical, Open Graph, Twitter, and structured-data validation.
-6. Translate a small, reviewed pilot set into all four target languages, test it, then expand coverage.
+6. [in progress] Prepare a pilot translation record for one article in all four target languages; keep each record in `review` until localized HTML and editorial checks are complete.
 7. Run `npm ci`, `npm test`, and `npm run build`; inspect generated catalogue/sitemap diffs and mobile/desktop rendering before merging.
 
 ## Acceptance checklist
 
 - [ ] A report lists the number of actual translated articles for `en`, `fr`, `es`, and `ru`; missing locales are reported as zero, not inferred from filenames.
+- [x] Pilot catalogue records exist for `en`, `fr`, `es`, and `ru`; all are marked `review` and are not treated as published pages.
 - [ ] Every published localized article has a stable `translationGroup` and a valid counterpart map.
 - [ ] No language switcher points to a missing or unpublished page.
 - [ ] Canonical and `hreflang` sets are reciprocal and contain no broken URLs.
