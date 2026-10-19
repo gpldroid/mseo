@@ -7,7 +7,7 @@
   const link = (href) => root + href;
 
   const navItems = [
-    ['/','الرئيسية'],
+    ['index.html','الرئيسية'],
     ['pages/ai.html','الذكاء الاصطناعي'],
     ['pages/web-development.html','تطوير المواقع'],
     ['pages/programming.html','البرمجة'],
