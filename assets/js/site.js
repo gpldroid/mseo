@@ -195,3 +195,94 @@
  search.addEventListener('input',()=>{shown=batch;render();});select.addEventListener('change',()=>{shown=batch;render();});
 })();
 
+
+
+/* Shared enhancements for every individual article page. */
+(() => {
+  if (!/\/articles\/[^/]+\.html$/.test(location.pathname)) return;
+  const root = '../';
+  const $ = (selector, context=document) => context.querySelector(selector);
+  const esc = value => String(value == null ? '' : value).replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+  const link = path => root + path;
+  const main = $('main');
+  const article = main && $('article', main);
+  if (!main || !article || main.querySelector('.article-page-layout')) return;
+  main.classList.add('article-page-main');
+  const breadcrumb = $('nav[aria-label="مسار التنقل"]', main);
+  const layout = document.createElement('div');
+  layout.className = 'article-page-layout';
+  const content = document.createElement('div');
+  content.className = 'article-page-content';
+  const sidebar = document.createElement('aside');
+  sidebar.className = 'article-page-sidebar';
+  sidebar.setAttribute('aria-label', 'الشريط الجانبي للمقالات');
+  sidebar.innerHTML = '<section class="sidebar-widget"><h2>أحدث المقالات</h2><ul class="sidebar-latest" data-article-sidebar-latest><li>جارٍ تحميل المقالات…</li></ul></section><section class="sidebar-widget"><h2>تصفّح حسب التصنيف</h2><ul class="sidebar-categories" data-article-sidebar-categories><li>جارٍ تحميل التصنيفات…</li></ul></section><section class="sidebar-widget sidebar-promo"><span class="section-kicker">أدوات مجانية</span><h2>أنجز مهامك أسرع</h2><p>استخدم أدوات MSEO المجانية لتحسين المحتوى وSEO وتطوير الويب.</p><a class="site-read" href="../pages/tools.html">استكشف الأدوات ←</a></section>';
+  if (breadcrumb) breadcrumb.insertAdjacentElement('afterend', layout);
+  else main.insertAdjacentElement('afterbegin', layout);
+  layout.append(content, sidebar);
+  content.appendChild(article);
+  const carousel = document.createElement('section');
+  carousel.className = 'section latest-carousel-section article-latest-carousel-section';
+  carousel.setAttribute('aria-labelledby', 'article-latest-carousel-title');
+  carousel.innerHTML = '<div class="section-heading"><div><span class="section-kicker">واصل الاستكشاف</span><h2 id="article-latest-carousel-title">أحدث المقالات</h2><p>مقالات وأدلة جديدة من مكتبة MSEO.</p></div><span class="heading-count" aria-hidden="true">03 / 05</span></div><div class="latest-carousel" data-article-carousel><button class="carousel-arrow" type="button" data-article-prev aria-label="المقالات السابقة">‹</button><div class="latest-carousel-track" data-article-latest-carousel aria-live="polite"><div class="loading-card">جارٍ تحميل أحدث المقالات…</div></div><button class="carousel-arrow" type="button" data-article-next aria-label="المقالات التالية">›</button></div><div class="carousel-dots" data-article-carousel-dots aria-label="اختيار المقال"></div>';
+  main.appendChild(carousel);
+  fetch(link('data/articles.json'), {cache:'no-cache'}).then(response => {
+    if (!response.ok) throw new Error('Could not load article catalog');
+    return response.json();
+  }).then(items => {
+    const articles = items.slice().sort((a,b) => String(b.updatedAt || b.publishedAt || '').localeCompare(String(a.updatedAt || a.publishedAt || '')));
+    const latest = articles.slice(0, 5);
+    const sidebarLatest = $('[data-article-sidebar-latest]');
+    const sidebarCategories = $('[data-article-sidebar-categories]');
+    if (sidebarLatest) sidebarLatest.innerHTML = latest.map(a => '<li><a href="' + link('articles/' + encodeURIComponent(a.file || a.slug + '.html')) + '">' + esc(a.title) + '</a><span>' + esc(a.category || 'مقالات') + '</span></li>').join('') || '<li>لا توجد مقالات حاليًا.</li>';
+    const categories = [...new Set(articles.map(a => a.category).filter(Boolean))].sort((a,b) => a.localeCompare(b,'ar'));
+    if (sidebarCategories) sidebarCategories.innerHTML = categories.map(category => '<li><a href="' + link('pages/archive.html') + '?category=' + encodeURIComponent(category) + '">' + esc(category) + '</a><span>' + articles.filter(a => a.category === category).length + '</span></li>').join('') || '<li>لا توجد تصنيفات حاليًا.</li>';
+    const track = $('[data-article-latest-carousel]');
+    const dots = $('[data-article-carousel-dots]');
+    const carouselRoot = $('[data-article-carousel]');
+    if (!track) return;
+    track.innerHTML = latest.map((a,i) => {
+      const href = link('articles/' + encodeURIComponent(a.file || a.slug + '.html'));
+      const image = a.thumbnail || a.image || 'assets/favicon.svg';
+      const imageSrc = /^https?:\/\//i.test(image) ? image : link(image);
+      return '<article class="latest-carousel-card" data-article-slide="' + i + '"><a class="latest-carousel-image" href="' + href + '" tabindex="-1" aria-hidden="true"><img loading="lazy" decoding="async" width="480" height="270" sizes="(max-width: 540px) 90vw, (max-width: 800px) 45vw, 30vw" src="' + esc(imageSrc) + '" alt=""></a><div class="latest-carousel-copy"><span class="article-category">' + esc(a.category || 'مقالات') + '</span><span class="carousel-index">0' + (i+1) + ' / 0' + latest.length + '</span><h3><a href="' + href + '">' + esc(a.title) + '</a></h3><p>' + esc(a.description || 'اكتشف الدليل الكامل في مكتبة MSEO.') + '</p><a class="button button-primary" href="' + href + '">اقرأ المقال <span aria-hidden="true">←</span></a></div></article>';
+    }).join('') || '<p class="loading-card">لا توجد مقالات متاحة حاليًا.</p>';
+    const slides = [...track.querySelectorAll('[data-article-slide]')];
+    let active = 0, timer = null, visible = false;
+    const stop = () => { if (timer) { clearInterval(timer); timer = null; } };
+    const show = index => {
+      if (!slides.length) return;
+      active = (index + slides.length) % slides.length;
+      slides[active].scrollIntoView({behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block:'nearest', inline:'start'});
+      if (dots) dots.querySelectorAll('button').forEach((dot,i) => {
+        dot.setAttribute('aria-current', String(i === active));
+        dot.setAttribute('aria-label', 'عرض المقال ' + (i+1));
+      });
+    };
+    if (dots) {
+      dots.innerHTML = slides.map((slide,i) => '<button type="button" aria-label="عرض المقال ' + (i+1) + '" aria-current="' + String(i === 0) + '" data-article-slide-to="' + i + '"></button>').join('');
+      dots.querySelectorAll('[data-article-slide-to]').forEach(dot => dot.addEventListener('click', () => show(Number(dot.dataset.articleSlideTo))));
+    }
+    $('[data-article-prev]')?.addEventListener('click', () => show(active-1));
+    $('[data-article-next]')?.addEventListener('click', () => show(active+1));
+    const start = () => {
+      stop();
+      if (visible && !document.hidden && slides.length > 1 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) timer = setInterval(() => show(active+1), 8000);
+    };
+    carouselRoot?.addEventListener('mouseenter', stop);
+    carouselRoot?.addEventListener('mouseleave', start);
+    carouselRoot?.addEventListener('focusin', stop);
+    carouselRoot?.addEventListener('focusout', event => { if (!carouselRoot.contains(event.relatedTarget)) start(); });
+    document.addEventListener('visibilitychange', () => document.hidden ? stop() : start());
+    if ('IntersectionObserver' in window && carouselRoot) {
+      const observer = new IntersectionObserver(entries => {
+        visible = entries.some(entry => entry.isIntersecting);
+        visible ? start() : stop();
+      }, {threshold: 0.15});
+      observer.observe(carouselRoot);
+    } else { visible = true; start(); }
+  }).catch(() => {
+    const track = $('[data-article-latest-carousel]');
+    if (track) track.innerHTML = '<p class="loading-card">تعذر تحميل أحدث المقالات.</p>';
+  });
+})();
