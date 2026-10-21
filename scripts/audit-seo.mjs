@@ -65,6 +65,7 @@ for (const file of htmlFiles) {
     const isOwn = url.hostname === 'mseo-audit.local' || ['gpldroid.github.io', 'mseopro.netlify.app', 'fastseo.site'].includes(url.hostname);
     if (!isOwn) { if (/^https?:/i.test(href)) externalLinks++; continue; }
     internalLinks++;
+    if (/\/index\.html$/i.test(url.pathname)) linkWarnings.push(file + ': use a clean directory URL instead of index.html: ' + href);
     let pathname = decodeURIComponent(url.pathname);
     if (pathname.startsWith('/mseo/')) pathname = pathname.slice('/mseo'.length);
     if (pathname === '/mseo') pathname = '/';
