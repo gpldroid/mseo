@@ -111,6 +111,30 @@
  try{
   const res=await fetch(url('data/articles.json'),{cache:'no-cache'});if(!res.ok)throw Error();articles=await res.json();articles=articles.map((a,i)=>({...a,_homepageOrder:i})).sort((a,b)=>String(b.updatedAt||b.publishedAt||'').localeCompare(String(a.updatedAt||a.publishedAt||''))||a._homepageOrder-b._homepageOrder).map(({_homepageOrder,...a})=>a);
   const cats=[...new Set(articles.map(a=>a.category).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'ar'));
+  const latestTrack=$('[data-latest-carousel]'), dots=$('[data-carousel-dots]'), carouselRoot=$('[data-carousel]');
+  const latest=articles.slice(0,5);
+  if(latestTrack){
+   latestTrack.innerHTML=latest.length?latest.map((a,i)=>{
+    const href=url('articles/'+encodeURIComponent(a.file||a.slug+'.html')),img=a.thumbnail||a.image||'assets/favicon.svg';
+    return '<article class="latest-carousel-card" data-slide="'+i+'"><a class="latest-carousel-image" href="'+href+'" tabindex="-1" aria-hidden="true"><img loading="'+(i===0?'eager':'lazy')+'" decoding="async" src="'+esc(url(img))+'" alt=""></a><div class="latest-carousel-copy"><span class="article-category">'+esc(a.category||'مقالات')+'</span><span class="carousel-index">0'+(i+1)+' / 0'+latest.length+'</span><h3><a href="'+href+'">'+esc(a.title)+'</a></h3><p>'+esc(a.description||'اكتشف الدليل الكامل في مكتبة MSEO.')+'</p><a class="button button-primary" href="'+href+'">اقرأ المقال <span aria-hidden="true">←</span></a></div></article>';
+   }).join(''):'<p class="loading-card">لا توجد مقالات متاحة حاليًا.</p>';
+   const slides=[...latestTrack.querySelectorAll('[data-slide]')];let activeSlide=0,slideTimer=null;
+   const showSlide=(index)=>{if(!slides.length)return;activeSlide=(index+slides.length)%slides.length;slides[activeSlide].scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'nearest',inline:'start'});dots?.querySelectorAll('button').forEach((dot,i)=>{dot.setAttribute('aria-current',String(i===activeSlide));dot.setAttribute('aria-label','عرض المقال '+(i+1));});};
+   if(dots)dots.innerHTML=slides.map((_,i)=>'<button type="button" aria-label="عرض المقال '+(i+1)+'" aria-current="'+String(i===0)+'" data-slide-to="'+i+'"></button>').join('');
+   dots?.querySelectorAll('[data-slide-to]').forEach(dot=>dot.addEventListener('click',()=>showSlide(Number(dot.dataset.slideTo))));
+   $('[data-carousel-prev]')?.addEventListener('click',()=>showSlide(activeSlide-1));
+   $('[data-carousel-next]')?.addEventListener('click',()=>showSlide(activeSlide+1));
+   const stopAutoplay=()=>{if(slideTimer){clearInterval(slideTimer);slideTimer=null;}};
+   const startAutoplay=()=>{stopAutoplay();if(slides.length>1&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches)slideTimer=setInterval(()=>showSlide(activeSlide+1),6500);};
+   carouselRoot?.addEventListener('mouseenter',stopAutoplay);carouselRoot?.addEventListener('mouseleave',startAutoplay);
+   carouselRoot?.addEventListener('focusin',stopAutoplay);carouselRoot?.addEventListener('focusout',e=>{if(!carouselRoot.contains(e.relatedTarget))startAutoplay();});
+   document.addEventListener('visibilitychange',()=>document.hidden?stopAutoplay():startAutoplay());
+   startAutoplay();
+  }
+  const sidebarLatest=$('[data-sidebar-latest]');
+  if(sidebarLatest)sidebarLatest.innerHTML=latest.slice(0,5).map(a=>'<li><a href="'+url('articles/'+encodeURIComponent(a.file||a.slug+'.html'))+'">'+esc(a.title)+'</a><span>'+esc(a.category||'مقالات')+'</span></li>').join('')||'<li>لا توجد مقالات حاليًا.</li>';
+  const sidebarCats=$('[data-sidebar-categories]');
+  if(sidebarCats)sidebarCats.innerHTML=cats.map(cat=>'<li><a href="'+url('pages/archive.html')+'?category='+encodeURIComponent(cat)+'">'+esc(cat)+'</a><span>'+articles.filter(a=>a.category===cat).length+'</span></li>').join('')||'<li>لا توجد تصنيفات حاليًا.</li>';
   catsGrid.innerHTML=cats.map((cat,i)=>'<a class="category-card" href="'+url('pages/archive.html')+'?category='+encodeURIComponent(cat)+'"><span class="site-card-icon">'+['✳','⌘','◈','↗','⌁','⚙'][i%6]+'</span><h3>'+esc(cat)+'</h3><p>استكشف الأدلة والمقالات في هذا المجال.</p><span class="site-read">تصفح المقالات ←</span></a>').join('');
   if(select)select.innerHTML='<option value="">كل التصنيفات</option>'+cats.map(cat=>'<option value="'+esc(cat)+'">'+esc(cat)+'</option>').join('');
   function render(animateFrom=-1){
