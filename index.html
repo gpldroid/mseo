@@ -19,7 +19,7 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"MSEO","url":"https://gpldroid.github.io/mseo/","inLanguage":"ar","description":"مكتبة تقنية عربية للمقالات والأدلة العملية"}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="assets/css/style.css?v=20261019-cleanup">
+<link rel="stylesheet" href="assets/css/style.css?v=20261021-carousel1">
   <meta name="google-site-verification" content="2-SUpcRCe1x54zAb_F3oJvBtUvMzUCZkKhUuNQd_UPQ" />
 <meta property="og:image" content="https://gpldroid.github.io/mseo/assets/images/tool-social/home.svg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:type" content="image/svg+xml"><meta name="twitter:image" content="https://gpldroid.github.io/mseo/assets/images/tool-social/home.svg"></head>
 <body>
@@ -41,16 +41,34 @@
       </div>
     </div>    
   </section>
+  <section class="section latest-carousel-section" aria-labelledby="latest-carousel-title">
+    <div class="section-heading"><div><span class="section-kicker">مختارات من المكتبة</span><h2 id="latest-carousel-title">أحدث المقالات</h2><p>تصفّح آخر الأدلة والمقالات وأكمل القراءة حسب اهتمامك.</p></div><span class="heading-count" aria-hidden="true">01 / 05</span></div>
+    <div class="latest-carousel" data-carousel>
+      <button class="carousel-arrow carousel-prev" type="button" data-carousel-prev aria-label="المقال السابق">‹</button>
+      <div class="latest-carousel-track" data-latest-carousel aria-live="polite"><div class="loading-card">جارٍ تحميل أحدث المقالات…</div></div>
+      <button class="carousel-arrow carousel-next" type="button" data-carousel-next aria-label="المقال التالي">›</button>
+    </div>
+    <div class="carousel-dots" data-carousel-dots aria-label="اختيار المقال"></div>
+  </section>
 <section class="section articles-section" id="articles">
     <div class="section-heading"><div><span class="section-kicker">من 📚 مكتبة MSEO</span><h2>المقالات والأدلة</h2></div><span class="heading-count"><i>/</i> </span></div>
-    <div class="toolbar">
-      <label class="search-box"><span aria-hidden="true">⌕</span><input id="article-search" type="search" placeholder="ابحث بعنوان المقال أو موضوعه…" aria-label="البحث في المقالات"></label>
-      <label class="filter-box"><span class="sr-only">تصفية حسب التصنيف</span><select id="article-category"><option value="">كل التصنيفات</option></select><span aria-hidden="true">⌄</span></label>
-      <span id="results-count" class="results-count" aria-live="polite">جارٍ تحميل المقالات…</span>
+    <div class="articles-layout">
+      <div class="articles-main">
+        <div class="toolbar">
+          <label class="search-box"><span aria-hidden="true">⌕</span><input id="article-search" type="search" placeholder="ابحث بعنوان المقال أو موضوعه…" aria-label="البحث في المقالات"></label>
+          <label class="filter-box"><span class="sr-only">تصفية حسب التصنيف</span><select id="article-category"><option value="">كل التصنيفات</option></select><span aria-hidden="true">⌄</span></label>
+          <span id="results-count" class="results-count" aria-live="polite">جارٍ تحميل المقالات…</span>
+        </div>
+        <div class="article-grid" id="article-grid" aria-live="polite"><div class="loading-card">جارٍ تحميل المقالات…</div></div>
+        <nav class="pagination" id="pagination" aria-label="صفحات المقالات" hidden></nav>
+        <p class="load-error" id="load-error" hidden>تعذر تحميل المقالات. حدّث الصفحة.</p>
+      </div>
+      <aside class="articles-sidebar" aria-label="المحتوى الجانبي">
+        <section class="sidebar-widget"><h2>أحدث المقالات</h2><ul class="sidebar-latest" data-sidebar-latest><li>جارٍ تحميل المقالات…</li></ul></section>
+        <section class="sidebar-widget"><h2>تصفّح حسب التصنيف</h2><ul class="sidebar-categories" data-sidebar-categories><li>جارٍ تحميل التصنيفات…</li></ul></section>
+        <section class="sidebar-widget sidebar-promo"><span class="section-kicker">أدوات مجانية</span><h2>أنجز مهامك أسرع</h2><p>استخدم أدوات MSEO المجانية لتحسين المحتوى وSEO وتطوير الويب.</p><a class="site-read" href="pages/tools.html">استكشف الأدوات ←</a></section>
+      </aside>
     </div>
-    <div class="article-grid" id="article-grid" aria-live="polite"><div class="loading-card">جارٍ تحميل المقالات…</div></div>
-    <nav class="pagination" id="pagination" aria-label="صفحات المقالات" hidden></nav>
-    <p class="load-error" id="load-error" hidden>تعذر تحميل المقالات.حدّث الصفحة.</p>
   </section>
   <section class="section categories-section" id="categories">
     <div class="section-heading"><div><span class="section-kicker">استكشف حسب اهتمامك</span><h2>اختر مجالًا وابدأ التعلّم</h2><p>تصنيفات واضحة توصلك إلى المقالات المرتبطة بما تبحث عنه.</p></div><span class="heading-count"><i>/</i></span></div>
@@ -64,7 +82,7 @@
 </main>
 <div data-home-footer></div>
 
-<script src="assets/js/site.js?v=20261014-loadmore1" defer></script>
+<script src="assets/js/site.js?v=20261021-carousel1" defer></script>
 <script src="assets/js/tools-catalog.js?v=20261012-icons1" defer></script>
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-BDHDY9739D"></script>
