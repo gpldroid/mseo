@@ -1137,3 +1137,22 @@ body:has(> main > article) .prose pre code {
 @media(max-width:800px){.articles-layout{grid-template-columns:minmax(0,1fr)}.articles-sidebar{position:static;grid-template-columns:repeat(2,minmax(0,1fr))}.sidebar-promo{grid-column:1/-1}.latest-carousel-card{grid-template-columns:minmax(0,1fr);gap:18px}.latest-carousel-image,.latest-carousel-image img{min-height:200px;max-height:260px}.latest-carousel-copy h3{font-size:1.4rem}.latest-carousel{grid-template-columns:34px minmax(0,1fr) 34px;gap:6px}.carousel-arrow{width:34px;height:34px;font-size:1.4rem}}
 @media(max-width:540px){.latest-carousel-card{padding:14px}.latest-carousel-image,.latest-carousel-image img{min-height:170px}.articles-sidebar{grid-template-columns:minmax(0,1fr)}.sidebar-promo{grid-column:auto}.articles-main .article-grid{grid-template-columns:minmax(0,1fr)}.latest-carousel-copy p{-webkit-line-clamp:4}.carousel-arrow{width:30px;height:30px}}
 @media(prefers-reduced-motion:reduce){.latest-carousel-image img,.carousel-dots button{transition:none}}
+
+
+/* Performance refinement: keep the featured carousel compact and reduce layout/paint cost. */
+.latest-carousel-section{padding-block:24px 28px}
+.latest-carousel-section>.section-heading{margin-bottom:14px}
+.latest-carousel-section .section-heading p{margin-top:4px;font-size:.92rem}
+.latest-carousel{grid-template-columns:36px minmax(0,1fr) 36px;gap:8px}
+.latest-carousel-track{box-shadow:none;border-radius:16px;scroll-behavior:smooth;contain:layout paint}
+.latest-carousel-card{grid-template-columns:minmax(0,.62fr) minmax(0,1.38fr);gap:20px;min-height:0;padding:16px;align-items:center}
+.latest-carousel-image,.latest-carousel-image img{height:164px;min-height:164px;max-height:164px;aspect-ratio:16/9}
+.latest-carousel-image img{object-fit:cover}
+.latest-carousel-copy h3{margin:6px 0;font-size:clamp(1.05rem,1.65vw,1.45rem);line-height:1.45}
+.latest-carousel-copy p{margin:0 0 10px;font-size:.9rem;line-height:1.65;-webkit-line-clamp:2}
+.latest-carousel-copy .button{padding:8px 13px;font-size:.86rem}
+.carousel-arrow{width:36px;height:36px;box-shadow:none}
+.carousel-dots{margin-top:10px}
+@media(max-width:800px){.latest-carousel-card{grid-template-columns:minmax(0,1fr);gap:12px}.latest-carousel-image,.latest-carousel-image img{height:150px;min-height:150px;max-height:150px}.latest-carousel-copy h3{font-size:1.2rem}}
+@media(max-width:540px){.latest-carousel-section{padding-block:18px 22px}.latest-carousel-card{padding:12px}.latest-carousel-image,.latest-carousel-image img{height:128px;min-height:128px;max-height:128px}.latest-carousel-copy p{display:none}.latest-carousel{grid-template-columns:28px minmax(0,1fr) 28px;gap:4px}.carousel-arrow{width:28px;height:28px;font-size:1.2rem}}
+@media(prefers-reduced-motion:reduce){.latest-carousel-track{scroll-behavior:auto}}
