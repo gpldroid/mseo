@@ -116,7 +116,7 @@
   if(latestTrack){
    latestTrack.innerHTML=latest.length?latest.map((a,i)=>{
     const href=url('articles/'+encodeURIComponent(a.file||a.slug+'.html')),img=a.thumbnail||a.image||'assets/favicon.svg';
-    return '<article class="latest-carousel-card" data-slide="'+i+'"><a class="latest-carousel-image" href="'+href+'" tabindex="-1" aria-hidden="true"><img loading="'+(i===0?'eager':'lazy')+'" decoding="async" src="'+esc(url(img))+'" alt=""></a><div class="latest-carousel-copy"><span class="article-category">'+esc(a.category||'مقالات')+'</span><span class="carousel-index">0'+(i+1)+' / 0'+latest.length+'</span><h3><a href="'+href+'">'+esc(a.title)+'</a></h3><p>'+esc(a.description||'اكتشف الدليل الكامل في مكتبة MSEO.')+'</p><a class="button button-primary" href="'+href+'">اقرأ المقال <span aria-hidden="true">←</span></a></div></article>';
+    return '<article class="latest-carousel-card" data-slide="'+i+'"><a class="latest-carousel-image" href="'+href+'" tabindex="-1" aria-hidden="true"><img loading="lazy" decoding="async" width="480" height="270" sizes="(max-width: 800px) 90vw, 34vw" src="'+esc(url(img))+'" alt=""></a><div class="latest-carousel-copy"><span class="article-category">'+esc(a.category||'مقالات')+'</span><span class="carousel-index">0'+(i+1)+' / 0'+latest.length+'</span><h3><a href="'+href+'">'+esc(a.title)+'</a></h3><p>'+esc(a.description||'اكتشف الدليل الكامل في مكتبة MSEO.')+'</p><a class="button button-primary" href="'+href+'">اقرأ المقال <span aria-hidden="true">←</span></a></div></article>';
    }).join(''):'<p class="loading-card">لا توجد مقالات متاحة حاليًا.</p>';
    const slides=[...latestTrack.querySelectorAll('[data-slide]')];let activeSlide=0,slideTimer=null;
    const showSlide=(index)=>{if(!slides.length)return;activeSlide=(index+slides.length)%slides.length;slides[activeSlide].scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'nearest',inline:'start'});dots?.querySelectorAll('button').forEach((dot,i)=>{dot.setAttribute('aria-current',String(i===activeSlide));dot.setAttribute('aria-label','عرض المقال '+(i+1));});};
@@ -125,7 +125,8 @@
    $('[data-carousel-prev]')?.addEventListener('click',()=>showSlide(activeSlide-1));
    $('[data-carousel-next]')?.addEventListener('click',()=>showSlide(activeSlide+1));
    const stopAutoplay=()=>{if(slideTimer){clearInterval(slideTimer);slideTimer=null;}};
-   const startAutoplay=()=>{stopAutoplay();if(slides.length>1&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches)slideTimer=setInterval(()=>showSlide(activeSlide+1),6500);};
+   let carouselVisible=true;
+    const startAutoplay=()=>{stopAutoplay();if(carouselVisible&&!document.hidden&&slides.length>1&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches)slideTimer=setInterval(()=>showSlide(activeSlide+1),8000);};
    carouselRoot?.addEventListener('mouseenter',stopAutoplay);carouselRoot?.addEventListener('mouseleave',startAutoplay);
    carouselRoot?.addEventListener('focusin',stopAutoplay);carouselRoot?.addEventListener('focusout',e=>{if(!carouselRoot.contains(e.relatedTarget))startAutoplay();});
    document.addEventListener('visibilitychange',()=>document.hidden?stopAutoplay():startAutoplay());
