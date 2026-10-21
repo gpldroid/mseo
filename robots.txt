@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /pages/admin.html
 Disallow: /article.html
-Sitemap: https://gpldroid.github.io/mseo/sitemap.xml
+Sitemap: https://fastseo.site/sitemap.xml

@@ -1,5 +1,5 @@
 import { readFile, writeFile, readdir } from 'node:fs/promises';
-const siteBase = new URL(process.env.MSEO_SITE_URL || process.env.URL || 'https://gpldroid.github.io/mseo/');
+const siteBase = new URL(process.env.MSEO_SITE_URL || process.env.URL || 'https://fastseo.site/');
 if (!siteBase.pathname.endsWith('/')) siteBase.pathname += '/';
 const base = siteBase.href;
 const catalog = JSON.parse(await readFile(new URL('../data/articles.json', import.meta.url), 'utf8'));
