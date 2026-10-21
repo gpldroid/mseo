@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b1220">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../site.webmanifest">
+<meta name="color-scheme" content="light dark">
+<title>GitHub Actions Workflow Lockfiles: دليل تأمين تبعيات CI/CD | MSEO</title>
+<meta name="description" content="شرح GitHub Actions Workflow Lockfiles وطريقة تثبيت تبعيات CI/CD على commits موثوقة، وإنشاء ملف actions.lock ومراجعته وصيانته مع Dependabot.">
+<meta name="keywords" content="GitHub Actions Workflow Lockfiles, تأمين GitHub Actions, أمان CI/CD, ملف قفل التبعيات, Dependabot, GitHub CLI">
+<meta name="author" content="MSEO Editorial">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://gpldroid.github.io/mseo/articles/github-actions-workflow-lockfiles.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GitHub Actions Workflow Lockfiles: دليل تأمين تبعيات CI/CD">
+<meta property="og:description" content="تعرف إلى ملفات قفل تبعيات GitHub Actions، وطريقة إعداد actions.lock ومراجعة التحديثات وتقليل مخاطر تغيّر الوسوم والفروع.">
+<meta property="og:image" content="https://gpldroid.github.io/mseo/assets/images/article-thumbnails/github-actions-workflow-lockfiles.svg">
+<meta property="og:url" content="https://gpldroid.github.io/mseo/articles/github-actions-workflow-lockfiles.html">
+<meta property="og:site_name" content="MSEO">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GitHub Actions Workflow Lockfiles: دليل تأمين تبعيات CI/CD">
+<meta name="twitter:description" content="شرح عملي لملفات قفل تبعيات GitHub Actions وإنشاء actions.lock وصيانته مع Dependabot.">
+<meta name="twitter:image" content="https://gpldroid.github.io/mseo/assets/images/article-thumbnails/github-actions-workflow-lockfiles.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"GitHub Actions Workflow Lockfiles: دليل تأمين تبعيات CI/CD","description":"شرح GitHub Actions Workflow Lockfiles وطريقة تثبيت تبعيات CI/CD على commits موثوقة، وإنشاء ملف actions.lock ومراجعته وصيانته مع Dependabot.","image":["https://gpldroid.github.io/mseo/assets/images/article-thumbnails/github-actions-workflow-lockfiles.svg"],"datePublished":"2026-10-14","dateModified":"2026-10-14","author":{"@type":"Organization","name":"MSEO Editorial"},"publisher":{"@type":"Organization","name":"MSEO","url":"https://gpldroid.github.io/mseo"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://gpldroid.github.io/mseo/articles/github-actions-workflow-lockfiles.html"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"الرئيسية","item":"https://gpldroid.github.io/mseo/"},{"@type":"ListItem","position":2,"name":"البرمجة","item":"https://gpldroid.github.io/mseo/pages/programming.html"},{"@type":"ListItem","position":3,"name":"GitHub Actions Workflow Lockfiles: دليل تأمين تبعيات CI/CD","item":"https://gpldroid.github.io/mseo/articles/github-actions-workflow-lockfiles.html"}]}</script>
+<link rel="stylesheet" href="../assets/css/style.css?v=20261012-images1">
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 antialiased">
+<div data-site-header></div>
+<main class="max-w-4xl mx-auto px-4 py-8">
+<nav aria-label="مسار التنقل" class="text-xs text-slate-500 mb-5"><a href="../index.html">الرئيسية</a> <span> / </span> <a href="../pages/programming.html">البرمجة</a> <span> / </span> <span>GitHub Actions Workflow Lockfiles</span></nav>
+<article class="bg-white dark:bg-slate-800 rounded-3xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden">
+<img src="https://gpldroid.github.io/mseo/assets/images/article-thumbnails/github-actions-workflow-lockfiles.svg" alt="رسم توضيحي لملف قفل تبعيات GitHub Actions والتحقق من commits" width="1200" height="630" loading="eager" fetchpriority="high" decoding="async" class="w-full aspect-video object-cover">
+<div class="p-6 sm:p-10">
+<div class="flex flex-wrap gap-2 mb-4"><span class="bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded-full">البرمجة</span><time datetime="2026-10-14" class="text-xs text-slate-500 px-2 py-1.5">14 أكتوبر 2026</time></div>
+<h1 class="text-2xl sm:text-4xl font-black leading-tight text-slate-950 dark:text-white">GitHub Actions Workflow Lockfiles: دليل عملي لتأمين تبعيات CI/CD</h1>
+<p class="mt-5 text-base leading-8 text-slate-600 dark:text-slate-300">تعرف إلى ملفات قفل تبعيات GitHub Actions، وكيفية إنشاء actions.lock ومراجعته وصيانته مع Dependabot للحد من مخاطر تغيّر الوسوم والفروع.</p>
+<div class="mt-8 prose prose-slate max-w-none dark:prose-invert">
+<section><p>قد يبدو ملف GitHub Actions ثابتًا بعد مراجعته ودمجه، لكن هناك تفصيلًا مهمًا قد لا يظهر في مراجعة الشيفرة: المرجع الذي يستخدمه سير العمل لتحديد أحد الإجراءات قد يتغير لاحقًا. فإذا اعتمد الملف على وسم مثل <code>v3</code> أو فرع مثل <code>main</code>، فقد يشير المرجع نفسه في تشغيل مستقبلي إلى commit مختلف عن الذي راجعته سابقًا.</p>
+<p>هنا تأتي أهمية <strong>GitHub Actions Workflow Lockfiles</strong>. أعلنت GitHub إتاحة ملفات قفل تبعيات سير العمل في المعاينة العامة يوم 14 أكتوبر 2026 لمستخدمي GitHub Enterprise Cloud، بما في ذلك نسخة الإقامة الجغرافية للبيانات. تساعد هذه الميزة على ربط التبعيات بـcommits محددة وجعل تغييراتها قابلة للمراجعة بدل الاعتماد على وسوم أو فروع متحركة وحدها.</p></section>
+<section><h2>ما المقصود بـ Workflow Lockfiles؟</h2>
+<p>ملف القفل هو سجل للتبعيات التي يستخدمها سير العمل، مع تحديد commit الذي جرى تثبيته لكل تبعية. في GitHub Actions، قد يحتوي ملف YAML على إجراءات خارجية أو يستدعي سير عمل قابلًا لإعادة الاستخدام. مثال بسيط:</p>
+<pre><code>steps:
+  - uses: actions/checkout@v4
+  - uses: actions/setup-node@v4</code></pre>
+<p>هذه الصيغة واضحة وسهلة القراءة، لكن الوسم مثل <code>v4</code> ليس هوية ثابتة للشيفرة؛ يمكن أن يتحرك إلى commit آخر. يضيف ملف القفل سجلًا يحدد الـcommit الذي تمت مراجعته، مع معلومات عن هوية المستودع المصدر.</p>
+<p>يُحفظ الملف في المسار <code>.github/workflows/actions.lock</code> ويُنشأ بواسطة إضافة GitHub CLI المسماة <code>gh actions-lock</code>. الملف مولّد آليًا، لذلك لا ينبغي تحريره يدويًا. عند تهيئة سير عمل لاستخدام القفل، يجب أن تكون تبعيات الإجراءات المطلوبة مسجلة فيه، ويستخدم GitHub Actions الـcommits المقفلة بدل حل الوسم المتحرك عند كل تشغيل.</p></section>
+<section><h2>لماذا قد تكون الوسوم والفروع المتحركة مشكلة؟</h2>
+<p>تساعد الوسوم مثل <code>@v2</code> والفروع مثل <code>@main</code> على إبقاء ملفات سير العمل قصيرة، لكنها قد تتغير بعد مراجعة الشيفرة. تخيل أن فريقك راجع إجراءً ودمجه في بيئة الإنتاج، ثم أعاد مالك المستودع المصدر توجيه الوسم إلى commit مختلف. قد ينفذ التشغيل التالي شيفرة لم يراجعها فريقك، حتى لو لم يتغير ملف YAML في مستودعك.</p>
+<p>قد يكون تغيير المرجع مشروعًا ويحتوي على إصلاحات مهمة، لكن الخطر يكمن في أن التغيير قد يحدث من دون تعديل ظاهر في مستودعك. وإذا تعرض حساب مالك الإجراء للاختراق، فقد يستغل المهاجم الوسم المتحرك لتقديم شيفرة ضارة. يساعد القفل على منع هذا التغيير غير المتوقع من المرور بصمت.</p>
+<p>مع ذلك، لا تثبت ملفات القفل أن الإجراء آمن بحد ذاته. إنها تساعد على ضمان أن الشيفرة التي يجري تنفيذها هي الشيفرة التي ثبّتها الفريق، لذلك تظل مراجعة المصدر والصلاحيات وتحديثات الأمان ضرورية.</p></section>
+<section><h2>ما الذي يسجله ملف actions.lock؟</h2>
+<p>يتضمن الملف قسمين أساسيين. يسجل قسم <code>workflows</code> ملفات سير العمل التي جرى تهيئتها والتبعيات التي يستخدمها كل ملف. أما قسم <code>dependencies</code> فيربط مرجع كل تبعية بالـcommit المحدد، إلى جانب معلومات مثل معرّف مالك المستودع ومعرّف المستودع نفسه. تساعد هذه المعلومات GitHub على التحقق من أن الاسم ما زال يشير إلى المستودع الذي جرى تثبيته.</p>
+<p>تغطي الآلية تبعيات الإجراءات المتداخلة أيضًا، أي الإجراءات التي يعتمد عليها إجراء آخر. أما تبعيات سير العمل القابل لإعادة الاستخدام، فيجب الانتباه إلى أن القفل الذي يغطيه هو القفل الموجود في المستودع الذي يعرّف سير العمل القابل لإعادة الاستخدام. إذا كانت مؤسستك تدير سير عمل مشتركًا، فابدأ بتهيئة مستودعاته ومراجعتها أيضًا.</p></section>
+<section><h2>إعداد Workflow Lockfiles خطوة بخطوة</h2>
+<h3>1. راجع مراجع الإجراءات الحالية</h3>
+<p>قبل إنشاء الملف، افحص ملفات YAML داخل <code>.github/workflows/</code> وتأكد من أن كل مرجع <code>uses</code> يشير إلى إصدار تريد تثبيته. راجع مصدر الإجراء وسجل تغييره، ولا تثبّت التبعيات بشكل آلي قبل التأكد من أنها النسخ المقصودة. توصي GitHub أيضًا بتفعيل Dependabot لإدارة تحديثات الإجراءات قبل البدء، حتى لا تصبح التبعيات المقفلة قديمة دون متابعة.</p>
+<h3>2. ثبّت GitHub CLI والإضافة</h3>
+<p>تحتاج إلى GitHub CLI المعروف بالأمر <code>gh</code>. بعد تثبيته وتسجيل الدخول حسب متطلبات بيئتك، ثبّت الإضافة الرسمية:</p>
+<pre><code>gh extension install github/gh-actions-lock</code></pre>
+<p>لمعرفة الخيارات المتاحة في النسخة المثبتة، استخدم:</p>
+<pre><code>gh actions-lock --help</code></pre>
+<p>ولترقية الإضافة مستقبلًا، يمكنك استخدام <code>gh extension upgrade gh-actions-lock</code>. وبما أن الميزة في المعاينة العامة، راجع الوثائق الرسمية دوريًا للتحقق من تغير الخيارات أو المتطلبات.</p>
+<h3>3. أنشئ ملف القفل</h3>
+<p>من جذر المستودع، شغّل الأمر التالي لمعالجة ملفات سير العمل الموجودة:</p>
+<pre><code>gh actions-lock</code></pre>
+<p>تستعرض الإضافة ملفات سير العمل تحت <code>.github/workflows/</code> وتحاول تثبيت الإجراءات القابلة للحل على commits محددة، ثم تكتب ملف القفل وتعدّل بعض مراجع <code>uses</code> لتصبح أكثر تحديدًا. إذا أردت تهيئة سير عمل واحد فقط، مرّر مساره بدلًا من معالجة المجلد كله:</p>
+<pre><code>gh actions-lock .github/workflows/ci.yml</code></pre>
+<p>استبدل <code>ci.yml</code> باسم ملف موجود فعلًا في مشروعك. إذا أبلغت الإضافة عن مسار محلي غير مدعوم، فتحقق من مرجع الإجراء المحلي؛ فالمسارات المحلية تُحل انطلاقًا من جذر المستودع.</p>
+<h3>4. راجع التغييرات قبل الالتزام بها</h3>
+<p>لا تتعامل مع الملف المولد على أنه ملف ثانوي يمكن قبوله دون مراجعة. افحص كل التغييرات باستخدام:</p>
+<pre><code>git status
+git diff</code></pre>
+<p>راجع ملف القفل وملفات سير العمل معًا. قد يتحول مرجع مثل <code>octo-org/deploy-action@v3</code> إلى إصدار أكثر تحديدًا مثل <code>@v3.1.0</code>، بينما يسجل القفل الـcommit الذي سيُنفذ. افحص أي تغيير في commit أو هوية المستودع المصدر، وتأكد من أن سياسات السماح بالإجراءات في مؤسستك متوافقة مع المراجع المقفلة.</p>
+<p>بعد مراجعة الفرق، سجّل التغييرات في commit وافتح Pull Request ليتمكن الفريق من مراجعتها. تعامل مع تغيير commit على أنه تحديث للتبعية قد يغير الشيفرة المنفذة، وليس مجرد تعديل تنسيقي.</p>
+<h3>5. تحقق من أن الملف محدث</h3>
+<p>يجب إعادة تشغيل الإضافة عند إضافة سير عمل يستخدم إجراءات أو عند إضافة تبعيات أو حذفها من ملف موجود. وللتحقق من أن القفل محدث من دون تعديل الملفات، استخدم:</p>
+<pre><code>gh actions-lock --verify</code></pre>
+<p>يمكن إدراج هذا الفحص في CI ليكشف عن ملف قفل قديم أثناء مراجعة Pull Request. وتوثق الإضافة كذلك خيار <code>--verify-local --no-fix</code> للاستخدام في hook محلي قبل الـcommit؛ يعمل هذا الفحص دون اتصال ولا يعيد التحقق من التثبيتات عبر GitHub.</p></section>
+<section><h2>كيف يساعد Dependabot؟</h2>
+<p>يستطيع Dependabot إدارة تحديثات إصدارات GitHub Actions. عندما يفتح تحديثًا لإجراء في سير عمل تمت تهيئته بالفعل لاستخدام ملف القفل، فإنه يحدّث مدخل القفل المقابل في Pull Request نفسه، لتظل مرجعية سير العمل والـcommit المسجل متوافقين.</p>
+<p>لكن Dependabot لا يهيئ سير عمل جديدًا للقفل من تلقاء نفسه. إذا وجد تبعية في سير عمل لم تتم تهيئته، فسيتطلب الأمر إعداد القفل أولًا. لذلك ابدأ بإنشاء ملف القفل ومراجعة سير العمل، ثم استخدم Dependabot لصيانة تحديثات التبعيات. بهذه الطريقة تصبح التحديثات جزءًا من مسار المراجعة المعتاد بدل أن تتراكم بصمت.</p></section>
+<section><h2>ملفات القفل أم تثبيت SHA داخل YAML؟</h2>
+<p>توصي ممارسات GitHub الأمنية التقليدية بتثبيت إجراءات الطرف الثالث على SHA كامل للـcommit داخل ملف سير العمل. أما عند اعتماد Workflow Lockfiles، فيمكن الاحتفاظ بمراجع إصدارات مقروءة في YAML وتسجيل commits الدقيقة في ملف القفل. وتغطي الآلية التبعيات المتداخلة، وهو أمر لا توفره كتابة SHA لكل إجراء مباشر وحده.</p>
+<p>لا يعني ذلك أن كل مشروع يجب أن يغيّر إعداداته فورًا. تحقّق من توفر الميزة في حسابك، وراجع سياسات السماح بالإجراءات وقواعد الحماية، واختبر التوافق قبل تعميمها. يمكن أيضًا الإبقاء على سياسة اشتراط SHA كامل للإجراءات التي لم تُغطَّ بعد بملف قفل.</p></section>
+<section><h2>حدود ونصائح قبل اعتماد الميزة</h2>
+<ul>
+<li><strong>الميزة في المعاينة العامة:</strong> قد تتغير التفاصيل، لذا تابع الوثائق الرسمية قبل اعتمادها كسياسة ثابتة.</li>
+<li><strong>القفل ليس فحصًا للثغرات:</strong> يحدد الشيفرة المنفذة لكنه لا يثبت خلوها من العيوب أو السلوك الضار.</li>
+<li><strong>المراجعة لا تزال أساسية:</strong> تغيّر commit أو معرّف المستودع يستحق التحقيق قبل الدمج.</li>
+<li><strong>أبقِ الملف محدثًا:</strong> أضف فحص <code>gh actions-lock --verify</code> إلى CI، وفكر في hook محلي لتقليل الأخطاء قبل الـcommit.</li>
+<li><strong>قلّل الصلاحيات:</strong> امنح <code>GITHUB_TOKEN</code> الحد الأدنى المطلوب، ولا تعرض الأسرار لإجراءات لا تحتاجها.</li>
+<li><strong>ابدأ تدريجيًا:</strong> جرّب الميزة على مجموعة محدودة من سير العمل، ثم وسّعها بعد مراجعة النتائج.</li>
+</ul>
+<p>تتيح GitHub أيضًا سياسة Require lockfile لفرض استخدام ملفات القفل على مستوى المستودع أو المؤسسة أو المؤسسة الكبرى. من الأفضل البدء بالتقييم والنطاق المحدود والتأكد من أن الملفات محدثة قبل تفعيل سياسة تمنع تشغيل سير عمل غير مهيأ.</p></section>
+<section><h2>أسئلة شائعة</h2>
+<h3>هل تلغي ملفات القفل الحاجة إلى مراجعة الإجراءات؟</h3><p>لا. هي تساعد على تشغيل الـcommit الذي جرى تثبيته، لكنها لا تحدد ما إذا كانت الشيفرة موثوقة أو آمنة. راجع المصدر والتغييرات والصلاحيات باستمرار.</p>
+<h3>هل يمكن لأي حساب GitHub استخدام الميزة؟</h3><p>أُعلنت الميزة في المعاينة العامة لمستخدمي GitHub Enterprise Cloud، بما في ذلك خيار إقامة البيانات. تحقق من وثائق GitHub لمعرفة شروط الإتاحة الحالية لحسابك.</p>
+<h3>هل يقوم Dependabot بإنشاء ملف القفل من الصفر؟</h3><p>لا. يساعد على تحديث مدخل القفل عندما يحدّث إجراء في سير عمل مهيأ بالفعل. تحتاج إلى تهيئة سير العمل أولًا.</p>
+<h3>هل أعدل actions.lock يدويًا؟</h3><p>لا. الملف مولّد بواسطة الأداة. عدّل مراجع سير العمل عند الحاجة، ثم أعد تشغيل <code>gh actions-lock</code> وراجع الفرق الناتج.</p></section>
+<section><h2>الخلاصة</h2>
+<p>تساعد GitHub Actions Workflow Lockfiles على تثبيت تبعيات CI/CD على commits محددة، والحد من مخاطر تغيّر الوسوم والفروع بعد مراجعة سير العمل. وتزداد فائدتها عندما تُستخدم مع مراجعة تغييرات القفل، وDependabot، وفحوص CI التي تكشف الملفات القديمة، وسياسات صلاحيات واضحة.</p>
+<p>ابدأ بمراجعة التبعيات الحالية، وثبّت الإضافة الرسمية، وأنشئ ملف القفل، ثم افحص جميع التغييرات قبل الدمج. والأهم من إنشاء الملف هو الحفاظ على تحديثه ومراجعة كل تغيير فيه باعتباره تغييرًا في الشيفرة التي ستعمل داخل بيئة البناء أو النشر.</p></section>
+<section><h2>المصادر الرسمية</h2>
+<ul>
+<li><a href="https://github.blog/changelog/2026-10-14-github-actions-workflow-lockfiles-in-public-preview/" target="_blank" rel="noopener noreferrer">إعلان GitHub عن Workflow Lockfiles في المعاينة العامة</a></li>
+<li><a href="https://docs.github.com/en/enterprise-cloud@latest/actions/concepts/security/workflow-dependency-lockfiles" target="_blank" rel="noopener noreferrer">شرح ملفات قفل تبعيات سير العمل</a></li>
+<li><a href="https://docs.github.com/en/enterprise-cloud@latest/actions/how-tos/secure-your-work/lock-workflow-dependencies" target="_blank" rel="noopener noreferrer">إنشاء ملفات القفل وصيانتها</a></li>
+<li><a href="https://docs.github.com/en/actions/how-tos/administer/enforce-workflow-lockfiles" target="_blank" rel="noopener noreferrer">فرض استخدام ملفات القفل والتحقق منها</a></li>
+<li><a href="https://github.com/github/gh-actions-lock" target="_blank" rel="noopener noreferrer">مستودع إضافة gh-actions-lock</a></li>
+</ul></section>
+</div></div></article>
+<section class="mt-8 rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-6"><h2 class="text-xl font-bold mb-3">تابع القراءة</h2><p class="text-slate-600 dark:text-slate-300 leading-7">لفهم سير العمل التعاوني، راجع أيضًا <a href="git-github-beginners.html">دليل Git وGitHub للمبتدئين</a>، ويمكنك أيضًا مراجعة <a href="github-pages-deploy.html">دليل نشر المواقع على GitHub Pages</a> لفهم نشر المشاريع وإدارة ملفاتها.، ثم طبّق المراجعة بالفروع وطلبات الدمج على تغييرات التبعيات.</p><a class="inline-flex mt-3 font-bold text-blue-600 dark:text-blue-400" href="../pages/programming.html">المزيد من أدلة البرمجة ←</a></section>
+</main>
+<div data-site-footer></div>
+<script src="../assets/js/site.js?v=20261012-images1" defer></script>
+</body>
+</html>

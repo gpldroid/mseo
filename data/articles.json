@@ -1035,5 +1035,25 @@
     "thumbnail": "assets/images/article-thumbnails/ai-website-builder-guide.svg",
     "publishedAt": "2026-09-23",
     "updatedAt": "2026-09-23"
+  },
+  {
+    "slug": "github-actions-workflow-lockfiles",
+    "file": "github-actions-workflow-lockfiles.html",
+    "title": "GitHub Actions Workflow Lockfiles: دليل تأمين تبعيات CI/CD",
+    "category": "البرمجة",
+    "subcategory": "Git وGitHub",
+    "tags": [
+      "GitHub Actions",
+      "Workflow Lockfiles",
+      "CI/CD",
+      "أمان سلسلة التوريد",
+      "Dependabot",
+      "GitHub CLI"
+    ],
+    "description": "شرح عملي لملفات قفل تبعيات GitHub Actions وطريقة إنشاء actions.lock ومراجعته وصيانته مع Dependabot للحد من مخاطر تغيّر الوسوم والفروع.",
+    "icon": "fa-shield-halved",
+    "image": "https://gpldroid.github.io/mseo/assets/images/article-thumbnails/github-actions-workflow-lockfiles.svg",
+    "thumbnail": "assets/images/article-thumbnails/github-actions-workflow-lockfiles.svg",
+    "featured": true
   }
 ]
