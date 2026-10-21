@@ -28,7 +28,10 @@
     { icon: "file-text", kicker: "الأداء", title: "محلّل حجم النص", titleEn: "Text Payload Size Analyzer", description: "احسب الكلمات والأحرف وحجم UTF-8.", descriptionEn: "Count words, characters and UTF-8 size.", href: "text-size-analyzer.html" },
     { icon: "bot", kicker: "الذكاء الاصطناعي", title: "منشئ مطالبات الذكاء الاصطناعي", titleEn: "AI Prompt Builder", description: "أنشئ مطالبة منظمة من الهدف والجمهور والقيود.", descriptionEn: "Build a structured prompt from goals and constraints.", href: "ai-prompt-builder.html" },
     { icon: "file-text", kicker: "المحتوى", title: "مولّد مخطط المقال", titleEn: "Blog Outline Generator", description: "أنشئ مخطط مقال بعناوين وأمثلة وخاتمة.", descriptionEn: "Generate an article outline with headings and examples.", href: "blog-outline-generator.html" },
-    { icon: "code", kicker: "المحتوى", title: "مقارنة النصوص واكتشاف الفروقات", titleEn: "Text Diff Checker", description: "قارن نصين سطرًا بسطر لاكتشاف التغييرات.", descriptionEn: "Compare two texts line by line.", href: "text-diff-checker.html" }
+    { icon: "code", kicker: "المحتوى", title: "مقارنة النصوص واكتشاف الفروقات", titleEn: "Text Diff Checker", description: "قارن نصين سطرًا بسطر لاكتشاف التغييرات.", descriptionEn: "Compare two texts line by line.", href: "text-diff-checker.html" },
+    { icon: "palette", kicker: "التصميم", title: "استخراج الألوان من الصور", titleEn: "Image Color Picker", description: "التقط لون أي نقطة في الصورة واجمع لوحة ألوان بصيغ HEX وRGB وHSL.", descriptionEn: "Pick pixel colors and export a palette in HEX, RGB and HSL.", href: "image-color-picker.html" },
+    { icon: "layers", kicker: "أدوات المطورين", title: "مولّد Favicon من الصور", titleEn: "Favicon Generator", description: "أنشئ أيقونات PNG بأحجام متعددة وكود HTML وmanifest لموقعك.", descriptionEn: "Generate multiple PNG icon sizes plus HTML and manifest snippets.", href: "image-to-favicon.html" },
+    { icon: "palette", kicker: "SEO والمحتوى", title: "مولّد صور Open Graph", titleEn: "Open Graph Image Generator", description: "صمّم صورة مشاركة 1200×630 وأنشئ وسوم Open Graph وTwitter Card.", descriptionEn: "Design a 1200×630 social card and generate Open Graph tags.", href: "open-graph-image-generator.html" }
   ];
 
   const ICONS = {
