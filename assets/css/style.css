@@ -1176,3 +1176,6 @@ body:has(> main > article) .prose pre code {
 @media(max-width:1050px){.article-page-layout{grid-template-columns:minmax(0,1fr) 250px;gap:18px}}
 @media(max-width:800px){.latest-carousel-card{flex-basis:50%;padding:12px}.latest-carousel-image,.latest-carousel-image img{height:128px;min-height:128px;max-height:128px}.latest-carousel-copy p{-webkit-line-clamp:2}.article-page-layout{grid-template-columns:minmax(0,1fr)}.article-page-sidebar{position:static;grid-template-columns:repeat(2,minmax(0,1fr))}.article-page-sidebar .sidebar-promo{grid-column:1/-1}}
 @media(max-width:540px){.latest-carousel-card{flex-basis:100%;grid-template-columns:minmax(0,1fr)}.latest-carousel-image,.latest-carousel-image img{height:150px;min-height:150px;max-height:150px}.latest-carousel-copy p{display:-webkit-box}.article-page-sidebar{grid-template-columns:minmax(0,1fr)}.article-page-sidebar .sidebar-promo{grid-column:auto}}
+
+.article-page-main{max-width:1200px!important;width:100%;margin-inline:auto;padding-inline:24px}
+@media(max-width:540px){.article-page-main{padding-inline:14px}}
