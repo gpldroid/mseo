@@ -2,7 +2,7 @@ import { readdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 
 const root = process.cwd();
-const fallbackBase = 'https://gpldroid.github.io/mseo/';
+const fallbackBase = 'https://fastseo.site/';
 const siteBase = new URL(process.env.MSEO_SITE_URL || process.env.URL || fallbackBase);
 if (!siteBase.pathname.endsWith('/')) siteBase.pathname += '/';
 const canonicalPrefix = siteBase.href.replace(/\/$/, '');
@@ -23,8 +23,7 @@ async function walk(directory) {
     if (excludedFiles.has(relative)) continue;
     checked++;
     const before = await readFile(file, 'utf8');
-    // Keep the repository's GitHub Pages deployment working while making Netlify's
-    // configured primary URL canonical when Netlify builds the production site.
+    // Normalize legacy GitHub Pages URLs to the site's primary custom domain.
     const after = before.replace(/https:\/\/gpldroid\.github\.io\/mseo(?=\/|["'?#])/g, canonicalPrefix);
     if (after !== before) {
       await writeFile(file, after, 'utf8');
