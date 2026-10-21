@@ -2,7 +2,7 @@ import { readdir, readFile, access } from 'node:fs/promises';
 import path from 'node:path';
 
 const root = process.cwd();
-const siteBase = new URL(process.env.MSEO_SITE_URL || 'https://gpldroid.github.io/mseo/');
+const siteBase = new URL(process.env.MSEO_SITE_URL || 'https://fastseo.site/');
 if (!siteBase.pathname.endsWith('/')) siteBase.pathname += '/';
 const ignoredFiles = new Set(['404.html', 'article.html', 'pages/admin.html']);
 const ignoredDirs = new Set(['.git', 'node_modules', 'dist', 'admin-dashboard']);
@@ -53,8 +53,6 @@ for (const file of htmlFiles) {
     if (title) titlePages.set(title, [...(titlePages.get(title) || []), file]);
     if (description) descPages.set(description, [...(descPages.get(description) || []), file]);
     if (canonical) canonicalPages.set(canonical, [...(canonicalPages.get(canonical) || []), file]);
-  
-  
   }
 
   for (const match of html.matchAll(/<a\b[^>]*>/gi)) {
@@ -64,7 +62,7 @@ for (const file of htmlFiles) {
     let url;
     try { url = new URL(href, 'https://mseo-audit.local/' + file); }
     catch { linkWarnings.push(file + ': invalid href ' + href); continue; }
-    const isOwn = url.hostname === 'mseo-audit.local' || ['gpldroid.github.io', 'mseopro.netlify.app'].includes(url.hostname);
+    const isOwn = url.hostname === 'mseo-audit.local' || ['gpldroid.github.io', 'mseopro.netlify.app', 'fastseo.site'].includes(url.hostname);
     if (!isOwn) { if (/^https?:/i.test(href)) externalLinks++; continue; }
     internalLinks++;
     let pathname = decodeURIComponent(url.pathname);
