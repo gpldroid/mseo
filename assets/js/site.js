@@ -207,6 +207,7 @@
   const main = $('main');
   const article = main && $('article', main);
   if (!main || !article || main.querySelector('.article-page-layout')) return;
+  main.classList.add('article-page-main');
   const breadcrumb = $('nav[aria-label="مسار التنقل"]', main);
   const layout = document.createElement('div');
   layout.className = 'article-page-layout';
@@ -242,7 +243,7 @@
     if (!track) return;
     track.innerHTML = latest.map((a,i) => {
       const href = link('articles/' + encodeURIComponent(a.file || a.slug + '.html'));
-      const image = a.thumbnail || a.image || link('assets/favicon.svg');
+      const image = a.thumbnail || a.image || 'assets/favicon.svg';
       const imageSrc = /^https?:\/\//i.test(image) ? image : link(image);
       return '<article class="latest-carousel-card" data-article-slide="' + i + '"><a class="latest-carousel-image" href="' + href + '" tabindex="-1" aria-hidden="true"><img loading="lazy" decoding="async" width="480" height="270" sizes="(max-width: 540px) 90vw, (max-width: 800px) 45vw, 30vw" src="' + esc(imageSrc) + '" alt=""></a><div class="latest-carousel-copy"><span class="article-category">' + esc(a.category || 'مقالات') + '</span><span class="carousel-index">0' + (i+1) + ' / 0' + latest.length + '</span><h3><a href="' + href + '">' + esc(a.title) + '</a></h3><p>' + esc(a.description || 'اكتشف الدليل الكامل في مكتبة MSEO.') + '</p><a class="button button-primary" href="' + href + '">اقرأ المقال <span aria-hidden="true">←</span></a></div></article>';
     }).join('') || '<p class="loading-card">لا توجد مقالات متاحة حاليًا.</p>';
