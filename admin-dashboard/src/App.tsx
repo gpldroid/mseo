@@ -89,13 +89,32 @@ function Root() {
     setShowEditor(false); setNotice(publishNotice); await load();
   };
   const remove = async (row: ContentRow) => {
-    if (!isAdmin || !window.confirm("هل تريد حذف هذا المحتوى نهائيًا؟")) return;
-    const { error: e } = await supabase.from("mseo_content_items").delete().eq("id", row.id);
-    if (e) setError(e.message); else {
-      try { setNotice(await triggerContentPublish(row.slug, "deleted")); }
-      catch (publishError) { setNotice("تم حذف السجل، لكن تعذّر بدء إعادة البناء: " + (publishError instanceof Error ? publishError.message : "خطأ غير معروف")); }
-      await load();
+    if (!isAdmin || !auth.user || !window.confirm("هل تريد حذف هذا المحتوى نهائيًا؟")) return;
+    const { error: deleteError } = await supabase.from("mseo_content_items").delete().eq("id", row.id);
+    if (deleteError) { setError(deleteError.message); return; }
+
+    let auditWarning = "";
+    try {
+      const { error: auditError } = await supabase.from("mseo_audit_logs").insert({
+        actor_id: auth.user.id,
+        action: "content.delete",
+        entity_type: "content",
+        entity_id: row.id,
+        details: { slug: row.slug, status: row.status },
+      });
+      if (auditError) throw auditError;
+    } catch (auditError) {
+      console.error("Content deletion audit failed:", auditError);
+      auditWarning = " تعذّر تسجيل العملية في سجل التدقيق.";
     }
+
+    try {
+      const publishNotice = await triggerContentPublish(row.slug, "deleted");
+      setNotice(auditWarning ? publishNotice + auditWarning : publishNotice);
+    } catch (publishError) {
+      setNotice("تم حذف السجل" + auditWarning + "، لكن تعذّر بدء إعادة البناء: " + (publishError instanceof Error ? publishError.message : "خطأ غير معروف"));
+    }
+    await load();
   };
 
   if (auth.loading) return <div className="auth-shell"><div className="login-card"><div className="brand-mark">M</div><h1>MSEO Pro</h1><p>جارٍ التحقق من الجلسة والصلاحيات…</p></div></div>;
