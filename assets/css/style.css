@@ -1335,9 +1335,6 @@ html[data-theme="tech"] {
 
 
 /* Responsive footer logo sizing: larger on desktop, preserve the established mobile size. */
-.mseo-footer .mseo-brand {
-  align-items: flex-start;
-}
 .mseo-footer .mseo-brand-logo {
   display: block;
   flex: 0 0 auto;
