@@ -50,6 +50,21 @@ for (const file of htmlFiles) {
       const expectedCanonical = file === 'index.html' ? siteBase.href : new URL(file, siteBase).href;
       if (canonical !== expectedCanonical) critical.push(file + ': canonical mismatch; expected ' + expectedCanonical + ', found ' + canonical);
     }
+
+    const ogUrlTag = html.match(/<meta\b(?=[^>]*\bproperty\s*=\s*["']og:url["'])[^>]*>/i)?.[0] || '';
+    const ogUrl = attr(ogUrlTag, 'content').trim();
+    if (ogUrl && canonical && ogUrl !== canonical) {
+      critical.push(file + ': og:url does not match canonical URL; expected ' + canonical + ', found ' + ogUrl);
+    }
+
+    const jsonLdScripts = [...html.matchAll(/<script\b(?=[^>]*\btype\s*=\s*["']application\/ld\+json["'])[^>]*>([\s\S]*?)<\/script>/gi)];
+    for (const [index, match] of jsonLdScripts.entries()) {
+      try {
+        JSON.parse(match[1]);
+      } catch {
+        critical.push(file + ': invalid JSON-LD syntax in structured-data block #' + (index + 1));
+      }
+    }
     if (title) titlePages.set(title, [...(titlePages.get(title) || []), file]);
     if (description) descPages.set(description, [...(descPages.get(description) || []), file]);
     if (canonical) canonicalPages.set(canonical, [...(canonicalPages.get(canonical) || []), file]);
@@ -83,12 +98,27 @@ for (const file of htmlFiles) {
     }
   }
 }
+const robotsPath = path.join(root, 'robots.txt');
+try {
+  const robots = await readFile(robotsPath, 'utf8');
+  const sitemapDirectives = [...robots.matchAll(/^Sitemap:\s*(\S+)\s*$/gim)].map((match) => match[1]);
+  const expectedSitemap = new URL('sitemap.xml', siteBase).href;
+  if (sitemapDirectives.length !== 1 || sitemapDirectives[0] !== expectedSitemap) {
+    critical.push('robots.txt: expected exactly one Sitemap directive for ' + expectedSitemap);
+  }
+} catch (error) {
+  if (error.code !== 'ENOENT') throw error;
+  critical.push('robots.txt: missing file');
+}
+
 const duplicates = (map) => [...map.entries()].filter(([, files]) => files.length > 1);
 for (const [title, files] of duplicates(titlePages)) critical.push('duplicate title "' + title + '": ' + files.join(', '));
 const duplicateDescriptions = duplicates(descPages);
 const duplicateCanonicals = duplicates(canonicalPages);
 console.log('SEO audit: ' + htmlFiles.length + ' public HTML pages scanned.');
-console.log('Metadata: ' + critical.filter(x => x.includes('missing')).length + ' missing required tags; ' + (critical.length - critical.filter(x => x.includes('missing')).length) + ' duplicate-title errors.');
+const missingRequiredTags = critical.filter((message) => /: missing (?:title|meta description|canonical URL)$/.test(message)).length;
+const duplicateTitleErrors = critical.filter((message) => message.startsWith('duplicate title ')).length;
+console.log('Metadata: ' + missingRequiredTags + ' missing required tags; ' + duplicateTitleErrors + ' duplicate-title errors; ' + duplicateDescriptions.length + ' duplicate descriptions; ' + duplicateCanonicals.length + ' duplicate canonical URLs.');
 console.log('Links: ' + internalLinks + ' internal links checked; ' + externalLinks + ' external links found; ' + linkWarnings.length + ' internal/security warnings.');
 console.log('Duplicate descriptions: ' + duplicateDescriptions.length + '; duplicate canonical URLs: ' + duplicateCanonicals.length + '.');
 for (const warning of linkWarnings.slice(0, 100)) console.warn('WARN ' + warning);
