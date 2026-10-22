@@ -116,7 +116,9 @@ for (const [title, files] of duplicates(titlePages)) critical.push('duplicate ti
 const duplicateDescriptions = duplicates(descPages);
 const duplicateCanonicals = duplicates(canonicalPages);
 console.log('SEO audit: ' + htmlFiles.length + ' public HTML pages scanned.');
-console.log('Metadata: ' + critical.filter(x => x.includes('missing')).length + ' missing required tags; ' + (critical.length - critical.filter(x => x.includes('missing')).length) + ' duplicate-title errors.');
+const missingRequiredTags = critical.filter((message) => /: missing (?:title|meta description|canonical URL)$/.test(message)).length;
+const duplicateTitleErrors = critical.filter((message) => message.startsWith('duplicate title ')).length;
+console.log('Metadata: ' + missingRequiredTags + ' missing required tags; ' + duplicateTitleErrors + ' duplicate-title errors; ' + duplicateDescriptions.length + ' duplicate descriptions; ' + duplicateCanonicals.length + ' duplicate canonical URLs.');
 console.log('Links: ' + internalLinks + ' internal links checked; ' + externalLinks + ' external links found; ' + linkWarnings.length + ' internal/security warnings.');
 console.log('Duplicate descriptions: ' + duplicateDescriptions.length + '; duplicate canonical URLs: ' + duplicateCanonicals.length + '.');
 for (const warning of linkWarnings.slice(0, 100)) console.warn('WARN ' + warning);
