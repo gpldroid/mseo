@@ -23,7 +23,8 @@
     ['pages/programming.html','البرمجة'],
     ['pages/seo.html','SEO'],
     ['pages/tools.html','الأدوات'],
-    ['pages/archive.html','ارشيف']
+    ['pages/archive.html','الأرشيف'],
+    ['pages/categories.html','التصنيفات']
   ];
   const readPreference = (key) => { try { return localStorage.getItem(key); } catch (_) { return null; } };
   const writePreference = (key, value) => { try { localStorage.setItem(key, value); } catch (_) {} };
