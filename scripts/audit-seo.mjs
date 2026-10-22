@@ -51,13 +51,13 @@ for (const file of htmlFiles) {
       if (canonical !== expectedCanonical) critical.push(file + ': canonical mismatch; expected ' + expectedCanonical + ', found ' + canonical);
     }
 
-    const ogUrlTag = html.match(/<meta\\b(?=[^>]*\\bproperty\\s*=\\s*["']og:url["'])[^>]*>/i)?.[0] || '';
+    const ogUrlTag = html.match(/<meta\b(?=[^>]*\bproperty\s*=\s*["']og:url["'])[^>]*>/i)?.[0] || '';
     const ogUrl = attr(ogUrlTag, 'content').trim();
     if (ogUrl && canonical && ogUrl !== canonical) {
       critical.push(file + ': og:url does not match canonical URL; expected ' + canonical + ', found ' + ogUrl);
     }
 
-    const jsonLdScripts = [...html.matchAll(/<script\\b(?=[^>]*\\btype\\s*=\\s*["']application\\/ld\\+json["'])[^>]*>([\\s\\S]*?)<\\/script>/gi)];
+    const jsonLdScripts = [...html.matchAll(/<script\b(?=[^>]*\btype\s*=\s*["']application\/ld\+json["'])[^>]*>([\s\S]*?)<\/script>/gi)];
     for (const [index, match] of jsonLdScripts.entries()) {
       try {
         JSON.parse(match[1]);
@@ -101,7 +101,7 @@ for (const file of htmlFiles) {
 const robotsPath = path.join(root, 'robots.txt');
 try {
   const robots = await readFile(robotsPath, 'utf8');
-  const sitemapDirectives = [...robots.matchAll(/^Sitemap:\\s*(\\S+)\\s*$/gim)].map((match) => match[1]);
+  const sitemapDirectives = [...robots.matchAll(/^Sitemap:\s*(\S+)\s*$/gim)].map((match) => match[1]);
   const expectedSitemap = new URL('sitemap.xml', siteBase).href;
   if (sitemapDirectives.length !== 1 || sitemapDirectives[0] !== expectedSitemap) {
     critical.push('robots.txt: expected exactly one Sitemap directive for ' + expectedSitemap);
