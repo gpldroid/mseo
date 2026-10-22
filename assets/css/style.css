@@ -1297,3 +1297,38 @@ a.load-more:hover,a[data-load-more]:hover,.read-more-button:hover{
   color:#fff!important;
 }
 
+
+/* Modern adaptive logo frame — shared header/footer, light and dark themes. */
+:root {
+  --mseo-logo-border: rgba(49, 86, 217, .22);
+  --mseo-logo-surface: rgba(255, 255, 255, .88);
+  --mseo-logo-shadow: 0 2px 5px rgba(22, 34, 66, .06), 0 7px 18px rgba(49, 86, 217, .09);
+  --mseo-logo-shadow-hover: 0 4px 9px rgba(22, 34, 66, .09), 0 10px 24px rgba(49, 86, 217, .16);
+}
+html.dark,
+html[data-theme="tech"] {
+  --mseo-logo-border: rgba(139, 164, 255, .32);
+  --mseo-logo-surface: rgba(19, 27, 45, .92);
+  --mseo-logo-shadow: 0 2px 6px rgba(0, 0, 0, .22), 0 8px 22px rgba(0, 0, 0, .2);
+  --mseo-logo-shadow-hover: 0 4px 10px rgba(0, 0, 0, .3), 0 10px 26px rgba(74, 105, 210, .2);
+}
+.mseo-header .mseo-brand-logo,
+.mseo-footer .mseo-brand-logo {
+  box-sizing: border-box;
+  padding: 4px;
+  border: 1px solid var(--mseo-logo-border);
+  border-radius: 12px !important;
+  background: var(--mseo-logo-surface);
+  box-shadow: var(--mseo-logo-shadow);
+  transition: box-shadow .22s ease, border-color .22s ease, transform .22s ease, background-color .22s ease;
+}
+.mseo-header .mseo-brand:hover .mseo-brand-logo,
+.mseo-footer .mseo-brand:hover .mseo-brand-logo {
+  border-color: rgba(49, 86, 217, .48);
+  box-shadow: var(--mseo-logo-shadow-hover);
+  transform: translateY(-1px);
+}
+@media (prefers-reduced-motion: reduce) {
+  .mseo-header .mseo-brand-logo,
+  .mseo-footer .mseo-brand-logo { transition: none; }
+}
