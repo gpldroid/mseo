@@ -291,3 +291,33 @@
     if (track) track.innerHTML = '<p class="loading-card">تعذر تحميل أحدث المقالات.</p>';
   });
 })();
+
+/* Category archive cards: reveal six articles at a time, matching the homepage. */
+(() => {
+  document.querySelectorAll('[data-category-grid]').forEach(grid => {
+    const cards = [...grid.children].filter(card => card.classList.contains('category-article-card'));
+    if (cards.length <= 6) return;
+    const batch = 6;
+    let shown = batch;
+    cards.forEach((card, index) => { card.hidden = index >= shown; });
+    const controls = document.createElement('div');
+    controls.className = 'category-load-more-wrap';
+    controls.innerHTML = '<p class="category-load-more-count" aria-live="polite"></p><button type="button" class="mseo-load-more" data-category-load-more>تحميل 6 مقالات إضافية <span aria-hidden="true">↓</span></button>';
+    grid.insertAdjacentElement('afterend', controls);
+    const button = controls.querySelector('[data-category-load-more]');
+    const count = controls.querySelector('.category-load-more-count');
+    const update = () => {
+      count.textContent = 'عرض ' + Math.min(shown, cards.length) + ' من ' + cards.length + ' مقالًا';
+      const left = cards.length - shown;
+      button.hidden = left <= 0;
+      if (left > 0) button.innerHTML = 'تحميل ' + Math.min(batch, left) + ' مقالات إضافية <span aria-hidden="true">↓</span>';
+    };
+    button.addEventListener('click', () => {
+      const nextShown = Math.min(shown + batch, cards.length);
+      cards.slice(shown, nextShown).forEach(card => { card.hidden = false; });
+      shown = nextShown;
+      update();
+    });
+    update();
+  });
+})();
