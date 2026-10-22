@@ -107,7 +107,7 @@
   // Mobile tab bar: point to the current category section when present, otherwise the archive.
   if (!document.querySelector('[data-mobile-tabbar]')) {
     const home = path === '/' || path.endsWith('/index.html') || path.endsWith('/mseo/');
-    const pageMatch = path.match(/\\/pages\\/([^/]+)\\.html$/);
+    const pageMatch = path.match(/\/pages\/([^/]+)\.html$/);
     const categoryPage = Boolean(pageMatch && ['ai','web-development','programming','seo'].includes(pageMatch[1]));
     const tabs = [
       ['index.html','الرئيسية','fa-house',home],
