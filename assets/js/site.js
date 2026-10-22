@@ -31,7 +31,7 @@
       <header class="mseo-header">
         <div class="mseo-header-inner">
           <button class="mseo-icon-button mseo-menu-toggle" type="button" aria-label="${'فتح القائمة'}" aria-expanded="false" data-menu-toggle>☰</button>
-          <a class="mseo-brand" href="${link('index.html')}" aria-label="🚀 Fast Seo ${'الرئيسية'}"><img class="mseo-brand-logo" src="${link('assets/images/fastseo%20logo.webp')}" alt="" width="42" height="42" decoding="async" style="display:block;width:42px;height:42px;object-fit:contain;border-radius:10px"><span>🚀Fast Seo</span></a>
+          <a class="mseo-brand" href="${link('index.html')}" aria-label="Fast Seo ${'الرئيسية'}"><img class="mseo-brand-logo" src="${link('assets/images/fastseo%20logo.webp')}" alt="" width="42" height="42" decoding="async" style="display:block;width:42px;height:42px;object-fit:contain;border-radius:10px"><span>🚀Fast Seo🚀</span></a>
           <nav class="mseo-nav" data-main-nav aria-label="${'القائمة الرئيسية'}">
             ${navItems.map(([href,label])=>`<a href="${link(href)}" ${((href==='index.html' && (path.endsWith('/mseo/') || path.endsWith('/index.html') || path === '/')) || (href!=='index.html' && path.endsWith('/'+href)))?'aria-current="page"':''}>${label}</a>`).join('')}
           </nav>
