@@ -40,14 +40,14 @@
     header.innerHTML = `
       <header class="mseo-header">
         <div class="mseo-header-inner">
-          <button class="mseo-icon-button mseo-menu-toggle" type="button" aria-label="${'فتح القائمة'}" aria-expanded="false" data-menu-toggle>☰</button>
+          <button class="mseo-icon-button mseo-menu-toggle" type="button" aria-label="${'فتح القائمة'}" aria-expanded="false" data-menu-toggle><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
           <a class="mseo-brand" href="${link('index.html')}" aria-label="Fast Seo ${'الرئيسية'}"><img class="mseo-brand-logo" src="${link('assets/images/fastseo-logo.svg')}" alt="" width="132" height="46" decoding="async" style="display:block;width:132px;height:46px;object-fit:contain;border-radius:8px"></a>
           <nav class="mseo-nav" data-main-nav aria-label="${'القائمة الرئيسية'}">
             ${navItems.map(([href,label])=>`<a href="${link(href)}" ${((href==='index.html' && (path.endsWith('/mseo/') || path.endsWith('/index.html') || path === '/')) || (href!=='index.html' && path.endsWith('/'+href)))?'aria-current="page"':''}>${label}</a>`).join('')}
           </nav>
           <div class="mseo-actions">
-            <button class="mseo-icon-button" type="button" data-search-toggle aria-label="${'فتح البحث'}" title="${'بحث'}">⌕</button>
-            <button class="mseo-icon-button" type="button" data-theme-toggle aria-label="${'تبديل المظهر'}" title="${'الوضع الداكن'}">☾</button>
+            <button class="mseo-icon-button" type="button" data-search-toggle aria-label="${'فتح البحث'}" title="${'بحث'}"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></button>
+            <button class="mseo-icon-button" type="button" data-theme-toggle aria-label="${'تبديل المظهر'}" title="${'الوضع الداكن'}"><i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i></button>
             </div>
         </div>
         <div class="mseo-search-panel" data-search-panel>
@@ -70,11 +70,11 @@
   const year = $('[data-current-year]'); if (year) year.textContent = new Date().getFullYear();
   const themeButton = $('[data-theme-toggle]');
   const themes = [
-    {id:'editorial',label:'المجلة',icon:'▤',description:'تصميم تحريري متوازن'},
-    {id:'tech',label:'تقني داكن',icon:'⌘',description:'ألوان داكنة ولمسات تقنية'},
-    {id:'compact',label:'مكثف',icon:'▦',description:'مساحات أصغر ومحتوى أكثر'},
-    {id:'reading',label:'القراءة',icon:'Aa',description:'ألوان دافئة وعمود قراءة مريح'},
-    {id:'mseo-blue',label:'فاست سيو | Fast Seo Prism',icon:'✧',description:'بنفسجي عميق ولمسات نعناعية بتأثيرات زجاجية'}
+    {id:'editorial',label:'المجلة',icon:'fa-newspaper',description:'تصميم تحريري متوازن'},
+    {id:'tech',label:'تقني داكن',icon:'fa-microchip',description:'ألوان داكنة ولمسات تقنية'},
+    {id:'compact',label:'مكثف',icon:'fa-table-cells',description:'مساحات أصغر ومحتوى أكثر'},
+    {id:'reading',label:'القراءة',icon:'fa-book-open',description:'ألوان دافئة وعمود قراءة مريح'},
+    {id:'mseo-blue',label:'فاست سيو | Fast Seo Prism',icon:'fa-wand-magic-sparkles',description:'بنفسجي عميق ولمسات نعناعية بتأثيرات زجاجية'}
   ];
   const documentRoot = document.documentElement;
   const savedTheme = readPreference('mseo-theme');
@@ -86,7 +86,7 @@
     documentRoot.classList.toggle('dark', activeTheme === 'tech');
     const theme = themes.find(item => item.id === activeTheme);
     if (themeButton && theme) {
-      themeButton.textContent = theme.icon;
+      themeButton.innerHTML = '<i class="fa-solid ' + theme.icon + '" aria-hidden="true"></i>';
       themeButton.title = 'المظهر الحالي: ' + theme.label + ' — اضغط للتبديل';
       themeButton.setAttribute('aria-label', 'تغيير المظهر. الحالي: ' + theme.label);
       themeButton.setAttribute('aria-pressed', String(activeTheme !== 'editorial'));
@@ -100,10 +100,43 @@
     writePreference('mseo-theme', next.id);
   });
   const menuButton=$('[data-menu-toggle]'), nav=$('[data-main-nav]');
-  if(menuButton&&nav){menuButton.addEventListener('click',()=>{const open=nav.classList.toggle('is-open');menuButton.setAttribute('aria-expanded',String(open));menuButton.textContent=open?'×':'☰';});nav.addEventListener('click',e=>{if(e.target.closest('a')){nav.classList.remove('is-open');menuButton.setAttribute('aria-expanded','false');menuButton.textContent='☰';}});}
+  if(menuButton&&nav){menuButton.addEventListener('click',()=>{const open=nav.classList.toggle('is-open');menuButton.setAttribute('aria-expanded',String(open));menuButton.innerHTML=open?'<i class="fa-solid fa-xmark" aria-hidden="true"></i>':'<i class="fa-solid fa-bars" aria-hidden="true"></i>';});nav.addEventListener('click',e=>{if(e.target.closest('a')){nav.classList.remove('is-open');menuButton.setAttribute('aria-expanded','false');menuButton.innerHTML='<i class="fa-solid fa-bars" aria-hidden="true"></i>';}});}
   const searchButton=$('[data-search-toggle]'),searchPanel=$('[data-search-panel]');
   if(searchButton&&searchPanel){searchButton.addEventListener('click',()=>{const open=searchPanel.classList.toggle('is-open');if(open)$('#mseo-global-search')?.focus();});}
-  const controls=document.createElement('div');controls.className='mseo-scroll-controls';controls.innerHTML='<button type="button" data-scroll-top aria-label="العودة إلى أعلى الصفحة" title="أعلى الصفحة">↑</button><button type="button" data-scroll-down aria-label="الانتقال إلى أسفل الصفحة" title="أسفل الصفحة">↓</button>';document.body.append(controls);
+
+  // Mobile bottom tab bar: consistent, accessible primary navigation.
+  if (!document.querySelector('[data-mobile-tabbar]')) {
+    const tabs = [
+      ['index.html','الرئيسية','fa-house',path === '/' || path.endsWith('/index.html') || path.endsWith('/mseo/')],
+      ['#categories','التصنيفات','fa-layer-group',false],
+      ['#articles','المقالات','fa-book-open',false],
+      ['pages/tools.html','الأدوات','fa-screwdriver-wrench',path.endsWith('/pages/tools.html')],
+      ['pages/archive.html','الأرشيف','fa-box-archive',path.endsWith('/pages/archive.html')]
+    ];
+    const bar = document.createElement('nav');
+    bar.className = 'mseo-mobile-tabbar';
+    bar.setAttribute('data-mobile-tabbar', '');
+    bar.setAttribute('aria-label', 'التنقل السريع');
+    bar.innerHTML = tabs.map(([href,label,icon,active]) => {
+      const target = href.startsWith('#') ? href : link(href);
+      return '<a href="' + target + '"' + (active ? ' aria-current="page"' : '') + '><i class="fa-solid ' + icon + '" aria-hidden="true"></i><span>' + label + '</span></a>';
+    }).join('');
+    document.body.appendChild(bar);
+  }
+
+  // Upgrade common standalone decorative symbols to Font Awesome icons.
+  const symbolIcons = {'✓':'fa-check','↓':'fa-arrow-down','↑':'fa-arrow-up','⌕':'fa-magnifying-glass','⌄':'fa-chevron-down','←':'fa-arrow-left','↗':'fa-arrow-up-right-from-square','✳':'fa-wand-magic-sparkles'};
+  document.querySelectorAll('span[aria-hidden="true"], .eyebrow, .hero-points span, .hero-actions a').forEach(el => {
+    if (el.children.length || el.closest('.mseo-mobile-tabbar')) return;
+    const symbol = el.textContent.trim();
+    if (symbolIcons[symbol]) {
+      el.innerHTML = '<i class="fa-solid ' + symbolIcons[symbol] + '" aria-hidden="true"></i>';
+    } else if (symbol.startsWith('✓ ')) {
+      el.innerHTML = '<i class="fa-solid fa-check" aria-hidden="true"></i> ' + symbol.slice(1).trim();
+    }
+  });
+
+  const controls=document.createElement('div');controls.className='mseo-scroll-controls';controls.innerHTML='<button type="button" data-scroll-top aria-label="العودة إلى أعلى الصفحة" title="أعلى الصفحة"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></button><button type="button" data-scroll-down aria-label="الانتقال إلى أسفل الصفحة" title="أسفل الصفحة"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i></button>';document.body.append(controls);
   const topButton=$('[data-scroll-top]',controls),downButton=$('[data-scroll-down]',controls);
   const onScroll=()=>topButton.classList.toggle('is-visible',window.scrollY>300);
   window.addEventListener('scroll',onScroll,{passive:true});onScroll();
