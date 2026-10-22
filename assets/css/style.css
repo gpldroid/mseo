@@ -1179,3 +1179,15 @@ body:has(> main > article) .prose pre code {
 
 .article-page-main{max-width:1200px!important;width:100%;margin-inline:auto;padding-inline:24px}
 @media(max-width:540px){.article-page-main{padding-inline:14px}}
+
+
+/* Category page article cards: consistent thumbnails, spacing, and responsive layout. */
+.category-article-grid{align-items:stretch;}
+.category-article-card{display:flex;flex-direction:column;gap:0;overflow:hidden;padding:0;text-decoration:none;min-height:100%;}
+.category-article-card .category-article-thumbnail{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:var(--surface-2);border-bottom:1px solid var(--line);}
+.category-article-card .category-article-thumbnail.is-fallback{object-fit:contain;padding:18px;}
+.category-article-card .category-article-label{display:inline-flex;align-self:flex-start;margin:18px 20px 0;padding:5px 9px;border-radius:999px;background:var(--surface-2);color:var(--brand);font-size:.78rem;font-weight:800;}
+.category-article-card h3{padding:0 20px;margin:10px 0 4px;}
+.category-article-card p{padding:0 20px;line-height:1.85;}
+.category-article-card .site-read{margin:auto 20px 20px;padding-top:8px;}
+@media(max-width:600px){.category-article-card .category-article-label{margin-inline:14px}.category-article-card h3,.category-article-card p{padding-inline:14px}.category-article-card .site-read{margin-inline:14px;margin-bottom:16px}}
