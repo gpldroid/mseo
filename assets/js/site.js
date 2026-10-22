@@ -209,6 +209,11 @@
   if (!main || !article || main.querySelector('.article-page-layout')) return;
   main.classList.add('article-page-main');
   const breadcrumb = $('nav[aria-label="مسار التنقل"]', main);
+  // Normalize legacy article markup: the breadcrumb must sit outside <article>.
+  // Otherwise the shared layout can be inserted into its own descendant and throw HierarchyRequestError.
+  if (breadcrumb && article.contains(breadcrumb) && article.parentNode) {
+    article.parentNode.insertBefore(breadcrumb, article);
+  }
   const layout = document.createElement('div');
   layout.className = 'article-page-layout';
   const content = document.createElement('div');
