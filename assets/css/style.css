@@ -1332,3 +1332,26 @@ html[data-theme="tech"] {
   .mseo-header .mseo-brand-logo,
   .mseo-footer .mseo-brand-logo { transition: none; }
 }
+
+
+/* Responsive footer logo sizing: larger on desktop, preserve the established mobile size. */
+.mseo-footer .mseo-brand-logo {
+  display: block;
+  flex: 0 0 auto;
+  width: 200px !important;
+  height: 100px !important;
+  max-width: 100%;
+  object-fit: contain;
+}
+@media (min-width: 761px) and (max-width: 1100px) {
+  .mseo-footer .mseo-brand-logo {
+    width: 170px !important;
+    height: 85px !important;
+  }
+}
+@media (max-width: 760px) {
+  .mseo-footer .mseo-brand-logo {
+    width: 120px !important;
+    height: 60px !important;
+  }
+}
