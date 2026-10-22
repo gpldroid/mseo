@@ -23,8 +23,7 @@
     ['pages/programming.html','البرمجة'],
     ['pages/seo.html','SEO'],
     ['pages/tools.html','الأدوات'],
-    ['pages/archive.html','الأرشيف'],
-    ['pages/categories.html','التصنيفات']
+    ['pages/archive.html','الأرشيف']
   ];
   const readPreference = (key) => { try { return localStorage.getItem(key); } catch (_) { return null; } };
   const writePreference = (key, value) => { try { localStorage.setItem(key, value); } catch (_) {} };
@@ -112,8 +111,8 @@
     const categoryPage = Boolean(pageMatch && ['ai','web-development','programming','seo'].includes(pageMatch[1]));
     const tabs = [
       ['index.html','الرئيسية','fa-house',home],
-      ['pages/categories.html','التصنيفات','fa-layer-group',path.endsWith('/pages/categories.html') || path.endsWith('/pages/topics.html') || categoryPage],
-      ['pages/archive.html#articles','المقالات','fa-book-open',path.includes('/articles/')],
+      ['pages/categories.html','التصنيفات','fa-layer-group',path.endsWith('/pages/categories.html') || categoryPage],
+      ['pages/topics.html','المقالات','fa-book-open',path.endsWith('/pages/topics.html') || path.includes('/articles/')],
       ['pages/tools.html','الأدوات','fa-screwdriver-wrench',path.endsWith('/pages/tools.html')],
       ['pages/archive.html','الأرشيف','fa-box-archive',path.endsWith('/pages/archive.html')]
     ];
