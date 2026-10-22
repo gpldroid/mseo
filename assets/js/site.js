@@ -23,7 +23,8 @@
     ['pages/programming.html','البرمجة'],
     ['pages/seo.html','SEO'],
     ['pages/tools.html','الأدوات'],
-    ['pages/archive.html','ارشيف']
+    ['pages/archive.html','الأرشيف'],
+    ['pages/categories.html','التصنيفات']
   ];
   const readPreference = (key) => { try { return localStorage.getItem(key); } catch (_) { return null; } };
   const writePreference = (key, value) => { try { localStorage.setItem(key, value); } catch (_) {} };
@@ -61,7 +62,7 @@
       <footer class="mseo-footer"><div class="mseo-footer-inner">
         <div class="mseo-footer-grid">
           <section><a class="mseo-brand" href="${link('index.html')}"><img class="mseo-brand-logo" src="${link('assets/images/fastseo-logo.svg')}" alt="" width="42" height="42" decoding="async" style="display:block;width:42px;height:42px;object-fit:contain;border-radius:10px"><span>فاست سيو | Fast Seo</span></a><p>${'مكتبة عربية للمقالات والأدلة التقنية العملية في الذكاء الاصطناعي والبرمجة وتطوير المواقع وتحسين محركات البحث.'}</p><div class="mseo-socials" aria-label="${'روابط التواصل'}"><a href="https://github.com/gpldroid/" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true" fill="currentColor"><path d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.56.1.76-.24.76-.54v-2.08c-3.1.67-3.76-1.32-3.76-1.32-.5-1.28-1.24-1.62-1.24-1.62-1.01-.69.08-.68.08-.68 1.12.08 1.71 1.15 1.71 1.15.99 1.7 2.6 1.21 3.23.93.1-.72.39-1.21.7-1.49-2.48-.28-5.09-1.24-5.09-5.51 0-1.22.44-2.21 1.15-2.99-.12-.28-.5-1.42.11-2.96 0 0 .94-.3 3.05 1.14a10.6 10.6 0 0 1 5.55 0c2.11-1.44 3.05-1.14 3.05-1.14.61 1.54.23 2.68.11 2.96.72.78 1.15 1.77 1.15 2.99 0 4.28-2.61 5.23-5.1 5.5.4.35.75 1.03.75 2.08v3.09c0 .3.2.65.77.54A11.1 11.1 0 0 0 12 .9Z"/></svg></a><a href="info@larache.xyz" target="_blank" rel="noopener noreferrer" aria-label="GitHub Issues" title="GitHub Issues"><svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M9 9h.01M15 9h.01M8.5 14.5a4.5 4.5 0 0 0 7 0M12 3v3"/></svg></a></div></section>
-          <section><h3>${'استكشف الموقع'}</h3><div class="mseo-footer-links"><a href="${link('pages/archive.html')}">${'أرشيف المقالات'}</a><a href="${link('pages/tools.html')}">${'الأدوات'}</a><a href="${link('pages/about.html')}">${'من نحن'}</a><a href="${link('pages/contact.html')}">${'اتصل بنا'}</a><a href="${link('pages/editorial-policy.html')}">${'السياسة التحريرية'}</a></div></section>
+          <section><h3>${'استكشف الموقع'}</h3><div class="mseo-footer-links"><a href="${link('pages/categories.html')}">التصنيفات</a><a href="${link('pages/topics.html')}">المقالات حسب التصنيف</a><a href="${link('pages/archive.html')}">${'أرشيف المقالات'}</a><a href="${link('pages/tools.html')}">${'الأدوات'}</a><a href="${link('pages/about.html')}">${'من نحن'}</a><a href="${link('pages/contact.html')}">${'اتصل بنا'}</a><a href="${link('pages/editorial-policy.html')}">${'السياسة التحريرية'}</a></div></section>
           <section><h3>${'قانوني'}</h3><div class="mseo-footer-links"><a href="${link('pages/privacy.html')}">${'سياسة الخصوصية'}</a><a href="${link('pages/terms.html')}">${'شروط الاستخدام'}</a></div></section>
         </div>
         <div class="mseo-copyright"><span>© <span data-current-year></span> فاست سيو | Fast Seo — ${'جميع الحقوق محفوظة'}</span><span>${'تصميم وتطوير'} <strong>Imad Limrani</strong></span></div>
@@ -111,7 +112,7 @@
     const categoryPage = Boolean(pageMatch && ['ai','web-development','programming','seo'].includes(pageMatch[1]));
     const tabs = [
       ['index.html','الرئيسية','fa-house',home],
-      [categoryPage ? '#category-articles' : 'pages/archive.html#categories','التصنيفات','fa-layer-group',categoryPage],
+      ['pages/categories.html','التصنيفات','fa-layer-group',path.endsWith('/pages/categories.html') || path.endsWith('/pages/topics.html') || categoryPage],
       ['pages/archive.html#articles','المقالات','fa-book-open',path.includes('/articles/')],
       ['pages/tools.html','الأدوات','fa-screwdriver-wrench',path.endsWith('/pages/tools.html')],
       ['pages/archive.html','الأرشيف','fa-box-archive',path.endsWith('/pages/archive.html')]
