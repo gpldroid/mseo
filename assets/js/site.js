@@ -105,7 +105,7 @@
 (async()=>{
  const $=(s,r=document)=>r.querySelector(s),base=new URL(location.pathname.match(/\/(articles|pages)\//)?'../':'./',location.href),url=p=>new URL(p,base).href;
  const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
- const shortDescription=(value,fallback='اكتشف الدليل الكامل في مكتبة MSEO.')=>{const text=String(value||fallback).replace(/\\s+/g,' ').trim();if(text.length<=135)return text;const excerpt=text.slice(0,132),boundary=excerpt.lastIndexOf(' ');return (boundary>95?excerpt.slice(0,boundary):excerpt).trimEnd()+'…';};
+ const shortDescription=(value,fallback='اكتشف الدليل الكامل في مكتبة MSEO.')=>{const text=String(value||fallback).replace(/\s+/g,' ').trim();if(text.length<=135)return text;const excerpt=text.slice(0,132),boundary=excerpt.lastIndexOf(' ');return (boundary>95?excerpt.slice(0,boundary):excerpt).trimEnd()+'…';};
  const grid=$('#article-grid'),catsGrid=$('#category-grid'),select=$('#article-category'),search=$('#article-search'),count=$('#results-count'),more=$('#pagination'),error=$('#load-error');
  if(!grid||!catsGrid)return;
  const batch=6;let articles=[],shown=batch;
