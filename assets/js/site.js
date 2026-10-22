@@ -118,7 +118,7 @@
     bar.setAttribute('data-mobile-tabbar', '');
     bar.setAttribute('aria-label', 'التنقل السريع');
     bar.innerHTML = tabs.map(([href,label,icon,active]) => {
-      const target = href.startsWith('#') ? href : link(href);
+      const target = href.startsWith('#') ? ((path.endsWith('/index.html') || path === '/' || path.endsWith('/mseo/')) ? href : link('index.html') + href) : link(href);
       return '<a href="' + target + '"' + (active ? ' aria-current="page"' : '') + '><i class="fa-solid ' + icon + '" aria-hidden="true"></i><span>' + label + '</span></a>';
     }).join('');
     document.body.appendChild(bar);
