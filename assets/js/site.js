@@ -104,12 +104,15 @@
   const searchButton=$('[data-search-toggle]'),searchPanel=$('[data-search-panel]');
   if(searchButton&&searchPanel){searchButton.addEventListener('click',()=>{const open=searchPanel.classList.toggle('is-open');if(open)$('#mseo-global-search')?.focus();});}
 
-  // Mobile bottom tab bar: consistent, accessible primary navigation.
+  // Mobile tab bar: point to the current category section when present, otherwise the archive.
   if (!document.querySelector('[data-mobile-tabbar]')) {
+    const home = path === '/' || path.endsWith('/index.html') || path.endsWith('/mseo/');
+    const pageMatch = path.match(/\\/pages\\/([^/]+)\\.html$/);
+    const categoryPage = Boolean(pageMatch && ['ai','web-development','programming','seo'].includes(pageMatch[1]));
     const tabs = [
-      ['index.html','الرئيسية','fa-house',path === '/' || path.endsWith('/index.html') || path.endsWith('/mseo/')],
-      ['#categories','التصنيفات','fa-layer-group',false],
-      ['#articles','المقالات','fa-book-open',false],
+      ['index.html','الرئيسية','fa-house',home],
+      [categoryPage ? '#category-articles' : 'pages/archive.html#categories','التصنيفات','fa-layer-group',categoryPage],
+      ['pages/archive.html#articles','المقالات','fa-book-open',path.includes('/articles/')],
       ['pages/tools.html','الأدوات','fa-screwdriver-wrench',path.endsWith('/pages/tools.html')],
       ['pages/archive.html','الأرشيف','fa-box-archive',path.endsWith('/pages/archive.html')]
     ];
@@ -118,7 +121,7 @@
     bar.setAttribute('data-mobile-tabbar', '');
     bar.setAttribute('aria-label', 'التنقل السريع');
     bar.innerHTML = tabs.map(([href,label,icon,active]) => {
-      const target = href.startsWith('#') ? ((path.endsWith('/index.html') || path === '/' || path.endsWith('/mseo/')) ? href : link('index.html') + href) : link(href);
+      const target = href.startsWith('#') ? href : link(href);
       return '<a href="' + target + '"' + (active ? ' aria-current="page"' : '') + '><i class="fa-solid ' + icon + '" aria-hidden="true"></i><span>' + label + '</span></a>';
     }).join('');
     document.body.appendChild(bar);
