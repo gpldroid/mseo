@@ -14,9 +14,9 @@ for (const item of catalog) await access(new URL('articles/' + item.file, root))
 const home = await readFile(new URL('index.html', root), 'utf8');
 if (!home.includes('data-home-header') || !home.includes('data-home-footer')) throw new Error('Homepage shared header/footer placeholders are missing');
 const sharedJs = await readFile(new URL('assets/js/site.js', root), 'utf8');
-if (sharedJs.includes("link('index.html')") || /link\\(href\\)\\s*\\}/.test(sharedJs)) throw new Error('Shared navigation must use the clean root URL for homepage links');
+if (sharedJs.includes("link('index.html')") || sharedJs.includes('link(href)}')) throw new Error('Shared navigation must use the clean root URL for homepage links');
 const redirects = await readFile(new URL('_redirects', root), 'utf8');
-if (!/^\\/index\\.html\\s+\\/\\s+301\\s*$/m.test(redirects)) throw new Error('Missing permanent redirect from /index.html to /');
+if (!redirects.includes('/index.html / 301')) throw new Error('Missing permanent redirect from /index.html to /');
 const css = await readFile(new URL('assets/css/style.css', root), 'utf8');
 for (const feature of ['.mseo-header','.mseo-nav','.mseo-search-panel','.mseo-footer','.mseo-scroll-controls','html.dark']) if (!css.includes(feature)) throw new Error('Unified stylesheet missing feature: ' + feature);
 // Keep the checked-in sitemap aligned with the generated public inventory.
