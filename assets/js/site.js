@@ -112,7 +112,7 @@
     const categoryPage = Boolean(pageMatch && ['ai','web-development','programming','seo'].includes(pageMatch[1]));
     const tabs = [
       ['index.html','الرئيسية','fa-house',home],
-      [categoryPage ? '#category-articles' : 'pages/archive.html#categories','التصنيفات','fa-layer-group',categoryPage],
+      ['pages/categories.html','التصنيفات','fa-layer-group',categoryPage],
       ['pages/archive.html#articles','المقالات','fa-book-open',path.includes('/articles/')],
       ['pages/tools.html','الأدوات','fa-screwdriver-wrench',path.endsWith('/pages/tools.html')],
       ['pages/archive.html','الأرشيف','fa-box-archive',path.endsWith('/pages/archive.html')]
