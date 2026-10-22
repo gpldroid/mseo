@@ -6,6 +6,16 @@
   const root = nested ? '../' : './';
   const link = (href) => root + href;
 
+  // Load Font Awesome once across pages that use the shared site script.
+  if (!document.querySelector('script[data-fontawesome-kit]')) {
+    const fontAwesomeKit = document.createElement('script');
+    fontAwesomeKit.src = 'https://kit.fontawesome.com/5ed1f7cde5.js';
+    fontAwesomeKit.crossOrigin = 'anonymous';
+    fontAwesomeKit.async = true;
+    fontAwesomeKit.setAttribute('data-fontawesome-kit', '');
+    document.head.appendChild(fontAwesomeKit);
+  }
+
   const navItems = [
     ['index.html','الرئيسية'],
     ['pages/ai.html','الذكاء الاصطناعي'],
