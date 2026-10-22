@@ -1334,19 +1334,19 @@ html[data-theme="tech"] {
 }
 
 
-/* Responsive footer logo sizing: larger on desktop, preserve the established mobile size. */
+/* Balanced responsive footer logo sizing; keep the established mobile size. */
 .mseo-footer .mseo-brand-logo {
   display: block;
   flex: 0 0 auto;
-  width: 200px !important;
-  height: 100px !important;
+  width: 160px !important;
+  height: 80px !important;
   max-width: 100%;
   object-fit: contain;
 }
 @media (min-width: 761px) and (max-width: 1100px) {
   .mseo-footer .mseo-brand-logo {
-    width: 170px !important;
-    height: 85px !important;
+    width: 140px !important;
+    height: 70px !important;
   }
 }
 @media (max-width: 760px) {
