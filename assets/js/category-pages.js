@@ -5,7 +5,7 @@
  const short = (s, n=135) => { const v=String(s||'اقرأ الدليل العملي في مكتبة فاست سيو.').replace(/\s+/g,' ').trim(); if(v.length<=n)return v; const cut=v.slice(0,n-1),p=cut.lastIndexOf(' ');return (p>n*.65?cut.slice(0,p):cut)+'…'; };
  const categories = [
   {key:'seo',name:'SEO',description:'أدلة تحسين محركات البحث والفهرسة والروابط الداخلية واستراتيجية المحتوى.',icon:'fa-magnifying-glass-chart',image:'seo.svg'},
-  {key:'web-development',name:'تطوير المواقع',description:'HTML وCSS وبناء صفحات ويب عملية وسريعة ومتوافقة مع معايير الويب.',icon:'fa-code',image:'web-design.svg'},
+  {key:'web-development',name:'تطوير المواقع',description:'HTML وCSS وبناء صفحات ويب عملية وسريعة ومتوافقة مع معايير الويب.',icon:'fa-code',image:'development.svg'},
   {key:'performance',name:'أداء المواقع',description:'السرعة وتجربة المستخدم وCore Web Vitals وتحسين كفاءة الصفحات.',icon:'fa-gauge-high',image:'performance.svg'},
   {key:'web-design',name:'تصميم المواقع',description:'الواجهات والتصميم المتجاوب والطباعة العربية وتجارب الاستخدام.',icon:'fa-pen-ruler',image:'web-design.svg'},
   {key:'programming',name:'البرمجة',description:'JavaScript وأساسيات البرمجة وتنظيم الكود وتصحيح الأخطاء.',icon:'fa-terminal',image:'programming.svg'},
