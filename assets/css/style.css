@@ -1271,3 +1271,29 @@ select:focus-visible {
   .mseo-scroll-controls{inset-inline-end:12px;bottom:calc(82px + env(safe-area-inset-bottom))}
 }
 @media(min-width:761px){.mseo-mobile-tabbar{display:none!important}}
+
+/* Final shared CTA palette: primary actions and every "load more" control match. */
+:root{--button-primary:#3156d9;--button-primary-hover:#203da7}
+html.dark{--button-primary:#3156d9;--button-primary-hover:#203da7}
+.site-primary,.button-primary,.seo-button-primary,.mseo-search-panel button,
+.pagination button[aria-current=page],.pagination .mseo-load-more,
+.mseo-tools-toggle,.category-load-more-wrap .mseo-load-more,
+button[data-load-more],button.load-more,.load-more-button,
+a.load-more,a[data-load-more],.read-more-button{
+  background:var(--button-primary)!important;
+  background-color:var(--button-primary)!important;
+  border-color:var(--button-primary)!important;
+  color:#fff!important;
+}
+.site-primary:hover,.button-primary:hover,.seo-button-primary:hover,
+.mseo-search-panel button:hover,.pagination button[aria-current=page]:hover,
+.pagination .mseo-load-more:hover,.mseo-tools-toggle:hover,
+.category-load-more-wrap .mseo-load-more:hover,
+button[data-load-more]:hover,button.load-more:hover,.load-more-button:hover,
+a.load-more:hover,a[data-load-more]:hover,.read-more-button:hover{
+  background:var(--button-primary-hover)!important;
+  background-color:var(--button-primary-hover)!important;
+  border-color:var(--button-primary-hover)!important;
+  color:#fff!important;
+}
+
