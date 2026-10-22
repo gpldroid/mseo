@@ -26,6 +26,15 @@ async function walk(directory) {
     // Normalize legacy GitHub Pages URLs to the site's primary custom domain.
     let after = before.replace(/https:\/\/gpldroid\.github\.io\/mseo(?=\/|["'?#])/g, canonicalPrefix);
 
+    // Normalize the public brand consistently in titles, social metadata, structured data, and page copy.
+    after = after.replace(/MSEO Editorial/g, 'Fast Seo Editorial');
+    after = after.replace(/MSEO/g, 'فاست سيو | Fast Seo');
+    // Google ignores meta keywords for ranking; remove the obsolete tag.
+    after = after.replace(/<meta\b(?=[^>]*\bname\s*=\s*["']keywords["'])[^>]*>\s*/gi, '');
+    after = after.replace(/(<meta\b(?=[^>]*\bproperty\s*=\s*["']og:site_name["'])[^>]*\bcontent\s*=\s*["'])[^"']*(["'][^>]*>)/gi, '$1فاست سيو | Fast Seo$2');
+    // Invalidate cached shared-header/footer scripts across public pages.
+    after = after.replace(/(assets\/js\/site\.js)\?v=[^"' ]*/g, '$1?v=20261022-fastseo-brand1');
+
     // Prefer directory/root URLs over explicit index.html URLs in navigational and social metadata.
     // This keeps links like ../index.html as ../ and the homepage index.html as ./.
     after = after.replace(/(\b(?:href|content)\s*=\s*)(["'])([^"']*?)index\.html([?#][^"']*)?\2/gi,

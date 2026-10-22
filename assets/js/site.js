@@ -1,4 +1,4 @@
-/* MSEO shared public-site interactions. Does not run in the admin dashboard. */
+/* فاست سيو | Fast Seo shared public-site interactions. Does not run in the admin dashboard. */
 (() => {
   const $ = (s, root=document) => root.querySelector(s);
   const path = location.pathname;
@@ -31,7 +31,7 @@
       <header class="mseo-header">
         <div class="mseo-header-inner">
           <button class="mseo-icon-button mseo-menu-toggle" type="button" aria-label="${'فتح القائمة'}" aria-expanded="false" data-menu-toggle>☰</button>
-          <a class="mseo-brand" href="${link('index.html')}" aria-label="MSEO — ${'الرئيسية'}"><img class="mseo-brand-logo" src="${link('assets/images/fastseo%20logo.webp')}" alt="" width="42" height="42" decoding="async" style="display:block;width:42px;height:42px;object-fit:contain;border-radius:10px"><span>MSEO</span></a>
+          <a class="mseo-brand" href="${link('index.html')}" aria-label="فاست سيو | Fast Seo — ${'الرئيسية'}"><img class="mseo-brand-logo" src="${link('assets/images/fastseo%20logo.webp')}" alt="" width="42" height="42" decoding="async" style="display:block;width:42px;height:42px;object-fit:contain;border-radius:10px"><span>فاست سيو | Fast Seo</span></a>
           <nav class="mseo-nav" data-main-nav aria-label="${'القائمة الرئيسية'}">
             ${navItems.map(([href,label])=>`<a href="${link(href)}" ${((href==='index.html' && (path.endsWith('/mseo/') || path.endsWith('/index.html') || path === '/')) || (href!=='index.html' && path.endsWith('/'+href)))?'aria-current="page"':''}>${label}</a>`).join('')}
           </nav>
@@ -41,7 +41,7 @@
             </div>
         </div>
         <div class="mseo-search-panel" data-search-panel>
-          <form action="${link('pages/archive.html')}" method="get"><label class="sr-only" for="mseo-global-search">${'ابحث في المقالات'}</label><input id="mseo-global-search" name="q" type="search" placeholder="${'ابحث في مقالات MSEO…'}" /><button type="submit">${'بحث'}</button></form>
+          <form action="${link('pages/archive.html')}" method="get"><label class="sr-only" for="mseo-global-search">${'ابحث في المقالات'}</label><input id="mseo-global-search" name="q" type="search" placeholder="${'ابحث في مقالات فاست سيو | Fast Seo…'}" /><button type="submit">${'بحث'}</button></form>
         </div>
       </header>`;
   }
@@ -50,11 +50,11 @@
     footer.innerHTML = `
       <footer class="mseo-footer"><div class="mseo-footer-inner">
         <div class="mseo-footer-grid">
-          <section><a class="mseo-brand" href="${link('index.html')}"><img class="mseo-brand-logo" src="${link('assets/images/fastseo%20logo.webp')}" alt="" width="42" height="42" decoding="async" style="display:block;width:42px;height:42px;object-fit:contain;border-radius:10px"><span>MSEO</span></a><p>${'مكتبة عربية للمقالات والأدلة التقنية العملية في الذكاء الاصطناعي والبرمجة وتطوير المواقع وتحسين محركات البحث.'}</p><div class="mseo-socials" aria-label="${'روابط التواصل'}"><a href="https://github.com/gpldroid/" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true" fill="currentColor"><path d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.56.1.76-.24.76-.54v-2.08c-3.1.67-3.76-1.32-3.76-1.32-.5-1.28-1.24-1.62-1.24-1.62-1.01-.69.08-.68.08-.68 1.12.08 1.71 1.15 1.71 1.15.99 1.7 2.6 1.21 3.23.93.1-.72.39-1.21.7-1.49-2.48-.28-5.09-1.24-5.09-5.51 0-1.22.44-2.21 1.15-2.99-.12-.28-.5-1.42.11-2.96 0 0 .94-.3 3.05 1.14a10.6 10.6 0 0 1 5.55 0c2.11-1.44 3.05-1.14 3.05-1.14.61 1.54.23 2.68.11 2.96.72.78 1.15 1.77 1.15 2.99 0 4.28-2.61 5.23-5.1 5.5.4.35.75 1.03.75 2.08v3.09c0 .3.2.65.77.54A11.1 11.1 0 0 0 12 .9Z"/></svg></a><a href="info@larache.xyz" target="_blank" rel="noopener noreferrer" aria-label="GitHub Issues" title="GitHub Issues"><svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M9 9h.01M15 9h.01M8.5 14.5a4.5 4.5 0 0 0 7 0M12 3v3"/></svg></a></div></section>
+          <section><a class="mseo-brand" href="${link('index.html')}"><img class="mseo-brand-logo" src="${link('assets/images/fastseo%20logo.webp')}" alt="" width="42" height="42" decoding="async" style="display:block;width:42px;height:42px;object-fit:contain;border-radius:10px"><span>فاست سيو | Fast Seo</span></a><p>${'مكتبة عربية للمقالات والأدلة التقنية العملية في الذكاء الاصطناعي والبرمجة وتطوير المواقع وتحسين محركات البحث.'}</p><div class="mseo-socials" aria-label="${'روابط التواصل'}"><a href="https://github.com/gpldroid/" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true" fill="currentColor"><path d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.56.1.76-.24.76-.54v-2.08c-3.1.67-3.76-1.32-3.76-1.32-.5-1.28-1.24-1.62-1.24-1.62-1.01-.69.08-.68.08-.68 1.12.08 1.71 1.15 1.71 1.15.99 1.7 2.6 1.21 3.23.93.1-.72.39-1.21.7-1.49-2.48-.28-5.09-1.24-5.09-5.51 0-1.22.44-2.21 1.15-2.99-.12-.28-.5-1.42.11-2.96 0 0 .94-.3 3.05 1.14a10.6 10.6 0 0 1 5.55 0c2.11-1.44 3.05-1.14 3.05-1.14.61 1.54.23 2.68.11 2.96.72.78 1.15 1.77 1.15 2.99 0 4.28-2.61 5.23-5.1 5.5.4.35.75 1.03.75 2.08v3.09c0 .3.2.65.77.54A11.1 11.1 0 0 0 12 .9Z"/></svg></a><a href="info@larache.xyz" target="_blank" rel="noopener noreferrer" aria-label="GitHub Issues" title="GitHub Issues"><svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M9 9h.01M15 9h.01M8.5 14.5a4.5 4.5 0 0 0 7 0M12 3v3"/></svg></a></div></section>
           <section><h3>${'استكشف الموقع'}</h3><div class="mseo-footer-links"><a href="${link('pages/archive.html')}">${'أرشيف المقالات'}</a><a href="${link('pages/tools.html')}">${'الأدوات'}</a><a href="${link('pages/about.html')}">${'من نحن'}</a><a href="${link('pages/contact.html')}">${'اتصل بنا'}</a><a href="${link('pages/editorial-policy.html')}">${'السياسة التحريرية'}</a></div></section>
           <section><h3>${'قانوني'}</h3><div class="mseo-footer-links"><a href="${link('pages/privacy.html')}">${'سياسة الخصوصية'}</a><a href="${link('pages/terms.html')}">${'شروط الاستخدام'}</a></div></section>
         </div>
-        <div class="mseo-copyright"><span>© <span data-current-year></span> MSEO — ${'جميع الحقوق محفوظة'}</span><span>${'تصميم وتطوير'} <strong>Imad Limrani</strong></span></div>
+        <div class="mseo-copyright"><span>© <span data-current-year></span> فاست سيو | Fast Seo — ${'جميع الحقوق محفوظة'}</span><span>${'تصميم وتطوير'} <strong>Imad Limrani</strong></span></div>
       </div></footer>`;
   }
   const year = $('[data-current-year]'); if (year) year.textContent = new Date().getFullYear();
@@ -64,7 +64,7 @@
     {id:'tech',label:'تقني داكن',icon:'⌘',description:'ألوان داكنة ولمسات تقنية'},
     {id:'compact',label:'مكثف',icon:'▦',description:'مساحات أصغر ومحتوى أكثر'},
     {id:'reading',label:'القراءة',icon:'Aa',description:'ألوان دافئة وعمود قراءة مريح'},
-    {id:'mseo-blue',label:'MSEO Prism',icon:'✧',description:'بنفسجي عميق ولمسات نعناعية بتأثيرات زجاجية'}
+    {id:'mseo-blue',label:'فاست سيو | Fast Seo Prism',icon:'✧',description:'بنفسجي عميق ولمسات نعناعية بتأثيرات زجاجية'}
   ];
   const documentRoot = document.documentElement;
   const savedTheme = readPreference('mseo-theme');
@@ -105,7 +105,7 @@
 (async()=>{
  const $=(s,r=document)=>r.querySelector(s),base=new URL(location.pathname.match(/\/(articles|pages)\//)?'../':'./',location.href),url=p=>new URL(p,base).href;
  const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
- const shortDescription=(value,fallback='اكتشف الدليل الكامل في مكتبة MSEO.',maxLength=135)=>{const text=String(value||fallback).replace(/\s+/g,' ').trim();if(text.length<=maxLength)return text;const excerpt=text.slice(0,maxLength-3),boundary=excerpt.lastIndexOf(' ');return (boundary>Math.floor(maxLength*0.65)?excerpt.slice(0,boundary):excerpt).trimEnd()+'…';};
+ const shortDescription=(value,fallback='اكتشف الدليل الكامل في مكتبة فاست سيو | Fast Seo.',maxLength=135)=>{const text=String(value||fallback).replace(/\s+/g,' ').trim();if(text.length<=maxLength)return text;const excerpt=text.slice(0,maxLength-3),boundary=excerpt.lastIndexOf(' ');return (boundary>Math.floor(maxLength*0.65)?excerpt.slice(0,boundary):excerpt).trimEnd()+'…';};
  const grid=$('#article-grid'),catsGrid=$('#category-grid'),select=$('#article-category'),search=$('#article-search'),count=$('#results-count'),more=$('#pagination'),error=$('#load-error');
  if(!grid||!catsGrid)return;
  const batch=6;let articles=[],shown=batch;
@@ -117,7 +117,7 @@
   if(latestTrack){
    latestTrack.innerHTML=latest.length?latest.map((a,i)=>{
     const href=url('articles/'+encodeURIComponent(a.file||a.slug+'.html')),img=a.thumbnail||a.image||'assets/favicon.svg';
-    return '<article class="latest-carousel-card" data-slide="'+i+'"><a class="latest-carousel-image" href="'+href+'" tabindex="-1" aria-hidden="true"><img loading="lazy" decoding="async" width="480" height="270" sizes="(max-width: 800px) 90vw, 34vw" src="'+esc(url(img))+'" alt=""></a><div class="latest-carousel-copy"><span class="article-category">'+esc(a.category||'مقالات')+'</span><span class="carousel-index">0'+(i+1)+' / 0'+latest.length+'</span><h3><a href="'+href+'">'+esc(a.title)+'</a></h3><p>'+esc(shortDescription(a.description,'اكتشف الدليل الكامل في مكتبة MSEO.',95))+'</p><a class="button button-primary" href="'+href+'">اقرأ المقال <span aria-hidden="true">←</span></a></div></article>';
+    return '<article class="latest-carousel-card" data-slide="'+i+'"><a class="latest-carousel-image" href="'+href+'" tabindex="-1" aria-hidden="true"><img loading="lazy" decoding="async" width="480" height="270" sizes="(max-width: 800px) 90vw, 34vw" src="'+esc(url(img))+'" alt=""></a><div class="latest-carousel-copy"><span class="article-category">'+esc(a.category||'مقالات')+'</span><span class="carousel-index">0'+(i+1)+' / 0'+latest.length+'</span><h3><a href="'+href+'">'+esc(a.title)+'</a></h3><p>'+esc(shortDescription(a.description,'اكتشف الدليل الكامل في مكتبة فاست سيو | Fast Seo.',95))+'</p><a class="button button-primary" href="'+href+'">اقرأ المقال <span aria-hidden="true">←</span></a></div></article>';
    }).join(''):'<p class="loading-card">لا توجد مقالات متاحة حاليًا.</p>';
    const slides=[...latestTrack.querySelectorAll('[data-slide]')];let activeSlide=0,slideTimer=null;
    const showSlide=(index)=>{if(!slides.length)return;activeSlide=(index+slides.length)%slides.length;slides[activeSlide].scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'nearest',inline:'start'});dots?.querySelectorAll('button').forEach((dot,i)=>{dot.setAttribute('aria-current',String(i===activeSlide));dot.setAttribute('aria-label','عرض المقال '+(i+1));});};
@@ -222,7 +222,7 @@
   const sidebar = document.createElement('aside');
   sidebar.className = 'article-page-sidebar';
   sidebar.setAttribute('aria-label', 'الشريط الجانبي للمقالات');
-  sidebar.innerHTML = '<section class="sidebar-widget"><h2>أحدث المقالات</h2><ul class="sidebar-latest" data-article-sidebar-latest><li>جارٍ تحميل المقالات…</li></ul></section><section class="sidebar-widget"><h2>تصفّح حسب التصنيف</h2><ul class="sidebar-categories" data-article-sidebar-categories><li>جارٍ تحميل التصنيفات…</li></ul></section><section class="sidebar-widget sidebar-promo"><span class="section-kicker">أدوات مجانية</span><h2>أنجز مهامك أسرع</h2><p>استخدم أدوات MSEO المجانية لتحسين المحتوى وSEO وتطوير الويب.</p><a class="site-read" href="../pages/tools.html">استكشف الأدوات ←</a></section>';
+  sidebar.innerHTML = '<section class="sidebar-widget"><h2>أحدث المقالات</h2><ul class="sidebar-latest" data-article-sidebar-latest><li>جارٍ تحميل المقالات…</li></ul></section><section class="sidebar-widget"><h2>تصفّح حسب التصنيف</h2><ul class="sidebar-categories" data-article-sidebar-categories><li>جارٍ تحميل التصنيفات…</li></ul></section><section class="sidebar-widget sidebar-promo"><span class="section-kicker">أدوات مجانية</span><h2>أنجز مهامك أسرع</h2><p>استخدم أدوات فاست سيو | Fast Seo المجانية لتحسين المحتوى وSEO وتطوير الويب.</p><a class="site-read" href="../pages/tools.html">استكشف الأدوات ←</a></section>';
   if (breadcrumb) breadcrumb.insertAdjacentElement('afterend', layout);
   else main.insertAdjacentElement('afterbegin', layout);
   layout.append(content, sidebar);
@@ -230,7 +230,7 @@
   const carousel = document.createElement('section');
   carousel.className = 'section latest-carousel-section article-latest-carousel-section';
   carousel.setAttribute('aria-labelledby', 'article-latest-carousel-title');
-  carousel.innerHTML = '<div class="section-heading"><div><span class="section-kicker">واصل الاستكشاف</span><h2 id="article-latest-carousel-title">أحدث المقالات</h2><p>مقالات وأدلة جديدة من مكتبة MSEO.</p></div><span class="heading-count" aria-hidden="true">03 / 05</span></div><div class="latest-carousel" data-article-carousel><button class="carousel-arrow" type="button" data-article-prev aria-label="المقالات السابقة">‹</button><div class="latest-carousel-track" data-article-latest-carousel aria-live="polite"><div class="loading-card">جارٍ تحميل أحدث المقالات…</div></div><button class="carousel-arrow" type="button" data-article-next aria-label="المقالات التالية">›</button></div><div class="carousel-dots" data-article-carousel-dots aria-label="اختيار المقال"></div>';
+  carousel.innerHTML = '<div class="section-heading"><div><span class="section-kicker">واصل الاستكشاف</span><h2 id="article-latest-carousel-title">أحدث المقالات</h2><p>مقالات وأدلة جديدة من مكتبة فاست سيو | Fast Seo.</p></div><span class="heading-count" aria-hidden="true">03 / 05</span></div><div class="latest-carousel" data-article-carousel><button class="carousel-arrow" type="button" data-article-prev aria-label="المقالات السابقة">‹</button><div class="latest-carousel-track" data-article-latest-carousel aria-live="polite"><div class="loading-card">جارٍ تحميل أحدث المقالات…</div></div><button class="carousel-arrow" type="button" data-article-next aria-label="المقالات التالية">›</button></div><div class="carousel-dots" data-article-carousel-dots aria-label="اختيار المقال"></div>';
   main.appendChild(carousel);
   fetch(link('data/articles.json'), {cache:'no-cache'}).then(response => {
     if (!response.ok) throw new Error('Could not load article catalog');
@@ -251,7 +251,7 @@
       const href = link('articles/' + encodeURIComponent(a.file || a.slug + '.html'));
       const image = a.thumbnail || a.image || 'assets/favicon.svg';
       const imageSrc = /^https?:\/\//i.test(image) ? image : link(image);
-      return '<article class="latest-carousel-card" data-article-slide="' + i + '"><a class="latest-carousel-image" href="' + href + '" tabindex="-1" aria-hidden="true"><img loading="lazy" decoding="async" width="480" height="270" sizes="(max-width: 540px) 90vw, (max-width: 800px) 45vw, 30vw" src="' + esc(imageSrc) + '" alt=""></a><div class="latest-carousel-copy"><span class="article-category">' + esc(a.category || 'مقالات') + '</span><span class="carousel-index">0' + (i+1) + ' / 0' + latest.length + '</span><h3><a href="' + href + '">' + esc(a.title) + '</a></h3><p>' + esc(a.description || 'اكتشف الدليل الكامل في مكتبة MSEO.') + '</p><a class="button button-primary" href="' + href + '">اقرأ المقال <span aria-hidden="true">←</span></a></div></article>';
+      return '<article class="latest-carousel-card" data-article-slide="' + i + '"><a class="latest-carousel-image" href="' + href + '" tabindex="-1" aria-hidden="true"><img loading="lazy" decoding="async" width="480" height="270" sizes="(max-width: 540px) 90vw, (max-width: 800px) 45vw, 30vw" src="' + esc(imageSrc) + '" alt=""></a><div class="latest-carousel-copy"><span class="article-category">' + esc(a.category || 'مقالات') + '</span><span class="carousel-index">0' + (i+1) + ' / 0' + latest.length + '</span><h3><a href="' + href + '">' + esc(a.title) + '</a></h3><p>' + esc(a.description || 'اكتشف الدليل الكامل في مكتبة فاست سيو | Fast Seo.') + '</p><a class="button button-primary" href="' + href + '">اقرأ المقال <span aria-hidden="true">←</span></a></div></article>';
     }).join('') || '<p class="loading-card">لا توجد مقالات متاحة حاليًا.</p>';
     const slides = [...track.querySelectorAll('[data-article-slide]')];
     let active = 0, timer = null, visible = false;
