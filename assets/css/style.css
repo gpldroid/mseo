@@ -1200,3 +1200,51 @@ body:has(> main > article) .prose pre code {
 .category-load-more-wrap .mseo-load-more:hover{transform:translateY(-2px)}
 .category-load-more-wrap .mseo-load-more[hidden]{display:none!important}
 @media(prefers-reduced-motion:no-preference){.category-article-card:not([hidden]){animation:category-card-reveal .24s ease both}@keyframes category-card-reveal{from{opacity:.65;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}}
+
+
+/* Unified button palette: use the site's brand blue and teal accent consistently. */
+:root {
+  --button-primary: var(--brand);
+  --button-primary-hover: var(--brand-2);
+  --button-focus: var(--accent);
+}
+.site-primary,
+.button-primary,
+.mseo-search-panel button,
+.pagination button[aria-current=page],
+.pagination .mseo-load-more,
+.mseo-tools-toggle,
+.category-load-more-wrap .mseo-load-more {
+  background: var(--button-primary);
+  border-color: var(--button-primary);
+  color: #fff;
+}
+.site-primary:hover,
+.button-primary:hover,
+.mseo-search-panel button:hover,
+.pagination button[aria-current=page]:hover,
+.pagination .mseo-load-more:hover,
+.mseo-tools-toggle:hover,
+.category-load-more-wrap .mseo-load-more:hover {
+  background: var(--button-primary-hover);
+  border-color: var(--button-primary-hover);
+  color: #fff;
+}
+.site-secondary,
+.button-secondary {
+  background: var(--surface);
+  border-color: var(--line);
+  color: var(--brand);
+}
+.site-secondary:hover,
+.button-secondary:hover {
+  background: var(--surface-2);
+  border-color: var(--brand);
+  color: var(--brand-2);
+}
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline-color: var(--button-focus);
+}
