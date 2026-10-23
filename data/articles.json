@@ -1,5 +1,24 @@
 [
   {
+    "slug": "typescript-for-beginners-ar",
+    "file": "typescript-for-beginners-ar.html",
+    "title": "TypeScript للمبتدئين: تعلّم الأنواع واكتب JavaScript بأخطاء أقل",
+    "category": "البرمجة",
+    "subcategory": "TypeScript",
+    "tags": [
+      "TypeScript",
+      "تعلم TypeScript",
+      "JavaScript",
+      "أنواع البيانات",
+      "برمجة"
+    ],
+    "description": "تعلم TypeScript للمبتدئين من الأنواع الأساسية إلى الواجهات وUnion Types، مع أمثلة عملية وطريقة إضافته إلى مشروع JavaScript.",
+    "icon": "fa-code",
+    "image": "https://images.unsplash.com/photo-1516116216624-53e697fedbea?auto=format&fit=crop&w=1400&q=85",
+    "publishedAt": "2026-10-23",
+    "updatedAt": "2026-10-23"
+  },
+  {
     "slug": "google-search-console-indexing-errors",
     "file": "google-search-console-indexing-errors.html",
     "title": "أخطاء الفهرسة في Google Search Console: التشخيص والإصلاح",
