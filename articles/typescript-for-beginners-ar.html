@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="ar" dir="rtl" class="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b1220">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../site.webmanifest">
+<title>TypeScript للمبتدئين: تعلّم الأنواع واكتب JavaScript بأخطاء أقل | فاست سيو</title>
+<meta name="description" content="تعلم TypeScript للمبتدئين من الأنواع الأساسية إلى الواجهات وUnion Types، مع أمثلة عملية وطريقة إضافته إلى مشروع JavaScript.">
+<meta name="keywords" content="تعلم TypeScript, TypeScript للمبتدئين, شرح TypeScript بالعربي, JavaScript, TypeScript types, interfaces, union types">
+<meta name="author" content="imad limrani">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://fastseo.site/articles/typescript-for-beginners-ar.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TypeScript للمبتدئين: تعلّم الأنواع واكتب JavaScript بأخطاء أقل">
+<meta property="og:description" content="تعلم TypeScript للمبتدئين من الأنواع الأساسية إلى الواجهات وUnion Types، مع أمثلة عملية وطريقة إضافته إلى مشروع JavaScript.">
+<meta property="og:url" content="https://fastseo.site/articles/typescript-for-beginners-ar.html">
+<meta property="og:site_name" content="فاست سيو | Fast Seo">
+<meta property="og:image" content="https://images.unsplash.com/photo-1516116216624-53e697fedbea?auto=format&fit=crop&w=1400&q=85">
+<meta property="og:locale" content="ar_AR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="TypeScript للمبتدئين: تعلّم الأنواع واكتب JavaScript بأخطاء أقل">
+<meta name="twitter:description" content="تعلم TypeScript للمبتدئين من الأنواع الأساسية إلى الواجهات وUnion Types، مع أمثلة عملية وطريقة إضافته إلى مشروع JavaScript.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1516116216624-53e697fedbea?auto=format&fit=crop&w=1400&q=85">
+<link rel="stylesheet" href="../assets/css/style.css?v=20261022-articles3">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"TypeScript للمبتدئين: تعلّم الأنواع واكتب JavaScript بأخطاء أقل","description":"تعلم TypeScript للمبتدئين من الأنواع الأساسية إلى الواجهات وUnion Types، مع أمثلة عملية وطريقة إضافته إلى مشروع JavaScript.","inLanguage":"ar","datePublished":"2026-10-23","dateModified":"2026-10-23","mainEntityOfPage":"https://fastseo.site/articles/typescript-for-beginners-ar.html","image":"https://images.unsplash.com/photo-1516116216624-53e697fedbea?auto=format&fit=crop&w=1400&q=85","author":{"@type":"Person","name":"imad limrani"},"publisher":{"@type":"Organization","name":"فاست سيو | Fast Seo","url":"https://fastseo.site/"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"الرئيسية","item":"https://fastseo.site/"},{"@type":"ListItem","position":2,"name":"البرمجة","item":"https://fastseo.site/pages/programming.html"},{"@type":"ListItem","position":3,"name":"TypeScript للمبتدئين","item":"https://fastseo.site/articles/typescript-for-beginners-ar.html"}]}
+</script>
+</head>
+<body>
+<div data-site-header></div>
+<main class="site-container site-section"><article class="max-w-4xl mx-auto">
+<nav class="site-breadcrumb" aria-label="مسار التنقل"><a href="../index.html">الرئيسية</a><span aria-hidden="true">/</span><a href="../pages/programming.html">البرمجة</a><span aria-hidden="true">/</span><span>TypeScript للمبتدئين</span></nav>
+<header class="mb-8"><span class="site-kicker">PROGRAMMING · TYPESCRIPT</span><h1>TypeScript للمبتدئين: تعلّم الأنواع واكتب JavaScript بأخطاء أقل</h1><p class="text-lg">قد يعمل كود JavaScript اليوم، ثم يتعطل غدًا لأن قيمة توقعتها رقمًا وصلت كنص، أو لأن خاصية في كائن غير موجودة. تساعدك TypeScript على اكتشاف كثير من هذه المشكلات أثناء الكتابة، قبل أن يصل الكود إلى المستخدم.</p></header>
+<figure class="mseo-content-illustration" style="margin:1.5rem auto;max-width:900px"><img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?auto=format&fit=crop&w=1400&q=85" alt="تعلم TypeScript للمبتدئين وكتابة كود JavaScript مع أنواع بيانات واضحة" width="1400" height="788" loading="eager" decoding="async" style="display:block;width:100%;height:auto;border-radius:18px"><figcaption>تساعد الأنواع الواضحة على فهم الكود واكتشاف أخطاء شائعة مبكرًا.</figcaption></figure>
+<div class="prose max-w-none">
+<section><h2>ما هي TypeScript؟ وهل تحتاج إلى تعلّمها؟</h2>
+<p>TypeScript هي لغة مبنية على JavaScript تضيف نظامًا للأنواع (Types). تكتب بها الكود ثم يحوّله المترجم إلى JavaScript يمكن تشغيله في المتصفح أو بيئة مثل Node.js. لا تستبدل TypeScript لغة JavaScript وقت التشغيل، ولا تحتاج المتصفحات عادةً إلى تشغيل ملفات TypeScript مباشرة.</p>
+<p>تكون TypeScript مفيدة خصوصًا عندما يكبر المشروع، أو يعمل عليه أكثر من مطوّر، أو يتعامل مع بيانات وواجهات API كثيرة. فهي تساعد المحرر على إكمال الكود، وتوضح شكل البيانات المتوقع، وتكشف أخطاء مثل تمرير قيمة من النوع الخطأ إلى دالة.</p>
+<ul><li>إذا كنت تعرف أساسيات JavaScript، فستجد الانتقال أسهل.</li><li>إذا كنت مبتدئًا تمامًا، تعلّم المتغيرات والدوال والمصفوفات والكائنات أولًا، ثم أضف الأنواع تدريجيًا.</li><li>TypeScript لا تضمن خلو التطبيق من الأخطاء؛ فهي لا تتحقق تلقائيًا من كل البيانات التي تصل من المستخدم أو الشبكة وقت التشغيل.</li></ul>
+</section>
+<section><h2>1. تثبيت TypeScript وتشغيل أول مثال</h2>
+<p>تحتاج إلى Node.js وnpm. أنشئ مجلدًا للمشروع ثم نفّذ الأوامر التالية:</p>
+<pre><code>mkdir typescript-starter
+cd typescript-starter
+npm init -y
+npm install --save-dev typescript
+npx tsc --init</code></pre>
+<p>أنشئ ملفًا باسم <code>src.ts</code> واكتب فيه:</p>
+<pre><code>const greeting: string = "مرحبًا بك";
+const visitors: number = 12;
+
+function welcome(name: string): string {
+  return `أهلًا ${name}`;
+}
+
+console.log(greeting);
+console.log(welcome("سارة"));
+console.log(visitors);</code></pre>
+<p>حوّل الملف إلى JavaScript بالأمر <code>npx tsc src.ts</code>. سيُنشأ ملف JavaScript بحسب إعدادات المترجم. في مشروع حقيقي، اضبط <code>tsconfig.json</code> ومجلدات المصدر والإخراج لتناسب بنية المشروع، بدل الاعتماد على الإعدادات الافتراضية دون مراجعة.</p>
+</section>
+<section><h2>2. الأنواع الأساسية التي ستستخدمها كثيرًا</h2>
+<h3>النصوص والأرقام والقيم المنطقية</h3>
+<pre><code>let username: string = "Imad";
+let age: number = 28;
+let isPublished: boolean = false;</code></pre>
+<p>تحدد هذه الأنواع القيم المتوقعة. مثلًا، سيُظهر TypeScript خطأً إذا حاولت إسناد نص إلى المتغير <code>age</code>. وفي كثير من الحالات يستطيع استنتاج النوع من القيمة الأولية، لذلك لا تحتاج إلى كتابة النوع بعد كل متغير.</p>
+<h3>المصفوفات</h3>
+<pre><code>const scores: number[] = [90, 85, 100];
+const tags: Array&lt;string&gt; = ["seo", "web", "code"];</code></pre>
+<p>كلا الأسلوبين صالح. اختر الشكل الأكثر وضوحًا لفريقك، وكن متسقًا في المشروع.</p>
+<h3>الكائنات وخصائصها</h3>
+<pre><code>const article: {
+  title: string;
+  published: boolean;
+  views?: number;
+} = {
+  title: "دليل TypeScript",
+  published: true
+};</code></pre>
+<p>علامة الاستفهام بعد <code>views</code> تعني أن الخاصية اختيارية. إذا تكرر شكل الكائن في أكثر من موضع، فالأفضل غالبًا تعريف <code>type</code> أو <code>interface</code> باسمه بدل إعادة كتابة البنية.</p>
+</section>
+<section><h2>3. متى تستخدم type ومتى تستخدم interface؟</h2>
+<p>كلاهما يساعد على وصف شكل البيانات، وغالبًا يمكن استخدام أي منهما لتعريف كائن. تُستخدم <code>interface</code> كثيرًا لوصف عقود الكائنات التي يمكن توسيعها، بينما يوفر <code>type</code> مرونة إضافية لتعريف الأنواع المتحدة والمتقاطعة والأنواع المركبة.</p>
+<pre><code>interface User {
+  id: number;
+  name: string;
+  email: string;
+}
+
+type ArticleStatus = "draft" | "published" | "archived";
+
+type Article = {
+  title: string;
+  author: User;
+  status: ArticleStatus;
+};
+
+const post: Article = {
+  title: "مقدمة في TypeScript",
+  author: { id: 1, name: "Imad", email: "imad@example.com" },
+  status: "draft"
+};</code></pre>
+<p>لاحظ أن <code>ArticleStatus</code> يسمح بثلاث قيم محددة فقط؛ كتابة حالة مثل <code>"done"</code> ستنتج خطأً وقت الفحص. أما البريد في المثال فهو قيمة توضيحية لا عنوانًا حقيقيًا.</p>
+</section>
+<section><h2>4. فهم Union Types وNarrowing</h2>
+<p>أحيانًا يمكن أن تكون القيمة واحدة من أنواع متعددة. مثلًا، قد تقبل دالة رقمًا أو نصًا:</p>
+<pre><code>function formatId(id: number | string): string {
+  if (typeof id === "number") {
+    return id.toFixed(0);
+  }
+
+  return id.trim();
+}</code></pre>
+<p>يسمى فحص النوع داخل الشرط <strong>Narrowing</strong>؛ إذ يضيّق الاحتمالات المتاحة داخل كل فرع. لا تستخدم قيمة من النوع الموحد كما لو كانت نوعًا واحدًا قبل التحقق من الحالة المناسبة.</p>
+<p>من الأنماط المفيدة أيضًا جعل حالات الطلب صريحة:</p>
+<pre><code>type RequestState =
+  | { status: "loading" }
+  | { status: "success"; data: string[] }
+  | { status: "error"; message: string };
+
+function describeState(state: RequestState): string {
+  switch (state.status) {
+    case "loading":
+      return "جارٍ التحميل";
+    case "success":
+      return `عدد النتائج: ${state.data.length}`;
+    case "error":
+      return state.message;
+  }
+}</code></pre>
+<p>هذا الأسلوب أوضح من جمع خصائص اختيارية كثيرة قد تسمح بحالات متناقضة، مثل وجود رسالة خطأ وبيانات نجاح في الوقت نفسه.</p>
+</section>
+<section><h2>5. الأنواع لا تتحقق من البيانات الخارجية وحدها</h2>
+<p>هذه نقطة مهمة في تطبيقات الإنتاج: الأنواع تُفحص أثناء التطوير والبناء، لكنها لا تتحقق تلقائيًا من JSON القادم من API أو من نموذج المستخدم وقت التشغيل. إذا كتبت:</p>
+<pre><code>const user = await response.json() as User;</code></pre>
+<p>فإن <code>as User</code> يخبر المترجم أن يتعامل مع القيمة على أنها User، لكنه لا يثبت أن البيانات صحيحة بالفعل. تحقّق من البيانات الخارجية باستخدام فحوص واضحة أو مكتبة تحقق وقت التشغيل مثل Zod قبل الاعتماد عليها.</p>
+<pre><code>type ApiUser = {
+  id: number;
+  name: string;
+};
+
+function isApiUser(value: unknown): value is ApiUser {
+  if (typeof value !== "object" || value === null) return false;
+
+  const candidate = value as Record&lt;string, unknown&gt;;
+  return typeof candidate.id === "number"
+    && typeof candidate.name === "string";
+}</code></pre>
+<p>في الأنظمة الأكبر، قد تكون مكتبة مخططات تحقق خيارًا أنسب لتوحيد رسائل الأخطاء والتحقق من الكائنات المتداخلة. اختر الحل بناءً على حجم البيانات وحساسية النظام.</p>
+</section>
+<section><h2>6. إعدادات تساعدك على كتابة كود أكثر أمانًا</h2>
+<p>راجع ملف <code>tsconfig.json</code> وفعّل الخيارات الصارمة تدريجيًا إذا كان المشروع قديمًا. من الخيارات المهمة:</p>
+<ul><li><code>strict</code>: يفعّل مجموعة من الفحوص الصارمة.</li><li><code>noUncheckedIndexedAccess</code>: يساعد على إظهار احتمال أن تكون نتيجة الوصول إلى عنصر بمؤشر غير موجودة.</li><li><code>noEmitOnError</code>: يمنع إصدار ملفات JavaScript عند وجود أخطاء ترجمة.</li></ul>
+<p>قد تتطلب هذه الإعدادات إصلاحات في مشروع قائم، لذا اختبرها في فرع منفصل وراجع رسائل المترجم بدل تعطيل الفحوص لمجرد إسكات الأخطاء.</p>
+</section>
+<section><h2>7. خطة بسيطة لتعلّم TypeScript خلال أسبوع</h2>
+<ol><li><strong>اليوم الأول:</strong> راجع الأنواع الأساسية والمتغيرات والدوال.</li><li><strong>اليوم الثاني:</strong> طبّق الأنواع على المصفوفات والكائنات.</li><li><strong>اليوم الثالث:</strong> أنشئ أنواعًا باستخدام <code>type</code> و<code>interface</code>.</li><li><strong>اليوم الرابع:</strong> تدرّب على Union Types وNarrowing.</li><li><strong>اليوم الخامس:</strong> عرّف أنواع استجابات API وتحقق من البيانات الخارجية.</li><li><strong>اليوم السادس:</strong> فعّل <code>strict</code> في مشروع صغير وأصلح الأخطاء.</li><li><strong>اليوم السابع:</strong> انقل وحدة صغيرة من JavaScript إلى TypeScript، ثم شغّل الاختبارات.</li></ol>
+<p>لا تجعل هدفك كتابة أنواع معقدة منذ البداية. الأهم أن تصف البيانات بوضوح، وأن تستخدم الفحوص لحل مشكلات حقيقية بدل تحويل كل سطر إلى تمرين نظري.</p>
+</section>
+<section><h2>أخطاء شائعة عند تعلّم TypeScript</h2>
+<ul><li><strong>الإفراط في استخدام any:</strong> يوقف كثيرًا من فوائد الفحص. فضّل <code>unknown</code> عندما لا تعرف النوع، ثم افحص القيمة.</li><li><strong>الاعتماد على type assertions:</strong> استخدام <code>as</code> لا يتحقق من صحة البيانات في وقت التشغيل.</li><li><strong>تعقيد الأنواع مبكرًا:</strong> ابدأ بالأنواع البسيطة ثم زد التعقيد عندما تفرضه الحاجة.</li><li><strong>اعتبار نجاح الترجمة ضمانًا للجودة:</strong> ما زلت تحتاج إلى اختبارات، ومراجعة منطق العمل، والتحقق من المدخلات والأمان.</li></ul>
+</section>
+<section><h2>الخلاصة</h2>
+<p>تساعدك TypeScript على جعل توقعاتك بشأن البيانات واضحة، واكتشاف أخطاء كثيرة قبل تشغيل التطبيق، وصيانة المشاريع بثقة أكبر. ابدأ بملف صغير، واستخدم الأنواع الأساسية، ثم انتقل إلى الواجهات والحالات المركبة والتحقق من البيانات الخارجية. جرّب اليوم تحويل دالة واحدة في مشروعك إلى TypeScript، ولاحظ الأخطاء التي يكشفها المترجم قبل أن تصل إلى المستخدم.</p>
+<p>ما أكثر نوع من الأخطاء تتمنى أن يكتشفه المترجم في مشروعك؟ شارك تجربتك مع المطورين الآخرين.</p>
+<p><strong>الكاتب وصاحب الموقع: imad limrani</strong></p>
+</section>
+<section><h2>مقالات ذات صلة</h2>
+<ul>
+<li><a href="javascript-beginners-guide.html">JavaScript للمبتدئين: الأساسيات التي تحتاجها لبناء مواقع تفاعلية</a></li>
+<li><a href="javascript-debugging.html">Debugging في JavaScript: دليل اكتشاف الأخطاء وإصلاحها</a></li>
+<li><a href="javascript-clean-code.html">JavaScript للمواقع: تنظيم الكود وتقليل الأخطاء وتحسين الأداء</a></li>
+</ul>
+</section>
+</div>
+</article></main>
+<div data-site-footer></div>
+<script src="../assets/js/main.js" defer></script>
+</body>
+</html>
