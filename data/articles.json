@@ -19,6 +19,179 @@
     "updatedAt": "2026-10-23"
   },
   {
+    "slug": "keyword-research-guide",
+    "file": "keyword-research-guide.html",
+    "title": "كيف تختار الكلمات المفتاحية لموقعك؟ دليل عملي للوصول إلى جمهورك المستهدف",
+    "category": "SEO",
+    "subcategory": "استراتيجية الكلمات المفتاحية",
+    "tags": [
+      "اختيار الكلمات المفتاحية",
+      "بحث الكلمات المفتاحية",
+      "نية البحث",
+      "SEO"
+    ],
+    "description": "دليل عملي لاختيار الكلمات المفتاحية حسب نية البحث والمنافسة وقيمة الموضوع، مع خطوات لبناء قائمة قابلة للتنفيذ.",
+    "icon": "fa-magnifying-glass-chart",
+    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=85",
+    "publishedAt": "2026-10-23",
+    "updatedAt": "2026-10-23"
+  },
+  {
+    "slug": "website-not-appearing-google",
+    "file": "website-not-appearing-google.html",
+    "title": "لماذا لا يظهر موقعك في Google؟ 9 أسباب شائعة وطرق إصلاحها",
+    "category": "SEO",
+    "subcategory": "الفهرسة وتشخيص الظهور",
+    "tags": [
+      "الموقع لا يظهر في Google",
+      "فهرسة Google",
+      "Google Search Console",
+      "SEO تقني"
+    ],
+    "description": "اكتشف أسباب عدم ظهور موقعك في Google، من حظر الفهرسة ومشكلات الزحف إلى ضعف المحتوى، مع قائمة فحص عملية.",
+    "icon": "fa-magnifying-glass",
+    "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=85",
+    "publishedAt": "2026-10-23",
+    "updatedAt": "2026-10-23"
+  },
+  {
+    "slug": "create-website-from-scratch",
+    "file": "create-website-from-scratch.html",
+    "title": "إنشاء موقع إلكتروني من الصفر: خطوات عملية من الفكرة إلى النشر",
+    "category": "تطوير المواقع",
+    "subcategory": "تخطيط وبناء المواقع",
+    "tags": [
+      "إنشاء موقع إلكتروني",
+      "تطوير الويب",
+      "HTML",
+      "نشر المواقع"
+    ],
+    "description": "خطوات عملية لبناء موقع إلكتروني من تحديد الهدف وهيكلة الصفحات إلى التطوير والاختبار والنشر والصيانة.",
+    "icon": "fa-code",
+    "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85",
+    "publishedAt": "2026-10-23",
+    "updatedAt": "2026-10-23"
+  },
+  {
+    "slug": "responsive-website-css-guide",
+    "file": "responsive-website-css-guide.html",
+    "title": "تصميم موقع متجاوب مع الهاتف: شرح CSS مع أمثلة عملية",
+    "category": "تطوير المواقع",
+    "subcategory": "CSS والتصميم المتجاوب",
+    "tags": [
+      "تصميم متجاوب",
+      "CSS",
+      "Mobile First",
+      "تصميم مواقع"
+    ],
+    "description": "تعلم بناء تصميم متجاوب مع الهاتف باستخدام CSS وmedia queries وFlexbox وGrid مع أمثلة قابلة للتطبيق.",
+    "icon": "fa-mobile-screen-button",
+    "image": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1400&q=85",
+    "publishedAt": "2026-10-23",
+    "updatedAt": "2026-10-23"
+  },
+  {
+    "slug": "website-speed-optimization-guide",
+    "file": "website-speed-optimization-guide.html",
+    "title": "تحسين سرعة الموقع: خطوات عملية لرفع الأداء وتقليل وقت التحميل",
+    "category": "أداء المواقع",
+    "subcategory": "تحسين الأداء",
+    "tags": [
+      "تحسين سرعة الموقع",
+      "أداء الويب",
+      "LCP",
+      "تحميل الصور"
+    ],
+    "description": "خطة عملية لتحسين سرعة الموقع تبدأ بالقياس، ثم الصور والموارد والخطوط والتخزين المؤقت، وتنتهي بمراقبة النتائج.",
+    "icon": "fa-gauge-high",
+    "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=85",
+    "publishedAt": "2026-10-23",
+    "updatedAt": "2026-10-23"
+  },
+  {
+    "slug": "core-web-vitals-practical-guide",
+    "file": "core-web-vitals-practical-guide.html",
+    "title": "ما هي Core Web Vitals؟ وكيف تحسّن نتائج موقعك خطوة بخطوة؟",
+    "category": "أداء المواقع",
+    "subcategory": "Core Web Vitals",
+    "tags": [
+      "Core Web Vitals",
+      "LCP",
+      "INP",
+      "CLS",
+      "PageSpeed Insights"
+    ],
+    "description": "شرح عملي لمقاييس Core Web Vitals: LCP وINP وCLS، وكيفية قياسها وتحديد أولويات إصلاح المشكلات.",
+    "icon": "fa-chart-line",
+    "image": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=85",
+    "publishedAt": "2026-10-23",
+    "updatedAt": "2026-10-23"
+  },
+  {
+    "slug": "professional-website-ui-ux-guide",
+    "file": "professional-website-ui-ux-guide.html",
+    "title": "كيف تصمم واجهة موقع احترافية؟ مبادئ UX وUI التي تصنع الفرق",
+    "category": "تصميم المواقع",
+    "subcategory": "تجربة المستخدم والواجهات",
+    "tags": [
+      "تصميم واجهات المستخدم",
+      "UX",
+      "UI",
+      "تجربة المستخدم",
+      "تصميم مواقع"
+    ],
+    "description": "تعرف إلى مبادئ UI وUX التي تجعل الموقع واضحًا وسهل الاستخدام، من التسلسل البصري والتنقل إلى النماذج وإمكانية الوصول.",
+    "icon": "fa-pen-ruler",
+    "image": "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1400&q=85",
+    "publishedAt": "2026-10-23",
+    "updatedAt": "2026-10-23"
+  },
+  {
+    "slug": "ai-prompts-for-programmers",
+    "file": "ai-prompts-for-programmers.html",
+    "title": "أفضل أوامر الذكاء الاصطناعي للمبرمجين: أمثلة جاهزة لكتابة كود أفضل",
+    "category": "الذكاء الاصطناعي",
+    "subcategory": "الذكاء الاصطناعي للمطورين",
+    "tags": [
+      "أوامر الذكاء الاصطناعي للمبرمجين",
+      "Prompt Engineering",
+      "مراجعة الكود",
+      "اختبارات البرمجيات"
+    ],
+    "description": "أمثلة عملية لصياغة أوامر ذكاء اصطناعي تساعد المبرمج على فهم الكود وكتابة الاختبارات وإصلاح الأخطاء ومراجعة الأمان.",
+    "icon": "fa-robot",
+    "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1400&q=85",
+    "publishedAt": "2026-10-23",
+    "updatedAt": "2026-10-23"
+  },
+  {
+    "slug": "create-website-with-ai",
+    "file": "create-website-with-ai.html",
+    "title": "كيف تستخدم الذكاء الاصطناعي لإنشاء موقع إلكتروني؟ الأدوات والخطوات والحدود",
+    "category": "الذكاء الاصطناعي",
+    "subcategory": "بناء المواقع بالذكاء الاصطناعي",
+    "tags": [
+      "إنشاء موقع بالذكاء الاصطناعي",
+      "AI Website Builder",
+      "تطوير المواقع",
+      "مراجعة الكود"
+    ],
+    "description": "دليل لاستخدام أدوات الذكاء الاصطناعي في تخطيط الموقع وتوليد الواجهات والكود، مع قائمة مراجعة للجودة والأمان قبل النشر.",
+    "icon": "fa-wand-magic-sparkles",
+    "image": "https://images.unsplash.com/photo-1676299081847-824916de030a?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "https://images.unsplash.com/photo-1676299081847-824916de030a?auto=format&fit=crop&w=1400&q=85",
+    "publishedAt": "2026-10-23",
+    "updatedAt": "2026-10-23"
+  },
+  {
     "slug": "google-search-console-indexing-errors",
     "file": "google-search-console-indexing-errors.html",
     "title": "أخطاء الفهرسة في Google Search Console: التشخيص والإصلاح",
