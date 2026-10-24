@@ -2168,3 +2168,153 @@ footer.mseo-footer .mseo-footer-credit {
     transition: none;
   }
 }
+
+
+/* RTL footer corrections: use logical alignment and keep the brand/link flow consistent. */
+footer.mseo-footer {
+  direction: rtl;
+  text-align: start;
+}
+
+footer.mseo-footer .mseo-footer-inner {
+  width: min(1180px, calc(100% - 40px));
+  margin-inline: auto;
+}
+
+footer.mseo-footer .mseo-footer-top {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas: "brand" "tagline";
+  justify-items: start;
+  align-items: start;
+  gap: 12px;
+}
+
+footer.mseo-footer .mseo-footer-brand {
+  grid-area: brand;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-self: start;
+  justify-content: flex-start;
+  gap: 12px;
+  min-width: 0;
+  max-width: 100%;
+  text-align: start;
+  direction: rtl;
+  text-decoration: none;
+}
+
+footer.mseo-footer .mseo-footer-brand .mseo-brand-logo {
+  display: block;
+  flex: 0 0 auto;
+  width: auto;
+  height: auto;
+  max-width: min(120px, 32vw);
+  max-height: 60px;
+  object-fit: contain;
+  object-position: center;
+}
+
+footer.mseo-footer .mseo-footer-brand > span {
+  min-width: 0;
+  text-align: start;
+  unicode-bidi: isolate;
+}
+
+footer.mseo-footer .mseo-footer-tagline {
+  grid-area: tagline;
+  margin: 0;
+  max-width: 72ch;
+  text-align: start;
+  justify-self: start;
+}
+
+footer.mseo-footer .mseo-footer-main {
+  direction: rtl;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+footer.mseo-footer .mseo-footer-group {
+  min-width: 0;
+  text-align: start;
+}
+
+footer.mseo-footer .mseo-footer-group h3 {
+  text-align: start;
+}
+
+footer.mseo-footer .mseo-footer-links {
+  align-items: flex-start;
+  text-align: start;
+  direction: rtl;
+}
+
+footer.mseo-footer .mseo-footer-links a {
+  max-width: 100%;
+  text-align: start;
+  overflow-wrap: anywhere;
+}
+
+footer.mseo-footer .mseo-footer-links:not(.mseo-footer-social-list) a:hover,
+footer.mseo-footer .mseo-footer-links:not(.mseo-footer-social-list) a:focus-visible {
+  transform: translateX(2px);
+}
+
+footer.mseo-footer .mseo-footer-social-list {
+  direction: rtl;
+  justify-content: start;
+  justify-items: center;
+}
+
+footer.mseo-footer .mseo-copyright {
+  direction: rtl;
+  text-align: start;
+}
+
+footer.mseo-footer .mseo-footer-credit {
+  direction: rtl;
+  justify-content: space-between;
+  align-items: center;
+  text-align: start;
+  unicode-bidi: plaintext;
+}
+
+@media (max-width: 900px) {
+  footer.mseo-footer .mseo-footer-main {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  footer.mseo-footer .mseo-footer-inner {
+    width: calc(100% - 32px);
+  }
+
+  footer.mseo-footer .mseo-footer-top {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "brand" "tagline";
+    justify-items: start;
+    gap: 12px;
+  }
+
+  footer.mseo-footer .mseo-footer-brand {
+    justify-self: start;
+    gap: 10px;
+  }
+
+  footer.mseo-footer .mseo-footer-brand .mseo-brand-logo {
+    max-width: min(96px, 28vw);
+    max-height: 48px;
+  }
+
+  footer.mseo-footer .mseo-footer-main {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  footer.mseo-footer .mseo-footer-credit {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+}
