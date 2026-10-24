@@ -65,17 +65,12 @@
               <img class="mseo-brand-logo" src="${link('assets/images/fastseo-logo.svg')}" alt="" width="120" height="60" decoding="async">
               <span>Fast SEO <b>| فاست سيو</b></span>
             </a>
-            <p class="mseo-footer-tagline">مكتبة عربية للمقالات والأدلة التقنية العملية</p>
-            <div class="mseo-footer-contact">
-              <a href="mailto:info@fastseo.site">info@fastseo.site</a>
-              <a href="https://wa.me/212783539816" target="_blank" rel="noopener noreferrer">واتساب: +212 783 539 816</a>
-            </div>
+            <p class="mseo-footer-tagline">نقدّم محتوى عربيًا عمليًا يساعدك على تعلّم التقنية، وتطوير مهاراتك، وبناء مواقع أفضل وتحسين ظهورها في محركات البحث.</p>
+            
+                 </div>
           </div>
           <div class="mseo-footer-main">
-            <section class="mseo-footer-group">
-              <h3>عن فاست سيو</h3>
-              <p>نقدّم محتوى عربيًا عمليًا يساعدك على تعلّم التقنية، وتطوير مهاراتك، وبناء مواقع أفضل وتحسين ظهورها في محركات البحث.</p>
-            </section>
+            
             <section class="mseo-footer-group">
               <h3>روابط سريعة</h3>
               <nav class="mseo-footer-links" aria-label="روابط سريعة">
@@ -107,10 +102,7 @@
             </section>
           </div>
           <div class="mseo-copyright">
-            <nav class="mseo-footer-bottom-links" aria-label="روابط قانونية">
-              <a href="${link('pages/privacy.html')}">الخصوصية</a>
-              <a href="${link('pages/terms.html')}">الشروط والأحكام</a>
-            </nav>
+            
             <div class="mseo-footer-credit">
               <span>© <span data-footer-year>2026</span> Fast SEO | فاست سيو — جميع الحقوق محفوظة</span>
               <span>تصميم وتطوير <strong>Imad Limrani</strong></span>
