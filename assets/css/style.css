@@ -2407,3 +2407,154 @@ footer.mseo-footer .mseo-copyright strong {
     transform: none;
   }
 }
+
+
+/* Polished mobile tab bar and menu controls: accessible, theme-aware, RTL-safe. */
+.mseo-menu-toggle,
+.mseo-actions .mseo-icon-button {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition: color .2s ease, background .2s ease, border-color .2s ease,
+    box-shadow .2s ease, transform .2s ease;
+}
+.mseo-menu-toggle {
+  color: var(--brand);
+  border-color: color-mix(in srgb, var(--brand) 30%, var(--line));
+  background: color-mix(in srgb, var(--brand) 8%, var(--surface));
+}
+.mseo-menu-toggle i,
+.mseo-actions .mseo-icon-button i {
+  font-size: 1.05rem;
+  line-height: 1;
+}
+.mseo-menu-toggle:hover,
+.mseo-actions .mseo-icon-button:hover {
+  color: #fff;
+  background: linear-gradient(135deg, var(--brand), var(--accent));
+  border-color: transparent;
+  box-shadow: 0 7px 18px color-mix(in srgb, var(--brand) 25%, transparent);
+  transform: translateY(-2px);
+}
+.mseo-nav a {
+  transition: color .18s ease, background .18s ease, transform .18s ease;
+}
+.mseo-nav a[aria-current="page"] {
+  color: var(--brand);
+  background: color-mix(in srgb, var(--brand) 11%, var(--surface));
+  box-shadow: inset 0 -2px 0 var(--accent);
+}
+.mseo-nav a:hover {
+  transform: translateY(-1px);
+}
+.mseo-mobile-tabbar {
+  --tabbar-active: var(--brand);
+  position: fixed;
+  z-index: 950;
+  inset-inline: 12px;
+  bottom: max(10px, env(safe-area-inset-bottom));
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 4px;
+  width: min(620px, calc(100% - 24px));
+  margin-inline: auto;
+  padding: 8px 7px;
+  border: 1px solid color-mix(in srgb, var(--line) 78%, var(--brand));
+  border-radius: 22px;
+  background: color-mix(in srgb, var(--surface) 90%, transparent);
+  color: var(--muted);
+  box-shadow: 0 12px 38px rgba(15, 23, 42, .18), inset 0 1px 0 rgba(255,255,255,.35);
+  -webkit-backdrop-filter: blur(20px) saturate(1.35);
+  backdrop-filter: blur(20px) saturate(1.35);
+}
+.mseo-mobile-tabbar a {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  min-height: 58px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 6px 2px;
+  border-radius: 15px;
+  color: var(--muted);
+  font-size: clamp(.62rem, 2.5vw, .74rem);
+  font-weight: 800;
+  line-height: 1.25;
+  text-align: center;
+  text-decoration: none;
+  transition: color .2s ease, background .2s ease, transform .2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.mseo-mobile-tabbar a i {
+  display: grid;
+  place-items: center;
+  min-height: 23px;
+  font-size: 1.18rem;
+  line-height: 1;
+  transition: transform .2s ease, filter .2s ease;
+}
+.mseo-mobile-tabbar a span {
+  display: block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.mseo-mobile-tabbar a:hover {
+  color: var(--brand);
+  background: color-mix(in srgb, var(--brand) 8%, var(--surface));
+}
+.mseo-mobile-tabbar a[aria-current="page"] {
+  color: var(--tabbar-active);
+  background: color-mix(in srgb, var(--brand) 11%, var(--surface));
+}
+.mseo-mobile-tabbar a[aria-current="page"] i {
+  transform: translateY(-1px) scale(1.08);
+  filter: drop-shadow(0 3px 5px color-mix(in srgb, var(--brand) 25%, transparent));
+}
+.mseo-mobile-tabbar a[aria-current="page"]::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 50%;
+  width: 20px;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--brand), var(--accent));
+  transform: translateX(-50%);
+}
+.mseo-mobile-tabbar a:focus-visible,
+.mseo-menu-toggle:focus-visible,
+.mseo-actions .mseo-icon-button:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+@media (min-width: 901px) {
+  .mseo-mobile-tabbar { display: none; }
+  body { padding-bottom: 0; }
+}
+@media (max-width: 900px) {
+  body { padding-bottom: calc(88px + env(safe-area-inset-bottom)); }
+}
+@media (max-width: 380px) {
+  .mseo-mobile-tabbar { inset-inline: 6px; width: calc(100% - 12px); padding: 6px 4px; gap: 2px; border-radius: 18px; }
+  .mseo-mobile-tabbar a { min-height: 54px; font-size: .6rem; }
+  .mseo-mobile-tabbar a i { font-size: 1.05rem; }
+}
+html[data-theme="tech"] .mseo-mobile-tabbar {
+  border-color: #34445f;
+  box-shadow: 0 12px 38px rgba(0,0,0,.38), inset 0 1px 0 rgba(255,255,255,.04);
+}
+html[data-theme="reading"] .mseo-mobile-tabbar {
+  border-color: color-mix(in srgb, #b77945 30%, var(--line));
+}
+@media (prefers-reduced-motion: reduce) {
+  .mseo-menu-toggle, .mseo-actions .mseo-icon-button,
+  .mseo-nav a, .mseo-mobile-tabbar a, .mseo-mobile-tabbar a i {
+    transition: none !important;
+    transform: none !important;
+  }
+}
