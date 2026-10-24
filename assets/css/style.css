@@ -2318,3 +2318,92 @@ footer.mseo-footer .mseo-footer-credit {
     gap: 8px;
   }
 }
+
+
+/* Refined footer palette: recognizable social brand colors with restrained accents. */
+footer.mseo-footer {
+  --footer-accent: var(--site-accent, #6d5dfc);
+  --footer-accent-soft: color-mix(in srgb, var(--footer-accent) 12%, transparent);
+}
+footer.mseo-footer .mseo-footer-group h3 {
+  position: relative;
+  padding-block-end: 10px;
+  color: var(--text, #f3f4f6);
+  letter-spacing: -.01em;
+}
+footer.mseo-footer .mseo-footer-group h3::after {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-end: 0;
+  width: 34px;
+  height: 3px;
+  border-radius: 99px;
+  background: linear-gradient(90deg, var(--footer-accent), #22c7a9);
+}
+footer.mseo-footer .mseo-footer-brand > span {
+  color: var(--text, #f3f4f6);
+  font-weight: 750;
+  letter-spacing: -.02em;
+}
+footer.mseo-footer .mseo-footer-brand b {
+  color: var(--footer-accent);
+}
+footer.mseo-footer .mseo-footer-links:not(.mseo-footer-social-list) a {
+  transition: color .2s ease, transform .2s ease;
+}
+footer.mseo-footer .mseo-footer-links:not(.mseo-footer-social-list) a:hover,
+footer.mseo-footer .mseo-footer-links:not(.mseo-footer-social-list) a:focus-visible {
+  color: var(--footer-accent);
+}
+footer.mseo-footer .mseo-footer-social-list a {
+  background: var(--footer-accent-soft);
+  border-color: color-mix(in srgb, var(--footer-accent) 20%, var(--line, transparent));
+  transition: transform .2s ease, background-color .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+footer.mseo-footer .mseo-footer-social-list a > i {
+  color: currentColor;
+}
+/* Use each network's familiar brand color instead of one generic icon color. */
+footer.mseo-footer .mseo-footer-social-list a:nth-child(1) { color: var(--text, #24292f); }
+footer.mseo-footer .mseo-footer-social-list a:nth-child(2) { color: #1877f2; }
+footer.mseo-footer .mseo-footer-social-list a:nth-child(3) { color: #e4405f; }
+footer.mseo-footer .mseo-footer-social-list a:nth-child(3) > i {
+  background: linear-gradient(45deg, #feda75 0%, #fa7e1e 25%, #d62976 55%, #962fbf 75%, #4f5bd5 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+footer.mseo-footer .mseo-footer-social-list a:nth-child(4) { color: #0a66c2; }
+footer.mseo-footer .mseo-footer-social-list a:nth-child(5) { color: #24292f; }
+footer.mseo-footer .mseo-footer-social-list a:nth-child(6) { color: #25d366; }
+footer.mseo-footer .mseo-footer-social-list a:hover,
+footer.mseo-footer .mseo-footer-social-list a:focus-visible {
+  transform: translateY(-2px);
+  background: color-mix(in srgb, currentColor 10%, var(--footer-bg, transparent));
+  border-color: currentColor;
+  box-shadow: 0 6px 18px color-mix(in srgb, currentColor 15%, transparent);
+}
+footer.mseo-footer .mseo-footer-social-list a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+footer.mseo-footer .mseo-copyright strong {
+  color: var(--footer-accent);
+}
+@media (prefers-color-scheme: dark) {
+  html[data-theme="tech"] footer.mseo-footer .mseo-footer-social-list a:nth-child(1),
+  html[data-theme="tech"] footer.mseo-footer .mseo-footer-social-list a:nth-child(5) {
+    color: #f0f6fc;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  footer.mseo-footer .mseo-footer-social-list a,
+  footer.mseo-footer .mseo-footer-links:not(.mseo-footer-social-list) a {
+    transition: none;
+  }
+  footer.mseo-footer .mseo-footer-social-list a:hover,
+  footer.mseo-footer .mseo-footer-social-list a:focus-visible {
+    transform: none;
+  }
+}
