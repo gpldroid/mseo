@@ -107,8 +107,14 @@
             </section>
           </div>
           <div class="mseo-copyright">
-            <span>© 2026 Fast SEO | فاست سيو — جميع الحقوق محفوظة</span>
-            <span>تصميم وتطوير <strong>Imad Limrani</strong></span>
+            <nav class="mseo-footer-bottom-links" aria-label="روابط قانونية">
+              <a href="${link('pages/privacy.html')}">الخصوصية</a>
+              <a href="${link('pages/terms.html')}">الشروط والأحكام</a>
+            </nav>
+            <div class="mseo-footer-credit">
+              <span>© <span data-footer-year>2026</span> Fast SEO | فاست سيو — جميع الحقوق محفوظة</span>
+              <span>تصميم وتطوير <strong>Imad Limrani</strong></span>
+            </div>
           </div>
         </div>
       </footer>`;
