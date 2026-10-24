@@ -1602,3 +1602,42 @@ html[data-theme="tech"] {
     transform: none;
   }
 }
+
+
+/* Footer cards polish: compact category icons and balanced horizontal groups. */
+.mseo-footer-grid > section:not(:first-child) {
+  text-align: start;
+}
+.mseo-footer-group h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.mseo-footer-group h3 > i {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 38px;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  color: var(--brand);
+  background: color-mix(in srgb, var(--brand) 10%, var(--surface));
+  font-size: 1rem;
+}
+.mseo-footer-group h3::after {
+  inset-inline-start: 0;
+}
+.mseo-footer-group .mseo-footer-links a {
+  padding-inline: 2px;
+}
+@media (min-width: 1051px) {
+  .mseo-footer-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+@media (max-width: 1050px) and (min-width: 541px) {
+  .mseo-footer-grid > section:not(:first-child) {
+    padding: 20px 18px;
+  }
+}
