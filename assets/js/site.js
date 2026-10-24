@@ -120,6 +120,7 @@
       </footer>`;
   }
   const year = $('[data-current-year]'); if (year) year.textContent = new Date().getFullYear();
+  document.querySelectorAll('[data-footer-year]').forEach(el => { el.textContent = new Date().getFullYear(); });
   const themeButton = $('[data-theme-toggle]');
   const themes = [
     {id:'editorial',label:'المجلة',icon:'fa-newspaper',description:'تصميم تحريري متوازن'},
