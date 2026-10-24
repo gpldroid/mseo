@@ -66,8 +66,6 @@
               <span>Fast SEO <b>| فاست سيو</b></span>
             </a>
             <p class="mseo-footer-tagline">نقدّم محتوى عربيًا عمليًا يساعدك على تعلّم التقنية، وتطوير مهاراتك، وبناء مواقع أفضل وتحسين ظهورها في محركات البحث.</p>
-            
-                 </div>
           </div>
           <div class="mseo-footer-main">
             
@@ -92,12 +90,12 @@
             <section class="mseo-footer-group">
               <h3>تابعنا على مواقع التواصل</h3>
               <nav class="mseo-footer-links mseo-footer-social-list" aria-label="مواقع التواصل">
-                <a href="https://x.com/laraforum" target="_blank" rel="noopener noreferrer" aria-label="تابعنا على X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i><span>X</span></a>
-                <a href="https://m.facebook.com/61577188775609" target="_blank" rel="noopener noreferrer" aria-label="تابعنا على فيسبوك"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i><span>Facebook</span></a>
-                <a href="https://www.instagram.com/larache_forum" target="_blank" rel="noopener noreferrer" aria-label="تابعنا على إنستغرام"><i class="fa-brands fa-instagram" aria-hidden="true"></i><span>Instagram</span></a>
-                <a href="https://ma.linkedin.com/in/imad-limrani-0221aa3aa" target="_blank" rel="noopener noreferrer" aria-label="تابعنا على لينكدإن"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i><span>LinkedIn</span></a>
-                <a href="https://github.com/gpldroid/" target="_blank" rel="noopener noreferrer" aria-label="تابعنا على GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i><span>GitHub</span></a>
-                <a href="https://wa.me/212783539816" target="_blank" rel="noopener noreferrer" aria-label="تواصل معنا عبر واتساب"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i><span>WhatsApp</span></a>
+                <a href="https://x.com/laraforum" target="_blank" rel="noopener noreferrer" aria-label="تابعنا على X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+                <a href="https://m.facebook.com/61577188775609" target="_blank" rel="noopener noreferrer" aria-label="تابعنا على فيسبوك"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+                <a href="https://www.instagram.com/larache_forum" target="_blank" rel="noopener noreferrer" aria-label="تابعنا على إنستغرام"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+                <a href="https://ma.linkedin.com/in/imad-limrani-0221aa3aa" target="_blank" rel="noopener noreferrer" aria-label="تابعنا على لينكدإن"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+                <a href="https://github.com/gpldroid/" target="_blank" rel="noopener noreferrer" aria-label="تابعنا على GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+                <a href="https://wa.me/212783539816" target="_blank" rel="noopener noreferrer" aria-label="تواصل معنا عبر واتساب"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
               </nav>
             </section>
           </div>
