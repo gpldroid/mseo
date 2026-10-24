@@ -2017,14 +2017,15 @@ footer.mseo-footer .mseo-footer-links { display: flex; flex-direction: column; a
 footer.mseo-footer .mseo-footer-links a { overflow-wrap: anywhere; }
 footer.mseo-footer .mseo-footer-social-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 16px; }
 footer.mseo-footer .mseo-copyright {
+  direction: ltr;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 18px;
   padding: 18px 0;
 }
-footer.mseo-footer .mseo-footer-bottom-links { display: flex; flex-wrap: wrap; gap: 18px; }
-footer.mseo-footer .mseo-footer-credit { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px; }
+footer.mseo-footer .mseo-footer-bottom-links { direction: rtl; display: flex; flex-wrap: wrap; gap: 18px; }
+footer.mseo-footer .mseo-footer-credit { direction: rtl; text-align: right; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px; }
 @media (max-width: 900px) {
   footer.mseo-footer .mseo-footer-main { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px 22px; }
 }
