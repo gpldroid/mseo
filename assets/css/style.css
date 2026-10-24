@@ -1508,3 +1508,97 @@ html[data-theme="tech"] {
     transform: none;
   }
 }
+
+
+/* Footer v2: horizontal navigation cards matching the site's tool-card visual language. */
+.mseo-footer-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 18px;
+}
+.mseo-footer-grid > section:first-child {
+  grid-column: 1 / -1;
+  padding: 0 0 22px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.mseo-footer-grid > section:not(:first-child) {
+  box-sizing: border-box;
+  min-width: 0;
+  padding: 22px 20px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--surface);
+  box-shadow: var(--card-shadow, 0 8px 24px rgba(25, 40, 75, .06));
+  transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+.mseo-footer-grid > section:not(:first-child):hover {
+  border-color: color-mix(in srgb, var(--brand) 38%, var(--line));
+  box-shadow: 0 12px 28px rgba(25, 40, 75, .09);
+  transform: translateY(-2px);
+}
+.mseo-footer-group h3 {
+  margin-top: 0;
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+  font-size: 1rem;
+}
+.mseo-footer-group .mseo-footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 7px;
+}
+.mseo-footer-group .mseo-footer-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  width: 100%;
+  line-height: 1.7;
+  border-radius: 6px;
+}
+.mseo-footer-group .mseo-footer-links a:hover {
+  color: var(--brand);
+  transform: translateX(-3px);
+}
+.mseo-footer-contact-note {
+  margin-top: 12px;
+}
+@media (max-width: 1050px) {
+  .mseo-footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+  .mseo-footer-grid > section:first-child {
+    grid-column: 1 / -1;
+  }
+}
+@media (max-width: 540px) {
+  .mseo-footer-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+  .mseo-footer-grid > section:first-child {
+    grid-column: auto;
+    padding-bottom: 14px;
+  }
+  .mseo-footer-grid > section:not(:first-child) {
+    padding: 18px 16px;
+    border-radius: 14px;
+  }
+  .mseo-footer-group h3 {
+    margin-bottom: 10px;
+    padding-bottom: 9px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mseo-footer-grid > section:not(:first-child) {
+    transition: none;
+  }
+  .mseo-footer-grid > section:not(:first-child):hover,
+  .mseo-footer-group .mseo-footer-links a:hover {
+    transform: none;
+  }
+}
