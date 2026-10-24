@@ -2044,3 +2044,31 @@ footer.mseo-footer .mseo-footer-credit { direction: rtl; text-align: right; disp
   footer.mseo-footer .mseo-copyright { align-items: flex-start; flex-direction: column; gap: 12px; }
   footer.mseo-footer .mseo-footer-credit { flex-direction: column; align-items: flex-start; gap: 6px; }
 }
+
+
+/* Restore recognizable social-network icons in the shared footer. */
+.mseo-footer-social-list a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 9px;
+}
+.mseo-footer-social-list a > i {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 1.35rem;
+  width: 1.35rem;
+  font-size: 1.15rem;
+  line-height: 1;
+}
+.mseo-footer-social-list a:hover > i,
+.mseo-footer-social-list a:focus-visible > i {
+  transform: translateY(-1px);
+}
+.mseo-footer-social-list a > i {
+  transition: transform .18s ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  .mseo-footer-social-list a > i { transition: none; }
+}
