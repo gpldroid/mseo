@@ -1654,3 +1654,51 @@ html[data-theme="tech"] {
   .mseo-footer-group { transition: none; }
   .mseo-footer-group:hover { transform: none; }
 }
+
+
+/* Footer-only refinement: responsive editorial layout using existing MSEO theme tokens. */
+.mseo-footer{overflow:hidden;border-top:0;border-radius:22px 22px 0 0;background:var(--surface);box-shadow:0 -8px 35px color-mix(in srgb,var(--text) 5%,transparent)}
+.mseo-footer::before{content:"المعرفة التقنية تبدأ بفكرة، وتتطور بالتعلّم والممارسة.";display:flex;align-items:center;justify-content:center;min-height:112px;padding:24px clamp(18px,5vw,56px);text-align:center;color:#fff;font-size:clamp(1rem,2.2vw,1.35rem);font-weight:800;line-height:1.8;background:linear-gradient(115deg,color-mix(in srgb,var(--brand-2) 92%,#101827),color-mix(in srgb,var(--brand) 78%,var(--accent)))}
+.mseo-footer-inner{padding:0 0 22px}
+.mseo-footer-grid{grid-template-columns:minmax(0,1.5fr) repeat(4,minmax(0,1fr));gap:clamp(18px,2.5vw,34px);padding:28px 0 26px;border-bottom:1px solid var(--line)}
+.mseo-footer-grid>section{min-width:0}
+.mseo-footer-grid>section:first-child{padding-inline-end:clamp(0px,1.5vw,18px)}
+.mseo-footer .mseo-brand{white-space:normal;align-items:center;flex-wrap:wrap;font-size:1.05rem}
+.mseo-footer .mseo-brand-logo{flex:0 0 auto}
+.mseo-footer-grid>section:first-child>p{line-height:1.9;margin:12px 0}
+.mseo-footer h2,.mseo-footer h3{line-height:1.6;color:var(--text);font-weight:900}
+.mseo-footer h3{position:relative;padding-bottom:8px}
+.mseo-footer h3::after{content:"";position:absolute;inset-inline-start:0;bottom:0;width:32px;height:2px;border-radius:2px;background:var(--accent)}
+.mseo-footer-links{gap:9px}
+.mseo-footer-links a{width:fit-content;max-width:100%;line-height:1.8;overflow-wrap:anywhere;transition:color .18s,transform .18s}
+.mseo-footer-links a:hover{transform:translateX(-2px)}
+.mseo-footer .mseo-socials{display:grid;gap:10px;margin-top:18px}
+.mseo-footer .mseo-socials>span{font-size:.82rem;color:var(--muted)}
+.mseo-footer .mseo-social-links{display:flex;flex-wrap:wrap;gap:7px}
+.mseo-footer .mseo-social-links a{width:35px;height:35px;border-radius:11px}
+.mseo-footer .mseo-social-links svg{width:17px;height:17px;fill:currentColor;stroke:currentColor;stroke-width:0}
+.mseo-footer .mseo-social-links a[aria-label="Instagram"] svg,.mseo-footer .mseo-social-links a[aria-label="LinkedIn"] svg{fill:none;stroke:currentColor;stroke-width:1.7}
+.mseo-footer .mseo-social-links .mseo-social-fill{fill:currentColor;stroke:none}
+.mseo-footer-contact-note{font-size:.8rem!important;line-height:1.8;margin-top:12px}
+.mseo-copyright{align-items:center;margin-top:0;padding-top:18px;border-top:0;line-height:1.8}
+.mseo-copyright a{color:var(--muted)}
+.mseo-copyright a:hover{color:var(--brand)}
+@media(max-width:1000px){
+ .mseo-footer-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 30px}
+ .mseo-footer-grid>section:first-child{grid-column:1/-1;padding-inline-end:0}
+}
+@media(max-width:600px){
+ .mseo-footer{border-radius:18px 18px 0 0}
+ .mseo-footer::before{min-height:92px;padding:20px 18px;font-size:1rem}
+ .mseo-footer-inner{width:calc(100% - 28px);padding-bottom:calc(22px + env(safe-area-inset-bottom,0px))}
+ .mseo-footer-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 16px;padding:24px 0}
+ .mseo-footer-grid>section:first-child{grid-column:1/-1}
+ .mseo-footer h3{font-size:.94rem}
+ .mseo-footer-links a{font-size:.84rem}
+ .mseo-footer .mseo-brand{font-size:1rem}
+ .mseo-copyright{flex-direction:column;align-items:flex-start;gap:6px}
+}
+@media(max-width:360px){
+ .mseo-footer-grid{grid-template-columns:minmax(0,1fr)}
+ .mseo-footer-grid>section:first-child{grid-column:auto}
+}
