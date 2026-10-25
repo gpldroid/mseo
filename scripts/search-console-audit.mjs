@@ -181,14 +181,14 @@ const urls = [...new Set([...sitemapUrls, ...extraUrls])].filter(value => {
   }
 });
 if (urls.length === 0) {
-  console.error('No valid URLs belonging to the configured URL-prefix property were found in the sitemap.');
+  console.error('No valid URLs belonging to the configured URL-prefix property were found in the sitemap or optional URL list.');
   process.exit(2);
 }
 const selected = urls.slice(0, MAX_URLS);
 if (urls.length > selected.length) {
-  console.warn(`Sitemap contains ${urls.length} eligible URLs; auditing the first ${selected.length} due to SEARCH_CONSOLE_MAX_URLS.`);
+  console.warn(`Found ${urls.length} eligible URLs; auditing the first ${selected.length} due to SEARCH_CONSOLE_MAX_URLS.`);
 }
-console.log(`Auditing ${selected.length} sitemap URLs for ${SITE_URL} (read-only; no indexing requests will be sent).`);
+console.log(`Auditing ${selected.length} URLs for ${SITE_URL} (read-only; no indexing requests will be sent).`);
 const results = [];
 for (let i = 0; i < selected.length; i++) {
   const result = await inspectUrl(selected[i]);
