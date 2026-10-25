@@ -162,12 +162,12 @@ async function inspectUrl(url) {
 const sitemapUrls = await fetchSitemap(SITEMAP_URL);
 const extraUrls = [];
 if (process.env.SEARCH_CONSOLE_EXTRA_URLS) {
-  extraUrls.push(...process.env.SEARCH_CONSOLE_EXTRA_URLS.split(/\\r?\\n/).map(value => value.trim()).filter(Boolean));
+  extraUrls.push(...process.env.SEARCH_CONSOLE_EXTRA_URLS.split(/\r?\n/).map(value => value.trim()).filter(Boolean));
 }
 if (process.env.SEARCH_CONSOLE_URLS_FILE) {
   try {
     const contents = await readFile(process.env.SEARCH_CONSOLE_URLS_FILE, 'utf8');
-    extraUrls.push(...contents.split(/\\r?\\n/).map(value => value.trim()).filter(value => value && !value.startsWith('#')));
+    extraUrls.push(...contents.split(/\r?\n/).map(value => value.trim()).filter(value => value && !value.startsWith('#')));
   } catch (error) {
     if (error.code !== 'ENOENT') throw error;
   }
