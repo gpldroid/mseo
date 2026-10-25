@@ -1,0 +1,41 @@
+name: Search Console URL inspection audit
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '23 6 * * 1'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: search-console-url-inspection-audit
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Run read-only URL inspection audit
+        env:
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+          SEARCH_CONSOLE_SITE_URL: ${{ vars.SEARCH_CONSOLE_SITE_URL || 'https://fastseo.site/' }}
+          SEARCH_CONSOLE_SITEMAP_URL: ${{ vars.SEARCH_CONSOLE_SITEMAP_URL || 'https://fastseo.site/sitemap.xml' }}
+          SEARCH_CONSOLE_MAX_URLS: ${{ vars.SEARCH_CONSOLE_MAX_URLS || '2000' }}
+          SEARCH_CONSOLE_REPORT_PATH: search-console-audit.csv
+        run: node scripts/search-console-audit.mjs
+      - name: Upload audit report
+        if: always() && hashFiles('search-console-audit.csv') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: search-console-audit-${{ github.run_number }}
+          path: search-console-audit.csv
+          if-no-files-found: warn
+          retention-days: 30
