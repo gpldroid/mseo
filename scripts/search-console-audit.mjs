@@ -4,7 +4,7 @@
  * Uses only Node.js built-ins; never requests indexing or changes Search Console.
  */
 import { createSign } from 'node:crypto';
-import { mkdir, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 
 const SITE_URL = process.env.SEARCH_CONSOLE_SITE_URL || 'https://fastseo.site/';
@@ -159,8 +159,20 @@ async function inspectUrl(url) {
   };
 }
 
-const rawUrls = await fetchSitemap(SITEMAP_URL);
-const urls = [...new Set(rawUrls)].filter(value => {
+const sitemapUrls = await fetchSitemap(SITEMAP_URL);
+const extraUrls = [];
+if (process.env.SEARCH_CONSOLE_EXTRA_URLS) {
+  extraUrls.push(...process.env.SEARCH_CONSOLE_EXTRA_URLS.split(/\\r?\\n/).map(value => value.trim()).filter(Boolean));
+}
+if (process.env.SEARCH_CONSOLE_URLS_FILE) {
+  try {
+    const contents = await readFile(process.env.SEARCH_CONSOLE_URLS_FILE, 'utf8');
+    extraUrls.push(...contents.split(/\\r?\\n/).map(value => value.trim()).filter(value => value && !value.startsWith('#')));
+  } catch (error) {
+    if (error.code !== 'ENOENT') throw error;
+  }
+}
+const urls = [...new Set([...sitemapUrls, ...extraUrls])].filter(value => {
   try {
     const parsed = new URL(value);
     return parsed.origin === site.origin && parsed.href.startsWith(SITE_URL);
