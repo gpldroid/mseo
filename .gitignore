@@ -7,3 +7,4 @@ node_modules/
 .netlify-admin-build/
 dist/
 *.log
+search-console-audit*.csv
