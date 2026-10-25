@@ -29,6 +29,7 @@ jobs:
           SEARCH_CONSOLE_SITE_URL: ${{ vars.SEARCH_CONSOLE_SITE_URL || 'https://fastseo.site/' }}
           SEARCH_CONSOLE_SITEMAP_URL: ${{ vars.SEARCH_CONSOLE_SITEMAP_URL || 'https://fastseo.site/sitemap.xml' }}
           SEARCH_CONSOLE_MAX_URLS: ${{ vars.SEARCH_CONSOLE_MAX_URLS || '2000' }}
+          SEARCH_CONSOLE_EXTRA_URLS: ${{ secrets.SEARCH_CONSOLE_EXTRA_URLS }}
           SEARCH_CONSOLE_REPORT_PATH: search-console-audit.csv
         run: node scripts/search-console-audit.mjs
       - name: Upload audit report
