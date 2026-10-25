@@ -77,6 +77,7 @@
                 <a href="${link('pages/tools.html')}">الأدوات</a>
                 <a href="${link('pages/about.html')}">من نحن</a>
                 <a href="${link('pages/contact.html')}">اتصل بنا</a>
+                <a href="${link('sitemap.xml')}">خريطة الموقع (Sitemap)</a>
               </nav>
             </section>
             <section class="mseo-footer-group">
