@@ -25,7 +25,7 @@ export SEARCH_CONSOLE_SITEMAP_URL='https://fastseo.site/sitemap.xml'
 node scripts/search-console-audit.mjs
 ```
 
-The script writes a dated CSV report in the current directory. Override the output path with `SEARCH_CONSOLE_REPORT_PATH`. Set `SEARCH_CONSOLE_MAX_URLS` to a positive integer to limit the audit; the default is 2,000 URLs. The script only inspects URLs on the configured site's origin and under its URL prefix, supports sitemap indexes, deduplicates URLs, and applies a conservative request delay.
+The script writes a dated CSV report in the current directory. Override the output path with `SEARCH_CONSOLE_REPORT_PATH`. Set `SEARCH_CONSOLE_MAX_URLS` to a positive integer to limit the audit; the default is 2,000 URLs. The script only inspects URLs on the configured site's origin and under its URL prefix, supports sitemap indexes, deduplicates URLs, and applies a conservative request delay.\n\nTo investigate URLs that Search Console already reports as excluded, export/copy those URLs from the Page indexing report into a local text file (one URL per line) and set `SEARCH_CONSOLE_URLS_FILE=search-console-urls.txt`. The file is optional and should not be committed; alternatively provide newline-separated URLs in `SEARCH_CONSOLE_EXTRA_URLS`. These URLs are combined with sitemap URLs, then validated against the configured property.
 
 Useful columns include:
 
