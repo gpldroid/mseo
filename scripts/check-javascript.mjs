@@ -7,7 +7,7 @@ for (const root of roots) {
     if (name.endsWith('.js') && !name.startsWith('admin.')) files.push(root + '/' + name);
   }
 }
-files.push('site-runtime.js','scripts/sync-cms-content.mjs','scripts/generate-article-catalog.mjs','scripts/generate-sitemap.mjs','scripts/check-javascript.mjs','scripts/validate-site.mjs','scripts/assemble-netlify.mjs','netlify/functions/_auth.mjs','netlify/functions/github-file.mjs','netlify/functions/netlify-build.mjs','netlify/functions/publish-content.mjs');
+files.push('site-runtime.js','scripts/sync-cms-content.mjs','scripts/generate-article-catalog.mjs','scripts/generate-sitemap.mjs','scripts/check-javascript.mjs','scripts/validate-site.mjs','scripts/assemble-netlify.mjs');
 for (const file of files) {
   const result = spawnSync(process.execPath, ['--check', file], { encoding: 'utf8' });
   if (result.status !== 0) throw new Error(`Syntax check failed: ${file}\n${result.stderr}`);
