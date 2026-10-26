@@ -2,7 +2,7 @@ import { readFile, access, readdir } from 'node:fs/promises';
 const root = new URL('../', import.meta.url);
 const required = [
   'index.html','assets/css/style.css','assets/js/site.js',
-  'data/articles.json','pages/archive.html','sitemap.xml','_redirects','pages/privacy.html','pages/terms.html'
+  'data/articles.json','pages/archive.html','sitemap.xml','feed.xml','_redirects','pages/privacy.html','pages/terms.html'
 ];
 for (const path of required) await access(new URL(path, root));
 for (const path of ['assets/css/site.css','assets/css/tailwind.css','assets/css/home-rebuild.css','assets/js/home-rebuild.js','assets/js/archive.js']) {
@@ -42,3 +42,12 @@ if (offDomainUrls.length) {
   throw new Error('sitemap.xml contains URLs outside the configured site base: ' + offDomainUrls.slice(0, 10).join(', '));
 }
 console.log('Site structure OK; ' + catalog.length + ' article records and ' + expectedUrls.length + ' sitemap URLs checked.');
+
+// Validate the generated RSS feed against the article catalog.
+const rss = await readFile(new URL('feed.xml', root), 'utf8');
+if (!rss.includes('<rss version="2.0"') || !rss.includes('<channel>') || !rss.includes('application/rss+xml')) throw new Error('feed.xml is not a recognizable RSS 2.0 feed');
+const rssLinks = [...rss.matchAll(/<link>(https?:[^<]+)<\\/link>/g)].map((match) => match[1]);
+const expectedRssLinks = catalog.map((item) => siteBase.href + 'articles/' + item.file);
+const missingRssLinks = expectedRssLinks.filter((url) => !rssLinks.includes(url));
+if (missingRssLinks.length) throw new Error('feed.xml is missing ' + missingRssLinks.length + ' article links: ' + missingRssLinks.slice(0, 10).join(', '));
+if (rssLinks.length !== catalog.length) throw new Error('feed.xml contains unexpected or duplicate article links');
