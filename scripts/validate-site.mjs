@@ -46,8 +46,8 @@ console.log('Site structure OK; ' + catalog.length + ' article records and ' + e
 // Validate the generated RSS feed against the article catalog.
 const rss = await readFile(new URL('feed.xml', root), 'utf8');
 if (!rss.includes('<rss version="2.0"') || !rss.includes('<channel>') || !rss.includes('application/rss+xml')) throw new Error('feed.xml is not a recognizable RSS 2.0 feed');
-const rssLinks = [...rss.matchAll(/<link>(https?:[^<]+)<\\/link>/g)].map((match) => match[1]);
-const expectedRssLinks = catalog.map((item) => siteBase.href + 'articles/' + item.file);
+const rssLinks = [...rss.matchAll(/<link>(https?:[^<]+)<\/link>/g)].map((match) => match[1]).filter((url) => url.includes('/articles/'));
+const expectedRssLinks = catalog.map((item) => new URL('articles/' + item.file, siteBase).href);
 const missingRssLinks = expectedRssLinks.filter((url) => !rssLinks.includes(url));
 if (missingRssLinks.length) throw new Error('feed.xml is missing ' + missingRssLinks.length + ' article links: ' + missingRssLinks.slice(0, 10).join(', '));
 if (rssLinks.length !== catalog.length) throw new Error('feed.xml contains unexpected or duplicate article links');
