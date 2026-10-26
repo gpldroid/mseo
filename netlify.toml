@@ -1,2 +1,6 @@
+[build]
+  command = "npm run build && npm run generate:social-images && npm install --prefix admin-dashboard --no-audit --no-fund && VITE_BASE_PATH=/admin-dashboard/ MSEO_MONOREPO_BUILD=true npm run build --prefix admin-dashboard && node scripts/assemble-netlify.mjs"
+  publish = "dist"
+
 [build.environment]
   MSEO_SITE_URL = "https://fastseo.site/"
