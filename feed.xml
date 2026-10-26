@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>فاست سيو | Fast Seo</title>
+    <link>https://fastseo.site/</link>
+    <description>أدلة عربية عملية في تحسين محركات البحث والبرمجة وتطوير المواقع والذكاء الاصطناعي.</description>
+    <language>ar</language>
+    <atom:link href="https://fastseo.site/feed.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 26 Oct 2026 19:50:56 GMT</lastBuildDate>
+    <item>
+      <title>TypeScript للمبتدئين: تعلّم الأنواع واكتب JavaScript بأخطاء أقل</title>
+      <link>https://fastseo.site/articles/typescript-for-beginners-ar.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/typescript-for-beginners-ar.html</guid>
+      <description>تعلم TypeScript للمبتدئين من الأنواع الأساسية إلى الواجهات وUnion Types، مع أمثلة عملية وطريقة إضافته إلى مشروع JavaScript.</description>
+      <category>البرمجة</category>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>كيف تختار الكلمات المفتاحية لموقعك؟ دليل عملي للوصول إلى جمهورك المستهدف</title>
+      <link>https://fastseo.site/articles/keyword-research-guide.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/keyword-research-guide.html</guid>
+      <description>دليل عملي لاختيار الكلمات المفتاحية حسب نية البحث والمنافسة وقيمة الموضوع، مع خطوات لبناء قائمة قابلة للتنفيذ.</description>
+      <category>SEO</category>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>لماذا لا يظهر موقعك في Google؟ 9 أسباب شائعة وطرق إصلاحها</title>
+      <link>https://fastseo.site/articles/website-not-appearing-google.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/website-not-appearing-google.html</guid>
+      <description>اكتشف أسباب عدم ظهور موقعك في Google، من حظر الفهرسة ومشكلات الزحف إلى ضعف المحتوى، مع قائمة فحص عملية.</description>
+      <category>SEO</category>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>إنشاء موقع إلكتروني من الصفر: خطوات عملية من الفكرة إلى النشر</title>
+      <link>https://fastseo.site/articles/create-website-from-scratch.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/create-website-from-scratch.html</guid>
+      <description>خطوات عملية لبناء موقع إلكتروني من تحديد الهدف وهيكلة الصفحات إلى التطوير والاختبار والنشر والصيانة.</description>
+      <category>تطوير المواقع</category>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>تصميم موقع متجاوب مع الهاتف: شرح CSS مع أمثلة عملية</title>
+      <link>https://fastseo.site/articles/responsive-website-css-guide.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/responsive-website-css-guide.html</guid>
+      <description>تعلم بناء تصميم متجاوب مع الهاتف باستخدام CSS وmedia queries وFlexbox وGrid مع أمثلة قابلة للتطبيق.</description>
+      <category>تطوير المواقع</category>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>تحسين سرعة الموقع: خطوات عملية لرفع الأداء وتقليل وقت التحميل</title>
+      <link>https://fastseo.site/articles/website-speed-optimization-guide.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/website-speed-optimization-guide.html</guid>
+      <description>خطة عملية لتحسين سرعة الموقع تبدأ بالقياس، ثم الصور والموارد والخطوط والتخزين المؤقت، وتنتهي بمراقبة النتائج.</description>
+      <category>أداء المواقع</category>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>ما هي Core Web Vitals؟ وكيف تحسّن نتائج موقعك خطوة بخطوة؟</title>
+      <link>https://fastseo.site/articles/core-web-vitals-practical-guide.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/core-web-vitals-practical-guide.html</guid>
+      <description>شرح عملي لمقاييس Core Web Vitals: LCP وINP وCLS، وكيفية قياسها وتحديد أولويات إصلاح المشكلات.</description>
+      <category>أداء المواقع</category>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>كيف تصمم واجهة موقع احترافية؟ مبادئ UX وUI التي تصنع الفرق</title>
+      <link>https://fastseo.site/articles/professional-website-ui-ux-guide.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/professional-website-ui-ux-guide.html</guid>
+      <description>تعرف إلى مبادئ UI وUX التي تجعل الموقع واضحًا وسهل الاستخدام، من التسلسل البصري والتنقل إلى النماذج وإمكانية الوصول.</description>
+      <category>تصميم المواقع</category>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>أفضل أوامر الذكاء الاصطناعي للمبرمجين: أمثلة جاهزة لكتابة كود أفضل</title>
+      <link>https://fastseo.site/articles/ai-prompts-for-programmers.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/ai-prompts-for-programmers.html</guid>
+      <description>أمثلة عملية لصياغة أوامر ذكاء اصطناعي تساعد المبرمج على فهم الكود وكتابة الاختبارات وإصلاح الأخطاء ومراجعة الأمان.</description>
+      <category>الذكاء الاصطناعي</category>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>كيف تستخدم الذكاء الاصطناعي لإنشاء موقع إلكتروني؟ الأدوات والخطوات والحدود</title>
+      <link>https://fastseo.site/articles/create-website-with-ai.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/create-website-with-ai.html</guid>
+      <description>دليل لاستخدام أدوات الذكاء الاصطناعي في تخطيط الموقع وتوليد الواجهات والكود، مع قائمة مراجعة للجودة والأمان قبل النشر.</description>
+      <category>الذكاء الاصطناعي</category>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>أخطاء الفهرسة في Google Search Console: التشخيص والإصلاح</title>
+      <link>https://fastseo.site/articles/google-search-console-indexing-errors.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/google-search-console-indexing-errors.html</guid>
+      <description>دليل عملي لفهم تقارير الفهرسة والتمييز بين الاستبعاد المتوقع والأخطاء التي تحتاج إلى إصلاح.</description>
+      <category>SEO</category>
+      <pubDate>Sun, 18 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>الروابط الداخلية وSEO: بناء بنية تربط صفحات الموقع</title>
+      <link>https://fastseo.site/articles/internal-linking-seo-guide.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/internal-linking-seo-guide.html</guid>
+      <description>دليل عملي لتحسين الروابط الداخلية، وتنظيم بنية الموقع، واختيار نصوص الروابط، واكتشاف الصفحات المعزولة والروابط المكسورة.</description>
+      <category>SEO</category>
+      <pubDate>Sun, 18 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>تحسين المواقع لمحركات البحث في 2026: دليل شامل للمحتوى والأداء والفهرسة</title>
+      <link>https://fastseo.site/articles/seo-website-optimization-2026.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/seo-website-optimization-2026.html</guid>
+      <description>دليل عملي لتحسين المحتوى والفهرسة والروابط الداخلية وسرعة الموقع وقياس نتائج SEO في 2026.</description>
+      <category>SEO</category>
+      <pubDate>Thu, 15 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>أنواع حقول HTML المتقدمة: date وnumber وcheckbox وradio</title>
+      <link>https://fastseo.site/articles/html-advanced-inputs.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/html-advanced-inputs.html</guid>
+      <description>تعرف إلى أنواع input المناسبة لاختيار التاريخ والأرقام والخيارات المتعددة والاختيار الأحادي مع أمثلة واضحة.</description>
+      <category>تطوير المواقع</category>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>الصوت والفيديو في HTML: استخدام audio وvideo وtrack</title>
+      <link>https://fastseo.site/articles/html-audio-video.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/html-audio-video.html</guid>
+      <description>تعلم تضمين الصوت والفيديو بعناصر HTML الأصلية وإضافة عناصر التحكم والترجمة مع مراعاة الوصول والأداء.</description>
+      <category>تطوير المواقع</category>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>كيف تتعاون HTML وCSS وJavaScript في صفحة الويب؟</title>
+      <link>https://fastseo.site/articles/html-css-js-roles.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/html-css-js-roles.html</guid>
+      <description>افهم دور HTML في البنية وCSS في العرض وJavaScript في التفاعل من خلال مثال صغير قابل للتطوير.</description>
+      <category>تطوير المواقع</category>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>بنية صفحة HTML: شرح doctype وhead وbody ووسوم meta</title>
+      <link>https://fastseo.site/articles/html-document-structure.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/html-document-structure.html</guid>
+      <description>افهم بنية مستند HTML من البداية، ودور doctype وhtml وhead وbody ووسوم meta، مع مثال عربي صحيح وأخطاء يجب تجنبها.</description>
+      <category>تطوير المواقع</category>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>التحقق من نماذج HTML وإتاحة رسائل الخطأ</title>
+      <link>https://fastseo.site/articles/html-form-validation-accessibility.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/html-form-validation-accessibility.html</guid>
+      <description>تعلم استخدام required وpattern وminlength مع رسائل خطأ مفهومة وتجربة نموذج يمكن الوصول إليها.</description>
+      <category>تطوير المواقع</category>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>نماذج HTML للمبتدئين: input وlabel وbutton والتحقق الأساسي</title>
+      <link>https://fastseo.site/articles/html-forms-basics.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/html-forms-basics.html</guid>
+      <description>تعلم إنشاء نموذج HTML واضح وسهل الوصول، مع label وinput وأنواع الحقول والأزرار وخصائص التحقق المدمجة وأفضل الممارسات.</description>
+      <category>تطوير المواقع</category>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>خصائص HTML العامة: id وclass وlang وdata-* وhidden</title>
+      <link>https://fastseo.site/articles/html-global-attributes-data.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/html-global-attributes-data.html</guid>
+      <description>شرح الخصائص العامة التي يمكن استخدامها مع عناصر HTML لتنظيم المحتوى وربطه بالأنماط والسلوك البرمجي.</description>
+      <category>تطوير المواقع</category>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>عنصر iframe في HTML: التضمين والأمان والخصوصية</title>
+      <link>https://fastseo.site/articles/html-iframe-security.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/html-iframe-security.html</guid>
+      <description>تعرف إلى iframe وخصائص title وloading وsandbox ومتى ينبغي تجنب تضمين محتوى خارجي.</description>
+      <category>تطوير المواقع</category>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>إمكانية الوصول في HTML: لوحة المفاتيح والتركيز وقارئات الشاشة</title>
+      <link>https://fastseo.site/articles/html-keyboard-accessibility.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/html-keyboard-accessibility.html</guid>
+      <description>خطوات عملية لتحسين وصول صفحات HTML باستخدام العناصر الأصلية وتسميات واضحة وترتيب تركيز منطقي.</description>
+      <category>تطوير المواقع</category>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>روابط HTML والمسارات: الروابط الداخلية والخارجية والملفات</title>
+      <link>https://fastseo.site/articles/html-links-paths.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/html-links-paths.html</guid>
+      <description>افهم href والمسارات النسبية والمطلقة وكيف تكتب روابط واضحة وآمنة داخل مواقع HTML.</description>
+      <category>تطوير المواقع</category>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>القوائم والصور في HTML: أمثلة عملية مع النص البديل</title>
+      <link>https://fastseo.site/articles/html-lists-images.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/html-lists-images.html</guid>
+      <description>تعلم إنشاء القوائم المرتبة وغير المرتبة وقوائم التعريف، وإضافة الصور في HTML مع alt مناسب وأبعاد تساعد على تجربة أفضل.</description>
+      <category>تطوير المواقع</category>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>مشروع HTML متكامل للمبتدئين: بناء موقع من عدة صفحات</title>
+      <link>https://fastseo.site/articles/html-multipage-project.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/html-multipage-project.html</guid>
+      <description>طبّق دروس HTML في مشروع صغير متعدد الصفحات يتضمن التنقل والمقالات والصور ونموذج تواصل وبنية قابلة للصيانة.</description>
+      <category>تطوير المواقع</category>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>أداء HTML: التحميل الكسول وdefer وpreload وقياس السرعة</title>
+      <link>https://fastseo.site/articles/html-performance-loading.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/html-performance-loading.html</guid>
+      <description>تحسين تحميل موارد الصفحة باستخدام خصائص HTML المناسبة مع فهم trade-offs وتجنب التحسينات العشوائية.</description>
+      <category>تطوير المواقع</category>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>الصور المتجاوبة في HTML: srcset وsizes وpicture</title>
+      <link>https://fastseo.site/articles/html-responsive-images.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/html-responsive-images.html</guid>
+      <description>تعلم اختيار الصور المناسبة لأحجام الشاشات وكثافات العرض باستخدام srcset وsizes وpicture.</description>
+      <category>تطوير المواقع</category>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>عناصر HTML الدلالية: استخدام header وmain وnav وarticle</title>
+      <link>https://fastseo.site/articles/html-semantic-elements.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/html-semantic-elements.html</guid>
+      <description>تعرف إلى العناصر الدلالية في HTML وكيف تختار البنية المناسبة لتحسين وضوح الصفحة وإمكانية الوصول.</description>
+      <category>تطوير المواقع</category>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>أساسيات SEO في HTML: title وdescription وcanonical والبيانات المنظمة</title>
+      <link>https://fastseo.site/articles/html-seo-metadata.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/html-seo-metadata.html</guid>
+      <description>تعلم ضبط عناصر head المهمة لمحركات البحث مع أمثلة عملية وتجنب التكرار والتصريحات المضللة.</description>
+      <category>تطوير المواقع</category>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>الجداول في HTML: th وtd وcaption وتنظيم البيانات</title>
+      <link>https://fastseo.site/articles/html-tables-caption.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/html-tables-caption.html</guid>
+      <description>تعلم إنشاء جداول HTML مفهومة باستخدام caption وthead وtbody وth مع تحسين الوصول على الشاشات الصغيرة.</description>
+      <category>تطوير المواقع</category>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>العناوين والفقرات والروابط في HTML: بناء محتوى سهل القراءة</title>
+      <link>https://fastseo.site/articles/html-text-headings-links.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/html-text-headings-links.html</guid>
+      <description>تعلم تنظيم النصوص بعناوين HTML من h1 إلى h6، واستخدام الفقرات والروابط القابلة للوصول، مع أمثلة وأخطاء شائعة.</description>
+      <category>تطوير المواقع</category>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>التحقق من HTML وتصحيح الأخطاء: W3C وأدوات المتصفح</title>
+      <link>https://fastseo.site/articles/html-validation-debugging.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/html-validation-debugging.html</guid>
+      <description>تعلم اكتشاف أخطاء بنية HTML والروابط والخصائص باستخدام أدوات التحقق وفحص DOM في المتصفح.</description>
+      <category>تطوير المواقع</category>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>ما هي لغة HTML؟ دليل البداية لبناء أول صفحة ويب</title>
+      <link>https://fastseo.site/articles/html-what-is-html.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/html-what-is-html.html</guid>
+      <description>تعرف على لغة HTML ودورها في بناء صفحات الويب، وكيف تكتب أول ملف HTML وتشغّله في المتصفح خطوة بخطوة، مع أمثلة عملية للمبتدئين.</description>
+      <category>تطوير المواقع</category>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>تدقيق جودة الموقع: قائمة شاملة للأداء وSEO وإمكانية الوصول</title>
+      <link>https://fastseo.site/articles/website-quality-audit-checklist.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/website-quality-audit-checklist.html</guid>
+      <description>استخدم قائمة عملية لتقييم جودة موقعك عبر الأداء وإمكانية الوصول وSEO والأمان وسهولة الاستخدام، ثم رتّب الإصلاحات حسب أثرها.</description>
+      <category>أداء المواقع</category>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>دليل Lighthouse: فهم نتائج الفحص وإصلاح مشكلات الموقع</title>
+      <link>https://fastseo.site/articles/lighthouse-audit-fixes-guide.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/lighthouse-audit-fixes-guide.html</guid>
+      <description>تعلم تشغيل Lighthouse وقراءة تقاريره وترتيب إصلاحات الأداء وإمكانية الوصول وSEO وفق الأثر، مع تجنب تفسير الدرجات بشكل مضلل.</description>
+      <category>أداء المواقع</category>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>اختبار جودة الموقع على الهاتف: دليل عملي قبل النشر</title>
+      <link>https://fastseo.site/articles/mobile-website-quality-testing.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/mobile-website-quality-testing.html</guid>
+      <description>قائمة عملية لاختبار الموقع على الهاتف تشمل العرض المتجاوب واللمس والنماذج والأداء وإمكانية الوصول والمهام الأساسية قبل النشر.</description>
+      <category>أداء المواقع</category>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>الخطوط العربية في تصميم المواقع: دليل عملي لتحسين القراءة والواجهة</title>
+      <link>https://fastseo.site/articles/arabic-web-typography-guide.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/arabic-web-typography-guide.html</guid>
+      <description>تعلم اختيار الخط العربي للمواقع وضبط أحجام العناوين وتباعد الأسطر والأوزان، مع أمثلة CSS عملية لتحسين القراءة على الهاتف والحاسوب.</description>
+      <category>تصميم المواقع</category>
+      <pubDate>Tue, 13 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Google Search Console: دليل عملي لتحليل النقرات ومرات الظهور وتحسين صفحات موقعك</title>
+      <link>https://fastseo.site/articles/google-search-console-performance-report.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/google-search-console-performance-report.html</guid>
+      <description>دليل عملي لتحليل النقرات ومرات الظهور والاستعلامات والصفحات في Google Search Console، وتحويل البيانات إلى قرارات تحسين SEO.</description>
+      <category>SEO</category>
+      <pubDate>Tue, 13 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>تحسين الصور لمحركات البحث: دليل SEO للصور وسرعة الموقع</title>
+      <link>https://fastseo.site/articles/seo-image-optimization-guide.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/seo-image-optimization-guide.html</guid>
+      <description>دليل عملي لتحسين الصور عبر أسماء الملفات والنص البديل والصيغ الحديثة والأبعاد والتحميل الكسول وقياس الأداء.</description>
+      <category>SEO</category>
+      <pubDate>Tue, 13 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>وسم hreflang في SEO: دليل المواقع متعددة اللغات والمناطق</title>
+      <link>https://fastseo.site/articles/hreflang-multilingual-seo-guide.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/hreflang-multilingual-seo-guide.html</guid>
+      <description>تعلم إعداد hreflang للمواقع متعددة اللغات والمناطق، وربط النسخ البديلة، واستخدام رموز اللغة والمنطقة، واكتشاف الأخطاء الشائعة.</description>
+      <category>SEO</category>
+      <pubDate>Tue, 13 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>JavaScript SEO: دليل فهرسة المواقع المعتمدة على JavaScript</title>
+      <link>https://fastseo.site/articles/javascript-seo-rendering-guide.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/javascript-seo-rendering-guide.html</guid>
+      <description>دليل عملي لفهم عرض صفحات JavaScript وتحسين المحتوى والروابط والبيانات الوصفية واختبارها في محركات البحث.</description>
+      <category>SEO</category>
+      <pubDate>Tue, 13 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>SEO للتنقل متعدد الأوجه: إدارة صفحات الفلاتر ومنع تضخم الفهرسة</title>
+      <link>https://fastseo.site/articles/faceted-navigation-seo-guide.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/faceted-navigation-seo-guide.html</guid>
+      <description>دليل عملي لإدارة صفحات الفلاتر والترتيب في المتاجر والمواقع الكبيرة، وضبط الروابط والزحف والفهرسة دون إهدار ميزانية الزحف.</description>
+      <category>SEO</category>
+      <pubDate>Tue, 13 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>دليل XML Sitemap وSEO: إنشاء خريطة موقع تساعد محركات البحث</title>
+      <link>https://fastseo.site/articles/xml-sitemap-seo-guide.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/xml-sitemap-seo-guide.html</guid>
+      <description>دليل عملي لبناء خريطة XML Sitemap نظيفة، واختيار عناوين URL المناسبة، وإرسالها ومراقبة أخطائها في Google Search Console.</description>
+      <category>SEO</category>
+      <pubDate>Tue, 13 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>ملف robots.txt: دليل الإعداد الصحيح لتحسين SEO</title>
+      <link>https://fastseo.site/articles/robots-txt-guide.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/robots-txt-guide.html</guid>
+      <description>دليل عملي لإنشاء ملف robots.txt وفهم قواعد Allow وDisallow والفرق بين الزحف والفهرسة واختبار الملف.</description>
+      <category>SEO</category>
+      <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>وسم Canonical في SEO: دليل عملي لتوحيد عناوين الصفحات</title>
+      <link>https://fastseo.site/articles/canonical-url-guide.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/canonical-url-guide.html</guid>
+      <description>تعلم كيف تختار عنوان URL الأساسي وتستخدم rel=canonical لتقليل التباس النسخ المتشابهة ومراجعة الأخطاء الشائعة.</description>
+      <category>SEO</category>
+      <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>خريطة الموقع XML: طريقة إعداد Sitemap مفيدة لمحركات البحث</title>
+      <link>https://fastseo.site/articles/xml-sitemap-guide.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/xml-sitemap-guide.html</guid>
+      <description>دليل عملي لاختيار الصفحات التي تستحق الظهور في خريطة الموقع وإنشائها واختبارها وتجنب الأخطاء.</description>
+      <category>SEO</category>
+      <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>استخدام Fetch API في JavaScript: التعامل الصحيح مع الاستجابات والأخطاء</title>
+      <link>https://fastseo.site/articles/javascript-fetch-api-errors.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/javascript-fetch-api-errors.html</guid>
+      <description>تعلم طلب البيانات من API باستخدام fetch وasync/await، والتحقق من status، ومعالجة JSON والأخطاء بطريقة قابلة للصيانة.</description>
+      <category>تطوير المواقع</category>
+      <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>إمكانية الوصول في المواقع: قائمة عملية لتحسين تجربة جميع المستخدمين</title>
+      <link>https://fastseo.site/articles/web-accessibility-checklist.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/web-accessibility-checklist.html</guid>
+      <description>قائمة عملية لتحسين الوصول إلى موقعك عبر HTML الدلالي ولوحة المفاتيح والتباين والنماذج والاختبار.</description>
+      <category>تطوير المواقع</category>
+      <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>CSS Container Queries: تصميم مكونات تتكيف مع المساحة المتاحة</title>
+      <link>https://fastseo.site/articles/css-container-queries-guide.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/css-container-queries-guide.html</guid>
+      <description>شرح عملي لـ container-type و@container لبناء بطاقات ومكونات تتكيف مع عرض الحاوية بدل عرض الشاشة فقط.</description>
+      <category>تصميم المواقع</category>
+      <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>أفضل أدوات الذكاء الاصطناعي للمطورين في 2026</title>
+      <link>https://fastseo.site/articles/ai-developer-tools.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/ai-developer-tools.html</guid>
+      <description>دليل عملي لاختيار أدوات الذكاء الاصطناعي للمطورين حسب حالة الاستخدام ومعايير الخصوصية والتكامل وجودة المخرجات.</description>
+      <category>الذكاء الاصطناعي</category>
+      <pubDate>Mon, 28 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Prompt Engineering للمطورين: كيف تكتب Prompts أفضل لكتابة ومراجعة الكود</title>
+      <link>https://fastseo.site/articles/prompt-engineering-developers.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/prompt-engineering-developers.html</guid>
+      <description>دليل عملي لبناء Prompts أوضح للمطورين عبر تحديد الهدف والسياق والقيود والمخرجات ثم تحسينها بالتكرار والاختبار والمراجعة.</description>
+      <category>الذكاء الاصطناعي</category>
+      <pubDate>Mon, 28 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Git وGitHub للمبتدئين: إدارة إصدارات مشاريع الويب خطوة بخطوة</title>
+      <link>https://fastseo.site/articles/git-github-beginners.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/git-github-beginners.html</guid>
+      <description>دليل عملي لتعلم Git وGitHub للمبتدئين وفهم المستودعات والـcommit والفروع والمزامنة وPull Request.</description>
+      <category>تطوير المواقع</category>
+      <pubDate>Mon, 28 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>JavaScript للمبتدئين: الأساسيات التي تحتاجها لبناء مواقع تفاعلية</title>
+      <link>https://fastseo.site/articles/javascript-beginners-guide.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/javascript-beginners-guide.html</guid>
+      <description>دليل عملي لفهم أساسيات JavaScript من المتغيرات والدوال والمصفوفات والكائنات إلى DOM والأحداث وبناء أول تفاعل في صفحات الويب.</description>
+      <category>البرمجة</category>
+      <pubDate>Mon, 28 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Debugging في JavaScript: دليل اكتشاف الأخطاء وإصلاحها</title>
+      <link>https://fastseo.site/articles/javascript-debugging.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/javascript-debugging.html</guid>
+      <description>دليل عملي لتشخيص أخطاء JavaScript باستخدام Console وDevTools وBreakpoints وNetwork وتتبع السبب الجذري قبل إصلاح الكود.</description>
+      <category>البرمجة</category>
+      <pubDate>Mon, 28 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>كيفية إنشاء موقع احترافي بالذكاء الاصطناعي من الصفر في 2026</title>
+      <link>https://fastseo.site/articles/ai-website-builder-guide.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/ai-website-builder-guide.html</guid>
+      <description>دليل عملي للتخطيط وبناء موقع حديث بالذكاء الاصطناعي.</description>
+      <category>الذكاء الاصطناعي</category>
+      <pubDate>Wed, 23 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>دليل HTML الدلالي: كيف تبني صفحات ويب أفضل للـSEO والوصول</title>
+      <link>https://fastseo.site/articles/html-semantic-seo.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/html-semantic-seo.html</guid>
+      <description>بنية HTML الدلالية وعلاقتها بالوصول ومحركات البحث.</description>
+      <category>تطوير المواقع</category>
+      <pubDate>Tue, 22 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>CSS الحديث لتصميم مواقع احترافية: Grid وFlexbox وResponsive Design</title>
+      <link>https://fastseo.site/articles/css-modern-design.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/css-modern-design.html</guid>
+      <description>أساسيات CSS الحديثة لبناء واجهات متجاوبة.</description>
+      <category>تصميم المواقع</category>
+      <pubDate>Mon, 21 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>JavaScript للمواقع: تنظيم الكود وتقليل الأخطاء وتحسين الأداء</title>
+      <link>https://fastseo.site/articles/javascript-clean-code.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/javascript-clean-code.html</guid>
+      <description>ممارسات عملية لتنظيم JavaScript وتحسين الصيانة.</description>
+      <category>البرمجة</category>
+      <pubDate>Sun, 20 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>استراتيجية محتوى SEO في 2026: دليل عملي</title>
+      <link>https://fastseo.site/articles/seo-content-strategy.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/seo-content-strategy.html</guid>
+      <description>تعلم بناء استراتيجية محتوى SEO في 2026: من فهم نية البحث وتصنيف الموضوعات إلى الروابط الداخلية وقياس أداء المقالات.</description>
+      <category>SEO</category>
+      <pubDate>Sat, 19 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>أفضل Prompts لبرمجة المواقع بالذكاء الاصطناعي: من الفكرة إلى كود قابل للصيانة</title>
+      <link>https://fastseo.site/articles/ai-coding-prompts.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/ai-coding-prompts.html</guid>
+      <description>أمثلة عملية لصياغة Prompts دقيقة لكتابة ومراجعة الكود.</description>
+      <category>الذكاء الاصطناعي</category>
+      <pubDate>Fri, 18 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>نشر موقع HTML وCSS وJavaScript على GitHub Pages خطوة بخطوة</title>
+      <link>https://fastseo.site/articles/github-pages-deploy.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/github-pages-deploy.html</guid>
+      <description>دليل النشر والاستضافة على GitHub Pages.</description>
+      <category>تطوير المواقع</category>
+      <pubDate>Thu, 17 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>Schema Markup للمقالات: كيف تستخدم البيانات المنظمة بطريقة صحيحة</title>
+      <link>https://fastseo.site/articles/structured-data-guide.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/structured-data-guide.html</guid>
+      <description>شرح عملي للبيانات المنظمة والمخططات المناسبة للمقالات.</description>
+      <category>SEO</category>
+      <pubDate>Wed, 16 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>تحسين سرعة الموقع وCore Web Vitals: دليل عملي للمطورين</title>
+      <link>https://fastseo.site/articles/web-performance-core.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/web-performance-core.html</guid>
+      <description>خطوات عملية لتحسين الأداء وتجربة المستخدم.</description>
+      <category>أداء المواقع</category>
+      <pubDate>Tue, 15 Sep 2026 00:00:00 GMT</pubDate>
+    </item>
+    <item>
+      <title>GitHub Actions Workflow Lockfiles: دليل تأمين تبعيات CI/CD</title>
+      <link>https://fastseo.site/articles/github-actions-workflow-lockfiles.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/github-actions-workflow-lockfiles.html</guid>
+      <description>شرح عملي لملفات قفل تبعيات GitHub Actions وطريقة إنشاء actions.lock ومراجعته وصيانته مع Dependabot للحد من مخاطر تغيّر الوسوم والفروع.</description>
+      <category>البرمجة</category>
+    </item>
+    <item>
+      <title>اختبار الموقع بعد التحديث: اكتشاف الأعطال قبل أن يلاحظها المستخدم</title>
+      <link>https://fastseo.site/articles/website-update-regression-testing.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/website-update-regression-testing.html</guid>
+      <description>خطوات عملية لاختبار الموقع بعد تحديث القالب أو المكتبات أو المحتوى، مع ترتيب اختبارات الانحدار وتوثيق النتائج وخطة التراجع.</description>
+      <category>أداء المواقع</category>
+    </item>
+    <item>
+      <title>اختبار واجهة المستخدم: دليل عملي للأزرار والنماذج والتنقل</title>
+      <link>https://fastseo.site/articles/frontend-ui-testing-guide.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/frontend-ui-testing-guide.html</guid>
+      <description>تعلم اختبار واجهات الويب يدويًا وبشكل منهجي، من حالات الأزرار والنماذج إلى التنقل ولوحة المفاتيح والتجاوب ورسائل الخطأ.</description>
+      <category>تطوير المواقع</category>
+    </item>
+    <item>
+      <title>أساسيات أمان الموقع: قائمة تحقق عملية للمطورين</title>
+      <link>https://fastseo.site/articles/website-security-basics-checklist.html</link>
+      <guid isPermaLink="true">https://fastseo.site/articles/website-security-basics-checklist.html</guid>
+      <description>قائمة أساسية لتحسين أمان موقع الويب تشمل HTTPS وإدارة الأسرار والتحديثات والصلاحيات والتحقق من المدخلات والنسخ الاحتياطية.</description>
+      <category>البرمجة</category>
+    </item>
+  </channel>
+</rss>
