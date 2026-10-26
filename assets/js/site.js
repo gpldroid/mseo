@@ -55,6 +55,16 @@
         </div>
       </header>`;
   }
+  // Advertise the RSS feed to browsers and feed readers on every public page.
+  if (!document.querySelector('link[rel="alternate"][type="application/rss+xml"]')) {
+    const rssLink = document.createElement('link');
+    rssLink.rel = 'alternate';
+    rssLink.type = 'application/rss+xml';
+    rssLink.title = 'فاست سيو | Fast Seo — RSS';
+    rssLink.href = link('feed.xml');
+    document.head.appendChild(rssLink);
+  }
+
   const footer = $('[data-site-footer]') || $('[data-home-footer]');
   if (footer) {
     footer.innerHTML = `
@@ -78,6 +88,7 @@
                 <a href="${link('pages/about.html')}">من نحن</a>
                 <a href="${link('pages/contact.html')}">اتصل بنا</a>
                 <a href="${link('sitemap.xml')}">خريطة الموقع (Sitemap)</a>
+                <a href="${link('feed.xml')}">خلاصة RSS للمقالات</a>
               </nav>
             </section>
             <section class="mseo-footer-group">
