@@ -108,40 +108,79 @@
     ticker.addEventListener('focusin', stop);
     ticker.addEventListener('focusout', event => { if (!ticker.contains(event.relatedTarget)) start(); });
     document.addEventListener('visibilitychange', () => document.hidden ? stop() : start());
-    // Use the same catalog URL resolution and cache policy as the homepage renderer.
-    const catalogBase = new URL(location.pathname.match(/\/(articles|pages)\//) ? '../' : './', location.href);
-    const catalogUrl = new URL('data/articles.json', catalogBase);
-    fetch(catalogUrl.href, {cache:'no-cache'}).then(response => {
-      if (!response.ok) throw new Error('Article catalog request failed: HTTP ' + response.status + ' (' + response.url + ')');
-      return response.json();
-    }).then(articles => {
-      if (!Array.isArray(articles)) throw new Error('Article catalog response is not a JSON array');
-      // Editorial order: oldest published articles first, while preferring one article per category.
-      const sorted = articles.filter(article => article && typeof article.title === 'string' && (article.file || article.slug))
-        .map((article, index) => ({...article, _tickerOrder:index}))
-        .sort((a,b) => String(a.publishedAt || a.updatedAt || '').localeCompare(String(b.publishedAt || b.updatedAt || '')) || a._tickerOrder - b._tickerOrder);
-      const selected = [], categories = new Set();
-      sorted.forEach(article => {
-        const category = article.category || 'مقالات';
-        if (selected.length < 6 && !categories.has(category)) { selected.push(article); categories.add(category); }
-      });
-      sorted.forEach(article => { if (selected.length < 6 && !selected.some(item => item.slug === article.slug)) selected.push(article); });
+    // Reuse the public article catalog with root-safe URL resolution and resilient fallback.
+    const catalogUrl = new URL(link('data/articles.json'), location.href);
+    const loadCatalog = async () => {
+      const candidates = [
+        catalogUrl.href,
+        new URL('/data/articles.json', location.origin).href
+      ].filter((value, index, all) => all.indexOf(value) === index);
+      let lastError = null;
+      for (const url of candidates) {
+        try {
+          const response = await fetch(url, { cache: 'no-store', credentials: 'same-origin' });
+          if (!response.ok) throw new Error('HTTP ' + response.status + ' loading ' + url);
+          const data = await response.json();
+          if (!Array.isArray(data)) throw new Error('Article catalog must be a JSON array');
+          const valid = data.filter(article =>
+            article && typeof article.title === 'string' && article.title.trim() &&
+            (typeof article.file === 'string' && article.file.trim() ||
+             typeof article.slug === 'string' && article.slug.trim())
+          );
+          if (!valid.length) throw new Error('Article catalog contains no valid article titles');
+          return valid;
+        } catch (error) {
+          lastError = error;
+        }
+      }
+      throw lastError || new Error('Unable to load the article catalog');
+    };
+    loadCatalog().then(articles => {
+      // Oldest published entries first; select different categories before filling remaining slots.
+      const sorted = articles.map((article, index) => ({...article, _tickerOrder:index}))
+        .sort((a, b) => {
+          const dateA = Date.parse(a.publishedAt || a.date || a.updatedAt || '') || 0;
+          const dateB = Date.parse(b.publishedAt || b.date || b.updatedAt || '') || 0;
+          return dateA - dateB || a._tickerOrder - b._tickerOrder;
+        });
+      const selected = [];
+      const categories = new Set();
+      for (const article of sorted) {
+        const category = String(article.category || 'مقالات').trim();
+        if (selected.length < 6 && !categories.has(category)) {
+          selected.push(article);
+          categories.add(category);
+        }
+      }
+      for (const article of sorted) {
+        if (selected.length >= 6) break;
+        if (!selected.some(item => (item.slug || item.file) === (article.slug || article.file))) selected.push(article);
+      }
       items = selected.slice(0, 6).map(({_tickerOrder, ...article}) => article);
-      if (!items.length) { windowEl.textContent = 'لا توجد مقالات متاحة حاليًا.'; return; }
+      if (!items.length) throw new Error('No articles available for the ticker');
       render();
       start();
     }).catch(error => {
-      console.error('[Fast Seo ticker] Failed to load data/articles.json:', error);
-      // Keep the header ticker useful on the homepage if its article cards already rendered.
-      const cards = [...document.querySelectorAll('#article-grid a[href]')].filter(a => a.textContent.trim());
-      items = cards.slice(0, 6).map(a => ({
-        title: a.textContent.trim(),
-        file: a.getAttribute('href').split('/').pop(),
-        category: 'مقالات'
-      }));
-      if (items.length) { active = 0; render(); start(); return; }
-      windowEl.textContent = 'المقالات غير متاحة مؤقتًا.';
-      windowEl.setAttribute('title', 'تعذر تحميل ملف المقالات. افتح وحدة التحكم (Console) لمعرفة السبب.');
+      console.error('[Fast Seo ticker] Article catalog failed:', error);
+      // The homepage may already have rendered article cards; use their headings as a safe fallback.
+      const cards = [...document.querySelectorAll('#article-grid article, [data-articles-grid] article, .article-card')];
+      items = cards.map(card => {
+        const titleLink = card.querySelector('h2 a, h3 a, .article-card-title a, a[href*="/articles/"]');
+        if (!titleLink) return null;
+        const href = titleLink.getAttribute('href') || '';
+        const title = titleLink.textContent.trim();
+        if (!title || !href) return null;
+        return { title, file: href.split('/').pop().split('?')[0], category: card.querySelector('.article-category')?.textContent.trim() || 'مقالات' };
+      }).filter(Boolean).slice(0, 6);
+      if (items.length) {
+        active = 0;
+        render();
+        start();
+        return;
+      }
+      windowEl.textContent = 'تعذر تحميل عناوين المقالات. حاول تحديث الصفحة.';
+      windowEl.setAttribute('role', 'status');
+      windowEl.setAttribute('title', 'تعذر قراءة data/articles.json؛ تحقق من مسار الملف واستجابة الخادم.');
     });
   })();
 
