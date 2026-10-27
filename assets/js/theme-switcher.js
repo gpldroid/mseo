@@ -144,6 +144,7 @@
     ensureCss();
     apply(active, !valid(saved));
     createFloatingButton();
+    apply(active, false);
     document.addEventListener('click', onTrigger, true);
     // Keep this theme system authoritative if older scripts adjust data-theme.
     const observer = new MutationObserver(() => {
