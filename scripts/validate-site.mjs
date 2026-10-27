@@ -17,6 +17,14 @@ const sharedJs = await readFile(new URL('assets/js/site.js', root), 'utf8');
 if (sharedJs.includes("link('index.html')") || sharedJs.includes('link(href)}')) throw new Error('Shared navigation must use the clean root URL for homepage links');
 const redirects = await readFile(new URL('_redirects', root), 'utf8');
 if (!redirects.includes('/index.html / 301')) throw new Error('Missing permanent redirect from /index.html to /');
+const netlifyConfig = await readFile(new URL('netlify.toml', root), 'utf8');
+if (!netlifyConfig.includes('from = "https://mseopro.netlify.app"') ||
+    !netlifyConfig.includes('from = "https://mseopro.netlify.app/*"') ||
+    !netlifyConfig.includes('to = "https://fastseo.site/:splat"') ||
+    !netlifyConfig.includes('status = 301') ||
+    !netlifyConfig.includes('force = true')) {
+  throw new Error('Missing forced permanent redirects from the retired Netlify hostname to fastseo.site');
+}
 const css = await readFile(new URL('assets/css/style.css', root), 'utf8');
 for (const feature of ['.mseo-header','.mseo-nav','.mseo-search-panel','.mseo-footer','.mseo-scroll-controls','html.dark']) if (!css.includes(feature)) throw new Error('Unified stylesheet missing feature: ' + feature);
 // Keep the checked-in sitemap aligned with the generated public inventory.
