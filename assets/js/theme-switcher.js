@@ -46,6 +46,14 @@
       button.setAttribute('aria-haspopup', 'dialog');
       button.setAttribute('aria-expanded', String(Boolean(backdrop && !backdrop.hidden)));
     });
+    const quickToggle = $('[data-theme-float]');
+    if (quickToggle) {
+      const dark = active === 'dark-tech';
+      quickToggle.innerHTML = dark ? '<i class="fa-solid fa-sun" aria-hidden="true"></i>' : '<i class="fa-solid fa-moon" aria-hidden="true"></i>';
+      quickToggle.title = dark ? 'التبديل إلى المظهر الفاتح' : 'التبديل إلى المظهر الداكن';
+      quickToggle.setAttribute('aria-label', quickToggle.title);
+      quickToggle.setAttribute('aria-pressed', String(dark));
+    }
     if (persist) safeSet(active);
     if (panel) {
       panel.querySelectorAll('[data-theme-choice]').forEach(button => {
@@ -114,10 +122,10 @@
     button.type = 'button';
     button.className = 'mseo-style-float';
     button.dataset.themeFloat = '';
-    button.setAttribute('aria-label','فتح لوحة تغيير النمط');
-    button.setAttribute('aria-haspopup','dialog');
-    button.title = 'تغيير نمط الموقع';
-    button.innerHTML = '<i class="fa-solid fa-palette" aria-hidden="true"></i>';
+    button.setAttribute('aria-label','التبديل إلى المظهر الداكن');
+    button.setAttribute('aria-pressed','false');
+    button.title = 'التبديل بين المظهر الفاتح والداكن';
+    button.innerHTML = '<i class="fa-solid fa-moon" aria-hidden="true"></i>';
     document.body.appendChild(button);
   }
   function onTrigger(event) {
@@ -126,12 +134,17 @@
     event.preventDefault();
     event.stopPropagation();
     event.stopImmediatePropagation();
+    if (trigger.matches('[data-theme-float]')) {
+      apply(active === 'dark-tech' ? 'modern-seo' : 'dark-tech', true);
+      return;
+    }
     if (backdrop && !backdrop.hidden) closePanel(); else openPanel();
   }
   function init() {
     ensureCss();
     apply(active, !valid(saved));
     createFloatingButton();
+    apply(active, false);
     document.addEventListener('click', onTrigger, true);
     // Keep this theme system authoritative if older scripts adjust data-theme.
     const observer = new MutationObserver(() => {
