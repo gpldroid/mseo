@@ -64,7 +64,13 @@ let cssRefs = 0;
 
 for (const file of htmlFiles) {
   const html = await readFile(path.join(root, file), 'utf8');
-  for (const match of html.matchAll(/<(img|script|source|video|audio|iframe|embed|object|track|link)\b[^>]*>/gi)) {
+  // Ignore example markup embedded in inline scripts, styles, code samples, and textareas;
+  // preserve actual script/style opening tags so their src attributes are still checked.
+  const markup = html
+    .replace(/(<script\b[^>]*>)[\s\S]*?<\/script>/gi, '$1</script>')
+    .replace(/(<style\b[^>]*>)[\s\S]*?<\/style>/gi, '$1</style>')
+    .replace(/<(textarea|pre|code)\b[^>]*>[\s\S]*?<\/\1>/gi, '');
+  for (const match of markup.matchAll(/<(img|script|source|video|audio|iframe|embed|object|track|link)\b[^>]*>/gi)) {
     const tag = match[0];
     const name = match[1].toLowerCase();
     const attrs = name === 'link'
