@@ -59,11 +59,11 @@ async function walk(directory) {
       (url) => '<meta property="og:url" content="' + url + '">'
     );
 
-    // Normalize retired hosting URLs in all metadata and content, including share-image URLs.
-    after = after.replace(/https?:\\/\\/(?:www\\.)?(?:gpldroid\\.github\\.io\\/mseo|mseopro\\.netlify\\.app)(?=\\/|["'?#])/gi, canonicalPrefix);
+    // Normalize retired hosting URLs in all metadata and content, including social image URLs.
+    after = after.replace(/https?:\/\/(?:www\.)?(?:gpldroid\.github\.io\/mseo|mseopro\.netlify\.app)(?=\/|["'?#])/gi, canonicalPrefix);
     after = setHeadTag(
       after,
-      /<meta\\b(?=[^>]*\\bproperty\\s*=\\s*["']og:site_name["'])[^>]*>/i,
+      /<meta\b(?=[^>]*\bproperty\s*=\s*["']og:site_name["'])[^>]*>/i,
       'content',
       'فاست سيو | Fast Seo',
       (name) => '<meta property="og:site_name" content="' + name + '">'
