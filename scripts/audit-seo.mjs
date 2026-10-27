@@ -57,19 +57,19 @@ for (const file of htmlFiles) {
       critical.push(file + ': og:url does not match canonical URL; expected ' + canonical + ', found ' + ogUrl);
     }
 
-    const head = html.match(/<head\\b[\\s\\S]*?<\\/head>/i)?.[0] || '';
-    const siteNameTag = head.match(/<meta\\b(?=[^>]*\\bproperty\\s*=\\s*["']og:site_name["'])[^>]*>/i)?.[0] || '';
+    const head = html.match(/<head\b[\s\S]*?<\/head>/i)?.[0] || '';
+    const siteNameTag = head.match(/<meta\b(?=[^>]*\bproperty\s*=\s*["']og:site_name["'])[^>]*>/i)?.[0] || '';
     const siteName = attr(siteNameTag, 'content').trim();
     if (siteName !== 'فاست سيو | Fast Seo') {
       critical.push(file + ': og:site_name must be "فاست سيو | Fast Seo"; found "' + siteName + '"');
     }
-    if (/https?:\\/\\/(?:www\\.)?(?:gpldroid\\.github\\.io\\/mseo|mseopro\\.netlify\\.app)(?=\\/|["'?#])/i.test(head)) {
+    if (head.includes('gpldroid.github.io/mseo') || head.includes('mseopro.netlify.app')) {
       critical.push(file + ': retired hosting domain remains in head metadata');
     }
-    if (/\\bMSEO\\b/i.test(head)) {
+    if (/\bMSEO\b/i.test(head)) {
       critical.push(file + ': legacy MSEO brand remains in head metadata');
     }
-    const socialImageTags = [...head.matchAll(/<meta\\b(?=[^>]*(?:property\\s*=\\s*["']og:image["']|name\\s*=\\s*["']twitter:image["']))[^>]*>/gi)];
+    const socialImageTags = [...head.matchAll(/<meta\b(?=[^>]*(?:property\s*=\s*["']og:image["']|name\s*=\s*["']twitter:image["']))[^>]*>/gi)];
     for (const match of socialImageTags) {
       const imageUrl = attr(match[0], 'content').trim();
       if (imageUrl && !imageUrl.startsWith(siteBase.origin + '/')) {
