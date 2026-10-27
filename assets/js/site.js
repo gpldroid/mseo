@@ -98,17 +98,17 @@
               <div class="mseo-footer-newsletter">
                 <h4>اشترك في النشرة البريدية</h4>
                 <p>تابع جديد المقالات والأدوات التقنية.</p>
-                <a class="mseo-footer-subscribe" href="${link('pages/contact.html')}">تواصل معنا للاشتراك <span aria-hidden="true">←</span></a>
+                <a class="mseo-footer-subscribe" href="${link('pages/contact.html')}">اشترك الآن <span aria-hidden="true">←</span></a>
               </div>
             </section>
-            <section class="mseo-footer-group">
+            <section class="mseo-footer-group mseo-footer-categories">
               <h3>التصنيفات</h3>
               <nav class="mseo-footer-links" aria-label="تصنيفات الموقع">
                 <a href="${link('pages/archive.html')}?category=${encodeURIComponent('SEO')}">SEO</a>
                 <a href="${link('pages/archive.html')}?category=${encodeURIComponent('الذكاء الاصطناعي')}">الذكاء الاصطناعي</a>
                 <a href="${link('pages/archive.html')}?category=${encodeURIComponent('البرمجة')}">البرمجة</a>
-                <a href="${link('pages/archive.html')}?category=${encodeURIComponent('تصميم المواقع')}">تصميم المواقع</a>
-                <a href="${link('pages/archive.html')}?category=${encodeURIComponent('أداء المواقع')}">أداء المواقع</a>
+                <a href="${link('pages/archive.html')}?category=${encodeURIComponent('تطوير المواقع')}">تطوير المواقع</a>
+                <a href="${link('pages/archive.html')}?category=${encodeURIComponent('التسويق الرقمي')}">التسويق الرقمي</a>
               </nav>
             </section>
             <section class="mseo-footer-group mseo-footer-about">
@@ -116,7 +116,8 @@
                 <img class="mseo-brand-logo" src="${link('assets/images/fastseo-logo-footer.svg?v=20261027')}" alt="" width="180" height="48" decoding="async" style="display:block;width:180px;height:48px;object-fit:contain">
               </a>
               <p class="mseo-footer-tagline">المرجع العربي نحو الظهور الأول في محركات البحث ومواكبة أحدث تقنيات الذكاء الاصطناعي والتطوير.</p>
-              <nav class="mseo-footer-links mseo-footer-quick-links" aria-label="روابط الموقع">
+              <nav class="mseo-footer-links mseo-footer-quick-links" aria-label="روابط سريعة">
+                <a href="${link('')}">الرئيسية</a>
                 <a href="${link('pages/topics.html')}">المقالات</a>
                 <a href="${link('pages/tools.html')}">الأدوات</a>
                 <a href="${link('pages/about.html')}">من نحن</a>
