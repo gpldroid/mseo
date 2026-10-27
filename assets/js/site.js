@@ -84,44 +84,36 @@
     footer.innerHTML = `
       <footer class="mseo-footer">
         <div class="mseo-footer-inner">
+          <section class="mseo-footer-top" aria-label="عن Fast SEO">
+            <a class="mseo-brand mseo-footer-brand" href="${link('')}" aria-label="Fast SEO — الصفحة الرئيسية">
+              <img class="mseo-brand-logo" src="${link('assets/images/fastseo-logo-footer.svg?v=20261027')}" alt="Fast SEO" width="180" height="48" decoding="async">
+            </a>
+            <p class="mseo-footer-tagline">المرجع العربي نحو الظهور الأول في محركات البحث، مع أحدث تقنيات الذكاء الاصطناعي والتطوير.</p>
+          </section>
           <div class="mseo-footer-main">
+            <section class="mseo-footer-group mseo-footer-quick-column">
+              <h3>روابط سريعة</h3>
+              <nav class="mseo-footer-links" aria-label="روابط سريعة">
+                <a href="${link('pages/topics.html')}">المقالات</a>
+                <a href="${link('pages/tools.html')}">الأدوات</a>
+              </nav>
+            </section>
+            <section class="mseo-footer-group mseo-footer-about-column">
+              <h3>عن الموقع</h3>
+              <nav class="mseo-footer-links" aria-label="روابط حول الموقع">
+                <a href="${link('pages/about.html')}">من نحن</a>
+                <a href="${link('pages/contact.html')}">اتصل بنا</a>
+              </nav>
+            </section>
             <section class="mseo-footer-group mseo-footer-community">
               <h3>تابعنا على</h3>
-              <nav class="mseo-footer-links mseo-footer-social-list" aria-label="مواقع التواصل">
+              <nav class="mseo-footer-links mseo-footer-social-list" aria-label="مواقع التواصل الاجتماعي">
                 <a href="https://x.com/laraforum" target="_blank" rel="noopener noreferrer" aria-label="تابعنا على X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
                 <a href="https://m.facebook.com/61577188775609" target="_blank" rel="noopener noreferrer" aria-label="تابعنا على فيسبوك"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
                 <a href="https://www.instagram.com/larache_forum" target="_blank" rel="noopener noreferrer" aria-label="تابعنا على إنستغرام"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
                 <a href="https://ma.linkedin.com/in/imad-limrani-0221aa3aa" target="_blank" rel="noopener noreferrer" aria-label="تابعنا على لينكدإن"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
                 <a href="https://github.com/gpldroid/" target="_blank" rel="noopener noreferrer" aria-label="تابعنا على GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
                 <a href="https://wa.me/212783539816" target="_blank" rel="noopener noreferrer" aria-label="تواصل معنا عبر واتساب"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
-              </nav>
-              <div class="mseo-footer-newsletter">
-                <h4>اشترك في النشرة البريدية</h4>
-                <p>تابع جديد المقالات والأدوات التقنية.</p>
-                <a class="mseo-footer-subscribe" href="${link('pages/contact.html')}">اشترك الآن <span aria-hidden="true">←</span></a>
-              </div>
-            </section>
-            <section class="mseo-footer-group mseo-footer-categories">
-              <h3>التصنيفات</h3>
-              <nav class="mseo-footer-links" aria-label="تصنيفات الموقع">
-                <a href="${link('pages/archive.html')}?category=${encodeURIComponent('SEO')}">SEO</a>
-                <a href="${link('pages/archive.html')}?category=${encodeURIComponent('الذكاء الاصطناعي')}">الذكاء الاصطناعي</a>
-                <a href="${link('pages/archive.html')}?category=${encodeURIComponent('البرمجة')}">البرمجة</a>
-                <a href="${link('pages/archive.html')}?category=${encodeURIComponent('تطوير المواقع')}">تطوير المواقع</a>
-                <a href="${link('pages/archive.html')}?category=${encodeURIComponent('التسويق الرقمي')}">التسويق الرقمي</a>
-              </nav>
-            </section>
-            <section class="mseo-footer-group mseo-footer-about">
-              <a class="mseo-brand mseo-footer-brand" href="${link('')}" aria-label="Fast SEO — الصفحة الرئيسية">
-                <img class="mseo-brand-logo" src="${link('assets/images/fastseo-logo-footer.svg?v=20261027')}" alt="" width="180" height="48" decoding="async" style="display:block;width:180px;height:48px;object-fit:contain">
-              </a>
-              <p class="mseo-footer-tagline">المرجع العربي نحو الظهور الأول في محركات البحث ومواكبة أحدث تقنيات الذكاء الاصطناعي والتطوير.</p>
-              <nav class="mseo-footer-links mseo-footer-quick-links" aria-label="روابط سريعة">
-                <a href="${link('')}">الرئيسية</a>
-                <a href="${link('pages/topics.html')}">المقالات</a>
-                <a href="${link('pages/tools.html')}">الأدوات</a>
-                <a href="${link('pages/about.html')}">من نحن</a>
-                <a href="${link('pages/contact.html')}">اتصل بنا</a>
               </nav>
             </section>
           </div>

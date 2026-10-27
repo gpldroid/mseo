@@ -2500,3 +2500,105 @@ footer.mseo-footer .mseo-footer-bottom-links {
     flex-direction: column;
   }
 }
+
+
+/* Footer layout refinement: horizontal brand intro above three focused link columns. */
+footer.mseo-footer .mseo-footer-top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: clamp(20px, 3vw, 38px);
+  padding: 0 0 24px;
+  margin: 0 0 24px;
+  border-bottom: 1px solid var(--line);
+  text-align: start;
+}
+footer.mseo-footer .mseo-footer-top .mseo-footer-brand {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  margin: 0;
+}
+footer.mseo-footer .mseo-footer-top .mseo-brand-logo {
+  display: block;
+  width: 180px;
+  max-width: 32vw;
+  height: 48px;
+  object-fit: contain;
+  border: 0;
+  outline: 0;
+  box-shadow: none;
+  background: transparent;
+}
+footer.mseo-footer .mseo-footer-top .mseo-footer-tagline {
+  grid-area: auto;
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 68ch;
+  margin: 0;
+  justify-self: auto;
+  text-align: start;
+  color: var(--muted);
+  font-size: .92rem;
+  line-height: 1.9;
+}
+footer.mseo-footer .mseo-footer-main {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(20px, 4vw, 56px);
+  align-items: start;
+  direction: rtl;
+}
+footer.mseo-footer .mseo-footer-main .mseo-footer-group {
+  min-width: 0;
+  grid-column: auto;
+}
+footer.mseo-footer .mseo-footer-main .mseo-footer-group h3 {
+  margin: 0 0 12px;
+  font-size: .98rem;
+  font-weight: 700;
+}
+footer.mseo-footer .mseo-footer-main .mseo-footer-links:not(.mseo-footer-social-list) {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+footer.mseo-footer .mseo-footer-main .mseo-footer-social-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+@media (max-width: 760px) {
+  footer.mseo-footer .mseo-footer-main {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+  }
+  footer.mseo-footer .mseo-footer-top {
+    gap: 18px;
+  }
+}
+@media (max-width: 560px) {
+  footer.mseo-footer .mseo-footer-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+  }
+  footer.mseo-footer .mseo-footer-top .mseo-brand-logo {
+    width: 160px;
+    max-width: 60vw;
+  }
+  footer.mseo-footer .mseo-footer-main {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 18px;
+  }
+  footer.mseo-footer .mseo-footer-community {
+    grid-column: 1 / -1;
+  }
+}
