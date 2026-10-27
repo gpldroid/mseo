@@ -2,7 +2,7 @@ import { readdir, readFile, writeFile, mkdir } from 'node:fs/promises';
 import path from 'node:path';
 
 const root = process.cwd();
-const siteBase = new URL(process.env.MSEO_SITE_URL || process.env.URL || 'https://gpldroid.github.io/mseo/');
+const siteBase = new URL(process.env.MSEO_SITE_URL || process.env.URL || 'https://fastseo.site/');
 const previewDir = path.join(root, 'assets/images/social-previews');
 const excluded = new Set(['404.html', 'pages/admin.html']);
 const htmlFiles = [];
@@ -29,7 +29,7 @@ function getAttr(tag, name) {
 function makeSvg(title, description, section) {
   const t = esc(title.slice(0, 100));
   const d = esc(description.slice(0, 150));
-  const category = section === 'articles' ? 'PRACTICAL GUIDE' : section === 'pages' ? 'MSEO RESOURCE' : 'MSEO · TECH KNOWLEDGE';
+  const category = section === 'articles' ? 'PRACTICAL GUIDE' : section === 'pages' ? 'FAST SEO RESOURCE' : 'FAST SEO · TECH KNOWLEDGE';
   return '<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">' +
 '<title id="title">' + t + '</title><desc id="desc">' + d + '</desc>' +
 '<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0b1220"/><stop offset="1" stop-color="#243e73"/></linearGradient><linearGradient id="accent"><stop stop-color="#65e2d1"/><stop offset="1" stop-color="#829bff"/></linearGradient><pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse"><path d="M42 0H0V42" fill="none" stroke="#b7c9ed" stroke-opacity=".08"/></pattern></defs>' +
@@ -95,7 +95,7 @@ for (const file of htmlFiles) {
   head = upsertMeta(head, 'property', 'og:title', title);
   head = upsertMeta(head, 'property', 'og:description', description);
   head = upsertMeta(head, 'property', 'og:url', pageUrl);
-  head = upsertMeta(head, 'property', 'og:site_name', 'MSEO');
+  head = upsertMeta(head, 'property', 'og:site_name', 'فاست سيو | Fast Seo');
   head = upsertMeta(head, 'property', 'og:image', imageUrl);
   head = upsertMeta(head, 'property', 'og:image:alt', title);
   head = upsertMeta(head, 'name', 'twitter:card', 'summary_large_image');
