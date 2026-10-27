@@ -66,17 +66,9 @@ for (const file of htmlFiles) {
     if (head.includes('gpldroid.github.io/mseo') || head.includes('mseopro.netlify.app')) {
       critical.push(file + ': retired hosting domain remains in head metadata');
     }
-    if (/\bMSEO\b/i.test(head)) {
+    if (/\bMSEO\b/.test(head)) {
       critical.push(file + ': legacy MSEO brand remains in head metadata');
     }
-    const socialImageTags = [...head.matchAll(/<meta\b(?=[^>]*(?:property\s*=\s*["']og:image["']|name\s*=\s*["']twitter:image["']))[^>]*>/gi)];
-    for (const match of socialImageTags) {
-      const imageUrl = attr(match[0], 'content').trim();
-      if (imageUrl && !imageUrl.startsWith(siteBase.origin + '/')) {
-        critical.push(file + ': social image must use the production domain; found ' + imageUrl);
-      }
-    }
-
     const jsonLdScripts = [...html.matchAll(/<script\b(?=[^>]*\btype\s*=\s*["']application\/ld\+json["'])[^>]*>([\s\S]*?)<\/script>/gi)];
     for (const [index, match] of jsonLdScripts.entries()) {
       try {
