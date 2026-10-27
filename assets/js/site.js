@@ -69,6 +69,63 @@
         </div>
       </header>`;
   }
+  // Editorial ticker: six varied articles, moving at a calm pace below the site header.
+  (() => {
+    const siteHeader = $('[data-site-header] .mseo-header') || $('[data-home-header] .mseo-header') || $('.mseo-header');
+    if (!siteHeader || $('[data-mseo-news-ticker]')) return;
+    const ticker = document.createElement('section');
+    ticker.className = 'mseo-news-ticker';
+    ticker.setAttribute('data-mseo-news-ticker', '');
+    ticker.setAttribute('aria-label', 'شريط المقالات والأخبار');
+    ticker.innerHTML = '<div class="mseo-news-ticker-inner"><span class="mseo-news-ticker-label"><i class="fa-solid fa-bolt" aria-hidden="true"></i><span>مختارات فاست سيو</span></span><div class="mseo-news-ticker-window" aria-live="polite"><span class="mseo-news-ticker-loading">جارٍ تحميل المقالات…</span></div><div class="mseo-news-ticker-controls"><button type="button" data-ticker-prev aria-label="المقال السابق"><i class="fa-solid fa-chevron-right" aria-hidden="true"></i></button><button type="button" data-ticker-toggle aria-label="إيقاف الشريط مؤقتًا" aria-pressed="false"><i class="fa-solid fa-pause" aria-hidden="true"></i></button><button type="button" data-ticker-next aria-label="المقال التالي"><i class="fa-solid fa-chevron-left" aria-hidden="true"></i></button></div></div>';
+    siteHeader.insertAdjacentElement('afterend', ticker);
+    const windowEl = ticker.querySelector('.mseo-news-ticker-window');
+    let items = [], active = 0, timer = null, paused = false;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const render = () => {
+      if (!items.length) return;
+      const item = items[active];
+      const href = link('articles/' + encodeURIComponent(item.file || item.slug + '.html'));
+      windowEl.innerHTML = '<a class="mseo-news-ticker-item" href="' + href + '"><span class="mseo-news-ticker-category">' + esc(item.category || 'مقالات') + '</span><span class="mseo-news-ticker-title">' + esc(item.title) + '</span><span class="mseo-news-ticker-number">' + String(active + 1).padStart(2, '0') + ' / 06</span></a>';
+    };
+    const stop = () => { if (timer) { clearInterval(timer); timer = null; } };
+    const start = () => {
+      stop();
+      if (!paused && !reducedMotion && !document.hidden && items.length > 1) timer = setInterval(() => { active = (active + 1) % items.length; render(); }, 6500);
+    };
+    const step = direction => { if (!items.length) return; active = (active + direction + items.length) % items.length; render(); start(); };
+    ticker.querySelector('[data-ticker-prev]').addEventListener('click', () => step(-1));
+    ticker.querySelector('[data-ticker-next]').addEventListener('click', () => step(1));
+    const toggle = ticker.querySelector('[data-ticker-toggle]');
+    const updateToggle = () => {
+      toggle.setAttribute('aria-pressed', String(paused));
+      toggle.setAttribute('aria-label', paused ? 'تشغيل الشريط' : 'إيقاف الشريط مؤقتًا');
+      toggle.innerHTML = paused ? '<i class="fa-solid fa-play" aria-hidden="true"></i>' : '<i class="fa-solid fa-pause" aria-hidden="true"></i>';
+    };
+    toggle.addEventListener('click', () => { paused = !paused; updateToggle(); paused ? stop() : start(); });
+    ticker.addEventListener('mouseenter', stop);
+    ticker.addEventListener('mouseleave', start);
+    ticker.addEventListener('focusin', stop);
+    ticker.addEventListener('focusout', event => { if (!ticker.contains(event.relatedTarget)) start(); });
+    document.addEventListener('visibilitychange', () => document.hidden ? stop() : start());
+    fetch(link('data/articles.json'), {cache:'no-cache'}).then(response => {
+      if (!response.ok) throw new Error('Article catalog unavailable');
+      return response.json();
+    }).then(articles => {
+      const sorted = articles.slice().sort((a,b) => String(b.updatedAt || b.publishedAt || '').localeCompare(String(a.updatedAt || a.publishedAt || '')));
+      const selected = [], categories = new Set();
+      sorted.forEach(article => {
+        const category = article.category || 'مقالات';
+        if (selected.length < 6 && !categories.has(category)) { selected.push(article); categories.add(category); }
+      });
+      sorted.forEach(article => { if (selected.length < 6 && !selected.some(item => item.slug === article.slug)) selected.push(article); });
+      items = selected.slice(0, 6);
+      if (!items.length) { windowEl.textContent = 'لا توجد مقالات متاحة حاليًا.'; return; }
+      render();
+      start();
+    }).catch(() => { windowEl.textContent = 'تعذر تحميل المقالات حاليًا.'; });
+  })();
+
   // Advertise the RSS feed to browsers and feed readers on every public page.
   if (!document.querySelector('link[rel="alternate"][type="application/rss+xml"]')) {
     const rssLink = document.createElement('link');
@@ -86,7 +143,7 @@
         <div class="mseo-footer-inner">
           <section class="mseo-footer-top" aria-label="عن Fast SEO">
             <a class="mseo-brand mseo-footer-brand" href="${link('')}" aria-label="Fast SEO — الصفحة الرئيسية">
-              <img class="mseo-brand-logo" src="${link('assets/images/fastseo-logo-footer.svg?v=20261027')}" alt="Fast SEO" width="180" height="48" decoding="async">
+              <img class="mseo-brand-logo" src="${link('assets/images/fastseo-logo-header.svg?v=20261027')}" alt="Fast SEO" width="180" height="48" decoding="async" onerror="this.onerror=null;this.src='${link('assets/favicon.svg?v=20261027')}'">
             </a>
             <p class="mseo-footer-tagline">المرجع العربي نحو الظهور الأول في محركات البحث، مع أحدث تقنيات الذكاء الاصطناعي والتطوير.</p>
           </section>
@@ -119,13 +176,13 @@
           </div>
           <div class="mseo-copyright">
             <div class="mseo-footer-credit">
-              <span>© <span data-footer-year>2026</span> Fast SEO | فاست سيو — جميع الحقوق محفوظة</span>
+              <span class="mseo-footer-copyright-text">© <span data-footer-year>2026</span> Fast SEO | فاست سيو — جميع الحقوق محفوظة. صاحب المشروع: <a href="${link('pages/about.html')}">Imad Limrani</a></span>
               <nav class="mseo-footer-bottom-links" aria-label="روابط قانونية">
                 <a href="${link('pages/privacy.html')}">سياسة الخصوصية</a>
                 <a href="${link('pages/terms.html')}">شروط الاستخدام</a>
                 <a href="${link('pages/editorial-policy.html')}">سياسة الموقع</a>
+                <a href="${link('sitemap.xml')}">خريطة الموقع</a>
               </nav>
-              <a href="${link('sitemap.xml')}">خريطة الموقع</a>
             </div>
           </div>
         </div>
