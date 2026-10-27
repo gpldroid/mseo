@@ -2408,3 +2408,95 @@ footer.mseo-footer .mseo-footer-credit {
   .articles-section .article-card { transition: none; }
   .articles-section .article-card:hover { transform: none; }
 }
+
+
+/* Footer composition matched to the supplied reference: social/newsletter, categories, brand. */
+footer.mseo-footer .mseo-footer-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(150px, .72fr) minmax(0, 1fr);
+  gap: clamp(24px, 4vw, 56px);
+  align-items: start;
+  direction: rtl;
+}
+footer.mseo-footer .mseo-footer-group h3 {
+  margin: 0 0 14px;
+  font-size: .98rem;
+  font-weight: 700;
+}
+footer.mseo-footer .mseo-footer-links:not(.mseo-footer-social-list) {
+  gap: 9px;
+}
+footer.mseo-footer .mseo-footer-about .mseo-footer-brand {
+  display: inline-flex;
+  margin-bottom: 12px;
+}
+footer.mseo-footer .mseo-footer-about .mseo-footer-tagline {
+  margin: 0 0 14px;
+  max-width: 38ch;
+  color: var(--muted);
+  font-size: .88rem;
+  line-height: 1.9;
+}
+footer.mseo-footer .mseo-footer-quick-links {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+footer.mseo-footer .mseo-footer-newsletter {
+  margin-top: 24px;
+}
+footer.mseo-footer .mseo-footer-newsletter h4 {
+  margin: 0 0 6px;
+  font-size: .9rem;
+}
+footer.mseo-footer .mseo-footer-newsletter p {
+  margin: 0 0 10px;
+  color: var(--muted);
+  font-size: .82rem;
+}
+footer.mseo-footer .mseo-footer-subscribe {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  background: var(--site-accent, #1677ff);
+  color: #fff;
+  font-size: .84rem;
+  text-decoration: none;
+}
+footer.mseo-footer .mseo-footer-credit {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  width: 100%;
+}
+footer.mseo-footer .mseo-footer-bottom-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+@media (max-width: 800px) {
+  footer.mseo-footer .mseo-footer-main {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  footer.mseo-footer .mseo-footer-about {
+    grid-column: 1 / -1;
+  }
+}
+@media (max-width: 560px) {
+  footer.mseo-footer .mseo-footer-main {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 26px;
+  }
+  footer.mseo-footer .mseo-footer-about {
+    grid-column: auto;
+  }
+  footer.mseo-footer .mseo-footer-credit {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
