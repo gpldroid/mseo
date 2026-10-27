@@ -108,11 +108,14 @@
     ticker.addEventListener('focusin', stop);
     ticker.addEventListener('focusout', event => { if (!ticker.contains(event.relatedTarget)) start(); });
     document.addEventListener('visibilitychange', () => document.hidden ? stop() : start());
-    fetch(link('data/articles.json'), {cache:'no-cache'}).then(response => {
-      if (!response.ok) throw new Error('Article catalog unavailable');
+    const catalogUrl = new URL(link('data/articles.json'), document.baseURI);
+    catalogUrl.searchParams.set('v', '20261027');
+    fetch(catalogUrl.href, {cache:'no-store'}).then(response => {
+      if (!response.ok) throw new Error('Article catalog request failed: HTTP ' + response.status + ' (' + response.url + ')');
       return response.json();
     }).then(articles => {
-      const sorted = articles.slice().sort((a,b) => String(b.updatedAt || b.publishedAt || '').localeCompare(String(a.updatedAt || a.publishedAt || '')));
+      if (!Array.isArray(articles)) throw new Error('Article catalog response is not a JSON array');
+      const sorted = articles.filter(article => article && typeof article.title === 'string' && (article.file || article.slug)).sort((a,b) => String(b.updatedAt || b.publishedAt || '').localeCompare(String(a.updatedAt || a.publishedAt || '')));
       const selected = [], categories = new Set();
       sorted.forEach(article => {
         const category = article.category || 'مقالات';
@@ -123,7 +126,11 @@
       if (!items.length) { windowEl.textContent = 'لا توجد مقالات متاحة حاليًا.'; return; }
       render();
       start();
-    }).catch(() => { windowEl.textContent = 'تعذر تحميل المقالات حاليًا.'; });
+    }).catch(error => {
+      console.error('[Fast Seo ticker] Failed to load data/articles.json:', error);
+      windowEl.textContent = 'تعذر تحميل المقالات حاليًا.';
+      windowEl.setAttribute('title', 'تعذر تحميل ملف المقالات. افتح وحدة التحكم (Console) لمعرفة السبب.');
+    });
   })();
 
   // Advertise the RSS feed to browsers and feed readers on every public page.
