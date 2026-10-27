@@ -5,16 +5,16 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="robots" content="noindex,nofollow">
   <meta name="theme-color" content="#101827">
-  <title>لوحة الإدارة | MSEO</title>
+  <title>لوحة الإدارة | فاست سيو | Fast Seo</title>
   <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../assets/css/admin.css">
 </head>
 <body class="admin-page">
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
   <section id="authScreen" class="auth-screen">
-    <div class="auth-art"><div class="brand-mark">M</div><p class="eyebrow">MSEO WORKSPACE</p><h1>إدارة محتواك<br>من مكان واحد.</h1><p class="muted">نشر آمن، تحكم بالصلاحيات، وإدارة وسائطك — بدون وضع مفاتيح GitHub في المتصفح.</p><div class="auth-art-foot">SECURE CONTENT OPERATIONS</div></div>
+    <div class="auth-art"><div class="brand-mark">F</div><p class="eyebrow">FAST SEO WORKSPACE</p><h1>إدارة محتواك<br>من مكان واحد.</h1><p class="muted">نشر آمن، تحكم بالصلاحيات، وإدارة وسائطك — بدون وضع مفاتيح GitHub في المتصفح.</p><div class="auth-art-foot">SECURE CONTENT OPERATIONS</div></div>
     <div class="auth-panel">
-      <a class="auth-brand" href="../index.html"><span class="brand-mark small">M</span><span>MSEO <small>CONTROL CENTER</small></span></a>
+      <a class="auth-brand" href="../index.html"><span class="brand-mark small">F</span><span>FAST SEO <small>CONTROL CENTER</small></span></a>
       <div id="loginView">
         <p class="eyebrow">مرحبًا بعودتك</p><h2>تسجيل الدخول</h2><p class="muted">استخدم حسابًا مُنح صلاحية في لوحة الإدارة.</p>
         <form id="loginForm" class="stack">
@@ -33,7 +33,7 @@
 
   <div id="app" class="app-shell" hidden>
     <aside id="sidebar" class="sidebar">
-      <a class="sidebar-brand" href="../index.html"><span class="brand-mark">M</span><span>MSEO <small>CONTROL CENTER</small></span></a>
+      <a class="sidebar-brand" href="../index.html"><span class="brand-mark">F</span><span>MSEO <small>CONTROL CENTER</small></span></a>
       <div class="workspace-label">WORKSPACE</div>
       <nav class="side-nav" aria-label="التنقل الرئيسي">
         <button class="nav-item active" data-view="overview"><span class="nav-icon">▦</span> نظرة عامة</button>
@@ -47,10 +47,10 @@
       <div class="sidebar-bottom"><div class="secure-pill"><span></span><div><strong>اتصال محمي</strong><small>Supabase Auth + RLS</small></div></div><button id="signOut" class="signout-button">↪ تسجيل الخروج</button></div>
     </aside>
     <main class="main-area">
-      <header class="topbar"><button id="mobileMenu" class="mobile-menu" aria-label="فتح القائمة">☰</button><div><p class="eyebrow">MSEO / ADMIN</p><h1 id="pageTitle">نظرة عامة</h1></div><div class="topbar-user"><div class="topbar-avatar" id="userAvatar">M</div><div><strong id="userEmail">—</strong><small id="userRole">—</small></div><span class="online-dot"></span></div></header>
+      <header class="topbar"><button id="mobileMenu" class="mobile-menu" aria-label="فتح القائمة">☰</button><div><p class="eyebrow">FAST SEO / ADMIN</p><h1 id="pageTitle">نظرة عامة</h1></div><div class="topbar-user"><div class="topbar-avatar" id="userAvatar">F</div><div><strong id="userEmail">—</strong><small id="userRole">—</small></div><span class="online-dot"></span></div></header>
       <div id="loadingState" class="loading-state"><span class="spinner"></span> جارٍ تحميل مساحة العمل…</div>
       <section id="view-overview" class="view" hidden>
-        <div class="welcome-row"><div><h2>أهلًا بك 👋</h2><p class="muted">إليك ملخص حالة المحتوى والنشر في موقع MSEO.</p></div><button class="btn primary" data-action="new-content">＋ محتوى جديد</button></div>
+        <div class="welcome-row"><div><h2>أهلًا بك 👋</h2><p class="muted">إليك ملخص حالة المحتوى والنشر في موقع فاست سيو | Fast Seo.</p></div><button class="btn primary" data-action="new-content">＋ محتوى جديد</button></div>
         <div class="kpi-grid">
           <article class="kpi-card"><div class="kpi-top"><span>إجمالي المحتوى</span><span class="kpi-icon violet">▤</span></div><strong id="kpiContent">—</strong><small>مقالات وصفحات</small></article>
           <article class="kpi-card"><div class="kpi-top"><span>منشور</span><span class="kpi-icon green">↗</span></div><strong id="kpiPublished">—</strong><small>محتوى ظاهر للزوار</small></article>
@@ -85,7 +85,7 @@
       <section id="view-activity" class="view" hidden><div class="section-toolbar"><div><h2>سجل النشاط</h2><p class="muted">عمليات النشر وتغييرات الأدوار المحفوظة في قاعدة البيانات.</p></div><button class="btn secondary" id="refreshActivity">↻ تحديث</button></div><div class="panel"><div id="activityList" class="activity-list"><p class="empty-cell">جارٍ التحميل…</p></div></div></section>
 
       <section id="view-settings" class="view" hidden><div class="section-toolbar"><div><h2>الإعدادات والحساب</h2><p class="muted">إدارة جلسة الدخول وكلمة المرور.</p></div></div><div class="settings-grid"><article class="panel"><h3>الملف الشخصي</h3><div class="profile-summary"><div class="profile-avatar" id="settingsAvatar">M</div><div><strong id="settingsEmail">—</strong><p class="muted" id="settingsRole">—</p></div></div><p class="muted">تُدار صلاحيات اللوحة من جدول mseo_admins في Supabase، ولا يمكن تغيير الدور من إعدادات الملف الشخصي.</p></article><article class="panel"><h3>تغيير كلمة المرور</h3><form id="passwordForm" class="stack"><label>كلمة المرور الجديدة<input id="newPassword" type="password" minlength="10" autocomplete="new-password" required></label><label>تأكيد كلمة المرور<input id="confirmPassword" type="password" minlength="10" autocomplete="new-password" required></label><button class="btn primary" type="submit">تحديث كلمة المرور</button><p id="passwordMessage" class="form-message"></p></form></article><article class="panel full-width"><h3>حالة الخدمات</h3><div class="service-status"><div><span class="service-dot good"></span><div><strong>Supabase Auth & RLS</strong><small>تسجيل الدخول وتطبيق سياسات قاعدة البيانات</small></div><span class="status-pill">مفعّل</span></div><div><span class="service-dot good"></span><div><strong>Supabase Storage</strong><small>حاوية mseo-media</small></div><span class="status-pill">مفعّل</span></div><div><span class="service-dot warn"></span><div><strong>GitHub Pages Publisher</strong><small>يتطلب إعداد GITHUB_TOKEN كسرّ في Edge Functions</small></div><span class="status-pill pending">تحقق من الإعداد</span></div></div></article></div></section>
-      <footer class="app-footer"><span>MSEO CONTROL CENTER</span><span>Supabase Auth · PostgreSQL RLS · GitHub Pages</span></footer>
+      <footer class="app-footer"><span>FAST SEO CONTROL CENTER</span><span>Supabase Auth · PostgreSQL RLS · GitHub Pages</span></footer>
     </main>
   </div>
   <script type="module" src="../assets/js/admin.js"></script>
