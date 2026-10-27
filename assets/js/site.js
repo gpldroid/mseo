@@ -61,6 +61,7 @@
             ${navItems.map(([href,label])=>`<a href="${link(href === 'index.html' ? '' : href)}" ${((href==='index.html' && (path.endsWith('/mseo/') || path.endsWith('/index.html') || path === '/')) || (href!=='index.html' && path.endsWith('/'+href)))?'aria-current="page"':''}>${label}</a>`).join('')}
           </nav>
           <div class="mseo-actions">
+            <button class="mseo-icon-button" type="button" data-theme-toggle aria-label="فتح لوحة تغيير النمط" title="تغيير نمط الموقع"><i class="fa-solid fa-palette" aria-hidden="true"></i></button>
             <button class="mseo-icon-button" type="button" data-search-toggle aria-label="${'فتح البحث'}" title="${'بحث'}"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></button>
             </div>
         </div>
