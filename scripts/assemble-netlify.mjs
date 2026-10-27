@@ -4,7 +4,7 @@ const root = process.cwd();
 const dist = join(root,'dist');
 await rm(dist,{recursive:true,force:true});
 await mkdir(dist,{recursive:true});
-const publicItems = ['index.html','article.html','404.html','_redirects','robots.txt','sitemap.xml','site.webmanifest','assets','articles','pages','data'];
+const publicItems = ['index.html','article.html','404.html','_redirects','robots.txt','sitemap.xml','feed.xml','site.webmanifest','assets','articles','pages','data'];
 for (const item of publicItems) {
   try { await access(join(root,item)); await cp(join(root,item),join(dist,item),{recursive:true,force:true}); }
   catch (error) { if (error.code !== 'ENOENT') throw error; }
