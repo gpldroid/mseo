@@ -32,6 +32,9 @@ jobs:
           ! grep -R -E 'assets/css/(site|tailwind|home-rebuild)[.]css|assets/js/(home-rebuild|archive)[.]js' --include='*.html' .
       - name: Build generated catalogue and sitemap
         run: npm run build
+
+      - name: Generate social previews and final Open Graph metadata
+        run: npm run generate:social-images
       - name: Validate JavaScript modules and site structure
         run: npm test
       - name: Audit SEO metadata and internal links

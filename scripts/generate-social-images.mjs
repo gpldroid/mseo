@@ -2,7 +2,7 @@ import { readdir, readFile, writeFile, mkdir } from 'node:fs/promises';
 import path from 'node:path';
 
 const root = process.cwd();
-const siteBase = new URL(process.env.MSEO_SITE_URL || process.env.URL || 'https://gpldroid.github.io/mseo/');
+const siteBase = new URL(process.env.MSEO_SITE_URL || process.env.URL || 'https://fastseo.site/');
 const previewDir = path.join(root, 'assets/images/social-previews');
 const excluded = new Set(['404.html', 'pages/admin.html']);
 const htmlFiles = [];
@@ -29,14 +29,14 @@ function getAttr(tag, name) {
 function makeSvg(title, description, section) {
   const t = esc(title.slice(0, 100));
   const d = esc(description.slice(0, 150));
-  const category = section === 'articles' ? 'PRACTICAL GUIDE' : section === 'pages' ? 'MSEO RESOURCE' : 'MSEO · TECH KNOWLEDGE';
+  const category = section === 'articles' ? 'PRACTICAL GUIDE' : section === 'pages' ? 'FAST SEO RESOURCE' : 'FAST SEO · TECH KNOWLEDGE';
   return '<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">' +
 '<title id="title">' + t + '</title><desc id="desc">' + d + '</desc>' +
 '<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0b1220"/><stop offset="1" stop-color="#243e73"/></linearGradient><linearGradient id="accent"><stop stop-color="#65e2d1"/><stop offset="1" stop-color="#829bff"/></linearGradient><pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse"><path d="M42 0H0V42" fill="none" stroke="#b7c9ed" stroke-opacity=".08"/></pattern></defs>' +
 '<rect width="1200" height="630" rx="28" fill="url(#bg)"/><rect width="1200" height="630" rx="28" fill="url(#grid)"/>' +
 '<circle cx="1010" cy="145" r="170" fill="#4966b2" opacity=".16"/><circle cx="1010" cy="145" r="112" fill="none" stroke="url(#accent)" stroke-width="3" opacity=".75"/>' +
 '<rect x="78" y="78" width="1044" height="474" rx="28" fill="#101b2c" fill-opacity=".68" stroke="#7e96bd" stroke-opacity=".38"/>' +
-'<rect x="112" y="112" width="10" height="60" rx="5" fill="url(#accent)"/><text x="150" y="151" fill="#a8bddf" font-family="Arial,sans-serif" font-size="21" font-weight="700" letter-spacing="4">MSEO · ' + esc(category) + '</text>' +
+'<rect x="112" y="112" width="10" height="60" rx="5" fill="url(#accent)"/><text x="150" y="151" fill="#a8bddf" font-family="Arial,sans-serif" font-size="21" font-weight="700" letter-spacing="4">FAST SEO · ' + esc(category) + '</text>' +
 '<text x="1080" y="264" text-anchor="end" direction="rtl" unicode-bidi="plaintext" fill="#f4f7ff" font-family="Arial, sans-serif" font-size="46" font-weight="700">' + t + '</text>' +
 '<foreignObject x="130" y="302" width="940" height="112"><div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Arial,sans-serif;color:#c7d6ee;font-size:25px;line-height:1.55;text-align:right;direction:rtl">' + d + '</div></foreignObject>' +
 '<path d="M132 466H1068" stroke="#7e96bd" stroke-opacity=".35"/><text x="132" y="506" fill="#65e2d1" font-family="Arial,sans-serif" font-size="22" font-weight="700">LEARN · BUILD · OPTIMIZE</text><text x="1068" y="506" text-anchor="end" fill="#c7d6ee" font-family="Arial,sans-serif" font-size="21">' + esc(siteBase.host + siteBase.pathname.replace(/\/$/, '')) + '</text></svg>';
@@ -65,7 +65,7 @@ for (const file of htmlFiles) {
   const headMatch = html.match(/<head\b[^>]*>([\s\S]*?)<\/head>/i);
   if (!headMatch) continue;
   let head = headMatch[1];
-  const title = plain((head.match(/<title\b[^>]*>([\s\S]*?)<\/title>/i) || [,'MSEO · دليل تقني'])[1]);
+  const title = plain((head.match(/<title\b[^>]*>([\s\S]*?)<\/title>/i) || [,'فاست سيو | Fast Seo — دليل تقني'])[1]);
   const descTag = (head.match(/<meta\b(?=[^>]*\bname\s*=\s*["']description["'])[^>]*>/i) || [''])[0];
   const description = plain((descTag.match(/\bcontent\s*=\s*["']([^"']*)["']/i) || [,''])[1] || title);
   const mainMatch = html.match(/<main\b[^>]*>([\s\S]*?)<\/main>/i);
@@ -95,7 +95,7 @@ for (const file of htmlFiles) {
   head = upsertMeta(head, 'property', 'og:title', title);
   head = upsertMeta(head, 'property', 'og:description', description);
   head = upsertMeta(head, 'property', 'og:url', pageUrl);
-  head = upsertMeta(head, 'property', 'og:site_name', 'MSEO');
+  head = upsertMeta(head, 'property', 'og:site_name', 'فاست سيو | Fast Seo');
   head = upsertMeta(head, 'property', 'og:image', imageUrl);
   head = upsertMeta(head, 'property', 'og:image:alt', title);
   head = upsertMeta(head, 'name', 'twitter:card', 'summary_large_image');
