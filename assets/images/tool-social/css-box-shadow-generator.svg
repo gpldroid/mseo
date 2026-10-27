@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
-<title id="title">مولّد CSS Box Shadow | MSEO</title><desc id="desc">ظلال دقيقة مع معاينة فورية — أداة مجانية من MSEO</desc>
+<title id="title">مولّد CSS Box Shadow | FAST SEO</title><desc id="desc">ظلال دقيقة مع معاينة فورية — أداة مجانية من FAST SEO</desc>
 <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#334155"/><stop offset="1" stop-color="#8b5cf6"/></linearGradient><linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".2"/><stop offset="1" stop-color="#fff" stop-opacity=".06"/></linearGradient><filter id="shadow" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#020617" flood-opacity=".26"/></filter></defs>
 <rect width="1200" height="630" fill="#0b1220"/><circle cx="1090" cy="70" r="270" fill="#8b5cf6" opacity=".15"/><circle cx="90" cy="610" r="260" fill="#334155" opacity=".22"/><circle cx="650" cy="80" r="140" fill="#fff" opacity=".025"/>
 <rect x="42" y="42" width="1116" height="546" rx="38" fill="url(#bg)"/><path d="M42 420Q340 310 600 470T1158 340V550Q1158 588 1120 588H80Q42 588 42 550Z" fill="#06101f" opacity=".18"/>
@@ -9,6 +9,6 @@
 <text x="770" y="268" text-anchor="end" font-family="Cairo,Arial,sans-serif" font-size="44" font-weight="900" fill="#fff">مولّد CSS Box Shadow</text>
 <text x="770" y="318" text-anchor="end" font-family="Cairo,Arial,sans-serif" font-size="25" font-weight="600" fill="#fff" opacity=".91">ظلال دقيقة مع معاينة فورية</text>
 <path d="M150 390h620" stroke="#fff" stroke-opacity=".26" stroke-width="2"/>
-<rect x="94" y="448" width="150" height="62" rx="18" fill="#fff" fill-opacity=".14" stroke="#fff" stroke-opacity=".4"/><text x="169" y="488" text-anchor="middle" font-family="Arial,sans-serif" font-size="27" font-weight="900" fill="#fff">MSEO</text>
+<rect x="94" y="448" width="150" height="62" rx="18" fill="#fff" fill-opacity=".14" stroke="#fff" stroke-opacity=".4"/><text x="169" y="488" text-anchor="middle" font-family="Arial,sans-serif" font-size="27" font-weight="900" fill="#fff">FAST SEO</text>
 <text x="1080" y="486" text-anchor="end" font-family="Cairo,Arial,sans-serif" font-size="20" font-weight="700" fill="#fff" opacity=".92">أدوات مجانية • نتائج فورية</text>
-<text x="1080" y="526" text-anchor="end" font-family="Arial,sans-serif" font-size="14" font-weight="700" letter-spacing="1.8" fill="#fff" opacity=".7">GPLDROID.GITHUB.IO/MSEO</text></svg>
+<text x="1080" y="526" text-anchor="end" font-family="Arial,sans-serif" font-size="14" font-weight="700" letter-spacing="1.8" fill="#fff" opacity=".7">GPLDROID.GITHUB.IO/FAST SEO</text></svg>
