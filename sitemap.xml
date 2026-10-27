@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://fastseo.site/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://fastseo.site/</loc><lastmod>2026-10-27</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://fastseo.site/pages/archive.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://fastseo.site/articles/typescript-for-beginners-ar.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://fastseo.site/articles/keyword-research-guide.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://fastseo.site/articles/keyword-research-guide.html</loc><lastmod>2026-10-27</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://fastseo.site/articles/website-not-appearing-google.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://fastseo.site/articles/create-website-from-scratch.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://fastseo.site/articles/responsive-website-css-guide.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -98,7 +98,7 @@
   <url><loc>https://fastseo.site/pages/robots-txt-generator.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://fastseo.site/pages/schema-markup-generator.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://fastseo.site/pages/seo-analyzer.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://fastseo.site/pages/seo.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://fastseo.site/pages/seo.html</loc><lastmod>2026-10-27</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://fastseo.site/pages/serp-preview.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://fastseo.site/pages/sitemap-generator.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://fastseo.site/pages/svg-optimizer.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
