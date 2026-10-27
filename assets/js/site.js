@@ -107,8 +107,8 @@
                 <a href="${link('pages/archive.html')}?category=${encodeURIComponent('SEO')}">SEO</a>
                 <a href="${link('pages/archive.html')}?category=${encodeURIComponent('الذكاء الاصطناعي')}">الذكاء الاصطناعي</a>
                 <a href="${link('pages/archive.html')}?category=${encodeURIComponent('البرمجة')}">البرمجة</a>
-                <a href="${link('pages/archive.html')}?category=${encodeURIComponent('تطوير المواقع')}">تطوير المواقع</a>
-                <a href="${link('pages/archive.html')}?category=${encodeURIComponent('التسويق الرقمي')}">التسويق الرقمي</a>
+                <a href="${link('pages/archive.html')}?category=${encodeURIComponent('تصميم المواقع')}">تصميم المواقع</a>
+                <a href="${link('pages/archive.html')}?category=${encodeURIComponent('أداء المواقع')}">أداء المواقع</a>
               </nav>
             </section>
             <section class="mseo-footer-group mseo-footer-about">
