@@ -44,6 +44,14 @@ jobs:
         run: npm test
       - name: Audit SEO metadata and internal links
         run: npm run audit:seo
+      - name: Audit local image, script, stylesheet, and CSS assets
+        run: node scripts/audit-assets.mjs
+      - name: Reject legacy branding and retired domains in SVG assets
+        run: |
+          if grep -R -n -E 'MSEO|gpldroid[.]github[.]io/mseo|mseopro[.]netlify[.]app' --include='*.svg' assets; then
+            echo 'Legacy branding or retired hosting URLs remain in SVG assets.'
+            exit 1
+          fi
       - name: Install dashboard dependencies
         run: npm install --prefix admin-dashboard --no-audit --no-fund
       - name: Build dashboard for the Netlify subpath

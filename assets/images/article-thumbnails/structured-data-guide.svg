@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
-<title id="title">Schema Markup للمقالات: كيف تستخدم البيانات المنظمة بطريقة صحيحة</title><desc id="desc">SEO — MSEO</desc>
+<title id="title">Schema Markup للمقالات: كيف تستخدم البيانات المنظمة بطريقة صحيحة</title><desc id="desc">SEO — FAST SEO</desc>
 <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#422006"/><stop offset="1" stop-color="#111827"/></linearGradient><linearGradient id="a" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f59e0b"/><stop offset="1" stop-color="#fde68a"/></linearGradient><pattern id="p" width="38" height="38" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.5" fill="#fde68a" opacity=".28"/></pattern></defs>
 <rect width="1200" height="675" fill="url(#g)"/><rect width="1200" height="675" fill="url(#p)"/>
 <circle cx="1040" cy="90" r="245" fill="#f59e0b" opacity=".16"/><circle cx="1090" cy="80" r="165" fill="none" stroke="#fde68a" stroke-width="2" opacity=".32"/><circle cx="1090" cy="80" r="120" fill="none" stroke="#f59e0b" stroke-width="24" opacity=".4"/>
 <path d="M0 570 C230 470 340 720 600 600 S980 520 1200 610 L1200 675 L0 675Z" fill="#f59e0b" opacity=".15"/>
-<rect x="66" y="64" width="150" height="44" rx="22" fill="#f59e0b"/><text x="141" y="93" fill="#fff" text-anchor="middle" font-family="Arial,sans-serif" font-size="21" font-weight="800" letter-spacing="3">MSEO</text>
+<rect x="66" y="64" width="150" height="44" rx="22" fill="#f59e0b"/><text x="141" y="93" fill="#fff" text-anchor="middle" font-family="Arial,sans-serif" font-size="21" font-weight="800" letter-spacing="3">FAST SEO</text>
 <text x="1125" y="200" fill="#fde68a" text-anchor="end" font-family="Arial,sans-serif" font-size="27" font-weight="700">SEO</text>
 <text x="1125" y="275" fill="#fff" text-anchor="end" font-family="Noto Sans Arabic,Tahoma,Arial,sans-serif" font-size="43" font-weight="800">Schema Markup للمقالات: كيف</text>
 <text x="1125" y="333" fill="#fff" text-anchor="end" font-family="Noto Sans Arabic,Tahoma,Arial,sans-serif" font-size="43" font-weight="800">تستخدم البيانات المنظمة بطريقة صح…</text>
