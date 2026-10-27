@@ -11,7 +11,7 @@ const htmlFiles = [];
 const cssFiles = [];
 
 function attr(tag, name) {
-  const match = tag.match(new RegExp('\\\\b' + name + '\\\\s*=\\\\s*(?:"([^"]*)"|\\\\x27([^\\\\x27]*)\\\\x27|([^\\\\s>]+))', 'i'));
+  const match = tag.match(new RegExp('\\b' + name + '\\s*=\\s*(?:"([^"]*)"|\\x27([^\\x27]*)\\x27|([^\\s>]+))', 'i'));
   return match ? (match[1] ?? match[2] ?? match[3] ?? '') : '';
 }
 
@@ -46,7 +46,7 @@ function localTarget(raw, baseFile) {
   if (pathname === '/mseo') pathname = '/';
   if (pathname === '/') pathname = '/index.html';
   if (pathname.endsWith('/')) pathname += 'index.html';
-  return path.join(root, pathname.replace(/^\\//, ''));
+  return path.join(root, pathname.replace(/^\//, ''));
 }
 
 async function checkReference(raw, baseFile, description) {
@@ -64,11 +64,11 @@ let cssRefs = 0;
 
 for (const file of htmlFiles) {
   const html = await readFile(path.join(root, file), 'utf8');
-  for (const match of html.matchAll(/<(img|script|source|video|audio|iframe|embed|object|track|link)\\b[^>]*>/gi)) {
+  for (const match of html.matchAll(/<(img|script|source|video|audio|iframe|embed|object|track|link)\b[^>]*>/gi)) {
     const tag = match[0];
     const name = match[1].toLowerCase();
     const attrs = name === 'link'
-      ? (/(?:^|\\s)(?:stylesheet|icon|manifest|preload|modulepreload|prefetch|apple-touch-icon|mask-icon)(?:\\s|$)/i.test(attr(tag, 'rel')) ? ['href'] : [])
+      ? (/(?:^|\s)(?:stylesheet|icon|manifest|preload|modulepreload|prefetch|apple-touch-icon|mask-icon)(?:\s|$)/i.test(attr(tag, 'rel')) ? ['href'] : [])
       : name === 'video' ? ['src', 'poster']
       : name === 'object' ? ['data']
       : ['src'];
@@ -83,7 +83,7 @@ for (const file of htmlFiles) {
 
 for (const file of cssFiles) {
   const css = await readFile(path.join(root, file), 'utf8');
-  for (const match of css.matchAll(/url\\(\\s*(?:"([^"]*)"|'([^']*)'|([^)'"]+))\\s*\\)/gi)) {
+  for (const match of css.matchAll(/url\(\s*(?:"([^"]*)"|'([^']*)'|([^)'"]+))\s*\)/gi)) {
     const value = (match[1] ?? match[2] ?? match[3] ?? '').trim();
     if (!value) continue;
     cssRefs++;
