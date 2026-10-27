@@ -37,8 +37,6 @@
     ['pages/tools.html','الأدوات'],
     ['pages/archive.html','الأرشيف']
   ];
-  const readPreference = (key) => { try { return localStorage.getItem(key); } catch (_) { return null; } };
-  const writePreference = (key, value) => { try { localStorage.setItem(key, value); } catch (_) {} };
   // Load the optional theme stylesheet loader without replacing existing interactions.
   if (!$('[data-mseo-theme-switcher-loader]')) {
     const themeLoader = document.createElement('script');
