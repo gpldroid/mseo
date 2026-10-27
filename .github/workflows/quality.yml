@@ -35,6 +35,11 @@ jobs:
 
       - name: Generate social previews and final Open Graph metadata
         run: npm run generate:social-images
+      - name: Check social preview assets for legacy branding
+        run: |
+          ! grep -R -F 'MSEO' --include='*.svg' assets/images/social-previews
+          ! grep -R -F 'gpldroid.github.io/mseo' --include='*.svg' assets/images/social-previews
+          ! grep -R -F 'mseopro.netlify.app' --include='*.svg' assets/images/social-previews
       - name: Validate JavaScript modules and site structure
         run: npm test
       - name: Audit SEO metadata and internal links
