@@ -4,3 +4,17 @@
 
 [build.environment]
   MSEO_SITE_URL = "https://fastseo.site/"
+
+# Permanently consolidate the retired Netlify hostname onto the production domain.
+# Keep the exact root rule before the wildcard so the homepage also redirects cleanly.
+[[redirects]]
+  from = "https://mseopro.netlify.app"
+  to = "https://fastseo.site/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://mseopro.netlify.app/*"
+  to = "https://fastseo.site/:splat"
+  status = 301
+  force = true
