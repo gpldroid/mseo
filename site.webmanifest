@@ -1,20 +1,25 @@
 {
-  "name": "فاست سيو | Fast Seo — أدلة وأدوات تقنية",
-  "short_name": "Fast Seo",
-  "description": "فاست سيو | Fast Seo: منصة عربية للأدلة العملية حول SEO وتطوير المواقع والبرمجة والذكاء الاصطناعي.",
+  "name": "فاست سيو | FASTSEO",
+  "short_name": "FASTSEO",
+  "description": "فاست سيو — أدوات وأدلة تحسين محركات البحث",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "dir": "rtl",
   "lang": "ar",
-  "theme_color": "#0b1220",
-  "background_color": "#f5f7fb",
+  "theme_color": "#07152a",
+  "background_color": "#07152a",
   "icons": [
     {
-      "src": "assets/images/fastseo%20logo.webp",
-      "sizes": "512x512",
-      "type": "image/webp",
-      "purpose": "any maskable"
+      "src": "/assets/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
     }
   ]
 }
