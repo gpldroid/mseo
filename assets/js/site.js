@@ -108,27 +108,39 @@
     ticker.addEventListener('focusin', stop);
     ticker.addEventListener('focusout', event => { if (!ticker.contains(event.relatedTarget)) start(); });
     document.addEventListener('visibilitychange', () => document.hidden ? stop() : start());
-    const catalogUrl = new URL(link('data/articles.json'), document.baseURI);
-    catalogUrl.searchParams.set('v', '20261027');
-    fetch(catalogUrl.href, {cache:'no-store'}).then(response => {
+    // Use the same catalog URL resolution and cache policy as the homepage renderer.
+    const catalogBase = new URL(location.pathname.match(/\/(articles|pages)\//) ? '../' : './', location.href);
+    const catalogUrl = new URL('data/articles.json', catalogBase);
+    fetch(catalogUrl.href, {cache:'no-cache'}).then(response => {
       if (!response.ok) throw new Error('Article catalog request failed: HTTP ' + response.status + ' (' + response.url + ')');
       return response.json();
     }).then(articles => {
       if (!Array.isArray(articles)) throw new Error('Article catalog response is not a JSON array');
-      const sorted = articles.filter(article => article && typeof article.title === 'string' && (article.file || article.slug)).sort((a,b) => String(b.updatedAt || b.publishedAt || '').localeCompare(String(a.updatedAt || a.publishedAt || '')));
+      // Editorial order: oldest published articles first, while preferring one article per category.
+      const sorted = articles.filter(article => article && typeof article.title === 'string' && (article.file || article.slug))
+        .map((article, index) => ({...article, _tickerOrder:index}))
+        .sort((a,b) => String(a.publishedAt || a.updatedAt || '').localeCompare(String(b.publishedAt || b.updatedAt || '')) || a._tickerOrder - b._tickerOrder);
       const selected = [], categories = new Set();
       sorted.forEach(article => {
         const category = article.category || 'مقالات';
         if (selected.length < 6 && !categories.has(category)) { selected.push(article); categories.add(category); }
       });
       sorted.forEach(article => { if (selected.length < 6 && !selected.some(item => item.slug === article.slug)) selected.push(article); });
-      items = selected.slice(0, 6);
+      items = selected.slice(0, 6).map(({_tickerOrder, ...article}) => article);
       if (!items.length) { windowEl.textContent = 'لا توجد مقالات متاحة حاليًا.'; return; }
       render();
       start();
     }).catch(error => {
       console.error('[Fast Seo ticker] Failed to load data/articles.json:', error);
-      windowEl.textContent = 'تعذر تحميل المقالات حاليًا.';
+      // Keep the header ticker useful on the homepage if its article cards already rendered.
+      const cards = [...document.querySelectorAll('#article-grid a[href]')].filter(a => a.textContent.trim());
+      items = cards.slice(0, 6).map(a => ({
+        title: a.textContent.trim(),
+        file: a.getAttribute('href').split('/').pop(),
+        category: 'مقالات'
+      }));
+      if (items.length) { active = 0; render(); start(); return; }
+      windowEl.textContent = 'المقالات غير متاحة مؤقتًا.';
       windowEl.setAttribute('title', 'تعذر تحميل ملف المقالات. افتح وحدة التحكم (Console) لمعرفة السبب.');
     });
   })();
