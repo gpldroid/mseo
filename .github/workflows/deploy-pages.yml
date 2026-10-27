@@ -49,6 +49,7 @@ jobs:
           test -f dist/feed.xml
           ! grep -R -E 'https?://(gpldroid\.github\.io/mseo|mseopro\.netlify\.app)' --include='*.html' --exclude='admin.html' dist/index.html dist/article.html dist/articles dist/pages
           ! grep -R -F '<meta property="og:site_name" content="MSEO">' --include='*.html' --exclude='admin.html' dist/index.html dist/article.html dist/articles dist/pages
+          ! grep -R -E 'MSEO|gpldroid\\.github\\.io/mseo|mseopro\\.netlify\\.app' --include='*.svg' dist/assets/images/social-previews
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
