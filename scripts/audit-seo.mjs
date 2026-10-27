@@ -57,6 +57,18 @@ for (const file of htmlFiles) {
       critical.push(file + ': og:url does not match canonical URL; expected ' + canonical + ', found ' + ogUrl);
     }
 
+    const head = html.match(/<head\b[\s\S]*?<\/head>/i)?.[0] || '';
+    const siteNameTag = head.match(/<meta\b(?=[^>]*\bproperty\s*=\s*["']og:site_name["'])[^>]*>/i)?.[0] || '';
+    const siteName = attr(siteNameTag, 'content').trim();
+    if (siteName !== 'فاست سيو | Fast Seo') {
+      critical.push(file + ': og:site_name must be "فاست سيو | Fast Seo"; found "' + siteName + '"');
+    }
+    if (head.includes('gpldroid.github.io/mseo') || head.includes('mseopro.netlify.app')) {
+      critical.push(file + ': retired hosting domain remains in head metadata');
+    }
+    if (/\bMSEO\b/.test(head)) {
+      critical.push(file + ': legacy MSEO brand remains in head metadata');
+    }
     const jsonLdScripts = [...html.matchAll(/<script\b(?=[^>]*\btype\s*=\s*["']application\/ld\+json["'])[^>]*>([\s\S]*?)<\/script>/gi)];
     for (const [index, match] of jsonLdScripts.entries()) {
       try {
