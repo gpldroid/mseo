@@ -84,37 +84,9 @@
     footer.innerHTML = `
       <footer class="mseo-footer">
         <div class="mseo-footer-inner">
-          <div class="mseo-footer-top">
-            <a class="mseo-brand mseo-footer-brand" href="${link('')}" aria-label="Fast SEO — الصفحة الرئيسية">
-              <img class="mseo-brand-logo" src="${link('assets/images/fastseo-logo-footer.svg?v=20261027')}" alt="" width="148" height="40" decoding="async" style="display:block;width:148px;height:40px;object-fit:contain">
-              <span>Fast SEO <b>| فاست سيو</b></span>
-            </a>
-            <p class="mseo-footer-tagline">نقدّم محتوى عربيًا عمليًا يساعدك على تعلّم التقنية، وتطوير مهاراتك، وبناء مواقع أفضل وتحسين ظهورها في محركات البحث.</p>
-          </div>
           <div class="mseo-footer-main">
-            
-            <section class="mseo-footer-group">
-              <h3>روابط سريعة</h3>
-              <nav class="mseo-footer-links" aria-label="روابط سريعة">
-                <a href="${link('pages/topics.html')}">مقالات مصنفة</a>
-                <a href="${link('pages/archive.html')}">أرشيف المقالات</a>
-                <a href="${link('pages/tools.html')}">الأدوات</a>
-                <a href="${link('pages/about.html')}">من نحن</a>
-                <a href="${link('pages/contact.html')}">اتصل بنا</a>
-                <a href="${link('sitemap.xml')}">خريطة الموقع (Sitemap)</a>
-                <a href="${link('feed.xml')}">خلاصة RSS للمقالات</a>
-              </nav>
-            </section>
-            <section class="mseo-footer-group">
-              <h3>سياسات الموقع</h3>
-              <nav class="mseo-footer-links" aria-label="سياسات الموقع">
-                <a href="${link('pages/privacy.html')}">سياسة الخصوصية</a>
-                <a href="${link('pages/terms.html')}">شروط الاستخدام</a>
-                <a href="${link('pages/editorial-policy.html')}">سياسة الموقع</a>
-              </nav>
-            </section>
-            <section class="mseo-footer-group">
-              <h3>تابعنا على مواقع التواصل</h3>
+            <section class="mseo-footer-group mseo-footer-community">
+              <h3>تابعنا على</h3>
               <nav class="mseo-footer-links mseo-footer-social-list" aria-label="مواقع التواصل">
                 <a href="https://x.com/laraforum" target="_blank" rel="noopener noreferrer" aria-label="تابعنا على X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
                 <a href="https://m.facebook.com/61577188775609" target="_blank" rel="noopener noreferrer" aria-label="تابعنا على فيسبوك"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
@@ -123,13 +95,44 @@
                 <a href="https://github.com/gpldroid/" target="_blank" rel="noopener noreferrer" aria-label="تابعنا على GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
                 <a href="https://wa.me/212783539816" target="_blank" rel="noopener noreferrer" aria-label="تواصل معنا عبر واتساب"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
               </nav>
+              <div class="mseo-footer-newsletter">
+                <h4>اشترك في النشرة البريدية</h4>
+                <p>تابع جديد المقالات والأدوات التقنية.</p>
+                <a class="mseo-footer-subscribe" href="${link('pages/contact.html')}">تواصل معنا للاشتراك <span aria-hidden="true">←</span></a>
+              </div>
+            </section>
+            <section class="mseo-footer-group">
+              <h3>التصنيفات</h3>
+              <nav class="mseo-footer-links" aria-label="تصنيفات الموقع">
+                <a href="${link('pages/archive.html')}?category=${encodeURIComponent('SEO')}">SEO</a>
+                <a href="${link('pages/archive.html')}?category=${encodeURIComponent('الذكاء الاصطناعي')}">الذكاء الاصطناعي</a>
+                <a href="${link('pages/archive.html')}?category=${encodeURIComponent('البرمجة')}">البرمجة</a>
+                <a href="${link('pages/archive.html')}?category=${encodeURIComponent('تطوير المواقع')}">تطوير المواقع</a>
+                <a href="${link('pages/archive.html')}?category=${encodeURIComponent('التسويق الرقمي')}">التسويق الرقمي</a>
+              </nav>
+            </section>
+            <section class="mseo-footer-group mseo-footer-about">
+              <a class="mseo-brand mseo-footer-brand" href="${link('')}" aria-label="Fast SEO — الصفحة الرئيسية">
+                <img class="mseo-brand-logo" src="${link('assets/images/fastseo-logo-footer.svg?v=20261027')}" alt="" width="180" height="48" decoding="async" style="display:block;width:180px;height:48px;object-fit:contain">
+              </a>
+              <p class="mseo-footer-tagline">المرجع العربي نحو الظهور الأول في محركات البحث ومواكبة أحدث تقنيات الذكاء الاصطناعي والتطوير.</p>
+              <nav class="mseo-footer-links mseo-footer-quick-links" aria-label="روابط الموقع">
+                <a href="${link('pages/topics.html')}">المقالات</a>
+                <a href="${link('pages/tools.html')}">الأدوات</a>
+                <a href="${link('pages/about.html')}">من نحن</a>
+                <a href="${link('pages/contact.html')}">اتصل بنا</a>
+              </nav>
             </section>
           </div>
           <div class="mseo-copyright">
-            
             <div class="mseo-footer-credit">
               <span>© <span data-footer-year>2026</span> Fast SEO | فاست سيو — جميع الحقوق محفوظة</span>
-              <span>تصميم وتطوير <strong>Imad Limrani</strong></span>
+              <nav class="mseo-footer-bottom-links" aria-label="روابط قانونية">
+                <a href="${link('pages/privacy.html')}">سياسة الخصوصية</a>
+                <a href="${link('pages/terms.html')}">شروط الاستخدام</a>
+                <a href="${link('pages/editorial-policy.html')}">سياسة الموقع</a>
+              </nav>
+              <a href="${link('sitemap.xml')}">خريطة الموقع</a>
             </div>
           </div>
         </div>
