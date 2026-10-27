@@ -2318,20 +2318,3 @@ footer.mseo-footer .mseo-footer-credit {
     gap: 8px;
   }
 }
-
-
-/* PageSpeed: keep the injected home header space stable and improve mobile tap targets. */
-[data-home-header] {
-  min-height: 64px;
-}
-
-@media (max-width: 600px) {
-  [data-home-header] {
-    min-height: 66px;
-  }
-
-  .mseo-header .mseo-icon-button {
-    width: 44px;
-    height: 44px;
-  }
-}
