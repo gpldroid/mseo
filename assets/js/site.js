@@ -59,7 +59,6 @@
           </nav>
           <div class="mseo-actions">
             <button class="mseo-icon-button" type="button" data-search-toggle aria-label="${'فتح البحث'}" title="${'بحث'}"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></button>
-            <button class="mseo-icon-button" type="button" data-theme-toggle aria-label="${'تبديل المظهر'}" title="${'الوضع الداكن'}"><i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i></button>
             </div>
         </div>
         <div class="mseo-search-panel" data-search-panel>
@@ -135,37 +134,6 @@
   }
   const year = $('[data-current-year]'); if (year) year.textContent = new Date().getFullYear();
   document.querySelectorAll('[data-footer-year]').forEach(el => { el.textContent = new Date().getFullYear(); });
-  const themeButton = $('[data-theme-toggle]');
-  const themes = [
-    {id:'editorial',label:'المجلة',icon:'fa-newspaper',description:'تصميم تحريري متوازن'},
-    {id:'tech',label:'تقني داكن',icon:'fa-microchip',description:'ألوان داكنة ولمسات تقنية'},
-    {id:'compact',label:'مكثف',icon:'fa-table-cells',description:'مساحات أصغر ومحتوى أكثر'},
-    {id:'reading',label:'القراءة',icon:'fa-book-open',description:'ألوان دافئة وعمود قراءة مريح'},
-    {id:'mseo-blue',label:'فاست سيو | Fast Seo Prism',icon:'fa-wand-magic-sparkles',description:'بنفسجي عميق ولمسات نعناعية بتأثيرات زجاجية'}
-  ];
-  const documentRoot = document.documentElement;
-  const savedTheme = readPreference('mseo-theme');
-  const validTheme = id => themes.some(theme => theme.id === id);
-  let activeTheme = validTheme(savedTheme) ? savedTheme : 'editorial';
-  const applyTheme = id => {
-    activeTheme = validTheme(id) ? id : 'editorial';
-    documentRoot.dataset.theme = activeTheme;
-    documentRoot.classList.toggle('dark', activeTheme === 'tech');
-    const theme = themes.find(item => item.id === activeTheme);
-    if (themeButton && theme) {
-      themeButton.innerHTML = '<i class="fa-solid ' + theme.icon + '" aria-hidden="true"></i>';
-      themeButton.title = 'المظهر الحالي: ' + theme.label + ' — اضغط للتبديل';
-      themeButton.setAttribute('aria-label', 'تغيير المظهر. الحالي: ' + theme.label);
-      themeButton.setAttribute('aria-pressed', String(activeTheme !== 'editorial'));
-    }
-  };
-  applyTheme(activeTheme);
-  if (themeButton) themeButton.addEventListener('click', () => {
-    const index = themes.findIndex(theme => theme.id === activeTheme);
-    const next = themes[(index + 1) % themes.length];
-    applyTheme(next.id);
-    writePreference('mseo-theme', next.id);
-  });
   const menuButton=$('[data-menu-toggle]'), nav=$('[data-main-nav]');
   if(menuButton&&nav){menuButton.addEventListener('click',()=>{const open=nav.classList.toggle('is-open');menuButton.setAttribute('aria-expanded',String(open));menuButton.innerHTML=open?'<i class="fa-solid fa-xmark" aria-hidden="true"></i>':'<i class="fa-solid fa-bars" aria-hidden="true"></i>';});nav.addEventListener('click',e=>{if(e.target.closest('a')){nav.classList.remove('is-open');menuButton.setAttribute('aria-expanded','false');menuButton.innerHTML='<i class="fa-solid fa-bars" aria-hidden="true"></i>';}});}
   const searchButton=$('[data-search-toggle]'),searchPanel=$('[data-search-panel]');
