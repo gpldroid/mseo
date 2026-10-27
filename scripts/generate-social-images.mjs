@@ -114,4 +114,17 @@ for (const file of htmlFiles) {
   html = html.replace(headMatch[0], rebuiltHead);
   await writeFile(file, html, 'utf8');
 }
+// Normalize legacy branding inside existing social-preview SVGs too, including files
+// that are no longer selected by the current page metadata.
+for (const entry of await readdir(previewDir, { withFileTypes: true })) {
+  if (!entry.isFile() || !entry.name.endsWith('.svg')) continue;
+  const previewPath = path.join(previewDir, entry.name);
+  const before = await readFile(previewPath, 'utf8');
+  const after = before
+    .replace(/\bMSEO\b/gi, 'FAST SEO')
+    .replace(/gpldroid\.github\.io\/mseo/gi, siteBase.host)
+    .replace(/mseopro\.netlify\.app/gi, siteBase.host);
+  if (after !== before) await writeFile(previewPath, after, 'utf8');
+}
+
 console.log('Social image audit complete: ' + htmlFiles.length + ' HTML pages checked; ' + generated + ' fallback SVG previews generated for metadata only; ' + reused + ' existing main images reused; metadata updated on ' + metadataFixed + ' pages.');
