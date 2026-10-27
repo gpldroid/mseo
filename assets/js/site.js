@@ -85,7 +85,7 @@
     const render = () => {
       if (!items.length) return;
       const item = items[active];
-      const href = item.href || link('articles/' + encodeURIComponent(item.file || item.slug + '.html'));
+      const href = link('articles/' + encodeURIComponent(item.file || item.slug + '.html'));
       windowEl.innerHTML = '<a class="mseo-news-ticker-item" href="' + href + '"><span class="mseo-news-ticker-category">' + esc(item.category || 'مقالات') + '</span><span class="mseo-news-ticker-title">' + esc(item.title) + '</span><span class="mseo-news-ticker-number">' + String(active + 1).padStart(2, '0') + ' / 06</span></a>';
     };
     const stop = () => { if (timer) { clearInterval(timer); timer = null; } };
@@ -108,95 +108,22 @@
     ticker.addEventListener('focusin', stop);
     ticker.addEventListener('focusout', event => { if (!ticker.contains(event.relatedTarget)) start(); });
     document.addEventListener('visibilitychange', () => document.hidden ? stop() : start());
-    const normalizeArticle = article => {
-      if (!article || !article.title) return null;
-      const rawHref = article.href || article.url || (article.file ? 'articles/' + article.file : article.slug ? 'articles/' + article.slug + '.html' : '');
-      if (!rawHref) return null;
-      let href = rawHref;
-      try {
-        const parsed = new URL(rawHref, document.baseURI);
-        if (parsed.origin !== location.origin) return null;
-        href = parsed.pathname + parsed.search + parsed.hash;
-      } catch (_) { return null; }
-      const tags = Array.isArray(article.tags) ? article.tags : typeof article.tags === 'string' ? article.tags.split(/[,،|]/) : [];
-      return {
-        slug: article.slug || href,
-        file: article.file || '',
-        href,
-        title: String(article.title).trim(),
-        category: String(article.category || article.label || tags[0] || 'مقالات').trim(),
-        tags
-      };
-    };
-    const collectFromPage = () => {
-      const found = [];
-      const seen = new Set();
-      document.querySelectorAll('a[href*="/articles/"], a[href^="articles/"], a[href*="articles/"]').forEach(anchor => {
-        const titleNode = anchor.querySelector('h1,h2,h3,h4,[class*="title"]');
-        const title = (titleNode ? titleNode.textContent : anchor.textContent || '').trim();
-        const rawHref = anchor.getAttribute('href') || '';
-        if (!title || title.length < 8 || !/articles\\//.test(rawHref)) return;
-        const categoryNode = anchor.querySelector('[class*="category"],[class*="tag"],[rel="tag"],[data-category]');
-        const article = normalizeArticle({
-          title,
-          href: rawHref,
-          category: categoryNode ? categoryNode.textContent.trim() : anchor.getAttribute('data-category') || 'مقالات',
-          tags: Array.from(anchor.querySelectorAll('[class*="tag"],[rel="tag"]')).map(node => node.textContent.trim()).filter(Boolean)
-        });
-        if (article && !seen.has(article.href)) { seen.add(article.href); found.push(article); }
-      });
-      return found;
-    };
-    const loadCatalog = async () => {
-      const candidates = Array.from(new Set([
-        link('data/articles.json'),
-        './data/articles.json',
-        '../data/articles.json',
-        '/data/articles.json'
-      ]));
-      for (const url of candidates) {
-        try {
-          const response = await fetch(url, { cache: 'no-cache' });
-          if (!response.ok) continue;
-          const data = await response.json();
-          if (Array.isArray(data)) {
-            const valid = data.map(normalizeArticle).filter(Boolean);
-            if (valid.length) return valid;
-          }
-        } catch (_) {}
-      }
-      return collectFromPage();
-    };
-    loadCatalog().then(articles => {
+    fetch(link('data/articles.json'), {cache:'no-cache'}).then(response => {
+      if (!response.ok) throw new Error('Article catalog unavailable');
+      return response.json();
+    }).then(articles => {
       const sorted = articles.slice().sort((a,b) => String(b.updatedAt || b.publishedAt || '').localeCompare(String(a.updatedAt || a.publishedAt || '')));
       const selected = [], categories = new Set();
       sorted.forEach(article => {
-        const category = article.category || (article.tags && article.tags[0]) || 'مقالات';
-        if (selected.length < 6 && !categories.has(category)) { selected.push({ ...article, category }); categories.add(category); }
+        const category = article.category || 'مقالات';
+        if (selected.length < 6 && !categories.has(category)) { selected.push(article); categories.add(category); }
       });
-      sorted.forEach(article => {
-        if (selected.length < 6 && !selected.some(item => item.slug === article.slug || item.href === article.href)) selected.push(article);
-      });
+      sorted.forEach(article => { if (selected.length < 6 && !selected.some(item => item.slug === article.slug)) selected.push(article); });
       items = selected.slice(0, 6);
-      if (!items.length) {
-        windowEl.textContent = 'تصفح أحدث المقالات والتصنيفات';
-        const archive = document.createElement('a');
-        archive.className = 'mseo-news-ticker-item';
-        archive.href = link('pages/topics.html');
-        archive.textContent = 'اكتشف جميع المقالات';
-        windowEl.replaceChildren(archive);
-        return;
-      }
+      if (!items.length) { windowEl.textContent = 'لا توجد مقالات متاحة حاليًا.'; return; }
       render();
       start();
-    }).catch(() => {
-      windowEl.textContent = 'تصفح المقالات حسب التصنيف';
-      const archive = document.createElement('a');
-      archive.className = 'mseo-news-ticker-item';
-      archive.href = link('pages/topics.html');
-      archive.textContent = 'اكتشف المقالات والوسوم';
-      windowEl.replaceChildren(archive);
-    });
+    }).catch(() => { windowEl.textContent = 'تعذر تحميل المقالات حاليًا.'; });
   })();
 
   // Advertise the RSS feed to browsers and feed readers on every public page.
