@@ -3252,3 +3252,86 @@ footer.mseo-footer .mseo-copyright a{display:inline!important;margin:0!important
     grid-area: auto !important;
   }
 }
+
+
+/* Footer card containment fix: keep each heading and link list inside its own card. */
+footer.mseo-footer .mseo-footer-inner > .mseo-footer-grid {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  grid-auto-flow: row !important;
+  align-items: stretch !important;
+  justify-items: stretch !important;
+  direction: rtl !important;
+}
+footer.mseo-footer .mseo-footer-inner > .mseo-footer-grid > .mseo-footer-group {
+  position: relative !important;
+  inset: auto !important;
+  float: none !important;
+  align-self: stretch !important;
+  justify-self: stretch !important;
+  box-sizing: border-box !important;
+  height: auto !important;
+  min-height: 190px !important;
+  margin: 0 !important;
+  padding: 22px !important;
+  border: 1px solid var(--line) !important;
+  border-radius: var(--radius, 20px) !important;
+  background: var(--surface) !important;
+  box-shadow: var(--shadow) !important;
+  overflow: hidden !important;
+}
+footer.mseo-footer .mseo-footer-inner > .mseo-footer-grid > .mseo-footer-group > h3 {
+  position: static !important;
+  inset: auto !important;
+  float: none !important;
+  transform: none !important;
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 0 10px !important;
+  padding: 0 0 12px !important;
+  border: 0 !important;
+  border-bottom: 1px solid var(--line) !important;
+}
+footer.mseo-footer .mseo-footer-inner > .mseo-footer-grid > .mseo-footer-group > .mseo-footer-links {
+  position: static !important;
+  inset: auto !important;
+  float: none !important;
+  transform: none !important;
+  display: flex !important;
+  flex: 1 1 auto !important;
+  flex-direction: column !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+@media (min-width: 1100px) {
+  footer.mseo-footer .mseo-footer-inner > .mseo-footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+@media (max-width: 900px) {
+  footer.mseo-footer .mseo-footer-inner > .mseo-footer-grid > .mseo-footer-group {
+    min-height: 170px !important;
+    padding: 18px !important;
+  }
+}
+@media (max-width: 600px) {
+  footer.mseo-footer .mseo-footer-inner > .mseo-footer-grid > .mseo-footer-group {
+    min-height: 0 !important;
+    padding: 15px 12px !important;
+    border-radius: 14px !important;
+  }
+  footer.mseo-footer .mseo-footer-inner > .mseo-footer-grid > .mseo-footer-group > h3 {
+    font-size: .86rem !important;
+    line-height: 1.55 !important;
+    margin-bottom: 8px !important;
+    padding-bottom: 8px !important;
+  }
+}
+@media (max-width: 360px) {
+  footer.mseo-footer .mseo-footer-inner > .mseo-footer-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}
