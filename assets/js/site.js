@@ -43,7 +43,7 @@
 
   // TEMPORARY TEST: AdSense loader disabled to check whether it contributes to the mobile footer gap.
   // Re-enable by changing ENABLE_ADSENSE_TEST to true after testing.
-  const ENABLE_ADSENSE_TEST = false;
+  const ENABLE_ADSENSE_TEST = true;
   const adsenseClient = 'ca-pub-1849282438800062';
   if (ENABLE_ADSENSE_TEST && !document.querySelector('script[data-mseo-adsense]') && !document.querySelector('script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]')) {
     const adsenseScript = document.createElement('script');
