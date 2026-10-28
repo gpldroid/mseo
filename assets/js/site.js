@@ -207,49 +207,58 @@
     footer.innerHTML = `
       <footer class="mseo-footer">
         <div class="mseo-footer-inner">
-          <section class="mseo-footer-top" aria-label="عن Fast SEO">
-            <a class="mseo-brand mseo-footer-brand" href="${link('')}" aria-label="Fast SEO — الصفحة الرئيسية">
-              <img class="mseo-brand-logo" src="${link('assets/images/fastseo-logo-header.svg?v=20261027')}" alt="Fast SEO" width="180" height="48" decoding="async" onerror="this.onerror=null;this.src='${link('assets/favicon.svg?v=20261027')}'">
+          <section class="mseo-footer-brand-card" aria-label="عن فاست سيو">
+            <a class="mseo-brand mseo-footer-brand" href="${link('')}" aria-label="فاست سيو — الصفحة الرئيسية">
+              <img class="mseo-brand-logo" src="${link('assets/images/fastseo-logo-header.svg?v=20261028')}" alt="فاست سيو | Fast Seo" width="180" height="48" decoding="async" onerror="this.onerror=null;this.src='${link('assets/favicon.svg?v=20261028')}'">
             </a>
-            <p class="mseo-footer-tagline">المرجع العربي نحو الظهور الأول في محركات البحث، مع أحدث تقنيات الذكاء الاصطناعي والتطوير.</p>
+            <p class="mseo-footer-tagline">المرجع العربي نحو الظهور الأفضل في محركات البحث، مع أدلة عملية في SEO والذكاء الاصطناعي وتطوير المواقع.</p>
+            <nav class="mseo-socials" aria-label="مواقع التواصل الاجتماعي">
+              <a href="https://x.com/laraforum" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+              <a href="https://m.facebook.com/61577188775609" target="_blank" rel="noopener noreferrer" aria-label="فيسبوك"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+              <a href="https://www.instagram.com/larache_forum" target="_blank" rel="noopener noreferrer" aria-label="إنستغرام"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+              <a href="https://ma.linkedin.com/in/imad-limrani-0221aa3aa" target="_blank" rel="noopener noreferrer" aria-label="لينكدإن"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+              <a href="https://github.com/gpldroid/" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+              <a href="https://wa.me/212783539816" target="_blank" rel="noopener noreferrer" aria-label="واتساب"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+            </nav>
           </section>
-          <div class="mseo-footer-main">
-            <section class="mseo-footer-group mseo-footer-quick-column">
+          <div class="mseo-footer-grid">
+            <section class="mseo-footer-group">
               <h3>روابط سريعة</h3>
               <nav class="mseo-footer-links" aria-label="روابط سريعة">
-                <a href="${link('pages/topics.html')}">المقالات</a>
-                <a href="${link('pages/tools.html')}">الأدوات</a>
+                <a href="${link('pages/topics.html')}">جميع المقالات</a>
+                <a href="${link('pages/tools.html')}">الأدوات المجانية</a>
+                <a href="${link('pages/categories.html')}">التصنيفات</a>
               </nav>
             </section>
-            <section class="mseo-footer-group mseo-footer-about-column">
+            <section class="mseo-footer-group">
+              <h3>الأرشيف و RSS</h3>
+              <nav class="mseo-footer-links" aria-label="الأرشيف وRSS">
+                <a href="${link('pages/archive.html')}">أرشيف المقالات</a>
+                <a href="${link('feed.xml')}">خلاصة RSS</a>
+                <a href="${link('sitemap.xml')}">خارطة الموقع</a>
+              </nav>
+            </section>
+            <section class="mseo-footer-group">
               <h3>عن الموقع</h3>
-              <nav class="mseo-footer-links" aria-label="روابط حول الموقع">
+              <nav class="mseo-footer-links" aria-label="عن الموقع والتواصل">
                 <a href="${link('pages/about.html')}">من نحن</a>
                 <a href="${link('pages/contact.html')}">اتصل بنا</a>
               </nav>
             </section>
-            <section class="mseo-footer-group mseo-footer-community">
-              <h3>تابعنا على</h3>
-              <nav class="mseo-footer-links mseo-footer-social-list" aria-label="مواقع التواصل الاجتماعي">
-                <a href="https://x.com/laraforum" target="_blank" rel="noopener noreferrer" aria-label="تابعنا على X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
-                <a href="https://m.facebook.com/61577188775609" target="_blank" rel="noopener noreferrer" aria-label="تابعنا على فيسبوك"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a>
-                <a href="https://www.instagram.com/larache_forum" target="_blank" rel="noopener noreferrer" aria-label="تابعنا على إنستغرام"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
-                <a href="https://ma.linkedin.com/in/imad-limrani-0221aa3aa" target="_blank" rel="noopener noreferrer" aria-label="تابعنا على لينكدإن"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
-                <a href="https://github.com/gpldroid/" target="_blank" rel="noopener noreferrer" aria-label="تابعنا على GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
-                <a href="https://wa.me/212783539816" target="_blank" rel="noopener noreferrer" aria-label="تواصل معنا عبر واتساب"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
+            <section class="mseo-footer-group">
+              <h3>الصفحات الأساسية</h3>
+              <nav class="mseo-footer-links" aria-label="الصفحات الأساسية">
+                <a href="${link('')}">الرئيسية</a>
+                <a href="${link('pages/seo.html')}">تحسين محركات البحث</a>
+                <a href="${link('pages/privacy.html')}">سياسة الخصوصية</a>
+                <a href="${link('pages/terms.html')}">شروط الاستخدام</a>
+                <a href="${link('pages/editorial-policy.html')}">سياسة النشر</a>
               </nav>
             </section>
           </div>
           <div class="mseo-copyright">
-            <div class="mseo-footer-credit">              
-              <nav class="mseo-footer-bottom-links" aria-label="روابط قانونية">
-                <a href="${link('pages/privacy.html')}">سياسة الخصوصية</a>
-                <a href="${link('pages/terms.html')}">شروط الاستخدام</a>
-                <a href="${link('pages/editorial-policy.html')}">سياسة الموقع</a>
-                <a href="${link('sitemap.xml')}">خريطة الموقع</a>
-              </nav>
-     <span class="mseo-footer-copyright-text">© فاست سيو <span data-footer-year>2026</span> جميع الحقوق محفوظة. <a href="${link('pages/about.html')}">Imad Limrani</a></span>        
-          </div>  
+            <span class="mseo-footer-copyright-text">© فاست سيو <span data-footer-year>2026</span> جميع الحقوق محفوظة.</span>
+            <span>تطوير <a href="${link('pages/about.html')}">Imad Limrani</a></span>
           </div>
         </div>
       </footer>`;
