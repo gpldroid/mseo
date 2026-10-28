@@ -246,7 +246,7 @@
                 <a href="${link('pages/editorial-policy.html')}">سياسة النشر</a>
               </nav>
             </section>
-            <section class="mseo-footer-group">
+            <section class="mseo-footer-group mseo-footer-group--quick-links">
               <h3>روابط سريعة</h3>
               <nav class="mseo-footer-links" aria-label="روابط سريعة">
                 <a href="${link('pages/topics.html')}">جميع المقالات</a>
