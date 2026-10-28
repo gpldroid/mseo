@@ -3002,3 +3002,11 @@ html,body,button,input,select,textarea{font-family:var(--font-site)!important}
   .latest-carousel-section .latest-carousel-track{ scroll-behavior: auto; }
   .latest-carousel-section .latest-carousel-image img{ transition: none; }
 }
+
+
+/* Mobile footer spacing fix: remove the extra space below the copyright only on phones. */
+@media (max-width: 600px){
+  footer.mseo-footer .mseo-footer-inner{padding-bottom:4px;}
+  footer.mseo-footer .mseo-copyright{margin-bottom:0;padding-bottom:0;}
+  footer.mseo-footer{margin-bottom:0;}
+}
