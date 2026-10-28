@@ -3218,3 +3218,50 @@ footer.mseo-footer .mseo-copyright a{display:inline!important;margin:0!important
   footer.mseo-footer .mseo-footer-grid>.mseo-footer-group:hover,
   footer.mseo-footer .mseo-footer-brand-card>.mseo-socials a:hover{transform:none!important}
 }
+
+
+/* Explicitly keep the final quick-links group styled as a footer card. */
+footer.mseo-footer .mseo-footer-grid>section.mseo-footer-group--quick-links{
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:stretch!important;
+  justify-content:flex-start!important;
+  width:100%!important;
+  min-width:0!important;
+  max-width:100%!important;
+  min-height:190px!important;
+  height:100%!important;
+  margin:0!important;
+  padding:22px!important;
+  border:1px solid var(--line)!important;
+  border-radius:var(--radius,20px)!important;
+  background:var(--surface)!important;
+  box-shadow:var(--shadow)!important;
+  overflow-wrap:anywhere!important;
+}
+footer.mseo-footer .mseo-footer-grid>section.mseo-footer-group--quick-links>h3{
+  display:block!important;
+  margin:0 0 10px!important;
+  padding:0 0 12px!important;
+  border:0!important;
+  border-bottom:1px solid var(--line)!important;
+}
+footer.mseo-footer .mseo-footer-grid>section.mseo-footer-group--quick-links>.mseo-footer-links{
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:stretch!important;
+  gap:5px!important;
+  width:100%!important;
+  margin:0!important;
+  padding:0!important;
+}
+@media(max-width:900px){
+  footer.mseo-footer .mseo-footer-grid>section.mseo-footer-group--quick-links{min-height:170px!important;padding:18px!important}
+}
+@media(max-width:600px){
+  footer.mseo-footer .mseo-footer-grid>section.mseo-footer-group--quick-links{min-height:0!important;padding:15px 12px!important;border-radius:14px!important}
+  footer.mseo-footer .mseo-footer-grid>section.mseo-footer-group--quick-links>h3{font-size:.86rem!important;line-height:1.55!important;margin-bottom:8px!important;padding-bottom:8px!important}
+}
+@media(max-width:360px){
+  footer.mseo-footer .mseo-footer-grid>section.mseo-footer-group--quick-links{padding:16px!important}
+}
