@@ -6,6 +6,36 @@
   const root = nested ? '../' : './';
   const link = (href) => root + href;
 
+  // One validated catalog request per page; all article widgets reuse the same promise.
+  const articleCatalog = (() => {
+    let request = null;
+    return {
+      load() {
+        if (!request) {
+          const primary = new URL(link('data/articles.json'), location.href);
+          const candidates = [...new Set([primary.href, new URL('/data/articles.json', location.origin).href])];
+          request = (async () => {
+            let lastError = null;
+            for (const url of candidates) {
+              try {
+                const response = await fetch(url, { cache: 'no-cache', credentials: 'same-origin' });
+                if (!response.ok) throw new Error('HTTP ' + response.status + ' loading ' + url);
+                const data = await response.json();
+                if (!Array.isArray(data)) throw new Error('Article catalog must be a JSON array');
+                const valid = data.filter(article => article && typeof article.title === 'string' && article.title.trim() && ((typeof article.file === 'string' && article.file.trim()) || (typeof article.slug === 'string' && article.slug.trim())));
+                if (!valid.length) throw new Error('Article catalog contains no valid article titles');
+                return valid;
+              } catch (error) { lastError = error; }
+            }
+            throw lastError || new Error('Unable to load the article catalog');
+          })().catch(error => { request = null; throw error; });
+        }
+        return request;
+      }
+    };
+  })();
+  window.MSEOArticleCatalog = articleCatalog;
+
   // Refresh the brand shortcut icon on all pages so browsers do not keep the previous cached mark.
   document.querySelectorAll('link[rel~="icon"]').forEach((iconLink) => {
     iconLink.href = link('assets/favicon.svg?v=20261027');
@@ -111,31 +141,7 @@
     document.addEventListener('visibilitychange', () => document.hidden ? stop() : start());
     // Reuse the public article catalog with root-safe URL resolution and resilient fallback.
     const catalogUrl = new URL(link('data/articles.json'), location.href);
-    const loadCatalog = async () => {
-      const candidates = [
-        catalogUrl.href,
-        new URL('/data/articles.json', location.origin).href
-      ].filter((value, index, all) => all.indexOf(value) === index);
-      let lastError = null;
-      for (const url of candidates) {
-        try {
-          const response = await fetch(url, { cache: 'no-store', credentials: 'same-origin' });
-          if (!response.ok) throw new Error('HTTP ' + response.status + ' loading ' + url);
-          const data = await response.json();
-          if (!Array.isArray(data)) throw new Error('Article catalog must be a JSON array');
-          const valid = data.filter(article =>
-            article && typeof article.title === 'string' && article.title.trim() &&
-            (typeof article.file === 'string' && article.file.trim() ||
-             typeof article.slug === 'string' && article.slug.trim())
-          );
-          if (!valid.length) throw new Error('Article catalog contains no valid article titles');
-          return valid;
-        } catch (error) {
-          lastError = error;
-        }
-      }
-      throw lastError || new Error('Unable to load the article catalog');
-    };
+    const loadCatalog = () => window.MSEOArticleCatalog.load();
     loadCatalog().then(articles => {
       // Oldest published entries first; select different categories before filling remaining slots.
       const sorted = articles.map((article, index) => ({...article, _tickerOrder:index}))
@@ -323,7 +329,7 @@
  const params=new URLSearchParams(location.search),batch=6;let all=[],shown=batch;
  let more=$('#archive-load-more');if(!more){more=document.createElement('div');more.id='archive-load-more';more.className='pagination';more.hidden=true;grid.insertAdjacentElement('afterend',more);}
  const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
- fetch('../data/articles.json').then(r=>{if(!r.ok)throw Error();return r.json();}).then(data=>{all=data;const cats=[...new Set(all.map(a=>a.category).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'ar'));select.innerHTML='<option value="">كل التصنيفات</option>'+cats.map(cat=>'<option value="'+esc(cat)+'">'+esc(cat)+'</option>').join('');select.value=params.get('category')||'';search.value=params.get('q')||'';render();}).catch(()=>{const err=$('#archive-error');if(err)err.hidden=false;count.textContent='';grid.innerHTML='';more.hidden=true;});
+ window.MSEOArticleCatalog.load().then(data=>{all=data;const cats=[...new Set(all.map(a=>a.category).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'ar'));select.innerHTML='<option value="">كل التصنيفات</option>'+cats.map(cat=>'<option value="'+esc(cat)+'">'+esc(cat)+'</option>').join('');select.value=params.get('category')||'';search.value=params.get('q')||'';render();}).catch(()=>{const err=$('#archive-error');if(err)err.hidden=false;count.textContent='';grid.innerHTML='';more.hidden=true;});
  function render(animateFrom=-1){
   const q=(search.value||'').toLocaleLowerCase('ar').trim(),cat=select.value;
   const filtered=all.filter(a=>(!cat||a.category===cat)&&(!q||[a.title,a.description,a.category,...(a.tags||[])].join(' ').toLocaleLowerCase('ar').includes(q)));
@@ -373,10 +379,7 @@
   carousel.setAttribute('aria-labelledby', 'article-latest-carousel-title');
   carousel.innerHTML = '<div class="section-heading"><div><span class="section-kicker">واصل الاستكشاف</span><h2 id="article-latest-carousel-title">أحدث المقالات</h2><p>مقالات وأدلة جديدة من مكتبة فاست سيو | Fast Seo.</p></div><span class="heading-count" aria-hidden="true">03 / 05</span></div><div class="latest-carousel" data-article-carousel><button class="carousel-arrow" type="button" data-article-prev aria-label="المقالات السابقة">‹</button><div class="latest-carousel-track" data-article-latest-carousel aria-live="polite"><div class="loading-card">جارٍ تحميل أحدث المقالات…</div></div><button class="carousel-arrow" type="button" data-article-next aria-label="المقالات التالية">›</button></div><div class="carousel-dots" data-article-carousel-dots aria-label="اختيار المقال"></div>';
   main.appendChild(carousel);
-  fetch(link('data/articles.json'), {cache:'no-cache'}).then(response => {
-    if (!response.ok) throw new Error('Could not load article catalog');
-    return response.json();
-  }).then(items => {
+  window.MSEOArticleCatalog.load().then(items => {
     const articles = items.slice().sort((a,b) => String(b.updatedAt || b.publishedAt || '').localeCompare(String(a.updatedAt || a.publishedAt || '')));
     const latest = articles.slice(0, 5);
     const sidebarLatest = $('[data-article-sidebar-latest]');
