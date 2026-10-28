@@ -3035,3 +3035,44 @@ footer.mseo-footer .mseo-copyright a{color:var(--brand)}
 @media(max-width:900px){footer.mseo-footer .mseo-footer-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}}
 @media(max-width:600px){footer.mseo-footer .mseo-footer-inner{width:calc(100% - 24px);padding-top:24px}footer.mseo-footer .mseo-footer-brand-card{padding:23px 15px 20px;border-radius:17px}footer.mseo-footer .mseo-footer-brand .mseo-brand-logo{width:160px;height:44px}footer.mseo-footer .mseo-footer-tagline{font-size:.86rem}footer.mseo-footer .mseo-socials{gap:8px}footer.mseo-footer .mseo-socials a{width:39px;height:39px}footer.mseo-footer .mseo-footer-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px}footer.mseo-footer .mseo-footer-group{padding:15px 12px;border-radius:13px}footer.mseo-footer .mseo-footer-group h3{font-size:.88rem;margin-bottom:8px;padding-bottom:7px}footer.mseo-footer .mseo-footer-group nav.mseo-footer-links a{font-size:.8rem}footer.mseo-footer .mseo-copyright{align-items:flex-start;flex-direction:column;gap:4px;margin-top:16px;padding-top:13px}}
 @media(max-width:360px){footer.mseo-footer .mseo-footer-grid{grid-template-columns:minmax(0,1fr)}}
+
+
+/* Final footer correction: compact, centered copyright and author credit with no artificial gap. */
+footer.mseo-footer .mseo-copyright{
+  display:flex!important;
+  justify-content:center!important;
+  align-items:center!important;
+  flex-direction:row!important;
+  flex-wrap:wrap!important;
+  column-gap:12px!important;
+  row-gap:2px!important;
+  margin:16px 0 0!important;
+  padding:12px 0 0!important;
+  min-height:0!important;
+  line-height:1.5!important;
+}
+footer.mseo-footer .mseo-copyright > span{
+  display:inline!important;
+  flex:0 0 auto!important;
+  margin:0!important;
+  padding:0!important;
+  min-height:0!important;
+  line-height:1.5!important;
+}
+footer.mseo-footer .mseo-copyright a{
+  display:inline!important;
+  margin:0!important;
+  padding:0!important;
+  line-height:inherit!important;
+}
+@media(max-width:600px){
+  footer.mseo-footer .mseo-copyright{
+    justify-content:center!important;
+    align-items:center!important;
+    flex-direction:column!important;
+    gap:2px!important;
+    text-align:center!important;
+    margin-top:12px!important;
+    padding-top:10px!important;
+  }
+}
