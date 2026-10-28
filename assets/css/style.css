@@ -3076,3 +3076,22 @@ footer.mseo-footer .mseo-copyright a{
     padding-top:10px!important;
   }
 }
+
+
+/* Mobile footer: keep logo, description and social icons together in one brand card. */
+footer.mseo-footer .mseo-footer-brand-card{
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  text-align:center!important;
+}
+footer.mseo-footer .mseo-footer-brand-card > .mseo-footer-brand{order:1!important;display:flex!important;align-items:center!important;justify-content:center!important;width:100%!important;margin:0!important;}
+footer.mseo-footer .mseo-footer-brand-card > .mseo-footer-tagline{order:2!important;display:block!important;width:100%!important;margin:0!important;}
+footer.mseo-footer .mseo-footer-brand-card > .mseo-socials{order:3!important;display:flex!important;flex-direction:row!important;flex-wrap:nowrap!important;align-items:center!important;justify-content:center!important;gap:8px!important;width:100%!important;margin:8px 0 0!important;}
+footer.mseo-footer .mseo-footer-brand-card > .mseo-socials a{display:inline-flex!important;flex:0 0 38px!important;align-items:center!important;justify-content:center!important;width:38px!important;height:38px!important;min-width:38px!important;margin:0!important;}
+footer.mseo-footer .mseo-footer-grid{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important;margin-top:14px!important;}
+footer.mseo-footer .mseo-copyright{margin-top:14px!important;}
+@media(max-width:390px){
+  footer.mseo-footer .mseo-footer-brand-card > .mseo-socials{gap:5px!important;}
+  footer.mseo-footer .mseo-footer-brand-card > .mseo-socials a{flex-basis:34px!important;width:34px!important;height:34px!important;min-width:34px!important;}
+}
