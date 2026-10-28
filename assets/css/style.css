@@ -3069,3 +3069,26 @@ html,body,button,input,select,textarea{font-family:var(--font-site)!important}
  .article-grid .article-card,.article-grid .article-card img,.latest-carousel-image img{transition:none!important}
  .article-grid .article-card:hover{transform:none}
 }
+
+
+/* Slider regression fix: keep the track horizontally scrollable so scrollIntoView and dots work. */
+.latest-carousel-track{
+ display:flex;
+ flex-wrap:nowrap;
+ overflow-x:auto!important;
+ overflow-y:hidden;
+ scroll-snap-type:x mandatory;
+ scroll-behavior:smooth;
+ scrollbar-width:none;
+ -webkit-overflow-scrolling:touch;
+}
+.latest-carousel-track::-webkit-scrollbar{display:none}
+.latest-carousel-track>.latest-carousel-card{
+ flex:0 0 100%;
+ width:100%;
+ min-width:0;
+ scroll-snap-align:start;
+ scroll-snap-stop:always;
+}
+.latest-carousel-track>.latest-carousel-card[hidden]{display:none!important}
+@media(prefers-reduced-motion:reduce){.latest-carousel-track{scroll-behavior:auto}}
