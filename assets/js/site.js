@@ -140,11 +140,7 @@
     ticker.addEventListener('focusin', stop);
     ticker.addEventListener('focusout', event => { if (!ticker.contains(event.relatedTarget)) start(); });
     document.addEventListener('visibilitychange', () => document.hidden ? stop() : start());
-    // Reuse the public article catalog with root-safe URL resolution and resilient fallback.
-    const catalogUrl = new URL(link('data/articles.json'), location.href);
-    const loadCatalog = () => window.MSEOArticleCatalog.load();
-    // Reuse the public article catalog with root-safe URL resolution and resilient fallback.
-    const catalogUrl = new URL(link('data/articles.json'), location.href);
+    // Load the shared article catalog once for the ticker.
     const loadCatalog = () => window.MSEOArticleCatalog.load();
     loadCatalog().then(articles => {
       // Oldest published entries first; select different categories before filling remaining slots.
