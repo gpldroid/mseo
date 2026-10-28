@@ -88,7 +88,7 @@
           const item = latest[active];
           const image = imageUrl(item);
           track.innerHTML = '<article class="latest-carousel-card">' +
-            (image ? '<a class="latest-carousel-image" href="' + articleUrl(item) + '"><img src="' + esc(image) + '" alt="' + esc(item.title) + '" loading="lazy" decoding="async" onerror="this.closest(\\'a\\').remove()"></a>' : '') +
+            (image ? '<a class="latest-carousel-image" href="' + articleUrl(item) + '"><img src="' + esc(image) + '" alt="' + esc(item.title) + '" loading="lazy" decoding="async" onerror="this.closest(\'a\').remove()"></a>' : '') +
             '<div class="latest-carousel-copy"><span class="article-category">' + esc(item.category || 'مقالات') + '</span>' +
             '<h3><a href="' + articleUrl(item) + '">' + esc(item.title) + '</a></h3>' +
             '<p>' + esc(item.description || '') + '</p><a class="button button-primary" href="' + articleUrl(item) + '">اقرأ المقال <span aria-hidden="true">←</span></a></div></article>';
