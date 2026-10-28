@@ -41,10 +41,11 @@
     iconLink.href = link('assets/favicon.svg?v=20261027');
   });
 
-  // Load Google AdSense once on every public page using the shared site runtime.
-  // Ad units are controlled separately by the AdSense account (for example, Auto ads).
+  // TEMPORARY TEST: AdSense loader disabled to check whether it contributes to the mobile footer gap.
+  // Re-enable by changing ENABLE_ADSENSE_TEST to true after testing.
+  const ENABLE_ADSENSE_TEST = false;
   const adsenseClient = 'ca-pub-1849282438800062';
-  if (!document.querySelector('script[data-mseo-adsense]') && !document.querySelector('script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]')) {
+  if (ENABLE_ADSENSE_TEST && !document.querySelector('script[data-mseo-adsense]') && !document.querySelector('script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]')) {
     const adsenseScript = document.createElement('script');
     adsenseScript.async = true;
     adsenseScript.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + adsenseClient;
