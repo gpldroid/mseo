@@ -153,9 +153,9 @@
       const found = [...doc.querySelectorAll('[data-category-grid] a[href], .category-article-grid a[href], a[href*="/articles/"], a[href^="../articles/"]')]
         .map(anchor => {
           const titleNode = anchor.querySelector('h2, h3, h4, .category-article-title');
-          const title = (titleNode ? titleNode.textContent : anchor.textContent).trim().replace(/\\s+/g, ' ');
+          const title = (titleNode ? titleNode.textContent : anchor.textContent).trim().replace(/\s+/g, ' ');
           const rawHref = anchor.getAttribute('href') || '';
-          if (!title || !rawHref || !/articles\\//.test(rawHref)) return null;
+          if (!title || !rawHref || !/articles\//.test(rawHref)) return null;
           const articleUrl = new URL(rawHref, seoCategoryUrl);
           const file = decodeURIComponent(articleUrl.pathname.split('/').pop() || '');
           if (!file.endsWith('.html')) return null;
