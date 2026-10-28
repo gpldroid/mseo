@@ -3010,3 +3010,28 @@ html,body,button,input,select,textarea{font-family:var(--font-site)!important}
   footer.mseo-footer .mseo-copyright{margin-bottom:0;padding-bottom:0;}
   footer.mseo-footer{margin-bottom:0;}
 }
+
+
+/* Footer layout reset — brand card first, social icons below description, four link cards, copyright last. */
+footer.mseo-footer{margin-top:42px;background:var(--surface);border-top:1px solid var(--line);font-size:.9rem;line-height:1.75}
+footer.mseo-footer .mseo-footer-inner{width:min(1180px,calc(100% - 32px));margin:0 auto;padding:34px 0 20px}
+footer.mseo-footer .mseo-footer-brand-card{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;padding:28px 22px 24px;border:1px solid var(--line);border-radius:22px;background:var(--surface);box-shadow:var(--shadow)}
+footer.mseo-footer .mseo-footer-brand{display:flex;justify-content:center;align-items:center;margin:0}
+footer.mseo-footer .mseo-footer-brand .mseo-brand-logo{display:block;width:180px;height:48px;object-fit:contain}
+footer.mseo-footer .mseo-footer-tagline{max-width:680px;margin:0;color:var(--muted);font-size:.93rem}
+footer.mseo-footer .mseo-socials{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:10px;margin:6px 0 0}
+footer.mseo-footer .mseo-socials a{display:inline-grid;place-items:center;width:42px;height:42px;padding:0;border:1px solid var(--line);border-radius:13px;background:var(--bg);color:var(--text);font-size:1.05rem;transition:background .18s,color .18s,border-color .18s}
+footer.mseo-footer .mseo-socials a:hover{background:var(--brand);border-color:var(--brand);color:#fff}
+footer.mseo-footer .mseo-footer-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:22px}
+footer.mseo-footer .mseo-footer-group{min-width:0;padding:20px 18px;border:1px solid var(--line);border-radius:17px;background:var(--surface);box-shadow:0 8px 24px rgba(26,42,75,.045)}
+footer.mseo-footer .mseo-footer-group h3{margin:0 0 12px;padding-bottom:10px;border-bottom:1px solid var(--line);color:var(--text);font-size:.98rem;font-weight:800}
+footer.mseo-footer .mseo-footer-group h3:after{content:none!important}
+footer.mseo-footer .mseo-footer-group nav.mseo-footer-links{display:flex;flex-direction:column;align-items:stretch;gap:6px}
+footer.mseo-footer .mseo-footer-group nav.mseo-footer-links a{display:block;margin:0;padding:4px 0;color:var(--muted);font-size:.87rem;overflow-wrap:anywhere}
+footer.mseo-footer .mseo-footer-group nav.mseo-footer-links a:before{content:none!important}
+footer.mseo-footer .mseo-footer-group nav.mseo-footer-links a:hover{color:var(--brand)}
+footer.mseo-footer .mseo-copyright{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-top:22px;padding:17px 2px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.82rem}
+footer.mseo-footer .mseo-copyright a{color:var(--brand)}
+@media(max-width:900px){footer.mseo-footer .mseo-footer-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}}
+@media(max-width:600px){footer.mseo-footer .mseo-footer-inner{width:calc(100% - 24px);padding-top:24px}footer.mseo-footer .mseo-footer-brand-card{padding:23px 15px 20px;border-radius:17px}footer.mseo-footer .mseo-footer-brand .mseo-brand-logo{width:160px;height:44px}footer.mseo-footer .mseo-footer-tagline{font-size:.86rem}footer.mseo-footer .mseo-socials{gap:8px}footer.mseo-footer .mseo-socials a{width:39px;height:39px}footer.mseo-footer .mseo-footer-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:14px}footer.mseo-footer .mseo-footer-group{padding:15px 12px;border-radius:13px}footer.mseo-footer .mseo-footer-group h3{font-size:.88rem;margin-bottom:8px;padding-bottom:7px}footer.mseo-footer .mseo-footer-group nav.mseo-footer-links a{font-size:.8rem}footer.mseo-footer .mseo-copyright{align-items:flex-start;flex-direction:column;gap:4px;margin-top:16px;padding-top:13px}}
+@media(max-width:360px){footer.mseo-footer .mseo-footer-grid{grid-template-columns:minmax(0,1fr)}}
