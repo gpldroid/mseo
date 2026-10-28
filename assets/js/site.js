@@ -118,7 +118,7 @@
       if (!items.length) return;
       const item = items[active];
       const href = link('articles/' + encodeURIComponent(item.file || item.slug + '.html'));
-      windowEl.innerHTML = '<a class="mseo-news-ticker-item" href="' + href + '"><span class="mseo-news-ticker-category">' + esc(item.category || 'مقالات') + '</span><span class="mseo-news-ticker-title">' + esc(item.title) + '</span><span class="mseo-news-ticker-number">' + String(active + 1).padStart(2, '0') + ' / 06</span></a>';
+      windowEl.innerHTML = '<a class="mseo-news-ticker-item" href="' + href + '"><span class="mseo-news-ticker-category">' + esc(item.category || 'مقالات') + '</span><span class="mseo-news-ticker-title">' + esc(item.title) + '</span><span class="mseo-news-ticker-number">' + String(active + 1).padStart(2, '0') + ' / ' + String(items.length).padStart(2, '0') + '</span></a>';
     };
     const stop = () => { if (timer) { clearInterval(timer); timer = null; } };
     const start = () => {
