@@ -127,8 +127,30 @@
 <div data-home-footer></div>
 
 <script src="assets/js/site.js?v=20261028-architecture2" defer></script>
-<script src="assets/js/home-page.js?v=20261028-architecture2" defer></script>
+
 <script src="assets/js/tools-catalog.js?v=20261014-visual-tools" defer></script>
-  
+  <!-- Load analytics after the initial page load to prioritize visible content. -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-BDHDY9739D');
+  (function(){
+    var loaded = false;
+    function loadAnalytics(){
+      if (loaded) return;
+      loaded = true;
+      var script = document.createElement('script');
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-BDHDY9739D';
+      script.async = true;
+      document.head.appendChild(script);
+    }
+    if ('requestIdleCallback' in window) {
+      window.addEventListener('load', function(){ window.requestIdleCallback(loadAnalytics, {timeout: 2000}); }, {once:true});
+    } else {
+      window.addEventListener('load', loadAnalytics, {once:true});
+    }
+  })();
+</script>
 </body>
 </html>
