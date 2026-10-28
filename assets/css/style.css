@@ -3092,3 +3092,140 @@ html,body,button,input,select,textarea{font-family:var(--font-site)!important}
 }
 .latest-carousel-track>.latest-carousel-card[hidden]{display:none!important}
 @media(prefers-reduced-motion:reduce){.latest-carousel-track{scroll-behavior:auto}}
+
+
+/* Homepage latest-articles carousel: one deterministic slide layout, overriding legacy duplicate rules. */
+.latest-carousel-section .latest-carousel {
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr) 36px;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+.latest-carousel-section .latest-carousel-track {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: stretch;
+  gap: 0;
+  width: 100%;
+  min-width: 0;
+  overflow-x: auto !important;
+  overflow-y: hidden;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  contain: none;
+}
+.latest-carousel-section .latest-carousel-track::-webkit-scrollbar { display: none; }
+.latest-carousel-section .latest-carousel-track > .latest-carousel-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: stretch;
+  align-content: stretch;
+  flex: 0 0 100%;
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 0;
+  height: auto;
+  box-sizing: border-box;
+  gap: clamp(14px, 2.5vw, 30px);
+  padding: clamp(14px, 2.5vw, 28px);
+  overflow: hidden;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+.latest-carousel-section .latest-carousel-track > .latest-carousel-card[hidden] { display: none !important; }
+.latest-carousel-section .latest-carousel-image {
+  position: relative;
+  display: block;
+  align-self: stretch;
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: 14px;
+  background: var(--surface-2);
+}
+.latest-carousel-section .latest-carousel-image img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  max-height: none;
+  object-fit: cover;
+  object-position: center;
+}
+.latest-carousel-section .latest-carousel-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-width: 0;
+  max-width: 100%;
+  padding: clamp(4px, 1vw, 12px);
+  overflow-wrap: anywhere;
+}
+.latest-carousel-section .latest-carousel-copy h3 {
+  max-width: 100%;
+  margin: 12px 0 8px;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+.latest-carousel-section .latest-carousel-copy h3 a { overflow-wrap: anywhere; }
+.latest-carousel-section .latest-carousel-copy p {
+  display: -webkit-box;
+  max-width: 100%;
+  margin: 0 0 16px;
+  line-height: 1.8;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.latest-carousel-section .latest-carousel-copy .button {
+  max-width: 100%;
+  margin-top: 4px;
+  white-space: normal;
+}
+.latest-carousel-section .loading-card {
+  flex: 0 0 100%;
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+}
+.latest-carousel-section .carousel-arrow { position: relative; z-index: 1; }
+@media (max-width: 700px) {
+  .latest-carousel-section .latest-carousel { grid-template-columns: 30px minmax(0, 1fr) 30px; gap: 5px; }
+  .latest-carousel-section .latest-carousel-track > .latest-carousel-card {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+    padding: 14px;
+  }
+  .latest-carousel-section .latest-carousel-image { aspect-ratio: 16 / 9; }
+  .latest-carousel-section .latest-carousel-copy { padding: 2px; }
+  .latest-carousel-section .latest-carousel-copy h3 { margin-top: 8px; font-size: 1.2rem; }
+  .latest-carousel-section .latest-carousel-copy p { -webkit-line-clamp: 3; }
+}
+@media (max-width: 420px) {
+  .latest-carousel-section .latest-carousel { grid-template-columns: 26px minmax(0, 1fr) 26px; gap: 3px; }
+  .latest-carousel-section .latest-carousel-track > .latest-carousel-card { padding: 11px; }
+  .latest-carousel-section .carousel-arrow { width: 26px; height: 34px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .latest-carousel-section .latest-carousel-track { scroll-behavior: auto; }
+  .latest-carousel-section .latest-carousel-image img { transition: none; }
+}
