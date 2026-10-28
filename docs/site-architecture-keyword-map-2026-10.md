@@ -109,6 +109,27 @@ Note: This is an intent map, not search-volume research. Validate demand using S
 - [ ] GitHub Pages / custom domain deployment remains intact.
 - [ ] No new page is published before its URL, keyword target and related-link set are confirmed.
 
-## 8. Execution boundary
+## 8. Implementation status (2026-10-28)
 
-This plan is intentionally separate from live page edits. The repository has existing content, tool-specific scripts and metadata; changing many files in one pass without first running the actual site validators could create regressions. Use this document as the implementation checklist and update individual pages in small batches, comparing each change against the validation scripts before merging.
+The first contextual-linking batch has been applied on the review branch to five existing pages:
+- `articles/keyword-research-guide.html`
+- `articles/seo-content-strategy.html`
+- `pages/seo-analyzer.html`
+- `pages/internal-link-planner.html`
+- `pages/schema-markup-generator.html`
+
+The additions are content sections linking to related existing pages. Existing URLs, tool scripts, stylesheets, canonical metadata, sitemap, CNAME, and deployment configuration were not changed.
+
+### Checks completed
+- Re-fetched all five changed HTML files from the branch.
+- Compared relative local links in those files against the repository tree.
+- Result: 5 files checked; 0 broken relative local links found in the changed files.
+- Confirmed each file contains its new contextual section.
+
+### Checks still required before merge
+- Run `node scripts/audit-seo.mjs`.
+- Run `node scripts/audit-assets.mjs`, `node scripts/audit-translations.mjs`, `node scripts/check-javascript.mjs`, and `node scripts/validate-site.mjs` in a local checkout.
+- Manually test the affected tools with valid, empty and invalid input; these changes do not edit their scripts, but runtime regression testing is still required.
+- Inspect the complete diff, then merge only after the checks pass.
+
+No GitHub Actions workflows currently exist in this repository, so the full Node-based audit suite has not been executed in GitHub Actions.
