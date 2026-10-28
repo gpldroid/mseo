@@ -24,8 +24,11 @@ jobs:
       - name: Validate static site inventory, sitemap and RSS
         run: node scripts/validate-site.mjs
       - name: Audit local assets
+        if: ${{ always() }}
         run: node scripts/audit-assets.mjs
       - name: Audit SEO metadata and internal links
+        if: ${{ always() }}
         run: node scripts/audit-seo.mjs
       - name: Report language coverage
+        if: ${{ always() }}
         run: node scripts/audit-translations.mjs
