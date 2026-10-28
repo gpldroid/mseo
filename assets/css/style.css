@@ -3169,3 +3169,64 @@ footer.mseo-footer .mseo-copyright{position:relative!important;clear:both!import
 @media(max-width:340px){
   footer.mseo-footer .mseo-footer-grid{grid-template-columns:minmax(0,1fr)!important;}
 }
+
+
+/* Footer: keep all four link cards in one shared 2x2 container; copyright below it. */
+footer.mseo-footer .mseo-footer-grid{
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  grid-auto-flow:row!important;
+  align-items:stretch!important;
+  gap:14px!important;
+  margin:20px 0 0!important;
+  padding:16px!important;
+  border:1px solid var(--line)!important;
+  border-radius:20px!important;
+  background:var(--surface-2)!important;
+  box-shadow:var(--shadow)!important;
+}
+footer.mseo-footer .mseo-footer-grid > .mseo-footer-group{
+  display:flex!important;
+  flex-direction:column!important;
+  min-width:0!important;
+  height:100%!important;
+  margin:0!important;
+  padding:20px!important;
+  border:1px solid var(--line)!important;
+  border-radius:15px!important;
+  background:var(--surface)!important;
+  box-shadow:none!important;
+}
+footer.mseo-footer .mseo-footer-group h3{
+  margin:0 0 12px!important;
+  padding-bottom:10px!important;
+  border-bottom:1px solid var(--line)!important;
+}
+footer.mseo-footer .mseo-footer-group nav.mseo-footer-links{
+  display:flex!important;
+  flex-direction:column!important;
+  gap:6px!important;
+}
+footer.mseo-footer .mseo-copyright{
+  display:flex!important;
+  justify-content:center!important;
+  align-items:center!important;
+  flex-wrap:wrap!important;
+  gap:8px 14px!important;
+  margin:18px 0 0!important;
+  padding:16px 0 0!important;
+  border-top:1px solid var(--line)!important;
+}
+@media(max-width:600px){
+  footer.mseo-footer .mseo-footer-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important;padding:10px!important;margin-top:14px!important}
+  footer.mseo-footer .mseo-footer-grid > .mseo-footer-group{padding:14px 11px!important}
+  footer.mseo-footer .mseo-footer-group h3{font-size:.88rem!important}
+  footer.mseo-footer .mseo-footer-group nav.mseo-footer-links a{font-size:.8rem!important;line-height:1.65!important}
+  footer.mseo-footer .mseo-copyright{flex-direction:column!important;text-align:center!important;gap:3px!important}
+}
+@media(max-width:340px){
+  footer.mseo-footer .mseo-footer-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  footer.mseo-footer .mseo-footer-grid > .mseo-footer-group{padding:11px 8px!important}
+  footer.mseo-footer .mseo-footer-group h3{font-size:.82rem!important}
+  footer.mseo-footer .mseo-footer-group nav.mseo-footer-links a{font-size:.74rem!important;overflow-wrap:anywhere!important}
+}
