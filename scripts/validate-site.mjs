@@ -1,7 +1,7 @@
 import { readFile, access, readdir } from 'node:fs/promises';
 const root = new URL('../', import.meta.url);
 const required = [
-  'index.html','assets/css/style.css','assets/js/site.js',
+  'index.html','assets/css/style.css','assets/css/pages/home.css','assets/js/site.js','assets/js/home-page.js',
   'data/articles.json','pages/archive.html','sitemap.xml','feed.xml','_redirects','pages/privacy.html','pages/terms.html'
 ];
 for (const path of required) await access(new URL(path, root));
@@ -13,8 +13,13 @@ const catalog = JSON.parse(await readFile(new URL('data/articles.json', root), '
 for (const item of catalog) await access(new URL('articles/' + item.file, root));
 const home = await readFile(new URL('index.html', root), 'utf8');
 if (!home.includes('data-home-header') || !home.includes('data-home-footer')) throw new Error('Homepage shared header/footer placeholders are missing');
+if (!home.includes('assets/css/pages/home.css') || !home.includes('assets/js/home-page.js')) throw new Error('Homepage page-specific assets are not linked');
 const sharedJs = await readFile(new URL('assets/js/site.js', root), 'utf8');
 if (sharedJs.includes("link('index.html')") || sharedJs.includes('link(href)}')) throw new Error('Shared navigation must use the clean root URL for homepage links');
+if (sharedJs.includes('Homepage content renderer')) throw new Error('Homepage renderer must stay out of the shared site runtime');
+if (!sharedJs.includes('window.MSEOArticleCatalog = articleCatalog')) throw new Error('Shared article catalog service is missing');
+const homeRuntime = await readFile(new URL('assets/js/home-page.js', root), 'utf8');
+if (!homeRuntime.includes('MSEOArticleCatalog.load()')) throw new Error('Homepage must use the shared article catalog service');
 const redirects = await readFile(new URL('_redirects', root), 'utf8');
 if (!redirects.includes('/index.html / 301')) throw new Error('Missing permanent redirect from /index.html to /');
 const netlifyConfig = await readFile(new URL('netlify.toml', root), 'utf8');
@@ -26,6 +31,9 @@ if (!netlifyConfig.includes('from = "https://mseopro.netlify.app"') ||
   throw new Error('Missing forced permanent redirects from the retired Netlify hostname to fastseo.site');
 }
 const css = await readFile(new URL('assets/css/style.css', root), 'utf8');
+const homeCss = await readFile(new URL('assets/css/pages/home.css', root), 'utf8');
+if (css.includes('.workbench-shell{') || !homeCss.includes('.workbench-shell{')) throw new Error('Homepage workbench styles are not isolated in pages/home.css');
+if (css.includes('.hero-feature-card{') || !homeCss.includes('.hero-feature-card{')) throw new Error('Homepage hero component styles are not isolated in pages/home.css');
 for (const feature of ['.mseo-header','.mseo-nav','.mseo-search-panel','.mseo-footer','.mseo-scroll-controls','html.dark']) if (!css.includes(feature)) throw new Error('Unified stylesheet missing feature: ' + feature);
 // Keep the checked-in sitemap aligned with the generated public inventory.
 const sitemap = await readFile(new URL('sitemap.xml', root), 'utf8');
