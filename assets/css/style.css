@@ -3274,3 +3274,91 @@ footer.mseo-footer .mseo-footer-grid .mseo-footer-links a{
     padding:12px 9px!important;
   }
 }
+
+
+/* Match footer link cards to the site's standard tool-card design. */
+footer.mseo-footer .mseo-footer-grid{
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  align-items:stretch!important;
+  gap:22px!important;
+  width:100%!important;
+  max-width:100%!important;
+  margin-top:22px!important;
+  padding:0!important;
+  box-sizing:border-box!important;
+}
+footer.mseo-footer .mseo-footer-grid > .mseo-footer-group{
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:stretch!important;
+  min-width:0!important;
+  min-height:220px!important;
+  width:100%!important;
+  max-width:100%!important;
+  box-sizing:border-box!important;
+  padding:25px!important;
+  border:1px solid var(--line)!important;
+  border-radius:var(--radius)!important;
+  background:var(--surface)!important;
+  box-shadow:var(--shadow)!important;
+  transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease!important;
+  overflow-wrap:anywhere!important;
+}
+footer.mseo-footer .mseo-footer-grid > .mseo-footer-group:hover{
+  transform:translateY(-4px)!important;
+  border-color:var(--brand)!important;
+  box-shadow:0 20px 44px rgba(26,42,75,.13)!important;
+}
+footer.mseo-footer .mseo-footer-grid > .mseo-footer-group > h3{
+  margin:0 0 12px!important;
+  padding:0 0 12px!important;
+  border:0!important;
+  border-bottom:1px solid var(--line)!important;
+  font-size:1.08rem!important;
+  line-height:1.6!important;
+  font-weight:800!important;
+  color:var(--text)!important;
+}
+footer.mseo-footer .mseo-footer-grid > .mseo-footer-group > h3:after{
+  content:none!important;
+}
+footer.mseo-footer .mseo-footer-grid > .mseo-footer-group > nav.mseo-footer-links{
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:stretch!important;
+  gap:6px!important;
+  min-width:0!important;
+  margin:0!important;
+}
+footer.mseo-footer .mseo-footer-grid > .mseo-footer-group > nav.mseo-footer-links a{
+  display:block!important;
+  width:100%!important;
+  max-width:100%!important;
+  box-sizing:border-box!important;
+  margin:0!important;
+  padding:7px 0!important;
+  border:0!important;
+  color:var(--muted)!important;
+  font-size:.9rem!important;
+  line-height:1.8!important;
+  overflow-wrap:anywhere!important;
+  word-break:normal!important;
+}
+footer.mseo-footer .mseo-footer-grid > .mseo-footer-group > nav.mseo-footer-links a:before{
+  content:none!important;
+}
+footer.mseo-footer .mseo-footer-grid > .mseo-footer-group > nav.mseo-footer-links a:hover{
+  color:var(--brand)!important;
+}
+@media(max-width:900px){
+  footer.mseo-footer .mseo-footer-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:16px!important}
+}
+@media(max-width:560px){
+  footer.mseo-footer .mseo-footer-grid{grid-template-columns:minmax(0,1fr)!important;gap:14px!important}
+  footer.mseo-footer .mseo-footer-grid > .mseo-footer-group{min-height:0!important;padding:21px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  footer.mseo-footer .mseo-footer-grid > .mseo-footer-group{transition:none!important}
+  footer.mseo-footer .mseo-footer-grid > .mseo-footer-group:hover{transform:none!important}
+}
