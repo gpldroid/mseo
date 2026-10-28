@@ -3218,3 +3218,37 @@ footer.mseo-footer .mseo-copyright a{display:inline!important;margin:0!important
   footer.mseo-footer .mseo-footer-grid>.mseo-footer-group:hover,
   footer.mseo-footer .mseo-footer-brand-card>.mseo-socials a:hover{transform:none!important}
 }
+
+
+/* Footer link cards: force a stable two-by-two layout, including the quick-links card. */
+@media (min-width: 361px) {
+  footer.mseo-footer .mseo-footer-inner > .mseo-footer-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-template-areas: "quick archive" "about pages" !important;
+    grid-auto-flow: row !important;
+    align-items: stretch !important;
+    justify-items: stretch !important;
+  }
+  footer.mseo-footer .mseo-footer-inner > .mseo-footer-grid > .mseo-footer-group {
+    grid-column: auto !important;
+    grid-row: auto !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+  footer.mseo-footer .mseo-footer-inner > .mseo-footer-grid > .mseo-footer-group:nth-child(1) { grid-area: archive !important; }
+  footer.mseo-footer .mseo-footer-inner > .mseo-footer-grid > .mseo-footer-group:nth-child(2) { grid-area: about !important; }
+  footer.mseo-footer .mseo-footer-inner > .mseo-footer-grid > .mseo-footer-group:nth-child(3) { grid-area: pages !important; }
+  footer.mseo-footer .mseo-footer-inner > .mseo-footer-grid > .mseo-footer-group:nth-child(4) { grid-area: quick !important; }
+}
+@media (max-width: 360px) {
+  footer.mseo-footer .mseo-footer-inner > .mseo-footer-grid {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    grid-template-areas: none !important;
+  }
+  footer.mseo-footer .mseo-footer-inner > .mseo-footer-grid > .mseo-footer-group {
+    grid-area: auto !important;
+  }
+}
