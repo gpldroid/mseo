@@ -20,7 +20,7 @@ async function walk(dir) {
 }
 
 function attr(tag, name) {
-  const match = tag.match(new RegExp('\\\\b' + name + '\\\\s*=\\\\s*(?:"([^"]*)"|\\\\x27([^\\\\x27]*)\\\\x27)', 'i'));
+  const match = tag.match(new RegExp('\\b' + name + '\\s*=\\s*(?:"([^"]*)"|\\x27([^\\x27]*)\\x27)', 'i'));
   return match ? (match[1] ?? match[2] ?? '').trim() : '';
 }
 
@@ -31,39 +31,39 @@ function decodeEntities(value) {
     .replace(/&#39;|&apos;/gi, "'")
     .replace(/&lt;/gi, '<')
     .replace(/&gt;/gi, '>')
-    .replace(/&#(\\d+);/g, (_, n) => String.fromCodePoint(Number(n)))
-    .replace(/&#x([\\da-f]+);/gi, (_, n) => String.fromCodePoint(parseInt(n, 16)));
+    .replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(Number(n)))
+    .replace(/&#x([\da-f]+);/gi, (_, n) => String.fromCodePoint(parseInt(n, 16)));
 }
 
 function anchorText(html) {
   return decodeEntities(html
-    .replace(/<!--[\\s\\S]*?-->/g, ' ')
-    .replace(/<script\\b[\\s\\S]*?<\\/script>/gi, ' ')
-    .replace(/<style\\b[\\s\\S]*?<\\/style>/gi, ' ')
+    .replace(/<!--[\s\S]*?-->/g, ' ')
+    .replace(/<script\b[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<style\b[\s\S]*?<\/style>/gi, ' ')
     .replace(/<[^>]*>/g, ' ')
-    .replace(/\\s+/g, ' ')
+    .replace(/\s+/g, ' ')
     .trim());
 }
 
 function classify(url, rel, tag) {
-  const relTokens = rel.toLowerCase().split(/\\s+/).filter(Boolean);
-  if (relTokens.includes('sponsored') || /\\b(?:affiliate|ref=|utm_source=affiliate)\\b/i.test(url.href)) return 'promotional-or-affiliate-review';
+  const relTokens = rel.toLowerCase().split(/\s+/).filter(Boolean);
+  if (relTokens.includes('sponsored') || /(?:affiliate|[?&]ref=|utm_source=affiliate)/i.test(url.href)) return 'promotional-or-affiliate-review';
   if (relTokens.includes('ugc')) return 'user-generated-content';
   if (relTokens.includes('nofollow')) return 'nofollow-review-destination';
-  if (/target\\s*=\\s*["']_blank["']/i.test(tag) && !/\\brel\\s*=\\s*["'][^"']*\\bnoopener\\b/i.test(tag)) return 'security-review-missing-noopener';
-  if (/wikipedia\\.org|developers\\.|developer\\.|support\\.|docs\\.|\\.gov\\b|\\.edu\\b/i.test(url.hostname)) return 'reference-or-documentation-check';
-  if (/facebook\\.com|instagram\\.com|linkedin\\.com|youtube\\.com|tiktok\\.com|x\\.com|twitter\\.com/i.test(url.hostname)) return 'social-profile-or-post-check';
+  if (/target\s*=\s*["']_blank["']/i.test(tag) && !/\brel\s*=\s*["'][^"']*\bnoopener\b/i.test(tag)) return 'security-review-missing-noopener';
+  if (/wikipedia\.org|developers\.|developer\.|support\.|docs\.|\.gov\b|\.edu\b/i.test(url.hostname)) return 'reference-or-documentation-check';
+  if (/facebook\.com|instagram\.com|linkedin\.com|youtube\.com|tiktok\.com|x\.com|twitter\.com/i.test(url.hostname)) return 'social-profile-or-post-check';
   return 'manual-review';
 }
 
-const csv = (value) => '"' + String(value ?? '').replace(/"/g, '""').replace(/[\\r\\n]+/g, ' ') + '"';
+const csv = (value) => '"' + String(value ?? '').replace(/"/g, '""').replace(/[\r\n]+/g, ' ') + '"';
 await walk(root);
 htmlFiles.sort();
 
 const links = [];
 for (const file of htmlFiles) {
   const html = await readFile(path.join(root, file), 'utf8');
-  for (const match of html.matchAll(/<a\\b[^>]*>([\\s\\S]*?)<\\/a\\s*>/gi)) {
+  for (const match of html.matchAll(/<a\b[^>]*>([\s\S]*?)<\/a\s*>/gi)) {
     const tag = match[0].slice(0, match[0].indexOf('>') + 1);
     const href = decodeEntities(attr(tag, 'href'));
     if (!href || /^(?:#|mailto:|tel:|javascript:|data:)/i.test(href)) continue;
@@ -94,8 +94,8 @@ const counts = new Map();
 for (const link of links) counts.set(link.url, (counts.get(link.url) || 0) + 1);
 
 console.error('External-link audit: scanned ' + htmlFiles.length + ' HTML files; found ' + links.length + ' external anchor links across ' + counts.size + ' unique URLs.');
-console.error('This is a static audit: it does not request external sites, verify redirects/status codes, or determine whether a link is harmful to SEO.');
-console.error('Review classifications as triage hints, not automatic judgments. No links are modified or removed.');
+console.error('Static audit only: it does not request external sites, verify redirects/status codes, or determine whether a link is harmful to SEO.');
+console.error('Classifications are triage hints, not automatic judgments. No links are modified or removed.');
 console.log(['source_file', 'url', 'host', 'anchor_text', 'rel', 'target', 'classification', 'occurrences'].map(csv).join(','));
 for (const link of links) {
   console.log([
