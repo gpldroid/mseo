@@ -118,7 +118,7 @@
       if (!items.length) return;
       const item = items[active];
       const href = link('articles/' + encodeURIComponent(item.file || item.slug + '.html'));
-      windowEl.innerHTML = '<a class="mseo-news-ticker-item" href="' + href + '"><span class="mseo-news-ticker-category">' + esc(item.category || 'مقالات') + '</span><span class="mseo-news-ticker-title">' + esc(item.title) + '</span><span class="mseo-news-ticker-number">' + String(active + 1).padStart(2, '0') + ' / ' + String(items.length).padStart(2, '0') + '</span></a>';
+      windowEl.innerHTML = '<a class="mseo-news-ticker-item" href="' + href + '"><span class="mseo-news-ticker-category">' + esc(item.category || 'مقالات') + '</span><span class="mseo-news-ticker-title">' + esc(item.title) + '</span><span class="mseo-news-ticker-number">' + String(active + 1).padStart(2, '0') + ' / 06</span></a>';
     };
     const stop = () => { if (timer) { clearInterval(timer); timer = null; } };
     const start = () => {
@@ -143,59 +143,55 @@
     // Reuse the public article catalog with root-safe URL resolution and resilient fallback.
     const catalogUrl = new URL(link('data/articles.json'), location.href);
     const loadCatalog = () => window.MSEOArticleCatalog.load();
-    // Load SEO category articles first, then fall back to the central JSON catalog.
-    const seoCategoryUrl = new URL(link('pages/seo.html'), location.href);
-    const collectSeoCategory = async () => {
-      const response = await fetch(seoCategoryUrl.href, { cache: 'no-cache', credentials: 'same-origin' });
-      if (!response.ok) throw new Error('HTTP ' + response.status + ' loading SEO category');
-      const html = await response.text();
-      const doc = new DOMParser().parseFromString(html, 'text/html');
-      const found = [...doc.querySelectorAll('[data-category-grid] a[href], .category-article-grid a[href], a[href*="/articles/"], a[href^="../articles/"]')]
-        .map(anchor => {
-          const titleNode = anchor.querySelector('h2, h3, h4, .category-article-title');
-          const title = (titleNode ? titleNode.textContent : anchor.textContent).trim().replace(/\s+/g, ' ');
-          const rawHref = anchor.getAttribute('href') || '';
-          if (!title || !rawHref || !/articles\//.test(rawHref)) return null;
-          const articleUrl = new URL(rawHref, seoCategoryUrl);
-          const file = decodeURIComponent(articleUrl.pathname.split('/').pop() || '');
-          if (!file.endsWith('.html')) return null;
-          return { title, file, category: 'SEO' };
-        }).filter(Boolean);
-      const unique = new Map();
-      found.forEach(article => { if (!unique.has(article.file)) unique.set(article.file, article); });
-      return [...unique.values()];
-    };
-    (async () => {
-      let seoArticles = [];
-      try { seoArticles = await collectSeoCategory(); } catch (categoryError) {
-        console.warn('[Fast Seo ticker] SEO category fetch failed; using article catalog.', categoryError);
+    // Reuse the public article catalog with root-safe URL resolution and resilient fallback.
+    const catalogUrl = new URL(link('data/articles.json'), location.href);
+    const loadCatalog = () => window.MSEOArticleCatalog.load();
+    loadCatalog().then(articles => {
+      // Oldest published entries first; select different categories before filling remaining slots.
+      const sorted = articles.map((article, index) => ({...article, _tickerOrder:index}))
+        .sort((a, b) => {
+          const dateA = Date.parse(a.publishedAt || a.date || a.updatedAt || '') || 0;
+          const dateB = Date.parse(b.publishedAt || b.date || b.updatedAt || '') || 0;
+          return dateA - dateB || a._tickerOrder - b._tickerOrder;
+        });
+      const selected = [];
+      const categories = new Set();
+      for (const article of sorted) {
+        const category = String(article.category || 'مقالات').trim();
+        if (selected.length < 6 && !categories.has(category)) {
+          selected.push(article);
+          categories.add(category);
+        }
       }
-      if (!seoArticles.length) {
-        const articles = await loadCatalog();
-        seoArticles = articles.filter(article => /^(seo|تحسين محركات البحث|تحسين محركات البحث (seo))$/i.test(String(article.category || '').trim()));
+      for (const article of sorted) {
+        if (selected.length >= 6) break;
+        if (!selected.some(item => (item.slug || item.file) === (article.slug || article.file))) selected.push(article);
       }
-      if (!seoArticles.length) {
-        const articles = await loadCatalog();
-        seoArticles = articles;
-      }
-      // Newest articles first; titles are sourced from the SEO category page or article catalog.
-      items = seoArticles.slice().sort((a, b) => {
-        const dateA = Date.parse(a.publishedAt || a.date || a.updatedAt || '') || 0;
-        const dateB = Date.parse(b.publishedAt || b.date || b.updatedAt || '') || 0;
-        return dateB - dateA;
-      }).slice(0, 30).map(article => ({
-        ...article,
-        file: article.file || ((article.slug || '') + '.html')
-      }));
-      if (!items.length) throw new Error('No article titles found in SEO category');
-      active = 0;
+      items = selected.slice(0, 6).map(({_tickerOrder, ...article}) => article);
+      if (!items.length) throw new Error('No articles available for the ticker');
       render();
       start();
-    })().catch(error => {
-      console.error('[Fast Seo ticker] Could not load article titles:', error);
-      windowEl.textContent = 'تعذر تحميل عناوين مقالات SEO. حاول تحديث الصفحة.';
+    }).catch(error => {
+      console.error('[Fast Seo ticker] Article catalog failed:', error);
+      // The homepage may already have rendered article cards; use their headings as a safe fallback.
+      const cards = [...document.querySelectorAll('#article-grid article, [data-articles-grid] article, .article-card')];
+      items = cards.map(card => {
+        const titleLink = card.querySelector('h2 a, h3 a, .article-card-title a, a[href*="/articles/"]');
+        if (!titleLink) return null;
+        const href = titleLink.getAttribute('href') || '';
+        const title = titleLink.textContent.trim();
+        if (!title || !href) return null;
+        return { title, file: href.split('/').pop().split('?')[0], category: card.querySelector('.article-category')?.textContent.trim() || 'مقالات' };
+      }).filter(Boolean).slice(0, 6);
+      if (items.length) {
+        active = 0;
+        render();
+        start();
+        return;
+      }
+      windowEl.textContent = 'تعذر تحميل عناوين المقالات. حاول تحديث الصفحة.';
       windowEl.setAttribute('role', 'status');
-      windowEl.setAttribute('title', 'تحقق من pages/seo.html و data/articles.json ومسارات المقالات.');
+      windowEl.setAttribute('title', 'تعذر قراءة data/articles.json؛ تحقق من مسار الملف واستجابة الخادم.');
     });
   })();
 
