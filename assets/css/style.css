@@ -3265,3 +3265,57 @@ footer.mseo-footer .mseo-footer-grid>section.mseo-footer-group--quick-links>.mse
 @media(max-width:360px){
   footer.mseo-footer .mseo-footer-grid>section.mseo-footer-group--quick-links{padding:16px!important}
 }
+
+
+/* Fix: the legacy first-section rule stripped the archive/RSS card styling. */
+footer.mseo-footer .mseo-footer-grid>section.mseo-footer-group:first-child{
+  grid-column:auto!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:stretch!important;
+  justify-content:flex-start!important;
+  align-self:stretch!important;
+  width:100%!important;
+  min-width:0!important;
+  min-height:190px!important;
+  height:100%!important;
+  margin:0!important;
+  padding:22px!important;
+  border:1px solid var(--line)!important;
+  border-bottom:1px solid var(--line)!important;
+  border-radius:var(--radius,20px)!important;
+  background:var(--surface)!important;
+  box-shadow:var(--shadow)!important;
+  text-align:inherit!important;
+  gap:0!important;
+  transform:none;
+}
+footer.mseo-footer .mseo-footer-grid>section.mseo-footer-group:first-child>h3{
+  grid-column:auto!important;
+  grid-row:auto!important;
+  margin:0 0 10px!important;
+  padding:0 0 12px!important;
+  border:0!important;
+  border-bottom:1px solid var(--line)!important;
+}
+footer.mseo-footer .mseo-footer-grid>section.mseo-footer-group:first-child>.mseo-footer-links{
+  grid-column:auto!important;
+  grid-row:auto!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:stretch!important;
+  gap:5px!important;
+  width:100%!important;
+  margin:0!important;
+  padding:0!important;
+}
+@media(max-width:900px){
+  footer.mseo-footer .mseo-footer-grid>section.mseo-footer-group:first-child{min-height:170px!important;padding:18px!important}
+}
+@media(max-width:600px){
+  footer.mseo-footer .mseo-footer-grid>section.mseo-footer-group:first-child{grid-column:auto!important;min-height:0!important;padding:15px 12px!important;border-radius:14px!important}
+  footer.mseo-footer .mseo-footer-grid>section.mseo-footer-group:first-child>h3{font-size:.86rem!important;line-height:1.55!important;margin-bottom:8px!important;padding-bottom:8px!important}
+}
+@media(max-width:360px){
+  footer.mseo-footer .mseo-footer-grid>section.mseo-footer-group:first-child{padding:16px!important}
+}
