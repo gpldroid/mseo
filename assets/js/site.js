@@ -247,8 +247,8 @@
                 <a href="${link('pages/editorial-policy.html')}">سياسة الموقع</a>
                 <a href="${link('sitemap.xml')}">خريطة الموقع</a>
               </nav>
-     <span class="mseo-footer-copyright-text">© <span data-footer-year>2026</span> Fast SEO | فاست سيو — جميع الحقوق محفوظة. صاحب المشروع: <a href="${link('pages/about.html')}">Imad Limrani</a></span>         
-            
+     <span class="mseo-footer-copyright-text">© <span data-footer-year>2026</span> Fast SEO | فاست سيو — جميع الحقوق محفوظة.: <a href="${link('pages/about.html')}">Imad Limrani</a></span>         
+          </div>  
           </div>
         </div>
       </footer>`;
