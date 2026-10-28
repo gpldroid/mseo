@@ -3026,3 +3026,46 @@ footer.mseo-footer .mseo-footer-grid{gap:38px}
 @media(max-width:900px){.workbench-shell{grid-template-columns:1fr;gap:28px}.workbench-intro>p{max-width:720px}.workbench-launchpad{max-width:none}.workbench-section{padding:18px 0 40px}}
 @media(max-width:560px){.workbench-shell{padding:22px 16px;border-radius:23px}.workbench-intro h2{font-size:2rem}.workbench-intro h2 em{white-space:normal}.workbench-search{gap:7px;padding:6px}.workbench-search-icon{flex-basis:32px;height:36px}.workbench-search input{font-size:16px}.workbench-search button{min-height:42px;padding:0 10px;font-size:.76rem}.workbench-hints{gap:6px}.workbench-hints>span{width:100%}.workbench-launchpad{padding:13px}.launch-card{padding:10px 8px;gap:9px}.launch-icon{flex-basis:38px;height:38px}.launch-copy strong{font-size:.8rem}.launch-copy small{font-size:.68rem}}
 @media(prefers-reduced-motion:reduce){.launch-card,.launch-arrow,.workbench-search button,.workbench-hints a{transition:none}}
+
+
+/* Homepage article cards: prevent image/text collisions and normalize typography. */
+:root{--font-site:"Cairo","Noto Sans Arabic",system-ui,-apple-system,"Segoe UI",sans-serif}
+html,body,button,input,select,textarea{font-family:var(--font-site)!important}
+.article-grid{grid-template-columns:repeat(3,minmax(0,1fr));align-items:stretch;gap:clamp(14px,2vw,22px)}
+.article-grid>.article-card{display:flex;flex-direction:column;min-width:0;min-height:100%;padding:0;overflow:hidden;isolation:isolate}
+.article-grid>.article-card[hidden]{display:none!important}
+.article-grid .article-card-media,.article-grid .article-card>a:first-child:has(img){display:block;position:relative;width:100%;aspect-ratio:16/9;min-height:0;max-height:none;overflow:hidden;flex:0 0 auto;background:var(--surface-2);line-height:0}
+.article-grid .article-card-media img,.article-grid .article-card>a:first-child img{display:block;width:100%;height:100%;min-height:0;max-height:none;aspect-ratio:auto;object-fit:cover;object-position:center;margin:0;padding:0}
+.article-grid .article-card-body{display:flex;flex:1 1 auto;flex-direction:column;align-items:stretch;gap:8px;min-width:0;padding:clamp(14px,1.8vw,21px)}
+.article-grid .article-card-body .article-category{align-self:flex-start;max-width:100%;overflow-wrap:anywhere}
+.article-grid .article-card h3{margin:2px 0;font-size:clamp(1rem,1.2vw,1.13rem);line-height:1.65;overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.article-grid .article-card h3 a{color:var(--text);text-decoration:none}
+.article-grid .article-card p{margin:0;color:var(--muted);font-size:.92rem;line-height:1.85;overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.article-grid .article-card-body .site-read{margin-top:auto;padding-top:8px;align-self:flex-start}
+.article-grid .article-card:hover{transform:translateY(-3px)}
+.latest-carousel-track{align-items:stretch;overflow:hidden}
+.latest-carousel-card{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:stretch;min-height:0;height:auto;box-sizing:border-box}
+.latest-carousel-image{position:relative;display:block;align-self:stretch;width:100%;min-width:0;min-height:0;aspect-ratio:16/10;overflow:hidden}
+.latest-carousel-image img{position:absolute;inset:0;display:block;width:100%;height:100%;min-width:0;min-height:0;max-height:100%;object-fit:cover;object-position:center}
+.latest-carousel-copy{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;min-width:0;overflow-wrap:anywhere}
+.latest-carousel-copy h3{max-width:100%;line-height:1.55;overflow-wrap:anywhere}
+.latest-carousel-copy p{max-width:100%;line-height:1.85}
+.latest-carousel-copy .button{max-width:100%;white-space:normal}
+@media(max-width:900px){
+ .article-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .latest-carousel-card{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;padding:20px}
+}
+@media(max-width:600px){
+ .article-grid{grid-template-columns:minmax(0,1fr);gap:16px}
+ .article-grid>.article-card{width:100%}
+ .article-grid .article-card-body{padding:16px}
+ .article-grid .article-card h3{font-size:1.05rem}
+ .latest-carousel-card{grid-template-columns:minmax(0,1fr);gap:16px;padding:16px}
+ .latest-carousel-image{aspect-ratio:16/9;min-height:0}
+ .latest-carousel-copy{align-self:stretch}
+ .latest-carousel-copy h3{font-size:1.25rem}
+}
+@media(prefers-reduced-motion:reduce){
+ .article-grid .article-card,.article-grid .article-card img,.latest-carousel-image img{transition:none!important}
+ .article-grid .article-card:hover{transform:none}
+}
