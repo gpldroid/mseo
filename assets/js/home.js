@@ -85,7 +85,13 @@
       if (latest.length) {
         let active = 0;
         const paint = () => {
-          track.innerHTML = card(latest[active]);
+          const item = latest[active];
+          const image = imageUrl(item);
+          track.innerHTML = '<article class="latest-carousel-card">' +
+            (image ? '<a class="latest-carousel-image" href="' + articleUrl(item) + '"><img src="' + esc(image) + '" alt="' + esc(item.title) + '" loading="lazy" decoding="async" onerror="this.closest(\\'a\\').remove()"></a>' : '') +
+            '<div class="latest-carousel-copy"><span class="article-category">' + esc(item.category || 'مقالات') + '</span>' +
+            '<h3><a href="' + articleUrl(item) + '">' + esc(item.title) + '</a></h3>' +
+            '<p>' + esc(item.description || '') + '</p><a class="button button-primary" href="' + articleUrl(item) + '">اقرأ المقال <span aria-hidden="true">←</span></a></div></article>';
           if (dots) dots.innerHTML = latest.map((item, i) => '<button type="button" data-slide="' + i + '" aria-label="عرض المقال ' + (i + 1) + '"' + (i === active ? ' aria-current="true"' : '') + '></button>').join('');
           carousel?.setAttribute('data-active-slide', String(active));
         };
