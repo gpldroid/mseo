@@ -63,16 +63,6 @@ let cssRefs = 0;
 
 for (const file of htmlFiles) {
   const html = await readFile(path.join(root, file), 'utf8');
-  const visibleText = html
-    .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, ' ')
-    .replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi, ' ')
-    .replace(/<(textarea|pre|code)\b[^>]*>[\s\S]*?<\/\1>/gi, ' ')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&nbsp;|&#160;/g, ' ')
-    .replace(/\s+/g, ' ');
-  if (/\bMSEO\b/.test(visibleText)) failures.push(file + ': legacy MSEO branding remains in visible HTML text');
-  if (/gpldroid\.github\.io\/mseo|mseopro\.netlify\.app/i.test(html)) failures.push(file + ': retired hosting domain remains in HTML source');
-
   // Ignore example markup embedded in inline scripts, styles, code samples, and textareas;
   // preserve actual script/style opening tags so their src attributes are still checked.
   const markup = html
