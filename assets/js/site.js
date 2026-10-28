@@ -220,15 +220,7 @@
               <a href="https://wa.me/212783539816" target="_blank" rel="noopener noreferrer" aria-label="واتساب"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
             </nav>
           </section>
-          <div class="mseo-footer-grid">
-            <section class="mseo-footer-group">
-              <h3>روابط سريعة</h3>
-              <nav class="mseo-footer-links" aria-label="روابط سريعة">
-                <a href="${link('pages/topics.html')}">جميع المقالات</a>
-                <a href="${link('pages/tools.html')}">الأدوات المجانية</a>
-                <a href="${link('pages/categories.html')}">التصنيفات</a>
-              </nav>
-            </section>
+          <div class="mseo-footer-grid">            
             <section class="mseo-footer-group">
               <h3>الأرشيف و RSS</h3>
               <nav class="mseo-footer-links" aria-label="الأرشيف وRSS">
@@ -252,6 +244,14 @@
                 <a href="${link('pages/privacy.html')}">سياسة الخصوصية</a>
                 <a href="${link('pages/terms.html')}">شروط الاستخدام</a>
                 <a href="${link('pages/editorial-policy.html')}">سياسة النشر</a>
+              </nav>
+            </section>
+            <section class="mseo-footer-group">
+              <h3>روابط سريعة</h3>
+              <nav class="mseo-footer-links" aria-label="روابط سريعة">
+                <a href="${link('pages/topics.html')}">جميع المقالات</a>
+                <a href="${link('pages/tools.html')}">الأدوات المجانية</a>
+                <a href="${link('pages/categories.html')}">التصنيفات</a>
               </nav>
             </section>
           </div>
