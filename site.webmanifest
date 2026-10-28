@@ -1,0 +1,25 @@
+{
+  "name": "فاست سيو | FASTSEO",
+  "short_name": "FASTSEO",
+  "description": "فاست سيو — أدوات وأدلة تحسين محركات البحث",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "dir": "rtl",
+  "lang": "ar",
+  "theme_color": "#07152a",
+  "background_color": "#07152a",
+  "icons": [
+    {
+      "src": "/assets/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
