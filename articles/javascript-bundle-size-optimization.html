@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ar" dir="rtl" class="light">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#0b1220"><meta name="color-scheme" content="light dark">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="manifest" href="../site.webmanifest">
+<title>تقليل حجم ملفات JavaScript: تقنيات عملية لتسريع تحميل الصفحات | Fast Seo</title>
+<meta name="description" content="تعرف إلى طرق تقليل حجم ملفات JavaScript عبر إزالة الكود غير المستخدم والضغط وتقسيم الحزم والتحميل عند الحاجة، مع أمثلة وخطوات قياس عملية.">
+<meta name="keywords" content="تقليل حجم JavaScript, تحسين أداء JavaScript, تصغير ملفات JavaScript, code splitting, tree shaking, ضغط JavaScript">
+<meta name="author" content="imad limrani"><meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://fastseo.site/articles/javascript-bundle-size-optimization.html">
+<meta property="og:type" content="article"><meta property="og:title" content="تقليل حجم ملفات JavaScript: تقنيات عملية لتسريع تحميل الصفحات"><meta property="og:description" content="تعرف إلى طرق تقليل حجم ملفات JavaScript عبر إزالة الكود غير المستخدم والضغط وتقسيم الحزم والتحميل عند الحاجة، مع أمثلة وخطوات قياس عملية."><meta property="og:url" content="https://fastseo.site/articles/javascript-bundle-size-optimization.html"><meta property="og:site_name" content="فاست سيو | Fast Seo"><meta property="og:image" content="https://images.unsplash.com/photo-1627398242454-45a1465c2479?auto=format&fit=crop&w=1400&q=85"><meta property="og:image:alt" content="تقليل حجم ملفات JavaScript وتحسين سرعة تحميل صفحات الويب">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="تقليل حجم ملفات JavaScript: تقنيات عملية لتسريع تحميل الصفحات"><meta name="twitter:description" content="تعرف إلى طرق تقليل حجم ملفات JavaScript عبر إزالة الكود غير المستخدم والضغط وتقسيم الحزم والتحميل عند الحاجة، مع أمثلة وخطوات قياس عملية."><meta name="twitter:image" content="https://images.unsplash.com/photo-1627398242454-45a1465c2479?auto=format&fit=crop&w=1400&q=85">
+<link rel="stylesheet" href="../assets/css/style.css?v=20261023-articles1">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"تقليل حجم ملفات JavaScript: تقنيات عملية لتسريع تحميل الصفحات","description":"تعرف إلى طرق تقليل حجم ملفات JavaScript عبر إزالة الكود غير المستخدم والضغط وتقسيم الحزم والتحميل عند الحاجة، مع أمثلة وخطوات قياس عملية.","image":["https://images.unsplash.com/photo-1627398242454-45a1465c2479?auto=format&fit=crop&w=1400&q=85"],"inLanguage":"ar","datePublished":"2026-10-29","dateModified":"2026-10-29","mainEntityOfPage":"https://fastseo.site/articles/javascript-bundle-size-optimization.html","author":{"@type":"Person","name":"imad limrani"},"publisher":{"@type":"Organization","name":"فاست سيو | Fast Seo","url":"https://fastseo.site/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"الرئيسية","item":"https://fastseo.site/"},{"@type":"ListItem","position":2,"name":"أداء المواقع","item":"https://fastseo.site/pages/performance.html"},{"@type":"ListItem","position":3,"name":"تقليل حجم ملفات JavaScript: تقنيات عملية لتسريع تحميل الصفحات","item":"https://fastseo.site/articles/javascript-bundle-size-optimization.html"}]}</script>
+</head>
+<body><div data-site-header></div><main class="site-container site-section"><article class="max-w-4xl mx-auto">
+<nav class="site-breadcrumb" aria-label="مسار التنقل"><a href="../index.html">الرئيسية</a><span aria-hidden="true">/</span><a href="../pages/performance.html">أداء المواقع</a><span aria-hidden="true">/</span><span>تقليل حجم ملفات JavaScript: تقنيات عملية لتسريع تحميل الصفحات</span></nav>
+<header class="mb-8"><span class="site-kicker">أداء المواقع · تحسين JavaScript</span><h1>تقليل حجم ملفات JavaScript: تقنيات عملية لتسريع تحميل الصفحات</h1><p class="text-lg">تعرف إلى طرق تقليل حجم ملفات JavaScript عبر إزالة الكود غير المستخدم والضغط وتقسيم الحزم والتحميل عند الحاجة، مع أمثلة وخطوات قياس عملية.</p></header>
+<figure class="mseo-content-illustration" style="margin:1.5rem auto;max-width:900px"><img src="https://images.unsplash.com/photo-1627398242454-45a1465c2479?auto=format&fit=crop&w=1400&q=85" alt="تقليل حجم ملفات JavaScript — شاشة برمجة وأكواد لتحسين سرعة تحميل الصفحات" width="1400" height="788" loading="eager" decoding="async" style="display:block;width:100%;height:auto;border-radius:18px"><figcaption>تقنيات عملية لتقليل JavaScript الذي تحمّله الصفحة وتنفّذه عند البداية.</figcaption></figure>
+<div class="prose max-w-none">
+<p>قد تبدو صفحة الويب سريعة عند فتحها على حاسوب المطوّر، ثم تصبح ثقيلة على هاتف متوسط أو اتصال بطيء. في حالات كثيرة لا تكون المشكلة في عدد الأسطر المكتوبة فقط، بل في كمية JavaScript التي يضطر المتصفح إلى تنزيلها وتحليلها وتجهيزها للتنفيذ وتشغيلها قبل أن تستجيب الواجهة بسلاسة.</p>
+<p>تقليل حجم ملفات JavaScript لا يعني ضغط الكود عشوائيًا أو حذف وظائف يحتاجها المستخدم. الهدف هو إرسال أقل قدر ممكن من الكود الضروري لكل صفحة، وتأجيل ما يمكن تأجيله، ثم قياس النتيجة. يتناول هذا الدليل التقنيات الأكثر فائدة، سواء كنت تعمل بموقع تقليدي أو تطبيق مبني بأداة مثل Vite أو webpack.</p>
+<section><h2>لماذا يؤثر حجم JavaScript في سرعة الموقع؟</h2>
+<p>يمر الملف بعدة مراحل: تنزيله، وفك ضغطه إن كان مضغوطًا، ثم تحليله وتجهيزه للتنفيذ وتشغيله. لذلك قد يظل ملف صغير نسبيًا مكلفًا إذا كان يحتوي على عمليات كثيرة، كما أن ضغط الملف يقلل بيانات النقل عبر الشبكة لكنه لا يلغي تكلفة معالجة الكود بعد وصوله.</p>
+<p>يمكن أن تؤدي الحزم الكبيرة إلى تأخر ظهور التفاعل الأول، أو تجميد قصير للواجهة أثناء التنفيذ، خصوصًا على الأجهزة محدودة القدرة. ويرتبط تقليل العمل على المسار الرئيسي بتحسين استجابة الصفحة، وقد يساعد في تحسين مقياس INP عندما يكون JavaScript الزائد سببًا للمشكلة. لا توجد نسبة تحسن مضمونة؛ النتيجة تعتمد على التطبيق والجهاز والشبكة.</p></section>
+<section><h2>1. قِس حجم الملفات قبل إجراء التغييرات</h2>
+<p>ابدأ بأدوات المتصفح بدل التخمين. افتح Chrome DevTools ثم تبويب Network، وأعد تحميل الصفحة مع تفعيل تعطيل الذاكرة المؤقتة أثناء الاختبار. رشّح الطلبات إلى JS وراجع الحجم المنقول، والحجم الفعلي، ووقت التنزيل. بعد ذلك افتح Coverage من قائمة الأدوات لتعرف مقدار الكود الذي لم يُستخدم في المسار الذي اختبرته.</p>
+<p>استخدم Lighthouse أو PageSpeed Insights لتحديد الملفات التي تستهلك وقتًا في التنفيذ، لكن لا تعتبر التحذير وحده دليلًا على سبب المشكلة. اختبر الصفحة الرئيسية وصفحة داخلية وتفاعلًا فعليًا، لأن الكود غير المستخدم أثناء تحميل الصفحة قد يكون ضروريًا بعد فتح قائمة أو إرسال نموذج.</p></section>
+<section><h2>2. احذف الاعتماديات والكود غير المستخدم</h2>
+<p>راجع الحزم في <code>package.json</code>، وابحث عن مكتبات أضيفت لتجربة قصيرة أو استُبدلت ببديل أخف. حذف اعتماد غير مستخدم أفضل من محاولة ضغطه. كذلك راجع الدوال والملفات القديمة التي لم تعد تستدعى، وتجنب تحميل مكتبة كاملة من أجل وظيفة صغيرة يمكن تنفيذها بواجهة المتصفح الأصلية.</p>
+<p>لا تحذف كودًا لمجرد أن Coverage أظهره باللون غير المستخدم؛ قد يكون مسارًا نادرًا لم يحدث أثناء الاختبار. كرر الاختبار مع الحالات المهمة، واكتب اختبارات أو قائمة تحقق قبل حذف أي جزء من الوظائف.</p></section>
+<section><h2>3. استخدم Tree Shaking لاستبعاد الصادرات غير المطلوبة</h2>
+<p>تستطيع أدوات البناء الحديثة حذف أجزاء من المكتبات التي لا يستخدمها المشروع، وهي تقنية تُعرف باسم <em>Tree Shaking</em>. تزداد فعاليتها عندما تكون الوحدات مبنية على ES Modules وتكون الاستيرادات واضحة وثابتة.</p>
+<pre><code>// استيراد كل الوظائف قد يجعل تحليل الاستخدام أصعب
+import * as helpers from './helpers.js';
+
+// استورد الوظيفة التي تحتاجها فقط
+import { formatPrice } from './helpers.js';
+
+console.log(formatPrice(29.9));</code></pre>
+<p>هذا التغيير وحده لا يضمن ملفًا أصغر في كل مشروع؛ يجب أن تكون أداة البناء مهيأة لتحسين نسخة الإنتاج، وأن تكون الحزم قابلة للتحليل، وألا تمنع الآثار الجانبية حذف أجزاء غير مستخدمة. اختبر ناتج البناء النهائي ولا تقارن ملفات التطوير بملفات الإنتاج.</p></section>
+<section><h2>4. قسّم الحزم وحمّل الميزات عند الحاجة</h2>
+<p>بدل إرسال كل وظائف التطبيق عند أول زيارة، قسّم الكود إلى أجزاء بحسب الصفحة أو الميزة. تسمح الاستيرادات الديناميكية بتحميل وحدة عندما يحتاج إليها المستخدم، مثل محرر متقدم أو لوحة رسوم بيانية أو أداة تصدير.</p>
+<pre><code>const openReportButton = document.querySelector('#open-report');
+
+openReportButton?.addEventListener('click', async () => {
+  try {
+    const { renderReport } = await import('./report.js');
+    renderReport();
+  } catch (error) {
+    console.error('تعذر تحميل التقرير', error);
+  }
+});</code></pre>
+<p>في هذا المثال لا يُطلب ملف التقرير إلا عند الضغط على الزر. في تطبيقات الواجهات، يمكن تطبيق المبدأ نفسه على المسارات أو المكونات الثقيلة. انتبه إلى عرض حالة تحميل مناسبة، والتعامل مع فشل الشبكة، وتجنب تقسيم كل دالة صغيرة إلى ملف مستقل؛ كثرة الطلبات قد تضيف تكلفة اتصال وتزيد تعقيد التخزين المؤقت.</p></section>
+<section><h2>5. صغّر الملفات واضغطها في الإنتاج</h2>
+<p>التصغير أو <em>Minification</em> يزيل المسافات والتعليقات غير اللازمة ويختصر بعض الأسماء عندما يكون ذلك آمنًا. أما ضغط النقل باستخدام Brotli أو Gzip فيقلل حجم البيانات المرسلة عبر HTTP. هاتان خطوتان مختلفتان ومتكاملتان: التصغير يغيّر صياغة الملف، والضغط يقلل حجم نقله.</p>
+<p>غالبًا ما تتولى أدوات البناء مثل Vite أو webpack إعداد نسخة الإنتاج. تأكد من تشغيل أمر البناء الصحيح، ثم افحص إعدادات الاستضافة أو CDN لمعرفة هل تُرسل ملفات JavaScript مع ضغط مناسب. لا تضغط ملفات مضغوطة مسبقًا مرة أخرى، ولا تنشر ملفات التطوير التي تتضمن خرائط مصدر أو أدوات تشخيص غير لازمة للجمهور إلا إذا كان هناك سبب واضح.</p></section>
+<section><h2>6. حمّل السكريبتات بطريقة لا تعطل تحليل HTML</h2>
+<p>في المواقع التقليدية، يمكن أن يؤدي سكريبت عادي في رأس الصفحة إلى إيقاف تحليل HTML حتى يُنزّل ويُنفّذ. إذا كان السكريبت لا يحتاج إلى العمل قبل اكتمال تحليل المستند، فاستخدم <code>defer</code>:</p>
+<pre><code>&lt;script src="/assets/js/site.js" defer&gt;&lt;/script&gt;</code></pre>
+<p>تُنزّل الملفات ذات <code>defer</code> بالتوازي مع تحليل HTML وتُنفّذ بعد اكتماله، مع الحفاظ على ترتيب السكريبتات المؤجلة الكلاسيكية. أما <code>async</code> فيناسب ملفات مستقلة لا تعتمد على ترتيب تنفيذ محدد. لا تبدّل بينهما دون فهم الاعتماديات؛ فقد يؤدي ذلك إلى أخطاء إذا احتاج ملف إلى مكتبة لم تُنفّذ بعد.</p></section>
+<section><h2>7. راجع مكتبات الطرف الثالث</h2>
+<p>أدوات التحليلات والإعلانات والدردشة ومقاطع الفيديو قد تضيف JavaScript من مصادر خارجية. راجع ما تستخدمه فعلًا، وأزل التكرار، وحمّل الأدوات غير الأساسية بعد موافقة المستخدم أو عند الحاجة حيثما كان ذلك مناسبًا للخصوصية ومتطلبات الخدمة. يمكن مثلًا عدم إنشاء مشغل فيديو كامل قبل أن يضغط الزائر على زر التشغيل.</p>
+<p>لا تؤخر سكريبتًا ضروريًا للوظائف أو الامتثال لمجرد تحسين نتيجة الاختبار. افحص أيضًا ما إذا كانت المكتبة محمّلة مرتين بإصدارات مختلفة، وما إذا كان بالإمكان استخدام ميزة أصلية في المتصفح بدل إضافة اعتماد جديد.</p></section>
+<section><h2>8. فعّل التخزين المؤقت بأسماء ملفات مناسبة</h2>
+<p>بعد تغيير الملف، يحتاج المتصفح إلى معرفة هل النسخة المخزنة ما زالت صالحة. استخدم أسماء ملفات تحتوي على بصمة إصدار أو إعدادًا مناسبًا لإعادة التحقق، مع سياسة تخزين طويلة للملفات ذات الأسماء المتغيرة بالبصمة. بذلك يستطيع الزائر العائد إعادة استخدام الملفات التي لم تتغير بدل تنزيلها من جديد.</p>
+<p>لا تجعل التخزين المؤقت بديلًا عن تقليل الكود؛ الزائر الجديد لا يملك نسخة مخزنة بعد، كما أن المستخدم قد يزور صفحة تحتاج إلى حزمة جديدة. توازن بين حجم الحزم، وعدد الطلبات، وإمكانية إعادة استخدامها عبر الصفحات.</p></section>
+<section><h2>9. قارن النتائج بطريقة صحيحة</h2>
+<p>سجّل خط الأساس قبل التعديل، ثم غيّر عاملًا واحدًا في كل مرة. قارن حجم JavaScript المنقول، وحجم الحزمة غير المضغوط، ووقت التنفيذ، واستجابة التفاعل. أعد الاختبار أكثر من مرة وفي ظروف متقاربة، وراقب بيانات المستخدمين الفعلية بعد النشر عندما تكون متاحة.</p>
+<ul><li>هل انخفض حجم JavaScript الذي يُحمّل عند بداية الصفحة؟</li><li>هل بقيت النماذج والقوائم والتفاعلات تعمل؟</li><li>هل زادت الطلبات أو تأخر تحميل ميزة مهمة بعد تقسيم الحزم؟</li><li>هل تحسنت استجابة التفاعل على هاتف فعلي أو محاكاة مناسبة؟</li></ul>
+<p>للمزيد عن الصورة الكاملة للأداء، راجع دليل <a href="website-speed-optimization-guide.html">تحسين سرعة الموقع</a> وشرح <a href="core-web-vitals-practical-guide.html">Core Web Vitals</a>. ولتحسين طريقة تحميل الموارد من HTML، اطلع على <a href="html-performance-loading.html">دليل أداء HTML وخصائص التحميل</a>.</p></section>
+<section><h2>خطة تنفيذ سريعة للمشروع</h2>
+<ol><li>افحص Network وCoverage وحدد أكبر الملفات وأقلها استخدامًا.</li><li>أزل المكتبات المكررة والوظائف القديمة بعد التأكد من عدم الحاجة إليها.</li><li>فعّل Tree Shaking والتصغير في نسخة الإنتاج وتحقق من إعدادات الضغط.</li><li>قسّم الميزات الثقيلة واستخدم التحميل الديناميكي حيث يكون منطقيًا.</li><li>راجع ترتيب تحميل السكريبتات ومكتبات الطرف الثالث والتخزين المؤقت.</li><li>أعد الاختبارات الوظيفية وقارن النتائج قبل النشر وبعده.</li></ol>
+</section>
+<section><h2>الخلاصة</h2><p>أفضل طريقة لتقليل حجم ملفات JavaScript هي ألا ترسل للمستخدم كودًا لا يحتاج إليه في اللحظة الحالية. ابدأ بالقياس، ثم نظّف الاعتماديات، واستفد من Tree Shaking وتقسيم الحزم والتصغير والضغط، وحمّل الميزات الثقيلة عند الطلب. لا تعتمد على رقم الحجم وحده؛ النجاح الحقيقي هو صفحة أسرع مع بقاء جميع الوظائف المهمة سليمة.</p><p><strong>الكاتب وصاحب الموقع: imad limrani</strong></p></section>
+<section><h2>مراجع تقنية</h2><ul><li><a href="https://web.dev/learn/performance/code-split-javascript/" target="_blank" rel="noopener noreferrer">web.dev: Code-split JavaScript</a></li><li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import" target="_blank" rel="noopener noreferrer">MDN: Dynamic import()</a></li><li><a href="https://webpack.js.org/guides/code-splitting/" target="_blank" rel="noopener noreferrer">webpack: Code Splitting</a></li></ul></section>
+</div></article></main><div data-site-footer></div><script src="../assets/js/site.js?v=20261023-articles1" defer></script></body></html>
