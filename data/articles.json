@@ -1316,5 +1316,25 @@
     "thumbnail": "https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-29",
     "updatedAt": "2026-10-29"
+  },
+  {
+    "slug": "database-design-for-beginners",
+    "file": "database-design-for-beginners.html",
+    "title": "قواعد البيانات للمبتدئين: كيف تصمم الجداول والعلاقات لمشروع ويب؟",
+    "category": "البرمجة",
+    "subcategory": "قواعد البيانات وSQL",
+    "tags": [
+      "قواعد البيانات للمبتدئين",
+      "تصميم قواعد البيانات",
+      "SQL",
+      "MySQL",
+      "العلاقات بين الجداول"
+    ],
+    "description": "تعلّم تصميم قواعد البيانات لمشاريع الويب، وإنشاء الجداول والعلاقات والمفاتيح الأساسية والخارجية مع أمثلة SQL عملية.",
+    "icon": "fa-database",
+    "image": "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=1400&q=85",
+    "publishedAt": "2026-10-29",
+    "updatedAt": "2026-10-29"
   }
 ]
