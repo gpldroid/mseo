@@ -1,5 +1,25 @@
 [
   {
+    "slug": "ai-agents-guide",
+    "file": "ai-agents-guide.html",
+    "title": "وكلاء الذكاء الاصطناعي AI Agents: ما هي وكيف تبني وكيلًا ينفذ المهام تلقائيًا؟",
+    "category": "الذكاء الاصطناعي",
+    "subcategory": "وكلاء الذكاء الاصطناعي والأتمتة",
+    "tags": [
+      "وكلاء الذكاء الاصطناعي",
+      "AI Agents",
+      "الوكيل الذكي",
+      "أتمتة المهام",
+      "بناء AI Agent"
+    ],
+    "description": "تعرّف إلى وكلاء الذكاء الاصطناعي AI Agents، وكيف يخططون وينفذون المهام باستخدام الأدوات والذاكرة، مع خطوات لبناء وكيل آمن وأمثلة عملية.",
+    "icon": "fa-robot",
+    "image": "https://fastseo.site/assets/images/article-thumbnails/ai-agents-guide.svg",
+    "thumbnail": "https://fastseo.site/assets/images/article-thumbnails/ai-agents-guide.svg",
+    "publishedAt": "2026-10-29",
+    "updatedAt": "2026-10-29"
+  },
+  {
     "slug": "local-seo-guide",
     "file": "local-seo-guide.html",
     "title": "كيف تجعل نشاطك التجاري يظهر في نتائج البحث المحلية؟ دليل Local SEO عملي",
