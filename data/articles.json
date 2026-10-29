@@ -1336,5 +1336,25 @@
     "thumbnail": "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-29",
     "updatedAt": "2026-10-29"
+  },
+  {
+    "slug": "google-discover-optimization",
+    "file": "google-discover-optimization.html",
+    "title": "Google Discover: كيف تهيئ موقعك لزيادة فرص ظهور مقالاتك؟",
+    "category": "SEO",
+    "subcategory": "Google Discover",
+    "tags": [
+      "Google Discover",
+      "الظهور في Google Discover",
+      "تحسين المقالات",
+      "صور Discover",
+      "Google Search Console"
+    ],
+    "description": "دليل عملي لتحسين فرص ظهور مقالات موقعك في Google Discover عبر المحتوى المفيد والعناوين الواضحة والصور الكبيرة وقياس النتائج.",
+    "icon": "fa-compass",
+    "image": "https://fastseo.site/assets/images/article-thumbnails/google-discover-optimization.svg",
+    "thumbnail": "https://fastseo.site/assets/images/article-thumbnails/google-discover-optimization.svg",
+    "publishedAt": "2026-10-29",
+    "updatedAt": "2026-10-29"
   }
 ]
