@@ -1356,5 +1356,25 @@
     "thumbnail": "https://fastseo.site/assets/images/article-thumbnails/google-discover-optimization.svg",
     "publishedAt": "2026-10-29",
     "updatedAt": "2026-10-29"
+  },
+  {
+    "slug": "javascript-bundle-size-optimization",
+    "file": "javascript-bundle-size-optimization.html",
+    "title": "تقليل حجم ملفات JavaScript: تقنيات عملية لتسريع تحميل الصفحات",
+    "category": "أداء المواقع",
+    "subcategory": "تحسين JavaScript",
+    "tags": [
+      "تقليل حجم JavaScript",
+      "تحسين أداء JavaScript",
+      "تصغير الملفات",
+      "Code Splitting",
+      "Tree Shaking"
+    ],
+    "description": "تعرف إلى طرق تقليل حجم ملفات JavaScript عبر إزالة الكود غير المستخدم والضغط وتقسيم الحزم والتحميل عند الحاجة، مع أمثلة وخطوات قياس عملية.",
+    "icon": "fa-file-code",
+    "image": "https://images.unsplash.com/photo-1627398242454-45a1465c2479?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "https://images.unsplash.com/photo-1627398242454-45a1465c2479?auto=format&fit=crop&w=1400&q=85",
+    "publishedAt": "2026-10-29",
+    "updatedAt": "2026-10-29"
   }
 ]
