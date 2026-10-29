@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+<title id="title">تحسين الظهور في Google Discover</title>
+<desc id="desc">رسم توضيحي عن محتوى مفيد وصورة رئيسية واضحة وتحسين فرص ظهور المقالات في Google Discover.</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#101b32"/><stop offset="1" stop-color="#254d78"/></linearGradient><linearGradient id="accent" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#45dfc5"/><stop offset="1" stop-color="#82b4ff"/></linearGradient></defs>
+<rect width="1200" height="630" rx="34" fill="url(#bg)"/><circle cx="1040" cy="120" r="190" fill="#6ca4ff" opacity=".09"/><circle cx="145" cy="580" r="210" fill="#43d9c5" opacity=".08"/>
+<path d="M80 120H1120" stroke="#fff" stroke-opacity=".13" stroke-width="2"/>
+<text x="1090" y="88" text-anchor="end" direction="rtl" font-family="Arial,Tahoma,sans-serif" font-size="22" fill="#9fe9e0" font-weight="700">دليل SEO من FAST SEO</text>
+<text x="1090" y="205" text-anchor="end" direction="rtl" font-family="Arial,Tahoma,sans-serif" font-size="54" fill="#fff" font-weight="800">كيف تزيد فرص ظهور</text>
+<text x="1090" y="275" text-anchor="end" direction="rtl" font-family="Arial,Tahoma,sans-serif" font-size="60" fill="url(#accent)" font-weight="800">مقالاتك في Discover؟</text>
+<text x="1090" y="323" text-anchor="end" direction="rtl" font-family="Arial,Tahoma,sans-serif" font-size="25" fill="#d6e2f5">محتوى مفيد • صور قوية • تجربة أفضل</text>
+<g transform="translate(80 385)"><rect width="1040" height="145" rx="22" fill="#fff" fill-opacity=".08" stroke="#91b8e9" stroke-opacity=".5"/>
+<rect x="28" y="24" width="190" height="97" rx="12" fill="#e5eefb" fill-opacity=".15" stroke="#8be2d7" stroke-width="2"/><circle cx="75" cy="54" r="13" fill="#8be2d7"/><path d="M40 104l48-39 27 21 32-29 52 47" fill="none" stroke="#8be2d7" stroke-width="5" stroke-linejoin="round"/>
+<text x="990" y="59" text-anchor="end" direction="rtl" font-family="Arial,Tahoma,sans-serif" font-size="28" fill="#fff" font-weight="700">مقال يستحق القراءة</text><text x="990" y="101" text-anchor="end" direction="rtl" font-family="Arial,Tahoma,sans-serif" font-size="21" fill="#c7d8ed">عنوان واضح وصورة عالية الجودة وقياس مستمر</text>
+<path d="M260 72h45m-12-12 12 12-12 12" fill="none" stroke="#82b4ff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="345" cy="72" r="20" fill="none" stroke="#82b4ff" stroke-width="4"/><path d="M360 87l14 14" stroke="#82b4ff" stroke-width="4" stroke-linecap="round"/></g>
+<text x="1090" y="590" text-anchor="end" direction="rtl" font-family="Arial,Tahoma,sans-serif" font-size="19" fill="#b7c7df">لا توجد ضمانات للظهور؛ الجودة والملاءمة أولًا</text>
+</svg>
