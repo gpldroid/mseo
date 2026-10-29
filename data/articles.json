@@ -1,5 +1,25 @@
 [
   {
+    "slug": "local-seo-guide",
+    "file": "local-seo-guide.html",
+    "title": "كيف تجعل نشاطك التجاري يظهر في نتائج البحث المحلية؟ دليل Local SEO عملي",
+    "category": "SEO",
+    "subcategory": "تحسين الظهور المحلي",
+    "tags": [
+      "تحسين SEO المحلي",
+      "Local SEO",
+      "Google Business Profile",
+      "البحث المحلي",
+      "SEO"
+    ],
+    "description": "تعلّم تحسين SEO المحلي لنشاطك التجاري: إعداد ملف Google، تطوير صفحات الموقع، إدارة التقييمات وقياس الظهور في نتائج البحث.",
+    "icon": "fa-location-dot",
+    "image": "https://fastseo.site/assets/images/local-seo-guide.svg",
+    "thumbnail": "https://fastseo.site/assets/images/local-seo-guide.svg",
+    "publishedAt": "2026-10-29",
+    "updatedAt": "2026-10-29"
+  },
+  {
     "slug": "typescript-for-beginners-ar",
     "file": "typescript-for-beginners-ar.html",
     "title": "TypeScript للمبتدئين: تعلّم الأنواع واكتب JavaScript بأخطاء أقل",
