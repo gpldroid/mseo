@@ -1295,5 +1295,26 @@
     "description": "قائمة أساسية لتحسين أمان موقع الويب تشمل HTTPS وإدارة الأسرار والتحديثات والصلاحيات والتحقق من المدخلات والنسخ الاحتياطية.",
     "icon": "fa-shield-halved",
     "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1400&q=85"
+  },
+  {
+    "slug": "test-color-contrast-text-readability",
+    "file": "test-color-contrast-text-readability.html",
+    "title": "كيف تختبر تباين الألوان وإمكانية قراءة النصوص في موقعك؟",
+    "category": "تصميم المواقع",
+    "subcategory": "التباين وقابلية القراءة",
+    "tags": [
+      "تباين الألوان",
+      "اختبار تباين الألوان",
+      "WCAG",
+      "قابلية القراءة",
+      "إمكانية الوصول",
+      "تصميم المواقع"
+    ],
+    "description": "تعلم اختبار تباين الألوان في المواقع وفق WCAG، واختيار ألوان النص والخلفية، وفحص الروابط والأزرار والنصوص العربية بأدوات عملية.",
+    "icon": "fa-eye",
+    "image": "https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?auto=format&fit=crop&w=1400&q=85",
+    "publishedAt": "2026-10-29",
+    "updatedAt": "2026-10-29"
   }
 ]
