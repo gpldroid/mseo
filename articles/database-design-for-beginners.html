@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="ar" dir="rtl" class="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b1220">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="../site.webmanifest">
+<title>قواعد البيانات للمبتدئين: كيف تصمم الجداول والعلاقات لمشروع ويب؟ | فاست سيو</title>
+<meta name="description" content="تعلّم تصميم قواعد البيانات لمشاريع الويب، وإنشاء الجداول والعلاقات والمفاتيح الأساسية والخارجية مع أمثلة SQL عملية.">
+<meta name="keywords" content="قواعد البيانات للمبتدئين, تصميم قواعد البيانات, تصميم جداول SQL, العلاقات بين الجداول, MySQL, المفاتيح الأساسية والخارجية">
+<meta name="author" content="imad limrani">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<link rel="canonical" href="https://fastseo.site/articles/database-design-for-beginners.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="قواعد البيانات للمبتدئين: كيف تصمم الجداول والعلاقات لمشروع ويب؟">
+<meta property="og:description" content="تعلّم تصميم قواعد البيانات لمشاريع الويب، وإنشاء الجداول والعلاقات والمفاتيح الأساسية والخارجية مع أمثلة SQL عملية.">
+<meta property="og:image" content="https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=1400&q=85">
+<meta property="og:url" content="https://fastseo.site/articles/database-design-for-beginners.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="قواعد البيانات للمبتدئين: كيف تصمم الجداول والعلاقات لمشروع ويب؟">
+<meta name="twitter:description" content="تعلّم تصميم قواعد البيانات لمشاريع الويب، وإنشاء الجداول والعلاقات والمفاتيح الأساسية والخارجية مع أمثلة SQL عملية.">
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=1400&q=85">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<div data-site-header></div>
+<main class="site-container site-section">
+<article class="max-w-4xl mx-auto">
+<nav class="site-breadcrumb" aria-label="مسار التنقل"><a href="../index.html">الرئيسية</a><span aria-hidden="true">/</span><a href="../pages/programming.html">البرمجة</a><span aria-hidden="true">/</span><span>قواعد البيانات للمبتدئين</span></nav>
+<header class="mb-8"><span class="site-kicker">PROGRAMMING · DATABASE DESIGN</span><h1>قواعد البيانات للمبتدئين: كيف تصمم الجداول والعلاقات لمشروع ويب؟</h1><p class="text-lg">قبل أن تبدأ في كتابة كود موقعك، فكّر في المكان الذي ستُحفظ فيه بيانات المستخدمين والمنتجات والطلبات. تصميم قاعدة البيانات بطريقة صحيحة يجعل المعلومات أسهل في الإدارة، ويقلل التكرار والأخطاء عندما يكبر المشروع.</p></header>
+<figure class="mseo-content-illustration" style="margin:1.5rem auto;max-width:900px"><img src="https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=1400&q=85" alt="تصميم قواعد البيانات للمبتدئين مع جداول مترابطة لمشروع ويب" width="1400" height="788" loading="eager" decoding="async" style="display:block;width:100%;height:auto;border-radius:18px"><figcaption>التصميم الجيد يوضح أين تُخزّن البيانات وكيف ترتبط ببعضها.</figcaption></figure>
+<div class="prose max-w-none">
+<section><h2>ما قاعدة البيانات، ولماذا يحتاج إليها موقعك؟</h2>
+<p>قاعدة البيانات نظام منظم لحفظ المعلومات واسترجاعها وتحديثها. يحتاج المتجر الإلكتروني إلى بيانات العملاء والمنتجات والطلبات، بينما يحتاج الموقع التعليمي إلى بيانات الطلاب والدروس والنتائج. بدلًا من وضع كل شيء في ملف واحد، تتيح قاعدة البيانات تقسيم المعلومات إلى جداول مترابطة.</p>
+<p>من الأنظمة العلائقية الشائعة <strong>MySQL</strong> و<strong>PostgreSQL</strong> و<strong>MariaDB</strong>، كما تُستخدم <strong>SQLite</strong> في تطبيقات كثيرة لا تحتاج إلى خادم قاعدة بيانات مستقل. اختيار النظام يعتمد على متطلبات المشروع والاستضافة، لكن مفاهيم الجداول والعلاقات متشابهة إلى حد كبير.</p></section>
+<section><h2>الخطوة الأولى: حدد البيانات التي يحتاج إليها المشروع</h2>
+<p>سنستخدم متجرًا إلكترونيًا بسيطًا مثالًا. يحتاج المتجر إلى معرفة العملاء والمنتجات والطلبات، كما يحتاج إلى معرفة المنتجات الموجودة داخل كل طلب والكمية والسعر وقت الشراء.</p>
+<ul><li><strong>العملاء:</strong> الاسم والبريد الإلكتروني وتاريخ التسجيل.</li><li><strong>المنتجات:</strong> الاسم والوصف والسعر وحالة التوفر.</li><li><strong>الطلبات:</strong> العميل صاحب الطلب وحالته وتاريخ إنشائه.</li><li><strong>تفاصيل الطلب:</strong> المنتجات المرتبطة بالطلب والكمية وسعر الوحدة.</li></ul>
+<p>هذه العناصر كيانات مستقلة، وغالبًا يتحول كل كيان إلى جدول. أما خصائص الكيان فتتحول إلى أعمدة. تحديد المتطلبات أولًا يمنعك من إنشاء جداول عشوائية أو تخزين معلومات لا تعرف كيف ستستخدمها.</p></section>
+<section><h2>اختيار الأعمدة وأنواع البيانات</h2>
+<p>يحدد كل عمود نوع المعلومة التي يخزنها. استخدم <code>INT</code> أو نوعًا صحيحًا مناسبًا للمعرّفات، و<code>VARCHAR</code> للنصوص القصيرة، و<code>TEXT</code> للنصوص الطويلة، و<code>DATE</code> للتاريخ. أما الأسعار فمن الأفضل تمثيلها بنوع عشري دقيق مثل <code>DECIMAL</code> بدلًا من نوع تقريبي مثل <code>FLOAT</code>.</p>
+<p>استخدم <code>NOT NULL</code> عندما تكون القيمة إلزامية، و<code>UNIQUE</code> عندما يجب ألا تتكرر، مثل البريد الإلكتروني إذا كانت قواعد المشروع تمنع تسجيل العنوان نفسه أكثر من مرة. تختلف تفاصيل أنواع البيانات بين أنظمة قواعد البيانات، لذا راجع توثيق النظام الذي تستخدمه.</p></section>
+<section><h2>المفتاح الأساسي والمفتاح الخارجي</h2>
+<h3>المفتاح الأساسي Primary Key</h3><p>المفتاح الأساسي يميز كل سجل عن غيره. يُستخدم غالبًا عمود <code>id</code> مستقل لكل جدول، ويجب أن تكون قيمه فريدة وغير فارغة. لا تعتمد على الاسم وحده بوصفه معرّفًا، لأنه قد يتكرر أو يتغير.</p>
+<h3>المفتاح الخارجي Foreign Key</h3><p>المفتاح الخارجي يربط سجلًا في جدول بسجل في جدول آخر. على سبيل المثال، يحتوي الطلب على <code>customer_id</code> يشير إلى العميل صاحب الطلب. وتساعد هذه القيود على منع إنشاء علاقات تشير إلى سجلات غير موجودة.</p></section>
+<section><h2>أنواع العلاقات بين الجداول</h2>
+<h3>واحد إلى واحد One-to-One</h3><p>يرتبط كل سجل في الجدول الأول بسجل واحد في الجدول الثاني. قد يناسب ذلك فصل إعدادات الحساب عن بيانات المستخدم الأساسية، إذا كان لهذا الفصل سبب عملي واضح.</p>
+<h3>واحد إلى متعدد One-to-Many</h3><p>يمكن للعميل إنشاء عدة طلبات، لكن كل طلب يعود إلى عميل واحد. في هذه الحالة يوضع <code>customer_id</code> في جدول الطلبات، لأنه جانب العلاقة الذي يحتوي على عدة سجلات.</p>
+<h3>متعدد إلى متعدد Many-to-Many</h3><p>يمكن للطلب أن يحتوي على عدة منتجات، ويمكن للمنتج أن يظهر في طلبات كثيرة. نستخدم جدولًا وسيطًا مثل <code>order_items</code> لتسجيل كل منتج ضمن كل طلب، مع الكمية وسعر الوحدة.</p></section>
+<section><h2>مثال عملي: إنشاء جداول متجر باستخدام SQL</h2>
+<p>الأوامر التالية مكتوبة بصياغة مناسبة لـ MySQL. قد تحتاج إلى تعديلات بسيطة عند استخدام PostgreSQL أو نظام آخر.</p>
+<h3>1. جدول العملاء</h3>
+<pre><code class="language-sql">CREATE TABLE customers (
+  id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  full_name VARCHAR(150) NOT NULL,
+  email VARCHAR(255) NOT NULL UNIQUE,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);</code></pre>
+<p>يحصل كل عميل على معرّف مستقل، ويُمنع تكرار البريد الإلكتروني وفق هذا التصميم.</p>
+<h3>2. جدول المنتجات</h3>
+<pre><code class="language-sql">CREATE TABLE products (
+  id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(200) NOT NULL,
+  description TEXT,
+  price DECIMAL(10, 2) NOT NULL,
+  is_active BOOLEAN NOT NULL DEFAULT TRUE,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);</code></pre>
+<p>يمثل <code>price</code> السعر بدقة عشرية، بينما يسمح <code>is_active</code> بإيقاف عرض المنتج دون حذفه بالضرورة. أضف قيدًا يمنع الأسعار السالبة إذا كانت قواعد عملك تتطلب ذلك.</p>
+<h3>3. جدول الطلبات</h3>
+<pre><code class="language-sql">CREATE TABLE orders (
+  id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  customer_id BIGINT UNSIGNED NOT NULL,
+  status VARCHAR(30) NOT NULL DEFAULT 'pending',
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_orders_customer
+    FOREIGN KEY (customer_id) REFERENCES customers(id)
+);</code></pre>
+<p>يربط <code>customer_id</code> الطلب بعميله. فكّر في سياسة الحذف والتحديث قبل إضافة خيارات مثل <code>ON DELETE CASCADE</code>، لأن حذف سجل قد يؤدي عندها إلى حذف سجلات مرتبطة به.</p>
+<h3>4. جدول تفاصيل الطلب</h3>
+<pre><code class="language-sql">CREATE TABLE order_items (
+  order_id BIGINT UNSIGNED NOT NULL,
+  product_id BIGINT UNSIGNED NOT NULL,
+  quantity INT UNSIGNED NOT NULL,
+  unit_price DECIMAL(10, 2) NOT NULL,
+  PRIMARY KEY (order_id, product_id),
+  FOREIGN KEY (order_id) REFERENCES orders(id),
+  FOREIGN KEY (product_id) REFERENCES products(id)
+);</code></pre>
+<p>المفتاح الأساسي المركب يمنع تكرار المنتج نفسه في الطلب الواحد. إذا كان المشروع يسمح بتعدد سطور المنتج الواحد بسبب خيارات أو خصومات مختلفة، فاستخدم معرّفًا مستقلًا لسطر الطلب بدلًا من هذا المفتاح المركب.</p>
+<p>احتفظنا بـ <code>unit_price</code> حتى يبقى سعر الشراء التاريخي ثابتًا حتى لو تغيّر السعر الحالي في جدول المنتجات.</p></section>
+<section><h2>استخراج البيانات باستخدام JOIN</h2>
+<p>يمكنك جمع معلومات من أكثر من جدول باستخدام <code>JOIN</code>. يعرض المثال التالي رقم الطلب واسم العميل وحالة الطلب:</p>
+<pre><code class="language-sql">SELECT
+  orders.id AS order_id,
+  customers.full_name,
+  orders.status,
+  orders.created_at
+FROM orders
+INNER JOIN customers
+  ON orders.customer_id = customers.id
+ORDER BY orders.created_at DESC;</code></pre>
+<p>يربط شرط <code>ON</code> الطلب بالعميل الذي يطابق معرّفه، ويرتب <code>ORDER BY</code> النتائج من الأحدث إلى الأقدم. وعند تمرير قيم من المستخدم، استخدم الاستعلامات المعلّمة (Parameterized Queries) بدلًا من دمج النصوص مباشرة داخل SQL.</p></section>
+<section><h2>ما التطبيع Normalization؟</h2>
+<p>التطبيع هو تنظيم البيانات لتقليل التكرار ومشكلات الإضافة والتعديل والحذف. تخيّل تخزين اسم العميل وبريده الإلكتروني داخل كل طلب؛ إذا تغير البريد، فستحتاج إلى تحديث سجلات متعددة وقد تظهر معلومات متضاربة. فصل بيانات العملاء في جدول مستقل وربط الطلبات بهم يجعل التحديث أوضح وأكثر اتساقًا.</p>
+<ul><li>اجعل كل عمود مسؤولًا عن معلومة واضحة.</li><li>تجنب تخزين قوائم قيم داخل عمود واحد إذا كنت تحتاج إلى البحث فيها أو ربطها.</li><li>لا تكرر المعلومات نفسها دون حاجة واضحة.</li><li>استخدم القيود للحفاظ على اتساق العلاقات.</li><li>لا تبالغ في تقسيم البيانات إلى جداول إذا كان ذلك يزيد التعقيد دون فائدة.</li></ul></section>
+<section><h2>الفهارس Indexes وتحسين الاستعلامات</h2>
+<p>تساعد الفهارس قاعدة البيانات على العثور على السجلات بسرعة في استعلامات كثيرة. إذا كنت تسترجع طلبات العميل باستمرار، فقد يفيدك فهرس على <code>customer_id</code>:</p>
+<pre><code class="language-sql">CREATE INDEX idx_orders_customer_id
+ON orders(customer_id);</code></pre>
+<p>الفهارس تستهلك مساحة وقد تزيد تكلفة عمليات الإدخال والتحديث، لذلك لا تضف فهرسًا لكل عمود بشكل عشوائي. افحص الاستعلامات الفعلية وخطة التنفيذ باستخدام <code>EXPLAIN</code>، ثم قِس التحسن بعد التعديل.</p></section>
+<section><h2>أخطاء شائعة يجب تجنبها</h2>
+<ul><li><strong>وضع كل البيانات في جدول واحد:</strong> يؤدي إلى التكرار وصعوبة التحديث؛ افصل الكيانات المستقلة.</li><li><strong>إهمال المفاتيح الخارجية:</strong> قد يسمح بعلاقات تشير إلى سجلات غير موجودة.</li><li><strong>اختيار نوع بيانات غير مناسب:</strong> استخدم نوعًا دقيقًا للقيم المالية ونوعًا مناسبًا للتواريخ.</li><li><strong>الإفراط في الفهارس:</strong> قد يبطئ عمليات الكتابة ويستهلك مساحة.</li><li><strong>تخزين كلمات المرور كنص واضح:</strong> استخدم خوارزمية مخصصة لتجزئة كلمات المرور مثل Argon2id أو bcrypt بإعدادات مناسبة.</li><li><strong>تجاهل الاختبارات:</strong> اختبر القيم الفارغة والمكررة والعلاقات والحذف وتحديث السجلات.</li></ul></section>
+<section><h2>اختبر التصميم قبل إطلاق الموقع</h2>
+<ol><li>أضف بيانات تجريبية تمثل الاستخدام الحقيقي.</li><li>اختبر إنشاء السجلات وتعديلها وحذفها واسترجاعها.</li><li>تحقق من القيود مثل البريد الفريد والمفاتيح الخارجية.</li><li>اختبر الكميات والأسعار والمدخلات غير الصالحة.</li><li>قِس الاستعلامات المهمة بحجم بيانات قريب من المتوقع.</li><li>جهّز نسخًا احتياطية واختبر استعادة البيانات فعليًا.</li></ol>
+<p>استخدم المعاملات (Transactions) في العمليات التي يجب أن تنجح كوحدة واحدة. عند تسجيل طلب مثلًا، قد تحتاج إلى حفظ الطلب وتفاصيله وتحديث المخزون ضمن معاملة واحدة، حتى لا تبقى بيانات جزئية إذا فشلت إحدى الخطوات.</p></section>
+<section><h2>كيف تتصل قاعدة البيانات بتطبيق الويب؟</h2>
+<p>ترسل الواجهة طلبًا إلى الخادم، ويتحقق الخادم من المدخلات والصلاحيات، ثم ينفذ الاستعلامات ويعيد النتيجة المناسبة. لا تعرض بيانات اتصال قاعدة البيانات أو كلمات المرور داخل JavaScript الذي يصل إلى المتصفح. احتفظ بالأسرار في بيئة الخادم، وامنح حساب قاعدة البيانات أقل الصلاحيات اللازمة، واستخدم الاستعلامات المعلّمة للحماية من حقن SQL.</p>
+<p>للتوسع في بناء المشروع، اقرأ <a href="create-website-from-scratch.html">دليل إنشاء موقع إلكتروني من الصفر</a>، وتعرّف على طلبات الواجهة عبر <a href="javascript-fetch-api-errors.html">شرح Fetch API في JavaScript</a>.</p></section>
+<section><h2>قائمة مراجعة قبل اعتماد قاعدة البيانات</h2>
+<ul><li>هل حددت الكيانات والبيانات المطلوبة؟</li><li>هل لكل جدول مفتاح أساسي مناسب؟</li><li>هل العلاقات محمية بقيود مناسبة؟</li><li>هل أنواع البيانات ملائمة لكل عمود؟</li><li>هل قللت التكرار غير الضروري؟</li><li>هل الفهارس مبنية على استعلامات فعلية؟</li><li>هل التطبيق يتحقق من الصلاحيات والمدخلات؟</li><li>هل اختبرت النسخ الاحتياطي والاستعادة؟</li></ul></section>
+<section><h2>الخلاصة</h2>
+<p>ابدأ تصميم قاعدة البيانات بفهم المتطلبات، ثم حدد الكيانات والجداول والعلاقات بينها. استخدم المفاتيح الأساسية والخارجية، واختر أنواع البيانات بعناية، وراجع الاستعلامات والقيود قبل إطلاق الموقع. يمكنك توسيع نموذج المتجر لاحقًا لإضافة الشحن والمدفوعات والمخزون، مع التأكد من أن كل إضافة تعكس حاجة حقيقية في المشروع.</p>
+<p><strong>الكاتب وصاحب الموقع: imad limrani</strong></p></section>
+<section><h2>مقالات ذات صلة</h2><ul>
+<li><a href="create-website-from-scratch.html">إنشاء موقع إلكتروني من الصفر: خطوات عملية من الفكرة إلى النشر</a></li>
+<li><a href="javascript-fetch-api-errors.html">استخدام Fetch API في JavaScript: التعامل الصحيح مع الاستجابات والأخطاء</a></li>
+<li><a href="website-security-basics-checklist.html">أساسيات أمان الموقع: قائمة تحقق عملية للمطورين</a></li>
+</ul></section>
+</div>
+</article></main>
+<div data-site-footer></div>
+<script src="../assets/js/site.js?v=20261022-unified-ui2" defer></script>
+</body>
+</html>
