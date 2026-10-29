@@ -1,5 +1,27 @@
 [
   {
+    "slug": "ai-task-automation-guide",
+    "file": "ai-task-automation-guide.html",
+    "title": "أتمتة المهام بالذكاء الاصطناعي: دليل عملي خطوة بخطوة",
+    "category": "الذكاء الاصطناعي",
+    "subcategory": "أتمتة المهام وسير العمل",
+    "tags": [
+      "أتمتة المهام بالذكاء الاصطناعي",
+      "AI automation",
+      "أتمتة العمل",
+      "أتمتة التسويق",
+      "سير العمل الآلي"
+    ],
+    "description": "تعلّم أتمتة المهام بالذكاء الاصطناعي في العمل والتسويق وإدارة المواقع، من اختيار المهمة وربط الأدوات إلى قياس الوقت والجودة وحماية البيانات.",
+    "icon": "fa-gears",
+    "image": "https://fastseo.site/assets/images/article-thumbnails/ai-task-automation-guide.svg",
+    "thumbnail": "https://fastseo.site/assets/images/article-thumbnails/ai-task-automation-guide.svg",
+    "publishedAt": "2026-10-29",
+    "updatedAt": "2026-10-29",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
+  },
+  {
     "slug": "ai-agents-guide",
     "file": "ai-agents-guide.html",
     "title": "وكلاء الذكاء الاصطناعي AI Agents: ما هي وكيف تبني وكيلًا ينفذ المهام تلقائيًا؟",
