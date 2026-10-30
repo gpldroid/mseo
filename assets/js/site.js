@@ -41,8 +41,6 @@
     iconLink.href = link('assets/favicon.svg?v=20261027');
   });
 
-  // AdSense is loaded lazily only on pages where an ad placement is rendered.
-  const adsenseClient = 'ca-pub-1849282438800062';
 
   // Load Font Awesome once across pages that use the shared site script.
   if (!document.querySelector('script[data-fontawesome-kit]')) {
@@ -436,44 +434,102 @@
   });
 })();
 
-/* AdSense placements: two in articles and one at the end of individual tool pages. */
+/* AdSense placements: fluid units, loaded only shortly before they enter the viewport. */
 (() => {
   const client = 'ca-pub-1849282438800062';
-  const slot = '8150766372';
+  const slot = '4210287912';
   const main = document.querySelector('main');
   if (!main) return;
 
-  const ensureAdsense = () => {
-    if (document.querySelector('script[data-mseo-adsense], script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]')) return;
-    const script = document.createElement('script');
-    script.async = true;
-    script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + client;
-    script.crossOrigin = 'anonymous';
-    script.dataset.mseoAdsense = '';
-    document.head.appendChild(script);
+  let adsenseLoadPromise = null;
+
+  const loadAdsense = () => {
+    if (adsenseLoadPromise) return adsenseLoadPromise;
+
+    adsenseLoadPromise = new Promise((resolve, reject) => {
+      let script = document.querySelector('script[data-mseo-adsense]');
+      if (!script) {
+        script = document.querySelector('script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]');
+      }
+
+      if (script) {
+        if (script.dataset.mseoAdsenseLoaded === 'true') {
+          resolve();
+          return;
+        }
+        script.addEventListener('load', resolve, { once: true });
+        script.addEventListener('error', () => reject(new Error('AdSense failed to load')), { once: true });
+        return;
+      }
+
+      script = document.createElement('script');
+      script.async = true;
+      script.crossOrigin = 'anonymous';
+      script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + client;
+      script.dataset.mseoAdsense = '';
+      script.addEventListener('load', () => {
+        script.dataset.mseoAdsenseLoaded = 'true';
+        resolve();
+      }, { once: true });
+      script.addEventListener('error', () => {
+        adsenseLoadPromise = null;
+        script.remove();
+        reject(new Error('AdSense failed to load'));
+      }, { once: true });
+      document.head.appendChild(script);
+    });
+
+    return adsenseLoadPromise;
   };
 
-  const createAd = placement => {
+  const requestAd = ins => {
+    if (ins.dataset.mseoAdRequested === 'true') return;
+    ins.dataset.mseoAdRequested = 'true';
+
+    loadAdsense()
+      .then(() => {
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+      })
+      .catch(error => {
+        delete ins.dataset.mseoAdRequested;
+        console.warn('[Fast Seo AdSense] Ad could not be initialized:', error);
+      });
+  };
+
+  const observer = 'IntersectionObserver' in window
+    ? new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          observer.unobserve(entry.target);
+          const ins = entry.target.querySelector('ins.adsbygoogle');
+          if (ins) requestAd(ins);
+        });
+      }, { rootMargin: '300px 0px', threshold: 0 })
+    : null;
+
+  const placeAdAfter = (anchor, placement) => {
     const wrapper = document.createElement('div');
     wrapper.className = 'mseo-ad-placement mseo-ad-' + placement;
     wrapper.dataset.mseoAdPlacement = placement;
     wrapper.setAttribute('role', 'complementary');
     wrapper.setAttribute('aria-label', 'إعلان');
+
     const ins = document.createElement('ins');
     ins.className = 'adsbygoogle';
-    ins.style.cssText = 'display:inline-block;width:300px;height:50px';
+    ins.style.display = 'block';
+    ins.setAttribute('data-ad-format', 'fluid');
+    ins.setAttribute('data-ad-layout-key', '-fb+5w+4e-db+86');
     ins.setAttribute('data-ad-client', client);
     ins.setAttribute('data-ad-slot', slot);
     wrapper.appendChild(ins);
-    ensureAdsense();
-    if (!ins.dataset.mseoAdInitialized) {
-      ins.dataset.mseoAdInitialized = 'true';
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
-    }
-    return wrapper;
+
+    // Insert first so AdSense measures the final layout, then observe the placement.
+    anchor.insertAdjacentElement('afterend', wrapper);
+    if (observer) observer.observe(wrapper);
+    else requestAd(ins);
   };
 
-  if (/\/articles\/[^/]+\.html$/.test(location.pathname)) {
+  if (/\\/articles\\/[^/]+\\.html$/.test(location.pathname)) {
     const prose = main.querySelector('article .prose');
     if (!prose) return;
     const paragraphs = [...prose.querySelectorAll('p')].filter(p => p.textContent.trim());
@@ -481,11 +537,12 @@
 
     const middleIndex = Math.max(0, Math.floor(paragraphs.length / 2) - 1);
     if (!prose.querySelector('[data-mseo-ad-placement="middle"]')) {
-      paragraphs[middleIndex].insertAdjacentElement('afterend', createAd('middle'));
+      placeAdAfter(paragraphs[middleIndex], 'middle');
     }
+
     const finalParagraph = paragraphs[paragraphs.length - 1];
     if (!prose.querySelector('[data-mseo-ad-placement="bottom"]')) {
-      finalParagraph.insertAdjacentElement('afterend', createAd('bottom'));
+      placeAdAfter(finalParagraph, 'bottom');
     }
     return;
   }
@@ -493,7 +550,7 @@
   if (main.classList.contains('seo-tool-page')) {
     const paragraphs = [...main.querySelectorAll('p')].filter(p => p.textContent.trim());
     if (!paragraphs.length || main.querySelector('[data-mseo-ad-placement="bottom"]')) return;
-    paragraphs[paragraphs.length - 1].insertAdjacentElement('afterend', createAd('bottom'));
+    placeAdAfter(paragraphs[paragraphs.length - 1], 'bottom');
   }
 })();
 
