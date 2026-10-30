@@ -3337,22 +3337,18 @@ footer.mseo-footer .mseo-footer-inner > .mseo-footer-grid > .mseo-footer-group >
 }
 
 
-/* AdSense display unit placements shared by articles and individual tools. */
+/* Responsive fluid AdSense placements; reserve initial space to reduce layout shifts. */
 .mseo-ad-placement{
-  display:flex;
-  justify-content:center;
-  align-items:center;
+  display:block;
   width:100%;
-  min-height:50px;
+  min-height:100px;
   margin:28px auto;
-  overflow:hidden;
   text-align:center;
 }
 .mseo-ad-placement ins.adsbygoogle{
-  display:inline-block;
-  width:300px;
-  height:50px;
-  max-width:100%;
+  display:block;
+  width:100%;
+  min-height:100px;
 }
 .mseo-ad-middle{margin-block:30px}
 .mseo-ad-bottom{margin-block:30px 12px}
