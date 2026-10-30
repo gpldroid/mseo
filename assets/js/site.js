@@ -155,7 +155,7 @@
           </div>
           <div class="mseo-copyright">
             <span class="mseo-footer-copyright-text">© فاست سيو <span data-footer-year>2026</span> جميع الحقوق محفوظة.</span>
-            <span>تطوير <a href="${link('pages/about.html')}">Imad Limrani</a></span>
+            <span>تطوير <a href="${link('pages/about.html')}">عماد الدين لمراني</a></span>
           </div>
         </div>
       </footer>`;
