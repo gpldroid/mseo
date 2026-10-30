@@ -41,18 +41,8 @@
     iconLink.href = link('assets/favicon.svg?v=20261027');
   });
 
-  // TEMPORARY TEST: AdSense loader disabled to check whether it contributes to the mobile footer gap.
-  // Re-enable by changing ENABLE_ADSENSE_TEST to true after testing.
-  const ENABLE_ADSENSE_TEST = true;
+  // AdSense is loaded lazily only on pages where an ad placement is rendered.
   const adsenseClient = 'ca-pub-1849282438800062';
-  if (ENABLE_ADSENSE_TEST && !document.querySelector('script[data-mseo-adsense]') && !document.querySelector('script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]')) {
-    const adsenseScript = document.createElement('script');
-    adsenseScript.async = true;
-    adsenseScript.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + adsenseClient;
-    adsenseScript.crossOrigin = 'anonymous';
-    adsenseScript.setAttribute('data-mseo-adsense', '');
-    document.head.appendChild(adsenseScript);
-  }
 
   // Load Font Awesome once across pages that use the shared site script.
   if (!document.querySelector('script[data-fontawesome-kit]')) {
@@ -444,6 +434,67 @@
     const track = $('[data-article-latest-carousel]');
     if (track) track.innerHTML = '<p class="loading-card">تعذر تحميل أحدث المقالات.</p>';
   });
+})();
+
+/* AdSense placements: two in articles and one at the end of individual tool pages. */
+(() => {
+  const client = 'ca-pub-1849282438800062';
+  const slot = '8150766372';
+  const main = document.querySelector('main');
+  if (!main) return;
+
+  const ensureAdsense = () => {
+    if (document.querySelector('script[data-mseo-adsense], script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]')) return;
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + client;
+    script.crossOrigin = 'anonymous';
+    script.dataset.mseoAdsense = '';
+    document.head.appendChild(script);
+  };
+
+  const createAd = placement => {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'mseo-ad-placement mseo-ad-' + placement;
+    wrapper.dataset.mseoAdPlacement = placement;
+    wrapper.setAttribute('role', 'complementary');
+    wrapper.setAttribute('aria-label', 'إعلان');
+    const ins = document.createElement('ins');
+    ins.className = 'adsbygoogle';
+    ins.style.cssText = 'display:inline-block;width:300px;height:50px';
+    ins.setAttribute('data-ad-client', client);
+    ins.setAttribute('data-ad-slot', slot);
+    wrapper.appendChild(ins);
+    ensureAdsense();
+    if (!ins.dataset.mseoAdInitialized) {
+      ins.dataset.mseoAdInitialized = 'true';
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
+    }
+    return wrapper;
+  };
+
+  if (/\/articles\/[^/]+\.html$/.test(location.pathname)) {
+    const prose = main.querySelector('article .prose');
+    if (!prose) return;
+    const paragraphs = [...prose.querySelectorAll('p')].filter(p => p.textContent.trim());
+    if (!paragraphs.length) return;
+
+    const middleIndex = Math.max(0, Math.floor(paragraphs.length / 2) - 1);
+    if (!prose.querySelector('[data-mseo-ad-placement="middle"]')) {
+      paragraphs[middleIndex].insertAdjacentElement('afterend', createAd('middle'));
+    }
+    const finalParagraph = paragraphs[paragraphs.length - 1];
+    if (!prose.querySelector('[data-mseo-ad-placement="bottom"]')) {
+      finalParagraph.insertAdjacentElement('afterend', createAd('bottom'));
+    }
+    return;
+  }
+
+  if (main.classList.contains('seo-tool-page')) {
+    const paragraphs = [...main.querySelectorAll('p')].filter(p => p.textContent.trim());
+    if (!paragraphs.length || main.querySelector('[data-mseo-ad-placement="bottom"]')) return;
+    paragraphs[paragraphs.length - 1].insertAdjacentElement('afterend', createAd('bottom'));
+  }
 })();
 
 /* Category archive cards: reveal six articles at a time, matching the homepage. */
