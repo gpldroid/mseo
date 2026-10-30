@@ -529,7 +529,7 @@
     else requestAd(ins);
   };
 
-  if (/\\/articles\\/[^/]+\\.html$/.test(location.pathname)) {
+  if (/\/articles\/[^/]+\.html$/.test(location.pathname)) {
     const prose = main.querySelector('article .prose');
     if (!prose) return;
     const paragraphs = [...prose.querySelectorAll('p')].filter(p => p.textContent.trim());
