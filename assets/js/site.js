@@ -207,7 +207,7 @@
   const onScroll=()=>topButton.classList.toggle('is-visible',window.scrollY>300);
   window.addEventListener('scroll',onScroll,{passive:true});onScroll();
   topButton.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
-  downButton.addEventListener('click',()=>window.scrollTo({top:document.documentElement.scrollHeight,behavior:'smooth'}));
+  downButton.addEventListener('click',()=>document.querySelector('footer.mseo-footer')?.scrollIntoView({behavior:'smooth',block:'end'}));
   document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const target=$(a.getAttribute('href'));if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth',block:'start'});}}));
 })();
 /* Cookie consent: no non-essential cookies are set by this static site by default. */
