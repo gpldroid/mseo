@@ -255,7 +255,7 @@
   downButton.addEventListener('click',()=>document.querySelector('footer.mseo-footer')?.scrollIntoView({behavior:'smooth',block:'end'}));
   document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const target=$(a.getAttribute('href'));if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth',block:'start'});}}));
 })();
-/* Cookie consent: initialize during idle time so it does not compete with first paint. */
+/* Cookie consent: show three seconds after the full page load event. */
 (() => {
  const showCookieConsent=()=>{
   if(document.querySelector('.mseo-cookie-banner'))return;
@@ -274,17 +274,11 @@
   banner.querySelector('[data-cookie-dismiss]').addEventListener('click',()=>save('dismissed'));
   document.body.append(banner);
  };
- const scheduleCookieConsent=()=>{
-  if('requestIdleCallback' in window){
-   window.requestIdleCallback(showCookieConsent,{timeout:2500});
-  }else{
-   window.setTimeout(showCookieConsent,1500);
-  }
- };
- if(document.readyState==='loading'){
-  document.addEventListener('DOMContentLoaded',scheduleCookieConsent,{once:true});
- }else{
+ const scheduleCookieConsent=()=>window.setTimeout(showCookieConsent,3000);
+ if(document.readyState==='complete'){
   scheduleCookieConsent();
+ }else{
+  window.addEventListener('load',scheduleCookieConsent,{once:true});
  }
 })();
 
