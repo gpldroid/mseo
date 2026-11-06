@@ -29,9 +29,9 @@
     return '<article class="article-card">' +
       (image ? '<a href="' + articleUrl(article) + '" tabindex="-1" aria-hidden="true"><img src="' + esc(image) + '" alt="" width="640" height="400" loading="lazy" decoding="async" onerror="this.closest(\'a\').remove()"></a>' : '') +
       '<div class="article-card-body"><span class="article-category">' + esc(article.category || 'مقالات') + '</span>' +
-      '<h3><a href="' + articleUrl(article) + '">' + esc(article.title) + '</a></h3>' +
+      '<h3><a href="' + articleUrl(article) + '" aria-label="' + esc(article.title) + '">' + esc(article.title) + '</a></h3>' +
       (article.description ? '<p>' + esc(article.description) + '</p>' : '') +
-      '<a class="site-read" href="' + articleUrl(article) + '">اقرأ الدليل <span aria-hidden="true">←</span></a></div></article>';
+      '<a class="site-read" href="' + articleUrl(article) + '" aria-label="' + esc(article.title) + '">اقرأ الدليل <span aria-hidden="true">←</span></a></div></article>';
   };
   function init(items) {
     const all = sortedArticles(items);
@@ -90,8 +90,8 @@
           track.innerHTML = '<article class="latest-carousel-card">' +
             (image ? '<a class="latest-carousel-image" href="' + articleUrl(item) + '"><img src="' + esc(image) + '" alt="' + esc(item.title) + '" width="640" height="360" loading="lazy" decoding="async" onerror="this.closest(\'a\').remove()"></a>' : '') +
             '<div class="latest-carousel-copy"><span class="article-category">' + esc(item.category || 'مقالات') + '</span>' +
-            '<h3><a href="' + articleUrl(item) + '">' + esc(item.title) + '</a></h3>' +
-            '<p>' + esc(item.description || '') + '</p><a class="button button-primary" href="' + articleUrl(item) + '">اقرأ المقال <span aria-hidden="true">←</span></a></div></article>';
+            '<h3><a href="' + articleUrl(item) + '" aria-label="' + esc(item.title) + '">' + esc(item.title) + '</a></h3>' +
+            '<p>' + esc(item.description || '') + '</p><a class="button button-primary" href="' + articleUrl(item) + '" aria-label="' + esc(item.title) + '">اقرأ المقال <span aria-hidden="true">←</span></a></div></article>';
           if (dots) dots.innerHTML = latest.map((item, i) => '<button type="button" data-slide="' + i + '" aria-label="عرض المقال ' + (i + 1) + '"' + (i === active ? ' aria-current="true"' : '') + '></button>').join('');
           carousel?.setAttribute('data-active-slide', String(active));
         };
