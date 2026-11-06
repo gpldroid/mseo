@@ -27,7 +27,7 @@
   const card = article => {
     const image = imageUrl(article);
     return '<article class="article-card">' +
-      (image ? '<a href="' + articleUrl(article) + '" tabindex="-1" aria-hidden="true"><img src="' + esc(image) + '" alt="" loading="lazy" decoding="async" onerror="this.closest(\'a\').remove()"></a>' : '') +
+      (image ? '<a href="' + articleUrl(article) + '" tabindex="-1" aria-hidden="true"><img src="' + esc(image) + '" alt="" width="640" height="400" loading="lazy" decoding="async" onerror="this.closest(\'a\').remove()"></a>' : '') +
       '<div class="article-card-body"><span class="article-category">' + esc(article.category || 'مقالات') + '</span>' +
       '<h3><a href="' + articleUrl(article) + '">' + esc(article.title) + '</a></h3>' +
       (article.description ? '<p>' + esc(article.description) + '</p>' : '') +
@@ -88,7 +88,7 @@
           const item = latest[active];
           const image = imageUrl(item);
           track.innerHTML = '<article class="latest-carousel-card">' +
-            (image ? '<a class="latest-carousel-image" href="' + articleUrl(item) + '"><img src="' + esc(image) + '" alt="' + esc(item.title) + '" loading="lazy" decoding="async" onerror="this.closest(\'a\').remove()"></a>' : '') +
+            (image ? '<a class="latest-carousel-image" href="' + articleUrl(item) + '"><img src="' + esc(image) + '" alt="' + esc(item.title) + '" width="640" height="360" loading="lazy" decoding="async" onerror="this.closest(\'a\').remove()"></a>' : '') +
             '<div class="latest-carousel-copy"><span class="article-category">' + esc(item.category || 'مقالات') + '</span>' +
             '<h3><a href="' + articleUrl(item) + '">' + esc(item.title) + '</a></h3>' +
             '<p>' + esc(item.description || '') + '</p><a class="button button-primary" href="' + articleUrl(item) + '">اقرأ المقال <span aria-hidden="true">←</span></a></div></article>';
