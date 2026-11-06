@@ -3253,3 +3253,11 @@ body:has(.site-hero-layout) .site-hero h1{max-width:650px;font-size:clamp(1.85re
 .mseo-ad-placement ins.adsbygoogle{display:block;width:100%;min-height:280px}
 .mseo-ad-middle,.mseo-ad-bottom{min-height:280px}
 @media(max-width:600px){.mseo-ad-placement,.mseo-ad-placement ins.adsbygoogle,.mseo-ad-middle,.mseo-ad-bottom{min-height:250px}}
+
+
+/* Ensure legacy component font tokens use the same system stack too. */
+:root{--font-arabic:var(--font-site);--ui-font:var(--font-site)}
+body:has(> main > article){font-family:var(--font-site)!important}
+/* Reserve the injected shared header's height before site.js hydrates it. */
+[data-site-header],[data-home-header]{display:block;min-height:82px}
+@media(max-width:600px){[data-site-header],[data-home-header]{min-height:70px}}
