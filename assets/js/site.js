@@ -91,18 +91,27 @@
   ];
   // Load the optional theme picker after initial rendering; first use loads it immediately.
   let themeLoaderRequested = false;
-  const loadThemeSwitcher = () => {
+  let pendingThemeTrigger = null;
+  const loadThemeSwitcher = trigger => {
+    if (trigger) pendingThemeTrigger = trigger;
     if (themeLoaderRequested || $('[data-mseo-theme-switcher-loader]')) return;
     themeLoaderRequested = true;
     const themeLoader = document.createElement('script');
     themeLoader.src = link('assets/js/theme-switcher.js');
     themeLoader.async = true;
     themeLoader.setAttribute('data-mseo-theme-switcher-loader', '');
+    themeLoader.addEventListener('load', () => {
+      if (!pendingThemeTrigger || !pendingThemeTrigger.isConnected) return;
+      const target = pendingThemeTrigger;
+      pendingThemeTrigger = null;
+      target.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
+    }, { once: true });
     document.head.appendChild(themeLoader);
   };
   window.addEventListener('load', () => scheduleOptionalAssets(loadThemeSwitcher), { once: true });
   document.addEventListener('click', event => {
-    if (event.target.closest && event.target.closest('[data-theme-toggle], [data-theme-float]')) loadThemeSwitcher();
+    const trigger = event.target.closest && event.target.closest('[data-theme-toggle], [data-theme-float]');
+    if (trigger) loadThemeSwitcher(trigger);
   }, true);
   const header = $('[data-site-header]') || $('[data-home-header]');
   if (header) {
