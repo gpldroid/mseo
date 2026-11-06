@@ -115,6 +115,7 @@
   }, true);
   const header = $('[data-site-header]') || $('[data-home-header]');
   if (header) {
+    header.style.minHeight = window.matchMedia('(max-width: 760px)').matches ? '70px' : '82px';
     header.innerHTML = `
       <header class="mseo-header">
         <div class="mseo-header-inner">
