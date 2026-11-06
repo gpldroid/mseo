@@ -254,22 +254,37 @@
   downButton.addEventListener('click',()=>document.querySelector('footer.mseo-footer')?.scrollIntoView({behavior:'smooth',block:'end'}));
   document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const target=$(a.getAttribute('href'));if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth',block:'start'});}}));
 })();
-/* Cookie consent: no non-essential cookies are set by this static site by default. */
+/* Cookie consent: initialize during idle time so it does not compete with first paint. */
 (() => {
- const key='mseo-cookie-consent-v1';
- let choice=null;
- try { choice=localStorage.getItem(key); } catch (_) {}
- if(choice) return;
- const banner=document.createElement('section');
- banner.className='mseo-cookie-banner';
- banner.setAttribute('role','dialog');
- banner.setAttribute('aria-label','إعدادات ملفات تعريف الارتباط');
- banner.setAttribute('aria-live','polite');
- banner.innerHTML='<div class="mseo-cookie-copy"><strong>خصوصيتك تهمنا</strong><p>يستخدم الموقع التخزين المحلي لحفظ تفضيلات الواجهة، مثل المظهر. لا يتم تفعيل ملفات تحليل أو إعلانات اختيارية من خلال هذه الرسالة.</p><a href="'+(location.pathname.includes('/articles/')||location.pathname.includes('/pages/')?'../':'./')+'pages/privacy.html">اقرأ سياسة الخصوصية</a></div><div class="mseo-cookie-actions"><button type="button" data-cookie-accept>موافق</button><button type="button" data-cookie-dismiss>إغلاق</button></div>';
- const save=value=>{try{localStorage.setItem(key,value);}catch(_){}banner.remove();};
- banner.querySelector('[data-cookie-accept]').addEventListener('click',()=>save('accepted'));
- banner.querySelector('[data-cookie-dismiss]').addEventListener('click',()=>save('dismissed'));
- document.body.append(banner);
+ const showCookieConsent=()=>{
+  if(document.querySelector('.mseo-cookie-banner'))return;
+  const key='mseo-cookie-consent-v1';
+  let choice=null;
+  try { choice=localStorage.getItem(key); } catch (_) {}
+  if(choice)return;
+  const banner=document.createElement('section');
+  banner.className='mseo-cookie-banner';
+  banner.setAttribute('role','dialog');
+  banner.setAttribute('aria-label','إعدادات ملفات تعريف الارتباط');
+  banner.setAttribute('aria-live','polite');
+  banner.innerHTML='<div class="mseo-cookie-copy"><strong>خصوصيتك تهمنا</strong><p>يستخدم الموقع التخزين المحلي لحفظ تفضيلات الواجهة، مثل المظهر. لا يتم تفعيل ملفات تحليل أو إعلانات اختيارية من خلال هذه الرسالة.</p><a href="'+(location.pathname.includes('/articles/')||location.pathname.includes('/pages/')?'../':'./')+'pages/privacy.html">اقرأ سياسة الخصوصية</a></div><div class="mseo-cookie-actions"><button type="button" data-cookie-accept>موافق</button><button type="button" data-cookie-dismiss>إغلاق</button></div>';
+  const save=value=>{try{localStorage.setItem(key,value);}catch(_){}banner.remove();};
+  banner.querySelector('[data-cookie-accept]').addEventListener('click',()=>save('accepted'));
+  banner.querySelector('[data-cookie-dismiss]').addEventListener('click',()=>save('dismissed'));
+  document.body.append(banner);
+ };
+ const scheduleCookieConsent=()=>{
+  if('requestIdleCallback' in window){
+   window.requestIdleCallback(showCookieConsent,{timeout:2500});
+  }else{
+   window.setTimeout(showCookieConsent,1500);
+  }
+ };
+ if(document.readyState==='loading'){
+  document.addEventListener('DOMContentLoaded',scheduleCookieConsent,{once:true});
+ }else{
+  scheduleCookieConsent();
+ }
 })();
 
 
