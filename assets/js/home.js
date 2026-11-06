@@ -12,7 +12,32 @@
     return path.replace(/^\.\//, '').replace(/^\//, '');
   };
   const articleUrl = article => 'articles/' + encodeURIComponent(article.file || ((article.slug || '') + '.html'));
-  const imageUrl = article => localAsset(article.thumbnail || article.image || '');
+  const imageSource = article => localAsset(article.thumbnail || article.image || '');
+  const responsiveImageUrl = (source, width) => {
+    if (!source) return '';
+    try {
+      const url = new URL(source, location.href);
+      if (url.hostname === 'images.unsplash.com') {
+        url.searchParams.set('auto', 'format');
+        url.searchParams.set('fit', 'crop');
+        url.searchParams.set('w', String(width));
+        url.searchParams.set('q', '75');
+        return url.href;
+      }
+    } catch (_) {}
+    return source;
+  };
+  const imageUrl = article => responsiveImageUrl(imageSource(article), 640);
+  const imageSrcSet = article => {
+    const source = imageSource(article);
+    try {
+      const url = new URL(source, location.href);
+      if (url.hostname === 'images.unsplash.com') {
+        return [320, 640, 960].map(width => responsiveImageUrl(source, width) + ' ' + width + 'w').join(', ');
+      }
+    } catch (_) {}
+    return '';
+  };
   const sortedArticles = items => items.slice().sort((a, b) =>
     String(b.updatedAt || b.publishedAt || '').localeCompare(String(a.updatedAt || a.publishedAt || ''))
   );
@@ -27,7 +52,7 @@
   const card = article => {
     const image = imageUrl(article);
     return '<article class="article-card">' +
-      (image ? '<a href="' + articleUrl(article) + '" tabindex="-1" aria-hidden="true"><img src="' + esc(image) + '" alt="" width="640" height="400" loading="lazy" decoding="async" onerror="this.closest(\'a\').remove()"></a>' : '') +
+      (image ? '<a href="' + articleUrl(article) + '" tabindex="-1" aria-hidden="true"><img src="' + esc(image) + '"' + (imageSrcSet(article) ? ' srcset="' + esc(imageSrcSet(article)) + '" sizes="(max-width: 700px) calc(100vw - 36px), (max-width: 1100px) 50vw, 33vw"' : '') + ' alt="" width="640" height="400" loading="lazy" decoding="async" onerror="this.closest(\'a\').remove()"></a>' : '') +
       '<div class="article-card-body"><span class="article-category">' + esc(article.category || 'مقالات') + '</span>' +
       '<h3><a href="' + articleUrl(article) + '" aria-label="' + esc(article.title) + '">' + esc(article.title) + '</a></h3>' +
       (article.description ? '<p>' + esc(article.description) + '</p>' : '') +
@@ -88,7 +113,7 @@
           const item = latest[active];
           const image = imageUrl(item);
           track.innerHTML = '<article class="latest-carousel-card">' +
-            (image ? '<a class="latest-carousel-image" href="' + articleUrl(item) + '"><img src="' + esc(image) + '" alt="' + esc(item.title) + '" width="640" height="360" loading="lazy" decoding="async" onerror="this.closest(\'a\').remove()"></a>' : '') +
+            (image ? '<a class="latest-carousel-image" href="' + articleUrl(item) + '"><img src="' + esc(image) + '"' + (imageSrcSet(item) ? ' srcset="' + esc(imageSrcSet(item)) + '" sizes="(max-width: 700px) calc(100vw - 60px), 50vw"' : '') + ' alt="' + esc(item.title) + '" width="640" height="360" loading="lazy" decoding="async" onerror="this.closest(\'a\').remove()"></a>' : '') +
             '<div class="latest-carousel-copy"><span class="article-category">' + esc(item.category || 'مقالات') + '</span>' +
             '<h3><a href="' + articleUrl(item) + '" aria-label="' + esc(item.title) + '">' + esc(item.title) + '</a></h3>' +
             '<p>' + esc(item.description || '') + '</p><a class="button button-primary" href="' + articleUrl(item) + '" aria-label="' + esc(item.title) + '">اقرأ المقال <span aria-hidden="true">←</span></a></div></article>';
