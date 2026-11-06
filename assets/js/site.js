@@ -5,6 +5,28 @@
   const nested = /\/(articles|pages)\//.test(path);
   const root = nested ? '../' : './';
   const link = (href) => root + href;
+  const optimizeImageUrl = (source, width) => {
+    if (!source) return '';
+    try {
+      const url = new URL(source, location.href);
+      if (url.hostname === 'images.unsplash.com') {
+        url.searchParams.set('auto', 'format');
+        url.searchParams.set('fit', 'crop');
+        url.searchParams.set('w', String(width));
+        url.searchParams.set('q', '75');
+        return url.href;
+      }
+    } catch (_) {}
+    return source;
+  };
+  const responsiveImageAttrs = (source, sizes) => {
+    try {
+      const url = new URL(source, location.href);
+      if (url.hostname !== 'images.unsplash.com') return '';
+      const srcset = [320, 640, 960].map(width => optimizeImageUrl(source, width) + ' ' + width + 'w').join(', ');
+      return ' srcset="' + srcset + '" sizes="' + sizes + '"';
+    } catch (_) { return ''; }
+  };
 
   // One validated catalog request per page; all article widgets reuse the same promise.
   const articleCatalog = (() => {
@@ -241,7 +263,7 @@
   const q=(search.value||'').toLocaleLowerCase('ar').trim(),cat=select.value;
   const filtered=all.filter(a=>(!cat||a.category===cat)&&(!q||[a.title,a.description,a.category,...(a.tags||[])].join(' ').toLocaleLowerCase('ar').includes(q)));
   shown=Math.min(shown,filtered.length);
-  grid.innerHTML=filtered.length?filtered.map((a,i)=>{const image=a.thumbnail||a.image||'assets/favicon.svg',src=/^(?:https?:)?\/\//i.test(image)?image:'../'+image,href='../articles/'+encodeURIComponent(a.file||a.slug+'.html');return '<article class="article-card mseo-load-card"'+(i>=shown?' hidden':'')+(i>=animateFrom&&i<shown?' data-enter="1"':'')+'><a href="'+href+'"><img loading="lazy" decoding="async" width="640" height="400" src="'+esc(src)+'" alt=""></a><div class="article-card-body"><span class="article-category">'+esc(a.category)+'</span><h3><a href="'+href+'">'+esc(a.title)+'</a></h3><p>'+esc(a.description)+'</p><a class="site-read" href="'+href+'">اقرأ المقال ←</a></div></article>';}).join(''):'<p class="loading-card">لا توجد نتائج مطابقة.</p>';
+  grid.innerHTML=filtered.length?filtered.map((a,i)=>{const image=a.thumbnail||a.image||'assets/favicon.svg',src=/^(?:https?:)?\/\//i.test(image)?image:'../'+image,href='../articles/'+encodeURIComponent(a.file||a.slug+'.html');return '<article class="article-card mseo-load-card"'+(i>=shown?' hidden':'')+(i>=animateFrom&&i<shown?' data-enter="1"':'')+'><a href="'+href+'"><img loading="lazy" decoding="async" width="640" height="400"'+responsiveImageAttrs(src,'(max-width: 700px) calc(100vw - 36px), (max-width: 1100px) 50vw, 33vw')+' src="'+esc(optimizeImageUrl(src,640))+'" alt=""></a><div class="article-card-body"><span class="article-category">'+esc(a.category)+'</span><h3><a href="'+href+'">'+esc(a.title)+'</a></h3><p>'+esc(a.description)+'</p><a class="site-read" href="'+href+'">اقرأ المقال ←</a></div></article>';}).join(''):'<p class="loading-card">لا توجد نتائج مطابقة.</p>';
   grid.querySelectorAll('[data-enter="1"]').forEach(el=>{el.classList.add('mseo-card-enter');el.removeAttribute('data-enter');});
   count.textContent='عرض '+Math.min(shown,filtered.length)+' من '+filtered.length+' مقالًا';
   const left=filtered.length-shown;more.hidden=left<=0;more.innerHTML=left>0?'<button type="button" class="mseo-load-more" data-load-more>تحميل 6 مقالات إضافية <span aria-hidden="true">↓</span></button>':'';
@@ -302,7 +324,7 @@
       const href = link('articles/' + encodeURIComponent(a.file || a.slug + '.html'));
       const image = a.thumbnail || a.image || 'assets/favicon.svg';
       const imageSrc = /^https?:\/\//i.test(image) ? image : link(image);
-      return '<article class="latest-carousel-card" data-article-slide="' + i + '"><a class="latest-carousel-image" href="' + href + '" tabindex="-1" aria-hidden="true"><img loading="lazy" decoding="async" width="480" height="270" sizes="(max-width: 540px) 90vw, (max-width: 800px) 45vw, 30vw" src="' + esc(imageSrc) + '" alt=""></a><div class="latest-carousel-copy"><span class="article-category">' + esc(a.category || 'مقالات') + '</span><span class="carousel-index">0' + (i+1) + ' / 0' + latest.length + '</span><h3><a href="' + href + '">' + esc(a.title) + '</a></h3><p>' + esc(a.description || 'اكتشف الدليل الكامل في مكتبة فاست سيو | Fast Seo.') + '</p><a class="button button-primary" href="' + href + '">اقرأ المقال <span aria-hidden="true">←</span></a></div></article>';
+      return '<article class="latest-carousel-card" data-article-slide="' + i + '"><a class="latest-carousel-image" href="' + href + '" tabindex="-1" aria-hidden="true"><img loading="lazy" decoding="async" width="480" height="270"' + responsiveImageAttrs(imageSrc,'(max-width: 540px) 90vw, (max-width: 800px) 45vw, 30vw') + ' src="' + esc(optimizeImageUrl(imageSrc,640)) + '" alt=""></a><div class="latest-carousel-copy"><span class="article-category">' + esc(a.category || 'مقالات') + '</span><span class="carousel-index">0' + (i+1) + ' / 0' + latest.length + '</span><h3><a href="' + href + '">' + esc(a.title) + '</a></h3><p>' + esc(a.description || 'اكتشف الدليل الكامل في مكتبة فاست سيو | Fast Seo.') + '</p><a class="button button-primary" href="' + href + '">اقرأ المقال <span aria-hidden="true">←</span></a></div></article>';
     }).join('') || '<p class="loading-card">لا توجد مقالات متاحة حاليًا.</p>';
     const slides = [...track.querySelectorAll('[data-article-slide]')];
     let active = 0, timer = null, visible = false;
