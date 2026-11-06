@@ -3261,3 +3261,51 @@ body:has(> main > article){font-family:var(--font-site)!important}
 /* Reserve the injected shared header's height before site.js hydrates it. */
 [data-site-header],[data-home-header]{display:block;min-height:82px}
 @media(max-width:600px){[data-site-header],[data-home-header]{min-height:70px}}
+
+
+/* Accessibility: carousel pagination controls meet WCAG 2.2 target-size guidance. */
+.carousel-dots{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:8px;
+}
+.carousel-dots button[data-slide]{
+  display:inline-grid;
+  place-items:center;
+  flex:0 0 44px;
+  width:44px;
+  min-width:44px;
+  height:44px;
+  min-height:44px;
+  margin:0;
+  padding:0;
+  border:0;
+  border-radius:50%;
+  background:transparent;
+  cursor:pointer;
+  touch-action:manipulation;
+}
+.carousel-dots button[data-slide]::before{
+  content:"";
+  display:block;
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:var(--muted);
+  opacity:.55;
+  transition:background-color .15s ease,opacity .15s ease,transform .15s ease;
+}
+.carousel-dots button[data-slide][aria-current="true"]::before{
+  background:var(--brand);
+  opacity:1;
+  transform:scale(1.2);
+}
+.carousel-dots button[data-slide]:focus-visible{
+  outline:3px solid var(--accent);
+  outline-offset:1px;
+}
+@media(prefers-reduced-motion:reduce){
+  .carousel-dots button[data-slide]::before{transition:none}
+}
