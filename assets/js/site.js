@@ -64,15 +64,21 @@
   });
 
 
-  // Load Font Awesome once across pages that use the shared site script.
-  if (!document.querySelector('script[data-fontawesome-kit]')) {
+  // Load Font Awesome after the page load; icons must not delay initial rendering.
+  const loadFontAwesome = () => {
+    if (document.querySelector('script[data-fontawesome-kit]')) return;
     const fontAwesomeKit = document.createElement('script');
     fontAwesomeKit.src = 'https://kit.fontawesome.com/5ed1f7cde5.js';
     fontAwesomeKit.crossOrigin = 'anonymous';
     fontAwesomeKit.async = true;
     fontAwesomeKit.setAttribute('data-fontawesome-kit', '');
     document.head.appendChild(fontAwesomeKit);
-  }
+  };
+  const scheduleOptionalAssets = callback => {
+    if ('requestIdleCallback' in window) window.requestIdleCallback(callback, { timeout: 2500 });
+    else window.setTimeout(callback, 1200);
+  };
+  window.addEventListener('load', () => scheduleOptionalAssets(loadFontAwesome), { once: true });
 
   const navItems = [
     ['index.html','الرئيسية'],
@@ -83,14 +89,21 @@
     ['pages/tools.html','الأدوات'],
     ['pages/archive.html','الأرشيف']
   ];
-  // Load the optional theme stylesheet loader without replacing existing interactions.
-  if (!$('[data-mseo-theme-switcher-loader]')) {
+  // Load the optional theme picker after initial rendering; first use loads it immediately.
+  let themeLoaderRequested = false;
+  const loadThemeSwitcher = () => {
+    if (themeLoaderRequested || $('[data-mseo-theme-switcher-loader]')) return;
+    themeLoaderRequested = true;
     const themeLoader = document.createElement('script');
     themeLoader.src = link('assets/js/theme-switcher.js');
-    themeLoader.defer = true;
+    themeLoader.async = true;
     themeLoader.setAttribute('data-mseo-theme-switcher-loader', '');
     document.head.appendChild(themeLoader);
-  }
+  };
+  window.addEventListener('load', () => scheduleOptionalAssets(loadThemeSwitcher), { once: true });
+  document.addEventListener('click', event => {
+    if (event.target.closest && event.target.closest('[data-theme-toggle], [data-theme-float]')) loadThemeSwitcher();
+  }, true);
   const header = $('[data-site-header]') || $('[data-home-header]');
   if (header) {
     header.innerHTML = `
