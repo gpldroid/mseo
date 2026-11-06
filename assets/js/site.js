@@ -129,7 +129,7 @@
             </div>
         </div>
         <div class="mseo-search-panel" data-search-panel>
-          <form action="${link('pages/archive.html')}" method="get"><label class="sr-only" for="mseo-global-search">${'ابحث في المقالات'}</label><input id="mseo-global-search" name="q" type="search" placeholder="${'ابحث في مقالات فاست سيو | Fast Seo…'}" /><button type="submit">${'بحث'}</button></form>
+          <form action="${link('pages/archive.html')}" method="get" toolname="fastseoSiteSearch" tooldescription="Search Fast Seo articles and guides by keyword."><label class="sr-only" for="mseo-global-search">${'ابحث في المقالات'}</label><input id="mseo-global-search" name="q" type="search" toolparamdescription="Search term or topic to find relevant articles and guides." placeholder="${'ابحث في مقالات فاست سيو | Fast Seo…'}" /><button type="submit">${'بحث'}</button></form>
         </div>
       </header>`;
   }
