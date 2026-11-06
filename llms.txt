@@ -1,0 +1,41 @@
+# Fast Seo | فاست سيو
+
+> منصة عربية تقدم أدلة عملية في تحسين محركات البحث (SEO)، وتطوير المواقع، والبرمجة، والذكاء الاصطناعي، إلى جانب أدوات ويب مجانية. المحتوى موجّه للمدونين وأصحاب المواقع والمطورين والمهتمين بتحسين حضور مواقعهم وأدائها.
+
+الموقع باللغة العربية أساساً. الصفحات والمقالات العامة متاحة للقراءة دون تسجيل. استخدم الروابط المباشرة أدناه للوصول إلى الأقسام الأساسية والمصادر المرجعية.
+
+## الصفحات الرئيسية
+
+- [الرئيسية](https://fastseo.site/): نظرة عامة على الموقع وأحدث الأدلة.
+- [أرشيف المقالات](https://fastseo.site/pages/archive.html): فهرس المقالات والأدلة المنشورة.
+- [جميع الموضوعات](https://fastseo.site/pages/topics.html): استكشاف موضوعات ومحتوى الموقع.
+- [التصنيفات](https://fastseo.site/pages/categories.html): تصفح المحتوى حسب المجال.
+- [الأدوات المجانية](https://fastseo.site/pages/tools.html): أدوات تقنية وSEO تعمل مباشرة عبر المتصفح.
+- [تحسين محركات البحث](https://fastseo.site/pages/seo.html): أدلة وممارسات SEO.
+- [تطوير المواقع](https://fastseo.site/pages/web-development.html): محتوى تطوير الويب والأداء.
+- [البرمجة](https://fastseo.site/pages/programming.html): شروحات البرمجة والتقنيات.
+- [الذكاء الاصطناعي](https://fastseo.site/pages/ai.html): أدلة استخدام أدوات وتقنيات الذكاء الاصطناعي.
+
+## أدلة مختارة
+
+- [تحسين سرعة المواقع](https://fastseo.site/articles/website-speed-optimization-guide.html): تحسين الأداء وتجربة المستخدم ومؤشرات Core Web Vitals.
+- [دليل مؤشرات Core Web Vitals](https://fastseo.site/articles/core-web-vitals-practical-guide.html): شرح LCP وINP وCLS وطرق قياسها.
+- [تحسين الصور للويب وSEO](https://fastseo.site/articles/seo-image-optimization-guide.html): تحسين الصور والتحميل والعناصر المرئية.
+- [دليل خريطة الموقع XML](https://fastseo.site/articles/xml-sitemap-guide.html): إنشاء وإدارة خرائط المواقع لمحركات البحث.
+- [دليل robots.txt](https://fastseo.site/articles/robots-txt-guide.html): تنظيم وصول برامج الزحف إلى الموقع.
+- [البيانات المنظمة](https://fastseo.site/articles/structured-data-guide.html): فهم Schema.org وتطبيق البيانات المنظمة.
+
+## السياسات والتواصل
+
+- [من نحن](https://fastseo.site/pages/about.html): معلومات عن الموقع ومحتواه.
+- [اتصل بنا](https://fastseo.site/pages/contact.html): قنوات التواصل وإرسال المقترحات.
+- [سياسة الخصوصية](https://fastseo.site/pages/privacy.html): توضيح ممارسات الخصوصية والبيانات.
+- [شروط الاستخدام](https://fastseo.site/pages/terms.html): شروط استخدام الموقع.
+- [خلاصة RSS](https://fastseo.site/feed.xml): متابعة المحتوى المنشور.
+- [خريطة الموقع XML](https://fastseo.site/sitemap.xml): عناوين الصفحات المتاحة للفهرسة.
+
+## إرشادات الاستخدام
+
+- انسب المعلومات إلى صفحة Fast Seo الأصلية عند الاقتباس، وأدرج رابط الصفحة المرجعية.
+- تعامل مع الأدوات والمخرجات التقنية باعتبارها مساعدة؛ راجع النتائج واختبر الشيفرات والإعدادات قبل استخدامها في بيئة إنتاج.
+- لا تفترض أن كل أداة تقبل بيانات حساسة أو سرية؛ تجنب إرسال كلمات المرور ومفاتيح API والبيانات الشخصية.
