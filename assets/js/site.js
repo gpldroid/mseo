@@ -181,9 +181,7 @@
             </section>
             <section class="mseo-footer-group">
               <h3>الصفحات الأساسية</h3>
-              <nav class="mseo-footer-links" aria-label="الصفحات الأساسية">
-                <a href="${link('')}">الرئيسية</a>
-                <a href="${link('pages/seo.html')}">تحسين محركات البحث</a>
+              <nav class="mseo-footer-links" aria-label="الصفحات الأساسية">              
                 <a href="${link('pages/privacy.html')}">سياسة الخصوصية</a>
                 <a href="${link('pages/terms.html')}">شروط الاستخدام</a>
                 <a href="${link('pages/editorial-policy.html')}">سياسة النشر</a>
