@@ -249,8 +249,21 @@
 
   const controls=document.createElement('div');controls.className='mseo-scroll-controls';controls.innerHTML='<button type="button" data-scroll-top aria-label="العودة إلى أعلى الصفحة" title="أعلى الصفحة"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></button><button type="button" data-scroll-down aria-label="الانتقال إلى أسفل الصفحة" title="أسفل الصفحة"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i></button>';document.body.append(controls);
   const topButton=$('[data-scroll-top]',controls),downButton=$('[data-scroll-down]',controls);
-  const onScroll=()=>topButton.classList.toggle('is-visible',window.scrollY>300);
-  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+  let scrollFrame=0;
+  let topButtonVisible=false;
+  const updateScrollControl=()=>{
+    scrollFrame=0;
+    const nextVisible=window.scrollY>300;
+    if(nextVisible!==topButtonVisible){
+      topButtonVisible=nextVisible;
+      topButton.classList.toggle('is-visible',nextVisible);
+    }
+  };
+  const onScroll=()=>{
+    if(!scrollFrame) scrollFrame=window.requestAnimationFrame(updateScrollControl);
+  };
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
   topButton.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
   downButton.addEventListener('click',()=>document.querySelector('footer.mseo-footer')?.scrollIntoView({behavior:'smooth',block:'end'}));
   document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const target=$(a.getAttribute('href'));if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth',block:'start'});}}));
