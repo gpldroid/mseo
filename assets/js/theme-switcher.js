@@ -2,7 +2,7 @@
 (() => {
   'use strict';
   const THEME_CSS_ID = 'fastseo-theme-system-css';
-  const STORAGE_KEY = 'fastseo-theme';
+  const STORAGE_KEY = 'fastseo-theme-v2';
   const themes = [
     {id:'modern-seo',name:'Modern SEO',icon:'fa-compass',desc:'متوازن، واضح ومهني للاستخدام اليومي.',mode:'فاتح',colors:['#f4f7fc','#2456d8','#18a6a1','#dbe4f1']},
     {id:'dark-tech',name:'Dark Tech',icon:'fa-microchip',desc:'واجهة داكنة ولمسات كهربائية للمحتوى التقني.',mode:'داكن',colors:['#080d18','#80a5ff','#55e6d2','#273650']},
@@ -20,7 +20,10 @@
   const saved = safeGet();
   const legacy = (() => { try { return localStorage.getItem('mseo-theme'); } catch (_) { return null; } })();
   const legacyMap = {editorial:'editorial-pro',tech:'dark-tech',compact:'modern-seo',reading:'editorial-pro','mseo-blue':'glass-ai'};
-  let active = valid(saved) ? saved : (legacyMap[legacy] || 'gradient-pulse');
+  const previousSaved = (() => { try { return localStorage.getItem('fastseo-theme'); } catch (_) { return null; } })();
+  // Earlier releases persisted Gradient Pulse as an automatic default, not a user choice.
+  // Migrate other explicit palette choices, but restore Modern SEO for that old automatic value.
+  let active = valid(saved) ? saved : (valid(previousSaved) && previousSaved !== 'gradient-pulse' ? previousSaved : (legacyMap[legacy] || 'modern-seo'));
   let backdrop, panel, lastFocus;
   function ensureCss() {
     if ($('#' + THEME_CSS_ID)) return;
@@ -35,7 +38,7 @@
     document.head.appendChild(link);
   }
   function apply(id, persist=true) {
-    active = valid(id) ? id : 'gradient-pulse';
+    active = valid(id) ? id : 'modern-seo';
     root.dataset.theme = active;
     root.classList.toggle('dark', active === 'dark-tech');
     const theme = themes.find(item => item.id === active);
