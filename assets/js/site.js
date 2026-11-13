@@ -254,17 +254,16 @@
     document.body.appendChild(bar);
   }
 
-  // Upgrade common standalone decorative symbols to Font Awesome icons.
+  // Read all candidate content first, then batch DOM updates to avoid read/write interleaving.
   const symbolIcons = {'✓':'fa-check','↓':'fa-arrow-down','↑':'fa-arrow-up','⌕':'fa-magnifying-glass','⌄':'fa-chevron-down','←':'fa-arrow-left','↗':'fa-arrow-up-right-from-square','✳':'fa-wand-magic-sparkles'};
+  const symbolUpdates = [];
   document.querySelectorAll('span[aria-hidden="true"], .eyebrow, .hero-points span, .hero-actions a').forEach(el => {
     if (el.children.length || el.closest('.mseo-mobile-tabbar')) return;
     const symbol = el.textContent.trim();
-    if (symbolIcons[symbol]) {
-      el.innerHTML = '<i class="fa-solid ' + symbolIcons[symbol] + '" aria-hidden="true"></i>';
-    } else if (symbol.startsWith('✓ ')) {
-      el.innerHTML = '<i class="fa-solid fa-check" aria-hidden="true"></i> ' + symbol.slice(1).trim();
-    }
+    if (symbolIcons[symbol]) symbolUpdates.push([el, '<i class="fa-solid ' + symbolIcons[symbol] + '" aria-hidden="true"></i>']);
+    else if (symbol.startsWith('✓ ')) symbolUpdates.push([el, '<i class="fa-solid fa-check" aria-hidden="true"></i> ' + symbol.slice(1).trim()]);
   });
+  symbolUpdates.forEach(([el, markup]) => { el.innerHTML = markup; });
 
   const controls=document.createElement('div');controls.className='mseo-scroll-controls';controls.innerHTML='<button type="button" data-scroll-top aria-label="العودة إلى أعلى الصفحة" title="أعلى الصفحة"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></button><button type="button" data-scroll-down aria-label="الانتقال إلى أسفل الصفحة" title="أسفل الصفحة"><i class="fa-solid fa-arrow-down" aria-hidden="true"></i></button>';document.body.append(controls);
   const topButton=$('[data-scroll-top]',controls),downButton=$('[data-scroll-down]',controls);
