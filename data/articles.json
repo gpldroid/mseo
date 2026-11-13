@@ -1,5 +1,29 @@
 [
   {
+    "slug": "run-ai-models-locally",
+    "file": "run-ai-models-locally.html",
+    "title": "تشغيل نماذج الذكاء الاصطناعي محليًا: دليل عملي",
+    "category": "الذكاء الاصطناعي",
+    "subcategory": "النماذج المحلية والتشغيل الذاتي",
+    "tags": [
+      "تشغيل نماذج الذكاء الاصطناعي محليًا",
+      "نماذج AI محلية",
+      "Ollama",
+      "LM Studio",
+      "llama.cpp",
+      "GGUF",
+      "Quantization"
+    ],
+    "description": "تعلّم تشغيل نماذج الذكاء الاصطناعي محليًا على حاسوبك، واختيار النموذج المناسب وفهم متطلبات RAM وVRAM والتثبيت والخصوصية والأداء.",
+    "icon": "fa-microchip",
+    "image": "https://fastseo.site/assets/images/article-thumbnails/run-ai-models-locally.svg",
+    "thumbnail": "https://fastseo.site/assets/images/article-thumbnails/run-ai-models-locally.svg",
+    "publishedAt": "2026-11-13",
+    "updatedAt": "2026-11-13",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
+  },
+  {
     "slug": "ai-task-automation-guide",
     "file": "ai-task-automation-guide.html",
     "title": "أتمتة المهام بالذكاء الاصطناعي: دليل عملي خطوة بخطوة",
