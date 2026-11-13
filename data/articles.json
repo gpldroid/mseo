@@ -1,5 +1,27 @@
 [
   {
+    "slug": "how-to-write-effective-prompts",
+    "file": "how-to-write-effective-prompts.html",
+    "title": "كيف تكتب Prompt احترافيًا؟ دليل هندسة الأوامر للمبتدئين",
+    "category": "الذكاء الاصطناعي",
+    "subcategory": "هندسة الأوامر وكتابة Prompts",
+    "tags": [
+      "كيف تكتب Prompt",
+      "هندسة الأوامر",
+      "Prompt Engineering",
+      "تحسين Prompts",
+      "كتابة أوامر الذكاء الاصطناعي"
+    ],
+    "description": "تعلم كتابة Prompt احترافي يحدد الهدف والسياق والقيود وشكل المخرجات، مع أمثلة قبل وبعد وطريقة اختبار الإجابات وتحسينها خطوة بخطوة.",
+    "icon": "fa-pen-to-square",
+    "image": "https://fastseo.site/assets/images/article-thumbnails/how-to-write-effective-prompts.svg",
+    "thumbnail": "https://fastseo.site/assets/images/article-thumbnails/how-to-write-effective-prompts.svg",
+    "publishedAt": "2026-11-13",
+    "updatedAt": "2026-11-13",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
+  },
+  {
     "slug": "best-ai-prompts-library",
     "file": "best-ai-prompts-library.html",
     "title": "أفضل Prompts للذكاء الاصطناعي: مكتبة أوامر جاهزة لمختلف الاستخدامات",
