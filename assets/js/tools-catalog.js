@@ -3,6 +3,7 @@
   "use strict";
 
   const tools = [
+    { icon: "activity", kicker: "الأداء والاتصال", title: "قياس سرعة الإنترنت", titleEn: "Internet Speed Test", description: "اختبر سرعة التنزيل والرفع وزمن الاستجابة والتذبذب مباشرة من المتصفح.", descriptionEn: "Measure download, upload, latency and jitter in your browser.", href: "internet-speed-test.html" },
     { icon: "search", kicker: "تحليل المواقع", title: "محلل SEO الأساسي", description: "راجع العنوان والوصف والعناوين والصور والروابط وبيانات المشاركة.", href: "seo-analyzer.html" },
     { icon: "tags", kicker: "تحسين الظهور", title: "مولّد Meta Tags", description: "أنشئ وسوم العنوان والوصف والمشاركة الاجتماعية، ثم انسخ الكود.", href: "meta-tags-generator.html" },
     { icon: "file-text", kicker: "كتابة المحتوى", title: "عداد الكلمات وزمن القراءة", description: "احسب الكلمات والأحرف والفقرات وقدّر وقت القراءة والإلقاء.", href: "word-counter.html" },
