@@ -192,6 +192,7 @@
               <nav class="mseo-footer-links" aria-label="روابط سريعة">
                 <a href="${link('pages/topics.html')}">جميع المقالات</a>
                 <a href="${link('pages/tools.html')}">الأدوات المجانية</a>
+                <a href="${link('pages/internet-speed-test.html')}">قياس سرعة الإنترنت</a>
                 <a href="${link('pages/categories.html')}">التصنيفات</a>
               </nav>
             </section>
