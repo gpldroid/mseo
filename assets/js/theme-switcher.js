@@ -4,12 +4,12 @@
   const THEME_CSS_ID = 'fastseo-theme-system-css';
   const STORAGE_KEY = 'fastseo-theme-v2';
   const themes = [
+    {id:'gradient-pulse',name:'Gradient Pulse',icon:'fa-bolt',desc:'تدرجات حيوية لمظهر إبداعي متجدد.',mode:'فاتح',colors:['#f7f4ff','#7046e8','#f28a52','#e5dcff']}
     {id:'dark-tech',name:'Dark Tech',icon:'fa-microchip',desc:'واجهة داكنة ولمسات كهربائية للمحتوى التقني.',mode:'داكن',colors:['#080d18','#80a5ff','#55e6d2','#273650']},
     {id:'editorial-pro',name:'Editorial Pro',icon:'fa-newspaper',desc:'أسلوب مجلة تحريري للقراءة والمقالات الطويلة.',mode:'فاتح',colors:['#f7f2e9','#8e3548','#bd8a55','#e3d8c8']},
     {id:'glass-ai',name:'Glass AI',icon:'fa-wand-magic-sparkles',desc:'طبقات زجاجية خفيفة وهوية مستقبلية للذكاء الاصطناعي.',mode:'فاتح',colors:['#edf4ff','#6557e8','#32bce5','rgba(151,174,224,.48)']},
     {id:'emerald-growth',name:'Emerald Growth',icon:'fa-seedling',desc:'أخضر للنمو والتسويق وتحسين الظهور.',mode:'فاتح',colors:['#f2f8f4','#13845b','#a5cc56','#d4e6da']},
     {id:'mono-minimal',name:'Mono Minimal',icon:'fa-minimize',desc:'بساطة عالية وتركيز على النص والمحتوى.',mode:'فاتح',colors:['#ffffff','#171717','#858585','#e4e4e4']},
-    {id:'gradient-pulse',name:'Gradient Pulse',icon:'fa-bolt',desc:'تدرجات حيوية لمظهر إبداعي متجدد.',mode:'فاتح',colors:['#f7f4ff','#7046e8','#f28a52','#e5dcff']}
   ];
   const root = document.documentElement;
   const $ = (selector, parent=document) => parent.querySelector(selector);
