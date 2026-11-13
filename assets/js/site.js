@@ -120,11 +120,19 @@
     }, { once: true });
     document.head.appendChild(themeLoader);
   };
-  window.addEventListener('load', () => scheduleOptionalAssets(loadThemeSwitcher), { once: true });
+  // Load the theme preference before the first idle paint so the default never flashes into another palette.
+  loadThemeSwitcher();
   document.addEventListener('click', event => {
     const trigger = event.target.closest && event.target.closest('[data-theme-toggle], [data-theme-float]');
     if (trigger) loadThemeSwitcher(trigger);
   }, true);
+  // Keep article breadcrumbs canonical and friendly; never expose index.html in the home crumb.
+  const articleBreadcrumb = $('nav[aria-label="مسار التنقل"]');
+  if (articleBreadcrumb) {
+    const homeCrumb = articleBreadcrumb.querySelector('a');
+    if (homeCrumb) homeCrumb.setAttribute('href', '/');
+  }
+
   const header = $('[data-site-header]') || $('[data-home-header]');
   if (header) {
     header.style.minHeight = window.matchMedia('(max-width: 760px)').matches ? '70px' : '82px';
