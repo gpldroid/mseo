@@ -1,0 +1,30 @@
+# Netlify cache policy: cache static assets efficiently, keep HTML fresh.
+/assets/*
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+
+/data/*
+  Cache-Control: public, max-age=3600, must-revalidate
+
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/pages/*
+  Cache-Control: public, max-age=0, must-revalidate
+
+/articles/*
+  Cache-Control: public, max-age=0, must-revalidate
+
+/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/sitemap.xml
+  Cache-Control: public, max-age=3600, must-revalidate
+
+/robots.txt
+  Cache-Control: public, max-age=3600, must-revalidate
+
+/feed.xml
+  Cache-Control: public, max-age=3600, must-revalidate
+
+/ads.txt
+  Cache-Control: public, max-age=3600, must-revalidate
