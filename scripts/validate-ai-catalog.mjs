@@ -66,7 +66,7 @@ for (const form of catalog.forms) {
   assert.ok(source.includes('toolparamdescription'), form.id + ': parameter description annotation missing');
 }
 const runtime = await readFile(new URL('assets/js/webmcp.js', root), 'utf8');
-assert.ok(runtime.includes('document.modelContext.registerTool'), 'Imperative registration API is missing');
+assert.ok(runtime.includes('const modelContext = document.modelContext') && runtime.includes('modelContext.registerTool('), 'Imperative registration API is missing');
 assert.ok(runtime.includes('new AbortController()'), 'AbortSignal lifecycle handling is missing');
 assert.ok(runtime.includes('fastseo_search_articles') && runtime.includes('fastseo_list_site_tools'));
 console.log('AI catalog and WebMCP checks passed: ' + catalog.tools.length + ' tool schemas; ' + catalog.forms.length + ' declared search forms.');
