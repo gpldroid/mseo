@@ -58,6 +58,16 @@
   })();
   window.MSEOArticleCatalog = articleCatalog;
 
+  // Register optional WebMCP tools on supporting browsers; ordinary site behavior remains unchanged.
+  if (!document.querySelector('script[data-fastseo-webmcp]')) {
+    const webmcpScript = document.createElement('script');
+    webmcpScript.src = link('assets/js/webmcp.js');
+    webmcpScript.async = true;
+    webmcpScript.dataset.fastseoWebmcp = '';
+    webmcpScript.dataset.catalogUrl = link('data/ai-catalog.json');
+    document.head.appendChild(webmcpScript);
+  }
+
   // Refresh the brand shortcut icon on all pages so browsers do not keep the previous cached mark.
   document.querySelectorAll('link[rel~="icon"]').forEach((iconLink) => {
     iconLink.href = link('assets/favicon.svg?v=20261027');
@@ -130,7 +140,7 @@
             </div>
         </div>
         <div class="mseo-search-panel" data-search-panel>
-          <form action="${link('pages/archive.html')}" method="get" toolname="fastseoSiteSearch" tooldescription="Search Fast Seo articles and guides by keyword."><label class="sr-only" for="mseo-global-search">${'ابحث في المقالات'}</label><input id="mseo-global-search" name="q" type="search" toolparamdescription="Search term or topic to find relevant articles and guides." placeholder="${'ابحث في مقالات فاست سيو | Fast Seo…'}" /><button type="submit">${'بحث'}</button></form>
+          <form action="${link('pages/archive.html')}" method="get" data-webmcp-search toolname="fastseoSiteSearch" tooldescription="Search Fast Seo articles and guides by keyword."><label class="sr-only" for="mseo-global-search">${'ابحث في المقالات'}</label><input id="mseo-global-search" name="q" type="search" toolparamdescription="Search term or topic to find relevant articles and guides." placeholder="${'ابحث في مقالات فاست سيو | Fast Seo…'}" /><button type="submit">${'بحث'}</button></form>
         </div>
       </header>`;
   }

@@ -59,3 +59,7 @@ const expectedRssLinks = catalog.map((item) => new URL('articles/' + item.file, 
 const missingRssLinks = expectedRssLinks.filter((url) => !rssLinks.includes(url));
 if (missingRssLinks.length) throw new Error('feed.xml is missing ' + missingRssLinks.length + ' article links: ' + missingRssLinks.slice(0, 10).join(', '));
 if (rssLinks.length !== catalog.length) throw new Error('feed.xml contains unexpected or duplicate article links');
+
+
+// Keep AI catalog and WebMCP schemas, runtime registration and form coverage in the site validation gate.
+await import('./validate-ai-catalog.mjs');
