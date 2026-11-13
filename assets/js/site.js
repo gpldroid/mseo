@@ -65,6 +65,8 @@
     webmcpScript.async = true;
     webmcpScript.dataset.fastseoWebmcp = '';
     webmcpScript.dataset.catalogUrl = link('data/ai-catalog.json');
+    webmcpScript.dataset.articlesUrl = link('data/articles.json');
+    webmcpScript.dataset.toolsCatalogUrl = link('assets/js/tools-catalog.js');
     document.head.appendChild(webmcpScript);
   }
 

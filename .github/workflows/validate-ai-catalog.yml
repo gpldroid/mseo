@@ -20,3 +20,4 @@ jobs:
         run: |
           node --check assets/js/webmcp.js
           node --check assets/js/site.js
+          node --check assets/js/tools-catalog.js
