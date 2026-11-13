@@ -20,7 +20,7 @@
   const saved = safeGet();
   const legacy = (() => { try { return localStorage.getItem('mseo-theme'); } catch (_) { return null; } })();
   const legacyMap = {editorial:'editorial-pro',tech:'dark-tech',compact:'modern-seo',reading:'editorial-pro','mseo-blue':'glass-ai'};
-  let active = valid(saved) ? saved : (legacyMap[legacy] || 'modern-seo');
+  let active = valid(saved) ? saved : (legacyMap[legacy] || 'gradient-pulse');
   let backdrop, panel, lastFocus;
   function ensureCss() {
     if ($('#' + THEME_CSS_ID)) return;
@@ -35,7 +35,7 @@
     document.head.appendChild(link);
   }
   function apply(id, persist=true) {
-    active = valid(id) ? id : 'modern-seo';
+    active = valid(id) ? id : 'gradient-pulse';
     root.dataset.theme = active;
     root.classList.toggle('dark', active === 'dark-tech');
     const theme = themes.find(item => item.id === active);
