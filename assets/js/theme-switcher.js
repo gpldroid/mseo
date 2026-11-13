@@ -1,16 +1,15 @@
-/* Fast SEO seven-theme picker. Loaded on all public pages by assets/js/site.js. */
+/* Fast SEO six-theme picker. Loaded on all public pages by assets/js/site.js. */
 (() => {
   'use strict';
   const THEME_CSS_ID = 'fastseo-theme-system-css';
   const STORAGE_KEY = 'fastseo-theme-v2';
   const themes = [
-    {id:'modern-seo',name:'Modern SEO',icon:'fa-compass',desc:'متوازن، واضح ومهني للاستخدام اليومي.',mode:'فاتح',colors:['#f4f7fc','#2456d8','#18a6a1','#dbe4f1']},
+    {id:'gradient-pulse',name:'Gradient Pulse',icon:'fa-bolt',desc:'تدرجات حيوية لمظهر إبداعي متجدد.',mode:'فاتح',colors:['#f7f4ff','#7046e8','#f28a52','#e5dcff']},
     {id:'dark-tech',name:'Dark Tech',icon:'fa-microchip',desc:'واجهة داكنة ولمسات كهربائية للمحتوى التقني.',mode:'داكن',colors:['#080d18','#80a5ff','#55e6d2','#273650']},
     {id:'editorial-pro',name:'Editorial Pro',icon:'fa-newspaper',desc:'أسلوب مجلة تحريري للقراءة والمقالات الطويلة.',mode:'فاتح',colors:['#f7f2e9','#8e3548','#bd8a55','#e3d8c8']},
     {id:'glass-ai',name:'Glass AI',icon:'fa-wand-magic-sparkles',desc:'طبقات زجاجية خفيفة وهوية مستقبلية للذكاء الاصطناعي.',mode:'فاتح',colors:['#edf4ff','#6557e8','#32bce5','rgba(151,174,224,.48)']},
     {id:'emerald-growth',name:'Emerald Growth',icon:'fa-seedling',desc:'أخضر للنمو والتسويق وتحسين الظهور.',mode:'فاتح',colors:['#f2f8f4','#13845b','#a5cc56','#d4e6da']},
     {id:'mono-minimal',name:'Mono Minimal',icon:'fa-minimize',desc:'بساطة عالية وتركيز على النص والمحتوى.',mode:'فاتح',colors:['#ffffff','#171717','#858585','#e4e4e4']},
-    {id:'gradient-pulse',name:'Gradient Pulse',icon:'fa-bolt',desc:'تدرجات حيوية لمظهر إبداعي متجدد.',mode:'فاتح',colors:['#f7f4ff','#7046e8','#f28a52','#e5dcff']}
   ];
   const root = document.documentElement;
   const $ = (selector, parent=document) => parent.querySelector(selector);
@@ -19,11 +18,10 @@
   const valid = id => themes.some(theme => theme.id === id);
   const saved = safeGet();
   const legacy = (() => { try { return localStorage.getItem('mseo-theme'); } catch (_) { return null; } })();
-  const legacyMap = {editorial:'editorial-pro',tech:'dark-tech',compact:'modern-seo',reading:'editorial-pro','mseo-blue':'glass-ai'};
+  const legacyMap = {editorial:'editorial-pro',tech:'dark-tech',reading:'editorial-pro','mseo-blue':'glass-ai'};
   const previousSaved = (() => { try { return localStorage.getItem('fastseo-theme'); } catch (_) { return null; } })();
-  // Earlier releases persisted Gradient Pulse as an automatic default, not a user choice.
-  // Migrate other explicit palette choices, but restore Modern SEO for that old automatic value.
-  let active = valid(saved) ? saved : (valid(previousSaved) && previousSaved !== 'gradient-pulse' ? previousSaved : (legacyMap[legacy] || 'modern-seo'));
+  // Gradient Pulse is the first and default theme. Preserve valid saved choices from the remaining themes.
+  let active = valid(saved) ? saved : (valid(previousSaved) ? previousSaved : (legacyMap[legacy] || 'gradient-pulse'));
   let backdrop, panel, lastFocus;
   function ensureCss() {
     if ($('#' + THEME_CSS_ID)) return;
@@ -38,7 +36,7 @@
     document.head.appendChild(link);
   }
   function apply(id, persist=true) {
-    active = valid(id) ? id : 'modern-seo';
+    active = valid(id) ? id : 'gradient-pulse';
     root.dataset.theme = active;
     root.classList.toggle('dark', active === 'dark-tech');
     const theme = themes.find(item => item.id === active);
@@ -138,7 +136,7 @@
     event.stopPropagation();
     event.stopImmediatePropagation();
     if (trigger.matches('[data-theme-float]')) {
-      apply(active === 'dark-tech' ? 'modern-seo' : 'dark-tech', true);
+      apply(active === 'dark-tech' ? 'gradient-pulse' : 'dark-tech', true);
       return;
     }
     if (backdrop && !backdrop.hidden) closePanel(); else openPanel();
