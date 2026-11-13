@@ -35,6 +35,9 @@
     { icon: "palette", kicker: "SEO والمحتوى", title: "مولّد صور Open Graph", titleEn: "Open Graph Image Generator", description: "صمّم صورة مشاركة 1200×630 وأنشئ وسوم Open Graph وTwitter Card.", descriptionEn: "Design a 1200×630 social card and generate Open Graph tags.", href: "open-graph-image-generator.html" }
   ];
 
+  // Structured data shared with WebMCP; keep the visual directory and agent catalog in sync.
+  window.MSEOToolsCatalog = tools.map(tool => ({ ...tool }));
+
   const ICONS = {
     search: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 4.5 4.5M8 10.8h5.6M10.8 8v5.6"/></svg>',
     tags: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m20.6 13.4-7.2 7.2a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8Z"/><circle cx="7.5" cy="7.5" r="1.2"/></svg>',

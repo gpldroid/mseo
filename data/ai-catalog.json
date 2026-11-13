@@ -48,6 +48,29 @@
         },
         "additionalProperties": false
       }
+    },
+    {
+      "name": "fastseo_analyze_page_seo",
+      "description": "Analyze pasted HTML locally and return a concise on-page SEO report without uploading or fetching the page.",
+      "page": "/pages/seo-analyzer.html",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "htmlSource": {
+            "type": "string",
+            "description": "Full HTML source code to inspect locally.",
+            "minLength": 20
+          },
+          "pageUrl": {
+            "type": "string",
+            "description": "Optional page URL used only to classify internal and external links; it is never fetched."
+          }
+        },
+        "required": [
+          "htmlSource"
+        ],
+        "additionalProperties": false
+      }
     }
   ],
   "forms": [
@@ -55,15 +78,22 @@
       "id": "homepage-article-search",
       "source": "index.html",
       "selector": "form.workbench-search",
-      "toolName": "fastseoArticleSearch",
+      "toolName": "fastseo_search_articles",
       "purpose": "Search the public article archive using the query field."
     },
     {
       "id": "shared-header-search",
       "source": "assets/js/site.js",
       "selector": "form[data-webmcp-search]",
-      "toolName": "fastseoSiteSearch",
+      "toolName": "fastseo_search_articles",
       "purpose": "Search the public article archive from the shared site header."
+    },
+    {
+      "id": "seo-analyzer",
+      "source": "pages/seo-analyzer.html",
+      "selector": "form#seo-analyzer-form",
+      "toolName": "fastseo_analyze_page_seo",
+      "purpose": "Analyze pasted HTML locally for essential on-page SEO elements."
     }
   ]
 }
