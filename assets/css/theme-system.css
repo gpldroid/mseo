@@ -1,14 +1,13 @@
-/* Fast SEO seven-theme system — shared by all public pages */
+/* Fast SEO six-theme system — shared by all public pages */
 :root {
-  --theme-id: modern-seo;
-  --bg:#f3f6fb; --surface:#fff; --surface-2:#e7edf6; --text:#111827;
-  --muted:#536174; --line:#cbd5e1; --brand:#244fc4; --brand-2:#183b98;
-  --accent:#087f78; --header:rgba(255,255,255,.97);
-  --shadow:0 14px 38px rgba(28,53,99,.09); --radius:20px;
-  --theme-gradient:linear-gradient(135deg,#2456d8,#18a6a1);
+  --theme-id: gradient-pulse;
+  --bg:#f7f4ff; --surface:#fff; --surface-2:#eee8fb; --text:#211b3a;
+  --muted:#5d5478; --line:#d4c9ef; --brand:#6038cf; --brand-2:#4826a8;
+  --accent:#a94c1f; --header:rgba(255,255,255,.97);
+  --shadow:0 16px 42px rgba(93,58,183,.13); --radius:24px;
+  --theme-gradient:linear-gradient(120deg,#7046e8,#c14de4 55%,#f28a52);
   color-scheme:light;
 }
-html[data-theme="modern-seo"] { color-scheme:light; }
 html[data-theme="dark-tech"] {
   color-scheme:dark; --bg:#080f1d; --surface:#111d30; --surface-2:#1b2a41;
   --text:#f4f7ff; --muted:#b6c3d7; --line:#354761; --brand:#9bb4ff;
@@ -90,9 +89,6 @@ html[data-theme] .mseo-mobile-tabbar a { color:var(--muted); }
 html[data-theme] .mseo-mobile-tabbar a[aria-current="page"] { color:var(--brand); }
 
 /* The themes are complete design directions: layout, density, type, and chrome differ. */
-html[data-theme="modern-seo"] .hero-inner { gap:38px; }
-html[data-theme="modern-seo"] .article-grid { gap:20px; }
-html[data-theme="modern-seo"] .article-card { border-radius:18px; }
 html[data-theme="dark-tech"] body { background-image:radial-gradient(ellipse at 50% -15%,rgba(63,100,230,.13),transparent 48%); }
 html[data-theme="dark-tech"] .hero { background:linear-gradient(140deg,#0d1629,#11132b 60%,#0b1722); }
 html[data-theme="dark-tech"] .visual-window { border-color:#34476b; box-shadow:0 0 0 1px #23365b,0 24px 70px #0008; transform:none; }
