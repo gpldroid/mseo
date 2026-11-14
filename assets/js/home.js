@@ -7,9 +7,8 @@
   })[char]);
   const localAsset = value => {
     const path = String(value || '').trim();
-    if (!path) return '';
-    if (/^(?:https?:)?\/\//i.test(path) || path.startsWith('data:')) return path;
-    return path.replace(/^\.\//, '').replace(/^\//, '');
+    if (!path || !window.FastSEODOM) return '';
+    return window.FastSEODOM.safeURL(path, { allowExternalImages: true });
   };
   const articleUrl = article => 'articles/' + encodeURIComponent(article.file || ((article.slug || '') + '.html'));
   const imageSource = article => localAsset(article.thumbnail || article.image || '');
@@ -69,7 +68,7 @@
     const pageSize = 9;
     let page = 1;
     const uniqueCategories = [...new Set(all.map(item => item.category).filter(Boolean))].sort((a,b) => a.localeCompare(b, 'ar'));
-    if (select) select.innerHTML = '<option value="">كل التصنيفات</option>' + uniqueCategories.map(cat => '<option value="' + esc(cat) + '">' + esc(cat) + '</option>').join('');
+    if (select) window.FastSEODOM.setHTML(select, '<option value="">كل التصنيفات</option>' + uniqueCategories.map(cat => '<option value="' + esc(cat) + '">' + esc(cat) + '</option>').join(''));
 
     function render() {
       if (!grid) return;
@@ -80,14 +79,14 @@
       const pageCount = Math.max(1, Math.ceil(filtered.length / pageSize));
       page = Math.min(Math.max(1, page), pageCount);
       const visible = filtered.slice((page - 1) * pageSize, page * pageSize);
-      grid.innerHTML = visible.length ? visible.map(card).join('') : '<p class="loading-card">لا توجد مقالات مطابقة. جرّب كلمة بحث أو تصنيفًا آخر.</p>';
+      window.FastSEODOM.setHTML(grid, visible.length ? visible.map(card).join('') : '<p class="loading-card">لا توجد مقالات مطابقة. جرّب كلمة بحث أو تصنيفًا آخر.</p>');
       if (count) count.textContent = 'عرض ' + (filtered.length ? (page - 1) * pageSize + 1 : 0) + '–' + Math.min(page * pageSize, filtered.length) + ' من ' + filtered.length + ' مقالًا';
       if (pagination) {
         pagination.hidden = pageCount <= 1;
-        pagination.innerHTML = pageCount <= 1 ? '' :
+        window.FastSEODOM.setHTML(pagination, pageCount <= 1 ? '' :
           '<button type="button" data-page="' + (page - 1) + '"' + (page === 1 ? ' disabled' : '') + '>السابق</button>' +
           Array.from({length:pageCount}, (_,i) => i + 1).map(n => '<button type="button" data-page="' + n + '"' + (n === page ? ' aria-current="page"' : '') + '>' + n + '</button>').join('') +
-          '<button type="button" data-page="' + (page + 1) + '"' + (page === pageCount ? ' disabled' : '') + '>التالي</button>';
+          '<button type="button" data-page="' + (page + 1) + '"' + (page === pageCount ? ' disabled' : '') + '>التالي</button>');
       }
       if (error) error.hidden = true;
     }
@@ -112,12 +111,12 @@
         const paint = () => {
           const item = latest[active];
           const image = imageUrl(item);
-          track.innerHTML = '<article class="latest-carousel-card">' +
+          window.FastSEODOM.setHTML(track, '<article class="latest-carousel-card">' +
             (image ? '<a class="latest-carousel-image" href="' + articleUrl(item) + '"><img src="' + esc(image) + '"' + (imageSrcSet(item) ? ' srcset="' + esc(imageSrcSet(item)) + '" sizes="(max-width: 700px) calc(100vw - 60px), 50vw"' : '') + ' alt="' + esc(item.title) + '" width="640" height="360" loading="' + (active === 0 ? 'eager' : 'lazy') + '"' + (active === 0 ? ' fetchpriority="high"' : '') + ' decoding="async" onerror="this.closest(\'a\').remove()"></a>' : '') +
             '<div class="latest-carousel-copy"><span class="article-category">' + esc(item.category || 'مقالات') + '</span>' +
             '<h3><a href="' + articleUrl(item) + '" aria-label="' + esc(item.title) + '">' + esc(item.title) + '</a></h3>' +
-            '<p>' + esc(item.description || '') + '</p><a class="button button-primary" href="' + articleUrl(item) + '" aria-label="' + esc(item.title) + '">اقرأ المقال <span aria-hidden="true">←</span></a></div></article>';
-          if (dots) dots.innerHTML = latest.map((item, i) => '<button type="button" data-slide="' + i + '" aria-label="عرض المقال ' + (i + 1) + '"' + (i === active ? ' aria-current="true"' : '') + '></button>').join('');
+            '<p>' + esc(item.description || '') + '</p><a class="button button-primary" href="' + articleUrl(item) + '" aria-label="' + esc(item.title) + '">اقرأ المقال <span aria-hidden="true">←</span></a></div></article>');
+          if (dots) window.FastSEODOM.setHTML(dots, latest.map((item, i) => '<button type="button" data-slide="' + i + '" aria-label="عرض المقال ' + (i + 1) + '"' + (i === active ? ' aria-current="true"' : '') + '></button>').join(''));
           carousel?.setAttribute('data-active-slide', String(active));
         };
         const move = delta => { active = (active + delta + latest.length) % latest.length; paint(); };
@@ -130,7 +129,7 @@
           paint();
         });
         paint();
-      } else track.innerHTML = '<p class="loading-card">لا توجد مقالات منشورة بعد.</p>';
+      } else window.FastSEODOM.setHTML(track, '<p class="loading-card">لا توجد مقالات منشورة بعد.</p>');
     }
 
     const sidebarCard = (item, rank) => {
@@ -145,16 +144,16 @@
     };
     const sidebarLatest = $('[data-sidebar-latest]');
     const oldestFirst = all.slice().sort((a,b) => String(a.publishedAt || a.updatedAt || '').localeCompare(String(b.publishedAt || b.updatedAt || '')));
-    if (sidebarLatest) sidebarLatest.innerHTML = oldestFirst.slice(0, 5).map((item, index) => sidebarCard(item, index + 1)).join('') || '<li>لا توجد مقالات بعد.</li>';
+    if (sidebarLatest) window.FastSEODOM.setHTML(sidebarLatest, oldestFirst.slice(0, 5).map((item, index) => sidebarCard(item, index + 1)).join('') || '<li>لا توجد مقالات بعد.</li>');
     // This static GitHub Pages site has no per-article view counter. Until analytics data is integrated,
     // the requested "most viewed" block is transparently ordered from oldest published to newest.
     const sidebarPopular = $('[data-sidebar-popular]');
-    if (sidebarPopular) sidebarPopular.innerHTML = oldestFirst.slice(0, 5).map((item, index) => sidebarCard(item, index + 1)).join('') || '<li>لا توجد مقالات بعد.</li>';
+    if (sidebarPopular) window.FastSEODOM.setHTML(sidebarPopular, oldestFirst.slice(0, 5).map((item, index) => sidebarCard(item, index + 1)).join('') || '<li>لا توجد مقالات بعد.</li>');
     const sidebarCategories = $('[data-sidebar-categories]');
-    if (sidebarCategories) sidebarCategories.innerHTML = uniqueCategories.map(cat => {
+    if (sidebarCategories) window.FastSEODOM.setHTML(sidebarCategories, uniqueCategories.map(cat => {
       const total = all.filter(item => item.category === cat).length;
       return '<li><a href="' + (categories.find(item => item.name === cat)?.href || 'pages/archive.html?category=' + encodeURIComponent(cat)) + '">' + esc(cat) + '</a><span class="sidebar-category-count">' + total + '</span></li>';
-    }).join('');
+    }).join(''));
 
     const categoryGrid = $('#category-grid');
     if (categoryGrid) {
@@ -162,8 +161,8 @@
         const meta = categories.find(item => item.name === name) || {href:'pages/archive.html?category=' + encodeURIComponent(name), desc:'مقالات وأدلة عملية في ' + name};
         return {...meta, name, total:all.filter(item => item.category === name).length};
       });
-      categoryGrid.innerHTML = categoryData.map(item => '<a class="category-card" href="' + item.href + '">' +
-        '<span class="site-card-icon" aria-hidden="true">✦</span><h3>' + esc(item.name) + '</h3><p>' + esc(item.desc) + '</p><span class="site-read">' + item.total + ' مقالًا <span aria-hidden="true">←</span></span></a>').join('');
+      window.FastSEODOM.setHTML(categoryGrid, categoryData.map(item => '<a class="category-card" href="' + item.href + '">' +
+        '<span class="site-card-icon" aria-hidden="true">✦</span><h3>' + esc(item.name) + '</h3><p>' + esc(item.desc) + '</p><span class="site-read">' + item.total + ' مقالًا <span aria-hidden="true">←</span></span></a>').join(''));
     }
   }
   function start() {
@@ -177,9 +176,9 @@
     catalog.load().then(init).catch(error => {
       console.error('[FastSEO homepage] Failed to load article catalog:', error);
       const grid = $('#article-grid');
-      if (grid) grid.innerHTML = '<p class="loading-card">تعذر تحميل المقالات. تحقق من اتصالك ثم أعد تحديث الصفحة.</p>';
+      if (grid) window.FastSEODOM.setHTML(grid, '<p class="loading-card">تعذر تحميل المقالات. تحقق من اتصالك ثم أعد تحديث الصفحة.</p>');
       const track = $('[data-latest-carousel]');
-      if (track) track.innerHTML = '<p class="loading-card">تعذر تحميل أحدث المقالات.</p>';
+      if (track) window.FastSEODOM.setHTML(track, '<p class="loading-card">تعذر تحميل أحدث المقالات.</p>');
       const count = $('#results-count');
       if (count) count.textContent = 'تعذر تحميل القائمة';
       const loadError = $('#load-error');
