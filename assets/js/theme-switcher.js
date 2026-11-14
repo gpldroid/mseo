@@ -17,11 +17,9 @@
   const safeSet = value => { try { localStorage.setItem(STORAGE_KEY, value); } catch (_) {} };
   const valid = id => themes.some(theme => theme.id === id);
   const saved = safeGet();
-  const legacy = (() => { try { return localStorage.getItem('mseo-theme'); } catch (_) { return null; } })();
-  const legacyMap = {editorial:'editorial-pro',tech:'dark-tech',reading:'editorial-pro','mseo-blue':'glass-ai'};
   const previousSaved = (() => { try { return localStorage.getItem('fastseo-theme'); } catch (_) { return null; } })();
   // Gradient Pulse is the first and default theme. Preserve valid saved choices from the remaining themes.
-  let active = valid(saved) ? saved : (valid(previousSaved) ? previousSaved : (legacyMap[legacy] || 'gradient-pulse'));
+  let active = valid(saved) ? saved : (valid(previousSaved) ? previousSaved : 'gradient-pulse');
   let backdrop, panel, lastFocus;
   function ensureCss() {
     if ($('#' + THEME_CSS_ID)) return;

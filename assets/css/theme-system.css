@@ -97,7 +97,7 @@ html[data-theme="dark-tech"] .article-card { border-inline-start:3px solid var(-
 html[data-theme="dark-tech"] .article-card img { aspect-ratio:16/8; }
 html[data-theme="dark-tech"] .site-hero { background:linear-gradient(120deg,#0d172a,#11132b); }
 html[data-theme="dark-tech"] .mseo-footer { background:#070b13; }
-html[data-theme="editorial-pro"] body { font-family:Georgia,"Times New Roman",serif; }
+/* Editorial Pro changes visual styling only; typography stays on the shared Cairo family. */
 html[data-theme="editorial-pro"] .section-heading h2,
 html[data-theme="editorial-pro"] .site-hero h1,
 html[data-theme="editorial-pro"] .hero h1,
