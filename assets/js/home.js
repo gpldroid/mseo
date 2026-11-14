@@ -149,8 +149,9 @@
         '<span class="sidebar-article-category">' + esc(item.category || 'مقالات') + '</span></div></li>';
     };
     const sidebarLatest = $('[data-sidebar-latest]');
+    const newestFirst = all.slice().sort((a,b) => String(b.publishedAt || b.updatedAt || '').localeCompare(String(a.publishedAt || a.updatedAt || '')));
     const oldestFirst = all.slice().sort((a,b) => String(a.publishedAt || a.updatedAt || '').localeCompare(String(b.publishedAt || b.updatedAt || '')));
-    if (sidebarLatest) window.FastSEODOM.setHTML(sidebarLatest, oldestFirst.slice(0, 5).map((item, index) => sidebarCard(item, index + 1)).join('') || '<li>لا توجد مقالات بعد.</li>');
+    if (sidebarLatest) window.FastSEODOM.setHTML(sidebarLatest, newestFirst.slice(0, 5).map((item, index) => sidebarCard(item, index + 1)).join('') || '<li>لا توجد مقالات بعد.</li>');
     // This static GitHub Pages site has no per-article view counter. Until analytics data is integrated,
     // the requested "most viewed" block is transparently ordered from oldest published to newest.
     const sidebarPopular = $('[data-sidebar-popular]');
