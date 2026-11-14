@@ -133,10 +133,28 @@
       } else track.innerHTML = '<p class="loading-card">لا توجد مقالات منشورة بعد.</p>';
     }
 
+    const sidebarCard = (item, rank) => {
+      const image = imageUrl(item);
+      return '<li class="sidebar-article-item">' +
+        '<a class="sidebar-article-thumb" href="' + articleUrl(item) + '" tabindex="-1" aria-hidden="true">' +
+        (image ? '<img src="' + esc(image) + '" alt="" width="88" height="66" loading="lazy" decoding="async">' : '<span aria-hidden="true">✦</span>') +
+        '</a><div class="sidebar-article-copy">' +
+        (rank ? '<span class="sidebar-rank">' + rank + '</span>' : '') +
+        '<a class="sidebar-article-title" href="' + articleUrl(item) + '">' + esc(item.title) + '</a>' +
+        '<span class="sidebar-article-category">' + esc(item.category || 'مقالات') + '</span></div></li>';
+    };
     const sidebarLatest = $('[data-sidebar-latest]');
-    if (sidebarLatest) sidebarLatest.innerHTML = all.slice(0, 5).map(item => '<li><a href="' + articleUrl(item) + '">' + esc(item.title) + '</a></li>').join('') || '<li>لا توجد مقالات بعد.</li>';
+    if (sidebarLatest) sidebarLatest.innerHTML = all.slice(0, 5).map(item => sidebarCard(item, 0)).join('') || '<li>لا توجد مقالات بعد.</li>';
+    // This static GitHub Pages site has no per-article view counter. Until analytics data is integrated,
+    // the requested "most viewed" block is transparently ordered from oldest published to newest.
+    const sidebarPopular = $('[data-sidebar-popular]');
+    const oldestFirst = all.slice().sort((a,b) => String(a.publishedAt || a.updatedAt || '').localeCompare(String(b.publishedAt || b.updatedAt || '')));
+    if (sidebarPopular) sidebarPopular.innerHTML = oldestFirst.slice(0, 5).map((item, index) => sidebarCard(item, index + 1)).join('') || '<li>لا توجد مقالات بعد.</li>';
     const sidebarCategories = $('[data-sidebar-categories]');
-    if (sidebarCategories) sidebarCategories.innerHTML = uniqueCategories.map(cat => '<li><a href="' + (categories.find(item => item.name === cat)?.href || 'pages/archive.html?category=' + encodeURIComponent(cat)) + '">' + esc(cat) + '</a></li>').join('');
+    if (sidebarCategories) sidebarCategories.innerHTML = uniqueCategories.map(cat => {
+      const total = all.filter(item => item.category === cat).length;
+      return '<li><a href="' + (categories.find(item => item.name === cat)?.href || 'pages/archive.html?category=' + encodeURIComponent(cat)) + '">' + esc(cat) + '</a><span class="sidebar-category-count">' + total + '</span></li>';
+    }).join('');
 
     const categoryGrid = $('#category-grid');
     if (categoryGrid) {
