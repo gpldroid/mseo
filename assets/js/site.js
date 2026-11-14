@@ -22,6 +22,14 @@
   const nested = /\/(articles|pages)\//.test(path);
   const root = nested ? '../' : './';
   const link = (href) => root + href;
+
+  // Keep the Gradient Pulse identity while allowing a persistent light/dark color mode.
+  const colorModeKey = 'fastseo-color-mode-v1';
+  let savedColorMode = 'light';
+  try {
+    savedColorMode = localStorage.getItem(colorModeKey) === 'dark' ? 'dark' : 'light';
+  } catch (_) {}
+  document.documentElement.dataset.colorMode = savedColorMode;
   const optimizeImageUrl = (source, width) => {
     if (!source) return '';
     try {
@@ -230,6 +238,30 @@
   if(menuButton&&nav){menuButton.addEventListener('click',()=>{const open=nav.classList.toggle('is-open');menuButton.setAttribute('aria-expanded',String(open));menuButton.innerHTML=open?'<i class="fa-solid fa-xmark" aria-hidden="true"></i>':'<i class="fa-solid fa-bars" aria-hidden="true"></i>';});nav.addEventListener('click',e=>{if(e.target.closest('a')){nav.classList.remove('is-open');menuButton.setAttribute('aria-expanded','false');menuButton.innerHTML='<i class="fa-solid fa-bars" aria-hidden="true"></i>';}});}
   const searchButton=$('[data-search-toggle]'),searchPanel=$('[data-search-panel]');
   if(searchButton&&searchPanel){searchButton.addEventListener('click',()=>{const open=searchPanel.classList.toggle('is-open');if(open)$('#mseo-global-search')?.focus();});}
+
+  // Floating light/dark switcher: this changes brightness only, never the Gradient Pulse theme.
+  if (!document.querySelector('[data-mode-toggle]')) {
+    const modeButton = document.createElement('button');
+    modeButton.type = 'button';
+    modeButton.className = 'mseo-mode-toggle';
+    modeButton.setAttribute('data-mode-toggle', '');
+    modeButton.setAttribute('aria-pressed', String(savedColorMode === 'dark'));
+    modeButton.setAttribute('aria-label', savedColorMode === 'dark' ? 'التبديل إلى الوضع الفاتح' : 'التبديل إلى الوضع الداكن');
+    modeButton.title = modeButton.getAttribute('aria-label');
+    modeButton.innerHTML = savedColorMode === 'dark' ? '<span aria-hidden="true">☀</span>' : '<span aria-hidden="true">☾</span>';
+    modeButton.addEventListener('click', () => {
+      const nextMode = document.documentElement.dataset.colorMode === 'dark' ? 'light' : 'dark';
+      document.documentElement.dataset.colorMode = nextMode;
+      modeButton.setAttribute('aria-pressed', String(nextMode === 'dark'));
+      modeButton.setAttribute('aria-label', nextMode === 'dark' ? 'التبديل إلى الوضع الفاتح' : 'التبديل إلى الوضع الداكن');
+      modeButton.title = modeButton.getAttribute('aria-label');
+      modeButton.innerHTML = nextMode === 'dark' ? '<span aria-hidden="true">☀</span>' : '<span aria-hidden="true">☾</span>';
+      try { localStorage.setItem(colorModeKey, nextMode); } catch (_) {}
+      const themeColor = document.querySelector('meta[name="theme-color"]');
+      if (themeColor) themeColor.content = nextMode === 'dark' ? '#141324' : '#f7f4ff';
+    });
+    document.body.appendChild(modeButton);
+  }
 
   // Mobile tab bar: point to the current category section when present, otherwise the archive.
   if (!document.querySelector('[data-mobile-tabbar]')) {
