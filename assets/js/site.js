@@ -35,10 +35,15 @@ function a(e,t){return n(e)||r(e,t)||o(e,t)||i()}function o(e,n){if(e){if(typeof
       return '';
     }
   };
+  // DOMPurify also uses its documented internal "dompurify" policy for inert parsing.
+  // Any future Trusted Types CSP must allow both "dompurify" and "fastseo-dom".
   const setHTML = (element, dirty) => {
     if (!element || !window.DOMPurify) return;
-    const clean = window.DOMPurify.sanitize(String(dirty ?? ''), purifierConfig);
-    element.innerHTML = trustedPolicy ? trustedPolicy.createHTML(clean) : clean;
+    const input = String(dirty ?? '');
+    const safe = trustedPolicy
+      ? trustedPolicy.createHTML(input)
+      : window.DOMPurify.sanitize(input, purifierConfig);
+    element.innerHTML = safe;
   };
   window.FastSEODOM = Object.freeze({ setHTML, safeURL });
 })();
