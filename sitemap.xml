@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://fastseo.site/</loc><lastmod>2026-10-27</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://fastseo.site/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://fastseo.site/pages/archive.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://fastseo.site/articles/how-to-write-effective-prompts.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://fastseo.site/articles/best-ai-prompts-library.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://fastseo.site/articles/run-ai-models-locally.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://fastseo.site/articles/ai-task-automation-guide.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://fastseo.site/articles/ai-agents-guide.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://fastseo.site/articles/local-seo-guide.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://fastseo.site/articles/typescript-for-beginners-ar.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://fastseo.site/articles/keyword-research-guide.html</loc><lastmod>2026-10-27</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://fastseo.site/articles/keyword-research-guide.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://fastseo.site/articles/website-not-appearing-google.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://fastseo.site/articles/create-website-from-scratch.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://fastseo.site/articles/responsive-website-css-guide.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -69,6 +75,10 @@
   <url><loc>https://fastseo.site/articles/website-update-regression-testing.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://fastseo.site/articles/frontend-ui-testing-guide.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://fastseo.site/articles/website-security-basics-checklist.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://fastseo.site/articles/test-color-contrast-text-readability.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://fastseo.site/articles/database-design-for-beginners.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://fastseo.site/articles/google-discover-optimization.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://fastseo.site/articles/javascript-bundle-size-optimization.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://fastseo.site/pages/about.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://fastseo.site/pages/ai-prompt-builder.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://fastseo.site/pages/ai.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
@@ -86,6 +96,7 @@
   <url><loc>https://fastseo.site/pages/image-compressor.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://fastseo.site/pages/image-to-favicon.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://fastseo.site/pages/internal-link-planner.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://fastseo.site/pages/internet-speed-test.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://fastseo.site/pages/json-formatter.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://fastseo.site/pages/json-to-csv.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://fastseo.site/pages/meta-tags-generator.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
@@ -98,7 +109,7 @@
   <url><loc>https://fastseo.site/pages/robots-txt-generator.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://fastseo.site/pages/schema-markup-generator.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://fastseo.site/pages/seo-analyzer.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://fastseo.site/pages/seo.html</loc><lastmod>2026-10-27</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://fastseo.site/pages/seo.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://fastseo.site/pages/serp-preview.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://fastseo.site/pages/sitemap-generator.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://fastseo.site/pages/svg-optimizer.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
@@ -112,15 +123,4 @@
   <url><loc>https://fastseo.site/pages/web-design.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://fastseo.site/pages/web-development.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://fastseo.site/pages/word-counter.html</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://fastseo.site/articles/test-color-contrast-text-readability.html</loc><lastmod>2026-10-29</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://fastseo.site/articles/google-discover-optimization.html</loc><lastmod>2026-10-29</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://fastseo.site/articles/local-seo-guide.html</loc><lastmod>2026-10-29</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://fastseo.site/articles/ai-agents-guide.html</loc><lastmod>2026-10-29</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://fastseo.site/articles/ai-task-automation-guide.html</loc><lastmod>2026-10-29</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://fastseo.site/articles/database-design-for-beginners.html</loc><lastmod>2026-10-29</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://fastseo.site/articles/javascript-bundle-size-optimization.html</loc><lastmod>2026-10-29</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://fastseo.site/articles/run-ai-models-locally.html</loc><lastmod>2026-11-13</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://fastseo.site/articles/best-ai-prompts-library.html</loc><lastmod>2026-11-13</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://fastseo.site/articles/how-to-write-effective-prompts.html</loc><lastmod>2026-11-13</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://fastseo.site/pages/internet-speed-test.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
 </urlset>
