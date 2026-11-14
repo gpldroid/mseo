@@ -144,3 +144,25 @@ html[data-color-mode="dark"] .site-card p {
 @media(prefers-reduced-motion:reduce) {
   .mseo-mode-toggle { transition:none; }
 }
+
+
+/* FastSEO logo lockups: compact horizontal brand mark for header and footer. */
+.mseo-brand-logo {
+  display:block;
+  width:148px;
+  height:46px;
+  max-width:100%;
+  object-fit:contain;
+  object-position:center;
+}
+.mseo-footer-brand .mseo-brand-logo {
+  width:180px;
+  height:48px;
+}
+html[data-color-mode="dark"] .mseo-brand-logo {
+  filter:brightness(1.08) saturate(1.04);
+}
+@media(max-width:600px) {
+  .mseo-header .mseo-brand-logo { width:132px; height:42px; }
+  .mseo-footer-brand .mseo-brand-logo { width:160px; height:44px; }
+}
