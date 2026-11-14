@@ -2,6 +2,23 @@
 (() => {
   const $ = (s, root=document) => root.querySelector(s);
   const path = location.pathname;
+  // Load one shared Google font family (Cairo) on every public page.
+  if (!document.querySelector('link[data-fastseo-google-font="cairo"]')) {
+    const preconnect = document.createElement('link');
+    preconnect.rel = 'preconnect';
+    preconnect.href = 'https://fonts.googleapis.com';
+    document.head.appendChild(preconnect);
+    const fontOrigin = document.createElement('link');
+    fontOrigin.rel = 'preconnect';
+    fontOrigin.href = 'https://fonts.gstatic.com';
+    fontOrigin.crossOrigin = 'anonymous';
+    document.head.appendChild(fontOrigin);
+    const fontStylesheet = document.createElement('link');
+    fontStylesheet.rel = 'stylesheet';
+    fontStylesheet.href = 'https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=optional';
+    fontStylesheet.dataset.fastseoGoogleFont = 'cairo';
+    document.head.appendChild(fontStylesheet);
+  }
   const nested = /\/(articles|pages)\//.test(path);
   const root = nested ? '../' : './';
   const link = (href) => root + href;
@@ -109,7 +126,7 @@
     if (themeLoaderRequested || $('[data-mseo-theme-switcher-loader]')) return;
     themeLoaderRequested = true;
     const themeLoader = document.createElement('script');
-    themeLoader.src = link('assets/js/theme-switcher.js');
+    themeLoader.src = link('assets/js/theme-switcher.js?v=20261114-unified-cairo');
     themeLoader.async = true;
     themeLoader.setAttribute('data-mseo-theme-switcher-loader', '');
     themeLoader.addEventListener('load', () => {
