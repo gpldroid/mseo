@@ -1,1 +1,12 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title"><title id="title">FASTSEO</title><defs><linearGradient id="navy" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#09244a"/><stop offset="1" stop-color="#020918"/></linearGradient><linearGradient id="silver" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#fff"/><stop offset=".45" stop-color="#b8c9da"/><stop offset=".7" stop-color="#fff"/><stop offset="1" stop-color="#7892b0"/></linearGradient><linearGradient id="blue" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#9cffff"/><stop offset=".35" stop-color="#09bfff"/><stop offset=".7" stop-color="#0768ff"/><stop offset="1" stop-color="#00319c"/></linearGradient></defs><rect x="12" y="12" width="488" height="488" rx="112" fill="url(#navy)" stroke="#0e4a8a" stroke-width="7"/><path d="M87 260A165 165 0 0 1 334 114" fill="none" stroke="url(#blue)" stroke-width="22" stroke-linecap="round"/><path d="M320 91l74-18-25 70" fill="none" stroke="url(#blue)" stroke-width="24" stroke-linejoin="round" stroke-linecap="round"/><path d="M420 252A165 165 0 0 1 174 398" fill="none" stroke="url(#blue)" stroke-width="22" stroke-linecap="round"/><g font-family="Arial,Helvetica,sans-serif" font-style="italic" font-weight="900" text-anchor="middle" paint-order="stroke"><text x="251" y="322" font-size="185" letter-spacing="-18" fill="url(#silver)" stroke="#17304e" stroke-width="9">FS</text><path d="M304 176l116-90-37 116 39-23-27 68-64-28 29-18-56-25z" fill="url(#blue)" stroke="#b5f6ff" stroke-width="4" stroke-linejoin="round"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#172b45"/><stop offset="1" stop-color="#081321"/></linearGradient>
+<linearGradient id="flame" x1="0" y1="1" x2="1" y2="0"><stop stop-color="#f97316"/><stop offset=".55" stop-color="#fbbf24"/><stop offset="1" stop-color="#fb6b35"/></linearGradient>
+<linearGradient id="arrow" x1="0" y1="1" x2="1" y2="0"><stop stop-color="#2563eb"/><stop offset=".55" stop-color="#06b6d4"/><stop offset="1" stop-color="#67e8f9"/></linearGradient>
+</defs>
+<rect x="12" y="12" width="488" height="488" rx="116" fill="url(#bg)"/>
+<path d="M355 118a164 164 0 1 0 38 220" fill="none" stroke="url(#flame)" stroke-width="34" stroke-linecap="round"/>
+<path d="M338 82c-4 40 17 61 53 76-36 9-60 28-75 59-23-33-48-46-86-46 32-27 54-56 65-96 10 8 25 9 43 7z" fill="url(#flame)"/>
+<path d="M145 350 326 169l-8 82 91-91 9 126-92 91 4-81-154 154z" fill="url(#arrow)" stroke="#dff8ff" stroke-width="10" stroke-linejoin="round"/>
+<path d="m326 169 83-9-9 126-39-39z" fill="#e0f2fe" opacity=".72"/>
+</svg>
