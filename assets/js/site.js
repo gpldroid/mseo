@@ -291,6 +291,10 @@ function a(e,t){return n(e)||r(e,t)||o(e,t)||i()}function o(e,n){if(e){if(typeof
           </div>
         </div>
       </footer>`);
+    const footerLogo = footer.querySelector('.mseo-footer-brand img');
+    footerLogo?.addEventListener('error', () => {
+      footerLogo.src = link('assets/favicon.svg?v=20261028');
+    }, { once: true });
   }
   const year = $('[data-current-year]'); if (year) year.textContent = new Date().getFullYear();
   document.querySelectorAll('[data-footer-year]').forEach(el => { el.textContent = new Date().getFullYear(); });
