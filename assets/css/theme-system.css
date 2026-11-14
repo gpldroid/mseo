@@ -8,39 +8,6 @@
   --theme-gradient:linear-gradient(120deg,#7046e8,#c14de4 55%,#f28a52);
   color-scheme:light;
 }
-html[data-theme="dark-tech"] {
-  color-scheme:dark; --bg:#080f1d; --surface:#111d30; --surface-2:#1b2a41;
-  --text:#f4f7ff; --muted:#b6c3d7; --line:#354761; --brand:#9bb4ff;
-  --brand-2:#c0d0ff; --accent:#5de0d0; --header:rgba(8,15,29,.96);
-  --shadow:0 18px 48px rgba(0,0,0,.3); --radius:16px;
-  --theme-gradient:linear-gradient(135deg,#527bff,#a16bff);
-}
-html[data-theme="editorial-pro"] {
-  --bg:#f7f2e9; --surface:#fffdf8; --surface-2:#eee6d9; --text:#28241f;
-  --muted:#62584f; --line:#d5c8b7; --brand:#873044; --brand-2:#6f2435;
-  --accent:#8a5b25; --header:rgba(255,253,248,.98);
-  --shadow:0 10px 26px rgba(64,43,32,.07); --radius:8px;
-  --theme-gradient:linear-gradient(135deg,#8e3548,#bd8a55);
-}
-html[data-theme="glass-ai"] {
-  --bg:#edf4ff; --surface:rgba(255,255,255,.9); --surface-2:#e2ebfa;
-  --text:#172443; --muted:#4d5e80; --line:#b9c8e3;
-  --brand:#5141c8; --brand-2:#3b2ca8; --accent:#087a9b;
-  --header:rgba(242,247,255,.76); --shadow:0 18px 55px rgba(69,85,173,.14);
-  --radius:24px; --theme-gradient:linear-gradient(135deg,#6557e8,#32bce5);
-}
-html[data-theme="emerald-growth"] {
-  --bg:#f2f8f4; --surface:#fff; --surface-2:#e5f0e8; --text:#153326;
-  --muted:#496556; --line:#c5dccd; --brand:#086743; --brand-2:#064f34;
-  --accent:#557c22; --header:rgba(255,255,255,.97); --shadow:0 12px 34px rgba(23,87,59,.09);
-  --radius:16px; --theme-gradient:linear-gradient(135deg,#13845b,#a5cc56);
-}
-html[data-theme="mono-minimal"] {
-  --bg:#fff; --surface:#fff; --surface-2:#f1f1f1; --text:#111;
-  --muted:#555; --line:#cfcfcf; --brand:#171717; --brand-2:#333;
-  --accent:#555; --header:rgba(255,255,255,.97); --shadow:none; --radius:4px;
-  --theme-gradient:linear-gradient(135deg,#222,#888);
-}
 html[data-theme="gradient-pulse"] {
   --bg:#f7f4ff; --surface:#fff; --surface-2:#eee8fb; --text:#211b3a;
   --muted:#5d5478; --line:#d4c9ef; --brand:#6038cf; --brand-2:#4826a8;
@@ -87,39 +54,6 @@ html[data-theme] .prose pre { background:#0b1220; color:#e6edf7; }
 html[data-theme] .mseo-mobile-tabbar { background:var(--header); border-color:var(--line); }
 html[data-theme] .mseo-mobile-tabbar a { color:var(--muted); }
 html[data-theme] .mseo-mobile-tabbar a[aria-current="page"] { color:var(--brand); }
-
-/* Editorial Pro changes visual styling only; typography stays on the shared Cairo family. */
-html[data-theme="editorial-pro"] .section-heading h2,
-html[data-theme="editorial-pro"] .site-hero h1,
-html[data-theme="editorial-pro"] .hero h1,
-html[data-theme="editorial-pro"] .article-card h3 { letter-spacing:-.035em; }
-html[data-theme="editorial-pro"] .article-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:26px; }
-html[data-theme="editorial-pro"] .article-card { border:0; border-bottom:1px solid var(--line); box-shadow:none; border-radius:0; }
-html[data-theme="editorial-pro"] .article-card img { aspect-ratio:16/9; }
-html[data-theme="editorial-pro"] .article-card-body { padding:18px 2px 24px; }
-html[data-theme="editorial-pro"] .site-hero { border-block:1px solid var(--line); }
-html[data-theme="editorial-pro"] .mseo-footer { border-top:4px solid var(--brand); }
-html[data-theme="glass-ai"] .mseo-header, html[data-theme="glass-ai"] .mseo-footer,
-html[data-theme="glass-ai"] .article-card, html[data-theme="glass-ai"] .category-card,
-html[data-theme="glass-ai"] .visual-window, html[data-theme="glass-ai"] .sidebar-widget {
-  backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px);
-}
-html[data-theme="glass-ai"] body { background-image:radial-gradient(circle at 15% 8%,#c7d3ff 0,transparent 26%),radial-gradient(circle at 90% 25%,#c9f4ff 0,transparent 25%); background-attachment:fixed; }
-html[data-theme="glass-ai"] .article-card, html[data-theme="glass-ai"] .category-card { border-radius:24px; }
-html[data-theme="glass-ai"] .hero { background:linear-gradient(135deg,rgba(101,87,232,.1),rgba(50,188,229,.12)); }
-html[data-theme="emerald-growth"] .hero { background:linear-gradient(130deg,#e6f5eb,#f6fbf7 60%,#e5f3d9); }
-html[data-theme="emerald-growth"] .hero-visual .visual-window { border-bottom:4px solid var(--accent); }
-html[data-theme="emerald-growth"] .article-grid { gap:16px; }
-html[data-theme="emerald-growth"] .article-card { border-top:3px solid var(--brand); }
-html[data-theme="emerald-growth"] .site-card-icon { border-radius:50%; }
-html[data-theme="emerald-growth"] .mseo-footer { border-top:4px solid var(--brand); }
-html[data-theme="mono-minimal"] .hero, html[data-theme="mono-minimal"] .site-hero { background:#fff; }
-html[data-theme="mono-minimal"] .hero-visual, html[data-theme="mono-minimal"] .float-chip { display:none; }
-html[data-theme="mono-minimal"] .hero-inner { grid-template-columns:1fr; }
-html[data-theme="mono-minimal"] .article-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:28px; }
-html[data-theme="mono-minimal"] .article-card { border:0; border-radius:0; box-shadow:none; border-bottom:1px solid #ddd; }
-html[data-theme="mono-minimal"] .article-card-body { padding:16px 0 24px; }
-html[data-theme="mono-minimal"] .mseo-header { backdrop-filter:none; border-bottom:2px solid #171717; }
 html[data-theme="gradient-pulse"] .mseo-brand-mark,
 html[data-theme="gradient-pulse"] .site-primary,
 html[data-theme="gradient-pulse"] .button-primary,
@@ -142,13 +76,6 @@ html[data-theme="gradient-pulse"] .mseo-footer { border-top:4px solid transparen
   --accent:#12b8a6; --header:rgba(248,251,255,.88);
   --shadow:0 18px 52px rgba(25,47,102,.10); --radius:24px;
   --theme-gradient:linear-gradient(125deg,#315cf5 0%,#12b8a6 100%);
-}
-html[data-theme="dark-tech"] {
-  --bg:#080d18; --surface:#101a2c; --surface-2:#16243b; --text:#f0f5ff;
-  --muted:#a4b3cb; --line:#263650; --brand:#86a2ff; --brand-2:#b0c0ff;
-  --accent:#48e0cb; --header:rgba(8,13,24,.88);
-  --shadow:0 22px 60px rgba(0,0,0,.30);
-  --theme-gradient:linear-gradient(125deg,#7797ff 0%,#48e0cb 100%);
 }
 html { scroll-padding-top:110px; }
 body {
@@ -239,7 +166,7 @@ html[data-theme] .site-tag,html[data-theme] .heading-count{color:var(--text);bor
 html[data-theme] ::selection{background:color-mix(in srgb,var(--brand) 24%,transparent);color:var(--text)}
 
 
-/* Homepage article cards: keep a complete, rounded card surface in every theme. */
+
 html[data-theme] .article-grid > .article-card {
   border:1px solid var(--line);
   border-radius:20px;
@@ -247,14 +174,7 @@ html[data-theme] .article-grid > .article-card {
   background:var(--surface);
   box-shadow:var(--shadow);
 }
-html[data-theme="dark-tech"] .article-grid > .article-card {
-  border-inline-start:3px solid var(--brand);
-}
 html[data-theme] .article-grid > .article-card .article-card-body {
-  padding:18px 20px 20px;
-}
-html[data-theme="editorial-pro"] .article-grid > .article-card .article-card-body,
-html[data-theme="mono-minimal"] .article-grid > .article-card .article-card-body {
   padding:18px 20px 20px;
 }
 html[data-theme] .article-grid > .article-card > a:first-child {
