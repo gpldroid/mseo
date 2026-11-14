@@ -79,7 +79,7 @@
     grid.innerHTML = themes.map(theme => '<button type="button" class="mseo-style-option" data-theme-choice="' + theme.id + '" aria-pressed="false">' + preview(theme) + '<span class="mseo-style-option-name"><i class="fa-solid ' + theme.icon + '" aria-hidden="true"></i><span>' + theme.name + '</span><span class="mseo-style-active" data-active-badge hidden><i class="fa-solid fa-check" aria-hidden="true"></i> الحالي</span></span><p>' + theme.desc + ' <span>· ' + theme.mode + '</span></p></button>').join('');
     // Defensive cleanup: never render legacy Modern SEO entries in the theme picker.
     grid.querySelectorAll('[data-theme-choice="modern-seo"], .mseo-style-option').forEach(option => {
-      if (option.dataset.themeChoice === 'modern-seo' || /modern\\s*seo/i.test(option.textContent)) option.remove();
+      if (option.dataset.themeChoice === 'modern-seo' || /modern\s*seo/i.test(option.textContent)) option.remove();
     });
     document.body.appendChild(backdrop);
     panel = $('.mseo-style-panel', backdrop);
