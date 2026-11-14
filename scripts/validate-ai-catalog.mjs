@@ -49,6 +49,14 @@ for(const form of catalog.forms) {
 }
 assert.ok((await readText('assets/js/tools-catalog.js')).includes('window.MSEOToolsCatalog = tools.map'),'Structured tools catalog export is missing');
 assert.ok(runtime.includes('new DOMParser()'),'SEO analyzer execution handler is missing');
+assert.ok(runtime.includes("document.modelContext") && runtime.includes("registerTool"),'Native document.modelContext registration is missing');
+assert.ok(runtime.includes("readOnlyHint: true") && runtime.includes("untrustedContentHint: true"),'Read-only and untrusted-content annotations are missing');
+assert.ok(runtime.includes("pagehide") && runtime.includes("controller.abort()"),'WebMCP registrations must be cleaned up with their page lifecycle');
+assert.ok(runtime.includes("1000000") && runtime.includes("query.length > 200"),'WebMCP input size and query bounds are missing');
+const sharedSite = await readText('assets/js/site.js');
+assert.ok(sharedSite.includes('assets/js/webmcp.js?v=20261114-webmcp-hardening'),'Shared public pages must load the versioned WebMCP runtime');
+assert.ok(sharedSite.includes('data-webmcp-search') && sharedSite.includes('toolname="fastseo_search_articles"'),'Shared header article search must retain its declarative WebMCP form annotations');
+
 const css=await readText('assets/css/style.css');
 assert.ok(css.includes('[data-site-header],[data-home-header]')&&css.includes('min-height:82px'),'Header CLS reservation is missing');
 assert.ok(css.includes('.mseo-ad-placement')&&css.includes('min-height:280px'),'Ad-slot CLS reservation is missing');
