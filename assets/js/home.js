@@ -113,7 +113,7 @@
           const item = latest[active];
           const image = imageUrl(item);
           track.innerHTML = '<article class="latest-carousel-card">' +
-            (image ? '<a class="latest-carousel-image" href="' + articleUrl(item) + '"><img src="' + esc(image) + '"' + (imageSrcSet(item) ? ' srcset="' + esc(imageSrcSet(item)) + '" sizes="(max-width: 700px) calc(100vw - 60px), 50vw"' : '') + ' alt="' + esc(item.title) + '" width="640" height="360" loading="lazy" decoding="async" onerror="this.closest(\'a\').remove()"></a>' : '') +
+            (image ? '<a class="latest-carousel-image" href="' + articleUrl(item) + '"><img src="' + esc(image) + '"' + (imageSrcSet(item) ? ' srcset="' + esc(imageSrcSet(item)) + '" sizes="(max-width: 700px) calc(100vw - 60px), 50vw"' : '') + ' alt="' + esc(item.title) + '" width="640" height="360" loading="' + (active === 0 ? 'eager' : 'lazy') + '"' + (active === 0 ? ' fetchpriority="high"' : '') + ' decoding="async" onerror="this.closest(\'a\').remove()"></a>' : '') +
             '<div class="latest-carousel-copy"><span class="article-category">' + esc(item.category || 'مقالات') + '</span>' +
             '<h3><a href="' + articleUrl(item) + '" aria-label="' + esc(item.title) + '">' + esc(item.title) + '</a></h3>' +
             '<p>' + esc(item.description || '') + '</p><a class="button button-primary" href="' + articleUrl(item) + '" aria-label="' + esc(item.title) + '">اقرأ المقال <span aria-hidden="true">←</span></a></div></article>';
