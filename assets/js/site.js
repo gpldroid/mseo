@@ -78,7 +78,7 @@
   // Register optional WebMCP tools on supporting browsers; ordinary site behavior remains unchanged.
   if (!document.querySelector('script[data-fastseo-webmcp]')) {
     const webmcpScript = document.createElement('script');
-    webmcpScript.src = link('assets/js/webmcp.js');
+    webmcpScript.src = link('assets/js/webmcp.js?v=20261114-webmcp-hardening');
     webmcpScript.async = true;
     webmcpScript.dataset.fastseoWebmcp = '';
     webmcpScript.dataset.catalogUrl = link('data/ai-catalog.json');
