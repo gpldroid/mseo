@@ -25,8 +25,8 @@
     if ($('#' + THEME_CSS_ID)) return;
     const currentScript = document.querySelector('script[data-mseo-theme-switcher-loader]');
     const href = currentScript && currentScript.src
-      ? new URL('../css/theme-system.css', currentScript.src).href
-      : new URL((/\/(articles|pages)\//.test(location.pathname) ? '../' : './') + 'assets/css/theme-system.css', location.href).href;
+      ? new URL('../css/theme-system.css?v=20261114-article-card-radius-v3', currentScript.src).href
+      : new URL((/\/(articles|pages)\//.test(location.pathname) ? '../' : './') + 'assets/css/theme-system.css?v=20261114-article-card-radius-v3', location.href).href;
     const link = document.createElement('link');
     link.id = THEME_CSS_ID;
     link.rel = 'stylesheet';
@@ -77,6 +77,10 @@
     backdrop.innerHTML = '<section class="mseo-style-panel" role="dialog" aria-modal="true" aria-labelledby="mseo-style-title" tabindex="-1"><header class="mseo-style-panel-head"><div><h2 id="mseo-style-title">اختر نمط الموقع</h2><p>تغيير شامل للتصميم مع بقاء المقالات والروابط كما هي.</p></div><button type="button" class="mseo-style-close" data-theme-close aria-label="إغلاق لوحة الأنماط"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button></header><div class="mseo-style-grid" data-theme-grid></div></section>';
     const grid = $('[data-theme-grid]', backdrop);
     grid.innerHTML = themes.map(theme => '<button type="button" class="mseo-style-option" data-theme-choice="' + theme.id + '" aria-pressed="false">' + preview(theme) + '<span class="mseo-style-option-name"><i class="fa-solid ' + theme.icon + '" aria-hidden="true"></i><span>' + theme.name + '</span><span class="mseo-style-active" data-active-badge hidden><i class="fa-solid fa-check" aria-hidden="true"></i> الحالي</span></span><p>' + theme.desc + ' <span>· ' + theme.mode + '</span></p></button>').join('');
+    // Defensive cleanup: never render legacy Modern SEO entries in the theme picker.
+    grid.querySelectorAll('[data-theme-choice="modern-seo"], .mseo-style-option').forEach(option => {
+      if (option.dataset.themeChoice === 'modern-seo' || /modern\\s*seo/i.test(option.textContent)) option.remove();
+    });
     document.body.appendChild(backdrop);
     panel = $('.mseo-style-panel', backdrop);
     grid.addEventListener('click', event => {

@@ -302,3 +302,33 @@ html[data-theme] .site-primary,html[data-theme] .button-primary,html[data-theme]
 html[data-theme] .site-primary:hover,html[data-theme] .button-primary:hover,html[data-theme] .mseo-search-panel button:hover{background:var(--brand-2);border-color:var(--brand-2);color:#fff}
 html[data-theme] .site-tag,html[data-theme] .heading-count{color:var(--text);border-color:var(--line)}
 html[data-theme] ::selection{background:color-mix(in srgb,var(--brand) 24%,transparent);color:var(--text)}
+
+
+/* Homepage article cards: keep a complete, rounded card surface in every theme. */
+html[data-theme] .article-grid > .article-card {
+  border:1px solid var(--line);
+  border-radius:20px;
+  overflow:hidden;
+  background:var(--surface);
+  box-shadow:var(--shadow);
+}
+html[data-theme="dark-tech"] .article-grid > .article-card {
+  border-inline-start:3px solid var(--brand);
+}
+html[data-theme] .article-grid > .article-card .article-card-body {
+  padding:18px 20px 20px;
+}
+html[data-theme="editorial-pro"] .article-grid > .article-card .article-card-body,
+html[data-theme="mono-minimal"] .article-grid > .article-card .article-card-body {
+  padding:18px 20px 20px;
+}
+html[data-theme] .article-grid > .article-card > a:first-child {
+  display:block;
+  overflow:hidden;
+  border-radius:19px 19px 0 0;
+}
+html[data-theme] .article-grid > .article-card img {
+  display:block;
+  width:100%;
+  border-radius:0;
+}
