@@ -62,7 +62,7 @@
     const icon = document.createElement("div");
     icon.className = "mseo-tool-card-icon";
     icon.setAttribute("aria-hidden", "true");
-    icon.innerHTML = ICONS[tool.icon] || ICONS.code;
+    window.FastSEODOM.setHTML(icon, ICONS[tool.icon] || ICONS.code);
 
     const kicker = document.createElement("span");
     kicker.className = "mseo-tool-card-kicker";
@@ -112,9 +112,9 @@
         const expanded = visibleCount >= tools.length;
         toggle.hidden = tools.length <= INITIAL_COUNT;
         toggle.setAttribute("aria-expanded", String(expanded));
-        toggle.innerHTML = expanded
+        window.FastSEODOM.setHTML(toggle, expanded
           ? 'عرض أدوات أقل <span aria-hidden="true">⌃</span>'
-          : 'عرض المزيد من الأدوات <span aria-hidden="true">⌄</span>';
+          : 'عرض المزيد من الأدوات <span aria-hidden="true">⌄</span>');
       }
     };
 
