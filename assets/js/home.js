@@ -2,6 +2,12 @@
 (() => {
   'use strict';
   const $ = (selector, root = document) => root.querySelector(selector);
+  // Inline onerror handlers are intentionally stripped by DOMPurify; preserve broken-image fallback behavior safely.
+  document.addEventListener('error', event => {
+    const image = event.target;
+    if (!(image instanceof HTMLImageElement)) return;
+    image.closest('.article-card a, .latest-carousel-card a')?.remove();
+  }, true);
   const esc = value => String(value ?? '').replace(/[&<>"']/g, char => ({
     '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
   })[char]);
