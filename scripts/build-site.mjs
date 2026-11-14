@@ -80,4 +80,8 @@ html = replaceMarker(html, 'CATEGORY_GRID', categories.map(cat => {
 await rm(out, { recursive: true, force: true });
 await copySite(root, out);
 await writeFile(path.join(out, 'index.html'), html, 'utf8');
+const generatedHTML = await readFile(path.join(out, 'index.html'), 'utf8');
+if (generatedHTML.includes('<!-- FASTSEO:')) throw new Error('Static homepage contains unresolved build markers.');
+if (!generatedHTML.includes('class="mseo-header"') || !generatedHTML.includes('class="mseo-footer"')) throw new Error('Static shared header/footer are missing.');
+if (!generatedHTML.includes('class="article-card"') || !generatedHTML.includes('class="latest-carousel-card"')) throw new Error('Static article content is missing.');
 console.log('Static homepage generated:', { articles: articles.length, latest: latest.length, categories: categories.length, output: 'dist/' });
