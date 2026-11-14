@@ -149,7 +149,7 @@
       <header class="mseo-header">
         <div class="mseo-header-inner">
           <button class="mseo-icon-button mseo-menu-toggle" type="button" aria-label="${'فتح القائمة'}" aria-expanded="false" data-menu-toggle><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
-          <a class="mseo-brand" href="${link('')}" aria-label="Fast Seo ${'الرئيسية'}"><img class="mseo-brand-logo" src="${link('assets/images/fastseo-logo-header.svg?v=20261027')}" alt="" width="148" height="46" decoding="async" style="display:block;width:148px;height:46px;object-fit:contain"></a>
+          <a class="mseo-brand" href="${link('')}" aria-label="Fast Seo ${'الرئيسية'}"><img class="mseo-brand-logo" src="${link('assets/images/fastseo-logo-header.svg?v=20261114-brand-v1')}" alt="" width="148" height="46" decoding="async" style="display:block;width:148px;height:46px;object-fit:contain"></a>
           <nav class="mseo-nav" data-main-nav aria-label="${'القائمة الرئيسية'}">
             ${navItems.map(([href,label])=>`<a href="${link(href === 'index.html' ? '' : href)}" ${((href==='index.html' && (path.endsWith('/mseo/') || path.endsWith('/index.html') || path === '/')) || (href!=='index.html' && path.endsWith('/'+href)))?'aria-current="page"':''}>${label}</a>`).join('')}
           </nav>
@@ -179,7 +179,7 @@
         <div class="mseo-footer-inner">
           <section class="mseo-footer-brand-card" aria-label="عن فاست سيو">
             <a class="mseo-brand mseo-footer-brand" href="${link('')}" aria-label="فاست سيو — الصفحة الرئيسية">
-              <img class="mseo-brand-logo" src="${link('assets/images/fastseo-logo-header.svg?v=20261028')}" alt="فاست سيو | Fast Seo" width="180" height="48" decoding="async" onerror="this.onerror=null;this.src='${link('assets/favicon.svg?v=20261028')}'">
+              <img class="mseo-brand-logo" src="${link('assets/images/fastseo-logo-footer.svg?v=20261114-brand-v1')}" alt="فاست سيو | Fast Seo" width="180" height="48" decoding="async" onerror="this.onerror=null;this.src='${link('assets/favicon.svg?v=20261028')}'">
             </a>
             <p class="mseo-footer-tagline">المرجع العربي نحو الظهور الأفضل في محركات البحث، مع أدلة عملية في SEO والذكاء الاصطناعي وتطوير المواقع.</p>
             <nav class="mseo-socials" aria-label="مواقع التواصل الاجتماعي">
