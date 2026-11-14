@@ -58,3 +58,6 @@
   .hero-feature-card h2 { font-size: clamp(1.3rem, 4.4vw, 1.65rem); }
   .workbench-intro h2 { font-size: clamp(1.45rem, 4.8vw, 1.9rem); }
 }
+
+/* The current homepage hero contains copy only; keep one column to avoid an empty grid track and layout shift. */
+.site-hero-layout{grid-template-columns:minmax(0,1fr)}
