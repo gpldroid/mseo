@@ -233,3 +233,14 @@ html[data-color-mode="dark"] .sidebar-article-thumb{background:var(--surface-2)}
  .sidebar-latest .sidebar-article-title,
  .sidebar-popular .sidebar-article-title{font-size:.76rem}
 }
+
+/* Keep the first footer link card (Archive & RSS) in the same vertical layout as its siblings. */
+footer.mseo-footer .mseo-footer-inner > .mseo-footer-grid > .mseo-footer-group:first-child {
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:stretch !important;
+  grid-template-columns:none !important;
+  grid-template-rows:none !important;
+  column-gap:normal !important;
+  row-gap:normal !important;
+}
