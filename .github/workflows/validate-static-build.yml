@@ -1,0 +1,38 @@
+name: Validate static homepage build
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'index.html'
+      - 'data/articles.json'
+      - 'partials/**'
+      - 'scripts/build-site.mjs'
+      - '.github/workflows/deploy-pages.yml'
+      - '.github/workflows/validate-static-build.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check build script syntax
+        run: node --check scripts/build-site.mjs
+      - name: Generate static homepage
+        run: node scripts/build-site.mjs
+      - name: Verify generated homepage
+        run: |
+          test -s dist/index.html
+          ! grep -q 'FASTSEO:' dist/index.html
+          grep -q 'class="mseo-header"' dist/index.html
+          grep -q 'class="mseo-footer"' dist/index.html
+          grep -q 'class="article-card"' dist/index.html
