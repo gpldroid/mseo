@@ -144,11 +144,11 @@
         '<span class="sidebar-article-category">' + esc(item.category || 'مقالات') + '</span></div></li>';
     };
     const sidebarLatest = $('[data-sidebar-latest]');
-    if (sidebarLatest) sidebarLatest.innerHTML = all.slice(0, 5).map(item => sidebarCard(item, 0)).join('') || '<li>لا توجد مقالات بعد.</li>';
+    const oldestFirst = all.slice().sort((a,b) => String(a.publishedAt || a.updatedAt || '').localeCompare(String(b.publishedAt || b.updatedAt || '')));
+    if (sidebarLatest) sidebarLatest.innerHTML = oldestFirst.slice(0, 5).map((item, index) => sidebarCard(item, index + 1)).join('') || '<li>لا توجد مقالات بعد.</li>';
     // This static GitHub Pages site has no per-article view counter. Until analytics data is integrated,
     // the requested "most viewed" block is transparently ordered from oldest published to newest.
     const sidebarPopular = $('[data-sidebar-popular]');
-    const oldestFirst = all.slice().sort((a,b) => String(a.publishedAt || a.updatedAt || '').localeCompare(String(b.publishedAt || b.updatedAt || '')));
     if (sidebarPopular) sidebarPopular.innerHTML = oldestFirst.slice(0, 5).map((item, index) => sidebarCard(item, index + 1)).join('') || '<li>لا توجد مقالات بعد.</li>';
     const sidebarCategories = $('[data-sidebar-categories]');
     if (sidebarCategories) sidebarCategories.innerHTML = uniqueCategories.map(cat => {
