@@ -21,19 +21,19 @@
         url.searchParams.set('auto', 'format');
         url.searchParams.set('fit', 'crop');
         url.searchParams.set('w', String(width));
-        url.searchParams.set('q', '75');
+        url.searchParams.set('q', '68');
         return url.href;
       }
     } catch (_) {}
     return source;
   };
   const imageUrl = article => responsiveImageUrl(imageSource(article), 640);
-  const imageSrcSet = article => {
+  const imageSrcSet = (article, widths = [320, 640, 960]) => {
     const source = imageSource(article);
     try {
       const url = new URL(source, location.href);
       if (url.hostname === 'images.unsplash.com') {
-        return [320, 640, 960].map(width => responsiveImageUrl(source, width) + ' ' + width + 'w').join(', ');
+        return widths.map(width => responsiveImageUrl(source, width) + ' ' + width + 'w').join(', ');
       }
     } catch (_) {}
     return '';
@@ -52,7 +52,7 @@
   const card = article => {
     const image = imageUrl(article);
     return '<article class="article-card">' +
-      (image ? '<a href="' + articleUrl(article) + '" tabindex="-1" aria-hidden="true"><img src="' + esc(image) + '"' + (imageSrcSet(article) ? ' srcset="' + esc(imageSrcSet(article)) + '" sizes="(max-width: 700px) calc(100vw - 36px), (max-width: 1100px) 50vw, 33vw"' : '') + ' alt="" width="640" height="400" loading="lazy" decoding="async" onerror="this.closest(\'a\').remove()"></a>' : '') +
+      (image ? '<a href="' + articleUrl(article) + '" tabindex="-1" aria-hidden="true"><img src="' + esc(image) + '"' + (imageSrcSet(article, [320, 480, 640]) ? ' srcset="' + esc(imageSrcSet(article, [320, 480, 640])) + '" sizes="(max-width: 700px) calc(100vw - 36px), (max-width: 1100px) 50vw, 33vw"' : '') + ' alt="" width="640" height="400" loading="lazy" decoding="async" onerror="this.closest(\'a\').remove()"></a>' : '') +
       '<div class="article-card-body"><span class="article-category">' + esc(article.category || 'مقالات') + '</span>' +
       '<h3><a href="' + articleUrl(article) + '" aria-label="' + esc(article.title) + '">' + esc(article.title) + '</a></h3>' +
       (article.description ? '<p>' + esc(article.description) + '</p>' : '') +
