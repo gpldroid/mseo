@@ -97,8 +97,20 @@
 
   // Refresh the brand shortcut icon on all pages so browsers do not keep the previous cached mark.
   document.querySelectorAll('link[rel~="icon"]').forEach((iconLink) => {
-    iconLink.href = link('assets/favicon.svg?v=20261027');
+    iconLink.href = link('assets/favicon.svg?v=20261114-favicon-v2');
   });
+  if (!document.querySelector('link[rel="icon"][type="image/png"]')) {
+    const pngIcon = document.createElement('link');
+    pngIcon.rel = 'icon'; pngIcon.type = 'image/png'; pngIcon.sizes = '32x32';
+    pngIcon.href = link('assets/favicon-32x32.png?v=20261114-favicon-v2');
+    document.head.appendChild(pngIcon);
+  }
+  if (!document.querySelector('link[rel="apple-touch-icon"]')) {
+    const touchIcon = document.createElement('link');
+    touchIcon.rel = 'apple-touch-icon';
+    touchIcon.href = link('assets/favicon-32x32.png?v=20261114-favicon-v2');
+    document.head.appendChild(touchIcon);
+  }
 
 
   // Load Font Awesome after the page load; icons must not delay initial rendering.
@@ -393,7 +405,7 @@
   const sidebar = document.createElement('aside');
   sidebar.className = 'article-page-sidebar';
   sidebar.setAttribute('aria-label', 'الشريط الجانبي للمقالات');
-  sidebar.innerHTML = '<section class="sidebar-widget"><h2>أحدث المقالات</h2><ul class="sidebar-latest" data-article-sidebar-latest><li>جارٍ تحميل المقالات…</li></ul></section><section class="sidebar-widget"><h2>تصفّح حسب التصنيف</h2><ul class="sidebar-categories" data-article-sidebar-categories><li>جارٍ تحميل التصنيفات…</li></ul></section><section class="sidebar-widget sidebar-promo"><span class="section-kicker">أدوات مجانية</span><h2>أنجز مهامك أسرع</h2><p>استخدم أدوات فاست سيو | Fast Seo المجانية لتحسين المحتوى وSEO وتطوير الويب.</p><a class="site-read" href="../pages/tools.html">استكشف الأدوات ←</a></section>';
+  sidebar.innerHTML = '<section class="sidebar-widget"><h2>أحدث المقالات</h2><ul class="sidebar-latest" data-article-sidebar-latest><li>جارٍ تحميل المقالات…</li></ul></section><section class="sidebar-widget"><h2>الأكثر مشاهدة</h2><p class="sidebar-widget-note">ترتيب زمني يبدأ بالمقالات الأقدم؛ لا تتوفر حالياً بيانات مشاهدة فعلية.</p><ol class="sidebar-popular" data-article-sidebar-popular><li>جارٍ تحميل المقالات…</li></ol></section><section class="sidebar-widget"><h2>تصفّح حسب التصنيف</h2><ul class="sidebar-categories" data-article-sidebar-categories><li>جارٍ تحميل التصنيفات…</li></ul></section><section class="sidebar-widget sidebar-social-widget"><h2>تابعنا</h2><nav class="sidebar-socials" aria-label="مواقع التواصل الاجتماعي"><a href="https://x.com/laraforum" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a><a href="https://m.facebook.com/61577188775609" target="_blank" rel="noopener noreferrer" aria-label="فيسبوك"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a><a href="https://www.instagram.com/larache_forum" target="_blank" rel="noopener noreferrer" aria-label="إنستغرام"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a><a href="https://ma.linkedin.com/in/imad-limrani-0221aa3aa" target="_blank" rel="noopener noreferrer" aria-label="لينكدإن"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a><a href="https://github.com/gpldroid/" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a><a href="https://wa.me/212783539816" target="_blank" rel="noopener noreferrer" aria-label="واتساب"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a></nav></section><section class="sidebar-widget sidebar-promo"><span class="section-kicker">أدوات مجانية</span><h2>أنجز مهامك أسرع</h2><p>استخدم أدوات فاست سيو | Fast Seo المجانية لتحسين المحتوى وSEO وتطوير الويب.</p><a class="site-read" href="../pages/tools.html">استكشف الأدوات ←</a></section>';
   if (breadcrumb) breadcrumb.insertAdjacentElement('afterend', layout);
   else main.insertAdjacentElement('afterbegin', layout);
   layout.append(content, sidebar);
@@ -407,10 +419,19 @@
     const articles = items.slice().sort((a,b) => String(b.updatedAt || b.publishedAt || '').localeCompare(String(a.updatedAt || a.publishedAt || '')));
     const latest = articles.slice(0, 5);
     const sidebarLatest = $('[data-article-sidebar-latest]');
+    const sidebarPopular = $('[data-article-sidebar-popular]');
     const sidebarCategories = $('[data-article-sidebar-categories]');
-    if (sidebarLatest) sidebarLatest.innerHTML = latest.map(a => '<li><a href="' + link('articles/' + encodeURIComponent(a.file || a.slug + '.html')) + '">' + esc(a.title) + '</a><span>' + esc(a.category || 'مقالات') + '</span></li>').join('') || '<li>لا توجد مقالات حاليًا.</li>';
+    const sidebarItem = (a, rank) => {
+      const href = link('articles/' + encodeURIComponent(a.file || a.slug + '.html'));
+      const image = a.thumbnail || a.image || link('assets/favicon.svg');
+      const imageSrc = /^https?:\/\//i.test(image) ? image : link(image);
+      return '<li class="sidebar-article-item"><a class="sidebar-article-thumb" href="' + href + '" tabindex="-1" aria-hidden="true"><img src="' + esc(imageSrc) + '" alt="" width="88" height="66" loading="lazy" decoding="async"></a><div class="sidebar-article-copy">' + (rank ? '<span class="sidebar-rank">' + rank + '</span>' : '') + '<a class="sidebar-article-title" href="' + href + '">' + esc(a.title) + '</a><span class="sidebar-article-category">' + esc(a.category || 'مقالات') + '</span></div></li>';
+    };
+    if (sidebarLatest) sidebarLatest.innerHTML = latest.map(a => sidebarItem(a, 0)).join('') || '<li>لا توجد مقالات حاليًا.</li>';
+    const oldestFirst = articles.slice().sort((a,b) => String(a.publishedAt || a.updatedAt || '').localeCompare(String(b.publishedAt || b.updatedAt || '')));
+    if (sidebarPopular) sidebarPopular.innerHTML = oldestFirst.slice(0,5).map((a,i) => sidebarItem(a,i+1)).join('') || '<li>لا توجد مقالات حاليًا.</li>';
     const categories = [...new Set(articles.map(a => a.category).filter(Boolean))].sort((a,b) => a.localeCompare(b,'ar'));
-    if (sidebarCategories) sidebarCategories.innerHTML = categories.map(category => '<li><a href="' + link('pages/archive.html') + '?category=' + encodeURIComponent(category) + '">' + esc(category) + '</a><span>' + articles.filter(a => a.category === category).length + '</span></li>').join('') || '<li>لا توجد تصنيفات حاليًا.</li>';
+    if (sidebarCategories) sidebarCategories.innerHTML = categories.map(category => '<li><a href="' + link('pages/archive.html') + '?category=' + encodeURIComponent(category) + '">' + esc(category) + '</a><span class="sidebar-category-count">' + articles.filter(a => a.category === category).length + '</span></li>').join('') || '<li>لا توجد تصنيفات حاليًا.</li>';
     const track = $('[data-article-latest-carousel]');
     const dots = $('[data-article-carousel-dots]');
     const carouselRoot = $('[data-article-carousel]');
