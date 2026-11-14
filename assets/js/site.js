@@ -126,7 +126,7 @@
     if (themeLoaderRequested || $('[data-mseo-theme-switcher-loader]')) return;
     themeLoaderRequested = true;
     const themeLoader = document.createElement('script');
-    themeLoader.src = link('assets/js/theme-switcher.js?v=20261114-unified-cairo');
+    themeLoader.src = link('assets/js/theme-switcher.js?v=20261114-theme-picker-clean-v3');
     themeLoader.async = true;
     themeLoader.setAttribute('data-mseo-theme-switcher-loader', '');
     themeLoader.addEventListener('load', () => {
