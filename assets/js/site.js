@@ -118,31 +118,15 @@
     ['pages/tools.html','الأدوات'],
     ['pages/archive.html','الأرشيف']
   ];
-  // Load the optional theme picker after initial rendering; first use loads it immediately.
-  let themeLoaderRequested = false;
-  let pendingThemeTrigger = null;
-  const loadThemeSwitcher = trigger => {
-    if (trigger) pendingThemeTrigger = trigger;
-    if (themeLoaderRequested || $('[data-mseo-theme-switcher-loader]')) return;
-    themeLoaderRequested = true;
-    const themeLoader = document.createElement('script');
-    themeLoader.src = link('assets/js/theme-switcher.js?v=20261114-theme-picker-clean-v3');
-    themeLoader.async = true;
-    themeLoader.setAttribute('data-mseo-theme-switcher-loader', '');
-    themeLoader.addEventListener('load', () => {
-      if (!pendingThemeTrigger || !pendingThemeTrigger.isConnected) return;
-      const target = pendingThemeTrigger;
-      pendingThemeTrigger = null;
-      target.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, view: window }));
-    }, { once: true });
-    document.head.appendChild(themeLoader);
-  };
-  // Load the theme preference before the first idle paint so the default never flashes into another palette.
-  loadThemeSwitcher();
-  document.addEventListener('click', event => {
-    const trigger = event.target.closest && event.target.closest('[data-theme-toggle], [data-theme-float]');
-    if (trigger) loadThemeSwitcher(trigger);
-  }, true);
+  // Use one fixed site-wide palette: Gradient Pulse.
+  document.documentElement.dataset.theme = 'gradient-pulse';
+  if (!document.querySelector('link[data-fastseo-theme-css]')) {
+    const themeCss = document.createElement('link');
+    themeCss.rel = 'stylesheet';
+    themeCss.href = link('assets/css/theme-system.css?v=20261114-gradient-pulse-only');
+    themeCss.dataset.fastseoThemeCss = '';
+    document.head.appendChild(themeCss);
+  }
   // Keep article breadcrumbs canonical and friendly; never expose index.html in the home crumb.
   const articleBreadcrumb = $('nav[aria-label="مسار التنقل"]');
   if (articleBreadcrumb) {
@@ -162,7 +146,6 @@
             ${navItems.map(([href,label])=>`<a href="${link(href === 'index.html' ? '' : href)}" ${((href==='index.html' && (path.endsWith('/mseo/') || path.endsWith('/index.html') || path === '/')) || (href!=='index.html' && path.endsWith('/'+href)))?'aria-current="page"':''}>${label}</a>`).join('')}
           </nav>
           <div class="mseo-actions">
-            <button class="mseo-icon-button" type="button" data-theme-toggle aria-label="فتح لوحة تغيير النمط" title="تغيير نمط الموقع"><i class="fa-solid fa-palette" aria-hidden="true"></i></button>
             <button class="mseo-icon-button" type="button" data-search-toggle aria-label="${'فتح البحث'}" title="${'بحث'}"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></button>
             </div>
         </div>
