@@ -9,12 +9,5 @@
   "display": "standalone",
   "background_color": "#101b2b",
   "theme_color": "#101b2b",
-  "icons": [
-    {
-      "src": "/assets/favicon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
-      "purpose": "any"
-    }
-  ]
+  "icons": [{"src": "/assets/favicon.svg?v=20261114-favicon-v1", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable"}]
 }
