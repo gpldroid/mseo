@@ -9,7 +9,8 @@ const tools = read('../assets/js/tools-catalog.js');
 assert.ok(site.includes('DOMPurify 3.4.17'));
 assert.ok(site.includes('window.FastSEODOM = Object.freeze({ setHTML, safeURL })'));
 assert.ok(site.includes("trustedTypes.createPolicy('fastseo-dom'"));
-assert.ok(site.includes('DOMPurify.sanitize(String(dirty'));
+assert.ok(site.includes('trustedPolicy.createHTML(input)'));
+assert.ok(site.includes('DOMPurify.sanitize(input, purifierConfig)'));
 assert.ok(site.includes("url.hostname === 'images.unsplash.com'"));
 assert.ok(home.includes('safeURL(path, { allowExternalImages: true })'));
 
