@@ -1,86 +1,79 @@
-# FastSEO DOM XSS and Trusted Types audit
+# FastSEO DOM XSS and Trusted Types: audit and implementation status
 
-**Scope:** read-only audit of the current `main` branch before changing runtime behavior or enforcing a Content Security Policy.
+**Updated:** 2026-11-14  
+**Deployment platform:** GitHub Pages  
+**Scope:** record the original DOM-rendering findings, the mitigation already merged, and the security work that remains. This document does not authorize hosting, DNS, or CDN changes.
 
 ## Executive summary
 
-FastSEO uses JavaScript to render shared navigation/footer UI, article cards, category filters, archive results, carousel slides, sidebar widgets, and tool controls. This is a supported architecture and does not need to be removed.
+The original audit identified HTML parsing sinks in the public-site JavaScript. The implementation follow-up was completed in PR #159 and merged to `main`. The current baseline therefore differs from the original pre-mitigation audit: dynamic HTML rendering in the three targeted scripts now passes through a shared DOMPurify-backed boundary, and URL validation is centralized.
 
-The current implementation has multiple HTML parsing sinks (`innerHTML`) in `assets/js/home.js`, `assets/js/site.js`, and `assets/js/tools-catalog.js`. Some templates escape text values before interpolation, but HTML escaping alone does not validate URL schemes or make every HTML sink safe. Therefore, enabling `require-trusted-types-for 'script'` now would likely break rendering, while adding a pass-through Trusted Types policy would provide no meaningful protection.
+This is a mitigation step, not a claim that every script on the site is free of injection risk or that browser-enforced Trusted Types/CSP protections are active.
 
-## Confirmed findings
+## Original audit scope and findings
 
-### `assets/js/home.js`
+The audit covered:
 
-- Builds article cards and carousel markup with template strings and assigns them to `innerHTML`.
-- Renders category options, pagination buttons, sidebar article/category lists, and empty/error states through `innerHTML`.
-- Uses an `esc()` helper for many text and attribute values. This is useful context-specific escaping, but URLs and the HTML parsing sink still need separate validation.
-- Article image sources can come from the article catalog; source protocols and allowed hosts should be validated before assigning them to URL-bearing attributes.
+- `assets/js/home.js`: article cards, carousel, categories, filters, pagination, and sidebar rendering.
+- `assets/js/site.js`: shared header/footer, archive/article rendering, icons, and dynamic third-party integrations.
+- `assets/js/tools-catalog.js`: SVG icon fragments and tool controls.
+- `index.html`: inline tool-catalog and Analytics bootstraps relevant to a future strict CSP.
 
-### `assets/js/site.js`
+The site uses JavaScript-generated UI by design. Text escaping alone does not validate URL schemes or sanitize arbitrary HTML. A permissive Trusted Types policy would not provide meaningful protection.
 
-- Generates the shared header and footer with template strings.
-- Renders archive cards, filters, article sidebars, and the article carousel from catalog data.
-- Uses `innerHTML` for several static controls and icon fragments as well as data-backed markup.
-- Dynamically inserts optional Google Fonts, Font Awesome, and AdSense scripts. These origins must be represented deliberately in any eventual CSP.
-- AdSense placement code also uses DOM construction APIs such as `createElement` and `appendChild`; these are preferable to parsing HTML strings.
+## Implemented mitigation — PR #159
 
-### `assets/js/tools-catalog.js`
+Merged implementation includes:
 
-- Uses `innerHTML` for SVG icon fragments and a small tool-toggle label.
-- The icon markup is selected from an in-code constant map, not directly from article/user content. It should still be moved to DOM/SVG construction or explicitly constrained as trusted static markup.
+1. A self-hosted DOMPurify 3.4.17 bundle with its upstream license.
+2. A shared `window.FastSEODOM.setHTML(element, dirty)` insertion boundary that sanitizes markup before assignment.
+3. A named `fastseo-dom` Trusted Types policy when the browser supports the API. This policy is a preparation boundary; enforcement is not enabled.
+4. A `safeURL` helper that restricts URL schemes and allowed external image origins (including the explicitly permitted Unsplash image host).
+5. Migration of dynamic HTML assignments in `assets/js/site.js`, `assets/js/home.js`, and `assets/js/tools-catalog.js` to the shared sanitizer boundary.
+6. Safe image fallback handling without inline `onerror` handlers.
+7. CI checks for JavaScript syntax and DOM-sink regression boundaries via `scripts/validate-dom-security.mjs`.
 
-### `index.html`
+The implementation PR's validation workflow passed on the deployed main baseline, including the DOM hardening regression check.
 
-- Contains inline scripts for deferred tool-catalog loading and Google Analytics bootstrap.
-- A strict CSP will need hashes/nonces or, preferably for this static site, moving these inline blocks into versioned external JavaScript files.
-- External dependencies currently include Google Fonts, Google Analytics/Tag Manager, Google AdSense, and Font Awesome.
+## Remaining security work
 
-## Risk and compatibility notes
+### Phase A — runtime verification
 
-1. Do not enable Trusted Types enforcement until every active HTML/script URL sink is migrated or safely wrapped.
-2. Do not create a permissive Trusted Types policy that returns its input unchanged.
-3. Do not treat `esc()` as a sanitizer for arbitrary HTML or as URL validation.
-4. Validate catalog image URLs and navigation destinations against explicit allowed protocols/origins.
-5. Preserve the current dynamic UI, article catalog, search/filter/pagination, carousel, shared header/footer, AdSense, and Analytics behavior.
-6. Do not add a `_headers` file and assume GitHub Pages will apply it. GitHub Pages does not provide project-level custom response-header configuration.
+Automated source checks are in place. Still required before treating the UI migration as fully accepted:
 
-## Recommended implementation sequence
+- Browser-test homepage, archive, article pages, navigation, footer, filters, search, pagination, carousel, and tool controls on mobile and desktop.
+- Verify article/catalog text renders as text and cannot inject markup.
+- Verify unsafe URL schemes (for example, `javascript:`) are rejected and approved local/HTTPS image URLs continue to work.
+- Confirm AdSense and Analytics integrations still behave as expected.
+- Exercise WebMCP registration and tool invocation in a browser that supports the native WebMCP API. Static CI validation is not a substitute for this browser test.
 
-### Phase A — safe DOM rendering
+### Phase B — Trusted Types enforcement
 
-- Replace text-only `innerHTML` writes with `textContent`.
-- Replace generated option/button/icon nodes with `createElement`, attributes, and text nodes.
-- For genuinely rich HTML templates, use a maintained sanitizer (DOMPurify) with a narrowly defined allowlist and a named Trusted Types policy. Pin and self-host the dependency where practical; do not use an unpinned third-party script.
-- Validate URL-bearing attributes independently (protocol and permitted origins).
-- Add regression tests for malicious article titles, descriptions, category labels, filenames, and image URLs.
-
-### Phase B — Trusted Types
-
-- Test with a report-only / staging policy first where response headers are available.
-- Enable `require-trusted-types-for 'script'` only after all sinks are compatible.
-- Keep the policy allowlist narrow; never add a generic pass-through policy.
+- Keep enforcement disabled until all active script/HTML sinks across the complete site (including tool-specific scripts and inline bootstraps) have been inventoried and tested.
+- Where response headers are available, begin with a report-only/staging policy and inspect violations.
+- Enable `require-trusted-types-for 'script'` only after compatibility tests pass. Keep the policy allowlist narrow; never introduce a pass-through policy.
 
 ### Phase C — response-header security
 
-- GitHub Pages remains the build/deployment platform, but it cannot set custom HTTP response headers itself.
-- Once an approved proxy/CDN is configured in front of the existing Pages origin, introduce CSP in Report-Only mode, inspect violations, then enforce.
-- Add HSTS, COOP, clickjacking protection (`frame-ancestors` / X-Frame-Options), `X-Content-Type-Options`, Referrer-Policy, and a restrictive Permissions-Policy after compatibility checks.
-- Do not enable HSTS `includeSubDomains` or preload until every affected subdomain is confirmed HTTPS-ready.
+GitHub Pages remains the sole hosting/deployment platform. GitHub Pages does not provide project-level custom HTTP response headers, so a repository `_headers` file must not be treated as an effective security-header solution.
 
-## Out of scope for this audit
+CSP, HSTS, COOP, clickjacking protection, `X-Content-Type-Options`, Referrer-Policy, and Permissions-Policy require a response-header-capable layer. No such layer, DNS change, Cloudflare change, or hosting change is authorized by this document. Do not make those changes without explicit approval. If a permitted header layer is later established, introduce CSP in Report-Only mode first and check Google Fonts, Analytics, AdSense, Font Awesome, and WebMCP compatibility before enforcement.
 
-- No changes to DNS, Cloudflare, hosting, or deployment configuration.
-- No CSP/HSTS/COOP response-header changes.
-- No Trusted Types enforcement.
-- No removal or redesign of the JavaScript-rendered interface.
-- No changes to AdSense, Analytics, Search Console, the Gradient Pulse theme, or site content.
+Do not enable HSTS `includeSubDomains` or preload until every affected subdomain is confirmed HTTPS-ready.
 
-## Acceptance criteria for the implementation PR
+## Acceptance status
 
-- Homepage, archive, article pages, navigation, footer, category filters, search, pagination, and carousels render and remain interactive.
-- No untrusted article/catalog value reaches an HTML parsing sink without sanitization.
-- URL attributes reject unsafe protocols such as `javascript:`.
-- Trusted Types tests pass before enforcement is enabled.
-- Existing analytics and advertising integrations continue to load.
-- Mobile and desktop regression checks pass.
+| Item | Status |
+|---|---|
+| DOMPurify-backed rendering boundary in the three targeted scripts | Implemented in PR #159 |
+| URL validation helper | Implemented in PR #159 |
+| DOM-sink regression and JavaScript syntax CI checks | Implemented; latest main validation passed |
+| Trusted Types policy creation | Implemented as a non-enforcing preparation step |
+| Trusted Types enforcement | Intentionally deferred |
+| CSP and other response security headers | Deferred; GitHub Pages limitation and no approved header layer |
+| Mobile/desktop interactive browser regression | Still requires real browser verification |
+| Native WebMCP discovery and invocation | Still requires a supporting browser test |
+
+## Scope and preservation
+
+No DNS, Cloudflare, hosting, or deployment configuration changes are part of this work. Preserve GitHub Pages, the Gradient Pulse design, site content, AdSense, Analytics, and Search Console. Do not remove the JavaScript-rendered interface.
