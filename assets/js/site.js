@@ -427,8 +427,8 @@
       const imageSrc = /^https?:\/\//i.test(image) ? image : link(image);
       return '<li class="sidebar-article-item"><a class="sidebar-article-thumb" href="' + href + '" tabindex="-1" aria-hidden="true"><img src="' + esc(imageSrc) + '" alt="" width="88" height="66" loading="lazy" decoding="async"></a><div class="sidebar-article-copy">' + (rank ? '<span class="sidebar-rank">' + rank + '</span>' : '') + '<a class="sidebar-article-title" href="' + href + '">' + esc(a.title) + '</a><span class="sidebar-article-category">' + esc(a.category || 'مقالات') + '</span></div></li>';
     };
-    if (sidebarLatest) sidebarLatest.innerHTML = latest.map(a => sidebarItem(a, 0)).join('') || '<li>لا توجد مقالات حاليًا.</li>';
     const oldestFirst = articles.slice().sort((a,b) => String(a.publishedAt || a.updatedAt || '').localeCompare(String(b.publishedAt || b.updatedAt || '')));
+    if (sidebarLatest) sidebarLatest.innerHTML = oldestFirst.slice(0,5).map((a,i) => sidebarItem(a,i+1)).join('') || '<li>لا توجد مقالات حاليًا.</li>';
     if (sidebarPopular) sidebarPopular.innerHTML = oldestFirst.slice(0,5).map((a,i) => sidebarItem(a,i+1)).join('') || '<li>لا توجد مقالات حاليًا.</li>';
     const categories = [...new Set(articles.map(a => a.category).filter(Boolean))].sort((a,b) => a.localeCompare(b,'ar'));
     if (sidebarCategories) sidebarCategories.innerHTML = categories.map(category => '<li><a href="' + link('pages/archive.html') + '?category=' + encodeURIComponent(category) + '">' + esc(category) + '</a><span class="sidebar-category-count">' + articles.filter(a => a.category === category).length + '</span></li>').join('') || '<li>لا توجد تصنيفات حاليًا.</li>';
