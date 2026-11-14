@@ -75,13 +75,6 @@
   ],
   "forms": [
     {
-      "id": "homepage-article-search",
-      "source": "index.html",
-      "selector": "form.workbench-search",
-      "toolName": "fastseo_search_articles",
-      "purpose": "Search the public article archive using the query field."
-    },
-    {
       "id": "shared-header-search",
       "source": "assets/js/site.js",
       "selector": "form[data-webmcp-search]",
