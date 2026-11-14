@@ -305,7 +305,7 @@
   {
     "slug": "professional-website-ui-ux-guide",
     "file": "professional-website-ui-ux-guide.html",
-    "title": "كيف تصمم واجهة موقع احترافية؟ مبادئ UX وUI التي تصنع الفرق",
+    "title": "تصميم واجهات المواقع: دليل عملي لمبادئ UI وUX",
     "category": "تصميم المواقع",
     "subcategory": "تجربة المستخدم والواجهات",
     "tags": [
@@ -315,12 +315,12 @@
       "تجربة المستخدم",
       "تصميم مواقع"
     ],
-    "description": "تعرف إلى مبادئ UI وUX التي تجعل الموقع واضحًا وسهل الاستخدام، من التسلسل البصري والتنقل إلى النماذج وإمكانية الوصول.",
+    "description": "تعلّم تصميم واجهات مواقع واضحة وسهلة الاستخدام عبر مبادئ UI وUX، من فهم المستخدم والتخطيط البصري إلى التنقل والنماذج والاختبار والتحسين، مع خطوات تطبيق قابلة للقياس.",
     "icon": "fa-pen-ruler",
     "image": "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1400&q=85",
     "thumbnail": "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-23",
-    "updatedAt": "2026-10-23"
+    "updatedAt": "2026-11-14"
   },
   {
     "slug": "ai-prompts-for-programmers",
