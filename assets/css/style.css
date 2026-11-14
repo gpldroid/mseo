@@ -195,3 +195,8 @@ html[data-color-mode="dark"] .sidebar-article-thumb{background:var(--surface-2)}
 /* Numbered chronological Latest Articles list. */
 .sidebar-latest .sidebar-article-copy{padding-inline-end:24px}
 .sidebar-latest .sidebar-rank{background:var(--brand);color:#fff}
+
+
+/* Performance: swap text/icon fonts instead of hiding text while fonts load. */
+@font-face{font-family:"Font Awesome 7 Free";font-style:normal;font-weight:900;font-display:swap;src:url("https://ka-f.fontawesome.com/releases/v7.3.1/webfonts/free-fa-solid-900.woff2") format("woff2")}
+@font-face{font-family:"Font Awesome 7 Brands";font-style:normal;font-weight:400;font-display:swap;src:url("https://ka-f.fontawesome.com/releases/v7.3.1/webfonts/free-fa-brands-400.woff2") format("woff2")}
