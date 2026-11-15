@@ -484,7 +484,7 @@ function a(e,t){return n(e)||r(e,t)||o(e,t)||i()}function o(e,n){if(e){if(typeof
       return '<li class="sidebar-article-item"><a class="sidebar-article-thumb" href="' + href + '" tabindex="-1" aria-hidden="true"><img src="' + esc(imageSrc) + '" alt="" width="88" height="66" loading="lazy" decoding="async"></a><div class="sidebar-article-copy">' + (rank ? '<span class="sidebar-rank">' + rank + '</span>' : '') + '<a class="sidebar-article-title" href="' + href + '">' + esc(a.title) + '</a><span class="sidebar-article-category">' + esc(a.category || 'مقالات') + '</span></div></li>';
     };
     const oldestFirst = articles.slice().sort((a,b) => String(a.publishedAt || a.updatedAt || '').localeCompare(String(b.publishedAt || b.updatedAt || '')));
-    if (sidebarLatest) window.FastSEODOM.setHTML(sidebarLatest, oldestFirst.slice(0,5).map((a,i) => sidebarItem(a,i+1)).join('') || '<li>لا توجد مقالات حاليًا.</li>');
+    if (sidebarLatest) window.FastSEODOM.setHTML(sidebarLatest, articles.slice().sort((a,b) => String(b.publishedAt || b.updatedAt || '').localeCompare(String(a.publishedAt || a.updatedAt || ''))).slice(0,5).map((a,i) => sidebarItem(a,i+1)).join('') || '<li>لا توجد مقالات حاليًا.</li>');
     if (sidebarPopular) window.FastSEODOM.setHTML(sidebarPopular, oldestFirst.slice(0,5).map((a,i) => sidebarItem(a,i+1)).join('') || '<li>لا توجد مقالات حاليًا.</li>');
     const categories = [...new Set(articles.map(a => a.category).filter(Boolean))].sort((a,b) => a.localeCompare(b,'ar'));
     if (sidebarCategories) window.FastSEODOM.setHTML(sidebarCategories, categories.map(category => '<li><a href="' + link('pages/archive.html') + '?category=' + encodeURIComponent(category) + '">' + esc(category) + '</a><span class="sidebar-category-count">' + articles.filter(a => a.category === category).length + '</span></li>').join('') || '<li>لا توجد تصنيفات حاليًا.</li>');
@@ -532,9 +532,18 @@ function a(e,t){return n(e)||r(e,t)||o(e,t)||i()}function o(e,n){if(e){if(typeof
       }, {threshold: 0.15});
       observer.observe(carouselRoot);
     } else { visible = true; start(); }
-  }).catch(() => {
+  }).catch(error => {
+    console.error('[FastSEO article widgets] Failed to load or render article catalog:', error);
+    const message = '<p class="loading-card">تعذر تحميل أحدث المقالات. <button type="button" data-article-retry>إعادة المحاولة</button></p>';
     const track = $('[data-article-latest-carousel]');
-    if (track) window.FastSEODOM.setHTML(track, '<p class="loading-card">تعذر تحميل أحدث المقالات.</p>');
+    if (track) window.FastSEODOM.setHTML(track, message);
+    const latestList = $('[data-article-sidebar-latest]');
+    if (latestList) window.FastSEODOM.setHTML(latestList, '<li class="sidebar-load-error">تعذر تحميل المقالات. <button type="button" data-sidebar-retry>إعادة المحاولة</button></li>');
+    const retry = () => {
+      window.MSEOArticleCatalog.load().then(() => location.reload()).catch(retryError => console.error('[FastSEO article widgets] Retry failed:', retryError));
+    };
+    track?.querySelector('[data-article-retry]')?.addEventListener('click', retry);
+    latestList?.querySelector('[data-sidebar-retry]')?.addEventListener('click', retry);
   });
 })();
 
