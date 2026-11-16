@@ -461,7 +461,7 @@ function a(e,t){return n(e)||r(e,t)||o(e,t)||i()}function o(e,n){if(e){if(typeof
   const sidebar = document.createElement('aside');
   sidebar.className = 'article-page-sidebar';
   sidebar.setAttribute('aria-label', 'الشريط الجانبي للمقالات');
-  window.FastSEODOM.setHTML(sidebar, '<section class="sidebar-widget"><h2>أحدث المقالات</h2><ul class="sidebar-latest" data-article-sidebar-latest><li>جارٍ تحميل المقالات…</li></ul></section><section class="sidebar-widget"><h2>الأكثر مشاهدة</h2><p class="sidebar-widget-note">ترتيب زمني يبدأ بالمقالات الأقدم؛ لا تتوفر حالياً بيانات مشاهدة فعلية.</p><ol class="sidebar-popular" data-article-sidebar-popular><li>جارٍ تحميل المقالات…</li></ol></section><section class="sidebar-widget"><h2>تصفّح حسب التصنيف</h2><ul class="sidebar-categories" data-article-sidebar-categories><li>جارٍ تحميل التصنيفات…</li></ul></section><section class="sidebar-widget sidebar-social-widget"><h2>تابعنا</h2><nav class="sidebar-socials" aria-label="مواقع التواصل الاجتماعي"><a href="https://x.com/laraforum" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a><a href="https://m.facebook.com/61577188775609" target="_blank" rel="noopener noreferrer" aria-label="فيسبوك"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a><a href="https://www.instagram.com/larache_forum" target="_blank" rel="noopener noreferrer" aria-label="إنستغرام"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a><a href="https://ma.linkedin.com/in/imad-limrani-0221aa3aa" target="_blank" rel="noopener noreferrer" aria-label="لينكدإن"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a><a href="https://github.com/gpldroid/" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a><a href="https://wa.me/212783539816" target="_blank" rel="noopener noreferrer" aria-label="واتساب"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a></nav></section><section class="sidebar-widget sidebar-promo"><span class="section-kicker">أدوات مجانية</span><h2>أنجز مهامك أسرع</h2><p>استخدم أدوات فاست سيو | Fast Seo المجانية لتحسين المحتوى وSEO وتطوير الويب.</p><a class="site-read" href="../pages/tools.html">استكشف الأدوات ←</a></section>');
+  window.FastSEODOM.setHTML(sidebar, '<section class="sidebar-widget"><h2>الأكثر مشاهدة</h2><p class="sidebar-widget-note">ترتيب زمني يبدأ بالمقالات الأقدم؛ لا تتوفر حالياً بيانات مشاهدة فعلية.</p><ol class="sidebar-popular" data-article-sidebar-popular><li>جارٍ تحميل المقالات…</li></ol></section><section class="sidebar-widget"><h2>تصفّح حسب التصنيف</h2><ul class="sidebar-categories" data-article-sidebar-categories><li>جارٍ تحميل التصنيفات…</li></ul></section><section class="sidebar-widget sidebar-social-widget"><h2>تابعنا</h2><nav class="sidebar-socials" aria-label="مواقع التواصل الاجتماعي"><a href="https://x.com/laraforum" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a><a href="https://m.facebook.com/61577188775609" target="_blank" rel="noopener noreferrer" aria-label="فيسبوك"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i></a><a href="https://www.instagram.com/larache_forum" target="_blank" rel="noopener noreferrer" aria-label="إنستغرام"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a><a href="https://ma.linkedin.com/in/imad-limrani-0221aa3aa" target="_blank" rel="noopener noreferrer" aria-label="لينكدإن"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a><a href="https://github.com/gpldroid/" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a><a href="https://wa.me/212783539816" target="_blank" rel="noopener noreferrer" aria-label="واتساب"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a></nav></section><section class="sidebar-widget sidebar-promo"><span class="section-kicker">أدوات مجانية</span><h2>أنجز مهامك أسرع</h2><p>استخدم أدوات فاست سيو | Fast Seo المجانية لتحسين المحتوى وSEO وتطوير الويب.</p><a class="site-read" href="../pages/tools.html">استكشف الأدوات ←</a></section>');
   if (breadcrumb) breadcrumb.insertAdjacentElement('afterend', layout);
   else main.insertAdjacentElement('afterbegin', layout);
   layout.append(content, sidebar);
@@ -474,7 +474,6 @@ function a(e,t){return n(e)||r(e,t)||o(e,t)||i()}function o(e,n){if(e){if(typeof
   window.MSEOArticleCatalog.load().then(items => {
     const articles = items.slice().sort((a,b) => String(b.updatedAt || b.publishedAt || '').localeCompare(String(a.updatedAt || a.publishedAt || '')));
     const latest = articles.slice(0, 5);
-    const sidebarLatest = $('[data-article-sidebar-latest]');
     const sidebarPopular = $('[data-article-sidebar-popular]');
     const sidebarCategories = $('[data-article-sidebar-categories]');
     const sidebarItem = (a, rank) => {
@@ -484,7 +483,6 @@ function a(e,t){return n(e)||r(e,t)||o(e,t)||i()}function o(e,n){if(e){if(typeof
       return '<li class="sidebar-article-item"><a class="sidebar-article-thumb" href="' + href + '" tabindex="-1" aria-hidden="true"><img src="' + esc(imageSrc) + '" alt="" width="88" height="66" loading="lazy" decoding="async"></a><div class="sidebar-article-copy">' + (rank ? '<span class="sidebar-rank">' + rank + '</span>' : '') + '<a class="sidebar-article-title" href="' + href + '">' + esc(a.title) + '</a><span class="sidebar-article-category">' + esc(a.category || 'مقالات') + '</span></div></li>';
     };
     const oldestFirst = articles.slice().sort((a,b) => String(a.publishedAt || a.updatedAt || '').localeCompare(String(b.publishedAt || b.updatedAt || '')));
-    if (sidebarLatest) window.FastSEODOM.setHTML(sidebarLatest, articles.slice().sort((a,b) => String(b.publishedAt || b.updatedAt || '').localeCompare(String(a.publishedAt || a.updatedAt || ''))).slice(0,5).map((a,i) => sidebarItem(a,i+1)).join('') || '<li>لا توجد مقالات حاليًا.</li>');
     if (sidebarPopular) window.FastSEODOM.setHTML(sidebarPopular, oldestFirst.slice(0,5).map((a,i) => sidebarItem(a,i+1)).join('') || '<li>لا توجد مقالات حاليًا.</li>');
     const categories = [...new Set(articles.map(a => a.category).filter(Boolean))].sort((a,b) => a.localeCompare(b,'ar'));
     if (sidebarCategories) window.FastSEODOM.setHTML(sidebarCategories, categories.map(category => '<li><a href="' + link('pages/archive.html') + '?category=' + encodeURIComponent(category) + '">' + esc(category) + '</a><span class="sidebar-category-count">' + articles.filter(a => a.category === category).length + '</span></li>').join('') || '<li>لا توجد تصنيفات حاليًا.</li>');
@@ -537,13 +535,10 @@ function a(e,t){return n(e)||r(e,t)||o(e,t)||i()}function o(e,n){if(e){if(typeof
     const message = '<p class="loading-card">تعذر تحميل أحدث المقالات. <button type="button" data-article-retry>إعادة المحاولة</button></p>';
     const track = $('[data-article-latest-carousel]');
     if (track) window.FastSEODOM.setHTML(track, message);
-    const latestList = $('[data-article-sidebar-latest]');
-    if (latestList) window.FastSEODOM.setHTML(latestList, '<li class="sidebar-load-error">تعذر تحميل المقالات. <button type="button" data-sidebar-retry>إعادة المحاولة</button></li>');
     const retry = () => {
       window.MSEOArticleCatalog.load().then(() => location.reload()).catch(retryError => console.error('[FastSEO article widgets] Retry failed:', retryError));
     };
     track?.querySelector('[data-article-retry]')?.addEventListener('click', retry);
-    latestList?.querySelector('[data-sidebar-retry]')?.addEventListener('click', retry);
   });
 })();
 
