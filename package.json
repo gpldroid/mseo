@@ -1,0 +1,18 @@
+{
+  "name": "fastseo-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Build and quality checks for fastseo.site",
+  "scripts": {
+    "build": "node scripts/build-site.mjs",
+    "check:js": "node --check assets/js/webmcp.js && node --check assets/js/site.js && node --check assets/js/home.js && node --check assets/js/tools-catalog.js",
+    "audit:seo": "node scripts/audit-seo.mjs",
+    "audit:external-links": "node scripts/audit-external-links.mjs",
+    "audit:links": "node scripts/audit-links.mjs",
+    "audit:security": "node scripts/validate-dom-security.mjs",
+    "audit:catalog": "node scripts/validate-ai-catalog.mjs",
+    "audit:site": "node scripts/validate-site.mjs",
+    "audit:translations": "node scripts/audit-translations.mjs",
+    "audit": "npm run check:js && npm run audit:seo && npm run audit:external-links && npm run audit:links && npm run audit:security && npm run audit:catalog && npm run audit:site && npm run audit:translations"
+  }
+}
