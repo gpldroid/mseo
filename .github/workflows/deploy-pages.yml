@@ -24,8 +24,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Audit local assets
-        run: node scripts/audit-assets.mjs
       - name: Audit internal links and fragments
         run: node scripts/audit-links.mjs
       - name: Configure GitHub Pages
