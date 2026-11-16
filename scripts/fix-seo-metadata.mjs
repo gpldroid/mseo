@@ -62,7 +62,7 @@ for (const file of files) {
   // Replace the retired product label only in metadata/structured data, never in visible page content.
   head = head.replace(/\bMSEO\b/g, 'Fast Seo');
 
-  const title = (original.match(/<title\b[^>]*>([\s\S]*?)<\/title>/i)?.[1] || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  const title = (head.match(/<title\b[^>]*>([\s\S]*?)<\/title>/i)?.[1] || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
   const descriptionTag = head.match(/<meta\b(?=[^>]*\bname\s*=\s*["']description["'])[^>]*>/i)?.[0] || '';
   const description = attr(descriptionTag, 'content').trim();
   if (!title) issues.push(file + ': missing title (left unchanged)');
