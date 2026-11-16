@@ -9,7 +9,7 @@ const ignoredDirs = new Set(['.git', 'node_modules', 'dist', 'admin-dashboard'])
 const BRAND = 'فاست سيو | Fast Seo';
 const LOGO = new URL('assets/images/fastseo-logo-header.svg', siteBase).href;
 
-const escapeRegExp = value => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+const escapeRegExp = value => value.replace(/[|\\{}()[\]^$+*?.-]/g, '\\$&');
 const escapeAttr = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
 const attr = (tag, name) => {
   const match = tag.match(new RegExp('\\b' + name + '\\s*=\\s*(?:"([^"]*)"|\\x27([^\\x27]*)\\x27)', 'i'));
@@ -19,23 +19,23 @@ function upsertMeta(head, keyName, keyValue, content) {
   const pattern = new RegExp('<meta\\b(?=[^>]*\\b' + keyName + '\\s*=\\s*["\\x27]' + escapeRegExp(keyValue) + '["\\x27])[^>]*>', 'i');
   const existing = head.match(pattern)?.[0];
   if (existing) {
-    const updated = /\\bcontent\\s*=/i.test(existing)
-      ? existing.replace(/\\bcontent\\s*=\\s*(?:"[^"]*"|'[^']*'|[^\\s>]+)/i, 'content="' + escapeAttr(content) + '"')
-      : existing.replace(/\\s*\\/?>(\s*)$/, ' content="' + escapeAttr(content) + '">$1');
+    const updated = /\bcontent\s*=/i.test(existing)
+      ? existing.replace(/\bcontent\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+)/i, 'content="' + escapeAttr(content) + '"')
+      : existing.replace(/\s*\/?>(\s*)$/, ' content="' + escapeAttr(content) + '">$1');
     return head.replace(existing, updated);
   }
-  return head.replace(/<\\/head>/i, '  <meta ' + keyName + '="' + escapeAttr(keyValue) + '" content="' + escapeAttr(content) + '">' + '\\n</head>');
+  return head.replace(/<\/head>/i, '  <meta ' + keyName + '="' + escapeAttr(keyValue) + '" content="' + escapeAttr(content) + '">' + '\n</head>');
 }
 function upsertCanonical(head, href) {
-  const pattern = /<link\\b(?=[^>]*\\brel\\s*=\\s*["']canonical["'])[^>]*>/i;
+  const pattern = /<link\b(?=[^>]*\brel\s*=\s*["']canonical["'])[^>]*>/i;
   const existing = head.match(pattern)?.[0];
   if (existing) {
-    const updated = /\\bhref\\s*=/i.test(existing)
-      ? existing.replace(/\\bhref\\s*=\\s*(?:"[^"]*"|'[^']*'|[^\\s>]+)/i, 'href="' + escapeAttr(href) + '"')
-      : existing.replace(/\\s*\\/?>(\s*)$/, ' href="' + escapeAttr(href) + '">$1');
+    const updated = /\bhref\s*=/i.test(existing)
+      ? existing.replace(/\bhref\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+)/i, 'href="' + escapeAttr(href) + '"')
+      : existing.replace(/\s*\/?>(\s*)$/, ' href="' + escapeAttr(href) + '">$1');
     return head.replace(existing, updated);
   }
-  return head.replace(/<\\/head>/i, '  <link rel="canonical" href="' + escapeAttr(href) + '">' + '\\n</head>');
+  return head.replace(/<\/head>/i, '  <link rel="canonical" href="' + escapeAttr(href) + '">' + '\n</head>');
 }
 async function walk(dir, files = []) {
   for (const entry of await readdir(dir, { withFileTypes: true })) {
@@ -54,16 +54,16 @@ const issues = [];
 for (const file of files) {
   const fullPath = path.join(root, file);
   const original = await readFile(fullPath, 'utf8');
-  const match = original.match(/<head\\b[\\s\\S]*?<\\/head>/i);
+  const match = original.match(/<head\b[\s\S]*?<\/head>/i);
   if (!match) { issues.push(file + ': missing head element'); continue; }
   let head = match[0];
   // Retired hosting URLs are corrected only inside the document head; body links/content remain untouched.
-  head = head.replace(/https?:\\/\\/(?:gpldroid\\.github\\.io\\/mseo|mseopro\\.netlify\\.app)(?=\\/|["'#?])/gi, 'https://fastseo.site');
+  head = head.replace(/https?:\/\/(?:gpldroid\.github\.io\/mseo|mseopro\.netlify\.app)(?=\/|["'#?])/gi, 'https://fastseo.site');
   // Replace the retired product label only in metadata/structured data, never in visible page content.
-  head = head.replace(/\\bMSEO\\b/g, 'Fast Seo');
+  head = head.replace(/\bMSEO\b/g, 'Fast Seo');
 
-  const title = (original.match(/<title\\b[^>]*>([\\s\\S]*?)<\\/title>/i)?.[1] || '').replace(/<[^>]+>/g, ' ').replace(/\\s+/g, ' ').trim();
-  const descriptionTag = head.match(/<meta\\b(?=[^>]*\\bname\\s*=\\s*["']description["'])[^>]*>/i)?.[0] || '';
+  const title = (original.match(/<title\b[^>]*>([\s\S]*?)<\/title>/i)?.[1] || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  const descriptionTag = head.match(/<meta\b(?=[^>]*\bname\s*=\s*["']description["'])[^>]*>/i)?.[0] || '';
   const description = attr(descriptionTag, 'content').trim();
   if (!title) issues.push(file + ': missing title (left unchanged)');
   if (!description) issues.push(file + ': missing description (left unchanged)');
@@ -76,7 +76,7 @@ for (const file of files) {
   if (description) head = upsertMeta(head, 'property', 'og:description', description);
   head = upsertMeta(head, 'property', 'og:type', file.startsWith('articles/') ? 'article' : 'website');
 
-  const ogImageTag = head.match(/<meta\\b(?=[^>]*\\bproperty\\s*=\\s*["']og:image["'])[^>]*>/i)?.[0] || '';
+  const ogImageTag = head.match(/<meta\b(?=[^>]*\bproperty\s*=\s*["']og:image["'])[^>]*>/i)?.[0] || '';
   const ogImage = attr(ogImageTag, 'content').trim() || LOGO;
   head = upsertMeta(head, 'property', 'og:image', ogImage);
   head = upsertMeta(head, 'property', 'og:image:alt', title || BRAND);
