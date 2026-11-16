@@ -3,7 +3,7 @@ import path from 'node:path';
 
 const root = process.cwd();
 const ignoredFiles = new Set(['404.html', 'article.html', 'pages/admin.html']);
-const ignoredDirs = new Set(['.git', 'node_modules', 'dist', 'admin-dashboard']);
+const ignoredDirs = new Set(['.git', 'node_modules', 'dist', 'admin-dashboard', 'partials']);
 const htmlFiles = [];
 
 async function walk(dir) {
