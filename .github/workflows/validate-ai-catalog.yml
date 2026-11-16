@@ -15,4 +15,4 @@ jobs:
         with:
           node-version: 22
       - name: Run unified project audit
-        run: npm run audit
+        run: npm run audit:ci
