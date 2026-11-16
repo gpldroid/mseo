@@ -4,9 +4,16 @@ on:
   pull_request:
     branches: [main]
     paths:
+      - '.gitignore'
       - 'index.html'
-      - 'data/articles.json'
+      - 'articles/**'
+      - 'pages/**'
       - 'partials/**'
+      - 'assets/css/**'
+      - 'assets/js/**'
+      - 'assets/images/**'
+      - 'data/**'
+      - 'data/articles.json'
       - 'scripts/build-site.mjs'
       - '.github/workflows/deploy-pages.yml'
       - '.github/workflows/validate-static-build.yml'
@@ -29,6 +36,10 @@ jobs:
         run: node --check scripts/build-site.mjs
       - name: Generate static homepage
         run: node scripts/build-site.mjs
+      - name: Verify required homepage assets
+        run: |
+          test -s assets/css/pages/home.css
+          test ! -e assets/css/pages/home.cs
       - name: Verify generated homepage
         run: |
           test -s dist/index.html
