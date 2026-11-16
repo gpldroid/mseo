@@ -53,6 +53,7 @@ async function walk(dir, files = []) {
 }
 const files = (await walk(root)).sort();
 let changed = 0;
+let cleanHomepageLinks = 0;
 const issues = [];
 for (const file of files) {
   const fullPath = path.join(root, file);
@@ -86,11 +87,17 @@ for (const file of files) {
   if (description) head = upsertMeta(head, 'name', 'twitter:description', description);
   head = upsertMeta(head, 'name', 'twitter:image', ogImage);
 
-  const updated = original.replace(match[0], head);
+  // Normalize relative links back to the homepage without changing article slugs or canonical URLs.
+  const withCleanHomepageLinks = original.replace(/(\bhref\s*=\s*)(["'])\.\.\/index\.html(#latest)?\2/gi, (full, prefix, quote, fragment = '') => {
+    cleanHomepageLinks++;
+    return prefix + quote + '../' + fragment + quote;
+  });
+  const updated = withCleanHomepageLinks.replace(match[0], head);
   if (updated !== original) {
     await writeFile(fullPath, updated, 'utf8');
     changed++;
   }
 }
 console.log('SEO metadata normalization: scanned ' + files.length + ' public HTML pages; updated ' + changed + '.');
+console.log('Internal homepage links normalized: ' + cleanHomepageLinks + ' (../index.html → ../; fragment anchors preserved).');
 for (const issue of issues) console.warn('SEO metadata review required: ' + issue);
