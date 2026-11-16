@@ -17,6 +17,8 @@ async function walk(dir) {
   }
 }
 
+await walk(root);
+
 // Tokenize actual HTML tags while respecting comments, quoted attributes and
 // raw-text/RCDATA elements. This avoids counting examples such as <h1> inside
 // textarea placeholders, code samples, scripts or comments as real headings.
