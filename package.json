@@ -13,6 +13,7 @@
     "audit:catalog": "node scripts/validate-ai-catalog.mjs",
     "audit:site": "node scripts/validate-site.mjs",
     "audit:translations": "node scripts/audit-translations.mjs",
-    "audit": "npm run check:js && npm run audit:seo && npm run audit:external-links && npm run audit:links && npm run audit:security && npm run audit:catalog && npm run audit:site && npm run audit:translations"
+    "audit": "npm run check:js && npm run audit:seo && npm run audit:external-links && npm run audit:links && npm run audit:security && npm run audit:catalog && npm run audit:site && npm run audit:translations",
+    "test": "npm run audit"
   }
 }
