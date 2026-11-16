@@ -4,7 +4,7 @@ import path from 'node:path';
 const root = process.cwd();
 const siteBase = new URL(process.env.MSEO_SITE_URL || 'https://fastseo.site/');
 if (!siteBase.pathname.endsWith('/')) siteBase.pathname += '/';
-const ignoredFiles = new Set(['404.html', 'article.html', 'pages/admin.html']);
+const ignoredFiles = new Set(['404.html', 'article.html', 'pages/admin.html', 'partials/header.html', 'partials/footer.html']);
 const ignoredDirs = new Set(['.git', 'node_modules', 'dist', 'admin-dashboard']);
 const htmlFiles = [];
 

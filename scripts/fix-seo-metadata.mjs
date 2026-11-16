@@ -9,7 +9,7 @@ const ignoredDirs = new Set(['.git', 'node_modules', 'dist', 'admin-dashboard'])
 const BRAND = 'فاست سيو | Fast Seo';
 const LOGO = new URL('assets/images/fastseo-logo-header.svg', siteBase).href;
 
-const escapeRegExp = value => value.replace(/[|\\{}()[\]^$+*?.-]/g, '\\$&');
+const escapeRegExp = value => value;
 const escapeAttr = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
 const attr = (tag, name) => {
   const match = tag.match(new RegExp('\\b' + name + '\\s*=\\s*(?:"([^"]*)"|\\x27([^\\x27]*)\\x27)', 'i'));
