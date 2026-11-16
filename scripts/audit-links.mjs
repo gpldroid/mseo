@@ -11,7 +11,7 @@ const idsByFile = new Map();
 let checked = 0;
 
 function attr(tag, name) {
-  const match = tag.match(new RegExp('\\\\b' + name + '\\\\s*=\\\\s*(?:"([^"]*)"|\\\\x27([^\\\\x27]*)\\\\x27|([^\\\\s>]+))', 'i'));
+  const match = tag.match(new RegExp('\\b' + name + '\\s*=\\s*(?:"([^"]*)"|\\x27([^\\x27]*)\\x27|([^\\s>]+))', 'i'));
   return match ? (match[1] ?? match[2] ?? match[3] ?? '') : '';
 }
 
@@ -62,7 +62,7 @@ htmlFiles.sort();
 for (const file of htmlFiles) {
   const html = await readFile(path.join(root, file), 'utf8');
   const ids = new Set();
-  for (const match of html.matchAll(/\\b(?:id|name)\\s*=\\s*(?:"([^"]+)"|'([^']+)')/gi)) {
+  for (const match of html.matchAll(/\b(?:id|name)\s*=\s*(?:"([^"]+)"|'([^']+)')/gi)) {
     ids.add(match[1] ?? match[2]);
   }
   idsByFile.set(file, ids);
@@ -71,10 +71,10 @@ for (const file of htmlFiles) {
 for (const file of htmlFiles) {
   const html = await readFile(path.join(root, file), 'utf8');
   const markup = html
-    .replace(/(<script\\b[^>]*>)[\\s\\S]*?<\\/script>/gi, '$1</script>')
-    .replace(/(<style\\b[^>]*>)[\\s\\S]*?<\\/style>/gi, '$1</style>')
-    .replace(/<(textarea|pre|code)\\b[^>]*>[\\s\\S]*?<\\/\\1>/gi, '');
-  for (const match of markup.matchAll(/<a\\b[^>]*>/gi)) {
+    .replace(/(<script\b[^>]*>)[\s\S]*?<\/script>/gi, '$1</script>')
+    .replace(/(<style\b[^>]*>)[\s\S]*?<\/style>/gi, '$1</style>')
+    .replace(/<(textarea|pre|code)\b[^>]*>[\s\S]*?<\/\1>/gi, '');
+  for (const match of markup.matchAll(/<a\b[^>]*>/gi)) {
     const href = attr(match[0], 'href');
     if (!href) continue;
     const resolved = resolveLocal(href, file);
