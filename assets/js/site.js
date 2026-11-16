@@ -480,6 +480,90 @@ function a(e,t){return n(e)||r(e,t)||o(e,t)||i()}function o(e,n){if(e){if(typeof
     if (sidebarPopular) window.FastSEODOM.setHTML(sidebarPopular, oldestFirst.slice(0,5).map((a,i) => sidebarItem(a,i+1)).join('') || '<li>لا توجد مقالات حاليًا.</li>');
     const categories = [...new Set(articles.map(a => a.category).filter(Boolean))].sort((a,b) => a.localeCompare(b,'ar'));
     if (sidebarCategories) window.FastSEODOM.setHTML(sidebarCategories, categories.map(category => '<li><a href="' + link('pages/archive.html') + '?category=' + encodeURIComponent(category) + '">' + esc(category) + '</a><span class="sidebar-category-count">' + articles.filter(a => a.category === category).length + '</span></li>').join('') || '<li>لا توجد تصنيفات حاليًا.</li>');
+    // Related articles reuse the already-loaded catalog; no extra request or library.
+    const currentFile = decodeURIComponent(location.pathname.split('/').pop() || '');
+    const currentArticle = articles.find(item => (item.file || (item.slug + '.html')) === currentFile);
+    if (currentArticle && !article.querySelector('[data-related-posts]')) {
+      const normalize = value => String(value || '').trim().toLocaleLowerCase();
+      const tagsOf = item => Array.isArray(item.tags) ? item.tags.map(normalize).filter(Boolean) : [];
+      const scoreRelated = candidate => {
+        let score = 0;
+        if (currentArticle.category && normalize(currentArticle.category) === normalize(candidate.category)) score += 5;
+        if (currentArticle.subcategory && normalize(currentArticle.subcategory) === normalize(candidate.subcategory)) score += 3;
+        const currentTags = new Set(tagsOf(currentArticle));
+        for (const tag of tagsOf(candidate)) if (currentTags.has(tag)) score += 2;
+        return score;
+      };
+      const relatedCandidates = articles
+        .filter(item => (item.file || (item.slug + '.html')) !== currentFile)
+        .map(item => ({ item, score: scoreRelated(item) }))
+        .sort((a, b) => b.score - a.score ||
+          String(b.item.updatedAt || b.item.publishedAt || '').localeCompare(String(a.item.updatedAt || a.item.publishedAt || '')));
+      let relatedItems = relatedCandidates.filter(entry => entry.score > 0).slice(0, 4).map(entry => entry.item);
+      if (!relatedItems.length) relatedItems = relatedCandidates.slice(0, 4).map(entry => entry.item);
+      if (relatedItems.length) {
+        const section = document.createElement('section');
+        section.className = 'related-posts';
+        section.dataset.relatedPosts = 'true';
+        section.setAttribute('aria-labelledby', 'related-posts-heading');
+        const heading = document.createElement('h2');
+        heading.className = 'related-posts-heading';
+        heading.id = 'related-posts-heading';
+        heading.textContent = 'اقرأ المزيد';
+        const intro = document.createElement('p');
+        intro.className = 'related-posts-intro';
+        intro.textContent = 'مقالات وأدلة مرتبطة بالموضوع لمواصلة القراءة.';
+        const grid = document.createElement('div');
+        grid.className = 'related-posts-grid';
+        relatedItems.forEach(item => {
+          const file = item.file || (item.slug + '.html');
+          const card = document.createElement('article');
+          card.className = 'related-post-card';
+          const anchor = document.createElement('a');
+          anchor.className = 'related-post-link';
+          anchor.href = link('articles/' + encodeURIComponent(file));
+          const rawImage = item.thumbnail || item.image || '';
+          const safeImage = rawImage ? window.FastSEODOM.safeURL(rawImage, { allowExternalImages: true }) : '';
+          if (safeImage) {
+            const image = document.createElement('img');
+            image.className = 'related-post-image';
+            image.src = safeImage;
+            image.alt = '';
+            image.width = 640;
+            image.height = 360;
+            image.loading = 'lazy';
+            image.decoding = 'async';
+            anchor.appendChild(image);
+          }
+          const body = document.createElement('div');
+          body.className = 'related-post-body';
+          const category = document.createElement('span');
+          category.className = 'related-post-category';
+          category.textContent = item.category || 'مقالات';
+          const title = document.createElement('h3');
+          title.className = 'related-post-title';
+          title.textContent = item.title || 'اقرأ المقال';
+          body.append(category, title);
+          if (item.description) {
+            const description = document.createElement('p');
+            description.className = 'related-post-description';
+            description.textContent = item.description;
+            body.appendChild(description);
+          }
+          const cta = document.createElement('span');
+          cta.className = 'related-post-cta';
+          cta.textContent = 'اقرأ المقال ←';
+          body.appendChild(cta);
+          anchor.appendChild(body);
+          card.appendChild(anchor);
+          grid.appendChild(card);
+        });
+        section.append(heading, intro, grid);
+        const manualRelated = article.querySelector('.related-guides');
+        if (manualRelated) manualRelated.insertAdjacentElement('beforebegin', section);
+        else article.appendChild(section);
+      }
+    }
   }).catch(error => {
     console.error('[FastSEO article sidebar] Failed to load article catalog:', error);
   });

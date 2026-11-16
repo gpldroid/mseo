@@ -24,7 +24,7 @@ async function walk(dir) {
   }
 }
 await walk(root);
-let imgCount = 0, missingDimensions = 0, missingDecoding = 0, missingLoadingHint = 0;
+let imgCount = 0, missingAlt = 0, missingDimensions = 0, missingDecoding = 0, missingLoadingHint = 0;
 for (const file of htmlFiles) {
   const html = await readFile(path.join(root, file), 'utf8');
   for (const match of html.matchAll(/<img\b[^>]*>/gi)) {
@@ -42,7 +42,7 @@ const largest = imageFiles.slice().sort((a, b) => b.size - a.size).slice(0, 10);
 console.log('Static performance inventory:');
 console.log('HTML pages: ' + htmlFiles.length + '; img elements: ' + imgCount);
 console.log('Image assets: ' + imageFiles.length + '; total: ' + (totalBytes / 1024).toFixed(1) + ' KiB; formats: ' + [...byFormat].map(([format, count]) => format + '=' + count).join(', '));
-console.log('Images missing width/height: ' + missingDimensions + '; missing decoding=async: ' + missingDecoding + '; missing loading hint: ' + missingLoadingHint);
+console.log('Images missing alt attribute: ' + missingAlt + '; missing width/height: ' + missingDimensions + '; missing decoding=async: ' + missingDecoding + '; missing loading hint: ' + missingLoadingHint);
 for (const file of largest) {
   if (file.size > 150 * 1024) console.warn('LARGE IMAGE ' + file.path + ' (' + (file.size / 1024).toFixed(1) + ' KiB)');
 }
