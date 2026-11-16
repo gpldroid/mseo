@@ -7,6 +7,38 @@ const out = path.join(root, 'dist');
 const escapeHTML = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const articleHref = item => '/articles/' + encodeURIComponent(item.file || ((item.slug || '') + '.html'));
 const imageFor = item => item.thumbnail || item.image || '';
+const responsiveImageUrl = (source, width) => {
+  if (!source) return '';
+  try {
+    const url = new URL(source);
+    if (url.hostname === 'images.unsplash.com') {
+      url.searchParams.set('auto', 'format');
+      url.searchParams.set('fit', 'crop');
+      url.searchParams.set('w', String(width));
+      url.searchParams.set('q', '68');
+      return url.href;
+    }
+  } catch {}
+  return source;
+};
+const imageSrcSet = (source, widths = [320, 640, 960]) => {
+  try {
+    if (new URL(source).hostname === 'images.unsplash.com') {
+      return widths.map(width => responsiveImageUrl(source, width) + ' ' + width + 'w').join(', ');
+    }
+  } catch {}
+  return '';
+};
+const carouselSizes = '(max-width: 700px) calc(100vw - 60px), 50vw';
+const lcpPreload = item => {
+  const source = imageFor(item);
+  if (!source) return '';
+  const src = responsiveImageUrl(source, 640);
+  const srcset = imageSrcSet(source);
+  return '<link rel="preload" as="image" href="' + escapeHTML(src) + '"' +
+    (srcset ? ' imagesrcset="' + escapeHTML(srcset) + '" imagesizes="' + carouselSizes + '"' : '') +
+    ' fetchpriority="high">';
+};
 const sorted = items => items.slice().sort((a,b) => String(b.updatedAt || b.publishedAt || '').localeCompare(String(a.updatedAt || a.publishedAt || '')));
 
 function card(item) {
@@ -20,8 +52,13 @@ function card(item) {
 }
 function carouselCard(item, index) {
   const image = imageFor(item);
+  const src = responsiveImageUrl(image, 640);
+  const srcset = imageSrcSet(image);
   return '<article class="latest-carousel-card">' +
-    (image ? '<a class="latest-carousel-image" href="' + articleHref(item) + '"><img src="' + escapeHTML(image) + '" alt="' + escapeHTML(item.title) + '" width="640" height="360" loading="' + (index === 0 ? 'eager' : 'lazy') + '"' + (index === 0 ? ' fetchpriority="high"' : '') + ' decoding="async"></a>' : '') +
+    (image ? '<a class="latest-carousel-image" href="' + articleHref(item) + '"><img src="' + escapeHTML(src) + '"' +
+      (srcset ? ' srcset="' + escapeHTML(srcset) + '" sizes="' + carouselSizes + '"' : '') +
+      ' alt="' + escapeHTML(item.title) + '" width="640" height="360" loading="' + (index === 0 ? 'eager' : 'lazy') + '"' +
+      (index === 0 ? ' fetchpriority="high"' : '') + ' decoding="async"></a>' : '') +
     '<div class="latest-carousel-copy"><span class="article-category">' + escapeHTML(item.category || 'مقالات') + '</span>' +
     '<h3><a href="' + articleHref(item) + '">' + escapeHTML(item.title) + '</a></h3><p>' + escapeHTML(item.description || '') + '</p>' +
     '<a class="button button-primary" href="' + articleHref(item) + '">اقرأ المقال <span aria-hidden="true">←</span></a></div></article>';
@@ -60,6 +97,7 @@ const latest = articles.slice(0, 5);
 const categories = [...new Set(articles.map(item => item.category).filter(Boolean))].sort((a,b) => a.localeCompare(b, 'ar'));
 let html = indexSource;
 html = replaceMarker(html, 'HEADER', header);
+html = replaceMarker(html, 'LCP_PRELOAD', lcpPreload(latest[0]));
 html = replaceMarker(html, 'FOOTER', footer);
 html = replaceMarker(html, 'LATEST_CAROUSEL', carouselCard(latest[0], 0));
 html = replaceMarker(html, 'CAROUSEL_DOTS', latest.map((item, i) => '<button type="button" data-slide="' + i + '" aria-label="عرض المقال ' + (i + 1) + '"' + (i === 0 ? ' aria-current="true"' : '') + '></button>').join(''));
