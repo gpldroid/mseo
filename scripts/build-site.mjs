@@ -65,7 +65,6 @@ html = replaceMarker(html, 'LATEST_CAROUSEL', carouselCard(latest[0], 0));
 html = replaceMarker(html, 'CAROUSEL_DOTS', latest.map((item, i) => '<button type="button" data-slide="' + i + '" aria-label="عرض المقال ' + (i + 1) + '"' + (i === 0 ? ' aria-current="true"' : '') + '></button>').join(''));
 html = replaceMarker(html, 'ARTICLE_GRID', articles.slice(0, 9).map(card).join(''));
 html = replaceMarker(html, 'CATEGORY_OPTIONS', categories.map(cat => '<option value="' + escapeHTML(cat) + '">' + escapeHTML(cat) + '</option>').join(''));
-html = replaceMarker(html, 'SIDEBAR_LATEST', latest.map(sidebarItem).join(''));
 html = replaceMarker(html, 'SIDEBAR_POPULAR', latest.map(sidebarItem).join(''));
 html = replaceMarker(html, 'SIDEBAR_CATEGORIES', categories.map(cat => {
   const count = articles.filter(item => item.category === cat).length;
