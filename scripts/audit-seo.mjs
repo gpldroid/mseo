@@ -34,8 +34,7 @@ let internalLinks = 0;
 
 for (const file of htmlFiles) {
   const html = await readFile(path.join(root, file), 'utf8');
-  // Google Search Console verification files must remain untouched; they are not web pages.
-  // Skip only their SEO metadata checks while retaining the normal link audit.
+  const lines = html.split(/\r?\n/);
   const isGoogleVerificationFile = /^google[a-f0-9]+\.html$/i.test(path.basename(file));
   if (!isGoogleVerificationFile) {
     const title = (html.match(/<title\b[^>]*>([\s\S]*?)<\/title>/i)?.[1] || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
@@ -50,32 +49,18 @@ for (const file of htmlFiles) {
       const expectedCanonical = file === 'index.html' ? siteBase.href : new URL(file, siteBase).href;
       if (canonical !== expectedCanonical) critical.push(file + ': canonical mismatch; expected ' + expectedCanonical + ', found ' + canonical);
     }
-
     const ogUrlTag = html.match(/<meta\b(?=[^>]*\bproperty\s*=\s*["']og:url["'])[^>]*>/i)?.[0] || '';
     const ogUrl = attr(ogUrlTag, 'content').trim();
-    if (ogUrl && canonical && ogUrl !== canonical) {
-      critical.push(file + ': og:url does not match canonical URL; expected ' + canonical + ', found ' + ogUrl);
-    }
-
+    if (ogUrl && canonical && ogUrl !== canonical) critical.push(file + ': og:url does not match canonical URL; expected ' + canonical + ', found ' + ogUrl);
     const head = html.match(/<head\b[\s\S]*?<\/head>/i)?.[0] || '';
     const siteNameTag = head.match(/<meta\b(?=[^>]*\bproperty\s*=\s*["']og:site_name["'])[^>]*>/i)?.[0] || '';
     const siteName = attr(siteNameTag, 'content').trim();
-    if (siteName !== 'فاست سيو | Fast Seo') {
-      critical.push(file + ': og:site_name must be "فاست سيو | Fast Seo"; found "' + siteName + '"');
-    }
-    if (head.includes('gpldroid.github.io/mseo') || head.includes('mseopro.netlify.app')) {
-      critical.push(file + ': retired hosting domain remains in head metadata');
-    }
-    if (/\bMSEO\b/.test(head)) {
-      critical.push(file + ': legacy MSEO brand remains in head metadata');
-    }
+    if (siteName !== 'فاست سيو | Fast Seo') critical.push(file + ': og:site_name must be "فاست سيو | Fast Seo"; found "' + siteName + '"');
+    if (head.includes('gpldroid.github.io/mseo') || head.includes('mseopro.netlify.app')) critical.push(file + ': retired hosting domain remains in head metadata');
+    if (/\bMSEO\b/.test(head)) critical.push(file + ': legacy MSEO brand remains in head metadata');
     const jsonLdScripts = [...html.matchAll(/<script\b(?=[^>]*\btype\s*=\s*["']application\/ld\+json["'])[^>]*>([\s\S]*?)<\/script>/gi)];
     for (const [index, match] of jsonLdScripts.entries()) {
-      try {
-        JSON.parse(match[1]);
-      } catch {
-        critical.push(file + ': invalid JSON-LD syntax in structured-data block #' + (index + 1));
-      }
+      try { JSON.parse(match[1]); } catch { critical.push(file + ': invalid JSON-LD syntax in structured-data block #' + (index + 1)); }
     }
     if (title) titlePages.set(title, [...(titlePages.get(title) || []), file]);
     if (description) descPages.set(description, [...(descPages.get(description) || []), file]);
@@ -84,29 +69,43 @@ for (const file of htmlFiles) {
 
   for (const match of html.matchAll(/<a\b[^>]*>/gi)) {
     const tag = match[0];
+    const line = html.slice(0, match.index).split(/\r?\n/).length;
     const href = attr(tag, 'href').trim();
+    const targetBlank = /^_blank$/i.test(attr(tag, 'target').trim());
+    const rel = attr(tag, 'rel').toLowerCase().split(/\s+/).filter(Boolean);
+    const addLinkWarning = (type, detail) => linkWarnings.push({ type, file, line, href, detail });
+    if (targetBlank && !rel.includes('noopener')) addLinkWarning('blank-missing-noopener', 'target="_blank" must include rel="noopener"');
+    if (targetBlank && !rel.includes('noreferrer')) addLinkWarning('blank-missing-noreferrer', 'consider rel="noreferrer" to suppress referrer data');
     if (!href || /^(?:#|mailto:|tel:|javascript:|data:)/i.test(href)) continue;
+
     let url;
     try { url = new URL(href, 'https://mseo-audit.local/' + file); }
-    catch { linkWarnings.push(file + ': invalid href ' + href); continue; }
+    catch { addLinkWarning('invalid-href', 'href cannot be parsed'); continue; }
+
     const isOwn = url.hostname === 'mseo-audit.local' || ['gpldroid.github.io', 'mseopro.netlify.app', 'fastseo.site'].includes(url.hostname);
-    if (!isOwn) { if (/^https?:/i.test(href)) externalLinks++; continue; }
+    if (!isOwn) {
+      if (/^https?:/i.test(href)) externalLinks++;
+      continue;
+    }
     internalLinks++;
-    if (/\/index\.html$/i.test(url.pathname)) linkWarnings.push(file + ': use a clean directory URL instead of index.html: ' + href);
-    let pathname = decodeURIComponent(url.pathname);
+    if (/\/index\.html$/i.test(url.pathname)) {
+      addLinkWarning('index-html-link', 'candidate for a clean directory URL; verify the target directory and base-path behavior before changing');
+    }
+
+    let pathname;
+    try { pathname = decodeURIComponent(url.pathname); }
+    catch { addLinkWarning('invalid-path-encoding', 'URL path contains invalid percent encoding'); continue; }
     if (pathname.startsWith('/mseo/')) pathname = pathname.slice('/mseo'.length);
     if (pathname === '/mseo') pathname = '/';
     if (pathname === '/') pathname = '/index.html';
     if (pathname.endsWith('/')) pathname += 'index.html';
-    const target = path.join(root, pathname.replace(/^\//, ''));
-    try { await access(target); }
-    catch { linkWarnings.push(file + ': broken internal link ' + href); }
+    const targetPath = path.join(root, pathname.replace(/^\//, ''));
+    try { await access(targetPath); }
+    catch { addLinkWarning('broken-internal-link', 'target file or directory index does not exist in the repository'); continue; }
+
     const targetHtml = pathname.replace(/^\//, '');
     if (/\.html$/i.test(pathname) && !ignoredFiles.has(targetHtml) && !htmlFiles.includes(targetHtml) && !pathname.startsWith('/admin-dashboard/')) {
-      linkWarnings.push(file + ': link target is not in the public HTML inventory: ' + href);
-    }
-    if (/target\s*=\s*["']_blank["']/i.test(tag) && !/\brel\s*=\s*["'][^"']*\bnoopener\b/i.test(tag)) {
-      linkWarnings.push(file + ': target="_blank" link missing rel="noopener": ' + href);
+      addLinkWarning('html-not-in-public-inventory', 'target exists but is excluded from the public HTML inventory');
     }
   }
 }
@@ -131,10 +130,20 @@ console.log('SEO audit: ' + htmlFiles.length + ' public HTML pages scanned.');
 const missingRequiredTags = critical.filter((message) => /: missing (?:title|meta description|canonical URL)$/.test(message)).length;
 const duplicateTitleErrors = critical.filter((message) => message.startsWith('duplicate title ')).length;
 console.log('Metadata: ' + missingRequiredTags + ' missing required tags; ' + duplicateTitleErrors + ' duplicate-title errors; ' + duplicateDescriptions.length + ' duplicate descriptions; ' + duplicateCanonicals.length + ' duplicate canonical URLs.');
-console.log('Links: ' + internalLinks + ' internal links checked; ' + externalLinks + ' external links found; ' + linkWarnings.length + ' internal/security warnings.');
-console.log('Duplicate descriptions: ' + duplicateDescriptions.length + '; duplicate canonical URLs: ' + duplicateCanonicals.length + '.');
-for (const warning of linkWarnings.slice(0, 100)) console.warn('WARN ' + warning);
-if (linkWarnings.length > 100) console.warn('... ' + (linkWarnings.length - 100) + ' additional link warnings omitted.');
+console.log('Links: ' + internalLinks + ' internal links checked; ' + externalLinks + ' external HTTP(S) links found; ' + linkWarnings.length + ' classified link/security findings.');
+
+const warningGroups = new Map();
+for (const warning of linkWarnings) {
+  const group = warningGroups.get(warning.type) || [];
+  group.push(warning);
+  warningGroups.set(warning.type, group);
+}
+for (const [type, warnings] of [...warningGroups.entries()].sort(([a], [b]) => a.localeCompare(b))) {
+  console.warn('\n[' + type + '] ' + warnings.length + ' finding(s)');
+  for (const warning of warnings) {
+    console.warn('WARN ' + warning.file + ':' + warning.line + ' | ' + warning.href + ' | ' + warning.detail);
+  }
+}
 for (const error of critical) console.error('ERROR ' + error);
 for (const [url, files] of duplicateCanonicals) console.error('ERROR duplicate canonical "' + url + '": ' + files.join(', '));
 if (critical.length || duplicateCanonicals.length) process.exitCode = 1;
