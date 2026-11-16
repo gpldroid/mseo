@@ -23,7 +23,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
       - name: Run unified project audit
-        run: npm run audit
+        run: npm run audit:ci
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
       - name: Generate static homepage
