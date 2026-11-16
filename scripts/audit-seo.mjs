@@ -134,14 +134,20 @@ console.log('Links: ' + internalLinks + ' internal links checked; ' + externalLi
 
 const warningGroups = new Map();
 for (const warning of linkWarnings) {
-  const group = warningGroups.get(warning.type) || [];
-  group.push(warning);
-  warningGroups.set(warning.type, group);
+  const files = warningGroups.get(warning.type) || new Map();
+  const entries = files.get(warning.file) || [];
+  entries.push(warning);
+  files.set(warning.file, entries);
+  warningGroups.set(warning.type, files);
 }
-for (const [type, warnings] of [...warningGroups.entries()].sort(([a], [b]) => a.localeCompare(b))) {
-  console.warn('\n[' + type + '] ' + warnings.length + ' finding(s)');
-  for (const warning of warnings) {
-    console.warn('WARN ' + warning.file + ':' + warning.line + ' | ' + warning.href + ' | ' + warning.detail);
+for (const [type, files] of [...warningGroups.entries()].sort(([a], [b]) => a.localeCompare(b))) {
+  const count = [...files.values()].reduce((total, entries) => total + entries.length, 0);
+  console.warn('\n[' + type + '] ' + count + ' finding(s) across ' + files.size + ' file(s)');
+  for (const [file, entries] of [...files.entries()].sort(([a], [b]) => a.localeCompare(b))) {
+    console.warn('  ' + file + ' (' + entries.length + ')');
+    for (const warning of entries) {
+      console.warn('    line ' + warning.line + ' | ' + warning.href + ' | ' + warning.detail);
+    }
   }
 }
 for (const error of critical) console.error('ERROR ' + error);
