@@ -10,7 +10,7 @@ const BRAND = 'فاست سيو | Fast Seo';
 const LOGO = new URL('assets/images/fastseo-logo-header.svg', siteBase).href;
 
 const escapeRegExp = value => value;
-const escapeAttr = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
+const escapeAttr = value => String(value ?? '').replace(/[&<>\"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '\"':'&quot;', \"'\":'&#39;' }[c]));\nconst decodeEntities = value => String(value ?? '').replace(/&(#x[0-9a-f]+|#\\d+|amp|lt|gt|quot|apos|#39);/gi, (entity, code) => { if (code[0] === '#') return String.fromCodePoint(code[1].toLowerCase() === 'x' ? parseInt(code.slice(2), 16) : parseInt(code.slice(1), 10)); return ({ amp:'&', lt:'<', gt:'>', quot:'\"', apos:\"'\", '#39':\"'\" })[code.toLowerCase()] || entity; });
 const attr = (tag, name) => {
   const match = tag.match(new RegExp('\\b' + name + '\\s*=\\s*(?:"([^"]*)"|\\x27([^\\x27]*)\\x27)', 'i'));
   return match ? (match[1] ?? match[2] ?? '') : '';
@@ -64,7 +64,7 @@ for (const file of files) {
 
   const title = (head.match(/<title\b[^>]*>([\s\S]*?)<\/title>/i)?.[1] || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
   const descriptionTag = head.match(/<meta\b(?=[^>]*\bname\s*=\s*["']description["'])[^>]*>/i)?.[0] || '';
-  const description = attr(descriptionTag, 'content').trim();
+  const description = decodeEntities(attr(descriptionTag, 'content').trim());
   if (!title) issues.push(file + ': missing title (left unchanged)');
   if (!description) issues.push(file + ': missing description (left unchanged)');
 
@@ -77,7 +77,7 @@ for (const file of files) {
   head = upsertMeta(head, 'property', 'og:type', file.startsWith('articles/') ? 'article' : 'website');
 
   const ogImageTag = head.match(/<meta\b(?=[^>]*\bproperty\s*=\s*["']og:image["'])[^>]*>/i)?.[0] || '';
-  const ogImage = attr(ogImageTag, 'content').trim() || LOGO;
+  const ogImage = decodeEntities(attr(ogImageTag, 'content').trim()) || LOGO;
   head = upsertMeta(head, 'property', 'og:image', ogImage);
   head = upsertMeta(head, 'property', 'og:image:alt', title || BRAND);
   head = upsertMeta(head, 'name', 'twitter:card', 'summary_large_image');
