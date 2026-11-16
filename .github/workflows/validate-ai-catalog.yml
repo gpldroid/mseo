@@ -24,3 +24,7 @@ jobs:
           node --check assets/js/tools-catalog.js
       - name: Validate DOM XSS hardening boundaries
         run: node scripts/validate-dom-security.mjs
+      - name: Audit local assets
+        run: node scripts/audit-assets.mjs
+      - name: Audit internal links and fragments
+        run: node scripts/audit-links.mjs
