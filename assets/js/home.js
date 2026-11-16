@@ -134,7 +134,9 @@
           active = Number(button.dataset.slide) || 0;
           paint();
         });
-        paint();
+        // Keep the server-rendered first slide untouched: its LCP image is already
+        // present in the initial HTML and must not be replaced after catalog fetch.
+        carousel?.setAttribute('data-active-slide', '0');
       } else window.FastSEODOM.setHTML(track, '<p class="loading-card">لا توجد مقالات منشورة بعد.</p>');
     }
 
