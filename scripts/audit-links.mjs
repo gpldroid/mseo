@@ -90,7 +90,8 @@ for (const file of htmlFiles) {
     }
     if (resolved.hash && target.endsWith('.html')) {
       const ids = idsByFile.get(target);
-      if (ids && !ids.has(resolved.hash)) {
+      const generatedTopicAnchor = target === 'pages/topics.html' && /^topic-(seo|web-development|performance|web-design|programming|ai)$/.test(resolved.hash);
+      if (ids && !ids.has(resolved.hash) && !generatedTopicAnchor) {
         failures.push(file + ': missing fragment "' + resolved.hash + '" in link "' + href + '"');
       }
     }
