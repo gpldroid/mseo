@@ -14,6 +14,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Normalize image loading and dimensions
+        run: npm run fix:images
       - name: Run unified project audit
         run: npm run audit:ci
       - name: Verify generated site, sitemap and RSS feed
