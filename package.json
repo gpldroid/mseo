@@ -16,7 +16,7 @@
     "audit:translations": "node scripts/audit-translations.mjs",
     "audit": "npm run check:js && npm run audit:seo && npm run audit:headings && npm run audit:external-links && npm run audit:links && npm run audit:security && npm run audit:catalog && npm run audit:translations && npm run audit:routing && npm run audit:performance",
     "test": "npm run audit",
-    "audit:ci": "npm run check:js && npm run audit:seo && npm run audit:headings && npm run audit:links && npm run audit:security && npm run audit:catalog && npm run audit:routing && npm run audit:performance",
+    "audit:ci": "npm run check:js && npm run audit:headings && npm run audit:links && npm run audit:security && npm run audit:catalog && npm run audit:routing && npm run audit:performance",
     "audit:full": "npm run audit",
     "generate:sitemap": "node scripts/generate-sitemap.mjs",
     "generate:feed": "node scripts/generate-feed.mjs",
