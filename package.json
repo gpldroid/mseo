@@ -4,7 +4,7 @@
   "private": true,
   "description": "Build and quality checks for fastseo.site",
   "scripts": {
-    "build": "node scripts/build-site.mjs",
+    "build": "npm run generate:sitemap && npm run generate:feed && node scripts/build-site.mjs",
     "check:js": "node --check assets/js/webmcp.js && node --check assets/js/site.js && node --check assets/js/home.js && node --check assets/js/tools-catalog.js",
     "audit:seo": "node scripts/audit-seo.mjs",
     "audit:external-links": "node scripts/audit-external-links.mjs",
@@ -15,7 +15,10 @@
     "audit:translations": "node scripts/audit-translations.mjs",
     "audit": "npm run check:js && npm run audit:seo && npm run audit:external-links && npm run audit:links && npm run audit:security && npm run audit:catalog && npm run audit:translations",
     "test": "npm run audit",
-    "audit:ci": "npm run check:js && npm run audit:links && npm run audit:security && npm run audit:catalog",
-    "audit:full": "npm run audit"
+    "audit:ci": "npm run check:js && npm run audit:links && npm run audit:security && npm run audit:catalog && npm run audit:routing",
+    "audit:full": "npm run audit",
+    "generate:sitemap": "node scripts/generate-sitemap.mjs",
+    "generate:feed": "node scripts/generate-feed.mjs",
+    "audit:routing": "node scripts/audit-routing.mjs"
   }
 }
