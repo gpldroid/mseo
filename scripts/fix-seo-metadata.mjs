@@ -9,14 +9,17 @@ const ignoredDirs = new Set(['.git', 'node_modules', 'dist', 'admin-dashboard'])
 const BRAND = 'فاست سيو | Fast Seo';
 const LOGO = new URL('assets/images/fastseo-logo-header.svg', siteBase).href;
 
-const escapeRegExp = value => value;
-const escapeAttr = value => String(value ?? '').replace(/[&<>\"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '\"':'&quot;', \"'\":'&#39;' }[c]));\nconst decodeEntities = value => String(value ?? '').replace(/&(#x[0-9a-f]+|#\\d+|amp|lt|gt|quot|apos|#39);/gi, (entity, code) => { if (code[0] === '#') return String.fromCodePoint(code[1].toLowerCase() === 'x' ? parseInt(code.slice(2), 16) : parseInt(code.slice(1), 10)); return ({ amp:'&', lt:'<', gt:'>', quot:'\"', apos:\"'\", '#39':\"'\" })[code.toLowerCase()] || entity; });
+const escapeAttr = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
+const decodeEntities = value => String(value ?? '').replace(/&(#x[0-9a-f]+|#\d+|amp|lt|gt|quot|apos|#39);/gi, (entity, code) => {
+  if (code[0] === '#') return String.fromCodePoint(code[1].toLowerCase() === 'x' ? parseInt(code.slice(2), 16) : parseInt(code.slice(1), 10));
+  return ({ amp:'&', lt:'<', gt:'>', quot:'"', apos:"'", '#39':"'" })[code.toLowerCase()] || entity;
+});
 const attr = (tag, name) => {
   const match = tag.match(new RegExp('\\b' + name + '\\s*=\\s*(?:"([^"]*)"|\\x27([^\\x27]*)\\x27)', 'i'));
   return match ? (match[1] ?? match[2] ?? '') : '';
 };
 function upsertMeta(head, keyName, keyValue, content) {
-  const pattern = new RegExp('<meta\\b(?=[^>]*\\b' + keyName + '\\s*=\\s*["\\x27]' + escapeRegExp(keyValue) + '["\\x27])[^>]*>', 'i');
+  const pattern = new RegExp('<meta\\b(?=[^>]*\\b' + keyName + '\\s*=\\s*["\\x27]' + keyValue + '["\\x27])[^>]*>', 'i');
   const existing = head.match(pattern)?.[0];
   if (existing) {
     const updated = /\bcontent\s*=/i.test(existing)
@@ -57,12 +60,10 @@ for (const file of files) {
   const match = original.match(/<head\b[\s\S]*?<\/head>/i);
   if (!match) { issues.push(file + ': missing head element'); continue; }
   let head = match[0];
-  // Retired hosting URLs are corrected only inside the document head; body links/content remain untouched.
   head = head.replace(/https?:\/\/(?:gpldroid\.github\.io\/mseo|mseopro\.netlify\.app)(?=\/|["'#?])/gi, 'https://fastseo.site');
-  // Replace the retired product label only in metadata/structured data, never in visible page content.
   head = head.replace(/\bMSEO\b/g, 'Fast Seo');
 
-  const title = (head.match(/<title\b[^>]*>([\s\S]*?)<\/title>/i)?.[1] || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  const title = decodeEntities((head.match(/<title\b[^>]*>([\s\S]*?)<\/title>/i)?.[1] || '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim());
   const descriptionTag = head.match(/<meta\b(?=[^>]*\bname\s*=\s*["']description["'])[^>]*>/i)?.[0] || '';
   const description = decodeEntities(attr(descriptionTag, 'content').trim());
   if (!title) issues.push(file + ': missing title (left unchanged)');
@@ -92,6 +93,4 @@ for (const file of files) {
   }
 }
 console.log('SEO metadata normalization: scanned ' + files.length + ' public HTML pages; updated ' + changed + '.');
-if (issues.length) {
-  for (const issue of issues) console.warn('SEO metadata review required: ' + issue);
-}
+for (const issue of issues) console.warn('SEO metadata review required: ' + issue);
