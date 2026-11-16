@@ -16,3 +16,5 @@ jobs:
           node-version: 22
       - name: Run unified project audit
         run: npm run audit:ci
+      - name: Verify generated site, sitemap and RSS feed
+        run: npm run build
