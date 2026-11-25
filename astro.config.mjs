@@ -1,0 +1,1 @@
+import {defineConfig} from 'astro/config';export default defineConfig({site:'https://fastseo.site',output:'static',trailingSlash:'never'});
