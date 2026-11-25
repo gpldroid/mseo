@@ -4,8 +4,8 @@
   "private": true,
   "description": "Astro static website for Fast Seo / MSEO",
   "scripts": {
-    "dev": "node scripts/build-site.mjs && node scripts/prepare-astro-public.mjs && astro dev",
-    "build": "npm run fix:seo && npm run fix:images && npm run generate:sitemap && npm run generate:feed && npm run audit:routing && node scripts/build-site.mjs && node scripts/prepare-astro-public.mjs && astro build && npm run audit:astro-articles:built",
+    "dev": "node scripts/build-site.mjs && node scripts/prepare-astro-public.mjs && node scripts/generate-tools-data.mjs && astro dev",
+    "build": "npm run fix:seo && npm run fix:images && npm run generate:sitemap && npm run generate:feed && npm run audit:routing && node scripts/build-site.mjs && node scripts/prepare-astro-public.mjs && node scripts/generate-tools-data.mjs && astro build && npm run audit:astro-articles:built",
     "preview": "astro preview",
     "check:js": "node --check assets/js/webmcp.js && node --check assets/js/site.js && node --check assets/js/home.js && node --check assets/js/tools-catalog.js && node --check assets/js/mseo-bottom-tabs.js",
     "audit:seo": "npm run fix:seo && node scripts/audit-seo.mjs",
