@@ -4,12 +4,9 @@ import path from 'node:path';
 
 const root = process.cwd();
 
-function addDesignSystem(headHtml, slug) {
+function addDesignSystem(headHtml) {
   if (/mseo-3d-system\.css/i.test(headHtml)) return headHtml;
-  return headHtml.replace(
-    /(<\/head\s*>)/i,
-    '<link rel="stylesheet" href="/assets/css/mseo-3d-system.css" data-mseo-design="gold-3d">' + '$1'
-  );
+  return headHtml + '\\n<link rel="stylesheet" href="/assets/css/mseo-3d-system.css" data-mseo-design="gold-3d">';
 }
 
 const articles = defineCollection({
@@ -52,7 +49,7 @@ const articles = defineCollection({
         updatedAt: String(record.updatedAt || record.publishedAt || ''),
         sourceFile: file,
         bodyClass,
-        headHtml: addDesignSystem(head[1], slug),
+        headHtml: addDesignSystem(head[1]),
         mainHtml: main[0]
       };
     }));
