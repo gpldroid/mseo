@@ -28,11 +28,19 @@ for (const name of copyFiles) {
 }
 
 function stripStyleMarkup(html) {
-  return html
+  const protectedBlocks = [];
+  let output = String(html).replace(/<(pre|code|textarea)\b[\s\S]*?<\/\1\s*>/gi, (block) => {
+    const token = '__MSEO_PRESERVED_CODE_' + protectedBlocks.length + '__';
+    protectedBlocks.push(block);
+    return token;
+  });
+  output = output
     .replace(/<style\b[^>]*>[\s\S]*?<\/style\s*>/gi, '')
     .replace(/<link\b(?=[^>]*\brel\s*=\s*["'][^"']*\bstylesheet\b)[^>]*>/gi, '')
     .replace(/\sstyle\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+)/gi, '');
+  return output.replace(/__MSEO_PRESERVED_CODE_(\d+)__/g, (_, index) => protectedBlocks[Number(index)] || '');
 }
+
 
 async function cleanPublicAssets(dir) {
   for (const entry of await readdir(dir, { withFileTypes: true })) {
