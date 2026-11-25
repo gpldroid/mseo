@@ -9,11 +9,12 @@ const copyFiles = ['404.html', 'article.html', 'CNAME', 'BingSiteAuth.xml', 'ads
 
 await rm(publicDir, { recursive: true, force: true });
 const legacyHomepage = await readFile(legacyDistHome, 'utf8');
-const mainMatch = legacyHomepage.match(/<main\\b[^>]*>[\\s\\S]*?<\\/main>/i);
+const mainMatch = legacyHomepage.match(/<main\b[^>]*>[\s\S]*?<\/main>/i);
 if (!mainMatch) throw new Error('The legacy homepage main content could not be extracted.');
+
 await mkdir(publicDir, { recursive: true });
 await writeFile(path.join(publicDir, 'legacy-home-content.html'), mainMatch[0], 'utf8');
-await mkdir(publicDir, { recursive: true });
+
 for (const name of copyDirs) {
   try { await cp(path.join(root, name), path.join(publicDir, name), { recursive: true }); }
   catch (error) { if (error.code !== 'ENOENT') throw error; }
@@ -30,10 +31,10 @@ async function enhanceHtml(dir) {
     if (!entry.isFile() || !entry.name.endsWith('.html')) continue;
     let html = await readFile(file, 'utf8');
     if (!html.includes('mseo-3d-system')) {
-      html = html.replace('</head>', '  <link rel="stylesheet" href="/assets/css/mseo-3d-system.css">\\n</head>');
+      html = html.replace('</head>', '  <link rel="stylesheet" href="/assets/css/mseo-3d-system.css">\n</head>');
     }
     if (!html.includes('mseo-bottom-tabs')) {
-      html = html.replace('</body>', '  <script src="/assets/js/mseo-bottom-tabs.js" defer></script>\\n</body>');
+      html = html.replace('</body>', '  <script src="/assets/js/mseo-bottom-tabs.js" defer></script>\n</body>');
     }
     await writeFile(file, html, 'utf8');
   }
