@@ -1,7 +1,7 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro';
 import { readFileSync } from 'node:fs';
-const legacyMain = readFileSync(new URL('../../public/legacy-home-content.html', import.meta.url), 'utf8');
+const legacyMain = readFileSync(new URL('../generated/legacy-home-content.html', import.meta.url), 'utf8');
 ---
 <SiteLayout title="فاست سيو | أدلة SEO وأدوات تقنية بالعربية" description="أدلة عربية عملية لتحسين محركات البحث وتطوير المواقع والبرمجة والذكاء الاصطناعي، مع أدوات مجانية.">
   <Fragment set:html={legacyMain} />
