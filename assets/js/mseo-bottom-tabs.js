@@ -1,6 +1,7 @@
 (function () {
   if (document.querySelector('.mseo-bottom-tabs')) return;
-  var current = location.pathname.replace(/\\/$/, '') || '/';
+  var current = location.pathname;
+  if (current.length > 1 && current.charAt(current.length - 1) === '/') current = current.slice(0, -1);
   var tabs = [
     { href: '/', label: 'الرئيسية', icon: '⌂', match: function () { return current === '/'; } },
     { href: '/#articles', label: 'المقالات', icon: '▤', match: function () { return current.indexOf('/articles/') === 0 || current === '/pages/archive.html' || current === '/pages/topics.html'; } },
