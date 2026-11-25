@@ -20,3 +20,24 @@ body { background: radial-gradient(ellipse at 12% 0%,rgba(84,124,255,.10),transp
 .article-card,.category-card,.site-card,.sidebar-widget,.latest-carousel-card { border-color:rgba(255,255,255,.92); box-shadow:var(--mseo-3d-shadow); }
 .article-card:hover,.category-card:hover,.site-card:hover { box-shadow:0 8px 0 rgba(37,57,100,.07),0 24px 38px rgba(27,45,83,.15); }
 @media (prefers-reduced-motion:reduce) { .site-hero,.hero { transform:none; } }
+
+
+/* Ahmed Oubali visual identity: warm ivory, charcoal and restrained gold. */
+:root {
+  --paper:#f7f5ef; --paper-deep:#efede5; --surface:#fffefa;
+  --ink:#24231f; --ink-soft:#4b4943; --muted:#59564f; --line:#dedbd1;
+  --gold:#b18a49; --gold-deep:#765722; --crimson:#7f4037;
+  --mseo-gold:#b18a49; --mseo-gold-deep:#765722;
+}
+body { background:radial-gradient(ellipse at 12% 0%,#eee5d5 0,transparent 40%),var(--paper); color:var(--ink); }
+.mseo-bottom-tabs { border-color:rgba(255,254,250,.96); background:rgba(255,254,250,.93); box-shadow:0 9px 0 rgba(80,62,34,.09),0 22px 48px rgba(36,35,31,.2),inset 0 1px 2px #fff; }
+.mseo-tab { color:var(--muted); }
+.mseo-tab[aria-current=page] { color:#fffefa; background:linear-gradient(145deg,#b18a49,#8c6b35); box-shadow:0 4px 0 #765722,0 9px 16px rgba(80,62,34,.24),inset 0 1px 2px #ffffff80; }
+.mseo-card,.article-card,.category-card,.site-card,.sidebar-widget,.latest-carousel-card { border-color:#dedbd1; background:linear-gradient(150deg,#fffefa,#f8f5ee); box-shadow:0 7px 0 rgba(80,62,34,.07),0 18px 34px rgba(36,35,31,.10),inset 0 1px #fff; }
+.article-card:hover,.category-card:hover,.site-card:hover { box-shadow:0 9px 0 rgba(80,62,34,.07),0 24px 38px rgba(36,35,31,.15); }
+.site-primary,.site-secondary,.button,.button-primary,.mseo-icon-button,.pagination button,.mseo-search-panel button { border-color:#8c6b35; }
+.site-primary,.button-primary { background:linear-gradient(145deg,#b18a49,#8c6b35); color:#fffefa; box-shadow:0 5px 0 #765722,0 12px 22px rgba(80,62,34,.20); }
+.site-primary:hover,.button-primary:hover { background:linear-gradient(145deg,#c09a58,#8c6b35); color:#fffefa; }
+a:hover,.article-category,.site-read,.mseo-card-category,.mseo-card-link { color:var(--gold-deep); }
+:focus-visible { outline-color:var(--gold-deep); }
+@media (prefers-reduced-motion:reduce) { .mseo-bottom-tabs,.article-card,.category-card,.site-card { transform:none!important; } }
