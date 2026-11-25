@@ -87,8 +87,10 @@ async function walk(directory) {
 
     const extension = path.extname(entry.name).toLowerCase();
     if (extension === '.css') {
-      await unlink(absolute);
-      console.log('Deleted', relative);
+      if (relative !== 'assets/css/mseo-3d-tabs.css') {
+        await unlink(absolute);
+        console.log('Deleted', relative);
+      }
       continue;
     }
 
