@@ -104,7 +104,7 @@ const legacyPages = defineCollection({
         sourceFile: file,
         htmlAttrs: parseSafeAttributes(html[1]),
         bodyAttrs: parseSafeAttributes(body[1]),
-        hasSiteScript: /assets\\/js\\/site\\.js/i.test(body[2]),
+        hasSiteScript: body[2].includes('assets/js/site.js'),
         headHtml: addDesignSystem(head[1]),
         bodyHtml: body[2]
       };
