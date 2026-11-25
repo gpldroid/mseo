@@ -1,33 +1,11 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro';
-import catalog from '../../data/articles.json';
-const articles = [...catalog].sort((a, b) => String(b.updatedAt || b.publishedAt || '').localeCompare(String(a.updatedAt || a.publishedAt || '')));
-const categories = [...new Set(articles.map((article) => article.category).filter(Boolean))];
-const latest = articles.slice(0, 9);
-const imageFor = (article) => article.thumbnail || article.image || '';
+import { readFileSync } from 'node:fs';
+const legacyMain = readFileSync(new URL('../../public/legacy-home-content.html', import.meta.url), 'utf8');
 ---
 <SiteLayout title="فاست سيو | أدلة SEO وأدوات تقنية بالعربية" description="أدلة عربية عملية لتحسين محركات البحث وتطوير المواقع والبرمجة والذكاء الاصطناعي، مع أدوات مجانية.">
-  <main>
-    <section class="mseo-hero">
-      <span class="mseo-eyebrow">معرفة تقنية أوضح. نتائج أفضل.</span>
-      <h1>طوّر موقعك، وافهم <em>SEO</em>، وابنِ مهاراتك التقنية بثقة.</h1>
-      <p>أدلة عربية عملية في تحسين محركات البحث، وتطوير الويب، والبرمجة والذكاء الاصطناعي — مع أدوات مجانية تختصر عليك الوقت وتساعدك على التطبيق.</p>
-      <div class="mseo-hero-actions"><a class="mseo-button" href="#articles">اكتشف أحدث الأدلة ←</a><a class="mseo-button secondary" href="/pages/tools.html">جرّب الأدوات المجانية</a></div>
-    </section>
-    <section class="mseo-section" id="articles">
-      <div class="mseo-section-head"><div><h2>أحدث المقالات والأدلة</h2><p>محتوى عملي مختار من مكتبة فاست سيو.</p></div><span>{articles.length} مقالًا</span></div>
-      <div class="mseo-grid">
-        {latest.map((article) => <article class="mseo-card">
-          {imageFor(article) && <a href={`/articles/${article.file || article.slug + '.html'}`} tabindex="-1" aria-hidden="true"><img src={imageFor(article)} alt="" width="640" height="360" loading="lazy" decoding="async" /></a>}
-          <div class="mseo-card-body"><span class="mseo-card-category">{article.category || 'مقالات'}</span><h3><a href={`/articles/${article.file || article.slug + '.html'}`}>{article.title}</a></h3><p>{article.description}</p><a class="mseo-card-link" href={`/articles/${article.file || article.slug + '.html'}`}>اقرأ الدليل ←</a></div>
-        </article>)}
-      </div>
-    </section>
-    <section class="mseo-section" id="categories">
-      <div class="mseo-section-head"><div><h2>تصفّح حسب المجال</h2><p>اختر المجال المناسب وابدأ التعلّم.</p></div></div>
-      <div class="mseo-grid">
-        {categories.map((category) => <a class="mseo-card mseo-card-body" href={`/pages/archive.html?category=${encodeURIComponent(category)}`}><span class="mseo-card-category">تصنيف</span><h3>{category}</h3><p>{articles.filter((article) => article.category === category).length} مقالًا ودليلًا</p></a>)}
-      </div>
-    </section>
-  </main>
+  <Fragment set:html={legacyMain} />
+  <script is:inline src="/assets/js/site.js" defer></script>
+  <script is:inline src="/assets/js/home.js" defer></script>
+  <script is:inline src="/assets/js/tools-catalog.js" defer></script>
 </SiteLayout>
