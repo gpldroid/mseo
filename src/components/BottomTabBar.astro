@@ -7,6 +7,6 @@ const tabs = [
   { href: '/pages/archive.html', label: 'استكشف', icon: '⌕', active: Astro.url.pathname === '/pages/archive.html' }
 ];
 ---
-<nav class="mseo-bottom-tabs" aria-label="التنقل الرئيسي السفلي">
+<nav class="mseo-bottom-tabs" data-3d-tab-bar aria-label="التنقل الرئيسي السفلي">
   {tabs.map((tab) => <a class="mseo-tab" href={tab.href} aria-current={tab.active ? 'page' : undefined}><span class="mseo-tab-icon" aria-hidden="true">{tab.icon}</span><span>{tab.label}</span></a>)}
 </nav>
