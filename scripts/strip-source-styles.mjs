@@ -57,7 +57,7 @@ function removeJavaScriptPresentation(source, relativePath) {
 
   if (relativePath === 'assets/js/internet-speed-test.js') {
     source = source.replace(/^\s*const progress\s*=\s*\$\("speed-progress-bar"\);\s*$/gm, '');
-    source = source.replace(/^\s*const setProgress\s*=\s*\([^;]*;\s*$/gm, '');
+    source = source.replace(/^\s*const setProgress\s*=.*$/gm, '');
     source = source.replace(/setProgress\([^;]*\);/g, '');
   }
 
