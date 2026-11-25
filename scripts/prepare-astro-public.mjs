@@ -51,7 +51,9 @@ async function cleanPublicAssets(dir) {
       continue;
     }
     if (entry.isFile() && entry.name.toLowerCase().endsWith('.css')) {
-      await rm(file, { force: true });
+      if (path.relative(publicDir, file).split(path.sep).join('/') !== 'assets/css/mseo-3d-tabs.css') {
+        await rm(file, { force: true });
+      }
       continue;
     }
     if (entry.isFile() && entry.name.endsWith('.html')) {
