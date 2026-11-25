@@ -1,4 +1,4 @@
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { access, mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import vm from 'node:vm';
 
@@ -17,6 +17,8 @@ for (const tool of tools) {
   if (!/^[a-z0-9-]+\.html$/i.test(tool.href)) throw new Error('Invalid tool route: ' + tool.href);
   if (hrefs.has(tool.href)) throw new Error('Duplicate tool route: ' + tool.href);
   hrefs.add(tool.href);
+  try { await access(path.join(root, 'pages', tool.href)); }
+  catch { throw new Error('Tool page does not exist: pages/' + tool.href); }
 }
 
 const outputDir = path.join(root, 'src', 'generated');
