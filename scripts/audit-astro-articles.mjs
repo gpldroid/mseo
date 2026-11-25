@@ -56,7 +56,7 @@ if (built) {
   const toolsOutputPath = path.join(root, 'dist', 'pages', 'tools.html');
   try {
     const output = await readFile(toolsOutputPath, 'utf8');
-    const renderedCards = (output.match(/<article\\b[^>]*\\bdata-tool-card(?:\\s|=|>)/g) || []).length;
+    const renderedCards = (output.match(/<article\b[^>]*\bdata-tool-card(?:\s|=|>)/g) || []).length;
     if (!output.includes('rel="canonical"')) errors.push('pages/tools.html: generated page is missing its canonical URL');
     if (renderedCards !== tools.length) errors.push('pages/tools.html: expected ' + tools.length + ' tool cards, found ' + renderedCards);
   } catch {
