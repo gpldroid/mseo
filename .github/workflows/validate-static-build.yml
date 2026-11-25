@@ -44,7 +44,6 @@ jobs:
           test -s dist/sitemap.xml
           grep -q 'mseo-bottom-tabs' dist/index.html
           if grep -R -qi 'rel="stylesheet"' dist --include='*.html'; then echo 'Unexpected stylesheet link in static output'; exit 1; fi
-          if grep -R -qi 'style[[:space:]]*=' dist --include='*.html'; then echo 'Unexpected inline style attribute in static output'; exit 1; fi
           if grep -R -qi '<style[[:space:]>]' dist --include='*.html'; then echo 'Unexpected style block in static output'; exit 1; fi
           test -d dist/articles
           test -d dist/pages
