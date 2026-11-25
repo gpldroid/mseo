@@ -1610,5 +1610,27 @@
     "thumbnail": "https://images.unsplash.com/photo-1627398242454-45a1465c2479?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-29",
     "updatedAt": "2026-10-29"
+  },
+  {
+    "slug": "google-discover-optimization-guide",
+    "file": "google-discover-optimization-guide.html",
+    "title": "Google Discover: كيف تهيئ موقعك لزيادة فرص ظهور مقالاتك؟",
+    "category": "SEO",
+    "subcategory": "Google Discover وتحسين الظهور",
+    "tags": [
+      "Google Discover",
+      "تحسين الظهور في Google Discover",
+      "زيادة زيارات الموقع",
+      "SEO",
+      "Google Search Console"
+    ],
+    "description": "تعرف إلى طرق تحسين الظهور في Google Discover عبر محتوى مفيد وصور كبيرة وعناوين دقيقة وتجربة مستخدم جيدة، مع خطوات القياس في Search Console.",
+    "icon": "fa-compass",
+    "image": "https://fastseo.site/assets/images/article-thumbnails/google-discover-optimization-guide.svg",
+    "thumbnail": "https://fastseo.site/assets/images/article-thumbnails/google-discover-optimization-guide.svg",
+    "publishedAt": "2026-10-29",
+    "updatedAt": "2026-10-29",
+    "author": "imad limrani",
+    "authorTitle": "محرر محتوى تقني"
   }
 ]

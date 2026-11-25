@@ -5,7 +5,7 @@ const root = process.cwd();
 const publicDir = path.join(root, 'public');
 const generatedDir = path.join(root, 'src', 'generated');
 const legacyDistHome = path.join(root, 'dist', 'index.html');
-const copyDirs = ['assets', 'articles', 'pages', 'data'];
+const copyDirs = ['assets', 'pages', 'data'];
 const copyFiles = ['404.html', 'article.html', 'CNAME', 'BingSiteAuth.xml', 'ads.txt', 'robots.txt', 'sitemap.xml', 'feed.xml', 'llms.txt', 'site.webmanifest', '_redirects'];
 
 await rm(publicDir, { recursive: true, force: true });

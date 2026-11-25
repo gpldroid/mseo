@@ -5,7 +5,7 @@
   "description": "Astro static website for Fast Seo / MSEO",
   "scripts": {
     "dev": "node scripts/build-site.mjs && node scripts/prepare-astro-public.mjs && astro dev",
-    "build": "npm run fix:seo && npm run fix:images && npm run generate:sitemap && npm run generate:feed && npm run audit:routing && node scripts/build-site.mjs && node scripts/prepare-astro-public.mjs && astro build",
+    "build": "npm run fix:seo && npm run fix:images && npm run generate:sitemap && npm run generate:feed && npm run audit:routing && node scripts/build-site.mjs && node scripts/prepare-astro-public.mjs && astro build && npm run audit:astro-articles:built",
     "preview": "astro preview",
     "check:js": "node --check assets/js/webmcp.js && node --check assets/js/site.js && node --check assets/js/home.js && node --check assets/js/tools-catalog.js && node --check assets/js/mseo-bottom-tabs.js",
     "audit:seo": "npm run fix:seo && node scripts/audit-seo.mjs",
@@ -16,16 +16,20 @@
     "audit:catalog": "node scripts/validate-ai-catalog.mjs",
     "audit:site": "node scripts/validate-site.mjs",
     "audit:translations": "node scripts/audit-translations.mjs",
-    "audit": "npm run check:js && npm run audit:seo && npm run audit:headings && npm run audit:external-links && npm run audit:links && npm run audit:security && npm run audit:catalog && npm run audit:translations && npm run audit:routing && npm run audit:performance",
+    "audit": "npm run check:js && npm run audit:seo && npm run audit:headings && npm run audit:external-links && npm run audit:links && npm run audit:security && npm run audit:catalog && npm run audit:translations && npm run audit:routing && npm run audit:performance && npm run audit:astro-articles",
     "test": "npm run audit",
-    "audit:ci": "npm run check:js && npm run audit:seo && npm run audit:headings && npm run audit:links && npm run audit:security && npm run audit:catalog && npm run audit:routing && npm run audit:performance",
+    "audit:ci": "npm run check:js && npm run audit:seo && npm run audit:headings && npm run audit:links && npm run audit:security && npm run audit:catalog && npm run audit:routing && npm run audit:performance && npm run audit:astro-articles",
     "audit:full": "npm run audit",
     "generate:sitemap": "node scripts/generate-sitemap.mjs",
     "generate:feed": "node scripts/generate-feed.mjs",
     "audit:routing": "node scripts/audit-routing.mjs",
     "audit:performance": "node scripts/audit-performance.mjs",
     "fix:images": "node scripts/fix-image-attributes.mjs",
-    "fix:seo": "node scripts/fix-seo-metadata.mjs"
+    "fix:seo": "node scripts/fix-seo-metadata.mjs",
+    "audit:astro-articles": "node scripts/audit-astro-articles.mjs",
+    "audit:astro-articles:built": "node scripts/audit-astro-articles.mjs --built"
   },
-  "devDependencies": { "astro": "^5.15.0" }
+  "devDependencies": {
+    "astro": "^5.15.0"
+  }
 }
