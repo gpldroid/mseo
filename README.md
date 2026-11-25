@@ -146,7 +146,7 @@ npm run build
 - `astro.config.mjs`: إعداد الموقع الثابت والنطاق `https://fastseo.site` ومجلد النشر.
 - `src/pages/index.astro`: الصفحة الرئيسية المبنية بواسطة Astro وتقرأ فهرس المقالات الحالي من `data/articles.json`.
 - `src/content.config.mjs`: مجموعة محتوى Astro مخصصة تقرأ `data/articles.json` وتربط كل سجل بملف المقال الأصلي، وتتحقق من وجود الملف وبنية `head` و`main` ومن عدم تكرار slug.
-- `src/pages/articles/[slug].html.astro`: مسار Astro ثابت يولّد روابط المقالات بصيغتها الحالية `/articles/<slug>.html`.
+- `src/pages/articles/[slug].astro`: مسار Astro ثابت يولّد روابط المقالات بصيغتها الحالية `/articles/<slug>.html`.
 - `src/components/ArticlePage.astro`: قالب المقال الموحد، يحافظ على بيانات SEO الأصلية ومحتوى المقال ويدمج نظام التصميم الذهبي وشريط التنقل.
 - `src/layouts/SiteLayout.astro`: الهيكل المشترك وبيانات الصفحة الأساسية.
 - `src/components/BottomTabBar.astro`: شريط التنقل السفلي لصفحات Astro.
