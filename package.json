@@ -27,7 +27,8 @@
     "fix:images": "node scripts/fix-image-attributes.mjs",
     "fix:seo": "node scripts/fix-seo-metadata.mjs",
     "audit:astro-articles": "node scripts/audit-astro-articles.mjs",
-    "audit:astro-articles:built": "node scripts/audit-astro-articles.mjs --built"
+    "audit:astro-articles:built": "node scripts/audit-astro-articles.mjs --built",
+    "strip:styles": "node scripts/strip-source-styles.mjs"
   },
   "devDependencies": {
     "astro": "^5.15.0"
