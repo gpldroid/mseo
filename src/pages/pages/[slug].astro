@@ -1,0 +1,15 @@
+---
+import { getCollection } from 'astro:content';
+import StaticPage from '../../components/StaticPage.astro';
+
+export async function getStaticPaths() {
+  const pages = await getCollection('legacyPages');
+  return pages.map((entry) => ({
+    params: { slug: entry.data.slug },
+    props: { page: entry.data }
+  }));
+}
+
+const { page } = Astro.props;
+---
+<StaticPage page={page} />
