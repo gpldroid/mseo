@@ -52,6 +52,16 @@ if (built) {
       errors.push(route + ': Astro output route is missing');
     }
   }
+  const tools = JSON.parse(await readFile(path.join(root, 'src', 'generated', 'tools-catalog.json'), 'utf8'));
+  const toolsOutputPath = path.join(root, 'dist', 'pages', 'tools.html');
+  try {
+    const output = await readFile(toolsOutputPath, 'utf8');
+    const renderedCards = (output.match(/data-tool-card/g) || []).length;
+    if (!output.includes('rel="canonical"')) errors.push('pages/tools.html: generated page is missing its canonical URL');
+    if (renderedCards !== tools.length) errors.push('pages/tools.html: expected ' + tools.length + ' tool cards, found ' + renderedCards);
+  } catch {
+    errors.push('pages/tools.html: Astro output route is missing');
+  }
 }
 
 console.log('Astro article audit:', { articles: catalog.length, uniqueSlugs: slugs.size, built });
