@@ -2,6 +2,14 @@
 import BottomTabBar from '../components/BottomTabBar.astro';
 import '../styles/design-system.css';
 const { title = 'فاست سيو | Fast Seo', description = 'أدلة عربية عملية لتحسين محركات البحث وتطوير المواقع وأدوات تقنية مجانية.' } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    { '@type': 'WebSite', '@id': 'https://fastseo.site/#website', name: 'فاست سيو | Fast Seo', alternateName: ['Fast Seo', 'فاست سيو'], url: 'https://fastseo.site/', inLanguage: 'ar', description, publisher: { '@id': 'https://fastseo.site/#organization' } },
+    { '@type': 'Organization', '@id': 'https://fastseo.site/#organization', name: 'فاست سيو | Fast Seo', alternateName: ['Fast Seo', 'فاست سيو'], url: 'https://fastseo.site/', logo: { '@type': 'ImageObject', url: 'https://fastseo.site/assets/images/fastseo-logo-header.svg' } }
+  ]
+};
 ---
 <!doctype html>
 <html lang="ar" dir="rtl">
@@ -11,7 +19,21 @@ const { title = 'فاست سيو | Fast Seo', description = 'أدلة عربية
     <meta name="theme-color" content="#eef3fb" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <meta name="google-site-verification" content="2-SUpcRCe1x54zAb_F3oJvBtUvMzUCZkKhUuNQd_UPQ" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="فاست سيو | Fast Seo" />
+    <meta property="og:image" content="https://fastseo.site/assets/images/fastseo-logo-header.svg" />
+    <meta property="og:image:alt" content="شعار FastSEO" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://fastseo.site/assets/images/fastseo-logo-header.svg" />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    <link rel="canonical" href={canonical} />
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="/assets/css/theme-system.css" />
     <link rel="stylesheet" href="/assets/css/style.css" />
