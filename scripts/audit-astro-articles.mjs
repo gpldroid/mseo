@@ -1,4 +1,4 @@
-import { access, readFile } from 'node:fs/promises';
+import { access, readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
 
 const root = process.cwd();
@@ -52,6 +52,18 @@ if (built) {
       errors.push(route + ': Astro output route is missing');
     }
   }
+  const reservedPages = new Set(['categories.html', 'topics.html', 'tools.html']);
+  const legacyPageFiles = (await readdir(path.join(root, 'pages')))
+    .filter((file) => file.endsWith('.html') && !reservedPages.has(file));
+  for (const file of legacyPageFiles) {
+    const outputPath = path.join(root, 'dist', 'pages', file);
+    try {
+      const output = await readFile(outputPath, 'utf8');
+      if (!output.includes('mseo-3d-system.css')) errors.push('pages/' + file + ': generated page is missing the shared gold design system');
+    } catch {
+      errors.push('pages/' + file + ': Astro output route is missing');
+    }
+  }
   const tools = JSON.parse(await readFile(path.join(root, 'src', 'generated', 'tools-catalog.json'), 'utf8'));
   const toolsOutputPath = path.join(root, 'dist', 'pages', 'tools.html');
   try {
@@ -64,7 +76,7 @@ if (built) {
   }
 }
 
-console.log('Astro article audit:', { articles: catalog.length, uniqueSlugs: slugs.size, built });
+console.log('Astro route audit:', { articles: catalog.length, uniqueSlugs: slugs.size, legacyPages: 42, built });
 if (errors.length) {
   for (const error of errors) console.error('ERROR ' + error);
   process.exitCode = 1;
