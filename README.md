@@ -148,10 +148,12 @@ npm run build
 - `src/content.config.mjs`: مجموعة محتوى Astro مخصصة تقرأ `data/articles.json` وتربط كل سجل بملف المقال الأصلي، وتتحقق من وجود الملف وبنية `head` و`main` ومن عدم تكرار slug.
 - `src/pages/articles/[slug].astro`: مسار Astro ثابت يولّد روابط المقالات بصيغتها الحالية `/articles/<slug>.html`.
 - `src/components/ArticlePage.astro`: قالب المقال الموحد، يحافظ على بيانات SEO الأصلية ومحتوى المقال ويدمج نظام التصميم الذهبي وشريط التنقل.
+- `src/components/ArticleCard.astro` و`src/components/CategoryCard.astro`: بطاقات مشتركة لعرض المقالات والتصنيفات.
+- `src/pages/pages/categories.astro` و`src/pages/pages/topics.astro`: صفحات Astro للتصنيفات ومقالات كل تصنيف، مع الحفاظ على المسارين القديمين.
 - `src/layouts/SiteLayout.astro`: الهيكل المشترك وبيانات الصفحة الأساسية.
 - `src/components/BottomTabBar.astro`: شريط التنقل السفلي لصفحات Astro.
 - `src/styles/design-system.css`: نظام التصميم ثلاثي الأبعاد CSS 3D.
-- `scripts/prepare-astro-public.mjs`: ينسخ الصفحات والأدوات والأصول القديمة إلى مجلد Astro العام، ويضيف ملفات التنقل والتصميم إلى صفحات HTML القديمة. لا ينسخ المقالات؛ مسارات المقالات أصبحت تُولّد بواسطة Astro Content Collection.
+- `scripts/prepare-astro-public.mjs`: ينسخ الصفحات والأدوات والأصول القديمة إلى مجلد Astro العام، ويضيف ملفات التنقل والتصميم إلى صفحات HTML القديمة. لا ينسخ المقالات أو صفحتي التصنيفات والموضوعات؛ فهذه المسارات تُولّد بواسطة Astro.
 - `public/`: مجلد مرحلي مولّد أثناء البناء؛ لا تعدّل محتواه يدويًا.
 - `dist/`: المخرجات النهائية الجاهزة لـ GitHub Pages.
 
