@@ -9,3 +9,14 @@ body { padding-bottom: 104px; }
 .mseo-tab[aria-current=page] { color:#fff; background:linear-gradient(145deg,#547cff,#294ac0); box-shadow:0 4px 0 #1b358f,0 8px 14px #294cc744; transform:translateY(-4px); }
 @media (min-width:900px) { .mseo-bottom-tabs { bottom:16px; } }
 @media (prefers-reduced-motion:reduce) { .mseo-bottom-tabs,.article-card,.category-card,.site-card { transform:none!important; transition:none!important; } }
+
+/* Core depth language applied after the legacy theme so the migration keeps its visual hierarchy. */
+:root { --mseo-3d-brand: #365ee8; --mseo-3d-accent: #16a69a; --mseo-3d-depth: 0 6px 0 rgba(37,57,100,.08),0 17px 34px rgba(27,45,83,.12); }
+body { background: radial-gradient(ellipse at 12% 0%,rgba(84,124,255,.10),transparent 38%),#eef3fb; }
+.mseo-header { box-shadow:0 5px 0 rgba(38,57,98,.045),0 12px 26px rgba(31,49,88,.07); }
+.site-hero,.hero { transform:perspective(1400px) rotateX(.6deg); transform-origin:top center; }
+.site-primary,.site-secondary,.button,.mseo-icon-button,.pagination button,.mseo-search-panel button { box-shadow:0 4px 0 rgba(35,55,110,.10),0 9px 18px rgba(28,48,91,.09); transition:transform .18s,box-shadow .18s; }
+.site-primary:active,.site-secondary:active,.button:active,.mseo-icon-button:active { transform:translateY(3px); box-shadow:0 1px 0 rgba(35,55,110,.10),0 3px 8px rgba(28,48,91,.08); }
+.article-card,.category-card,.site-card,.sidebar-widget,.latest-carousel-card { border-color:rgba(255,255,255,.92); box-shadow:var(--mseo-3d-shadow); }
+.article-card:hover,.category-card:hover,.site-card:hover { box-shadow:0 8px 0 rgba(37,57,100,.07),0 24px 38px rgba(27,45,83,.15); }
+@media (prefers-reduced-motion:reduce) { .site-hero,.hero { transform:none; } }
