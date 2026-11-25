@@ -3,6 +3,7 @@ import path from 'node:path';
 
 const root = process.cwd();
 const publicDir = path.join(root, 'public');
+const generatedDir = path.join(root, 'src', 'generated');
 const legacyDistHome = path.join(root, 'dist', 'index.html');
 const copyDirs = ['assets', 'articles', 'pages', 'data'];
 const copyFiles = ['404.html', 'article.html', 'CNAME', 'BingSiteAuth.xml', 'ads.txt', 'robots.txt', 'sitemap.xml', 'feed.xml', 'llms.txt', 'site.webmanifest', '_redirects'];
@@ -13,7 +14,8 @@ const mainMatch = legacyHomepage.match(/<main\b[^>]*>[\s\S]*?<\/main>/i);
 if (!mainMatch) throw new Error('The legacy homepage main content could not be extracted.');
 
 await mkdir(publicDir, { recursive: true });
-await writeFile(path.join(publicDir, 'legacy-home-content.html'), mainMatch[0], 'utf8');
+await mkdir(generatedDir, { recursive: true });
+await writeFile(path.join(generatedDir, 'legacy-home-content.html'), mainMatch[0], 'utf8');
 
 for (const name of copyDirs) {
   try { await cp(path.join(root, name), path.join(publicDir, name), { recursive: true }); }
