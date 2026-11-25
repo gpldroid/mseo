@@ -1,0 +1,35 @@
+---
+import BottomTabBar from '../components/BottomTabBar.astro';
+import '../styles/design-system.css';
+const { title = 'فاست سيو | Fast Seo', description = 'أدلة عربية عملية لتحسين محركات البحث وتطوير المواقع وأدوات تقنية مجانية.' } = Astro.props;
+---
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#eef3fb" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/assets/css/theme-system.css" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="/assets/css/pages/home.css" />
+    <link rel="stylesheet" href="/assets/css/mseo-3d-system.css" />
+    <slot name="head" />
+  </head>
+  <body>
+    <header class="mseo-topbar">
+      <div class="mseo-topbar-inner">
+        <a class="mseo-logo" href="/" aria-label="Fast Seo الرئيسية"><span class="mseo-logo-mark" aria-hidden="true">M</span><span>فاست سيو</span></a>
+        <nav class="mseo-top-links" aria-label="التنقل العلوي">
+          <a href="/pages/seo.html">SEO</a><a href="/pages/ai.html">الذكاء الاصطناعي</a><a href="/pages/web-development.html">تطوير المواقع</a><a href="/pages/tools.html">الأدوات</a>
+        </nav>
+      </div>
+    </header>
+    <slot />
+    <footer class="mseo-section" style="text-align:center;color:#617087;font-size:.85rem">© فاست سيو <span>{new Date().getFullYear()}</span> — جميع الحقوق محفوظة</footer>
+    <BottomTabBar />
+  </body>
+</html>
