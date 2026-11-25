@@ -71,7 +71,7 @@ const articles = defineCollection({
 
 function parseSafeAttributes(raw = '') {
   const attributes = {};
-  const pattern = /([^\\s=/>]+)(?:\\s*=\\s*(?:"([^"]*)"|'([^']*)'|([^\\s>]+)))?/g;
+  const pattern = /([^\s=/>]+)(?:\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+)))?/g;
   for (const match of raw.matchAll(pattern)) {
     const name = match[1].toLowerCase();
     if (/^(class|lang|dir|id|role|style|hidden|data-[a-z0-9_-]+|aria-[a-z0-9_-]+)$/.test(name)) {
@@ -90,14 +90,14 @@ const legacyPages = defineCollection({
 
     return Promise.all(names.map(async (file) => {
       const source = await readFile(path.join(root, 'pages', file), 'utf8');
-      const head = source.match(/<head\\b[^>]*>([\\s\\S]*?)<\\/head>/i);
-      const body = source.match(/<body\\b([^>]*)>([\\s\\S]*?)<\\/body>/i);
-      const html = source.match(/<html\\b([^>]*)>/i);
+      const head = source.match(/<head\b[^>]*>([\s\S]*?)<\/head>/i);
+      const body = source.match(/<body\b([^>]*)>([\s\S]*?)<\/body>/i);
+      const html = source.match(/<html\b([^>]*)>/i);
       if (!head || !body || !html) {
         throw new Error('Legacy page "' + file + '" must contain html, head and body elements.');
       }
 
-      const slug = file.replace(/\\.html$/i, '');
+      const slug = file.replace(/\.html$/i, '');
       return {
         id: slug,
         slug,
