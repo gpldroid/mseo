@@ -7,6 +7,7 @@ const { page } = Astro.props;
   <head><Fragment set:html={page.headHtml} /></head>
   <body {...page.bodyAttrs}>
     <Fragment set:html={page.bodyHtml} />
+    {!page.hasSiteScript && <script is:inline src="/assets/js/site.js" defer></script>}
     <BottomTabBar />
     <script is:inline src="/assets/js/mseo-bottom-tabs.js" defer></script>
   </body>
