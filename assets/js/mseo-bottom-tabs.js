@@ -1,5 +1,21 @@
 (function () {
-  if (document.querySelector('.mseo-bottom-tabs')) return;
+  'use strict';
+
+  var existing = Array.prototype.slice.call(document.querySelectorAll('.mseo-bottom-tabs'));
+  var nav = existing.find(function (item) {
+    return item.hasAttribute('data-3d-tab-bar');
+  }) || existing[0];
+
+  // Keep exactly one navigation bar; prefer the explicitly marked 3D component.
+  existing.forEach(function (item) {
+    if (item !== nav) item.remove();
+  });
+
+  if (nav) {
+    nav.setAttribute('data-3d-tab-bar', '');
+    return;
+  }
+
   var current = location.pathname;
   if (current.length > 1 && current.charAt(current.length - 1) === '/') current = current.slice(0, -1);
   var tabs = [
@@ -9,8 +25,10 @@
     { href: '/pages/tools.html', label: 'الأدوات', icon: '✣', match: function () { return current.indexOf('/pages/') === 0 && /tools|generator|checker|converter|analyzer|preview|compressor|tester/.test(current); } },
     { href: '/pages/archive.html', label: 'استكشف', icon: '⌕', match: function () { return current.indexOf('/pages/') === 0 && !/categories|tools|generator|checker|converter|analyzer|preview|compressor|tester/.test(current); } }
   ];
-  var nav = document.createElement('nav');
+
+  nav = document.createElement('nav');
   nav.className = 'mseo-bottom-tabs';
+  nav.setAttribute('data-3d-tab-bar', '');
   nav.setAttribute('aria-label', 'التنقل الرئيسي السفلي');
   tabs.forEach(function (tab) {
     var link = document.createElement('a');
