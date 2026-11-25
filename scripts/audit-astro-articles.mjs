@@ -41,6 +41,7 @@ for (const item of catalog) {
   }
 }
 
+let legacyPageCount = 0;
 if (built) {
   for (const route of ['pages/categories.html', 'pages/topics.html']) {
     const outputPath = path.join(root, 'dist', route);
@@ -55,6 +56,7 @@ if (built) {
   const reservedPages = new Set(['categories.html', 'topics.html', 'tools.html']);
   const legacyPageFiles = (await readdir(path.join(root, 'pages')))
     .filter((file) => file.endsWith('.html') && !reservedPages.has(file));
+  legacyPageCount = legacyPageFiles.length;
   for (const file of legacyPageFiles) {
     const outputPath = path.join(root, 'dist', 'pages', file);
     try {
@@ -76,7 +78,7 @@ if (built) {
   }
 }
 
-console.log('Astro route audit:', { articles: catalog.length, uniqueSlugs: slugs.size, legacyPages: 42, built });
+console.log('Astro route audit:', { articles: catalog.length, uniqueSlugs: slugs.size, legacyPages: legacyPageCount, built });
 if (errors.length) {
   for (const error of errors) console.error('ERROR ' + error);
   process.exitCode = 1;
