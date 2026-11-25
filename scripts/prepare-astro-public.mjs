@@ -4,7 +4,7 @@ import path from 'node:path';
 const root = process.cwd();
 const publicDir = path.join(root, 'public');
 const copyDirs = ['assets', 'articles', 'pages', 'data'];
-const copyFiles = ['404.html', 'CNAME', 'BingSiteAuth.xml', 'ads.txt', 'robots.txt', 'sitemap.xml', 'feed.xml', 'llms.txt', 'site.webmanifest', '_redirects'];
+const copyFiles = ['404.html', 'article.html', 'CNAME', 'BingSiteAuth.xml', 'ads.txt', 'robots.txt', 'sitemap.xml', 'feed.xml', 'llms.txt', 'site.webmanifest', '_redirects'];
 
 await rm(publicDir, { recursive: true, force: true });
 await mkdir(publicDir, { recursive: true });
