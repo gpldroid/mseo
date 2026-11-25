@@ -41,6 +41,19 @@ for (const item of catalog) {
   }
 }
 
+if (built) {
+  for (const route of ['pages/categories.html', 'pages/topics.html']) {
+    const outputPath = path.join(root, 'dist', route);
+    try {
+      const output = await readFile(outputPath, 'utf8');
+      if (!output.includes('rel="canonical"')) errors.push(route + ': generated page is missing its canonical URL');
+      if (!output.includes('mseo-3d-system.css')) errors.push(route + ': generated page is missing the shared gold design system');
+    } catch {
+      errors.push(route + ': Astro output route is missing');
+    }
+  }
+}
+
 console.log('Astro article audit:', { articles: catalog.length, uniqueSlugs: slugs.size, built });
 if (errors.length) {
   for (const error of errors) console.error('ERROR ' + error);
