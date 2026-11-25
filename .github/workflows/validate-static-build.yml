@@ -1,21 +1,18 @@
-name: Validate static homepage build
+name: Validate Astro static build
 
 on:
   pull_request:
     branches: [main]
     paths:
-      - '.gitignore'
-      - 'index.html'
+      - 'astro.config.mjs'
+      - 'src/**'
       - 'articles/**'
       - 'pages/**'
-      - 'partials/**'
-      - 'assets/css/**'
-      - 'assets/js/**'
-      - 'assets/images/**'
+      - 'assets/**'
       - 'data/**'
-      - 'scripts/build-site.mjs'
-      - '.github/workflows/deploy-pages.yml'
-      - '.github/workflows/validate-static-build.yml'
+      - 'scripts/**'
+      - 'package.json'
+      - '.github/workflows/**'
   workflow_dispatch:
 
 permissions:
@@ -31,18 +28,18 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Check build script syntax
-        run: node --check scripts/build-site.mjs
-      - name: Generate static homepage
-        run: node scripts/build-site.mjs
-      - name: Verify required homepage assets
-        run: |
-          test -s assets/css/pages/home.css
-          test ! -e assets/css/pages/home.cs
-      - name: Verify generated homepage
+      - name: Install dependencies
+        run: npm install
+      - name: Check JavaScript syntax
+        run: npm run check:js
+      - name: Build Astro static site
+        run: npm run build
+      - name: Verify generated site
         run: |
           test -s dist/index.html
-          ! grep -q 'FASTSEO:' dist/index.html
-          grep -q 'class="mseo-header"' dist/index.html
-          grep -q 'class="mseo-footer"' dist/index.html
-          grep -q 'class="article-card"' dist/index.html
+          test -s dist/assets/css/mseo-3d-system.css
+          test -s dist/assets/js/mseo-bottom-tabs.js
+          test -s dist/sitemap.xml
+          grep -q 'mseo-bottom-tabs' dist/index.html
+          test -d dist/articles
+          test -d dist/pages
