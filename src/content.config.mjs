@@ -4,11 +4,6 @@ import path from 'node:path';
 
 const root = process.cwd();
 
-function addDesignSystem(headHtml) {
-  if (/mseo-3d-system\.css/i.test(headHtml)) return headHtml;
-  return headHtml + '\\n<link rel="stylesheet" href="/assets/css/mseo-3d-system.css" data-mseo-design="gold-3d">';
-}
-
 const articles = defineCollection({
   loader: async () => {
     const catalog = JSON.parse(await readFile(path.join(root, 'data/articles.json'), 'utf8'));
@@ -49,7 +44,7 @@ const articles = defineCollection({
         updatedAt: String(record.updatedAt || record.publishedAt || ''),
         sourceFile: file,
         bodyClass,
-        headHtml: addDesignSystem(head[1]),
+        headHtml: head[1],
         mainHtml: main[0]
       };
     }));
@@ -74,7 +69,7 @@ function parseSafeAttributes(raw = '') {
   const pattern = /([^\s=/>]+)(?:\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+)))?/g;
   for (const match of raw.matchAll(pattern)) {
     const name = match[1].toLowerCase();
-    if (/^(class|lang|dir|id|role|style|hidden|data-[a-z0-9_-]+|aria-[a-z0-9_-]+)$/.test(name)) {
+    if (/^(class|lang|dir|id|role|hidden|data-[a-z0-9_-]+|aria-[a-z0-9_-]+)$/.test(name)) {
       attributes[name] = match[2] ?? match[3] ?? match[4] ?? '';
     }
   }
@@ -105,7 +100,7 @@ const legacyPages = defineCollection({
         htmlAttrs: parseSafeAttributes(html[1]),
         bodyAttrs: parseSafeAttributes(body[1]),
         hasSiteScript: body[2].includes('assets/js/site.js'),
-        headHtml: addDesignSystem(head[1]),
+        headHtml: head[1],
         bodyHtml: body[2]
       };
     }));

@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -24,6 +24,17 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Remove CSS from repository source files
+        run: npm run strip:styles
+      - name: Commit source cleanup
+        run: |
+          if ! git diff --quiet; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add -A
+            git commit -m "Remove CSS styling from source files"
+            git push
+          fi
       - name: Install dependencies
         run: npm install
       - name: Normalize SEO metadata and image loading
@@ -41,7 +52,8 @@ jobs:
           test -s dist/assets/js/mseo-bottom-tabs.js
           test -s dist/sitemap.xml
           grep -q 'mseo-bottom-tabs' dist/index.html
-          if grep -R -q 'rel="stylesheet"' dist --include='*.html'; then echo 'Unexpected stylesheet link in static output'; exit 1; fi
+          if grep -R -qi 'rel="stylesheet"' dist --include='*.html'; then echo 'Unexpected stylesheet link in static output'; exit 1; fi
+          if grep -R -qi '<style[[:space:]>]' dist --include='*.html'; then echo 'Unexpected style block in static output'; exit 1; fi
           test -d dist/articles
           test -d dist/pages
       - name: Upload site artifact
