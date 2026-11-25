@@ -48,7 +48,8 @@ jobs:
       - name: Verify Astro output and navigation
         run: |
           test -s dist/index.html
-          test -z "$(find dist -type f -name '*.css' -print -quit)"
+          test -s dist/assets/css/mseo-3d-tabs.css
+          test "$(find dist -type f -name '*.css' | wc -l)" -eq 1
           test -s dist/assets/js/mseo-bottom-tabs.js
           test -s dist/sitemap.xml
           grep -q 'mseo-bottom-tabs' dist/index.html
