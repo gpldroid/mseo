@@ -1,0 +1,13 @@
+---
+import BottomTabBar from './BottomTabBar.astro';
+const { page } = Astro.props;
+---
+<!doctype html>
+<html {...page.htmlAttrs}>
+  <head><Fragment set:html={page.headHtml} /></head>
+  <body {...page.bodyAttrs}>
+    <Fragment set:html={page.bodyHtml} />
+    <BottomTabBar />
+    <script is:inline src="/assets/js/mseo-bottom-tabs.js" defer></script>
+  </body>
+</html>
