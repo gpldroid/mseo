@@ -5,10 +5,17 @@ const root = process.cwd();
 const ignored = new Set(['.git', 'node_modules', 'dist', 'public', '.astro', '.vercel']);
 
 function stripStyleMarkup(value) {
-  return String(value)
-    .replace(/<style\b[^>]*>[\s\S]*?<\/style\s*>/gi, '')
-    .replace(/<link\b(?=[^>]*\brel\s*=\s*["'][^"']*\bstylesheet\b)[^>]*>/gi, '')
-    .replace(/\sstyle\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+)/gi, '');
+  const protectedBlocks = [];
+  let html = String(value).replace(/<(pre|code|textarea)\\b[\\s\\S]*?<\\/\\1\\s*>/gi, (block) => {
+    const token = '__MSEO_PRESERVED_CODE_' + protectedBlocks.length + '__';
+    protectedBlocks.push(block);
+    return token;
+  });
+  html = html
+    .replace(/<style\\b[^>]*>[\\s\\S]*?<\\/style\\s*>/gi, '')
+    .replace(/<link\\b(?=[^>]*\\brel\\s*=\\s*["'][^"']*\\bstylesheet\\b)[^>]*>/gi, '')
+    .replace(/\\sstyle\\s*=\\s*(?:"[^"]*"|'[^']*'|[^\\s>]+)/gi, '');
+  return html.replace(/__MSEO_PRESERVED_CODE_(\\d+)__/g, (_, index) => protectedBlocks[Number(index)] || '');
 }
 
 function removeJavaScriptPresentation(source, relativePath) {
