@@ -45,6 +45,8 @@ npx serve dist
 | `npm run audit:translations` | فحص ملفات ونصوص الترجمة. |
 | `npm run audit:routing` | فحص قواعد التوجيه وSitemap وRSS وrobots.txt. |
 | `npm run audit:performance` | جرد الصور وخصائصها وأحجام الملفات. |
+| `npm run audit:astro-articles` | التحقق من سجلات المقالات وملفات المصدر وcanonical والـslugs قبل البناء. |
+| `npm run audit:astro-articles:built` | التحقق من وجود جميع مسارات المقالات في مخرجات Astro بعد البناء. |
 | `npm run check:js` | التحقق من صياغة ملفات JavaScript المحددة في package.json. |
 | `npm run generate:sitemap` | توليد `sitemap.xml` من المقالات والصفحات العامة. |
 | `npm run generate:feed` | توليد `feed.xml` من أحدث المقالات. |
@@ -143,10 +145,13 @@ npm run build
 
 - `astro.config.mjs`: إعداد الموقع الثابت والنطاق `https://fastseo.site` ومجلد النشر.
 - `src/pages/index.astro`: الصفحة الرئيسية المبنية بواسطة Astro وتقرأ فهرس المقالات الحالي من `data/articles.json`.
+- `src/content.config.mjs`: مجموعة محتوى Astro مخصصة تقرأ `data/articles.json` وتربط كل سجل بملف المقال الأصلي، وتتحقق من وجود الملف وبنية `head` و`main` ومن عدم تكرار slug.
+- `src/pages/articles/[slug].html.astro`: مسار Astro ثابت يولّد روابط المقالات بصيغتها الحالية `/articles/<slug>.html`.
+- `src/components/ArticlePage.astro`: قالب المقال الموحد، يحافظ على بيانات SEO الأصلية ومحتوى المقال ويدمج نظام التصميم الذهبي وشريط التنقل.
 - `src/layouts/SiteLayout.astro`: الهيكل المشترك وبيانات الصفحة الأساسية.
 - `src/components/BottomTabBar.astro`: شريط التنقل السفلي لصفحات Astro.
 - `src/styles/design-system.css`: نظام التصميم ثلاثي الأبعاد CSS 3D.
-- `scripts/prepare-astro-public.mjs`: ينسخ المقالات والصفحات والأدوات والأصول القديمة إلى مجلد Astro العام، ويضيف ملفات التنقل والتصميم إلى صفحات HTML القديمة.
+- `scripts/prepare-astro-public.mjs`: ينسخ الصفحات والأدوات والأصول القديمة إلى مجلد Astro العام، ويضيف ملفات التنقل والتصميم إلى صفحات HTML القديمة. لا ينسخ المقالات؛ مسارات المقالات أصبحت تُولّد بواسطة Astro Content Collection.
 - `public/`: مجلد مرحلي مولّد أثناء البناء؛ لا تعدّل محتواه يدويًا.
 - `dist/`: المخرجات النهائية الجاهزة لـ GitHub Pages.
 
@@ -156,7 +161,7 @@ npm run build
 
 ### ملاحظة الانتقال
 
-هذه مرحلة Astro الأولى: الصفحة الرئيسية ومكوناتها أصبحت Astro، أما ملفات المقالات والصفحات والأدوات الحالية فتبقى HTML ثابتة مؤقتًا للحفاظ على محتواها وروابطها. يمكن نقلها لاحقًا تدريجيًا إلى قوالب ومجموعات محتوى Astro بعد اختبارات تطابق SEO والروابط.
+اكتملت مرحلة نقل المقالات إلى Astro Content Collection: مصدر البيانات الوصفية هو `data/articles.json`، ومحتوى كل مقال ووسوم SEO يُقرأ من ملف HTML الأصلي دون إعادة كتابة النص أو تغيير الـslug. يولّد Astro صفحة مستقلة لكل مقال على المسار نفسه `/articles/<slug>.html`، مع الحفاظ على canonical وOpen Graph وTwitter وJSON-LD ومحتوى `<main>`. تبقى ملفات HTML الأصلية داخل `articles/` كمصدر محتوى قابل للتحرير والرجوع إليه، لكنها لا تُنسخ إلى `public/` ولا تُنشر مباشرة؛ مخرجات المقالات تأتي من مسارات Astro. الصفحات والأدوات القديمة ما زالت HTML ثابتة في هذه المرحلة.
 
 
 ### ألوان الهوية البصرية
