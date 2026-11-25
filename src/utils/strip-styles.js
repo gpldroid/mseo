@@ -15,4 +15,3 @@ export function stripStyleMarkup(html = '') {
     .replace(/\sstyle\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+)/gi, '');
   return output.replace(/__MSEO_PRESERVED_CODE_(\d+)__/g, (_, index) => protectedBlocks[Number(index)] || '');
 }
-}
