@@ -37,10 +37,11 @@ jobs:
       - name: Verify Astro output and navigation
         run: |
           test -s dist/index.html
-          test -s dist/assets/css/mseo-3d-system.css
+          test -z "$(find dist -type f -name '*.css' -print -quit)"
           test -s dist/assets/js/mseo-bottom-tabs.js
           test -s dist/sitemap.xml
           grep -q 'mseo-bottom-tabs' dist/index.html
+          if grep -R -q 'rel="stylesheet"' dist --include='*.html'; then echo 'Unexpected stylesheet link in static output'; exit 1; fi
           test -d dist/articles
           test -d dist/pages
       - name: Upload site artifact

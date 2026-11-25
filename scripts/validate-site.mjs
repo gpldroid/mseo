@@ -1,7 +1,7 @@
 import { readFile, access, readdir } from 'node:fs/promises';
 const root = new URL('../', import.meta.url);
 const required = [
-  'index.html','assets/css/style.css','assets/js/site.js',
+  'index.html','assets/js/site.js',
   'data/articles.json','pages/archive.html','sitemap.xml','feed.xml','_redirects','pages/privacy.html','pages/terms.html'
 ];
 for (const path of required) await access(new URL(path, root));
@@ -25,8 +25,7 @@ if (!netlifyConfig.includes('from = "https://mseopro.netlify.app"') ||
     !netlifyConfig.includes('force = true')) {
   throw new Error('Missing forced permanent redirects from the retired Netlify hostname to fastseo.site');
 }
-const css = await readFile(new URL('assets/css/style.css', root), 'utf8');
-for (const feature of ['.mseo-header','.mseo-nav','.mseo-search-panel','.mseo-footer','.mseo-scroll-controls','html.dark']) if (!css.includes(feature)) throw new Error('Unified stylesheet missing feature: ' + feature);
+
 // Keep the checked-in sitemap aligned with the generated public inventory.
 const sitemap = await readFile(new URL('sitemap.xml', root), 'utf8');
 const siteBase = new URL(process.env.MSEO_SITE_URL || process.env.URL || 'https://fastseo.site/');

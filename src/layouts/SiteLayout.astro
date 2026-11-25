@@ -1,6 +1,5 @@
 ---
 import BottomTabBar from '../components/BottomTabBar.astro';
-import '../styles/design-system.css';
 import catalog from '../../data/articles.json';
 const { title = 'فاست سيو | Fast Seo', description = 'أدلة عربية عملية لتحسين محركات البحث وتطوير المواقع وأدوات تقنية مجانية.' } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site);
@@ -39,10 +38,10 @@ const structuredData = {
     <link rel="canonical" href={canonical} />
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
     {featuredImage && <link rel="preload" as="image" href={featuredImage} fetchpriority="high" />}
-    <link rel="stylesheet" href="/assets/css/theme-system.css" />
-    <link rel="stylesheet" href="/assets/css/style.css" />
-    <link rel="stylesheet" href="/assets/css/pages/home.css" />
-    <link rel="stylesheet" href="/assets/css/mseo-3d-system.css" />
+
+
+
+
     <slot name="head" />
   </head>
   <body>
