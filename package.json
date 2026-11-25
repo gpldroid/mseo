@@ -1,11 +1,13 @@
 {
   "name": "fastseo-site",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
-  "description": "Build and quality checks for fastseo.site",
+  "description": "Astro static website for Fast Seo / MSEO",
   "scripts": {
-    "build": "npm run fix:seo && npm run fix:images && npm run generate:sitemap && npm run generate:feed && npm run audit:routing && node scripts/build-site.mjs",
-    "check:js": "node --check assets/js/webmcp.js && node --check assets/js/site.js && node --check assets/js/home.js && node --check assets/js/tools-catalog.js",
+    "dev": "node scripts/build-site.mjs && node scripts/prepare-astro-public.mjs && astro dev",
+    "build": "npm run fix:seo && npm run fix:images && npm run generate:sitemap && npm run generate:feed && npm run audit:routing && node scripts/build-site.mjs && node scripts/prepare-astro-public.mjs && astro build",
+    "preview": "astro preview",
+    "check:js": "node --check assets/js/webmcp.js && node --check assets/js/site.js && node --check assets/js/home.js && node --check assets/js/tools-catalog.js && node --check assets/js/mseo-bottom-tabs.js",
     "audit:seo": "npm run fix:seo && node scripts/audit-seo.mjs",
     "audit:headings": "node scripts/audit-headings.mjs",
     "audit:external-links": "node scripts/audit-external-links.mjs",
@@ -24,5 +26,6 @@
     "audit:performance": "node scripts/audit-performance.mjs",
     "fix:images": "node scripts/fix-image-attributes.mjs",
     "fix:seo": "node scripts/fix-seo-metadata.mjs"
-  }
+  },
+  "devDependencies": { "astro": "^5.15.0" }
 }

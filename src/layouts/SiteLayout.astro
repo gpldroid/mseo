@@ -1,0 +1,61 @@
+---
+import BottomTabBar from '../components/BottomTabBar.astro';
+import '../styles/design-system.css';
+import catalog from '../../data/articles.json';
+const { title = 'فاست سيو | Fast Seo', description = 'أدلة عربية عملية لتحسين محركات البحث وتطوير المواقع وأدوات تقنية مجانية.' } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const featured = [...catalog].sort((a, b) => String(b.updatedAt || b.publishedAt || '').localeCompare(String(a.updatedAt || a.publishedAt || '')))[0];
+const featuredImage = featured?.thumbnail || featured?.image;
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    { '@type': 'WebSite', '@id': 'https://fastseo.site/#website', name: 'فاست سيو | Fast Seo', alternateName: ['Fast Seo', 'فاست سيو'], url: 'https://fastseo.site/', inLanguage: 'ar', description, publisher: { '@id': 'https://fastseo.site/#organization' } },
+    { '@type': 'Organization', '@id': 'https://fastseo.site/#organization', name: 'فاست سيو | Fast Seo', alternateName: ['Fast Seo', 'فاست سيو'], url: 'https://fastseo.site/', logo: { '@type': 'ImageObject', url: 'https://fastseo.site/assets/images/fastseo-logo-header.svg' } }
+  ]
+};
+---
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f7f5ef" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <meta name="google-site-verification" content="2-SUpcRCe1x54zAb_F3oJvBtUvMzUCZkKhUuNQd_UPQ" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="فاست سيو | Fast Seo" />
+    <meta property="og:image" content="https://fastseo.site/assets/images/fastseo-logo-header.svg" />
+    <meta property="og:image:alt" content="شعار FastSEO" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://fastseo.site/assets/images/fastseo-logo-header.svg" />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)}></script>
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+    {featuredImage && <link rel="preload" as="image" href={featuredImage} fetchpriority="high" />}
+    <link rel="stylesheet" href="/assets/css/theme-system.css" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" href="/assets/css/pages/home.css" />
+    <link rel="stylesheet" href="/assets/css/mseo-3d-system.css" />
+    <slot name="head" />
+  </head>
+  <body>
+    <header class="mseo-topbar">
+      <div class="mseo-topbar-inner">
+        <a class="mseo-logo" href="/" aria-label="Fast Seo الرئيسية"><span class="mseo-logo-mark" aria-hidden="true">M</span><span>فاست سيو</span></a>
+        <nav class="mseo-top-links" aria-label="التنقل العلوي">
+          <a href="/pages/seo.html">SEO</a><a href="/pages/ai.html">الذكاء الاصطناعي</a><a href="/pages/web-development.html">تطوير المواقع</a><a href="/pages/tools.html">الأدوات</a>
+        </nav>
+      </div>
+    </header>
+    <slot />
+    <footer class="mseo-section" style="text-align:center;color:#59564f;font-size:.85rem">© فاست سيو <span>{new Date().getFullYear()}</span> — جميع الحقوق محفوظة</footer>
+    <BottomTabBar />
+  </body>
+</html>

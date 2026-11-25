@@ -1,4 +1,6 @@
 # Local dependencies and generated output
+public/
+src/generated/
 node_modules/
 dist/
 coverage/

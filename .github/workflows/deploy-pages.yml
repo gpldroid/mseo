@@ -22,14 +22,27 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup Node.js
         uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install dependencies
+        run: npm install
       - name: Normalize SEO metadata and image loading
         run: npm run fix:seo && npm run fix:images
       - name: Run unified project audit
         run: npm run audit:ci
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
-      - name: Generate static homepage
+      - name: Build Astro static site
         run: npm run build
+      - name: Verify Astro output and navigation
+        run: |
+          test -s dist/index.html
+          test -s dist/assets/css/mseo-3d-system.css
+          test -s dist/assets/js/mseo-bottom-tabs.js
+          test -s dist/sitemap.xml
+          grep -q 'mseo-bottom-tabs' dist/index.html
+          test -d dist/articles
+          test -d dist/pages
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v3
         with:
