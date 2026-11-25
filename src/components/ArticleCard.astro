@@ -13,15 +13,4 @@ const image = article.thumbnail || article.image || '/assets/favicon.svg';
     <a class="mseo-article-link" href={`/articles/${article.file || article.slug + '.html'}`}>اقرأ المقال <span aria-hidden="true">←</span></a>
   </div>
 </article>
-<style>
-  .mseo-article-card{min-width:0;overflow:hidden;border:1px solid var(--line);border-radius:17px;background:var(--surface);box-shadow:0 10px 26px rgba(36,35,31,.07)}
-  .mseo-article-image{display:block;overflow:hidden;background:var(--paper-deep)}
-  .mseo-article-image img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;transition:transform .25s}
-  .mseo-article-image:hover img{transform:scale(1.035)}
-  .mseo-article-card-body{padding:16px}
-  .mseo-article-category{color:var(--gold-deep);font-size:.78rem;font-weight:900}
-  .mseo-article-card h3{margin:7px 0;color:var(--ink);font-size:1rem;line-height:1.65;font-weight:900}
-  .mseo-article-card h3 a:hover{color:var(--gold-deep)}
-  .mseo-article-card p{margin:0;color:var(--muted);font-size:.87rem;line-height:1.8}
-  .mseo-article-link{display:inline-flex;gap:8px;margin-top:13px;color:var(--gold-deep);font-weight:900;font-size:.87rem}
-</style>
+

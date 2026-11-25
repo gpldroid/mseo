@@ -27,20 +27,44 @@ for (const name of copyFiles) {
   catch (error) { if (error.code !== 'ENOENT') throw error; }
 }
 
+function stripStyleMarkup(html) {
+  return html
+    .replace(/<style\b[^>]*>[\s\S]*?<\/style\s*>/gi, '')
+    .replace(/<link\b(?=[^>]*\brel\s*=\s*["'][^"']*\bstylesheet\b)[^>]*>/gi, '')
+    .replace(/\sstyle\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+)/gi, '');
+}
+
+async function cleanPublicAssets(dir) {
+  for (const entry of await readdir(dir, { withFileTypes: true })) {
+    const file = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      await cleanPublicAssets(file);
+      if (entry.name === 'css' && (await readdir(file)).length === 0) await rm(file, { recursive: true, force: true });
+      continue;
+    }
+    if (entry.isFile() && entry.name.toLowerCase().endsWith('.css')) {
+      await rm(file, { force: true });
+      continue;
+    }
+    if (entry.isFile() && entry.name.endsWith('.html')) {
+      const html = await readFile(file, 'utf8');
+      await writeFile(file, stripStyleMarkup(html), 'utf8');
+    }
+  }
+}
+
 async function enhanceHtml(dir) {
   for (const entry of await readdir(dir, { withFileTypes: true })) {
     const file = path.join(dir, entry.name);
     if (entry.isDirectory()) { await enhanceHtml(file); continue; }
     if (!entry.isFile() || !entry.name.endsWith('.html')) continue;
     let html = await readFile(file, 'utf8');
-    if (!html.includes('mseo-3d-system')) {
-      html = html.replace('</head>', '  <link rel="stylesheet" href="/assets/css/mseo-3d-system.css">\n</head>');
-    }
     if (!html.includes('mseo-bottom-tabs')) {
       html = html.replace('</body>', '  <script src="/assets/js/mseo-bottom-tabs.js" defer></script>\n</body>');
     }
-    await writeFile(file, html, 'utf8');
+    await writeFile(file, stripStyleMarkup(html), 'utf8');
   }
 }
 await enhanceHtml(publicDir);
+await cleanPublicAssets(publicDir);
 console.log('Astro public assets prepared from the existing MSEO pages.');
