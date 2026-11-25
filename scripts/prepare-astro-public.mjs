@@ -69,7 +69,7 @@ async function enhanceHtml(dir) {
     if (entry.isDirectory()) { await enhanceHtml(file); continue; }
     if (!entry.isFile() || !entry.name.endsWith('.html')) continue;
     let html = await readFile(file, 'utf8');
-    if (!html.includes('mseo-bottom-tabs')) {
+    if (!html.includes('/assets/js/mseo-bottom-tabs.js')) {
       html = html.replace('</body>', '  <script src="/assets/js/mseo-bottom-tabs.js" defer></script>\n</body>');
     }
     await writeFile(file, stripStyleMarkup(html), 'utf8');
