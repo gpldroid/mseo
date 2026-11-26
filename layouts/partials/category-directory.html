@@ -1,21 +1,13 @@
-<section class="site-hero">
-  <div class="container">
-    <span class="eyebrow">مكتبة فاست سيو</span>
-    <h1>تصفح المقالات حسب التصنيف</h1>
-    <p class="text-muted">اختر المجال الذي يهمك للوصول إلى الأدلة والمقالات المرتبطة به.</p>
-  </div>
-</section>
-<section class="container section-block">
-  <div class="directory-grid">
-    {{ range $name, $pages := .Site.Taxonomies.categories }}
-      {{ $latest := index $pages 0 }}
-      <a class="directory-card" href="{{ printf "/categories/%s/" ($name | urlize) }}">
-        <span class="directory-card-icon" aria-hidden="true"><i class="fa-solid fa-layer-group"></i></span>
-        <h2>{{ $name | humanize }}</h2>
-        <p>{{ with $latest }}{{ .Description | default .Summary | plainify | htmlUnescape | truncate 150 }}{{ else }}اكتشف المقالات والأدلة المنشورة ضمن هذا التصنيف.{{ end }}</p>
-        <span class="directory-card-meta">{{ len $pages }} مقالاً</span>
-        <span class="directory-card-link">تصفح التصنيف ←</span>
-      </a>
-    {{ end }}
-  </div>
-</section>
+<section class="site-hero"><div class="container"><span class="eyebrow">مكتبة فاست سيو</span><h1>تصفح المقالات حسب التصنيف</h1><p class="text-muted">اختر المجال الذي يهمك للوصول إلى الأدلة والمقالات المرتبطة به.</p></div></section>
+<section class="container section-block"><div class="directory-grid">
+{{ range $name, $pages := .Site.Taxonomies.categories }}
+  {{ $termPage := site.GetPage (printf "/categories/%s" $name) }}
+  {{ $latest := index $pages 0 }}
+  <a class="directory-card" href="{{ with $termPage }}{{ .RelPermalink }}{{ else }}{{ printf "/categories/%s.html" ($name | urlize) | relURL }}{{ end }}">
+    <span class="directory-card-icon" aria-hidden="true"><i class="fa-solid fa-layer-group"></i></span>
+    <h2>{{ $name }}</h2>
+    <p>{{ with $latest }}{{ .Description | default .Summary | plainify | htmlUnescape | truncate 150 }}{{ else }}اكتشف المقالات والأدلة المنشورة ضمن هذا التصنيف.{{ end }}</p>
+    <span class="directory-card-meta">{{ len $pages }} مقالاً</span><span class="directory-card-link">تصفح التصنيف ←</span>
+  </a>
+{{ end }}
+</div></section>
