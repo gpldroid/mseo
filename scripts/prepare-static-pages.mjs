@@ -19,15 +19,16 @@ function normalizeBrand(html,article){
   if(titleMatch){const base=titleMatch[1].replace(/\s*[|—-]\s*(فاست سيو FS|Fast\s*Seo|FastSEO|MSEO)\s*$/i,'').trim();html=html.replace(titleMatch[0],'<title>'+base+' | '+brand+'</title>');}
   if(/<meta\s+name=["']author["']/i.test(html))html=html.replace(/<meta\s+name=["']author["'][^>]*>/i,'<meta name="author" content="عماد الدين لمراني">');
   else html=html.replace(/<\/head>/i,'<meta name="author" content="عماد الدين لمراني"></head>');
-  html=html.replace(/(<meta\s+property=["']og:site_name["']\s+content=["'])[^"']*(["'][^>]*>)/i,'$1'+brand+'$2');
+  if(/<meta\s+property=["']og:site_name["']/i.test(html))html=html.replace(/(<meta\s+property=["']og:site_name["']\s+content=["'])[^"']*(["'][^>]*>)/i,'$1'+brand+'$2');
+  else html=html.replace(/<\/head>/i,'<meta property="og:site_name" content="'+brand+'"></head>');
   html=html.replace(/("author"\s*:\s*\{\s*"@type"\s*:\s*"Person"\s*,\s*"name"\s*:\s*")[^"]*(")/g,'$1عماد الدين لمراني$2');
   html=html.replace(/("publisher"\s*:\s*\{\s*"@type"\s*:\s*"Organization"\s*,\s*"name"\s*:\s*")[^"]*(")/g,'$1'+brand+'$2');
   if(!/"@type"\s*:\s*"Article"/.test(html)){
    const image=article.image||article.thumbnail;
-   const imageUrl=image?(image.startsWith('http')?image:'https://fastseo.site'+(image.startsWith('/')?image:'/ '+image).replace('/ ','/')):undefined;
+   const imageUrl=image?(image.startsWith('http')?image:'https://fastseo.site'+(image.startsWith('/')?image:'/'+image)):undefined;
    const schema={"@context":"https://schema.org","@type":"Article","headline":article.title,"description":article.description,"inLanguage":"ar","datePublished":article.publishedAt,"dateModified":article.updatedAt||article.publishedAt,"mainEntityOfPage":"https://fastseo.site/articles/"+encodeURIComponent(article.file||article.slug+".html"),"author":{"@type":"Person","name":"عماد الدين لمراني"},"publisher":{"@type":"Organization","name":brand,"url":"https://fastseo.site/"}};
    if(imageUrl)schema.image=imageUrl;
-   html=html.replace(/<\\/head>/i,'<script type="application/ld+json">'+JSON.stringify(schema)+'</script></head>');
+   html=html.replace(/<\/head>/i,'<script type="application/ld+json">'+JSON.stringify(schema)+'</script></head>');
   }
  }
  return html;
