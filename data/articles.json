@@ -130,7 +130,9 @@
     "image": "/assets/images/article-thumbnails/local-seo-guide.svg",
     "thumbnail": "/assets/images/article-thumbnails/local-seo-guide.svg",
     "publishedAt": "2026-10-29",
-    "updatedAt": "2026-10-29"
+    "updatedAt": "2026-10-29",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "typescript-for-beginners-ar",
@@ -154,7 +156,9 @@
     "image": "https://images.unsplash.com/photo-1516116216624-53e697fedbea?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-23",
     "updatedAt": "2026-10-23",
-    "thumbnail": "https://images.unsplash.com/photo-1516116216624-53e697fedbea?auto=format&fit=crop&w=1400&q=85"
+    "thumbnail": "https://images.unsplash.com/photo-1516116216624-53e697fedbea?auto=format&fit=crop&w=1400&q=85",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "keyword-research-guide",
@@ -180,7 +184,9 @@
     "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=85",
     "thumbnail": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-23",
-    "updatedAt": "2026-10-23"
+    "updatedAt": "2026-10-23",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "website-not-appearing-google",
@@ -204,7 +210,9 @@
     "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=85",
     "thumbnail": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-23",
-    "updatedAt": "2026-10-23"
+    "updatedAt": "2026-10-23",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "create-website-from-scratch",
@@ -228,7 +236,9 @@
     "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85",
     "thumbnail": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-23",
-    "updatedAt": "2026-10-23"
+    "updatedAt": "2026-10-23",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "responsive-website-css-guide",
@@ -252,7 +262,9 @@
     "image": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1400&q=85",
     "thumbnail": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-23",
-    "updatedAt": "2026-10-23"
+    "updatedAt": "2026-10-23",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "website-speed-optimization-guide",
@@ -276,7 +288,9 @@
     "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=85",
     "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-23",
-    "updatedAt": "2026-10-23"
+    "updatedAt": "2026-10-23",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "core-web-vitals-practical-guide",
@@ -301,7 +315,9 @@
     "image": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=85",
     "thumbnail": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-23",
-    "updatedAt": "2026-10-23"
+    "updatedAt": "2026-10-23",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "professional-website-ui-ux-guide",
@@ -321,7 +337,9 @@
     "image": "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1400&q=85",
     "thumbnail": "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-23",
-    "updatedAt": "2026-11-14"
+    "updatedAt": "2026-11-14",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "ai-prompts-for-programmers",
@@ -340,7 +358,9 @@
     "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1400&q=85",
     "thumbnail": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-23",
-    "updatedAt": "2026-10-23"
+    "updatedAt": "2026-10-23",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "create-website-with-ai",
@@ -359,7 +379,9 @@
     "image": "https://images.unsplash.com/photo-1676299081847-824916de030a?auto=format&fit=crop&w=1400&q=85",
     "thumbnail": "https://images.unsplash.com/photo-1676299081847-824916de030a?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-23",
-    "updatedAt": "2026-10-23"
+    "updatedAt": "2026-10-23",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "google-search-console-indexing-errors",
@@ -385,7 +407,9 @@
     "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=85",
     "thumbnail": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-18",
-    "updatedAt": "2026-10-18"
+    "updatedAt": "2026-10-18",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "internal-linking-seo-guide",
@@ -411,7 +435,9 @@
     "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=85",
     "thumbnail": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-18",
-    "updatedAt": "2026-10-18"
+    "updatedAt": "2026-10-18",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "seo-content-strategy",
@@ -435,7 +461,9 @@
     "image": "https://images.unsplash.com/photo-1455390582262-044c6535d9a3?auto=format&fit=crop&w=1400&q=85",
     "thumbnail": "https://images.unsplash.com/photo-1455390582262-044c6535d9a3?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-09-19",
-    "updatedAt": "2026-10-18"
+    "updatedAt": "2026-10-18",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "seo-website-optimization-2026",
@@ -461,7 +489,9 @@
     "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-15",
     "updatedAt": "2026-10-15",
-    "thumbnail": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=85"
+    "thumbnail": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=85",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "html-advanced-inputs",
@@ -481,7 +511,9 @@
     "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-14",
     "updatedAt": "2026-10-14",
-    "thumbnail": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85"
+    "thumbnail": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "html-audio-video",
@@ -500,7 +532,9 @@
     "image": "https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-14",
     "updatedAt": "2026-10-14",
-    "thumbnail": "https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?auto=format&fit=crop&w=1400&q=85"
+    "thumbnail": "https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?auto=format&fit=crop&w=1400&q=85",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "html-css-js-roles",
@@ -519,7 +553,9 @@
     "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-14",
     "updatedAt": "2026-10-14",
-    "thumbnail": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85"
+    "thumbnail": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "html-document-structure",
@@ -539,7 +575,9 @@
     "image": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-14",
     "updatedAt": "2026-10-14",
-    "thumbnail": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=85"
+    "thumbnail": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=85",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "html-form-validation-accessibility",
@@ -558,7 +596,9 @@
     "image": "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-14",
     "updatedAt": "2026-10-14",
-    "thumbnail": "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1400&q=85"
+    "thumbnail": "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1400&q=85",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "html-forms-basics",
@@ -578,7 +618,9 @@
     "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-14",
     "updatedAt": "2026-10-14",
-    "thumbnail": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85"
+    "thumbnail": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "html-global-attributes-data",
@@ -598,7 +640,9 @@
     "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-14",
     "updatedAt": "2026-10-14",
-    "thumbnail": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85"
+    "thumbnail": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "html-iframe-security",
@@ -617,7 +661,9 @@
     "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-14",
     "updatedAt": "2026-10-14",
-    "thumbnail": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=85"
+    "thumbnail": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=85",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "html-keyboard-accessibility",
@@ -636,7 +682,9 @@
     "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-14",
     "updatedAt": "2026-10-14",
-    "thumbnail": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85"
+    "thumbnail": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "html-links-paths",
@@ -655,7 +703,9 @@
     "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-14",
     "updatedAt": "2026-10-14",
-    "thumbnail": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85"
+    "thumbnail": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "html-lists-images",
@@ -674,7 +724,9 @@
     "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-14",
     "updatedAt": "2026-10-14",
-    "thumbnail": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85"
+    "thumbnail": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "html-multipage-project",
@@ -693,7 +745,9 @@
     "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-14",
     "updatedAt": "2026-10-14",
-    "thumbnail": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85"
+    "thumbnail": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "html-performance-loading",
@@ -713,7 +767,9 @@
     "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-14",
     "updatedAt": "2026-10-14",
-    "thumbnail": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85"
+    "thumbnail": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "html-responsive-images",
@@ -733,7 +789,9 @@
     "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-14",
     "updatedAt": "2026-10-14",
-    "thumbnail": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85"
+    "thumbnail": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "html-semantic-elements",
@@ -754,7 +812,9 @@
     "image": "https://images.unsplash.com/photo-1621839673705-6617adf9e890?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-14",
     "updatedAt": "2026-10-14",
-    "thumbnail": "https://images.unsplash.com/photo-1621839673705-6617adf9e890?auto=format&fit=crop&w=1400&q=85"
+    "thumbnail": "https://images.unsplash.com/photo-1621839673705-6617adf9e890?auto=format&fit=crop&w=1400&q=85",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "html-seo-metadata",
@@ -779,7 +839,9 @@
     "image": "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-14",
     "updatedAt": "2026-10-14",
-    "thumbnail": "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?auto=format&fit=crop&w=1400&q=85"
+    "thumbnail": "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?auto=format&fit=crop&w=1400&q=85",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "html-tables-caption",
@@ -798,7 +860,9 @@
     "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-14",
     "updatedAt": "2026-10-14",
-    "thumbnail": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1400&q=85"
+    "thumbnail": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1400&q=85",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "html-text-headings-links",
@@ -817,7 +881,9 @@
     "image": "https://images.unsplash.com/photo-1455390582262-044c6535d9a3?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-14",
     "updatedAt": "2026-10-14",
-    "thumbnail": "https://images.unsplash.com/photo-1455390582262-044c6535d9a3?auto=format&fit=crop&w=1400&q=85"
+    "thumbnail": "https://images.unsplash.com/photo-1455390582262-044c6535d9a3?auto=format&fit=crop&w=1400&q=85",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "html-validation-debugging",
@@ -836,7 +902,9 @@
     "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-14",
     "updatedAt": "2026-10-14",
-    "thumbnail": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85"
+    "thumbnail": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "html-what-is-html",
@@ -855,7 +923,9 @@
     "image": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-14",
     "updatedAt": "2026-10-14",
-    "thumbnail": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1400&q=85"
+    "thumbnail": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1400&q=85",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "website-quality-audit-checklist",
@@ -875,7 +945,9 @@
     "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-14",
     "updatedAt": "2026-10-14",
-    "thumbnail": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85"
+    "thumbnail": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "lighthouse-audit-fixes-guide",
@@ -899,7 +971,9 @@
     "image": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-14",
     "updatedAt": "2026-10-14",
-    "thumbnail": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=85"
+    "thumbnail": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=85",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "mobile-website-quality-testing",
@@ -919,7 +993,9 @@
     "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-14",
     "updatedAt": "2026-10-14",
-    "thumbnail": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=85"
+    "thumbnail": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=85",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "structured-data-guide",
@@ -945,7 +1021,9 @@
     "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1400&q=85",
     "thumbnail": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-09-16",
-    "updatedAt": "2026-10-14"
+    "updatedAt": "2026-10-14",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "arabic-web-typography-guide",
@@ -966,7 +1044,9 @@
     "image": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-13",
     "updatedAt": "2026-10-13",
-    "thumbnail": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1400&q=85"
+    "thumbnail": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1400&q=85",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "google-search-console-performance-report",
@@ -992,7 +1072,9 @@
     "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-13",
     "updatedAt": "2026-10-13",
-    "thumbnail": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=85"
+    "thumbnail": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=85",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "seo-image-optimization-guide",
@@ -1016,7 +1098,9 @@
     "image": "https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-13",
     "updatedAt": "2026-10-13",
-    "thumbnail": "https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&w=1400&q=85"
+    "thumbnail": "https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&w=1400&q=85",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "hreflang-multilingual-seo-guide",
@@ -1040,7 +1124,9 @@
     "image": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-13",
     "updatedAt": "2026-10-13",
-    "thumbnail": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1400&q=85"
+    "thumbnail": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1400&q=85",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "javascript-seo-rendering-guide",
@@ -1065,7 +1151,9 @@
     "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-13",
     "updatedAt": "2026-10-13",
-    "thumbnail": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=85"
+    "thumbnail": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=85",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "faceted-navigation-seo-guide",
@@ -1086,7 +1174,9 @@
     "image": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1400&q=85",
     "thumbnail": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-13",
-    "updatedAt": "2026-10-13"
+    "updatedAt": "2026-10-13",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "xml-sitemap-seo-guide",
@@ -1111,7 +1201,9 @@
     "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=85",
     "thumbnail": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-13",
-    "updatedAt": "2026-10-13"
+    "updatedAt": "2026-10-13",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "robots-txt-guide",
@@ -1135,7 +1227,9 @@
     "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-12",
     "updatedAt": "2026-10-12",
-    "thumbnail": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=85"
+    "thumbnail": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=85",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "canonical-url-guide",
@@ -1159,7 +1253,9 @@
     "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-12",
     "updatedAt": "2026-10-12",
-    "thumbnail": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=85"
+    "thumbnail": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=85",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "xml-sitemap-guide",
@@ -1183,7 +1279,9 @@
     "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-12",
     "updatedAt": "2026-10-12",
-    "thumbnail": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85"
+    "thumbnail": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "javascript-fetch-api-errors",
@@ -1203,7 +1301,9 @@
     "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-12",
     "updatedAt": "2026-10-12",
-    "thumbnail": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=85"
+    "thumbnail": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=85",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "web-accessibility-checklist",
@@ -1223,7 +1323,9 @@
     "image": "https://images.unsplash.com/photo-1552581234-26160f608093?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-12",
     "updatedAt": "2026-10-12",
-    "thumbnail": "https://images.unsplash.com/photo-1552581234-26160f608093?auto=format&fit=crop&w=1400&q=85"
+    "thumbnail": "https://images.unsplash.com/photo-1552581234-26160f608093?auto=format&fit=crop&w=1400&q=85",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "css-container-queries-guide",
@@ -1243,7 +1345,9 @@
     "image": "https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-12",
     "updatedAt": "2026-10-12",
-    "thumbnail": "https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?auto=format&fit=crop&w=1400&q=85"
+    "thumbnail": "https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?auto=format&fit=crop&w=1400&q=85",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "html-semantic-seo",
@@ -1266,7 +1370,9 @@
     "image": "https://images.unsplash.com/photo-1621839673705-6617adf9e890?auto=format&fit=crop&w=1400&q=85",
     "thumbnail": "https://images.unsplash.com/photo-1621839673705-6617adf9e890?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-09-22",
-    "updatedAt": "2026-10-12"
+    "updatedAt": "2026-10-12",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "css-modern-design",
@@ -1287,7 +1393,9 @@
     "image": "https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?auto=format&fit=crop&w=1400&q=85",
     "thumbnail": "https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-09-21",
-    "updatedAt": "2026-10-12"
+    "updatedAt": "2026-10-12",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "javascript-clean-code",
@@ -1308,7 +1416,9 @@
     "image": "https://images.unsplash.com/photo-1516116216624-53e697fedbea?auto=format&fit=crop&w=1400&q=85",
     "thumbnail": "https://images.unsplash.com/photo-1516116216624-53e697fedbea?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-09-20",
-    "updatedAt": "2026-10-12"
+    "updatedAt": "2026-10-12",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "ai-coding-prompts",
@@ -1329,7 +1439,9 @@
     "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1400&q=85",
     "thumbnail": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-09-18",
-    "updatedAt": "2026-10-12"
+    "updatedAt": "2026-10-12",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "github-pages-deploy",
@@ -1350,7 +1462,9 @@
     "image": "https://images.unsplash.com/photo-1556075798-4825dfaaf498?auto=format&fit=crop&w=1400&q=85",
     "thumbnail": "https://images.unsplash.com/photo-1556075798-4825dfaaf498?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-09-17",
-    "updatedAt": "2026-10-12"
+    "updatedAt": "2026-10-12",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "web-performance-core",
@@ -1371,7 +1485,9 @@
     "image": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=85",
     "thumbnail": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-09-15",
-    "updatedAt": "2026-10-12"
+    "updatedAt": "2026-10-12",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "ai-developer-tools",
@@ -1390,7 +1506,9 @@
     "image": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1400&q=85",
     "thumbnail": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-09-28",
-    "updatedAt": "2026-09-28"
+    "updatedAt": "2026-09-28",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "prompt-engineering-developers",
@@ -1410,7 +1528,9 @@
     "image": "https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1400&q=85",
     "thumbnail": "https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-09-28",
-    "updatedAt": "2026-09-28"
+    "updatedAt": "2026-09-28",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "git-github-beginners",
@@ -1432,7 +1552,9 @@
     "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=85",
     "thumbnail": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-09-28",
-    "updatedAt": "2026-09-28"
+    "updatedAt": "2026-09-28",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "javascript-beginners-guide",
@@ -1455,7 +1577,9 @@
     "image": "https://images.unsplash.com/photo-1627398242454-45a1465c2479?auto=format&fit=crop&w=1400&q=85",
     "thumbnail": "https://images.unsplash.com/photo-1627398242454-45a1465c2479?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-09-28",
-    "updatedAt": "2026-09-28"
+    "updatedAt": "2026-09-28",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "javascript-debugging",
@@ -1476,7 +1600,9 @@
     "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=85",
     "thumbnail": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-09-28",
-    "updatedAt": "2026-09-28"
+    "updatedAt": "2026-09-28",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "ai-website-builder-guide",
@@ -1496,7 +1622,9 @@
     "image": "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1400&q=85",
     "thumbnail": "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-09-23",
-    "updatedAt": "2026-09-23"
+    "updatedAt": "2026-09-23",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "github-actions-workflow-lockfiles",
@@ -1516,7 +1644,9 @@
     "icon": "fa-shield-halved",
     "image": "https://images.unsplash.com/photo-1556075798-4825dfaaf498?auto=format&fit=crop&w=1400&q=85",
     "thumbnail": "https://images.unsplash.com/photo-1556075798-4825dfaaf498?auto=format&fit=crop&w=1400&q=85",
-    "featured": true
+    "featured": true,
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "website-update-regression-testing",
@@ -1533,7 +1663,9 @@
     "description": "خطوات عملية لاختبار الموقع بعد تحديث القالب أو المكتبات أو المحتوى، مع ترتيب اختبارات الانحدار وتوثيق النتائج وخطة التراجع.",
     "icon": "fa-clipboard-check",
     "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85"
+    "thumbnail": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "frontend-ui-testing-guide",
@@ -1550,7 +1682,9 @@
     "description": "تعلم اختبار واجهات الويب يدويًا وبشكل منهجي، من حالات الأزرار والنماذج إلى التنقل ولوحة المفاتيح والتجاوب ورسائل الخطأ.",
     "icon": "fa-list-check",
     "image": "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1400&q=85"
+    "thumbnail": "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1400&q=85",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "website-security-basics-checklist",
@@ -1567,7 +1701,9 @@
     "description": "قائمة أساسية لتحسين أمان موقع الويب تشمل HTTPS وإدارة الأسرار والتحديثات والصلاحيات والتحقق من المدخلات والنسخ الاحتياطية.",
     "icon": "fa-shield-halved",
     "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1400&q=85"
+    "thumbnail": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1400&q=85",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "test-color-contrast-text-readability",
@@ -1588,7 +1724,9 @@
     "image": "https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?auto=format&fit=crop&w=1400&q=85",
     "thumbnail": "https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-29",
-    "updatedAt": "2026-10-29"
+    "updatedAt": "2026-10-29",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "database-design-for-beginners",
@@ -1608,7 +1746,9 @@
     "image": "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=1400&q=85",
     "thumbnail": "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-29",
-    "updatedAt": "2026-10-29"
+    "updatedAt": "2026-10-29",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "google-discover-optimization",
@@ -1628,7 +1768,9 @@
     "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
     "thumbnail": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-29",
-    "updatedAt": "2026-10-29"
+    "updatedAt": "2026-10-29",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "javascript-bundle-size-optimization",
@@ -1648,7 +1790,9 @@
     "image": "https://images.unsplash.com/photo-1627398242454-45a1465c2479?auto=format&fit=crop&w=1400&q=85",
     "thumbnail": "https://images.unsplash.com/photo-1627398242454-45a1465c2479?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-29",
-    "updatedAt": "2026-10-29"
+    "updatedAt": "2026-10-29",
+    "author": "عماد الدين لمراني",
+    "authorTitle": "محرر محتوى تقني"
   },
   {
     "slug": "google-discover-optimization-guide",

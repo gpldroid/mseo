@@ -2,24 +2,25 @@
 import Layout from '../../layouts/Layout.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 import articles from '../../../data/articles.json';
-export function getStaticPaths() {
-  const groups = new Map();
-  for (const article of articles) for (const tag of article.tags || []) {
-    const slug = tag.toLocaleLowerCase('ar').normalize('NFKC').replace(/[^\p{L}\p{N}]+/gu, '-').replace(/^-|-$/g, '');
-    if (!groups.has(slug)) groups.set(slug, { name: tag, items: [] });
-    if (!groups.get(slug).items.some(item => item.slug === article.slug)) groups.get(slug).items.push(article);
-  }
-  return [...groups.entries()].filter(([, group]) => group.items.length > 1).map(([slug, group]) => ({
-    params: { slug }, props: { tag: group.name, items: group.items.sort((a,b) => new Date(b.updatedAt || b.publishedAt || 0) - new Date(a.updatedAt || a.publishedAt || 0)) }
-  }));
+export function getStaticPaths(){
+ const slugify=(value:string)=>value.toLocaleLowerCase('ar').normalize('NFKC').replace(/[^\p{L}\p{N}]+/gu,'-').replace(/^-|-$/g,'');
+ const groups=new Map<string,{name:string,items:typeof articles}>();
+ for(const article of articles)for(const tag of article.tags||[]){
+  const slug=slugify(tag);if(!slug)continue;
+  if(!groups.has(slug))groups.set(slug,{name:tag,items:[]});
+  const group=groups.get(slug)!;
+  if(!group.items.some(item=>item.slug===article.slug))group.items.push(article);
+  if(tag==='Sitemap XML')group.name=tag;
+ }
+ return [...groups.entries()].filter(([,group])=>group.items.length>1).map(([slug,group])=>({params:{slug},props:{tag:group.name,items:group.items.sort((a,b)=>new Date(b.updatedAt||b.publishedAt||0).getTime()-new Date(a.updatedAt||a.publishedAt||0).getTime())}}));
 }
-const { tag, items } = Astro.props;
+const {tag,items}=Astro.props;
 ---
-<Layout title={'مقالات حول ' + tag + ' | MSEO'} description={'اكتشف أدلة ومقالات MSEO المرتبطة بموضوع ' + tag + '، وتابع الشروحات ذات الصلة.'}>
+<Layout title={'مقالات حول '+tag+' | فاست سيو FS'} description={'اكتشف أدلة ومقالات فاست سيو FS المرتبطة بموضوع '+tag+'، وتابع الشروحات ذات الصلة.'}>
 <main class="container page-shell">
-  <nav class="breadcrumbs" aria-label="مسار التنقل"><a href="/">الرئيسية</a><span>/</span><a href="/archive">المقالات</a><span>/</span><span>{tag}</span></nav>
-  <section class="page-hero"><span class="eyebrow">KEYWORD COLLECTION</span><h1>موضوع: <em>{tag}</em></h1><p>مجموعة مقالات وأدلة مرتبطة بهذه الكلمة المفتاحية، مرتبة لتسهيل اكتشاف الموضوعات المتصلة.</p><div class="page-stats"><span><strong>{items.length}</strong> مقالاً مرتبطاً</span></div></section>
-  <section class="astro-grid" aria-label={'مقالات ' + tag}>{items.map(article => <ArticleCard article={article} />)}</section>
-  <p class="tag-back"><a href="/archive">استكشف جميع المقالات ←</a></p>
+<nav class="breadcrumbs" aria-label="مسار التنقل"><a href="/">الرئيسية</a><span>/</span><a href="/archive">المقالات</a><span>/</span><span>{tag}</span></nav>
+<section class="page-hero"><span class="eyebrow">KEYWORD COLLECTION</span><h1>موضوع: <em>{tag}</em></h1><p>مجموعة مقالات وأدلة مرتبطة بهذه الكلمة المفتاحية، مرتبة لتسهيل اكتشاف الموضوعات المتصلة.</p><div class="page-stats"><span><strong>{items.length}</strong> مقالاً مرتبطاً</span></div></section>
+<section class="astro-grid" aria-label={'مقالات '+tag}>{items.map(article=><ArticleCard article={article}/>)}</section>
+<p class="tag-back"><a href="/archive">استكشف جميع المقالات ←</a></p>
 </main>
 </Layout>
