@@ -8,7 +8,7 @@
   </section>
   <div class="content-grid section-block">
     <section class="main-column"><div class="section-heading"><div><span class="eyebrow">مكتبة فاست سيو</span><h2>أحدث الأدلة والمقالات</h2></div><a href="/articles/">عرض الكل</a></div>
-      <div class="post-grid" data-load-list>{{ range $i, $post := $articles }}{{ if lt $i 8 }}{{ partial "article-card.html" $post }}{{ else }}<div hidden data-load-item>{{ partial "article-card.html" $post }}</div>{{ end }}{{ end }}</div>
+      <div class="post-grid" data-load-list>{{ range $i, $post := $articles }}{{ if lt $i 8 }}{{ partial "article-card.html" (dict "post" $post "hidden" (ge $i 8)) }}{{ end }}{{ end }}</div>
       {{ if gt (len $articles) 8 }}<div class="load-more-wrap"><button class="btn btn-primary" type="button" data-load-more>تحميل المزيد من المقالات</button></div>{{ end }}
     </section>{{ partial "sidebar.html" . }}
   </div>
