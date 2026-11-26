@@ -1,0 +1,22 @@
+{{ $tools := where .Site.RegularPages "Params.tool" true }}
+<section class="site-hero">
+  <div class="container">
+    <span class="eyebrow">أدوات مجانية</span>
+    <h1>أدوات فاست سيو</h1>
+    <p class="text-muted">مجموعة أدوات عملية للمدونين والمطورين وتحسين محركات البحث، تعمل مباشرة من المتصفح.</p>
+  </div>
+</section>
+<section class="container section-block">
+  <div class="section-heading"><div><h2>جميع الأدوات</h2><p class="text-muted">اختر الأداة المناسبة للمهمة التي تريد إنجازها.</p></div><span class="category-count">{{ len $tools }} أداة</span></div>
+  <div class="directory-grid">
+    {{ range sort $tools "Title" }}
+      <a class="directory-card" href="{{ .RelPermalink }}">
+        <span class="directory-card-icon" aria-hidden="true"><i class="fa-solid fa-screwdriver-wrench"></i></span>
+        <h2>{{ .Title }}</h2>
+        <p>{{ .Description | default .Summary | plainify | htmlUnescape | truncate 150 }}</p>
+        <span class="directory-card-meta">أداة مجانية · فاست سيو</span>
+        <span class="directory-card-link">استخدام الأداة ←</span>
+      </a>
+    {{ end }}
+  </div>
+</section>
