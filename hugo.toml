@@ -1,5 +1,5 @@
 baseURL = "https://fastseo.site/"
-languageCode = "ar-MA"
+locale = "ar-MA"
 defaultContentLanguage = "ar"
 defaultContentLanguageInSubdir = false
 title = "فاست سيو | Fast Seo"

@@ -28,6 +28,7 @@ jobs:
       - run: npm run build:css
       - run: node scripts/prepare-content.mjs
       - run: hugo --minify --destination ./dist
+      - run: node scripts/verify-build.mjs ./dist
       - uses: actions/upload-pages-artifact@v3
         if: github.event_name == 'push'
         with:
