@@ -1,16 +1,26 @@
-/* Google Analytics 4 — preserved from the previous site.
-   Loads only when the visitor's existing consent choice is "accepted". */
 (()=>{'use strict';
 const GA_ID='G-BDHDY9739D';
-let consent=null;try{consent=localStorage.getItem('mseo-consent-v1')}catch{}
-if(consent!=='accepted'||window.__mseoAnalyticsLoaded)return;
-window.__mseoAnalyticsLoaded=true;
-window.dataLayer=window.dataLayer||[];
-window.gtag=window.gtag||function(){window.dataLayer.push(arguments)};
-window.gtag('js',new Date());
-window.gtag('config',GA_ID);
-const script=document.createElement('script');
-script.async=true;
-script.src='https://www.googletagmanager.com/gtag/js?id='+GA_ID;
-document.head.appendChild(script);
+const links=[['/','الرئيسية'],['/archive','المقالات'],['/categories','التصنيفات'],['/pages/tools.html','الأدوات'],['/pages/about.html','من نحن']];
+const rawPath=location.pathname,path=rawPath.endsWith('/')?rawPath.slice(0,-1)||'/':rawPath;
+const active=href=>{const base=href.endsWith('.html')?href.slice(0,-5):href;return href==='/'?path==='/':path===href||path===base||path.startsWith(base+'/')};
+const navLink=([href,label])=>'<a href="'+href+'"'+(active(href)?' aria-current="page"':'')+'><span>'+label+'</span></a>';
+document.documentElement.dataset.theme='gradient-pulse';
+if(!document.querySelector('link[data-fastseo-theme-css]')){const themeCss=document.createElement('link');themeCss.rel='stylesheet';themeCss.href='/styles/theme-system.css?v=20261126-gradient-pulse';themeCss.dataset.fastseoThemeCss='';document.head.appendChild(themeCss)}
+const header=document.querySelector('[data-site-header]'),footer=document.querySelector('[data-site-footer]');
+if(header)header.innerHTML='<header class="site-header"><div class="container header-inner"><a class="brand" href="/" aria-label="فاست سيو FS الصفحة الرئيسية"><span class="brand-mark" aria-hidden="true">FS</span><span class="brand-name">فاست سيو FS</span></a><nav class="desktop-nav" aria-label="التنقل الرئيسي">'+links.map(navLink).join('')+'</nav><a class="header-cta" href="/archive">اكتشف المحتوى <span aria-hidden="true">←</span></a></div></header>';
+if(footer)footer.innerHTML='<footer class="site-footer"><div class="waves" aria-hidden="true"><svg viewBox="0 0 1440 220" preserveAspectRatio="none"><defs><linearGradient id="mseo-gold-wave"><stop stop-color="#7046e8"/><stop offset=".55" stop-color="#c14de4"/><stop offset="1" stop-color="#f28a52"/></linearGradient></defs><path d="M0 75 C250 18 430 165 700 145 S1170 165 1440 35 L1440 220H0Z" fill="#211b3a"/><path d="M0 52 C230 12 420 138 700 128 S1180 154 1440 20 L1440 66 C1170 196 960 170 700 153 S240 46 0 92Z" fill="url(#mseo-gold-wave)"/><path d="M0 88 C250 42 430 174 710 156 S1180 182 1440 54 L1440 220H0Z" fill="#211b3a"/></svg></div><div class="container footer-content"><div class="footer-grid"><div class="footer-brand-col"><a class="brand" href="/"><span class="brand-mark" aria-hidden="true">FS</span><span class="brand-name">فاست سيو FS</span></a><p class="footer-copy">معرفة تقنية عملية في الذكاء الاصطناعي والبرمجة وتطوير المواقع وتحسين محركات البحث.</p><div class="footer-socials" aria-label="مشاركة الموقع"><a class="social-3d social-facebook" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ffastseo.site%2F" target="_blank" rel="noopener noreferrer" aria-label="مشاركة على فيسبوك"><span>f</span></a><a class="social-3d social-x" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Ffastseo.site%2F" target="_blank" rel="noopener noreferrer" aria-label="مشاركة على إكس"><span>𝕏</span></a><a class="social-3d social-whatsapp" href="https://wa.me/?text=https%3A%2F%2Ffastseo.site%2F" target="_blank" rel="noopener noreferrer" aria-label="مشاركة عبر واتساب"><span>W</span></a><a class="social-3d social-telegram" href="https://t.me/share/url?url=https%3A%2F%2Ffastseo.site%2F" target="_blank" rel="noopener noreferrer" aria-label="مشاركة عبر تيليغرام"><span>T</span></a></div></div><div><b class="footer-title">استكشف</b><div class="footer-links"><a href="/archive">المقالات والأدلة</a><a href="/categories">التصنيفات</a><a href="/tags/seo">الكلمات المفتاحية</a><a href="/pages/tools.html">الأدوات</a></div></div><div><b class="footer-title">معلومات</b><div class="footer-links"><a href="/pages/about.html">من نحن</a><a href="/pages/contact.html">اتصل بنا</a><a href="/pages/privacy.html">سياسة الخصوصية</a><a href="/pages/terms.html">شروط الاستخدام</a><button type="button" class="footer-consent-link" data-open-consent>إعدادات ملفات الارتباط</button></div></div></div><div class="footer-bottom"><span>© '+new Date().getFullYear()+' فاست سيو FS. جميع الحقوق محفوظة.</span><a href="/pages/editorial-policy.html">سياسة التحرير</a></div></div></footer>';
+if(!document.querySelector('.tabs')){const tabs=document.createElement('nav');tabs.className='tabs';tabs.setAttribute('aria-label','التنقل السريع');tabs.innerHTML=links.map(navLink).join('');document.body.appendChild(tabs)}
+const consentKey='mseo-consent-v1';
+function loadAnalytics(){if(window.__mseoAnalyticsLoaded)return;window.__mseoAnalyticsLoaded=true;window.dataLayer=window.dataLayer||[];window.gtag=window.gtag||function(){window.dataLayer.push(arguments)};window.gtag('js',new Date());window.gtag('config',GA_ID);const s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id='+GA_ID;document.head.appendChild(s)}
+const floating=document.createElement('div');floating.className='floating-tools';floating.innerHTML='<button class="privacy-fab" type="button" aria-label="إعدادات الخصوصية وملفات الارتباط" title="إعدادات الخصوصية">الخصوصية</button>';document.body.appendChild(floating);
+const banner=document.createElement('section');banner.className='cookie-consent';banner.hidden=true;banner.setAttribute('role','dialog');banner.setAttribute('aria-modal','false');banner.setAttribute('aria-labelledby','cookie-title');banner.innerHTML='<div class="cookie-3d-icon" aria-hidden="true">الخصوصية</div><div class="cookie-copy"><strong id="cookie-title">اختيارات الخصوصية</strong><p>نستخدم التخزين الضروري لحفظ تفضيلاتك. لا يتم تشغيل Google Analytics الاختياري إلا بعد موافقتك. يمكنك تغيير اختيارك لاحقاً من زر الخصوصية. <a href="/pages/privacy.html">سياسة الخصوصية</a></p></div><div class="cookie-actions"><button class="cookie-accept" type="button" data-consent="accepted">موافقة على التحليلات</button><button class="cookie-reject" type="button" data-consent="rejected">رفض الاختياري</button></div>';document.body.appendChild(banner);
+function setConsent(value){try{localStorage.setItem(consentKey,value)}catch{}banner.hidden=true;if(value==='accepted')loadAnalytics()}
+function openConsent(){banner.hidden=false}
+let consent=null;try{consent=localStorage.getItem(consentKey)}catch{}if(consent==='accepted')loadAnalytics();else if(consent!=='rejected')openConsent();
+banner.querySelectorAll('[data-consent]').forEach(button=>button.addEventListener('click',()=>setConsent(button.dataset.consent)));
+floating.querySelector('.privacy-fab').addEventListener('click',openConsent);
+document.querySelectorAll('[data-open-consent]').forEach(button=>button.addEventListener('click',openConsent));
+if(!document.querySelector('.scrolls')){const controls=document.createElement('div');controls.className='scrolls';controls.innerHTML='<button type="button" data-go="top" aria-label="الانتقال إلى أعلى الصفحة">أعلى</button><button type="button" data-go="bottom" aria-label="الانتقال إلى أسفل الصفحة">أسفل</button>';document.body.appendChild(controls)}
+document.querySelectorAll('[data-go]').forEach(button=>button.addEventListener('click',()=>window.scrollTo({top:button.dataset.go==='top'?0:document.documentElement.scrollHeight,behavior:'smooth'})));
+const controls=document.querySelector('.scrolls'),refresh=()=>{if(controls)controls.classList.toggle('is-visible',window.scrollY>220)};window.addEventListener('scroll',refresh,{passive:true});refresh();
 })();

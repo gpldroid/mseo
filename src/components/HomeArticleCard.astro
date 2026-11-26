@@ -1,0 +1,10 @@
+---
+const {article,index=0,initiallyHidden=false}=Astro.props;
+const href='/articles/'+(article.file||article.slug+'.html');
+const rawDescription=article.description||'اكتشف التفاصيل في هذا الدليل العملي.';
+const description=Array.from(rawDescription).slice(0,rawDescription.length>60?59:60).join('');
+const shortDescription=Array.from(rawDescription).length>60?description+'…':description;
+---
+<article class="home-article-card" data-home-card data-index={index} hidden={initiallyHidden}>
+<a class="home-card-media" href={href} aria-label={'اقرأ: '+article.title}>{article.image||article.thumbnail?<img src={article.image||article.thumbnail} alt="" loading="lazy" decoding="async" width="720" height="405"/>:<span class="home-card-placeholder">✦</span>}<span class="home-card-image-shine"></span><span class="home-card-category">{article.category||'مقالات'}</span></a>
+<div class="home-card-body"><div class="home-card-meta"><time datetime={article.updatedAt||article.publishedAt||''}>{article.updatedAt||article.publishedAt||''}</time><span>دليل عملي</span></div><h3><a href={href}>{article.title}</a></h3><p>{shortDescription}</p><a class="home-card-read" href={href}>اقرأ المزيد <span aria-hidden="true">←</span></a></div></article>

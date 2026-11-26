@@ -1,0 +1,19 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import articles from '../../../data/articles.json';
+export function getStaticPaths(){
+ const categories=[
+  {name:"SEO",slug:"seo",desc:"تحسين محركات البحث، الفهرسة، الكلمات المفتاحية والتحسين التقني."},
+  {name:"الذكاء الاصطناعي",slug:"ai",desc:"أدلة الذكاء الاصطناعي وهندسة الأوامر والوكلاء والأتمتة."},
+  {name:"البرمجة",slug:"programming",desc:"لغات البرمجة ومفاهيم JavaScript وTypeScript وأدوات المطورين."},
+  {name:"تطوير المواقع",slug:"web-development",desc:"بناء المواقع وHTML وCSS والتطوير المتجاوب."},
+  {name:"أداء المواقع",slug:"web-performance",desc:"سرعة المواقع وCore Web Vitals وتحسين الأداء."},
+  {name:"تصميم المواقع",slug:"web-design",desc:"تصميم الواجهات وتجربة المستخدم وإمكانية الوصول."}
+ ];
+ return categories.map(category=>({params:{slug:category.slug},props:{category}}));
+}
+const {category}=Astro.props;
+const items=[...articles].filter(a=>a.category===category.name).sort((a,b)=>new Date(b.updatedAt||b.publishedAt||0)-new Date(a.updatedAt||a.publishedAt||0));
+---
+<Layout title={category.name+' | MSEO'} description={category.desc}><main class="container page-shell"><section class="page-hero"><a class="back-link" href="/categories">← جميع التصنيفات</a><span class="eyebrow">MSEO TOPIC</span><h1><em>{category.name}</em></h1><p>{category.desc}</p><div class="page-stats"><span><strong>{items.length}</strong> مقالاً في هذا المجال</span></div></section><section class="astro-grid" aria-label={"مقالات "+category.name}>{items.map(a=><ArticleCard article={a}/>)}</section></main></Layout>
