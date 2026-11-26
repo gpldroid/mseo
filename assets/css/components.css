@@ -82,3 +82,20 @@
 .adsense-in-feed{grid-column:1/-1;min-height:100px;margin:.75rem auto;padding:.5rem}
 .adsense-home-wrap{display:flex;justify-content:center}
 @media(max-width:480px){.brand-mark{width:38px;height:38px;flex-basis:38px}.adsense-slot{margin-block:1rem}}
+
+/* Category archive and navigation */
+.category-archive-header{padding:1.25rem 0 1.5rem;border-bottom:1px solid var(--line);margin-bottom:1.5rem}
+.category-archive-header h1{font-size:clamp(1.6rem,3vw,2.35rem);margin:.35rem 0}
+.category-archive-header p{margin:.35rem 0 .7rem}
+.site-breadcrumb{display:flex;align-items:center;gap:.55rem;flex-wrap:wrap;margin:0 0 1.2rem;color:var(--muted);font-size:.84rem}
+.site-breadcrumb a{color:var(--brand);font-weight:700}
+.site-breadcrumb [aria-current="page"]{color:var(--text);font-weight:800}
+.category-post-grid{align-items:stretch}
+.category-empty{padding:2rem 1rem;margin:1rem 0;text-align:center;border:1px dashed var(--line);border-radius:16px;background:var(--surface-soft)}
+.category-empty h2{font-size:1.15rem;margin:0 0 .5rem}
+.category-empty p{color:var(--muted)}
+.category-siblings{margin-top:2.5rem;padding-top:1.25rem;border-top:1px solid var(--line)}
+.category-siblings h2{font-size:1.05rem;margin:0 0 .85rem}
+.category-sibling-links{display:flex;flex-wrap:wrap;gap:.6rem}
+.category-sibling-links a{padding:.5rem .8rem;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--text);font-size:.85rem}
+.category-sibling-links a:hover{border-color:var(--brand);color:var(--brand)}
