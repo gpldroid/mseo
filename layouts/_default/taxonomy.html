@@ -1,4 +1,5 @@
 {{ define "main" }}
+<!-- taxonomy-debug kind={{ .Kind }} title={{ printf "%q" .Title }} term={{ printf "%q" .Data.Term }} url={{ .RelPermalink }} -->
 {{- if strings.HasPrefix .RelPermalink "/categories/" -}}
   {{ partial "category-archive.html" . }}
 {{- else -}}
