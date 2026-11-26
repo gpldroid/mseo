@@ -19,7 +19,9 @@
     "publishedAt": "2026-11-13",
     "updatedAt": "2026-11-13",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/how-to-write-effective-prompts.svg",
+    "imageAlt": "صورة توضيحية لمقال: كيف تكتب Prompt احترافيًا؟ دليل هندسة الأوامر للمبتدئين"
   },
   {
     "slug": "best-ai-prompts-library",
@@ -42,7 +44,9 @@
     "publishedAt": "2026-11-13",
     "updatedAt": "2026-11-13",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/best-ai-prompts-library.svg",
+    "imageAlt": "صورة توضيحية لمقال: أفضل Prompts للذكاء الاصطناعي: مكتبة أوامر جاهزة لمختلف الاستخدامات"
   },
   {
     "slug": "run-ai-models-locally",
@@ -66,7 +70,9 @@
     "publishedAt": "2026-11-13",
     "updatedAt": "2026-11-13",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/run-ai-models-locally.svg",
+    "imageAlt": "صورة توضيحية لمقال: تشغيل نماذج الذكاء الاصطناعي محليًا: دليل عملي"
   },
   {
     "slug": "ai-task-automation-guide",
@@ -88,7 +94,9 @@
     "publishedAt": "2026-10-29",
     "updatedAt": "2026-10-29",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/ai-task-automation-guide.svg",
+    "imageAlt": "صورة توضيحية لمقال: أتمتة المهام بالذكاء الاصطناعي: دليل عملي خطوة بخطوة"
   },
   {
     "slug": "ai-agents-guide",
@@ -110,7 +118,9 @@
     "publishedAt": "2026-10-29",
     "updatedAt": "2026-10-29",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/ai-agents-guide.svg",
+    "imageAlt": "صورة توضيحية لمقال: وكلاء الذكاء الاصطناعي AI Agents: ما هي وكيف تبني وكيلًا ينفذ المهام تلقائيًا؟"
   },
   {
     "slug": "local-seo-guide",
@@ -132,7 +142,9 @@
     "publishedAt": "2026-10-29",
     "updatedAt": "2026-10-29",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/local-seo-guide.svg",
+    "imageAlt": "صورة توضيحية لمقال: كيف تجعل نشاطك التجاري يظهر في نتائج البحث المحلية؟ دليل Local SEO عملي"
   },
   {
     "slug": "typescript-for-beginners-ar",
@@ -153,12 +165,14 @@
     ],
     "description": "تعلم TypeScript للمبتدئين من الأنواع الأساسية إلى الواجهات وUnion Types، مع أمثلة عملية وطريقة إضافته إلى مشروع JavaScript.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1516116216624-53e697fedbea?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/typescript-for-beginners-ar.svg",
     "publishedAt": "2026-10-23",
     "updatedAt": "2026-10-23",
-    "thumbnail": "https://images.unsplash.com/photo-1516116216624-53e697fedbea?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "/assets/images/article-thumbnails/typescript-for-beginners-ar.svg",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/typescript-for-beginners-ar.svg",
+    "imageAlt": "صورة توضيحية لمقال: TypeScript للمبتدئين: تعلّم الأنواع واكتب JavaScript بأخطاء أقل"
   },
   {
     "slug": "keyword-research-guide",
@@ -181,12 +195,14 @@
     ],
     "description": "دليل عملي لاختيار الكلمات المفتاحية حسب نية البحث والمنافسة وقيمة الموضوع، مع خطوات لبناء قائمة قابلة للتنفيذ.",
     "icon": "fa-magnifying-glass-chart",
-    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/keyword-research-guide.svg",
+    "thumbnail": "/assets/images/article-thumbnails/keyword-research-guide.svg",
     "publishedAt": "2026-10-23",
     "updatedAt": "2026-10-23",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/keyword-research-guide.svg",
+    "imageAlt": "صورة توضيحية لمقال: كيف تختار الكلمات المفتاحية لموقعك؟ دليل عملي للوصول إلى جمهورك المستهدف"
   },
   {
     "slug": "website-not-appearing-google",
@@ -207,12 +223,14 @@
     ],
     "description": "اكتشف أسباب عدم ظهور موقعك في Google، من حظر الفهرسة ومشكلات الزحف إلى ضعف المحتوى، مع قائمة فحص عملية.",
     "icon": "fa-magnifying-glass",
-    "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/website-not-appearing-google.svg",
+    "thumbnail": "/assets/images/article-thumbnails/website-not-appearing-google.svg",
     "publishedAt": "2026-10-23",
     "updatedAt": "2026-10-23",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/website-not-appearing-google.svg",
+    "imageAlt": "صورة توضيحية لمقال: لماذا لا يظهر موقعك في Google؟ 9 أسباب شائعة وطرق إصلاحها"
   },
   {
     "slug": "create-website-from-scratch",
@@ -233,12 +251,14 @@
     ],
     "description": "خطوات عملية لبناء موقع إلكتروني من تحديد الهدف وهيكلة الصفحات إلى التطوير والاختبار والنشر والصيانة.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/create-website-from-scratch.svg",
+    "thumbnail": "/assets/images/article-thumbnails/create-website-from-scratch.svg",
     "publishedAt": "2026-10-23",
     "updatedAt": "2026-10-23",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/create-website-from-scratch.svg",
+    "imageAlt": "صورة توضيحية لمقال: إنشاء موقع إلكتروني من الصفر: خطوات عملية من الفكرة إلى النشر"
   },
   {
     "slug": "responsive-website-css-guide",
@@ -259,12 +279,14 @@
     ],
     "description": "تعلم بناء تصميم متجاوب مع الهاتف باستخدام CSS وmedia queries وFlexbox وGrid مع أمثلة قابلة للتطبيق.",
     "icon": "fa-mobile-screen-button",
-    "image": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/responsive-website-css-guide.svg",
+    "thumbnail": "/assets/images/article-thumbnails/responsive-website-css-guide.svg",
     "publishedAt": "2026-10-23",
     "updatedAt": "2026-10-23",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/responsive-website-css-guide.svg",
+    "imageAlt": "صورة توضيحية لمقال: تصميم موقع متجاوب مع الهاتف: شرح CSS مع أمثلة عملية"
   },
   {
     "slug": "website-speed-optimization-guide",
@@ -285,12 +307,14 @@
     ],
     "description": "خطة عملية لتحسين سرعة الموقع تبدأ بالقياس، ثم الصور والموارد والخطوط والتخزين المؤقت، وتنتهي بمراقبة النتائج.",
     "icon": "fa-gauge-high",
-    "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/website-speed-optimization-guide.svg",
+    "thumbnail": "/assets/images/article-thumbnails/website-speed-optimization-guide.svg",
     "publishedAt": "2026-10-23",
     "updatedAt": "2026-10-23",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/website-speed-optimization-guide.svg",
+    "imageAlt": "صورة توضيحية لمقال: تحسين سرعة الموقع: خطوات عملية لرفع الأداء وتقليل وقت التحميل"
   },
   {
     "slug": "core-web-vitals-practical-guide",
@@ -312,12 +336,14 @@
     ],
     "description": "شرح عملي لمقاييس Core Web Vitals: LCP وINP وCLS، وكيفية قياسها وتحديد أولويات إصلاح المشكلات.",
     "icon": "fa-chart-line",
-    "image": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/core-web-vitals-practical-guide.svg",
+    "thumbnail": "/assets/images/article-thumbnails/core-web-vitals-practical-guide.svg",
     "publishedAt": "2026-10-23",
     "updatedAt": "2026-10-23",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/core-web-vitals-practical-guide.svg",
+    "imageAlt": "صورة توضيحية لمقال: ما هي Core Web Vitals؟ وكيف تحسّن نتائج موقعك خطوة بخطوة؟"
   },
   {
     "slug": "professional-website-ui-ux-guide",
@@ -334,12 +360,14 @@
     ],
     "description": "تعلّم تصميم واجهات مواقع واضحة وسهلة الاستخدام عبر مبادئ UI وUX، من فهم المستخدم والتخطيط البصري إلى التنقل والنماذج والاختبار والتحسين، مع خطوات تطبيق عملية.",
     "icon": "fa-pen-ruler",
-    "image": "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/professional-website-ui-ux-guide.svg",
+    "thumbnail": "/assets/images/article-thumbnails/professional-website-ui-ux-guide.svg",
     "publishedAt": "2026-10-23",
     "updatedAt": "2026-11-14",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/professional-website-ui-ux-guide.svg",
+    "imageAlt": "صورة توضيحية لمقال: تصميم واجهات المواقع: دليل عملي لمبادئ UI وUX"
   },
   {
     "slug": "ai-prompts-for-programmers",
@@ -355,12 +383,14 @@
     ],
     "description": "أمثلة عملية لصياغة أوامر ذكاء اصطناعي تساعد المبرمج على فهم الكود وكتابة الاختبارات وإصلاح الأخطاء ومراجعة الأمان.",
     "icon": "fa-robot",
-    "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/ai-prompts-for-programmers.svg",
+    "thumbnail": "/assets/images/article-thumbnails/ai-prompts-for-programmers.svg",
     "publishedAt": "2026-10-23",
     "updatedAt": "2026-10-23",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/ai-prompts-for-programmers.svg",
+    "imageAlt": "صورة توضيحية لمقال: أفضل أوامر الذكاء الاصطناعي للمبرمجين: أمثلة جاهزة لكتابة كود أفضل"
   },
   {
     "slug": "create-website-with-ai",
@@ -376,12 +406,14 @@
     ],
     "description": "دليل لاستخدام أدوات الذكاء الاصطناعي في تخطيط الموقع وتوليد الواجهات والكود، مع قائمة مراجعة للجودة والأمان قبل النشر.",
     "icon": "fa-wand-magic-sparkles",
-    "image": "https://images.unsplash.com/photo-1676299081847-824916de030a?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "https://images.unsplash.com/photo-1676299081847-824916de030a?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/create-website-with-ai.svg",
+    "thumbnail": "/assets/images/article-thumbnails/create-website-with-ai.svg",
     "publishedAt": "2026-10-23",
     "updatedAt": "2026-10-23",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/create-website-with-ai.svg",
+    "imageAlt": "صورة توضيحية لمقال: كيف تستخدم الذكاء الاصطناعي لإنشاء موقع إلكتروني؟ الأدوات والخطوات والحدود"
   },
   {
     "slug": "google-search-console-indexing-errors",
@@ -404,12 +436,14 @@
     ],
     "description": "دليل عملي لفهم تقارير الفهرسة والتمييز بين الاستبعاد المتوقع والأخطاء التي تحتاج إلى إصلاح.",
     "icon": "fa-triangle-exclamation",
-    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/google-search-console-indexing-errors.svg",
+    "thumbnail": "/assets/images/article-thumbnails/google-search-console-indexing-errors.svg",
     "publishedAt": "2026-10-18",
     "updatedAt": "2026-10-18",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/google-search-console-indexing-errors.svg",
+    "imageAlt": "صورة توضيحية لمقال: أخطاء الفهرسة في Google Search Console: التشخيص والإصلاح"
   },
   {
     "slug": "internal-linking-seo-guide",
@@ -432,12 +466,14 @@
     ],
     "description": "دليل عملي لتحسين الروابط الداخلية، وتنظيم بنية الموقع، واختيار نصوص الروابط، واكتشاف الصفحات المعزولة والروابط المكسورة.",
     "icon": "fa-link",
-    "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/internal-linking-seo-guide.svg",
+    "thumbnail": "/assets/images/article-thumbnails/internal-linking-seo-guide.svg",
     "publishedAt": "2026-10-18",
     "updatedAt": "2026-10-18",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/internal-linking-seo-guide.svg",
+    "imageAlt": "صورة توضيحية لمقال: الروابط الداخلية وSEO: بناء بنية تربط صفحات الموقع"
   },
   {
     "slug": "seo-content-strategy",
@@ -458,12 +494,14 @@
     ],
     "description": "تعلم بناء استراتيجية محتوى SEO في 2026: من فهم نية البحث وتصنيف الموضوعات إلى الروابط الداخلية وقياس أداء المقالات.",
     "icon": "fa-magnifying-glass-chart",
-    "image": "https://images.unsplash.com/photo-1455390582262-044c6535d9a3?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "https://images.unsplash.com/photo-1455390582262-044c6535d9a3?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/seo-content-strategy.svg",
+    "thumbnail": "/assets/images/article-thumbnails/seo-content-strategy.svg",
     "publishedAt": "2026-09-19",
     "updatedAt": "2026-10-18",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/seo-content-strategy.svg",
+    "imageAlt": "صورة توضيحية لمقال: استراتيجية محتوى SEO في 2026: دليل عملي"
   },
   {
     "slug": "seo-website-optimization-2026",
@@ -486,12 +524,14 @@
     ],
     "description": "دليل عملي لتحسين المحتوى والفهرسة والروابط الداخلية وسرعة الموقع وقياس نتائج SEO في 2026.",
     "icon": "fa-magnifying-glass-chart",
-    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/seo-website-optimization-2026.svg",
     "publishedAt": "2026-10-15",
     "updatedAt": "2026-10-15",
-    "thumbnail": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "/assets/images/article-thumbnails/seo-website-optimization-2026.svg",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/seo-website-optimization-2026.svg",
+    "imageAlt": "صورة توضيحية لمقال: تحسين المواقع لمحركات البحث في 2026: دليل شامل للمحتوى والأداء والفهرسة"
   },
   {
     "slug": "html-advanced-inputs",
@@ -508,12 +548,14 @@
     ],
     "description": "تعرف إلى أنواع input المناسبة لاختيار التاريخ والأرقام والخيارات المتعددة والاختيار الأحادي مع أمثلة واضحة.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/html-advanced-inputs.svg",
     "publishedAt": "2026-10-14",
     "updatedAt": "2026-10-14",
-    "thumbnail": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "/assets/images/article-thumbnails/html-advanced-inputs.svg",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/html-advanced-inputs.svg",
+    "imageAlt": "صورة توضيحية لمقال: أنواع حقول HTML المتقدمة: date وnumber وcheckbox وradio"
   },
   {
     "slug": "html-audio-video",
@@ -529,12 +571,14 @@
     ],
     "description": "تعلم تضمين الصوت والفيديو بعناصر HTML الأصلية وإضافة عناصر التحكم والترجمة مع مراعاة الوصول والأداء.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/html-audio-video.svg",
     "publishedAt": "2026-10-14",
     "updatedAt": "2026-10-14",
-    "thumbnail": "https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "/assets/images/article-thumbnails/html-audio-video.svg",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/html-audio-video.svg",
+    "imageAlt": "صورة توضيحية لمقال: الصوت والفيديو في HTML: استخدام audio وvideo وtrack"
   },
   {
     "slug": "html-css-js-roles",
@@ -550,12 +594,14 @@
     ],
     "description": "افهم دور HTML في البنية وCSS في العرض وJavaScript في التفاعل من خلال مثال صغير قابل للتطوير.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/html-css-js-roles.svg",
     "publishedAt": "2026-10-14",
     "updatedAt": "2026-10-14",
-    "thumbnail": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "/assets/images/article-thumbnails/html-css-js-roles.svg",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/html-css-js-roles.svg",
+    "imageAlt": "صورة توضيحية لمقال: كيف تتعاون HTML وCSS وJavaScript في صفحة الويب؟"
   },
   {
     "slug": "html-document-structure",
@@ -572,12 +618,14 @@
     ],
     "description": "افهم بنية مستند HTML من البداية، ودور doctype وhtml وhead وbody ووسوم meta، مع مثال عربي صحيح وأخطاء يجب تجنبها.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/html-document-structure.svg",
     "publishedAt": "2026-10-14",
     "updatedAt": "2026-10-14",
-    "thumbnail": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "/assets/images/article-thumbnails/html-document-structure.svg",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/html-document-structure.svg",
+    "imageAlt": "صورة توضيحية لمقال: بنية صفحة HTML: شرح doctype وhead وbody ووسوم meta"
   },
   {
     "slug": "html-form-validation-accessibility",
@@ -593,12 +641,14 @@
     ],
     "description": "تعلم استخدام required وpattern وminlength مع رسائل خطأ مفهومة وتجربة نموذج يمكن الوصول إليها.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/html-form-validation-accessibility.svg",
     "publishedAt": "2026-10-14",
     "updatedAt": "2026-10-14",
-    "thumbnail": "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "/assets/images/article-thumbnails/html-form-validation-accessibility.svg",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/html-form-validation-accessibility.svg",
+    "imageAlt": "صورة توضيحية لمقال: التحقق من نماذج HTML وإتاحة رسائل الخطأ"
   },
   {
     "slug": "html-forms-basics",
@@ -615,12 +665,14 @@
     ],
     "description": "تعلم إنشاء نموذج HTML واضح وسهل الوصول، مع label وinput وأنواع الحقول والأزرار وخصائص التحقق المدمجة وأفضل الممارسات.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/html-forms-basics.svg",
     "publishedAt": "2026-10-14",
     "updatedAt": "2026-10-14",
-    "thumbnail": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "/assets/images/article-thumbnails/html-forms-basics.svg",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/html-forms-basics.svg",
+    "imageAlt": "صورة توضيحية لمقال: نماذج HTML للمبتدئين: input وlabel وbutton والتحقق الأساسي"
   },
   {
     "slug": "html-global-attributes-data",
@@ -637,12 +689,14 @@
     ],
     "description": "شرح الخصائص العامة التي يمكن استخدامها مع عناصر HTML لتنظيم المحتوى وربطه بالأنماط والسلوك البرمجي.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/html-global-attributes-data.svg",
     "publishedAt": "2026-10-14",
     "updatedAt": "2026-10-14",
-    "thumbnail": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "/assets/images/article-thumbnails/html-global-attributes-data.svg",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/html-global-attributes-data.svg",
+    "imageAlt": "صورة توضيحية لمقال: خصائص HTML العامة: id وclass وlang وdata-* وhidden"
   },
   {
     "slug": "html-iframe-security",
@@ -658,12 +712,14 @@
     ],
     "description": "تعرف إلى iframe وخصائص title وloading وsandbox ومتى ينبغي تجنب تضمين محتوى خارجي.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/html-iframe-security.svg",
     "publishedAt": "2026-10-14",
     "updatedAt": "2026-10-14",
-    "thumbnail": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "/assets/images/article-thumbnails/html-iframe-security.svg",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/html-iframe-security.svg",
+    "imageAlt": "صورة توضيحية لمقال: عنصر iframe في HTML: التضمين والأمان والخصوصية"
   },
   {
     "slug": "html-keyboard-accessibility",
@@ -679,12 +735,14 @@
     ],
     "description": "خطوات عملية لتحسين وصول صفحات HTML باستخدام العناصر الأصلية وتسميات واضحة وترتيب تركيز منطقي.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/html-keyboard-accessibility.svg",
     "publishedAt": "2026-10-14",
     "updatedAt": "2026-10-14",
-    "thumbnail": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "/assets/images/article-thumbnails/html-keyboard-accessibility.svg",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/html-keyboard-accessibility.svg",
+    "imageAlt": "صورة توضيحية لمقال: إمكانية الوصول في HTML: لوحة المفاتيح والتركيز وقارئات الشاشة"
   },
   {
     "slug": "html-links-paths",
@@ -700,12 +758,14 @@
     ],
     "description": "افهم href والمسارات النسبية والمطلقة وكيف تكتب روابط واضحة وآمنة داخل مواقع HTML.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/html-links-paths.svg",
     "publishedAt": "2026-10-14",
     "updatedAt": "2026-10-14",
-    "thumbnail": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "/assets/images/article-thumbnails/html-links-paths.svg",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/html-links-paths.svg",
+    "imageAlt": "صورة توضيحية لمقال: روابط HTML والمسارات: الروابط الداخلية والخارجية والملفات"
   },
   {
     "slug": "html-lists-images",
@@ -721,12 +781,14 @@
     ],
     "description": "تعلم إنشاء القوائم المرتبة وغير المرتبة وقوائم التعريف، وإضافة الصور في HTML مع alt مناسب وأبعاد تساعد على تجربة أفضل.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/html-lists-images.svg",
     "publishedAt": "2026-10-14",
     "updatedAt": "2026-10-14",
-    "thumbnail": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "/assets/images/article-thumbnails/html-lists-images.svg",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/html-lists-images.svg",
+    "imageAlt": "صورة توضيحية لمقال: القوائم والصور في HTML: أمثلة عملية مع النص البديل"
   },
   {
     "slug": "html-multipage-project",
@@ -742,12 +804,14 @@
     ],
     "description": "طبّق دروس HTML في مشروع صغير متعدد الصفحات يتضمن التنقل والمقالات والصور ونموذج تواصل وبنية قابلة للصيانة.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/html-multipage-project.svg",
     "publishedAt": "2026-10-14",
     "updatedAt": "2026-10-14",
-    "thumbnail": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "/assets/images/article-thumbnails/html-multipage-project.svg",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/html-multipage-project.svg",
+    "imageAlt": "صورة توضيحية لمقال: مشروع HTML متكامل للمبتدئين: بناء موقع من عدة صفحات"
   },
   {
     "slug": "html-performance-loading",
@@ -764,12 +828,14 @@
     ],
     "description": "تحسين تحميل موارد الصفحة باستخدام خصائص HTML المناسبة مع فهم trade-offs وتجنب التحسينات العشوائية.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/html-performance-loading.svg",
     "publishedAt": "2026-10-14",
     "updatedAt": "2026-10-14",
-    "thumbnail": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "/assets/images/article-thumbnails/html-performance-loading.svg",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/html-performance-loading.svg",
+    "imageAlt": "صورة توضيحية لمقال: أداء HTML: التحميل الكسول وdefer وpreload وقياس السرعة"
   },
   {
     "slug": "html-responsive-images",
@@ -786,12 +852,14 @@
     ],
     "description": "تعلم اختيار الصور المناسبة لأحجام الشاشات وكثافات العرض باستخدام srcset وsizes وpicture.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/html-responsive-images.svg",
     "publishedAt": "2026-10-14",
     "updatedAt": "2026-10-14",
-    "thumbnail": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "/assets/images/article-thumbnails/html-responsive-images.svg",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/html-responsive-images.svg",
+    "imageAlt": "صورة توضيحية لمقال: الصور المتجاوبة في HTML: srcset وsizes وpicture"
   },
   {
     "slug": "html-semantic-elements",
@@ -809,12 +877,14 @@
     ],
     "description": "تعرف إلى العناصر الدلالية في HTML وكيف تختار البنية المناسبة لتحسين وضوح الصفحة وإمكانية الوصول.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1621839673705-6617adf9e890?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/html-semantic-elements.svg",
     "publishedAt": "2026-10-14",
     "updatedAt": "2026-10-14",
-    "thumbnail": "https://images.unsplash.com/photo-1621839673705-6617adf9e890?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "/assets/images/article-thumbnails/html-semantic-elements.svg",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/html-semantic-elements.svg",
+    "imageAlt": "صورة توضيحية لمقال: عناصر HTML الدلالية: استخدام header وmain وnav وarticle"
   },
   {
     "slug": "html-seo-metadata",
@@ -836,12 +906,14 @@
     ],
     "description": "تعلم ضبط عناصر head المهمة لمحركات البحث مع أمثلة عملية وتجنب التكرار والتصريحات المضللة.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/html-seo-metadata.svg",
     "publishedAt": "2026-10-14",
     "updatedAt": "2026-10-14",
-    "thumbnail": "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "/assets/images/article-thumbnails/html-seo-metadata.svg",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/html-seo-metadata.svg",
+    "imageAlt": "صورة توضيحية لمقال: أساسيات SEO في HTML: title وdescription وcanonical والبيانات المنظمة"
   },
   {
     "slug": "html-tables-caption",
@@ -857,12 +929,14 @@
     ],
     "description": "تعلم إنشاء جداول HTML مفهومة باستخدام caption وthead وtbody وth مع تحسين الوصول على الشاشات الصغيرة.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/html-tables-caption.svg",
     "publishedAt": "2026-10-14",
     "updatedAt": "2026-10-14",
-    "thumbnail": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "/assets/images/article-thumbnails/html-tables-caption.svg",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/html-tables-caption.svg",
+    "imageAlt": "صورة توضيحية لمقال: الجداول في HTML: th وtd وcaption وتنظيم البيانات"
   },
   {
     "slug": "html-text-headings-links",
@@ -878,12 +952,14 @@
     ],
     "description": "تعلم تنظيم النصوص بعناوين HTML من h1 إلى h6، واستخدام الفقرات والروابط القابلة للوصول، مع أمثلة وأخطاء شائعة.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1455390582262-044c6535d9a3?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/html-text-headings-links.svg",
     "publishedAt": "2026-10-14",
     "updatedAt": "2026-10-14",
-    "thumbnail": "https://images.unsplash.com/photo-1455390582262-044c6535d9a3?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "/assets/images/article-thumbnails/html-text-headings-links.svg",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/html-text-headings-links.svg",
+    "imageAlt": "صورة توضيحية لمقال: العناوين والفقرات والروابط في HTML: بناء محتوى سهل القراءة"
   },
   {
     "slug": "html-validation-debugging",
@@ -899,12 +975,14 @@
     ],
     "description": "تعلم اكتشاف أخطاء بنية HTML والروابط والخصائص باستخدام أدوات التحقق وفحص DOM في المتصفح.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/html-validation-debugging.svg",
     "publishedAt": "2026-10-14",
     "updatedAt": "2026-10-14",
-    "thumbnail": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "/assets/images/article-thumbnails/html-validation-debugging.svg",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/html-validation-debugging.svg",
+    "imageAlt": "صورة توضيحية لمقال: التحقق من HTML وتصحيح الأخطاء: W3C وأدوات المتصفح"
   },
   {
     "slug": "html-what-is-html",
@@ -920,12 +998,14 @@
     ],
     "description": "تعرف على لغة HTML ودورها في بناء صفحات الويب، وكيف تكتب أول ملف HTML وتشغّله في المتصفح خطوة بخطوة، مع أمثلة عملية للمبتدئين.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/html-what-is-html.svg",
     "publishedAt": "2026-10-14",
     "updatedAt": "2026-10-14",
-    "thumbnail": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "/assets/images/article-thumbnails/html-what-is-html.svg",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/html-what-is-html.svg",
+    "imageAlt": "صورة توضيحية لمقال: ما هي لغة HTML؟ دليل البداية لبناء أول صفحة ويب"
   },
   {
     "slug": "website-quality-audit-checklist",
@@ -942,12 +1022,14 @@
     ],
     "description": "استخدم قائمة عملية لتقييم جودة موقعك عبر الأداء وإمكانية الوصول وSEO والأمان وسهولة الاستخدام، ثم رتّب الإصلاحات حسب أثرها.",
     "icon": "fa-gauge-high",
-    "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/website-quality-audit-checklist.svg",
     "publishedAt": "2026-10-14",
     "updatedAt": "2026-10-14",
-    "thumbnail": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "/assets/images/article-thumbnails/website-quality-audit-checklist.svg",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/website-quality-audit-checklist.svg",
+    "imageAlt": "صورة توضيحية لمقال: تدقيق جودة الموقع: قائمة شاملة للأداء وSEO وإمكانية الوصول"
   },
   {
     "slug": "lighthouse-audit-fixes-guide",
@@ -968,12 +1050,14 @@
     ],
     "description": "تعلم تشغيل Lighthouse وقراءة تقاريره وترتيب إصلاحات الأداء وإمكانية الوصول وSEO وفق الأثر، مع تجنب تفسير الدرجات بشكل مضلل.",
     "icon": "fa-gauge-high",
-    "image": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/lighthouse-audit-fixes-guide.svg",
     "publishedAt": "2026-10-14",
     "updatedAt": "2026-10-14",
-    "thumbnail": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "/assets/images/article-thumbnails/lighthouse-audit-fixes-guide.svg",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/lighthouse-audit-fixes-guide.svg",
+    "imageAlt": "صورة توضيحية لمقال: دليل Lighthouse: فهم نتائج الفحص وإصلاح مشكلات الموقع"
   },
   {
     "slug": "mobile-website-quality-testing",
@@ -990,12 +1074,14 @@
     ],
     "description": "قائمة عملية لاختبار الموقع على الهاتف تشمل العرض المتجاوب واللمس والنماذج والأداء وإمكانية الوصول والمهام الأساسية قبل النشر.",
     "icon": "fa-gauge-high",
-    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/mobile-website-quality-testing.svg",
     "publishedAt": "2026-10-14",
     "updatedAt": "2026-10-14",
-    "thumbnail": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "/assets/images/article-thumbnails/mobile-website-quality-testing.svg",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/mobile-website-quality-testing.svg",
+    "imageAlt": "صورة توضيحية لمقال: اختبار جودة الموقع على الهاتف: دليل عملي قبل النشر"
   },
   {
     "slug": "structured-data-guide",
@@ -1018,12 +1104,14 @@
     ],
     "description": "شرح عملي للبيانات المنظمة والمخططات المناسبة للمقالات.",
     "icon": "fa-sitemap",
-    "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/structured-data-guide.svg",
+    "thumbnail": "/assets/images/article-thumbnails/structured-data-guide.svg",
     "publishedAt": "2026-09-16",
     "updatedAt": "2026-10-14",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/structured-data-guide.svg",
+    "imageAlt": "صورة توضيحية لمقال: Schema Markup للمقالات: كيف تستخدم البيانات المنظمة بطريقة صحيحة"
   },
   {
     "slug": "arabic-web-typography-guide",
@@ -1041,12 +1129,14 @@
     ],
     "description": "تعلم اختيار الخط العربي للمواقع وضبط أحجام العناوين وتباعد الأسطر والأوزان، مع أمثلة CSS عملية لتحسين القراءة على الهاتف والحاسوب.",
     "icon": "fa-font",
-    "image": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/arabic-web-typography-guide.svg",
     "publishedAt": "2026-10-13",
     "updatedAt": "2026-10-13",
-    "thumbnail": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "/assets/images/article-thumbnails/arabic-web-typography-guide.svg",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/arabic-web-typography-guide.svg",
+    "imageAlt": "صورة توضيحية لمقال: الخطوط العربية في تصميم المواقع: دليل عملي لتحسين القراءة والواجهة"
   },
   {
     "slug": "google-search-console-performance-report",
@@ -1069,12 +1159,14 @@
     ],
     "description": "دليل عملي لتحليل النقرات ومرات الظهور والاستعلامات والصفحات في Google Search Console، وتحويل البيانات إلى قرارات تحسين SEO.",
     "icon": "fa-chart-line",
-    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/google-search-console-performance-report.svg",
     "publishedAt": "2026-10-13",
     "updatedAt": "2026-10-13",
-    "thumbnail": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "/assets/images/article-thumbnails/google-search-console-performance-report.svg",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/google-search-console-performance-report.svg",
+    "imageAlt": "صورة توضيحية لمقال: Google Search Console: دليل عملي لتحليل النقرات ومرات الظهور وتحسين صفحات موقعك"
   },
   {
     "slug": "seo-image-optimization-guide",
@@ -1095,12 +1187,14 @@
     ],
     "description": "دليل عملي لتحسين الصور عبر أسماء الملفات والنص البديل والصيغ الحديثة والأبعاد والتحميل الكسول وقياس الأداء.",
     "icon": "fa-image",
-    "image": "https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/seo-image-optimization-guide.svg",
     "publishedAt": "2026-10-13",
     "updatedAt": "2026-10-13",
-    "thumbnail": "https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "/assets/images/article-thumbnails/seo-image-optimization-guide.svg",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/seo-image-optimization-guide.svg",
+    "imageAlt": "صورة توضيحية لمقال: تحسين الصور لمحركات البحث: دليل SEO للصور وسرعة الموقع"
   },
   {
     "slug": "hreflang-multilingual-seo-guide",
@@ -1121,12 +1215,14 @@
     ],
     "description": "تعلم إعداد hreflang للمواقع متعددة اللغات والمناطق، وربط النسخ البديلة، واستخدام رموز اللغة والمنطقة، واكتشاف الأخطاء الشائعة.",
     "icon": "fa-language",
-    "image": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/hreflang-multilingual-seo-guide.svg",
     "publishedAt": "2026-10-13",
     "updatedAt": "2026-10-13",
-    "thumbnail": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "/assets/images/article-thumbnails/hreflang-multilingual-seo-guide.svg",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/hreflang-multilingual-seo-guide.svg",
+    "imageAlt": "صورة توضيحية لمقال: وسم hreflang في SEO: دليل المواقع متعددة اللغات والمناطق"
   },
   {
     "slug": "javascript-seo-rendering-guide",
@@ -1148,12 +1244,14 @@
     ],
     "description": "دليل عملي لفهم عرض صفحات JavaScript وتحسين المحتوى والروابط والبيانات الوصفية واختبارها في محركات البحث.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/javascript-seo-rendering-guide.svg",
     "publishedAt": "2026-10-13",
     "updatedAt": "2026-10-13",
-    "thumbnail": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "/assets/images/article-thumbnails/javascript-seo-rendering-guide.svg",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/javascript-seo-rendering-guide.svg",
+    "imageAlt": "صورة توضيحية لمقال: JavaScript SEO: دليل فهرسة المواقع المعتمدة على JavaScript"
   },
   {
     "slug": "faceted-navigation-seo-guide",
@@ -1171,12 +1269,14 @@
     ],
     "description": "دليل عملي لإدارة صفحات الفلاتر والترتيب في المتاجر والمواقع الكبيرة، وضبط الروابط والزحف والفهرسة دون إهدار ميزانية الزحف.",
     "icon": "fa-filter",
-    "image": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/faceted-navigation-seo-guide.svg",
+    "thumbnail": "/assets/images/article-thumbnails/faceted-navigation-seo-guide.svg",
     "publishedAt": "2026-10-13",
     "updatedAt": "2026-10-13",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/faceted-navigation-seo-guide.svg",
+    "imageAlt": "صورة توضيحية لمقال: SEO للتنقل متعدد الأوجه: إدارة صفحات الفلاتر ومنع تضخم الفهرسة"
   },
   {
     "slug": "xml-sitemap-seo-guide",
@@ -1198,12 +1298,14 @@
     ],
     "description": "دليل عملي لبناء خريطة XML Sitemap نظيفة، واختيار عناوين URL المناسبة، وإرسالها ومراقبة أخطائها في Google Search Console.",
     "icon": "fa-sitemap",
-    "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/xml-sitemap-seo-guide.svg",
+    "thumbnail": "/assets/images/article-thumbnails/xml-sitemap-seo-guide.svg",
     "publishedAt": "2026-10-13",
     "updatedAt": "2026-10-13",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/xml-sitemap-seo-guide.svg",
+    "imageAlt": "صورة توضيحية لمقال: دليل XML Sitemap وSEO: إنشاء خريطة موقع تساعد محركات البحث"
   },
   {
     "slug": "robots-txt-guide",
@@ -1224,12 +1326,14 @@
     ],
     "description": "دليل عملي لإنشاء ملف robots.txt وفهم قواعد Allow وDisallow والفرق بين الزحف والفهرسة واختبار الملف.",
     "icon": "fa-robot",
-    "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/robots-txt-guide.svg",
     "publishedAt": "2026-10-12",
     "updatedAt": "2026-10-12",
-    "thumbnail": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "/assets/images/article-thumbnails/robots-txt-guide.svg",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/robots-txt-guide.svg",
+    "imageAlt": "صورة توضيحية لمقال: ملف robots.txt: دليل الإعداد الصحيح لتحسين SEO"
   },
   {
     "slug": "canonical-url-guide",
@@ -1250,12 +1354,14 @@
     ],
     "description": "تعلم كيف تختار عنوان URL الأساسي وتستخدم rel=canonical لتقليل التباس النسخ المتشابهة ومراجعة الأخطاء الشائعة.",
     "icon": "fa-link",
-    "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/canonical-url-guide.svg",
     "publishedAt": "2026-10-12",
     "updatedAt": "2026-10-12",
-    "thumbnail": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "/assets/images/article-thumbnails/canonical-url-guide.svg",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/canonical-url-guide.svg",
+    "imageAlt": "صورة توضيحية لمقال: وسم Canonical في SEO: دليل عملي لتوحيد عناوين الصفحات"
   },
   {
     "slug": "xml-sitemap-guide",
@@ -1276,12 +1382,14 @@
     ],
     "description": "دليل عملي لاختيار الصفحات التي تستحق الظهور في خريطة الموقع وإنشائها واختبارها وتجنب الأخطاء.",
     "icon": "fa-map",
-    "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/xml-sitemap-guide.svg",
     "publishedAt": "2026-10-12",
     "updatedAt": "2026-10-12",
-    "thumbnail": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "/assets/images/article-thumbnails/xml-sitemap-guide.svg",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/xml-sitemap-guide.svg",
+    "imageAlt": "صورة توضيحية لمقال: خريطة الموقع XML: طريقة إعداد Sitemap مفيدة لمحركات البحث"
   },
   {
     "slug": "javascript-fetch-api-errors",
@@ -1298,12 +1406,14 @@
     ],
     "description": "تعلم طلب البيانات من API باستخدام fetch وasync/await، والتحقق من status، ومعالجة JSON والأخطاء بطريقة قابلة للصيانة.",
     "icon": "fa-plug",
-    "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/javascript-fetch-api-errors.svg",
     "publishedAt": "2026-10-12",
     "updatedAt": "2026-10-12",
-    "thumbnail": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "/assets/images/article-thumbnails/javascript-fetch-api-errors.svg",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/javascript-fetch-api-errors.svg",
+    "imageAlt": "صورة توضيحية لمقال: استخدام Fetch API في JavaScript: التعامل الصحيح مع الاستجابات والأخطاء"
   },
   {
     "slug": "web-accessibility-checklist",
@@ -1320,12 +1430,14 @@
     ],
     "description": "قائمة عملية لتحسين الوصول إلى موقعك عبر HTML الدلالي ولوحة المفاتيح والتباين والنماذج والاختبار.",
     "icon": "fa-universal-access",
-    "image": "https://images.unsplash.com/photo-1552581234-26160f608093?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/web-accessibility-checklist.svg",
     "publishedAt": "2026-10-12",
     "updatedAt": "2026-10-12",
-    "thumbnail": "https://images.unsplash.com/photo-1552581234-26160f608093?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "/assets/images/article-thumbnails/web-accessibility-checklist.svg",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/web-accessibility-checklist.svg",
+    "imageAlt": "صورة توضيحية لمقال: إمكانية الوصول في المواقع: قائمة عملية لتحسين تجربة جميع المستخدمين"
   },
   {
     "slug": "css-container-queries-guide",
@@ -1342,12 +1454,14 @@
     ],
     "description": "شرح عملي لـ container-type و@container لبناء بطاقات ومكونات تتكيف مع عرض الحاوية بدل عرض الشاشة فقط.",
     "icon": "fa-cubes",
-    "image": "https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/css-container-queries-guide.svg",
     "publishedAt": "2026-10-12",
     "updatedAt": "2026-10-12",
-    "thumbnail": "https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "/assets/images/article-thumbnails/css-container-queries-guide.svg",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/css-container-queries-guide.svg",
+    "imageAlt": "صورة توضيحية لمقال: CSS Container Queries: تصميم مكونات تتكيف مع المساحة المتاحة"
   },
   {
     "slug": "html-semantic-seo",
@@ -1367,12 +1481,14 @@
     ],
     "description": "بنية HTML الدلالية وعلاقتها بالوصول ومحركات البحث.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1621839673705-6617adf9e890?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "https://images.unsplash.com/photo-1621839673705-6617adf9e890?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/html-semantic-seo.svg",
+    "thumbnail": "/assets/images/article-thumbnails/html-semantic-seo.svg",
     "publishedAt": "2026-09-22",
     "updatedAt": "2026-10-12",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/html-semantic-seo.svg",
+    "imageAlt": "صورة توضيحية لمقال: دليل HTML الدلالي: كيف تبني صفحات ويب أفضل للـSEO والوصول"
   },
   {
     "slug": "css-modern-design",
@@ -1390,12 +1506,14 @@
     ],
     "description": "تعلم استخدام CSS الحديث لبناء واجهات متجاوبة باستخدام Grid وFlexbox والخصائص المتقدمة، مع أمثلة عملية لتنظيم التخطيط وتحسين العرض على مختلف الشاشات.",
     "icon": "fa-palette",
-    "image": "https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/css-modern-design.svg",
+    "thumbnail": "/assets/images/article-thumbnails/css-modern-design.svg",
     "publishedAt": "2026-09-21",
     "updatedAt": "2026-10-12",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/css-modern-design.svg",
+    "imageAlt": "صورة توضيحية لمقال: CSS الحديث لتصميم مواقع احترافية: Grid وFlexbox وResponsive Design"
   },
   {
     "slug": "javascript-clean-code",
@@ -1413,12 +1531,14 @@
     ],
     "description": "دليل عملي لتنظيم JavaScript وكتابة دوال واضحة وتقليل التكرار ومعالجة الأخطاء وتحسين قابلية الصيانة والأداء في مشاريع الويب.",
     "icon": "fa-js",
-    "image": "https://images.unsplash.com/photo-1516116216624-53e697fedbea?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "https://images.unsplash.com/photo-1516116216624-53e697fedbea?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/javascript-clean-code.svg",
+    "thumbnail": "/assets/images/article-thumbnails/javascript-clean-code.svg",
     "publishedAt": "2026-09-20",
     "updatedAt": "2026-10-12",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/javascript-clean-code.svg",
+    "imageAlt": "صورة توضيحية لمقال: JavaScript للمواقع: تنظيم الكود وتقليل الأخطاء وتحسين الأداء"
   },
   {
     "slug": "ai-coding-prompts",
@@ -1436,12 +1556,14 @@
     ],
     "description": "أمثلة عملية لصياغة Prompts دقيقة لكتابة ومراجعة الكود.",
     "icon": "fa-wand-magic-sparkles",
-    "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/ai-coding-prompts.svg",
+    "thumbnail": "/assets/images/article-thumbnails/ai-coding-prompts.svg",
     "publishedAt": "2026-09-18",
     "updatedAt": "2026-10-12",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/ai-coding-prompts.svg",
+    "imageAlt": "صورة توضيحية لمقال: أفضل Prompts لبرمجة المواقع بالذكاء الاصطناعي: من الفكرة إلى كود قابل للصيانة"
   },
   {
     "slug": "github-pages-deploy",
@@ -1459,12 +1581,14 @@
     ],
     "description": "تعلم نشر موقع HTML وCSS وJavaScript على GitHub Pages خطوة بخطوة، مع إعداد المستودع والفروع ومسار النشر وفحص البناء وحل أخطاء 404.",
     "icon": "fa-github",
-    "image": "https://images.unsplash.com/photo-1556075798-4825dfaaf498?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "https://images.unsplash.com/photo-1556075798-4825dfaaf498?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/github-pages-deploy.svg",
+    "thumbnail": "/assets/images/article-thumbnails/github-pages-deploy.svg",
     "publishedAt": "2026-09-17",
     "updatedAt": "2026-10-12",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/github-pages-deploy.svg",
+    "imageAlt": "صورة توضيحية لمقال: نشر موقع HTML وCSS وJavaScript على GitHub Pages خطوة بخطوة"
   },
   {
     "slug": "web-performance-core",
@@ -1482,12 +1606,14 @@
     ],
     "description": "خطوات عملية لقياس سرعة الموقع وتحسين Core Web Vitals، بما يشمل LCP وINP وCLS وتقليل JavaScript وتحسين الصور والخطوط وتجربة الهاتف.",
     "icon": "fa-gauge-high",
-    "image": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/web-performance-core.svg",
+    "thumbnail": "/assets/images/article-thumbnails/web-performance-core.svg",
     "publishedAt": "2026-09-15",
     "updatedAt": "2026-10-12",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/web-performance-core.svg",
+    "imageAlt": "صورة توضيحية لمقال: تحسين سرعة الموقع وCore Web Vitals: دليل عملي للمطورين"
   },
   {
     "slug": "ai-developer-tools",
@@ -1503,12 +1629,14 @@
     ],
     "description": "دليل عملي لاختيار أدوات الذكاء الاصطناعي للمطورين حسب حالة الاستخدام ومعايير الخصوصية والتكامل وجودة المخرجات.",
     "icon": "fa-screwdriver-wrench",
-    "image": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/ai-developer-tools.svg",
+    "thumbnail": "/assets/images/article-thumbnails/ai-developer-tools.svg",
     "publishedAt": "2026-09-28",
     "updatedAt": "2026-09-28",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/ai-developer-tools.svg",
+    "imageAlt": "صورة توضيحية لمقال: أفضل أدوات الذكاء الاصطناعي للمطورين في 2026"
   },
   {
     "slug": "prompt-engineering-developers",
@@ -1525,12 +1653,14 @@
     ],
     "description": "دليل عملي لبناء Prompts أوضح للمطورين عبر تحديد الهدف والسياق والقيود والمخرجات ثم تحسينها بالتكرار والاختبار والمراجعة.",
     "icon": "fa-terminal",
-    "image": "https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/prompt-engineering-developers.svg",
+    "thumbnail": "/assets/images/article-thumbnails/prompt-engineering-developers.svg",
     "publishedAt": "2026-09-28",
     "updatedAt": "2026-09-28",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/prompt-engineering-developers.svg",
+    "imageAlt": "صورة توضيحية لمقال: Prompt Engineering للمطورين: كيف تكتب Prompts أفضل لكتابة ومراجعة الكود"
   },
   {
     "slug": "git-github-beginners",
@@ -1549,12 +1679,14 @@
     ],
     "description": "دليل عملي لتعلم Git وGitHub للمبتدئين وفهم المستودعات والـcommit والفروع والمزامنة وPull Request.",
     "icon": "fa-code-branch",
-    "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/git-github-beginners.svg",
+    "thumbnail": "/assets/images/article-thumbnails/git-github-beginners.svg",
     "publishedAt": "2026-09-28",
     "updatedAt": "2026-09-28",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/git-github-beginners.svg",
+    "imageAlt": "صورة توضيحية لمقال: Git وGitHub للمبتدئين: إدارة إصدارات مشاريع الويب خطوة بخطوة"
   },
   {
     "slug": "javascript-beginners-guide",
@@ -1574,12 +1706,14 @@
     ],
     "description": "دليل عملي لفهم أساسيات JavaScript من المتغيرات والدوال والمصفوفات والكائنات إلى DOM والأحداث وبناء أول تفاعل في صفحات الويب.",
     "icon": "fa-js",
-    "image": "https://images.unsplash.com/photo-1627398242454-45a1465c2479?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "https://images.unsplash.com/photo-1627398242454-45a1465c2479?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/javascript-beginners-guide.svg",
+    "thumbnail": "/assets/images/article-thumbnails/javascript-beginners-guide.svg",
     "publishedAt": "2026-09-28",
     "updatedAt": "2026-09-28",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/javascript-beginners-guide.svg",
+    "imageAlt": "صورة توضيحية لمقال: JavaScript للمبتدئين: الأساسيات التي تحتاجها لبناء مواقع تفاعلية"
   },
   {
     "slug": "javascript-debugging",
@@ -1597,12 +1731,14 @@
     ],
     "description": "دليل عملي لتشخيص أخطاء JavaScript باستخدام Console وDevTools وBreakpoints وNetwork وتتبع السبب الجذري قبل إصلاح الكود.",
     "icon": "fa-bug",
-    "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/javascript-debugging.svg",
+    "thumbnail": "/assets/images/article-thumbnails/javascript-debugging.svg",
     "publishedAt": "2026-09-28",
     "updatedAt": "2026-09-28",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/javascript-debugging.svg",
+    "imageAlt": "صورة توضيحية لمقال: Debugging في JavaScript: دليل اكتشاف الأخطاء وإصلاحها"
   },
   {
     "slug": "ai-website-builder-guide",
@@ -1619,12 +1755,14 @@
     ],
     "description": "دليل عملي للتخطيط وبناء موقع حديث بالذكاء الاصطناعي.",
     "icon": "fa-robot",
-    "image": "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/ai-website-builder-guide.svg",
+    "thumbnail": "/assets/images/article-thumbnails/ai-website-builder-guide.svg",
     "publishedAt": "2026-09-23",
     "updatedAt": "2026-09-23",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/ai-website-builder-guide.svg",
+    "imageAlt": "صورة توضيحية لمقال: كيفية إنشاء موقع احترافي بالذكاء الاصطناعي من الصفر في 2026"
   },
   {
     "slug": "github-actions-workflow-lockfiles",
@@ -1642,11 +1780,13 @@
     ],
     "description": "شرح عملي لملفات قفل تبعيات GitHub Actions وطريقة إنشاء actions.lock ومراجعته وصيانته مع Dependabot للحد من مخاطر تغيّر الوسوم والفروع.",
     "icon": "fa-shield-halved",
-    "image": "https://images.unsplash.com/photo-1556075798-4825dfaaf498?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "https://images.unsplash.com/photo-1556075798-4825dfaaf498?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/github-actions-workflow-lockfiles.svg",
+    "thumbnail": "/assets/images/article-thumbnails/github-actions-workflow-lockfiles.svg",
     "featured": true,
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/github-actions-workflow-lockfiles.svg",
+    "imageAlt": "صورة توضيحية لمقال: GitHub Actions Workflow Lockfiles: دليل تأمين تبعيات CI/CD"
   },
   {
     "slug": "website-update-regression-testing",
@@ -1662,10 +1802,12 @@
     ],
     "description": "خطوات عملية لاختبار الموقع بعد تحديث القالب أو المكتبات أو المحتوى، مع ترتيب اختبارات الانحدار وتوثيق النتائج وخطة التراجع.",
     "icon": "fa-clipboard-check",
-    "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/website-update-regression-testing.svg",
+    "thumbnail": "/assets/images/article-thumbnails/website-update-regression-testing.svg",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/website-update-regression-testing.svg",
+    "imageAlt": "صورة توضيحية لمقال: اختبار الموقع بعد التحديث: اكتشاف الأعطال قبل أن يلاحظها المستخدم"
   },
   {
     "slug": "frontend-ui-testing-guide",
@@ -1681,10 +1823,12 @@
     ],
     "description": "تعلم اختبار واجهات الويب يدويًا وبشكل منهجي، من حالات الأزرار والنماذج إلى التنقل ولوحة المفاتيح والتجاوب ورسائل الخطأ.",
     "icon": "fa-list-check",
-    "image": "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/frontend-ui-testing-guide.svg",
+    "thumbnail": "/assets/images/article-thumbnails/frontend-ui-testing-guide.svg",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/frontend-ui-testing-guide.svg",
+    "imageAlt": "صورة توضيحية لمقال: اختبار واجهة المستخدم: دليل عملي للأزرار والنماذج والتنقل"
   },
   {
     "slug": "website-security-basics-checklist",
@@ -1700,10 +1844,12 @@
     ],
     "description": "قائمة أساسية لتحسين أمان موقع الويب تشمل HTTPS وإدارة الأسرار والتحديثات والصلاحيات والتحقق من المدخلات والنسخ الاحتياطية.",
     "icon": "fa-shield-halved",
-    "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/website-security-basics-checklist.svg",
+    "thumbnail": "/assets/images/article-thumbnails/website-security-basics-checklist.svg",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/website-security-basics-checklist.svg",
+    "imageAlt": "صورة توضيحية لمقال: أساسيات أمان الموقع: قائمة تحقق عملية للمطورين"
   },
   {
     "slug": "test-color-contrast-text-readability",
@@ -1721,12 +1867,14 @@
     ],
     "description": "تعلم اختبار تباين الألوان في المواقع وفق WCAG، واختيار ألوان النص والخلفية، وفحص الروابط والأزرار والنصوص العربية بأدوات عملية.",
     "icon": "fa-eye",
-    "image": "https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/test-color-contrast-text-readability.svg",
+    "thumbnail": "/assets/images/article-thumbnails/test-color-contrast-text-readability.svg",
     "publishedAt": "2026-10-29",
     "updatedAt": "2026-10-29",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/test-color-contrast-text-readability.svg",
+    "imageAlt": "صورة توضيحية لمقال: كيف تختبر تباين الألوان وإمكانية قراءة النصوص في موقعك؟"
   },
   {
     "slug": "database-design-for-beginners",
@@ -1743,12 +1891,14 @@
     ],
     "description": "تعلّم تصميم قواعد البيانات لمشاريع الويب، وإنشاء الجداول والعلاقات والمفاتيح الأساسية والخارجية مع أمثلة SQL عملية.",
     "icon": "fa-database",
-    "image": "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/database-design-for-beginners.svg",
+    "thumbnail": "/assets/images/article-thumbnails/database-design-for-beginners.svg",
     "publishedAt": "2026-10-29",
     "updatedAt": "2026-10-29",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/database-design-for-beginners.svg",
+    "imageAlt": "صورة توضيحية لمقال: قواعد البيانات للمبتدئين: كيف تصمم الجداول والعلاقات لمشروع ويب؟"
   },
   {
     "slug": "google-discover-optimization",
@@ -1765,12 +1915,14 @@
     ],
     "description": "دليل عملي لتحسين فرص ظهور مقالات موقعك في Google Discover عبر المحتوى المفيد والعناوين الواضحة والصور الكبيرة وقياس النتائج.",
     "icon": "fa-compass",
-    "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/google-discover-optimization.svg",
+    "thumbnail": "/assets/images/article-thumbnails/google-discover-optimization.svg",
     "publishedAt": "2026-10-29",
     "updatedAt": "2026-10-29",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/google-discover-optimization.svg",
+    "imageAlt": "صورة توضيحية لمقال: Google Discover: كيف تهيئ موقعك لزيادة فرص ظهور مقالاتك؟"
   },
   {
     "slug": "javascript-bundle-size-optimization",
@@ -1787,12 +1939,14 @@
     ],
     "description": "تعرف إلى طرق تقليل حجم ملفات JavaScript عبر إزالة الكود غير المستخدم والضغط وتقسيم الحزم والتحميل عند الحاجة، مع أمثلة وخطوات قياس عملية.",
     "icon": "fa-file-code",
-    "image": "https://images.unsplash.com/photo-1627398242454-45a1465c2479?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "https://images.unsplash.com/photo-1627398242454-45a1465c2479?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/javascript-bundle-size-optimization.svg",
+    "thumbnail": "/assets/images/article-thumbnails/javascript-bundle-size-optimization.svg",
     "publishedAt": "2026-10-29",
     "updatedAt": "2026-10-29",
     "author": "عماد الدين لمراني",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/javascript-bundle-size-optimization.svg",
+    "imageAlt": "صورة توضيحية لمقال: تقليل حجم ملفات JavaScript: تقنيات عملية لتسريع تحميل الصفحات"
   },
   {
     "slug": "google-discover-optimization-guide",
@@ -1809,11 +1963,13 @@
     ],
     "description": "تعرف إلى طرق تحسين الظهور في Google Discover عبر محتوى مفيد وصور كبيرة وعناوين دقيقة وتجربة مستخدم جيدة، مع خطوات القياس في Search Console.",
     "icon": "fa-compass",
-    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=85",
+    "image": "/assets/images/article-thumbnails/google-discover-optimization-guide.svg",
+    "thumbnail": "/assets/images/article-thumbnails/google-discover-optimization-guide.svg",
     "publishedAt": "2026-10-29",
     "updatedAt": "2026-10-29",
     "author": "imad limrani",
-    "authorTitle": "محرر محتوى تقني"
+    "authorTitle": "محرر محتوى تقني",
+    "socialImage": "/assets/images/article-thumbnails/google-discover-optimization-guide.svg",
+    "imageAlt": "صورة توضيحية لمقال: Google Discover: كيف تهيئ موقعك لزيادة فرص ظهور مقالاتك؟"
   }
 ]
