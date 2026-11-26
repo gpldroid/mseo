@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-const {title='فاست سيو FS | المعرفة التقنية بأسلوب عملي',description='أدلة عملية في الذكاء الاصطناعي والبرمجة وتطوير المواقع وتحسين محركات البحث.'}=Astro.props;
+const {title='فاست سيو FS | المعرفة التقنية بأسلوب عملي',description='أدلة عملية في الذكاء الاصطناعي والبرمجة وتطوير المواقع وتحسين محركات البحث.',robots='index,follow,max-image-preview:large'}=Astro.props;
 const brand='فاست سيو FS';
 const pageTitle=title.includes(brand)?title:title.replace(/\s*[|—-]\s*(MSEO|Fast\s*Seo|FastSEO)$/i,'')+' | '+brand;
 const canonical=new URL(Astro.url.pathname,Astro.site).toString();
@@ -12,7 +12,7 @@ const canonical=new URL(Astro.url.pathname,Astro.site).toString();
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#7046e8">
 <meta name="color-scheme" content="light">
-<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="robots" content={robots}>
 <title>{pageTitle}</title>
 <meta name="description" content={description}>
 <link rel="canonical" href={canonical}>
