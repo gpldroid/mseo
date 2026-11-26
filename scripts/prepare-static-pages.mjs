@@ -21,11 +21,11 @@ async function walk(dir){for(const entry of await readdir(dir,{withFileTypes:tru
 async function patch(file){
  let html=await readFile(file,'utf8');
  const relative=path.relative(path.join(root,'articles'),file);
- html=html.replace(/assets\\/js\\/site\\.js\\?v=[^\"']+/g,'assets/js/site.js?v=20261126-consent-theme');
+ html=html.replace(/site\.js\?v=[^\"']+/g,'site.js?v=20261126-consent-theme');
  if(relative.startsWith('..')||!byFile.has(relative)) {
    if(!/data-site-header/.test(html)&&!/<header[^>]*class=["'][^"']*site-header/.test(html))html=html.replace(/<body([^>]*)>/i,'<body$1><div data-site-header></div>');
    if(!/data-site-footer/.test(html)&&!/<footer[^>]*class=["'][^"']*site-footer/.test(html))html=html.replace(/<\/body>/i,'<div data-site-footer></div></body>');
-   if(!/assets\/js\/site\.js/.test(html))html=html.replace(/<\/body>/i,'<script src="/assets/js/site.js?v=20261126-consent-theme" defer><\/script></body>');
+   if(!html.includes('site.js'))html=html.replace(/<\/body>/i,'<script src="/assets/js/site.js?v=20261126-consent-theme" defer><\/script></body>');
    await writeFile(file,html);return;
  }
  const article=byFile.get(relative);
