@@ -45,6 +45,7 @@ if (missingPages.length) failures.push("Missing page outputs (" + missingPages.l
 
 const sampleArticle = path.join(root, "articles", (records[0]?.slug || "missing") + ".html");
 const articleHtml = await readFile(sampleArticle, "utf8").catch(() => "");
+console.log("ARTICLE_OUTPUT_SAMPLE:", articleHtml.slice(0, 1800));
 for (const marker of ['site-header', 'site-footer', 'dir=rtl', "application/ld+json"]) {
   if (!articleHtml.includes(marker)) failures.push("Article output missing shared layout/SEO marker: " + marker);
 }
