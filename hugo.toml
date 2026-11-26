@@ -5,6 +5,7 @@ defaultContentLanguageInSubdir = false
 title = "فاست سيو | Fast Seo"
 enableRobotsTXT = true
 buildFuture = true
+uglyURLs = true
 summaryLength = 32
 [pagination]
   pagerSize = 8
