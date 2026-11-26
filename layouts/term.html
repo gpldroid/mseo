@@ -1,0 +1,38 @@
+{{ define "main" }}
+{{- $termName := .Data.Term | default .Title -}}
+{{- $categoryPages := sort .Pages "Date" "desc" -}}
+<div class="container section-block category-archive">
+  <nav class="site-breadcrumb" aria-label="مسار التنقل">
+    <a href="{{ "/" | relURL }}">الرئيسية</a><span aria-hidden="true">›</span>
+    <a href="{{ "/pages/categories.html" | relURL }}">التصنيفات</a><span aria-hidden="true">›</span>
+    <span aria-current="page">{{ $termName }}</span>
+  </nav>
+  <header class="category-archive-header">
+    <span class="eyebrow">أرشيف التصنيف</span>
+    <h1>{{ $termName }}</h1>
+    <p class="text-muted">جميع المقالات والأدلة المنشورة ضمن تصنيف {{ $termName }}.</p>
+    <span class="category-count">{{ len $categoryPages }} مقالاً</span>
+  </header>
+  {{ if gt (len $categoryPages) 0 }}
+    <div class="post-grid category-post-grid">
+      {{ range $categoryPages }}
+        {{ partial "article-card.html" (dict "post" . "hidden" false) }}
+      {{ end }}
+    </div>
+  {{ else }}
+    <div class="category-empty">
+      <h2>لا توجد مقالات في هذا التصنيف حالياً</h2>
+      <p>يمكنك تصفح بقية التصنيفات للوصول إلى المقالات المنشورة.</p>
+      <a class="btn btn-primary" href="{{ "/pages/categories.html" | relURL }}">العودة إلى التصنيفات</a>
+    </div>
+  {{ end }}
+  <nav class="category-siblings" aria-label="تصفح التصنيفات الأخرى">
+    <h2>تصنيفات أخرى</h2>
+    <div class="category-sibling-links">
+      {{ range .Site.Taxonomies.categories.ByCount }}
+        {{ if ne .Page.RelPermalink $.RelPermalink }}<a href="{{ .Page.RelPermalink }}">{{ .Page.Title }} <span>({{ .Count }})</span></a>{{ end }}
+      {{ end }}
+    </div>
+  </nav>
+</div>
+{{ end }}
