@@ -12,6 +12,7 @@ const byFile=new Map(articles.map(article=>[article.file||article.slug+'.html',a
 function escapeHtml(value){return String(value||'').replace(/[&<>"]/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[char]));}
 function normalizeBrand(html,article){
  const brand='فاست سيو FS';
+ html=html.replace(/<html([^>]*)>/i,(match,attrs)=>/data-theme=/.test(attrs)?match.replace(/data-theme=["'][^"']*["']/,'data-theme="gradient-pulse"'):'<html'+attrs+' data-theme="gradient-pulse">');
  if(!/href=["']\/styles\/theme-system\.css/i.test(html))html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="/styles/theme-system.css?v=20261126-gradient-pulse" data-fastseo-theme-css></head>');
  html=html.replace(/فاست\s*سيو\s*\|\s*Fast\s*Seo/gi,brand).replace(/فاست\s*سيو\s*\|\s*FastSEO/gi,brand).replace(/\bMSEO\b/g,brand).replace(/\bFast\s*Seo\b/gi,brand).replace(/\bFastSEO\b/g,brand).replace(/imad\s+limrani/gi,'عماد الدين لمراني');
  if(article){
