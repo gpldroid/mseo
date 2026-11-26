@@ -23,12 +23,15 @@
 <meta property="og:title" content="{{ $pageTitle | htmlEscape }}">
 <meta property="og:description" content="{{ $description }}">
 <meta property="og:url" content="{{ .Permalink }}">
-{{- $socialImage := .Params.image | default .Site.Params.defaultSocialImage | default "/favicon.svg" -}}
+{{- $socialImage := .Params.socialImage | default .Params.image | default .Site.Params.defaultSocialImage | default "/favicon.svg" -}}
 {{- if strings.HasSuffix (lower $socialImage) ".svg" -}}{{- $socialImage = .Site.Params.defaultSocialImage | default "/favicon.svg" -}}{{- end }}
 <meta property="og:image" content="{{ $socialImage | absURL }}">
-<meta property="og:image:alt" content="{{ $pageTitle | htmlEscape }}">
+<meta property="og:image:type" content="image/svg+xml">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="675">
+<meta property="og:image:alt" content="{{ .Params.imageAlt | default $pageTitle | htmlEscape }}">
 <meta name="twitter:image" content="{{ $socialImage | absURL }}">
-<meta name="twitter:image:alt" content="{{ $pageTitle | htmlEscape }}">
+<meta name="twitter:image:alt" content="{{ .Params.imageAlt | default $pageTitle | htmlEscape }}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ $pageTitle | htmlEscape }}">
 <meta name="twitter:description" content="{{ $description }}">
