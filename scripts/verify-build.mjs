@@ -12,6 +12,9 @@ const requireFile = async (file, label) => { if (!(await exists(file))) failures
 await requireFile(path.join(root, "index.html"), "homepage");
 await requireFile(path.join(root, "sitemap.xml"), "sitemap");
 await requireFile(path.join(root, "robots.txt"), "robots.txt");
+await requireFile(path.join(root, "favicon.ico"), "Google-compatible favicon");
+await requireFile(path.join(root, "favicon.svg"), "SVG browser favicon");
+await requireFile(path.join(root, "site.webmanifest"), "web app manifest");
 await requireFile(path.join(root, "ads.txt"), "ads.txt");
 await requireFile(path.join(root, "CNAME"), "GitHub Pages CNAME");
 await requireFile(path.join(root, "BingSiteAuth.xml"), "Bing verification");
@@ -26,6 +29,19 @@ if (!jsFiles.some(x => x.startsWith("site."))) failures.push("Site JavaScript bu
 if (!jsFiles.some(x => x.startsWith("tools."))) failures.push("Tools JavaScript bundle was not generated");
 
 const homepage = await readFile(path.join(root, "index.html"), "utf8").catch(() => "");
+const requiredMeta = [
+  /<title>/i,
+  /name=["']?description["']?/i,
+  /name=["']?keywords["']?/i,
+  /rel=["']?canonical["']?/i,
+  /href=["']?[^ >]*favicon\.ico["']?/i,
+  /href=["']?[^ >]*site\.webmanifest["']?/i,
+  /property=["']?og:title["']?/i,
+  /property=["']?og:description["']?/i,
+  /property=["']?og:image["']?/i,
+  /name=["']?twitter:card["']?/i
+];
+for (const pattern of requiredMeta) if (!pattern.test(homepage)) failures.push("Homepage is missing SEO metadata: " + pattern);
 for (const phrase of ["آخر المقالات", "مقالات حسب التصنيفات", "تحميل المزيد من المقالات", "أدوات فاست سيو", "site-header", "site-footer"]) {
   if (!homepage.includes(phrase)) failures.push("Homepage is missing expected section or shared element: " + phrase);
 }

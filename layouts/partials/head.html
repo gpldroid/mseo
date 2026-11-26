@@ -1,5 +1,44 @@
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f5f7fb"><meta name="color-scheme" content="light dark"><meta name="google-site-verification" content="{{ .Site.Params.searchConsoleVerification }}">
-<title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | فاست سيو{{ end }}</title><meta name="description" content="{{ .Description | default .Site.Params.description }}"><meta name="author" content="{{ .Params.author | default .Site.Params.author }}"><meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="{{ .Permalink }}">
-<meta property="og:type" content="{{ if eq .Section "articles" }}article{{ else }}website{{ end }}"><meta property="og:site_name" content="فاست سيو | Fast Seo"><meta property="og:title" content="{{ .Title }}"><meta property="og:description" content="{{ .Description | default .Site.Params.description }}"><meta property="og:url" content="{{ .Permalink }}">{{ with .Params.image }}<meta property="og:image" content="{{ . | absURL }}"><meta name="twitter:image" content="{{ . | absURL }}">{{ end }}<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{{ .Title }}"><meta name="twitter:description" content="{{ .Description | default .Site.Params.description }}">
-<link rel="icon" href="/assets/images/article-thumbnails/ai-agents-guide.svg" type="image/svg+xml"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"><link rel="stylesheet" href="{{ "assets/css/legacy-utilities.css" | relURL }}">
-{{ $css := slice (resources.Get "css/tokens.css") (resources.Get "css/base.css") (resources.Get "css/layout.css") (resources.Get "css/components.css") (resources.Get "css/utilities.css") | resources.Concat "css/fastseo.css" | minify | fingerprint }}<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}"><script>(function(){try{var t=localStorage.getItem("fastseo-theme");if(!t)t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.dataset.theme=t;document.documentElement.classList.toggle("dark",t==="dark")}catch(e){}})();</script>{{ partial "seo-schema.html" . }}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#122341">
+<meta name="color-scheme" content="light dark">
+<meta name="google-site-verification" content="{{ .Site.Params.searchConsoleVerification }}">
+{{- $pageTitle := .Title -}}
+{{- if .IsHome -}}{{- $pageTitle = .Site.Title -}}{{- else if and .Title .Site.Title -}}{{- $pageTitle = printf "%s | فاست سيو" .Title -}}{{- end -}}
+{{- $description := .Description | default .Summary | default .Site.Params.description | plainify | htmlEscape -}}
+<title>{{ $pageTitle | htmlEscape }}</title>
+<meta name="description" content="{{ $description }}">
+{{- if .IsHome }}
+<meta name="keywords" content="{{ delimit .Site.Params.keywords ", " | htmlEscape }}">
+{{- end }}
+<meta name="author" content="{{ .Params.author | default .Site.Params.author | htmlEscape }}">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<link rel="canonical" href="{{ .Permalink }}">
+<link rel="icon" href="{{ "favicon.ico" | relURL }}" type="image/x-icon" sizes="64x64">
+<link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
+<link rel="manifest" href="{{ "site.webmanifest" | relURL }}">
+<meta property="og:locale" content="ar_MA">
+<meta property="og:type" content="{{ if eq .Section "articles" }}article{{ else }}website{{ end }}">
+<meta property="og:site_name" content="{{ .Site.Title | htmlEscape }}">
+<meta property="og:title" content="{{ $pageTitle | htmlEscape }}">
+<meta property="og:description" content="{{ $description }}">
+<meta property="og:url" content="{{ .Permalink }}">
+{{- $socialImage := .Params.image | default .Site.Params.defaultSocialImage | default "/favicon.svg" -}}
+{{- if strings.HasSuffix (lower $socialImage) ".svg" -}}{{- $socialImage = .Site.Params.defaultSocialImage | default "/favicon.svg" -}}{{- end }}
+<meta property="og:image" content="{{ $socialImage | absURL }}">
+<meta property="og:image:alt" content="{{ $pageTitle | htmlEscape }}">
+<meta name="twitter:image" content="{{ $socialImage | absURL }}">
+<meta name="twitter:image:alt" content="{{ $pageTitle | htmlEscape }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ $pageTitle | htmlEscape }}">
+<meta name="twitter:description" content="{{ $description }}">
+{{- if eq .Section "articles" }}
+<meta property="article:published_time" content="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+<meta property="article:modified_time" content="{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}">
+{{- end }}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+<link rel="stylesheet" href="{{ "assets/css/legacy-utilities.css" | relURL }}">
+{{ $css := slice (resources.Get "css/tokens.css") (resources.Get "css/base.css") (resources.Get "css/layout.css") (resources.Get "css/components.css") (resources.Get "css/utilities.css") | resources.Concat "css/fastseo.css" | minify | fingerprint }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+<script>(function(){try{var t=localStorage.getItem("fastseo-theme");if(!t)t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.dataset.theme=t;document.documentElement.classList.toggle("dark",t==="dark")}catch(e){}})();</script>
+{{ partial "seo-schema.html" . }}

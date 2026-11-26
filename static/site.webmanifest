@@ -1,0 +1,26 @@
+{
+  "name": "فاست سيو | Fast Seo",
+  "short_name": "فاست سيو",
+  "lang": "ar-MA",
+  "dir": "rtl",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#122341",
+  "theme_color": "#122341",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64",
+      "type": "image/x-icon",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "description": "أدلة عربية عملية وأدوات مجانية لتحسين محركات البحث وتطوير المواقع والبرمجة والذكاء الاصطناعي.",
+  "scope": "/"
+}

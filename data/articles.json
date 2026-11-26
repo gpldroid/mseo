@@ -1388,7 +1388,7 @@
       "تصميم متجاوب",
       "واجهات الويب"
     ],
-    "description": "أساسيات CSS الحديثة لبناء واجهات متجاوبة.",
+    "description": "تعلم استخدام CSS الحديث لبناء واجهات متجاوبة باستخدام Grid وFlexbox والخصائص المتقدمة، مع أمثلة عملية لتنظيم التخطيط وتحسين العرض على مختلف الشاشات.",
     "icon": "fa-palette",
     "image": "https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?auto=format&fit=crop&w=1400&q=85",
     "thumbnail": "https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?auto=format&fit=crop&w=1400&q=85",
@@ -1411,7 +1411,7 @@
       "صيانة الكود",
       "أداء JavaScript"
     ],
-    "description": "ممارسات عملية لتنظيم JavaScript وتحسين الصيانة.",
+    "description": "دليل عملي لتنظيم JavaScript وكتابة دوال واضحة وتقليل التكرار ومعالجة الأخطاء وتحسين قابلية الصيانة والأداء في مشاريع الويب.",
     "icon": "fa-js",
     "image": "https://images.unsplash.com/photo-1516116216624-53e697fedbea?auto=format&fit=crop&w=1400&q=85",
     "thumbnail": "https://images.unsplash.com/photo-1516116216624-53e697fedbea?auto=format&fit=crop&w=1400&q=85",
@@ -1457,7 +1457,7 @@
       "HTML",
       "JavaScript"
     ],
-    "description": "دليل النشر والاستضافة على GitHub Pages.",
+    "description": "تعلم نشر موقع HTML وCSS وJavaScript على GitHub Pages خطوة بخطوة، مع إعداد المستودع والفروع ومسار النشر وفحص البناء وحل أخطاء 404.",
     "icon": "fa-github",
     "image": "https://images.unsplash.com/photo-1556075798-4825dfaaf498?auto=format&fit=crop&w=1400&q=85",
     "thumbnail": "https://images.unsplash.com/photo-1556075798-4825dfaaf498?auto=format&fit=crop&w=1400&q=85",
@@ -1480,7 +1480,7 @@
       "CLS",
       "PageSpeed Insights"
     ],
-    "description": "خطوات عملية لتحسين الأداء وتجربة المستخدم.",
+    "description": "خطوات عملية لقياس سرعة الموقع وتحسين Core Web Vitals، بما يشمل LCP وINP وCLS وتقليل JavaScript وتحسين الصور والخطوط وتجربة الهاتف.",
     "icon": "fa-gauge-high",
     "image": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=85",
     "thumbnail": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=85",
