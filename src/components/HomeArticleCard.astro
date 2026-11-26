@@ -2,7 +2,7 @@
 const {article,index=0,initiallyHidden=false}=Astro.props;
 const href='/articles/'+(article.file||article.slug+'.html');
 const rawDescription=article.description||'اكتشف التفاصيل في هذا الدليل العملي.';
-const description=Array.from(rawDescription).slice(0,60).join('');
+const description=Array.from(rawDescription).slice(0,rawDescription.length>60?59:60).join('');
 const shortDescription=Array.from(rawDescription).length>60?description+'…':description;
 ---
 <article class="home-article-card" data-home-card data-index={index} hidden={initiallyHidden}>
