@@ -1,5 +1,5 @@
 ---
-import Layout from '../../layouts/Layout.astro';
+import Layout from '../../layouts/Layout.astro';\nimport ArticleCard from '../../components/ArticleCard.astro';
 import articles from '../../../data/articles.json';
 export function getStaticPaths(){
  const categories=[
@@ -15,4 +15,4 @@ export function getStaticPaths(){
 const {category}=Astro.props;
 const items=[...articles].filter(a=>a.category===category.name).sort((a,b)=>new Date(b.updatedAt||b.publishedAt||0)-new Date(a.updatedAt||a.publishedAt||0));
 ---
-<Layout title={category.name+' | MSEO'} description={category.desc}><main class="container page-shell"><section class="page-hero"><a class="back-link" href="/categories">← جميع التصنيفات</a><span class="eyebrow">MSEO TOPIC</span><h1><em>{category.name}</em></h1><p>{category.desc}</p><div class="page-stats"><span><strong>{items.length}</strong> مقالاً في هذا المجال</span></div></section><section class="article-grid">{items.map(a=><article class="article-card"><a class="article-card__image" href={'/articles/'+(a.file||a.slug+'.html')}><img src={a.image||a.thumbnail||'/favicon.svg'} alt="" loading="lazy"></a><div class="article-card__body"><span class="article-card__category">{a.subcategory||category.name}</span><h2><a href={'/articles/'+(a.file||a.slug+'.html')}>{a.title}</a></h2><p>{a.description}</p><div class="article-card__meta"><time>{a.updatedAt||a.publishedAt||''}</time><a href={'/articles/'+(a.file||a.slug+'.html')}>اقرأ المقال ←</a></div></div></article>)}</section></main></Layout>
+<Layout title={category.name+' | MSEO'} description={category.desc}><main class="container page-shell"><section class="page-hero"><a class="back-link" href="/categories">← جميع التصنيفات</a><span class="eyebrow">MSEO TOPIC</span><h1><em>{category.name}</em></h1><p>{category.desc}</p><div class="page-stats"><span><strong>{items.length}</strong> مقالاً في هذا المجال</span></div></section><section class="astro-grid" aria-label={"مقالات "+category.name}>{items.map(a=><ArticleCard article={a}/>)}</section></main></Layout>
