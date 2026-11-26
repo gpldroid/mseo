@@ -1,0 +1,25 @@
+baseURL = "https://fastseo.site/"
+languageCode = "ar-MA"
+defaultContentLanguage = "ar"
+defaultContentLanguageInSubdir = false
+title = "فاست سيو | Fast Seo"
+enableRobotsTXT = true
+buildFuture = true
+summaryLength = 32
+[pagination]
+  pagerSize = 8
+[permalinks]
+  articles = "/articles/:slug.html"
+  pages = "/pages/:slug.html"
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+[params]
+  description = "فاست سيو منصة عربية للأدلة العملية في تحسين محركات البحث وتطوير المواقع والبرمجة والذكاء الاصطناعي، مع أدوات مجانية تعمل من المتصفح."
+  author = "عماد الدين لمراني"
+  searchConsoleVerification = "2-SUpcRCe1x54zAb_F3oJvBtUvMzUCZkKhUuNQd_UPQ"
+[markup.goldmark.renderer]
+  unsafe = true
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.5

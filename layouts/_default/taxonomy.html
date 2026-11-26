@@ -1,0 +1,1 @@
+{{ define "main" }}<div class="container section-block"><h1>{{ .Title }}</h1><ul class="side-list">{{ range .Data.Terms.Alphabetical }}<li><a href="{{ .Page.RelPermalink }}">{{ .Page.Title }} ({{ .Count }})</a></li>{{ end }}</ul></div>{{ end }}
