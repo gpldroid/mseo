@@ -8,7 +8,7 @@ const topicMap = {'الذكاء الاصطناعي':'ai','SEO':'seo','البرم
 const topicHref = '/topics/' + (topicMap[article.category] || 'seo');
 const tags = (article.tags || []).filter(tag => counts.get(tag) > 1).slice(0, 3);
 ---
-<article class:list={['astro-card', compact && 'astro-card--compact']}>
+<article class:list={['astro-card', 'article-card', compact && 'astro-card--compact']} data-search={[article.title, article.description, article.category, article.subcategory, ...(article.tags || [])].join(' ').toLocaleLowerCase('ar')} data-category={article.category || ''} data-date={article.updatedAt || article.publishedAt || ''} data-title={article.title}>
   <a class="astro-card__media" href={href} aria-label={'اقرأ: ' + article.title}>
     {article.image || article.thumbnail ? <img src={article.image || article.thumbnail} alt="" loading="lazy" decoding="async" width="720" height="405" /> : <span class="astro-card__placeholder" aria-hidden="true">✦</span>}
     <span class="astro-card__media-shine" aria-hidden="true"></span>
