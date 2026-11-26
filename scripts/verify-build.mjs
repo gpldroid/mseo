@@ -78,7 +78,7 @@ for (const [category, expectedCount] of categoryCounts) {
   }
   const actualCards = (categoryHtml.match(/<article\s+class="post-card"/g) || []).length;
   if (actualCards !== expectedCount) {
-    const debugStart = Math.max(categoryHtml.indexOf("<!-- category-debug"), categoryHtml.indexOf("<!-- taxonomy-debug"));
+    const debugStart = ["<!-- category-debug","<!-- taxonomy-debug","<!-- term-debug","<!-- list-debug"].map(marker => categoryHtml.indexOf(marker)).find(index => index >= 0) ?? -1;
     const debugEnd = categoryHtml.indexOf("-->", debugStart);
     const debug = debugStart >= 0 && debugEnd >= 0 ? categoryHtml.slice(debugStart, debugEnd + 3) : "no debug marker";
     failures.push("Category archive " + category + " renders " + actualCards + " cards; expected " + expectedCount + ". " + debug);
