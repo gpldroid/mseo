@@ -76,7 +76,7 @@ for (const [category, expectedCount] of categoryCounts) {
     failures.push("Missing category archive: " + category + " (" + path.relative(root, categoryFile) + ")");
     continue;
   }
-  const actualCards = (categoryHtml.match(/<article\\s+class=(?:"post-card"|post-card)(?:\\s|>)/g) || []).length;
+  const actualCards = (categoryHtml.match(/<article\s+class=(?:"post-card"|post-card)(?:\s|>)/g) || []).length;
   if (actualCards !== expectedCount) {
     failures.push("Category archive " + category + " renders " + actualCards + " cards; expected " + expectedCount);
   }
