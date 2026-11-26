@@ -1,0 +1,14 @@
+<nav class="mobile-tab-bar" aria-label="التنقل السريع">
+  <a class="mobile-tab" href="/" {{ if .IsHome }}aria-current="page"{{ end }}>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg><span>الرئيسية</span>
+  </a>
+  <a class="mobile-tab" href="/articles/" {{ if eq .Section "articles" }}aria-current="page"{{ end }}>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h11l3 3v15H5zM8 10h8M8 14h8M8 18h5M16 3v4h4"/></svg><span>المقالات</span>
+  </a>
+  <a class="mobile-tab" href="/pages/tools.html" {{ if eq .RelPermalink "/pages/tools.html" }}aria-current="page"{{ end }}>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 7 3 3M4 20l4-.8L19 8a2.1 2.1 0 0 0-3-3L5 16zM13 5l3 3"/></svg><span>الأدوات</span>
+  </a>
+  <a class="mobile-tab" href="/pages/categories.html" {{ if eq .RelPermalink "/pages/categories.html" }}aria-current="page"{{ end }}>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg><span>التصنيفات</span>
+  </a>
+</nav>
