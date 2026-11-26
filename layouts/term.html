@@ -1,6 +1,7 @@
 {{ define "main" }}
 {{- $termName := .Data.Term | default .Title -}}
 {{- $categoryPages := sort .Pages "Date" "desc" -}}
+<!-- term-debug kind={{ .Kind }} title={{ printf "%q" .Title }} dataTerm={{ printf "%q" .Data.Term }} pages={{ len .Pages }} regular={{ len .Site.RegularPages }} taxonomy={{ len .Site.Taxonomies.categories }} -->
 <div class="container section-block category-archive">
   <nav class="site-breadcrumb" aria-label="مسار التنقل">
     <a href="{{ "/" | relURL }}">الرئيسية</a><span aria-hidden="true">›</span>
