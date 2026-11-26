@@ -1,5 +1,40 @@
 ---
 import '../styles/global.css';
+import '../styles/theme-system.css';
 const {title='فاست سيو FS | المعرفة التقنية بأسلوب عملي',description='أدلة عملية في الذكاء الاصطناعي والبرمجة وتطوير المواقع وتحسين محركات البحث.'}=Astro.props;
+const brand='فاست سيو FS';
+const pageTitle=title.includes(brand)?title:title.replace(/\s*[|—-]\s*(MSEO|Fast\s*Seo|FastSEO)$/i,'')+' | '+brand;
+const canonical=new URL(Astro.url.pathname,Astro.site).toString();
 ---
-<!doctype html><html lang="ar" dir="rtl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#080808"><meta name="google-site-verification" content="2-SUpcRCe1x54zAb_F3oJvBtUvMzUCZkKhUuNQd_UPQ"><title>{title}</title><meta name="description" content={description}><meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href={new URL(Astro.url.pathname,Astro.site).toString()}><link rel="icon" href="/favicon.svg" type="image/svg+xml"><meta property="og:site_name" content="فاست سيو FS"><meta property="og:title" content={title}><meta property="og:description" content={description}></head><body><div data-site-header></div><slot/><div data-site-footer></div><script src="/assets/js/site.js?v=20261126-consent-theme" defer></script></body></html>
+<!doctype html>
+<html lang="ar" dir="rtl" data-theme="gradient-pulse">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#7046e8">
+<meta name="color-scheme" content="light">
+<meta name="author" content="عماد الدين لمراني">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<title>{pageTitle}</title>
+<meta name="description" content={description}>
+<link rel="canonical" href={canonical}>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content={brand}>
+<meta property="og:title" content={pageTitle}>
+<meta property="og:description" content={description}>
+<meta property="og:url" content={canonical}>
+<meta property="og:locale" content="ar_AR">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content={pageTitle}>
+<meta name="twitter:description" content={description}>
+<script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"Organization","@id":"https://fastseo.site/#organization","name":brand,"url":"https://fastseo.site/","logo":"https://fastseo.site/favicon.svg"})}></script>
+<script type="application/ld+json" set:html={JSON.stringify({"@context":"https://schema.org","@type":"WebSite","@id":"https://fastseo.site/#website","name":brand,"url":"https://fastseo.site/","inLanguage":"ar","publisher":{"@id":"https://fastseo.site/#organization"}})}></script>
+</head>
+<body>
+<div data-site-header></div>
+<slot/>
+<div data-site-footer></div>
+<script src="/assets/js/site.js?v=20261126-gradient-pulse-brand" defer></script>
+</body>
+</html>
