@@ -66,7 +66,7 @@ for (const article of records) {
   categoryCounts.set(article.category, (categoryCounts.get(article.category) || 0) + 1);
 }
 const categorySlug = value => value.toLowerCase().trim()
-  .replace(/[^\\p{L}\\p{N}]+/gu, "-")
+  .replace(/[^\p{L}\p{N}]+/gu, "-")
   .replace(/^-+|-+$/g, "");
 for (const [category, expectedCount] of categoryCounts) {
   const slug = categorySlug(category);
@@ -76,7 +76,7 @@ for (const [category, expectedCount] of categoryCounts) {
     failures.push("Missing category archive: " + category + " (" + path.relative(root, categoryFile) + ")");
     continue;
   }
-  const actualCards = (categoryHtml.match(/<article\\s+class="post-card"/g) || []).length;
+  const actualCards = (categoryHtml.match(/<article\s+class="post-card"/g) || []).length;
   if (actualCards !== expectedCount) {
     failures.push("Category archive " + category + " renders " + actualCards + " cards; expected " + expectedCount);
   }
