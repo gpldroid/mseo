@@ -204,3 +204,13 @@ p{line-height:var(--text-leading);max-width:72ch}
 @media(min-width:1100px){body{font-size:1.04rem}.section{padding-block:clamp(58px,5vw,82px)}.content p,.home-card-body p{font-size:.93rem;line-height:2}.home-card-body{padding:22px}.home-card-media{height:205px}}
 @media(min-width:621px) and (max-width:1099px){.container{width:min(100% - 48px,960px)}body{font-size:.98rem}.section{padding-block:52px}.home-card-media{height:170px}.home-card-body{padding:17px}.footer-grid{gap:26px}}
 @media(max-width:620px){body{font-size:.94rem;line-height:1.9}.container{width:calc(100% - 30px)}.section{padding-block:38px}.section-head{align-items:flex-start;flex-direction:column;gap:8px;margin-bottom:18px}.section h2{font-size:1.55rem}.home-card-body p{font-size:.84rem;line-height:1.85}.site-footer .footer-socials{gap:11px}.social-3d{width:44px;height:44px}.theme-toggle{width:44px!important;height:44px!important}}
+
+/* Hotfix: keep global controls resilient and remove decorative glyphs */
+.floating-tools{position:fixed;z-index:120;right:18px;bottom:22px;display:flex;flex-direction:column;gap:10px}
+.floating-tools button{min-width:54px;min-height:48px;padding:8px 12px;border:1px solid #d7ad45;border-radius:14px;background:linear-gradient(145deg,#f1d27b,#93661e);color:#211707;font:800 .78rem var(--font-ar);cursor:pointer;box-shadow:inset 2px 2px 4px #fff8,inset -4px -4px 7px #54390f,0 8px 18px #0009}
+.floating-tools button:focus-visible,.cookie-actions button:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.cookie-3d-icon{width:auto;min-width:54px;padding:8px;font:800 .75rem var(--font-ar);text-align:center}
+.scrolls button{font:800 .72rem var(--font-ar)}
+.home-topic-icon,.sidebar-heading-icon,.hero-visual-label,.ticker-index,.ticker-arrow{display:none!important}
+.home-topic-3d{padding-top:22px}
+@media(max-width:680px){.floating-tools{right:11px;bottom:88px}.floating-tools button{min-width:48px;min-height:44px;padding:7px}}
