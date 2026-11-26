@@ -1,22 +1,17 @@
-<header class="site-header"><div class="container header-inner"><a class="brand" href="/" aria-label="فاست سيو - الرئيسية"><span class="brand-mark">FS</span><span>فاست سيو<small>Fast Seo · معرفة تقنية وأدوات عملية</small></span></a><div class="header-actions"><button class="icon-button" type="button" data-theme-toggle aria-label="تبديل الوضع">◐</button></div></div></header>
-{{ $isArticles := eq .Section "articles" }}
-{{ $isTools := eq .RelPermalink "/pages/tools.html" }}
-{{ $isCategories := eq .RelPermalink "/pages/categories.html" }}
-<nav class="mobile-tab-bar" aria-label="التنقل الرئيسي">
-  <a class="mobile-tab" href="/" {{ if .IsHome }}aria-current="page"{{ end }}>
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>
-    <span>الرئيسية</span>
-  </a>
-  <a class="mobile-tab" href="/articles/" {{ if $isArticles }}aria-current="page"{{ end }}>
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>
-    <span>المقالات</span>
-  </a>
-  <a class="mobile-tab" href="/pages/tools.html" {{ if $isTools }}aria-current="page"{{ end }}>
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 6 4-4 4 4-4 4"/><path d="m18 6-8 8"/><path d="M5 5h5M5 5v5M5 19h14M19 14v5"/></svg>
-    <span>الأدوات</span>
-  </a>
-  <a class="mobile-tab" href="/pages/categories.html" {{ if $isCategories }}aria-current="page"{{ end }}>
-    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/></svg>
-    <span>التصنيفات</span>
-  </a>
-</nav>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="/" aria-label="فاست سيو - الرئيسية">
+      <span class="brand-mark">FS</span>
+      <span>فاست سيو<small>Fast Seo · معرفة تقنية وأدوات عملية</small></span>
+    </a>
+    <nav class="main-nav" aria-label="القائمة الرئيسية">
+      <a href="/" {{ if .IsHome }}aria-current="page"{{ end }}>الرئيسية</a>
+      <a href="/articles/" {{ if eq .Section "articles" }}aria-current="page"{{ end }}>المقالات</a>
+      <a href="/pages/tools.html" {{ if eq .RelPermalink "/pages/tools.html" }}aria-current="page"{{ end }}>الأدوات</a>
+      <a href="/pages/categories.html" {{ if eq .RelPermalink "/pages/categories.html" }}aria-current="page"{{ end }}>التصنيفات</a>
+      <a href="/pages/about.html" {{ if eq .RelPermalink "/pages/about.html" }}aria-current="page"{{ end }}>من نحن</a>
+      <a href="/pages/contact.html" {{ if eq .RelPermalink "/pages/contact.html" }}aria-current="page"{{ end }}>اتصل بنا</a>
+    </nav>
+    <div class="header-actions"><button class="icon-button" type="button" data-theme-toggle aria-label="تبديل الوضع">◐</button></div>
+  </div>
+</header>
