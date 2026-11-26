@@ -6,7 +6,7 @@
   <div class="post-card-body">
     <div class="card-meta">{{ with index $post.Params.categories 0 }}<span>{{ . }}</span>{{ end }}<time datetime="{{ $post.Date.Format "2006-01-02" }}">{{ $post.Date.Format "2006-01-02" }}</time></div>
     <h3><a href="{{ $post.RelPermalink }}">{{ $post.Title }}</a></h3>
-    <p>{{ $post.Description | default $post.Summary | plainify | htmlUnescape | replaceRE "\\s+" " " | strings.TrimSpace | truncate 118 }}</p>
+    <p>{{ $post.Description | default $post.Summary | plainify | htmlUnescape | replaceRE "\\s+" " " | trim " \t\r\n" | truncate 118 }}</p>
     <a class="post-card-readmore" href="{{ $post.RelPermalink }}">اقرأ المقال <span aria-hidden="true">←</span></a>
   </div>
 </article>
