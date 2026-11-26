@@ -1,1 +1,1 @@
-{{ define "main" }}<div class="container section-block"><h1>{{ .Title }}</h1><div class="post-grid">{{ range .Pages }}{{ partial "article-card.html" . }}{{ end }}</div></div>{{ end }}
+{{ define "main" }}<div class="container section-block"><h1>{{ .Title }}</h1><div class="post-grid">{{ range .Pages }}{{ partial "article-card.html" (dict "post" . "hidden" false) }}{{ end }}</div></div>{{ end }}
