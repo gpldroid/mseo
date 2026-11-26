@@ -3,6 +3,8 @@
 {{- $termKey := urlize (.Data.Term | default $termName) -}}
 {{- $categoryPages := slice -}}
 {{- $displayName := $termName -}}
+{{- $taxonomyKeys := slice -}}
+{{- range $key, $value := .Site.Taxonomies.categories -}}{{- $taxonomyKeys = $taxonomyKeys | append $key -}}{{- end -}}
 {{- range $name, $pages := .Site.Taxonomies.categories -}}
   {{- if eq (urlize $name) $termKey -}}
     {{- $categoryPages = $pages -}}
@@ -16,6 +18,7 @@
   {{- end -}}
 {{- end -}}
 {{- $categoryPages = sort $categoryPages "Date" "desc" -}}
+<!-- category-debug term={{ printf "%q" .Data.Term }} title={{ printf "%q" .Title }} key={{ printf "%q" $termKey }} regular={{ len .Site.RegularPages }} taxonomy={{ len .Site.Taxonomies.categories }} pages={{ len .Pages }} keys={{ delimit $taxonomyKeys "|" }} -->
 <div class="container section-block category-archive">
   <nav class="site-breadcrumb" aria-label="مسار التنقل">
     <a href="{{ "/" | relURL }}">الرئيسية</a><span aria-hidden="true">›</span>
