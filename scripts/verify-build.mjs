@@ -7,6 +7,8 @@ const source = path.resolve("migration/source");
 const records = JSON.parse(await readFile("data/articles.json", "utf8"));
 const pageFiles = (await readdir(path.join(source, "pages"))).filter(x => x.endsWith(".html"));
 const failures = [];
+console.log("DIST_ARTICLES_ENTRIES:", await readdir(path.join(root, "articles")).catch(() => []));
+console.log("DIST_PAGES_ENTRIES:", await readdir(path.join(root, "pages")).catch(() => []));
 const exists = async file => access(file).then(() => true).catch(() => false);
 const requireFile = async (file, label) => { if (!(await exists(file))) failures.push("Missing " + label + ": " + path.relative(root, file)); };
 await requireFile(path.join(root, "index.html"), "homepage");
