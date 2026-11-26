@@ -4,7 +4,7 @@
 {{- $body := replaceRE "(?is)^.*?<body[^>]*>(.*?)</body>.*$" "$1" $html -}}
 {{- $body = replaceRE "(?is)<div[^>]+data-site-header[^>]*>\\s*</div>" "" $body -}}
 {{- $body = replaceRE "(?is)<div[^>]+data-site-footer[^>]*>\\s*</div>" "" $body -}}
-{{- $body = replaceRE `(?is)<script[^>]+src=["'][^"']*assets/js/[^"']*["'][^>]*>\\s*</script>` "" $body -}}
+{{- $body = replaceRE `(?is)<script[^>]+src=["'][^"']*assets/js/[^"']*["'][^>]*>\s*</script>` "" $body -}}
 {{- $body = replaceRE "(?is)</?main[^>]*>" "" $body -}}
 {{- $image := .Page.Params.image -}}
 {{- $images := findRE "(?is)<img\\b[^>]*>" $body 1 -}}
