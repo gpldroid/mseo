@@ -2,6 +2,7 @@
 {{ $articles := sort (where .Site.RegularPages "Section" "articles") "Date" "desc" }}
 <div class="container">
   <section class="section-block"><div class="news-ticker"><span class="ticker-label">آخر المقالات</span><div class="ticker-track">{{ range first 7 $articles }}<a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ end }}</div></div></section>
+  <div class="container adsense-home-wrap">{{ partial "adsense/display-300x50.html" . }}</div>
   <section class="section-block">
     <div class="section-heading"><div><span class="eyebrow">اختر مجال اهتمامك</span><h2>مقالات حسب التصنيفات</h2></div><a href="/pages/categories.html">جميع التصنيفات ←</a></div>
     <div class="category-grid">{{ range slice "تطوير المواقع" "SEO" "الذكاء الاصطناعي" }}{{ $category := . }}{{ $featured := false }}{{ range $articles }}{{ if and (not $featured) (in .Params.categories $category) }}{{ $featured = . }}{{ end }}{{ end }}{{ with $featured }}<article class="category-card"><span class="category-count">{{ $category }}</span><h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3><p>{{ .Description | default .Summary | plainify | truncate 105 }}</p></article>{{ end }}{{ end }}</div>

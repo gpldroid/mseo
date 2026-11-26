@@ -5,13 +5,14 @@
 {{ partial "header.html" . }}
 <main class="site-main">
   <div class="container content-grid">
-    <div class="legacy-article">{{ .Content }}</div>
+    <div class="legacy-article">{{ partial "article-content.html" . }}</div>
     {{ partial "sidebar.html" . }}
   </div>
 </main>
 {{ partial "footer.html" . }}
 {{ partial "cookie-banner.html" . }}
 {{ partial "scroll-controls.html" . }}
+{{ partial "mobile-tab-bar.html" . }}
 {{ partial "scripts.html" . }}
 </body>
 </html>
