@@ -4,7 +4,8 @@
 <script type="application/ld+json">{{ $website | jsonify | safeJS }}</script>
 {{- else if eq .Section "articles" -}}
 {{- $authorName := .Params.author | default .Site.Params.author -}}
-{{- $article := dict "@context" "https://schema.org" "@type" "Article" "headline" .Title "description" (.Description | default .Summary | plainify) "datePublished" (.Date.Format "2006-01-02") "dateModified" (.Lastmod.Format "2006-01-02") "inLanguage" "ar-MA" "author" (dict "@type" "Person" "name" $authorName) "publisher" $publisher "mainEntityOfPage" (dict "@type" "WebPage" "@id" .Permalink) -}}
+{{- $article := dict "@context" "https://schema.org" "@type" "Article" "headline" .Title "description" (.Description | default .Summary | plainify) "datePublished" (.Date.Format "2006-01-02") "dateModified" (.Lastmod.Format "2006-01-02") "inLanguage" "ar-MA" "author" (dict "@type" "Person" "name" $authorName) "publisher" $publisher "mainEntityOfPage" (dict "@type" "WebPage" "@id" .Permalink) "wordCount" .WordCount -}}
+{{- with .Params.tags -}}{{- $article = merge $article (dict "keywords" (delimit . ", ")) -}}{{- end -}}
 {{- with .Params.image -}}{{- $article = merge $article (dict "image" (slice (. | absURL))) -}}{{- end -}}
 <script type="application/ld+json">{{ $article | jsonify | safeJS }}</script>
 {{- end -}}

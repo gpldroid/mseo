@@ -9,10 +9,18 @@
   "theme_color": "#122341",
   "icons": [
     {
+      "src": "/favicon.ico",
+      "sizes": "64x64",
+      "type": "image/x-icon",
+      "purpose": "any"
+    },
+    {
       "src": "/favicon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any"
     }
-  ]
+  ],
+  "description": "أدلة عربية عملية وأدوات مجانية لتحسين محركات البحث وتطوير المواقع والبرمجة والذكاء الاصطناعي.",
+  "scope": "/"
 }
