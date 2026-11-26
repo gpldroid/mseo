@@ -1,0 +1,7 @@
+{{ define "main" }}
+<div class="container section-block">
+  <nav class="site-breadcrumb" aria-label="مسار التنقل"><a href="{{ "/" | relURL }}">الرئيسية</a><span aria-hidden="true">›</span><a href="{{ "/tags/" | relURL }}">الوسوم</a><span aria-hidden="true">›</span><span aria-current="page">{{ .Title }}</span></nav>
+  <header class="category-archive-header"><h1>{{ .Title }}</h1></header>
+  <div class="post-grid">{{ range sort .Pages "Date" "desc" }}{{ partial "article-card.html" (dict "post" . "hidden" false) }}{{ end }}</div>
+</div>
+{{ end }}
