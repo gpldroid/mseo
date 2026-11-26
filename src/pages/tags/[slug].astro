@@ -2,8 +2,8 @@
 import Layout from '../../layouts/Layout.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 import articles from '../../../data/articles.json';
-const slugify=(value:string)=>value.toLocaleLowerCase('ar').normalize('NFKC').replace(/[^\p{L}\p{N}]+/gu,'-').replace(/^-|-$/g,'');
 export function getStaticPaths(){
+ const slugify=(value:string)=>value.toLocaleLowerCase('ar').normalize('NFKC').replace(/[^\p{L}\p{N}]+/gu,'-').replace(/^-|-$/g,'');
  const groups=new Map<string,{name:string,items:typeof articles}>();
  for(const article of articles)for(const tag of article.tags||[]){
   const slug=slugify(tag);if(!slug)continue;
