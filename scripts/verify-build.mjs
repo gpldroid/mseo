@@ -76,11 +76,9 @@ for (const [category, expectedCount] of categoryCounts) {
     failures.push("Missing category archive: " + category + " (" + path.relative(root, categoryFile) + ")");
     continue;
   }
-  const actualCards = (categoryHtml.match(/<article\s+class="post-card"/g) || []).length;
+  const actualCards = (categoryHtml.match(/<article\\s+class=(?:"post-card"|post-card)(?:\\s|>)/g) || []).length;
   if (actualCards !== expectedCount) {
-    const mainStart = categoryHtml.indexOf("<main");
-    const sample = categoryHtml.slice(mainStart, mainStart + 1800).replaceAll("\\n", " ");
-    failures.push("Category archive " + category + " renders " + actualCards + " cards; expected " + expectedCount + ". Sample: " + sample);
+    failures.push("Category archive " + category + " renders " + actualCards + " cards; expected " + expectedCount);
   }
   for (const article of records.filter(item => item.category === category)) {
     if (!categoryHtml.includes("/articles/" + article.slug + ".html")) {
