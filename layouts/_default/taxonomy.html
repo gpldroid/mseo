@@ -1,5 +1,5 @@
 {{ define "main" }}
-{{- if .Data.Term -}}
+{{- if strings.HasPrefix .RelPermalink "/categories/" -}}
   {{ partial "category-archive.html" . }}
 {{- else -}}
 <div class="container section-block">
