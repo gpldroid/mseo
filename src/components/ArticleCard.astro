@@ -3,12 +3,18 @@ import articles from '../../data/articles.json';
 const { article, compact = false } = Astro.props;
 const href = '/articles/' + (article.file || article.slug + '.html');
 const counts = new Map();
-for (const item of articles) for (const tag of item.tags || []) counts.set(tag, (counts.get(tag) || 0) + 1);
+for (const item of articles) {
+  for (const tag of item.tags || []) counts.set(tag, (counts.get(tag) || 0) + 1);
+}
 const topicMap = {'الذكاء الاصطناعي':'ai','SEO':'seo','البرمجة':'programming','تطوير المواقع':'web-development','أداء المواقع':'web-performance','تصميم المواقع':'web-design'};
 const topicHref = '/topics/' + (topicMap[article.category] || 'seo');
-const tags = (article.tags || []).filter(tag => counts.get(tag) > 1).slice(0, 3);
+const tags = (article.tags || []).filter(tag => counts.get(tag) > 1).slice(0, 3).map(tag => ({
+  name: tag,
+  slug: tag.toLocaleLowerCase('ar').normalize('NFKC').replace(/[^\p{L}\p{N}]+/gu, '-').replace(/^-|-$/g, '')
+}));
+const searchText = [article.title, article.description, article.category, article.subcategory, (article.tags || []).join(' ')].filter(Boolean).join(' ').toLocaleLowerCase('ar');
 ---
-<article class:list={['astro-card', 'article-card', compact && 'astro-card--compact']} data-search={[article.title, article.description, article.category, article.subcategory, ...(article.tags || [])].join(' ').toLocaleLowerCase('ar')} data-category={article.category || ''} data-date={article.updatedAt || article.publishedAt || ''} data-title={article.title}>
+<article class:list={['astro-card', 'article-card', compact && 'astro-card--compact']} data-search={searchText} data-category={article.category || ''} data-date={article.updatedAt || article.publishedAt || ''} data-title={article.title}>
   <a class="astro-card__media" href={href} aria-label={'اقرأ: ' + article.title}>
     {article.image || article.thumbnail ? <img src={article.image || article.thumbnail} alt="" loading="lazy" decoding="async" width="720" height="405" /> : <span class="astro-card__placeholder" aria-hidden="true">✦</span>}
     <span class="astro-card__media-shine" aria-hidden="true"></span>
@@ -17,7 +23,7 @@ const tags = (article.tags || []).filter(tag => counts.get(tag) > 1).slice(0, 3)
     <div class="astro-card__eyebrow"><a href={topicHref}>{article.category || 'مقالات'}</a><time datetime={article.updatedAt || article.publishedAt || ''}>{article.updatedAt || article.publishedAt || ''}</time></div>
     <h2><a href={href}>{article.title}</a></h2>
     <p>{article.description || 'اقرأ الدليل الكامل واكتشف الخطوات والتطبيقات العملية.'}</p>
-    {tags.length > 0 && <div class="astro-card__tags" aria-label="كلمات مفتاحية">{tags.map(tag => <a href={'/tags/' + tag.toLocaleLowerCase('ar').normalize('NFKC').replace(/[^\p{L}\p{N}]+/gu, '-').replace(/^-|-$/g, '')}>{tag}</a>)}</div>}
+    {tags.length > 0 && <div class="astro-card__tags" aria-label="كلمات مفتاحية">{tags.map(tag => <a href={'/tags/' + tag.slug}>{tag.name}</a>)}</div>}
     <a class="astro-card__read" href={href}>اقرأ الدليل <span aria-hidden="true">←</span></a>
   </div>
 </article>
