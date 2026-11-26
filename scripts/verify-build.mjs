@@ -78,7 +78,12 @@ for (const [category, expectedCount] of categoryCounts) {
   }
   const actualCards = (categoryHtml.match(/<article\s+class="post-card"/g) || []).length;
   if (actualCards !== expectedCount) {
-    failures.push("Category archive " + category + " renders " + actualCards + " cards; expected " + expectedCount + ". HTML sample: " + categoryHtml.slice(0, 900).replace(/\\s+/g, " "));
+    const debugStart = categoryHtml.indexOf("<!-- category-debug");
+    const debugEnd = categoryHtml.indexOf("-->", debugStart);
+    const debug = debugStart >= 0 && debugEnd >= 0 ? categoryHtml.slice(debugStart, debugEnd + 3) : "no debug marker";
+    const mainStart = categoryHtml.indexOf("<main");
+    const sample = categoryHtml.slice(mainStart, mainStart + 900).replaceAll("\n", " ");
+    failures.push("Category archive " + category + " renders " + actualCards + " cards; expected " + expectedCount + ". Debug: " + debug + ". HTML sample: " + sample);
   }
   for (const article of records.filter(item => item.category === category)) {
     if (!categoryHtml.includes("/articles/" + article.slug + ".html")) {
