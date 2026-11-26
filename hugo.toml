@@ -10,8 +10,8 @@ summaryLength = 32
 [pagination]
   pagerSize = 8
 [permalinks]
-  articles = "/articles/:slug.html"
-  pages = "/pages/:slug.html"
+  articles = "/articles/:slug"
+  pages = "/pages/:slug"
 [taxonomies]
   category = "categories"
   tag = "tags"

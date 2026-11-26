@@ -7,8 +7,6 @@ const source = path.resolve("migration/source");
 const records = JSON.parse(await readFile("data/articles.json", "utf8"));
 const pageFiles = (await readdir(path.join(source, "pages"))).filter(x => x.endsWith(".html"));
 const failures = [];
-console.log("DIST_ARTICLES_ENTRIES:", await readdir(path.join(root, "articles")).catch(() => []));
-console.log("DIST_PAGES_ENTRIES:", await readdir(path.join(root, "pages")).catch(() => []));
 const exists = async file => access(file).then(() => true).catch(() => false);
 const requireFile = async (file, label) => { if (!(await exists(file))) failures.push("Missing " + label + ": " + path.relative(root, file)); };
 await requireFile(path.join(root, "index.html"), "homepage");
@@ -47,7 +45,6 @@ if (missingPages.length) failures.push("Missing page outputs (" + missingPages.l
 
 const sampleArticle = path.join(root, "articles", (records[0]?.slug || "missing") + ".html");
 const articleHtml = await readFile(sampleArticle, "utf8").catch(() => "");
-console.log("ARTICLE_OUTPUT_SAMPLE:", articleHtml.slice(0, 1800));
 for (const marker of ['site-header', 'site-footer', 'dir=rtl', "application/ld+json"]) {
   if (!articleHtml.includes(marker)) failures.push("Article output missing shared layout/SEO marker: " + marker);
 }
