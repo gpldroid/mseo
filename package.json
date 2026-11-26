@@ -1,1 +1,1 @@
-{"name":"mseo","version":"1.0.0","private":true,"type":"module","scripts":{"dev":"astro dev","build":"astro build && node scripts/prepare-static-pages.mjs","preview":"astro preview"},"dependencies":{"astro":"^5.16.0"}}
+{"name":"mseo","version":"1.0.0","private":true,"type":"module","scripts":{"dev":"astro dev","build":"astro build","preview":"astro preview"},"dependencies":{"astro":"^5.16.0"}}
