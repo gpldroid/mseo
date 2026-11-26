@@ -1,1 +1,2 @@
-{{ define "main" }}{{ partial "category-archive.html" . }}{{ end }}
+{{ define "main" }}
+<!-- term-debug kind={{ .Kind }} title={{ printf "%q" .Title }} term={{ printf "%q" .Data.Term }} url={{ .RelPermalink }} -->{{ partial "category-archive.html" . }}{{ end }}
