@@ -8,6 +8,7 @@
 </section>
 <section class="container section-block">
   <div class="section-heading"><div><h2>جميع الأدوات</h2><p class="text-muted">اختر الأداة المناسبة للمهمة التي تريد إنجازها.</p></div><span class="category-count">{{ len $tools }} أداة</span></div>
+  {{ partial "adsense/display-300x50.html" . }}
   <div class="directory-grid">
     {{ range sort $tools "Title" }}
       <a class="directory-card" href="{{ .RelPermalink }}">
