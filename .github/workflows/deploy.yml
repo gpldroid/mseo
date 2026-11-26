@@ -1,4 +1,4 @@
-name: Deploy Astro to GitHub Pages
+name: Build and Deploy Hugo to GitHub Pages
 on:
   push:
     branches: [main]
@@ -10,18 +10,25 @@ permissions:
   pages: write
   id-token: write
 concurrency:
-  group: pages
+  group: github-pages
   cancel-in-progress: true
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: latest
+          extended: true
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - run: npm install
-      - run: npm run build
+      - run: npm install --no-audit --no-fund
+      - run: npm run build:css
+      - run: node scripts/prepare-content.mjs
+      - run: hugo --minify --destination ./dist
+      - run: node scripts/verify-build.mjs ./dist
       - uses: actions/upload-pages-artifact@v3
         if: github.event_name == 'push'
         with:

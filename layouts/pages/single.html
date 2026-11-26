@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="ar" dir="rtl" data-theme="light">
+<head>{{ partial "head.html" . }}</head>
+<body>
+{{ partial "header.html" . }}
+<main class="site-main">
+  <div class="container page-content">{{ .Content }}</div>
+</main>
+{{ partial "footer.html" . }}
+{{ partial "cookie-banner.html" . }}
+{{ partial "scroll-controls.html" . }}
+{{ partial "scripts.html" . }}
+</body>
+</html>

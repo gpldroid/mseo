@@ -1,0 +1,1 @@
+{{ define "main" }}{{ if eq .Section "articles" }}<div class="container content-grid"><div class="legacy-article">{{ .Content }}</div>{{ partial "sidebar.html" . }}</div>{{ else }}<div class="container page-content">{{ .Content }}</div>{{ end }}{{ end }}

@@ -1,0 +1,1 @@
+{{ define "main" }}<div class="container section-block"><div class="section-heading"><div><span class="eyebrow">فاست سيو</span><h1>{{ .Title }}</h1><p class="text-muted">{{ .Description }}</p></div></div><div class="post-grid">{{ $pages := sort .Pages "Date" "desc" }}{{ range $pages }}{{ partial "article-card.html" . }}{{ end }}</div></div>{{ end }}
