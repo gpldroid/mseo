@@ -29,8 +29,19 @@ if (!jsFiles.some(x => x.startsWith("site."))) failures.push("Site JavaScript bu
 if (!jsFiles.some(x => x.startsWith("tools."))) failures.push("Tools JavaScript bundle was not generated");
 
 const homepage = await readFile(path.join(root, "index.html"), "utf8").catch(() => "");
-const requiredMeta = ['<title>', 'name="description"', 'name="keywords"', 'rel="canonical"', 'href="/favicon.ico"', 'href="/site.webmanifest"', 'property="og:title"', 'property="og:description"', 'property="og:image"', 'name="twitter:card"'];
-for (const marker of requiredMeta) if (!homepage.includes(marker)) failures.push("Homepage is missing SEO metadata: " + marker);
+const requiredMeta = [
+  /<title>/i,
+  /name=["']?description["']?/i,
+  /name=["']?keywords["']?/i,
+  /rel=["']?canonical["']?/i,
+  /href=["']?\\/favicon\\.ico["']?/i,
+  /href=["']?\\/site\\.webmanifest["']?/i,
+  /property=["']?og:title["']?/i,
+  /property=["']?og:description["']?/i,
+  /property=["']?og:image["']?/i,
+  /name=["']?twitter:card["']?/i
+];
+for (const pattern of requiredMeta) if (!pattern.test(homepage)) failures.push("Homepage is missing SEO metadata: " + pattern);
 for (const phrase of ["آخر المقالات", "مقالات حسب التصنيفات", "تحميل المزيد من المقالات", "أدوات فاست سيو", "site-header", "site-footer"]) {
   if (!homepage.includes(phrase)) failures.push("Homepage is missing expected section or shared element: " + phrase);
 }
