@@ -1,1 +1,11 @@
-<article class="post-card" data-load-item><a class="post-card-image" href="{{ .RelPermalink }}">{{ with .Params.image }}<img src="{{ . | safeURL }}" alt="{{ $.Title }}" loading="lazy" decoding="async" width="1200" height="675">{{ end }}</a><div class="post-card-body"><div class="card-meta">{{ with index .Params.categories 0 }}<span>{{ . }}</span>{{ end }}<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time></div><h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3><p>{{ .Description | default .Summary | plainify | truncate 135 }}</p></div></article>
+<article class="post-card" data-load-item>
+  <a class="post-card-image" href="{{ .RelPermalink }}" aria-label="{{ .Title }}">
+    {{ with .Params.image }}<img src="{{ . | safeURL }}" alt="{{ $.Title }}" loading="lazy" decoding="async" width="1200" height="675">{{ else }}<span class="post-card-image-placeholder" aria-hidden="true"><i class="fa-regular fa-file-lines"></i></span>{{ end }}
+  </a>
+  <div class="post-card-body">
+    <div class="card-meta">{{ with index .Params.categories 0 }}<span>{{ . }}</span>{{ end }}<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time></div>
+    <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+    <p>{{ .Description | default .Summary | plainify | htmlUnescape | replaceRE "\\s+" " " | strings.TrimSpace | truncate 118 }}</p>
+    <a class="post-card-readmore" href="{{ .RelPermalink }}">اقرأ المقال <span aria-hidden="true">←</span></a>
+  </div>
+</article>
