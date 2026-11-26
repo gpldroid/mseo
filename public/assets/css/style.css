@@ -1,9 +1,0 @@
-/* Minimal, unbranded baseline retained for interactive tools only. */
-*,*::before,*::after{box-sizing:border-box}
-[hidden]{display:none!important}
-button,input,select,textarea{font:inherit}
-button{cursor:pointer}
-input,select,textarea{max-width:100%}
-textarea{resize:vertical}
-img,canvas,svg{max-width:100%}
-pre{overflow:auto}
