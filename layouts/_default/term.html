@@ -3,18 +3,15 @@
 {{- $termKey := urlize (.Data.Term | default $termName) -}}
 {{- $categoryPages := slice -}}
 {{- $displayName := $termName -}}
-{{- range .Site.RegularPages -}}
-  {{- $post := . -}}
-  {{- if eq $post.Section "articles" -}}
-    {{- $matchesTerm := false -}}
-    {{- range $post.Params.categories -}}
-      {{- if eq (urlize .) $termKey -}}
-        {{- $matchesTerm = true -}}
-        {{- $displayName = . -}}
+{{- range $name, $pages := .Site.Taxonomies.categories -}}
+  {{- if eq (urlize $name) $termKey -}}
+    {{- $categoryPages = $pages -}}
+    {{- $displayName = $name -}}
+    {{- with index $pages 0 -}}
+      {{- $firstPage := . -}}
+      {{- range $firstPage.Params.categories -}}
+        {{- if eq (urlize .) $termKey -}}{{- $displayName = . -}}{{- end -}}
       {{- end -}}
-    {{- end -}}
-    {{- if $matchesTerm -}}
-      {{- $categoryPages = $categoryPages | append $post -}}
     {{- end -}}
   {{- end -}}
 {{- end -}}
