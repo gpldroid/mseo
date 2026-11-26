@@ -173,3 +173,11 @@ html[data-theme="light"] .tools-promo-inner p{color:#625b50}
 html[data-theme="light"] .footer-consent-link{color:#625b50}
 @media(max-width:850px){.topic-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:620px){.topic-grid{grid-template-columns:1fr}.tools-promo-inner{align-items:flex-start;flex-direction:column}.hero-socials{margin-top:20px}}
+
+html[data-theme="light"] .max-w-4xl>article,html[data-theme="light"] .max-w-4xl article.bg-white,html[data-theme="light"] .max-w-4xl .bg-white{background:linear-gradient(145deg,#fff,#f4f0e7)!important;color:#2a251c!important;border-color:#dfd4bd!important}
+html[data-theme="light"] .max-w-4xl h1{color:#2c2519!important}
+html[data-theme="light"] .max-w-4xl .prose,html[data-theme="light"] .max-w-4xl .prose p,html[data-theme="light"] .max-w-4xl .prose li{color:#514a3e!important}
+html[data-theme="light"] .max-w-4xl .prose h2,html[data-theme="light"] .max-w-4xl .prose h3,html[data-theme="light"] .max-w-4xl .prose strong{color:#765514!important}
+html[data-theme="light"] .max-w-4xl .prose pre{background:#211d16!important;color:#f5e6c6!important}
+html[data-theme="light"] .max-w-4xl .prose blockquote{background:#f3ead7;color:#51452d}
+html[data-theme="light"] .max-w-4xl nav[aria-label="مسار التنقل"]{color:#625a4d!important}
