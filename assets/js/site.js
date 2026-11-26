@@ -1,1 +1,32 @@
-(()=>{"use strict";const root=document.documentElement;const getTheme=()=>{try{return localStorage.getItem("fastseo-theme")}catch{return null}};const systemTheme=()=>matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";const applyTheme=t=>{const v=t==="dark"?"dark":"light";root.dataset.theme=v;root.classList.toggle("dark",v==="dark");document.querySelectorAll("[data-theme-toggle]").forEach(b=>{b.setAttribute("aria-label",v==="dark"?"تفعيل الوضع النهاري":"تفعيل الوضع الليلي");b.setAttribute("aria-pressed",String(v==="dark"))})};applyTheme(getTheme()||systemTheme());function analytics(){if(window.__fastseoAnalyticsRequested)return;window.__fastseoAnalyticsRequested=true;const s=document.createElement("script");s.src="/tracking/google-analytics.js";s.async=true;document.head.appendChild(s)}document.addEventListener("click",e=>{const t=e.target.closest("[data-theme-toggle]");if(t){const v=root.dataset.theme==="dark"?"light":"dark";try{localStorage.setItem("fastseo-theme",v)}catch{}applyTheme(v)}const m=e.target.closest("[data-menu-toggle]");if(m){const n=document.querySelector("[data-mobile-menu]");const open=m.getAttribute("aria-expanded")!=="true";m.setAttribute("aria-expanded",String(open));if(n)n.hidden=!open}const c=e.target.closest("[data-consent]");if(c){try{localStorage.setItem("mseo-consent-v1",c.dataset.consent==="accept"?"accepted":"rejected")}catch{}const b=document.querySelector("[data-cookie-banner]");if(b)b.hidden=true;if(c.dataset.consent==="accept")analytics()}const more=e.target.closest("[data-load-more]");if(more){document.querySelectorAll("[data-load-item][hidden]").forEach((el,i)=>{if(i<8)el.hidden=false});if(!document.querySelector("[data-load-item][hidden]"))more.hidden=true}const sc=e.target.closest("[data-scroll]");if(sc)scrollTo({top:sc.dataset.scroll==="top"?0:document.documentElement.scrollHeight,behavior:"smooth"})});try{if(localStorage.getItem("mseo-consent-v1")==="accepted")analytics();else{const b=document.querySelector("[data-cookie-banner]");if(b)b.hidden=false}}catch{}const top=document.querySelector('[data-scroll="top"]'),down=document.querySelector('[data-scroll="down"]');const update=()=>{const y=scrollY,bottom=y+innerHeight>=document.documentElement.scrollHeight-80;if(top)top.hidden=y<280;if(down)down.hidden=bottom};addEventListener("scroll",update,{passive:true});addEventListener("resize",update);update()})();
+(()=>{"use strict";
+const root=document.documentElement;
+const menu=document.querySelector("[data-mobile-menu]");
+const menuButton=document.querySelector("[data-menu-toggle]");
+const getTheme=()=>{try{return localStorage.getItem("fastseo-theme")}catch{return null}};
+const systemTheme=()=>matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";
+const applyTheme=theme=>{const value=theme==="dark"?"dark":"light";root.dataset.theme=value;root.classList.toggle("dark",value==="dark");document.querySelectorAll("[data-theme-toggle]").forEach(button=>{button.setAttribute("aria-label",value==="dark"?"تفعيل الوضع النهاري":"تفعيل الوضع الليلي");button.setAttribute("aria-pressed",String(value==="dark"))})};
+applyTheme(getTheme()||systemTheme());
+const closeMenu=({restoreFocus=false}={})=>{if(!menu||!menuButton)return;menu.hidden=true;menuButton.setAttribute("aria-expanded","false");menuButton.setAttribute("aria-label","فتح القائمة");if(restoreFocus)menuButton.focus()};
+const toggleMenu=()=>{if(!menu||!menuButton)return;const opening=menuButton.getAttribute("aria-expanded")!=="true";menu.hidden=!opening;menuButton.setAttribute("aria-expanded",String(opening));menuButton.setAttribute("aria-label",opening?"إغلاق القائمة":"فتح القائمة");if(opening){const first=menu.querySelector("a");if(first)first.focus()}};
+function analytics(){if(window.__fastseoAnalyticsRequested)return;window.__fastseoAnalyticsRequested=true;const script=document.createElement("script");script.src="/tracking/google-analytics.js";script.async=true;document.head.appendChild(script)}
+const normalizePath=path=>path.replace(/index\.html$/,"").replace(/\/$/,"")||"/";
+const currentPath=normalizePath(location.pathname);
+document.querySelectorAll("[data-tab-link]").forEach(link=>{const target=normalizePath(new URL(link.href,location.href).pathname);const active=target==="/" ? currentPath==="/" : currentPath===target||currentPath.startsWith(target+"/");if(active)link.setAttribute("aria-current","page")});
+document.addEventListener("click",event=>{
+ const themeButton=event.target.closest("[data-theme-toggle]");
+ if(themeButton){const value=root.dataset.theme==="dark"?"light":"dark";try{localStorage.setItem("fastseo-theme",value)}catch{}applyTheme(value);return}
+ if(event.target.closest("[data-menu-toggle]")){toggleMenu();return}
+ if(menu&&!menu.hidden){if(event.target.closest("[data-menu-link]"))closeMenu();else if(!event.target.closest("[data-site-header]"))closeMenu()}
+ const consent=event.target.closest("[data-consent]");
+ if(consent){try{localStorage.setItem("mseo-consent-v1",consent.dataset.consent==="accept"?"accepted":"rejected")}catch{}const banner=document.querySelector("[data-cookie-banner]");if(banner)banner.hidden=true;if(consent.dataset.consent==="accept")analytics()}
+ const more=event.target.closest("[data-load-more]");
+ if(more){document.querySelectorAll("[data-load-item][hidden]").forEach((element,index)=>{if(index<8)element.hidden=false});if(!document.querySelector("[data-load-item][hidden]"))more.hidden=true}
+ const scrollButton=event.target.closest("[data-scroll]");
+ if(scrollButton)scrollTo({top:scrollButton.dataset.scroll==="top"?0:document.documentElement.scrollHeight,behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});
+});
+document.addEventListener("keydown",event=>{if(event.key==="Escape"&&menu&&!menu.hidden)closeMenu({restoreFocus:true})});
+try{if(localStorage.getItem("mseo-consent-v1")==="accepted")analytics();else{const banner=document.querySelector("[data-cookie-banner]");if(banner)banner.hidden=false}}catch{}
+const topButton=document.querySelector('[data-scroll="top"]'),downButton=document.querySelector('[data-scroll="down"]');
+const updateScrollControls=()=>{const y=window.scrollY,bottom=y+window.innerHeight>=document.documentElement.scrollHeight-80;if(topButton)topButton.hidden=y<280;if(downButton)downButton.hidden=bottom};
+window.addEventListener("scroll",updateScrollControls,{passive:true});window.addEventListener("resize",updateScrollControls);updateScrollControls();
+})();
