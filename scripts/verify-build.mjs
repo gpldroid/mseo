@@ -78,10 +78,7 @@ for (const [category, expectedCount] of categoryCounts) {
   }
   const actualCards = (categoryHtml.match(/<article\s+class="post-card"/g) || []).length;
   if (actualCards !== expectedCount) {
-    const debugStart = Math.max(categoryHtml.indexOf("<!-- taxonomy-debug"), categoryHtml.indexOf("<!-- term-debug"));
-    const debugEnd = categoryHtml.indexOf("-->", debugStart);
-    const debug = debugStart >= 0 && debugEnd >= 0 ? categoryHtml.slice(debugStart, debugEnd + 3) : "no taxonomy debug marker";
-    failures.push("Category archive " + category + " renders " + actualCards + " cards; expected " + expectedCount + ". " + debug);
+    failures.push("Category archive " + category + " renders " + actualCards + " cards; expected " + expectedCount);
   }
   for (const article of records.filter(item => item.category === category)) {
     if (!categoryHtml.includes("/articles/" + article.slug + ".html")) {
