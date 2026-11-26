@@ -4,7 +4,7 @@
 <body>
 {{ partial "header.html" . }}
 <main class="site-main">
-  <div class="container page-content">{{ .Content }}</div>
+  {{ if eq .File.BaseFileName "categories" }}{{ partial "category-directory.html" . }}{{ else if eq .File.BaseFileName "tools" }}{{ partial "tools-directory.html" . }}{{ else }}<div class="container page-content">{{ .Content }}</div>{{ end }}
 </main>
 {{ partial "footer.html" . }}
 {{ partial "cookie-banner.html" . }}
