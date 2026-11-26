@@ -14,8 +14,8 @@
     ],
     "description": "تعلم كتابة Prompt احترافي يحدد الهدف والسياق والقيود وشكل المخرجات، مع أمثلة قبل وبعد وطريقة اختبار الإجابات وتحسينها خطوة بخطوة.",
     "icon": "fa-pen-to-square",
-    "image": "https://fastseo.site/assets/images/article-thumbnails/how-to-write-effective-prompts.svg",
-    "thumbnail": "https://fastseo.site/assets/images/article-thumbnails/how-to-write-effective-prompts.svg",
+    "image": "/assets/images/article-thumbnails/how-to-write-effective-prompts.svg",
+    "thumbnail": "/assets/images/article-thumbnails/how-to-write-effective-prompts.svg",
     "publishedAt": "2026-11-13",
     "updatedAt": "2026-11-13",
     "author": "عماد الدين لمراني",
@@ -37,8 +37,8 @@
     ],
     "description": "اكتشف مجموعة Prompts عملية للذكاء الاصطناعي في الكتابة والبرمجة والتسويق والتعلم وتحليل البيانات، مع طريقة تخصيص الأوامر وتحسين النتائج والتحقق منها.",
     "icon": "fa-wand-magic-sparkles",
-    "image": "https://fastseo.site/assets/images/article-thumbnails/best-ai-prompts-library.svg",
-    "thumbnail": "https://fastseo.site/assets/images/article-thumbnails/best-ai-prompts-library.svg",
+    "image": "/assets/images/article-thumbnails/best-ai-prompts-library.svg",
+    "thumbnail": "/assets/images/article-thumbnails/best-ai-prompts-library.svg",
     "publishedAt": "2026-11-13",
     "updatedAt": "2026-11-13",
     "author": "عماد الدين لمراني",
@@ -61,8 +61,8 @@
     ],
     "description": "تعلّم تشغيل نماذج الذكاء الاصطناعي محليًا على حاسوبك، واختيار النموذج المناسب وفهم متطلبات RAM وVRAM والتثبيت والخصوصية والأداء.",
     "icon": "fa-microchip",
-    "image": "https://fastseo.site/assets/images/article-thumbnails/run-ai-models-locally.svg",
-    "thumbnail": "https://fastseo.site/assets/images/article-thumbnails/run-ai-models-locally.svg",
+    "image": "/assets/images/article-thumbnails/run-ai-models-locally.svg",
+    "thumbnail": "/assets/images/article-thumbnails/run-ai-models-locally.svg",
     "publishedAt": "2026-11-13",
     "updatedAt": "2026-11-13",
     "author": "عماد الدين لمراني",
@@ -83,8 +83,8 @@
     ],
     "description": "تعلّم أتمتة المهام بالذكاء الاصطناعي في العمل والتسويق وإدارة المواقع، من اختيار المهمة وربط الأدوات إلى قياس الوقت والجودة وحماية البيانات.",
     "icon": "fa-gears",
-    "image": "https://fastseo.site/assets/images/article-thumbnails/ai-task-automation-guide.svg",
-    "thumbnail": "https://fastseo.site/assets/images/article-thumbnails/ai-task-automation-guide.svg",
+    "image": "/assets/images/article-thumbnails/ai-task-automation-guide.svg",
+    "thumbnail": "/assets/images/article-thumbnails/ai-task-automation-guide.svg",
     "publishedAt": "2026-10-29",
     "updatedAt": "2026-10-29",
     "author": "عماد الدين لمراني",
@@ -105,8 +105,8 @@
     ],
     "description": "تعرّف إلى وكلاء الذكاء الاصطناعي AI Agents، وكيف يخططون وينفذون المهام باستخدام الأدوات والذاكرة، مع خطوات لبناء وكيل آمن وأمثلة عملية.",
     "icon": "fa-robot",
-    "image": "https://fastseo.site/assets/images/article-thumbnails/ai-agents-guide.svg",
-    "thumbnail": "https://fastseo.site/assets/images/article-thumbnails/ai-agents-guide.svg",
+    "image": "/assets/images/article-thumbnails/ai-agents-guide.svg",
+    "thumbnail": "/assets/images/article-thumbnails/ai-agents-guide.svg",
     "publishedAt": "2026-10-29",
     "updatedAt": "2026-10-29",
     "author": "عماد الدين لمراني",
@@ -127,8 +127,8 @@
     ],
     "description": "تعلّم تحسين SEO المحلي لنشاطك التجاري: إعداد ملف Google، تطوير صفحات الموقع، إدارة التقييمات وقياس الظهور في نتائج البحث.",
     "icon": "fa-location-dot",
-    "image": "https://fastseo.site/assets/images/local-seo-guide.svg",
-    "thumbnail": "https://fastseo.site/assets/images/local-seo-guide.svg",
+    "image": "/assets/images/article-thumbnails/local-seo-guide.svg",
+    "thumbnail": "/assets/images/article-thumbnails/local-seo-guide.svg",
     "publishedAt": "2026-10-29",
     "updatedAt": "2026-10-29"
   },
@@ -153,7 +153,8 @@
     "icon": "fa-code",
     "image": "https://images.unsplash.com/photo-1516116216624-53e697fedbea?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-23",
-    "updatedAt": "2026-10-23"
+    "updatedAt": "2026-10-23",
+    "thumbnail": "https://images.unsplash.com/photo-1516116216624-53e697fedbea?auto=format&fit=crop&w=1400&q=85"
   },
   {
     "slug": "keyword-research-guide",
@@ -382,7 +383,7 @@
     "description": "دليل عملي لفهم تقارير الفهرسة والتمييز بين الاستبعاد المتوقع والأخطاء التي تحتاج إلى إصلاح.",
     "icon": "fa-triangle-exclamation",
     "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "assets/images/article-thumbnails/google-search-console-indexing-errors.svg",
+    "thumbnail": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-18",
     "updatedAt": "2026-10-18"
   },
@@ -408,7 +409,7 @@
     "description": "دليل عملي لتحسين الروابط الداخلية، وتنظيم بنية الموقع، واختيار نصوص الروابط، واكتشاف الصفحات المعزولة والروابط المكسورة.",
     "icon": "fa-link",
     "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "assets/images/article-thumbnails/internal-linking-seo-guide.svg",
+    "thumbnail": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-18",
     "updatedAt": "2026-10-18"
   },
@@ -431,8 +432,8 @@
     ],
     "description": "تعلم بناء استراتيجية محتوى SEO في 2026: من فهم نية البحث وتصنيف الموضوعات إلى الروابط الداخلية وقياس أداء المقالات.",
     "icon": "fa-magnifying-glass-chart",
-    "image": "assets/images/article-thumbnails/seo-content-strategy-2026.svg",
-    "thumbnail": "assets/images/article-thumbnails/seo-content-strategy-2026.svg",
+    "image": "https://images.unsplash.com/photo-1455390582262-044c6535d9a3?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "https://images.unsplash.com/photo-1455390582262-044c6535d9a3?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-09-19",
     "updatedAt": "2026-10-18"
   },
@@ -457,9 +458,10 @@
     ],
     "description": "دليل عملي لتحسين المحتوى والفهرسة والروابط الداخلية وسرعة الموقع وقياس نتائج SEO في 2026.",
     "icon": "fa-magnifying-glass-chart",
-    "image": "assets/images/article-thumbnails/seo-website-optimization-2026.svg",
+    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-15",
-    "updatedAt": "2026-10-15"
+    "updatedAt": "2026-10-15",
+    "thumbnail": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=85"
   },
   {
     "slug": "html-advanced-inputs",
@@ -476,9 +478,10 @@
     ],
     "description": "تعرف إلى أنواع input المناسبة لاختيار التاريخ والأرقام والخيارات المتعددة والاختيار الأحادي مع أمثلة واضحة.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1400&q=85",
+    "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-14",
-    "updatedAt": "2026-10-14"
+    "updatedAt": "2026-10-14",
+    "thumbnail": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85"
   },
   {
     "slug": "html-audio-video",
@@ -494,9 +497,10 @@
     ],
     "description": "تعلم تضمين الصوت والفيديو بعناصر HTML الأصلية وإضافة عناصر التحكم والترجمة مع مراعاة الوصول والأداء.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85",
+    "image": "https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-14",
-    "updatedAt": "2026-10-14"
+    "updatedAt": "2026-10-14",
+    "thumbnail": "https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?auto=format&fit=crop&w=1400&q=85"
   },
   {
     "slug": "html-css-js-roles",
@@ -512,9 +516,10 @@
     ],
     "description": "افهم دور HTML في البنية وCSS في العرض وJavaScript في التفاعل من خلال مثال صغير قابل للتطوير.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=85",
+    "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-14",
-    "updatedAt": "2026-10-14"
+    "updatedAt": "2026-10-14",
+    "thumbnail": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85"
   },
   {
     "slug": "html-document-structure",
@@ -531,9 +536,10 @@
     ],
     "description": "افهم بنية مستند HTML من البداية، ودور doctype وhtml وhead وbody ووسوم meta، مع مثال عربي صحيح وأخطاء يجب تجنبها.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=85",
+    "image": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-14",
-    "updatedAt": "2026-10-14"
+    "updatedAt": "2026-10-14",
+    "thumbnail": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=85"
   },
   {
     "slug": "html-form-validation-accessibility",
@@ -549,9 +555,10 @@
     ],
     "description": "تعلم استخدام required وpattern وminlength مع رسائل خطأ مفهومة وتجربة نموذج يمكن الوصول إليها.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=85",
+    "image": "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-14",
-    "updatedAt": "2026-10-14"
+    "updatedAt": "2026-10-14",
+    "thumbnail": "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1400&q=85"
   },
   {
     "slug": "html-forms-basics",
@@ -568,9 +575,10 @@
     ],
     "description": "تعلم إنشاء نموذج HTML واضح وسهل الوصول، مع label وinput وأنواع الحقول والأزرار وخصائص التحقق المدمجة وأفضل الممارسات.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1400&q=85",
+    "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-14",
-    "updatedAt": "2026-10-14"
+    "updatedAt": "2026-10-14",
+    "thumbnail": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85"
   },
   {
     "slug": "html-global-attributes-data",
@@ -589,7 +597,8 @@
     "icon": "fa-code",
     "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-14",
-    "updatedAt": "2026-10-14"
+    "updatedAt": "2026-10-14",
+    "thumbnail": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85"
   },
   {
     "slug": "html-iframe-security",
@@ -605,9 +614,10 @@
     ],
     "description": "تعرف إلى iframe وخصائص title وloading وsandbox ومتى ينبغي تجنب تضمين محتوى خارجي.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1400&q=85",
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-14",
-    "updatedAt": "2026-10-14"
+    "updatedAt": "2026-10-14",
+    "thumbnail": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=85"
   },
   {
     "slug": "html-keyboard-accessibility",
@@ -623,9 +633,10 @@
     ],
     "description": "خطوات عملية لتحسين وصول صفحات HTML باستخدام العناصر الأصلية وتسميات واضحة وترتيب تركيز منطقي.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=1400&q=85",
+    "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-14",
-    "updatedAt": "2026-10-14"
+    "updatedAt": "2026-10-14",
+    "thumbnail": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85"
   },
   {
     "slug": "html-links-paths",
@@ -641,9 +652,10 @@
     ],
     "description": "افهم href والمسارات النسبية والمطلقة وكيف تكتب روابط واضحة وآمنة داخل مواقع HTML.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1400&q=85",
+    "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-14",
-    "updatedAt": "2026-10-14"
+    "updatedAt": "2026-10-14",
+    "thumbnail": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85"
   },
   {
     "slug": "html-lists-images",
@@ -659,9 +671,10 @@
     ],
     "description": "تعلم إنشاء القوائم المرتبة وغير المرتبة وقوائم التعريف، وإضافة الصور في HTML مع alt مناسب وأبعاد تساعد على تجربة أفضل.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=85",
+    "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-14",
-    "updatedAt": "2026-10-14"
+    "updatedAt": "2026-10-14",
+    "thumbnail": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85"
   },
   {
     "slug": "html-multipage-project",
@@ -677,9 +690,10 @@
     ],
     "description": "طبّق دروس HTML في مشروع صغير متعدد الصفحات يتضمن التنقل والمقالات والصور ونموذج تواصل وبنية قابلة للصيانة.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
+    "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-14",
-    "updatedAt": "2026-10-14"
+    "updatedAt": "2026-10-14",
+    "thumbnail": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85"
   },
   {
     "slug": "html-performance-loading",
@@ -696,9 +710,10 @@
     ],
     "description": "تحسين تحميل موارد الصفحة باستخدام خصائص HTML المناسبة مع فهم trade-offs وتجنب التحسينات العشوائية.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1400&q=85",
+    "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-14",
-    "updatedAt": "2026-10-14"
+    "updatedAt": "2026-10-14",
+    "thumbnail": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85"
   },
   {
     "slug": "html-responsive-images",
@@ -715,9 +730,10 @@
     ],
     "description": "تعلم اختيار الصور المناسبة لأحجام الشاشات وكثافات العرض باستخدام srcset وsizes وpicture.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85",
+    "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-14",
-    "updatedAt": "2026-10-14"
+    "updatedAt": "2026-10-14",
+    "thumbnail": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85"
   },
   {
     "slug": "html-semantic-elements",
@@ -735,9 +751,10 @@
     ],
     "description": "تعرف إلى العناصر الدلالية في HTML وكيف تختار البنية المناسبة لتحسين وضوح الصفحة وإمكانية الوصول.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=85",
+    "image": "https://images.unsplash.com/photo-1621839673705-6617adf9e890?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-14",
-    "updatedAt": "2026-10-14"
+    "updatedAt": "2026-10-14",
+    "thumbnail": "https://images.unsplash.com/photo-1621839673705-6617adf9e890?auto=format&fit=crop&w=1400&q=85"
   },
   {
     "slug": "html-seo-metadata",
@@ -759,9 +776,10 @@
     ],
     "description": "تعلم ضبط عناصر head المهمة لمحركات البحث مع أمثلة عملية وتجنب التكرار والتصريحات المضللة.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=85",
+    "image": "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-14",
-    "updatedAt": "2026-10-14"
+    "updatedAt": "2026-10-14",
+    "thumbnail": "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?auto=format&fit=crop&w=1400&q=85"
   },
   {
     "slug": "html-tables-caption",
@@ -777,9 +795,10 @@
     ],
     "description": "تعلم إنشاء جداول HTML مفهومة باستخدام caption وthead وtbody وth مع تحسين الوصول على الشاشات الصغيرة.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=85",
+    "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-14",
-    "updatedAt": "2026-10-14"
+    "updatedAt": "2026-10-14",
+    "thumbnail": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1400&q=85"
   },
   {
     "slug": "html-text-headings-links",
@@ -795,9 +814,10 @@
     ],
     "description": "تعلم تنظيم النصوص بعناوين HTML من h1 إلى h6، واستخدام الفقرات والروابط القابلة للوصول، مع أمثلة وأخطاء شائعة.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1400&q=85",
+    "image": "https://images.unsplash.com/photo-1455390582262-044c6535d9a3?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-14",
-    "updatedAt": "2026-10-14"
+    "updatedAt": "2026-10-14",
+    "thumbnail": "https://images.unsplash.com/photo-1455390582262-044c6535d9a3?auto=format&fit=crop&w=1400&q=85"
   },
   {
     "slug": "html-validation-debugging",
@@ -813,9 +833,10 @@
     ],
     "description": "تعلم اكتشاف أخطاء بنية HTML والروابط والخصائص باستخدام أدوات التحقق وفحص DOM في المتصفح.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1400&q=85",
+    "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-14",
-    "updatedAt": "2026-10-14"
+    "updatedAt": "2026-10-14",
+    "thumbnail": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85"
   },
   {
     "slug": "html-what-is-html",
@@ -831,9 +852,10 @@
     ],
     "description": "تعرف على لغة HTML ودورها في بناء صفحات الويب، وكيف تكتب أول ملف HTML وتشغّله في المتصفح خطوة بخطوة، مع أمثلة عملية للمبتدئين.",
     "icon": "fa-code",
-    "image": "https://images.unsplash.com/photo-1526378722484-bd91ca387e72?auto=format&fit=crop&w=1400&q=85",
+    "image": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-14",
-    "updatedAt": "2026-10-14"
+    "updatedAt": "2026-10-14",
+    "thumbnail": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1400&q=85"
   },
   {
     "slug": "website-quality-audit-checklist",
@@ -852,7 +874,8 @@
     "icon": "fa-gauge-high",
     "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-14",
-    "updatedAt": "2026-10-14"
+    "updatedAt": "2026-10-14",
+    "thumbnail": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=85"
   },
   {
     "slug": "lighthouse-audit-fixes-guide",
@@ -875,7 +898,8 @@
     "icon": "fa-gauge-high",
     "image": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-14",
-    "updatedAt": "2026-10-14"
+    "updatedAt": "2026-10-14",
+    "thumbnail": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=85"
   },
   {
     "slug": "mobile-website-quality-testing",
@@ -894,7 +918,8 @@
     "icon": "fa-gauge-high",
     "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-14",
-    "updatedAt": "2026-10-14"
+    "updatedAt": "2026-10-14",
+    "thumbnail": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=85"
   },
   {
     "slug": "structured-data-guide",
@@ -918,7 +943,7 @@
     "description": "شرح عملي للبيانات المنظمة والمخططات المناسبة للمقالات.",
     "icon": "fa-sitemap",
     "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "assets/images/article-thumbnails/structured-data-guide.svg",
+    "thumbnail": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-09-16",
     "updatedAt": "2026-10-14"
   },
@@ -940,7 +965,8 @@
     "icon": "fa-font",
     "image": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-13",
-    "updatedAt": "2026-10-13"
+    "updatedAt": "2026-10-13",
+    "thumbnail": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1400&q=85"
   },
   {
     "slug": "google-search-console-performance-report",
@@ -965,7 +991,8 @@
     "icon": "fa-chart-line",
     "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-13",
-    "updatedAt": "2026-10-13"
+    "updatedAt": "2026-10-13",
+    "thumbnail": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=85"
   },
   {
     "slug": "seo-image-optimization-guide",
@@ -988,7 +1015,8 @@
     "icon": "fa-image",
     "image": "https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-13",
-    "updatedAt": "2026-10-13"
+    "updatedAt": "2026-10-13",
+    "thumbnail": "https://images.unsplash.com/photo-1545235617-9465d2a55698?auto=format&fit=crop&w=1400&q=85"
   },
   {
     "slug": "hreflang-multilingual-seo-guide",
@@ -1011,7 +1039,8 @@
     "icon": "fa-language",
     "image": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-13",
-    "updatedAt": "2026-10-13"
+    "updatedAt": "2026-10-13",
+    "thumbnail": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1400&q=85"
   },
   {
     "slug": "javascript-seo-rendering-guide",
@@ -1035,7 +1064,8 @@
     "icon": "fa-code",
     "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-13",
-    "updatedAt": "2026-10-13"
+    "updatedAt": "2026-10-13",
+    "thumbnail": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=85"
   },
   {
     "slug": "faceted-navigation-seo-guide",
@@ -1054,7 +1084,7 @@
     "description": "دليل عملي لإدارة صفحات الفلاتر والترتيب في المتاجر والمواقع الكبيرة، وضبط الروابط والزحف والفهرسة دون إهدار ميزانية الزحف.",
     "icon": "fa-filter",
     "image": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "assets/images/article-thumbnails/faceted-navigation-seo-guide.svg",
+    "thumbnail": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-13",
     "updatedAt": "2026-10-13"
   },
@@ -1079,7 +1109,7 @@
     "description": "دليل عملي لبناء خريطة XML Sitemap نظيفة، واختيار عناوين URL المناسبة، وإرسالها ومراقبة أخطائها في Google Search Console.",
     "icon": "fa-sitemap",
     "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "assets/images/article-thumbnails/xml-sitemap-seo-guide.svg",
+    "thumbnail": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-13",
     "updatedAt": "2026-10-13"
   },
@@ -1104,7 +1134,8 @@
     "icon": "fa-robot",
     "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-12",
-    "updatedAt": "2026-10-12"
+    "updatedAt": "2026-10-12",
+    "thumbnail": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=85"
   },
   {
     "slug": "canonical-url-guide",
@@ -1127,7 +1158,8 @@
     "icon": "fa-link",
     "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-12",
-    "updatedAt": "2026-10-12"
+    "updatedAt": "2026-10-12",
+    "thumbnail": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=85"
   },
   {
     "slug": "xml-sitemap-guide",
@@ -1150,7 +1182,8 @@
     "icon": "fa-map",
     "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-12",
-    "updatedAt": "2026-10-12"
+    "updatedAt": "2026-10-12",
+    "thumbnail": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85"
   },
   {
     "slug": "javascript-fetch-api-errors",
@@ -1169,7 +1202,8 @@
     "icon": "fa-plug",
     "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-12",
-    "updatedAt": "2026-10-12"
+    "updatedAt": "2026-10-12",
+    "thumbnail": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=85"
   },
   {
     "slug": "web-accessibility-checklist",
@@ -1188,7 +1222,8 @@
     "icon": "fa-universal-access",
     "image": "https://images.unsplash.com/photo-1552581234-26160f608093?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-12",
-    "updatedAt": "2026-10-12"
+    "updatedAt": "2026-10-12",
+    "thumbnail": "https://images.unsplash.com/photo-1552581234-26160f608093?auto=format&fit=crop&w=1400&q=85"
   },
   {
     "slug": "css-container-queries-guide",
@@ -1207,7 +1242,8 @@
     "icon": "fa-cubes",
     "image": "https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-12",
-    "updatedAt": "2026-10-12"
+    "updatedAt": "2026-10-12",
+    "thumbnail": "https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?auto=format&fit=crop&w=1400&q=85"
   },
   {
     "slug": "html-semantic-seo",
@@ -1228,7 +1264,7 @@
     "description": "بنية HTML الدلالية وعلاقتها بالوصول ومحركات البحث.",
     "icon": "fa-code",
     "image": "https://images.unsplash.com/photo-1621839673705-6617adf9e890?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "assets/images/article-thumbnails/html-semantic-seo.svg",
+    "thumbnail": "https://images.unsplash.com/photo-1621839673705-6617adf9e890?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-09-22",
     "updatedAt": "2026-10-12"
   },
@@ -1249,7 +1285,7 @@
     "description": "أساسيات CSS الحديثة لبناء واجهات متجاوبة.",
     "icon": "fa-palette",
     "image": "https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "assets/images/article-thumbnails/css-modern-design.svg",
+    "thumbnail": "https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-09-21",
     "updatedAt": "2026-10-12"
   },
@@ -1270,7 +1306,7 @@
     "description": "ممارسات عملية لتنظيم JavaScript وتحسين الصيانة.",
     "icon": "fa-js",
     "image": "https://images.unsplash.com/photo-1516116216624-53e697fedbea?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "assets/images/article-thumbnails/javascript-clean-code.svg",
+    "thumbnail": "https://images.unsplash.com/photo-1516116216624-53e697fedbea?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-09-20",
     "updatedAt": "2026-10-12"
   },
@@ -1291,7 +1327,7 @@
     "description": "أمثلة عملية لصياغة Prompts دقيقة لكتابة ومراجعة الكود.",
     "icon": "fa-wand-magic-sparkles",
     "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "assets/images/article-thumbnails/ai-coding-prompts.svg",
+    "thumbnail": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-09-18",
     "updatedAt": "2026-10-12"
   },
@@ -1312,7 +1348,7 @@
     "description": "دليل النشر والاستضافة على GitHub Pages.",
     "icon": "fa-github",
     "image": "https://images.unsplash.com/photo-1556075798-4825dfaaf498?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "assets/images/article-thumbnails/github-pages-deploy.svg",
+    "thumbnail": "https://images.unsplash.com/photo-1556075798-4825dfaaf498?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-09-17",
     "updatedAt": "2026-10-12"
   },
@@ -1333,7 +1369,7 @@
     "description": "خطوات عملية لتحسين الأداء وتجربة المستخدم.",
     "icon": "fa-gauge-high",
     "image": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "assets/images/article-thumbnails/web-performance-core.svg",
+    "thumbnail": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-09-15",
     "updatedAt": "2026-10-12"
   },
@@ -1352,7 +1388,7 @@
     "description": "دليل عملي لاختيار أدوات الذكاء الاصطناعي للمطورين حسب حالة الاستخدام ومعايير الخصوصية والتكامل وجودة المخرجات.",
     "icon": "fa-screwdriver-wrench",
     "image": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "assets/images/article-thumbnails/ai-developer-tools.svg",
+    "thumbnail": "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-09-28",
     "updatedAt": "2026-09-28"
   },
@@ -1372,7 +1408,7 @@
     "description": "دليل عملي لبناء Prompts أوضح للمطورين عبر تحديد الهدف والسياق والقيود والمخرجات ثم تحسينها بالتكرار والاختبار والمراجعة.",
     "icon": "fa-terminal",
     "image": "https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "assets/images/article-thumbnails/prompt-engineering-developers.svg",
+    "thumbnail": "https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-09-28",
     "updatedAt": "2026-09-28"
   },
@@ -1394,7 +1430,7 @@
     "description": "دليل عملي لتعلم Git وGitHub للمبتدئين وفهم المستودعات والـcommit والفروع والمزامنة وPull Request.",
     "icon": "fa-code-branch",
     "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "assets/images/article-thumbnails/git-github-beginners.svg",
+    "thumbnail": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-09-28",
     "updatedAt": "2026-09-28"
   },
@@ -1417,7 +1453,7 @@
     "description": "دليل عملي لفهم أساسيات JavaScript من المتغيرات والدوال والمصفوفات والكائنات إلى DOM والأحداث وبناء أول تفاعل في صفحات الويب.",
     "icon": "fa-js",
     "image": "https://images.unsplash.com/photo-1627398242454-45a1465c2479?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "assets/images/article-thumbnails/javascript-beginners-guide.svg",
+    "thumbnail": "https://images.unsplash.com/photo-1627398242454-45a1465c2479?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-09-28",
     "updatedAt": "2026-09-28"
   },
@@ -1438,7 +1474,7 @@
     "description": "دليل عملي لتشخيص أخطاء JavaScript باستخدام Console وDevTools وBreakpoints وNetwork وتتبع السبب الجذري قبل إصلاح الكود.",
     "icon": "fa-bug",
     "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "assets/images/article-thumbnails/javascript-debugging.svg",
+    "thumbnail": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-09-28",
     "updatedAt": "2026-09-28"
   },
@@ -1458,7 +1494,7 @@
     "description": "دليل عملي للتخطيط وبناء موقع حديث بالذكاء الاصطناعي.",
     "icon": "fa-robot",
     "image": "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1400&q=85",
-    "thumbnail": "assets/images/article-thumbnails/ai-website-builder-guide.svg",
+    "thumbnail": "https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-09-23",
     "updatedAt": "2026-09-23"
   },
@@ -1478,8 +1514,8 @@
     ],
     "description": "شرح عملي لملفات قفل تبعيات GitHub Actions وطريقة إنشاء actions.lock ومراجعته وصيانته مع Dependabot للحد من مخاطر تغيّر الوسوم والفروع.",
     "icon": "fa-shield-halved",
-    "image": "https://gpldroid.github.io/mseo/assets/images/article-thumbnails/github-actions-workflow-lockfiles.svg",
-    "thumbnail": "assets/images/article-thumbnails/github-actions-workflow-lockfiles.svg",
+    "image": "https://images.unsplash.com/photo-1556075798-4825dfaaf498?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "https://images.unsplash.com/photo-1556075798-4825dfaaf498?auto=format&fit=crop&w=1400&q=85",
     "featured": true
   },
   {
@@ -1496,7 +1532,8 @@
     ],
     "description": "خطوات عملية لاختبار الموقع بعد تحديث القالب أو المكتبات أو المحتوى، مع ترتيب اختبارات الانحدار وتوثيق النتائج وخطة التراجع.",
     "icon": "fa-clipboard-check",
-    "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85"
+    "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85"
   },
   {
     "slug": "frontend-ui-testing-guide",
@@ -1512,7 +1549,8 @@
     ],
     "description": "تعلم اختبار واجهات الويب يدويًا وبشكل منهجي، من حالات الأزرار والنماذج إلى التنقل ولوحة المفاتيح والتجاوب ورسائل الخطأ.",
     "icon": "fa-list-check",
-    "image": "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1400&q=85"
+    "image": "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=1400&q=85"
   },
   {
     "slug": "website-security-basics-checklist",
@@ -1528,7 +1566,8 @@
     ],
     "description": "قائمة أساسية لتحسين أمان موقع الويب تشمل HTTPS وإدارة الأسرار والتحديثات والصلاحيات والتحقق من المدخلات والنسخ الاحتياطية.",
     "icon": "fa-shield-halved",
-    "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1400&q=85"
+    "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1400&q=85"
   },
   {
     "slug": "test-color-contrast-text-readability",
@@ -1586,8 +1625,8 @@
     ],
     "description": "دليل عملي لتحسين فرص ظهور مقالات موقعك في Google Discover عبر المحتوى المفيد والعناوين الواضحة والصور الكبيرة وقياس النتائج.",
     "icon": "fa-compass",
-    "image": "https://fastseo.site/assets/images/article-thumbnails/google-discover-optimization.svg",
-    "thumbnail": "https://fastseo.site/assets/images/article-thumbnails/google-discover-optimization.svg",
+    "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-29",
     "updatedAt": "2026-10-29"
   },
@@ -1626,8 +1665,8 @@
     ],
     "description": "تعرف إلى طرق تحسين الظهور في Google Discover عبر محتوى مفيد وصور كبيرة وعناوين دقيقة وتجربة مستخدم جيدة، مع خطوات القياس في Search Console.",
     "icon": "fa-compass",
-    "image": "https://fastseo.site/assets/images/article-thumbnails/google-discover-optimization-guide.svg",
-    "thumbnail": "https://fastseo.site/assets/images/article-thumbnails/google-discover-optimization-guide.svg",
+    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-29",
     "updatedAt": "2026-10-29",
     "author": "imad limrani",
