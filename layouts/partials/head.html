@@ -41,4 +41,5 @@
 {{ $css := slice (resources.Get "css/tokens.css") (resources.Get "css/base.css") (resources.Get "css/layout.css") (resources.Get "css/components.css") (resources.Get "css/utilities.css") | resources.Concat "css/fastseo.css" | minify | fingerprint }}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
 <script>(function(){try{var t=localStorage.getItem("fastseo-theme");if(!t)t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.dataset.theme=t;document.documentElement.classList.toggle("dark",t==="dark")}catch(e){}})();</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1849282438800062" crossorigin="anonymous"></script>
 {{ partial "seo-schema.html" . }}
