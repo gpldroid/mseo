@@ -78,7 +78,9 @@ for (const [category, expectedCount] of categoryCounts) {
   }
   const actualCards = (categoryHtml.match(/<article\s+class="post-card"/g) || []).length;
   if (actualCards !== expectedCount) {
-    failures.push("Category archive " + category + " renders " + actualCards + " cards; expected " + expectedCount);
+    const mainStart = categoryHtml.indexOf("<main");
+    const sample = categoryHtml.slice(mainStart, mainStart + 1800).replaceAll("\\n", " ");
+    failures.push("Category archive " + category + " renders " + actualCards + " cards; expected " + expectedCount + ". Sample: " + sample);
   }
   for (const article of records.filter(item => item.category === category)) {
     if (!categoryHtml.includes("/articles/" + article.slug + ".html")) {
