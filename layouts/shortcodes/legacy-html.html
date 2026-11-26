@@ -1,1 +1,20 @@
-{{- $relative := .Get 0 -}}{{- $source := printf "migration/source/%s" $relative -}}{{- $html := readFile $source -}}{{- $body := replaceRE "(?is)^.*?<body[^>]*>(.*?)</body>.*$" "$1" $html -}}{{- $body = replaceRE "(?is)<div[^>]+data-site-header[^>]*>\\s*</div>" "" $body -}}{{- $body = replaceRE "(?is)<div[^>]+data-site-footer[^>]*>\\s*</div>" "" $body -}}{{- $body = replaceRE "(?is)<script[^>]+src=[\"'][^\"']*assets/js/[^\"']*[\"'][^>]*>\\s*</script>" "" $body -}}{{- $body = replaceRE "(?is)</?main[^>]*>" "" $body -}}{{- $body | safeHTML -}}
+{{- $relative := .Get 0 -}}
+{{- $source := printf "migration/source/%s" $relative -}}
+{{- $html := readFile $source -}}
+{{- $body := replaceRE "(?is)^.*?<body[^>]*>(.*?)</body>.*$" "$1" $html -}}
+{{- $body = replaceRE "(?is)<div[^>]+data-site-header[^>]*>\\s*</div>" "" $body -}}
+{{- $body = replaceRE "(?is)<div[^>]+data-site-footer[^>]*>\\s*</div>" "" $body -}}
+{{- $body = replaceRE `(?is)<script[^>]+src=["'][^"']*assets/js/[^"']*["'][^>]*>\\s*</script>` "" $body -}}
+{{- $body = replaceRE "(?is)</?main[^>]*>" "" $body -}}
+{{- $image := .Page.Params.image -}}
+{{- $images := findRE "(?is)<img\\b[^>]*>" $body 1 -}}
+{{- if and $image (gt (len $images) 0) -}}
+  {{- $oldTag := index $images 0 -}}
+  {{- $newTag := replaceRE `(?i)(src=["'])[^"']*(["'])` (printf `${1}%s${2}` ($image | htmlEscape)) $oldTag -}}
+  {{- $newTag = replaceRE `(?i)(alt=["'])[^"']*(["'])` (printf `${1}%s${2}` (.Page.Title | htmlEscape)) $newTag -}}
+  {{- $body = replace $body $oldTag $newTag -}}
+{{- else if $image -}}
+  {{- $hero := printf `<figure class="article-hero-image"><img src="%s" alt="%s" width="1200" height="675" loading="eager" fetchpriority="high" decoding="async"></figure>` ($image | htmlEscape) (.Page.Title | htmlEscape) -}}
+  {{- $body = printf "%s%s" $hero $body -}}
+{{- end -}}
+{{- $body | safeHTML -}}
