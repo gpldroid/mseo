@@ -127,8 +127,8 @@
     ],
     "description": "تعلّم تحسين SEO المحلي لنشاطك التجاري: إعداد ملف Google، تطوير صفحات الموقع، إدارة التقييمات وقياس الظهور في نتائج البحث.",
     "icon": "fa-location-dot",
-    "image": "/assets/images/local-seo-guide.svg",
-    "thumbnail": "/assets/images/local-seo-guide.svg",
+    "image": "/assets/images/article-thumbnails/local-seo-guide.svg",
+    "thumbnail": "/assets/images/article-thumbnails/local-seo-guide.svg",
     "publishedAt": "2026-10-29",
     "updatedAt": "2026-10-29"
   },
@@ -382,8 +382,8 @@
     ],
     "description": "دليل عملي لفهم تقارير الفهرسة والتمييز بين الاستبعاد المتوقع والأخطاء التي تحتاج إلى إصلاح.",
     "icon": "fa-triangle-exclamation",
-    "image": "/assets/images/article-thumbnails/google-search-console-indexing-errors.svg",
-    "thumbnail": "/assets/images/article-thumbnails/google-search-console-indexing-errors.svg",
+    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-18",
     "updatedAt": "2026-10-18"
   },
@@ -408,8 +408,8 @@
     ],
     "description": "دليل عملي لتحسين الروابط الداخلية، وتنظيم بنية الموقع، واختيار نصوص الروابط، واكتشاف الصفحات المعزولة والروابط المكسورة.",
     "icon": "fa-link",
-    "image": "/assets/images/article-thumbnails/internal-linking-seo-guide.svg",
-    "thumbnail": "/assets/images/article-thumbnails/internal-linking-seo-guide.svg",
+    "image": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-18",
     "updatedAt": "2026-10-18"
   },
@@ -432,8 +432,8 @@
     ],
     "description": "تعلم بناء استراتيجية محتوى SEO في 2026: من فهم نية البحث وتصنيف الموضوعات إلى الروابط الداخلية وقياس أداء المقالات.",
     "icon": "fa-magnifying-glass-chart",
-    "image": "/assets/images/article-thumbnails/seo-content-strategy-2026.svg",
-    "thumbnail": "/assets/images/article-thumbnails/seo-content-strategy-2026.svg",
+    "image": "https://images.unsplash.com/photo-1455390582262-044c6535d9a3?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "https://images.unsplash.com/photo-1455390582262-044c6535d9a3?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-09-19",
     "updatedAt": "2026-10-18"
   },
@@ -458,10 +458,10 @@
     ],
     "description": "دليل عملي لتحسين المحتوى والفهرسة والروابط الداخلية وسرعة الموقع وقياس نتائج SEO في 2026.",
     "icon": "fa-magnifying-glass-chart",
-    "image": "/assets/images/article-thumbnails/seo-website-optimization-2026.svg",
+    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-15",
     "updatedAt": "2026-10-15",
-    "thumbnail": "/assets/images/article-thumbnails/seo-website-optimization-2026.svg"
+    "thumbnail": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=85"
   },
   {
     "slug": "html-advanced-inputs",
@@ -1514,8 +1514,8 @@
     ],
     "description": "شرح عملي لملفات قفل تبعيات GitHub Actions وطريقة إنشاء actions.lock ومراجعته وصيانته مع Dependabot للحد من مخاطر تغيّر الوسوم والفروع.",
     "icon": "fa-shield-halved",
-    "image": "/assets/images/article-thumbnails/github-actions-workflow-lockfiles.svg",
-    "thumbnail": "/assets/images/article-thumbnails/github-actions-workflow-lockfiles.svg",
+    "image": "https://images.unsplash.com/photo-1556075798-4825dfaaf498?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "https://images.unsplash.com/photo-1556075798-4825dfaaf498?auto=format&fit=crop&w=1400&q=85",
     "featured": true
   },
   {
@@ -1625,8 +1625,8 @@
     ],
     "description": "دليل عملي لتحسين فرص ظهور مقالات موقعك في Google Discover عبر المحتوى المفيد والعناوين الواضحة والصور الكبيرة وقياس النتائج.",
     "icon": "fa-compass",
-    "image": "/assets/images/article-thumbnails/google-discover-optimization.svg",
-    "thumbnail": "/assets/images/article-thumbnails/google-discover-optimization.svg",
+    "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-29",
     "updatedAt": "2026-10-29"
   },
@@ -1665,8 +1665,8 @@
     ],
     "description": "تعرف إلى طرق تحسين الظهور في Google Discover عبر محتوى مفيد وصور كبيرة وعناوين دقيقة وتجربة مستخدم جيدة، مع خطوات القياس في Search Console.",
     "icon": "fa-compass",
-    "image": "/assets/images/article-thumbnails/google-discover-optimization-guide.svg",
-    "thumbnail": "/assets/images/article-thumbnails/google-discover-optimization-guide.svg",
+    "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=85",
+    "thumbnail": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1400&q=85",
     "publishedAt": "2026-10-29",
     "updatedAt": "2026-10-29",
     "author": "imad limrani",
