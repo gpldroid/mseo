@@ -1,0 +1,9 @@
+{{- $contentParts := split .Content "</p>" -}}
+{{- if gt (len $contentParts) 1 -}}
+  {{- index $contentParts 0 | safeHTML -}}</p>
+  {{ partial "adsense/in-article.html" . }}
+  {{- delimit (after 1 $contentParts) "</p>" | safeHTML -}}
+{{- else -}}
+  {{ .Content }}
+  {{ partial "adsense/in-article.html" . }}
+{{- end -}}
