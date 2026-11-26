@@ -1,5 +1,6 @@
 ---
-import Layout from '../../layouts/Layout.astro';\nimport ArticleCard from '../../components/ArticleCard.astro';
+import Layout from '../../layouts/Layout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
 import articles from '../../../data/articles.json';
 const sorted=[...articles].sort((a,b)=>new Date(b.updatedAt||b.publishedAt||0)-new Date(a.updatedAt||a.publishedAt||0));
 const categories=[...new Set(sorted.map(a=>a.category).filter(Boolean))];
