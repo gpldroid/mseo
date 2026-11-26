@@ -2,6 +2,9 @@
 {{- $termKey := urlize $termName -}}
 {{- $categoryPages := slice -}}
 {{- $displayName := $termName -}}
+{{- $debugKeys := slice -}}
+{{- range $debugName, $debugPages := .Site.Taxonomies.categories -}}{{- $debugKeys = $debugKeys | append (printf "%s:%d" $debugName (len $debugPages)) -}}{{- end -}}
+<!-- category-debug kind={{ .Kind }} term={{ printf "%q" .Data.Term }} title={{ printf "%q" .Title }} key={{ printf "%q" $termKey }} taxonomy={{ len .Site.Taxonomies.categories }} keys={{ delimit $debugKeys "|" }} -->
 {{- range $name, $pages := .Site.Taxonomies.categories -}}
   {{- if eq (urlize $name) $termKey -}}
     {{- $categoryPages = $pages -}}
