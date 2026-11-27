@@ -1,0 +1,28 @@
+{{ define "main" }}
+{{- $articles := where site.RegularPages "Section" "articles" -}}
+{{- $articles = sort $articles "Date" "desc" -}}
+<div class="container section-block">
+  <div class="section-heading">
+    <div>
+      <span class="eyebrow">فاست سيو</span>
+      <h1>{{ .Title | default "المقالات" }}</h1>
+      <p class="text-muted">{{ .Description | default "أحدث الأدلة والمقالات التقنية في فاست سيو." }}</p>
+    </div>
+  </div>
+  {{ if gt (len $articles) 0 }}
+    <div class="post-grid">
+      {{ range $i, $post := $articles }}
+        {{ partial "article-card.html" (dict "post" $post "hidden" false) }}
+        {{ if and (lt (add $i 1) (len $articles)) (eq (mod (add $i 1) 4) 0) }}
+          {{ partial "adsense/in-feed.html" $ }}
+        {{ end }}
+      {{ end }}
+    </div>
+  {{ else }}
+    <div class="category-empty">
+      <h2>لا توجد مقالات منشورة حالياً</h2>
+      <p>تعذر العثور على مقالات ضمن قسم المقالات. يرجى مراجعة بيانات المحتوى وعملية البناء.</p>
+    </div>
+  {{ end }}
+</div>
+{{ end }}
