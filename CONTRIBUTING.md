@@ -34,7 +34,7 @@
 المتطلبات: Hugo Extended وNode.js 22 وnpm.
 
 ```bash
-npm ci
+npm install
 npm run dev
 ```
 
