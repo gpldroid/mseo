@@ -110,9 +110,12 @@ for (const [category, expectedCount] of categoryCounts) {
 
 const sampleArticle = path.join(root, "articles", (records[0]?.slug || "missing") + ".html");
 const articleHtml = await readFile(sampleArticle, "utf8").catch(() => "");
-for (const marker of ['site-header', 'site-footer', 'dir=rtl', "application/ld+json", 'rel="canonical"', 'property="og:image"', 'name="twitter:card"']) {
+for (const marker of ['site-header', 'site-footer', 'dir=rtl', "application/ld+json"]) {
   if (!articleHtml.includes(marker)) failures.push("Article output missing shared layout/SEO marker: " + marker);
 }
+if (!/rel=(?:"|')?canonical/i.test(articleHtml)) failures.push("Article output is missing its canonical link");
+if (!/property=(?:"|')?og:image/i.test(articleHtml)) failures.push("Article output is missing its Open Graph image");
+if (!/name=(?:"|')?twitter:card/i.test(articleHtml)) failures.push("Article output is missing its Twitter card metadata");
 if (/\/js\/tools\.[^"]+\.js/.test(articleHtml)) failures.push("Tools JavaScript is loaded on an article page");
 const sampleTool = await readFile(path.join(root, "pages", "base64-converter.html"), "utf8").catch(() => "");
 if (!sampleTool || !/\/js\/tools\.[^"]+\.js/.test(sampleTool)) failures.push("Tools JavaScript is missing from the Base64 tool page");
