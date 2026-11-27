@@ -52,7 +52,7 @@ const requiredMeta = [
   /name=["']?twitter:card["']?/i
 ];
 for (const pattern of requiredMeta) if (!pattern.test(homepage)) failures.push("Homepage is missing SEO metadata: " + pattern);
-for (const phrase of ["آخر المقالات", "مقالات حسب التصنيفات", "تحميل المزيد من المقالات", "أدوات فاست سيو", "site-header", "site-footer", "data-site-search-form", "ابحث عن مقال أو تصنيف"]) {
+for (const phrase of ["آخر المقالات", "مقالات حسب التصنيفات", "تحميل المزيد من المقالات", "أدوات فاست سيو", "site-header", "site-footer", "data-site-search-form", "data-site-search-input", "header-search-submit"]) {
   if (!homepage.includes(phrase)) failures.push("Homepage is missing expected section or shared element: " + phrase);
 }
 const missingArticles = [];
