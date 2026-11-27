@@ -51,7 +51,7 @@ npm run dev
 ## بناء نسخة الإنتاج والتحقق منها
 
 ```bash
-npm ci
+npm install
 npm run build
 ```
 
