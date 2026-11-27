@@ -29,7 +29,7 @@
 يمكن تنفيذ نفس المسار محلياً باستخدام:
 
 ```bash
-npm ci
+npm install
 npm run build
 ```
 
