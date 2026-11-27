@@ -20,6 +20,16 @@ await requireFile(path.join(root, "CNAME"), "GitHub Pages CNAME");
 await requireFile(path.join(root, "BingSiteAuth.xml"), "Bing verification");
 await requireFile(path.join(root, "tracking", "google-analytics.js"), "GA4 script");
 await requireFile(path.join(root, "data", "articles.json"), "article data JSON");
+await requireFile(path.join(root, "search-index.json"), "article and category search index");
+const searchIndex = JSON.parse(await readFile(path.join(root, "search-index.json"), "utf8").catch(() => "[]"));
+const expectedCategories = new Set(records.map(article => article.category).filter(Boolean));
+const indexedArticles = searchIndex.filter(item => item.type === "article");
+const indexedCategories = searchIndex.filter(item => item.type === "category");
+if (indexedArticles.length !== records.length) failures.push("Search index contains " + indexedArticles.length + " articles; expected " + records.length);
+if (indexedCategories.length !== expectedCategories.size) failures.push("Search index contains " + indexedCategories.length + " categories; expected " + expectedCategories.size);
+for (const article of records) if (!indexedArticles.some(item => item.url === "/articles/" + article.slug && item.title === article.title)) failures.push("Search index is missing article: " + article.slug);
+for (const category of expectedCategories) if (!indexedCategories.some(item => item.title === category)) failures.push("Search index is missing category: " + category);
+
 await requireFile(path.join(root, "assets", "css", "legacy-utilities.css"), "Tailwind compatibility CSS");
 const cssDir = path.join(root, "css"), jsDir = path.join(root, "js");
 const cssFiles = await readdir(cssDir).catch(() => []);
@@ -42,7 +52,7 @@ const requiredMeta = [
   /name=["']?twitter:card["']?/i
 ];
 for (const pattern of requiredMeta) if (!pattern.test(homepage)) failures.push("Homepage is missing SEO metadata: " + pattern);
-for (const phrase of ["آخر المقالات", "مقالات حسب التصنيفات", "تحميل المزيد من المقالات", "أدوات فاست سيو", "site-header", "site-footer"]) {
+for (const phrase of ["آخر المقالات", "مقالات حسب التصنيفات", "تحميل المزيد من المقالات", "أدوات فاست سيو", "site-header", "site-footer", "data-site-search-form", "ابحث عن مقال أو تصنيف"]) {
   if (!homepage.includes(phrase)) failures.push("Homepage is missing expected section or shared element: " + phrase);
 }
 const missingArticles = [];
