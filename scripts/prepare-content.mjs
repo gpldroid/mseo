@@ -13,7 +13,15 @@ await rm(contentRoot,{recursive:true,force:true});await mkdir(path.join(contentR
 await writeFile(path.join(contentRoot,"articles","_index.md"),fm({title:"المقالات",description:"أحدث الأدلة والمقالات التقنية في فاست سيو.",url:"/articles/"})+"\n\nاكتشف الأدلة العملية في تحسين محركات البحث وتطوير المواقع والبرمجة والذكاء الاصطناعي.\n");
 for(const a of records){const filename=a.file||a.slug+".html";const fields={title:a.title,slug:a.slug,date:date(a.publishedAt)||"2026-01-01T00:00:00.000Z",lastmod:date(a.updatedAt||a.publishedAt),description:a.description,categories:[a.category].filter(Boolean),subcategory:a.subcategory||"عام",tags:a.tags||[],image:a.image||a.thumbnail||"",socialImage:a.socialImage||a.image||a.thumbnail||"",imageAlt:a.imageAlt||a.title||"",author:a.author||"عماد الدين لمراني",authorTitle:a.authorTitle||"",legacyPath:"articles/"+filename};const body='{{< legacy-html "'+fields.legacyPath+'" >}}\n';await writeFile(path.join(contentRoot,"articles",a.slug+".md"),fm(fields)+"\n\n"+body);}
 const categorySlug=value=>String(value||"").toLowerCase().trim().replace(/[^\p{L}\p{N}]+/gu,"-").replace(/^-+|-+$/g,"");
-const categoryDescriptions={\n  "SEO":"أدلة تحسين محركات البحث، الفهرسة، الكلمات المفتاحية، البيانات المنظمة وقياس الظهور.",\n  "تطوير المواقع":"شروحات بناء المواقع باستخدام HTML وواجهات الويب والنشر وإمكانية الوصول.",\n  "تصميم المواقع":"مقالات تصميم الواجهات وتجربة المستخدم والتصميم المتجاوب والخطوط العربية.",\n  "البرمجة":"دروس لغات البرمجة وتصحيح الأخطاء وقواعد البيانات وأمن تطبيقات الويب.",\n  "أداء المواقع":"أدلة قياس سرعة المواقع وتحسين Core Web Vitals واختبار الجودة والصيانة.",\n  "الذكاء الاصطناعي":"أدلة استخدام الذكاء الاصطناعي وهندسة الأوامر والنماذج والأتمتة للمطورين وصناع المحتوى."\n};\nconst categoryGroups=new Map();
+const categoryDescriptions={
+  "SEO":"أدلة تحسين محركات البحث، الفهرسة، الكلمات المفتاحية، البيانات المنظمة وقياس الظهور.",
+  "تطوير المواقع":"شروحات بناء المواقع باستخدام HTML وواجهات الويب والنشر وإمكانية الوصول.",
+  "تصميم المواقع":"مقالات تصميم الواجهات وتجربة المستخدم والتصميم المتجاوب والخطوط العربية.",
+  "البرمجة":"دروس لغات البرمجة وتصحيح الأخطاء وقواعد البيانات وأمن تطبيقات الويب.",
+  "أداء المواقع":"أدلة قياس سرعة المواقع وتحسين Core Web Vitals واختبار الجودة والصيانة.",
+  "الذكاء الاصطناعي":"أدلة استخدام الذكاء الاصطناعي وهندسة الأوامر والنماذج والأتمتة للمطورين وصناع المحتوى."
+};
+const categoryGroups=new Map();
 for(const article of records){const category=String(article.category||"").trim();if(!category)continue;const group=categoryGroups.get(category)||[];group.push(article.slug);categoryGroups.set(category,group);}
 await writeFile(path.join(contentRoot,"categories","_index.md"),fm({title:"التصنيفات",description:"تصفح المقالات والأدلة حسب تصنيفات فاست سيو.",article_count:records.filter(article=>article.category).length})+"\n");
 const categorySlugs=new Map();
