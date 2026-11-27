@@ -18,7 +18,7 @@
     <div class="post-grid">
       {{ range $i, $post := $articles }}
         {{ partial "article-card.html" (dict "post" $post "hidden" false) }}
-        {{ if and (gt (add $i 1) 0) (eq (mod (add $i 1) 4) 0) (lt (add $i 1) (len $articles) }}
+        {{ if and (eq (mod (add $i 1) 4) 0) (lt (add $i 1) (len $articles)) }}
           {{ partial "adsense/in-feed.html" $ }}
         {{ end }}
       {{ end }}
