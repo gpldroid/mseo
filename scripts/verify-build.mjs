@@ -59,6 +59,34 @@ for (const filename of pageFiles) {
 }
 if (missingPages.length) failures.push("Missing page outputs (" + missingPages.length + "): " + missingPages.slice(0, 12).join(", "));
 
+// Every category with source articles must render a complete archive with one card per article.
+const categoryCounts = new Map();
+for (const article of records) {
+  if (!article.category) continue;
+  categoryCounts.set(article.category, (categoryCounts.get(article.category) || 0) + 1);
+}
+const categorySlug = value => value.toLowerCase().trim()
+  .replace(/[^\p{L}\p{N}]+/gu, "-")
+  .replace(/^-+|-+$/g, "");
+for (const [category, expectedCount] of categoryCounts) {
+  const slug = categorySlug(category);
+  const categoryFile = path.join(root, "categories", slug + ".html");
+  const categoryHtml = await readFile(categoryFile, "utf8").catch(() => "");
+  if (!categoryHtml) {
+    failures.push("Missing category archive: " + category + " (" + path.relative(root, categoryFile) + ")");
+    continue;
+  }
+  const actualCards = (categoryHtml.match(/<article\s+class=(?:"post-card"|post-card)(?:\s|>)/g) || []).length;
+  if (actualCards !== expectedCount) {
+    failures.push("Category archive " + category + " renders " + actualCards + " cards; expected " + expectedCount);
+  }
+  for (const article of records.filter(item => item.category === category)) {
+    if (!categoryHtml.includes("/articles/" + article.slug + ".html")) {
+      failures.push("Category archive " + category + " is missing article link: " + article.slug);
+    }
+  }
+}
+
 const sampleArticle = path.join(root, "articles", (records[0]?.slug || "missing") + ".html");
 const articleHtml = await readFile(sampleArticle, "utf8").catch(() => "");
 for (const marker of ['site-header', 'site-footer', 'dir=rtl', "application/ld+json"]) {

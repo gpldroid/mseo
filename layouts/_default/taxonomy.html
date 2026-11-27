@@ -1,10 +1,10 @@
 {{ define "main" }}
 <div class="container section-block">
-  <nav class="site-breadcrumb" aria-label="مسار التنقل"><a href="{{ "/" | relURL }}">الرئيسية</a><span aria-hidden="true">›</span><span aria-current="page">التصنيفات</span></nav>
-  <header class="category-archive-header"><span class="eyebrow">مكتبة فاست سيو</span><h1>{{ .Title }}</h1><p class="text-muted">تصفح المقالات حسب الموضوع.</p></header>
+  <nav class="site-breadcrumb" aria-label="مسار التنقل"><a href="{{ "/" | relURL }}">الرئيسية</a><span aria-hidden="true">›</span><span aria-current="page">{{ .Title }}</span></nav>
+  <header class="category-archive-header"><span class="eyebrow">فاست سيو</span><h1>{{ .Title }}</h1><p class="text-muted">تصفح الموضوعات المرتبطة بهذا الوسم.</p></header>
   <div class="directory-grid">
     {{ range .Data.Terms.Alphabetical }}
-      <a class="directory-card" href="{{ .Page.RelPermalink }}"><span class="directory-card-icon" aria-hidden="true"><i class="fa-solid fa-layer-group"></i></span><h2>{{ .Page.Title }}</h2><p>اكتشف المقالات والأدلة المرتبطة بهذا التصنيف.</p><span class="directory-card-meta">{{ .Count }} مقالاً</span><span class="directory-card-link">تصفح التصنيف ←</span></a>
+      <a class="directory-card" href="{{ .Page.RelPermalink }}"><h2>{{ .Page.Title }}</h2><span class="directory-card-meta">{{ .Count }} مقالاً</span></a>
     {{ end }}
   </div>
 </div>

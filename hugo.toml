@@ -13,7 +13,6 @@ summaryLength = 32
   articles = "/articles/:slug"
   pages = "/pages/:slug"
 [taxonomies]
-  category = "categories"
   tag = "tags"
 [params]
   description = "فاست سيو منصة عربية تقدم أدلة عملية وأدوات مجانية لتحسين محركات البحث (SEO)، وتطوير المواقع والبرمجة والذكاء الاصطناعي، مع شروحات واضحة قابلة للتطبيق."
