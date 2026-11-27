@@ -108,6 +108,19 @@ for (const [category, expectedCount] of categoryCounts) {
   }
 }
 
+const categoryIndexFile = path.join(root, "categories", "index.html");
+const categoryIndex = await readFile(categoryIndexFile, "utf8").catch(() => "");
+if (!categoryIndex) {
+  failures.push("Category directory page is empty or missing: categories/index.html");
+} else {
+  const categoryCardCount = (categoryIndex.match(/class="directory-card category-directory-card"/g) || []).length;
+  if (categoryCardCount !== categoryCounts.size) failures.push("Category directory renders " + categoryCardCount + " categories; expected " + categoryCounts.size);
+  for (const category of categoryCounts.keys()) {
+    const slug = categorySlug(category);
+    if (!categoryIndex.includes("/categories/" + slug + ".html")) failures.push("Category directory is missing category link: " + category);
+  }
+}
+
 const sampleArticle = path.join(root, "articles", (records[0]?.slug || "missing") + ".html");
 const articleHtml = await readFile(sampleArticle, "utf8").catch(() => "");
 for (const marker of ['site-header', 'site-footer', 'dir=rtl', "application/ld+json"]) {
