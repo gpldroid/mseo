@@ -59,7 +59,8 @@ if (!articlesListing) {
 } else {
   const listingCards = (articlesListing.match(/<article(?:\\s|>)/gi) || []).length;
   if (listingCards !== records.length) {
-    failures.push("Articles listing renders " + listingCards + " cards; expected " + records.length + " (HTML bytes: " + articlesListing.length + "; preview: " + articlesListing.slice(0, 180) + ")");
+    console.error("Articles listing debug: articleTags=" + (articlesListing.match(/<article/gi) || []).length + ", postCardTokens=" + (articlesListing.match(/post-card/gi) || []).length + ", hrefs=" + (articlesListing.match(/href=[\"\x27][^\"\x27]*\\/articles\\//gi) || []).length + "\\n" + articlesListing.slice(0, 5000));
+    failures.push("Articles listing renders " + listingCards + " cards; expected " + records.length + " (HTML bytes: " + articlesListing.length + ")");
   }
   for (const article of records) {
     if (!articlesListing.includes("/articles/" + article.slug + ".html")) {
