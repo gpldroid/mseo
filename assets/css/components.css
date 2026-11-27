@@ -41,7 +41,7 @@
 .social-facebook{color:#1877f2}.social-x{color:#111827}.social-linkedin{color:#0a66c2}.social-whatsapp{color:#25d366}
 @media(max-width:900px){
   .mobile-tab-bar{display:grid!important}
-  .main-nav{display:none!important}
+  .main-nav{display:flex!important}
   body{padding-bottom:calc(88px + env(safe-area-inset-bottom,0px))!important}
   .header-inner{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.55rem .8rem;padding-block:.65rem}
   .main-nav{grid-column:1/-1;grid-row:2;justify-content:flex-start;overflow-x:auto;overscroll-behavior-inline:contain;scrollbar-width:none;padding:.15rem 0 .25rem}

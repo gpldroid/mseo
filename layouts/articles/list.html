@@ -12,7 +12,7 @@
   {{ if gt (len $articles) 0 }}
     <div class="post-grid">
       {{ range $i, $post := $articles }}
-        {{ partial "article-card.html" (dict "post" $post "hidden" false) }}
+        {{ partial "article-card.html" (dict "post" $post "hidden" false "priority" (eq $i 0)) }}
         {{ if and (lt (add $i 1) (len $articles)) (eq (mod (add $i 1) 4) 0) }}
           {{ partial "adsense/in-feed.html" $ }}
         {{ end }}

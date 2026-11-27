@@ -8,4 +8,7 @@
 {{- with .Params.tags -}}{{- $article = merge $article (dict "keywords" (delimit . ", ")) -}}{{- end -}}
 {{- with .Params.image -}}{{- $article = merge $article (dict "image" (slice (. | absURL))) -}}{{- end -}}
 <script type="application/ld+json">{{ $article | jsonify | safeJS }}</script>
+{{- else -}}
+{{- $webpage := dict "@context" "https://schema.org" "@type" "WebPage" "name" .Title "description" (.Description | default .Site.Params.description | plainify) "url" .Permalink "inLanguage" "ar-MA" "isPartOf" (dict "@type" "WebSite" "name" .Site.Title "url" .Site.BaseURL) -}}
+<script type="application/ld+json">{{ $webpage | jsonify | safeJS }}</script>
 {{- end -}}

@@ -49,6 +49,11 @@ const missingArticles = [];
 for (const article of records) {
   const file = path.join(root, "articles", article.slug + ".html");
   if (!(await exists(file))) missingArticles.push(article.slug);
+  const image = article.image || article.thumbnail;
+  if (image && !/^https?:\/\//i.test(image)) {
+    const imageFile = path.join(root, image.replace(/^\/+/, ""));
+    if (!(await exists(imageFile))) failures.push("Missing article image for " + article.slug + ": " + image);
+  }
 }
 if (missingArticles.length) failures.push("Missing article outputs (" + missingArticles.length + "): " + missingArticles.slice(0, 12).join(", "));
 
@@ -107,6 +112,15 @@ const sampleArticle = path.join(root, "articles", (records[0]?.slug || "missing"
 const articleHtml = await readFile(sampleArticle, "utf8").catch(() => "");
 for (const marker of ['site-header', 'site-footer', 'dir=rtl', "application/ld+json"]) {
   if (!articleHtml.includes(marker)) failures.push("Article output missing shared layout/SEO marker: " + marker);
+}
+if (!/rel=(?:"|')?canonical/i.test(articleHtml)) failures.push("Article output is missing its canonical link");
+if (!/property=(?:"|')?og:image/i.test(articleHtml)) failures.push("Article output is missing its Open Graph image");
+if (!/name=(?:"|')?twitter:card/i.test(articleHtml)) failures.push("Article output is missing its Twitter card metadata");
+if (/\/js\/tools\.[^"]+\.js/.test(articleHtml)) failures.push("Tools JavaScript is loaded on an article page");
+const sampleTool = await readFile(path.join(root, "pages", "base64-converter.html"), "utf8").catch(() => "");
+if (!sampleTool || !/\/js\/tools\.[^"]+\.js/.test(sampleTool)) failures.push("Tools JavaScript is missing from the Base64 tool page");
+for (const marker of ['main-nav', 'mobile-tab-bar', 'site-header', 'site-footer']) {
+  if (!homepage.includes(marker)) failures.push("Homepage is missing responsive navigation/shared element: " + marker);
 }
 const sitemap = await readFile(path.join(root, "sitemap.xml"), "utf8").catch(() => "");
 const sitemapArticleCount = (sitemap.match(/<loc>https:\/\/fastseo\.site\/articles\//g) || []).length;

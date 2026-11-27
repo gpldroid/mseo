@@ -9,7 +9,7 @@
   </section>
   <div class="content-grid section-block">
     <section class="main-column"><div class="section-heading"><div><span class="eyebrow">مكتبة فاست سيو</span><h2>أحدث الأدلة والمقالات</h2></div><a href="/articles/">عرض الكل</a></div>
-      <div class="post-grid" data-load-list>{{ range $i, $post := $articles }}{{ partial "article-card.html" (dict "post" $post "hidden" (ge $i 8)) }}{{ end }}</div>
+      <div class="post-grid" data-load-list>{{ range $i, $post := $articles }}{{ partial "article-card.html" (dict "post" $post "hidden" (ge $i 8) "priority" (eq $i 0)) }}{{ end }}</div>
       {{ if gt (len $articles) 8 }}<div class="load-more-wrap"><button class="btn btn-primary" type="button" data-load-more>تحميل المزيد من المقالات</button></div>{{ end }}
     </section>{{ partial "sidebar.html" . }}
   </div>
