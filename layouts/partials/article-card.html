@@ -4,7 +4,7 @@
     {{ with $post.Params.image }}<img src="{{ . | safeURL }}" alt="{{ $post.Params.imageAlt | default $post.Title }}" {{ if $priority }}loading="eager" fetchpriority="high"{{ else }}loading="lazy"{{ end }} decoding="async" width="1200" height="675">{{ else }}<span class="post-card-image-placeholder" aria-hidden="true"><i class="fa-regular fa-file-lines"></i></span>{{ end }}
   </a>
   <div class="post-card-body">
-    <div class="card-meta">{{ with index $post.Params.categories 0 }}<span>{{ . }}</span>{{ end }}<time datetime="{{ $post.Date.Format "2006-01-02" }}">{{ $post.Date.Format "2006-01-02" }}</time></div>
+    <div class="card-meta">{{ with index $post.Params.categories 0 }}<span>{{ . }}</span>{{ end }}{{ with $post.Params.subcategory }}<span class="post-card-subcategory">{{ . }}</span>{{ end }}<time datetime="{{ $post.Date.Format "2006-01-02" }}">{{ $post.Date.Format "2006-01-02" }}</time></div>
     <h3><a href="{{ $post.RelPermalink }}">{{ $post.Title }}</a></h3>
     {{ $cardDescription := $post.Params.description | default $post.Description | default $post.Summary }}
     <p>{{ $cardDescription | plainify | htmlUnescape | replaceRE "\\s+" " " | trim " \t\r\n" | truncate 118 }}</p>
