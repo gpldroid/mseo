@@ -51,6 +51,22 @@ for (const article of records) {
   if (!(await exists(file))) missingArticles.push(article.slug);
 }
 if (missingArticles.length) failures.push("Missing article outputs (" + missingArticles.length + "): " + missingArticles.slice(0, 12).join(", "));
+
+const articlesListingFile = path.join(root, "articles", "index.html");
+const articlesListing = await readFile(articlesListingFile, "utf8").catch(() => "");
+if (!articlesListing) {
+  failures.push("Articles listing page is empty or missing: articles/index.html");
+} else {
+  const listingCards = (articlesListing.match(/<article/gi) || []).length;
+  if (listingCards !== records.length) {
+    failures.push("Articles listing renders " + listingCards + " cards; expected " + records.length);
+  }
+  for (const article of records) {
+    if (!articlesListing.includes("/articles/" + article.slug + ".html")) {
+      failures.push("Articles listing is missing article link: " + article.slug);
+    }
+  }
+}
 const missingPages = [];
 for (const filename of pageFiles) {
   const slug = filename.replace(/\.html$/i, "");
