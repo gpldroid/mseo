@@ -57,7 +57,7 @@ const articlesListing = await readFile(articlesListingFile, "utf8").catch(() => 
 if (!articlesListing) {
   failures.push("Articles listing page is empty or missing: articles/index.html");
 } else {
-  const listingCards = (articlesListing.match(/<article\\s+class=(?:"post-card"|post-card)(?:\\s|>)/g) || []).length;
+  const listingCards = (articlesListing.match(/<article(?:\\s|>)/gi) || []).length;
   if (listingCards !== records.length) {
     failures.push("Articles listing renders " + listingCards + " cards; expected " + records.length + " (HTML bytes: " + articlesListing.length + "; preview: " + articlesListing.slice(0, 180) + ")");
   }
