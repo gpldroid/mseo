@@ -49,6 +49,11 @@ const missingArticles = [];
 for (const article of records) {
   const file = path.join(root, "articles", article.slug + ".html");
   if (!(await exists(file))) missingArticles.push(article.slug);
+  const image = article.image || article.thumbnail;
+  if (image && !/^https?:\/\//i.test(image)) {
+    const imageFile = path.join(root, image.replace(/^\/+/, ""));
+    if (!(await exists(imageFile))) failures.push("Missing article image for " + article.slug + ": " + image);
+  }
 }
 if (missingArticles.length) failures.push("Missing article outputs (" + missingArticles.length + "): " + missingArticles.slice(0, 12).join(", "));
 
@@ -105,8 +110,14 @@ for (const [category, expectedCount] of categoryCounts) {
 
 const sampleArticle = path.join(root, "articles", (records[0]?.slug || "missing") + ".html");
 const articleHtml = await readFile(sampleArticle, "utf8").catch(() => "");
-for (const marker of ['site-header', 'site-footer', 'dir=rtl', "application/ld+json"]) {
+for (const marker of ['site-header', 'site-footer', 'dir=rtl', "application/ld+json", 'rel="canonical"', 'property="og:image"', 'name="twitter:card"']) {
   if (!articleHtml.includes(marker)) failures.push("Article output missing shared layout/SEO marker: " + marker);
+}
+if (/\/js\/tools\.[^"]+\.js/.test(articleHtml)) failures.push("Tools JavaScript is loaded on an article page");
+const sampleTool = await readFile(path.join(root, "pages", "base64-converter.html"), "utf8").catch(() => "");
+if (!sampleTool || !/\/js\/tools\.[^"]+\.js/.test(sampleTool)) failures.push("Tools JavaScript is missing from the Base64 tool page");
+for (const marker of ['main-nav', 'mobile-tab-bar', 'site-header', 'site-footer']) {
+  if (!homepage.includes(marker)) failures.push("Homepage is missing responsive navigation/shared element: " + marker);
 }
 const sitemap = await readFile(path.join(root, "sitemap.xml"), "utf8").catch(() => "");
 const sitemapArticleCount = (sitemap.match(/<loc>https:\/\/fastseo\.site\/articles\//g) || []).length;
