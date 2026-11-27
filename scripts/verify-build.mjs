@@ -118,7 +118,7 @@ if (!categoryIndex) {
   if (categoryCardCount !== categoryCounts.size) failures.push("Category directory renders " + categoryCardCount + " categories; expected " + categoryCounts.size);
   for (const category of categoryCounts.keys()) {
     const slug = categorySlug(category);
-    if (!categoryIndex.includes("/categories/" + slug)) failures.push("Category directory is missing category link: " + category);
+    if (!categoryIndex.includes(encodeURI("/categories/" + slug))) failures.push("Category directory is missing category link: " + category);
   }
 }
 
