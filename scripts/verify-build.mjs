@@ -59,7 +59,7 @@ if (!articlesListing) {
 } else {
   const listingCards = (articlesListing.match(/<article\\s+class=(?:"post-card"|post-card)(?:\\s|>)/g) || []).length;
   if (listingCards !== records.length) {
-    failures.push("Articles listing renders " + listingCards + " cards; expected " + records.length);
+    failures.push("Articles listing renders " + listingCards + " cards; expected " + records.length + " (HTML bytes: " + articlesListing.length + "; preview: " + articlesListing.slice(0, 180) + ")");
   }
   for (const article of records) {
     if (!articlesListing.includes("/articles/" + article.slug + ".html")) {
