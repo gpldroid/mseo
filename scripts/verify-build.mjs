@@ -47,6 +47,7 @@ for (const phrase of ["آخر المقالات", "مقالات حسب التصن
 }
 const missingArticles = [];
 for (const article of records) {
+  if (!article.subcategory || !article.subcategory.trim()) failures.push("Article is missing a normalized subcategory: " + article.slug);
   const file = path.join(root, "articles", article.slug + ".html");
   if (!(await exists(file))) missingArticles.push(article.slug);
   const image = article.image || article.thumbnail;
