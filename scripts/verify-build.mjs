@@ -57,10 +57,9 @@ const articlesListing = await readFile(articlesListingFile, "utf8").catch(() => 
 if (!articlesListing) {
   failures.push("Articles listing page is empty or missing: articles/index.html");
 } else {
-  const listingCards = (articlesListing.match(/<article(?:\\s|>)/gi) || []).length;
+  const listingCards = (articlesListing.match(/<article/gi) || []).length;
   if (listingCards !== records.length) {
-    console.error("Articles listing debug: articleTags=" + (articlesListing.match(/<article/gi) || []).length + ", postCardTokens=" + (articlesListing.match(/post-card/gi) || []).length + ", hrefs=" + (articlesListing.match(/href=[\"\x27][^\"\x27]*\\/articles\\//gi) || []).length + "\\n" + articlesListing.slice(0, 5000));
-    failures.push("Articles listing renders " + listingCards + " cards; expected " + records.length + " (HTML bytes: " + articlesListing.length + ")");
+    failures.push("Articles listing renders " + listingCards + " cards; expected " + records.length);
   }
   for (const article of records) {
     if (!articlesListing.includes("/articles/" + article.slug + ".html")) {
