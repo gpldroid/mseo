@@ -47,6 +47,7 @@ for (const phrase of ["آخر المقالات", "مقالات حسب التصن
 }
 const missingArticles = [];
 for (const article of records) {
+  if (!article.subcategory || !article.subcategory.trim()) failures.push("Article is missing a normalized subcategory: " + article.slug);
   const file = path.join(root, "articles", article.slug + ".html");
   if (!(await exists(file))) missingArticles.push(article.slug);
   const image = article.image || article.thumbnail;
@@ -105,6 +106,19 @@ for (const [category, expectedCount] of categoryCounts) {
     if (!categoryHtml.includes("/articles/" + article.slug + ".html")) {
       failures.push("Category archive " + category + " is missing article link: " + article.slug);
     }
+  }
+}
+
+const categoryIndexFile = path.join(root, "categories", "index.html");
+const categoryIndex = await readFile(categoryIndexFile, "utf8").catch(() => "");
+if (!categoryIndex) {
+  failures.push("Category directory page is empty or missing: categories/index.html");
+} else {
+  const categoryCardCount = (categoryIndex.match(/class="directory-card category-directory-card"/g) || []).length;
+  if (categoryCardCount !== categoryCounts.size) failures.push("Category directory renders " + categoryCardCount + " categories; expected " + categoryCounts.size);
+  for (const category of categoryCounts.keys()) {
+    const slug = categorySlug(category);
+    if (!categoryIndex.includes(encodeURI("/categories/" + slug))) failures.push("Category directory is missing category link: " + category);
   }
 }
 

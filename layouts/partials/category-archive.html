@@ -15,8 +15,9 @@
   <header class="category-archive-header">
     <span class="eyebrow">أرشيف التصنيف</span>
     <h1>{{ $termName }}</h1>
-    <p class="text-muted">جميع المقالات والأدلة المنشورة ضمن تصنيف {{ $termName }}.</p>
+    <p class="text-muted">{{ .Params.description | default (printf "جميع المقالات والأدلة المنشورة ضمن تصنيف %s." $termName) }}</p>
     <span class="category-count">{{ len $categoryPages }} مقالاً</span>
+    {{ with .Params.subcategories }}<nav class="category-subcategory-list" aria-label="الموضوعات الفرعية">{{ range . }}<span>{{ . }}</span>{{ end }}</nav>{{ end }}
   </header>
   {{ if gt (len $categoryPages) 0 }}
     <div class="post-grid category-post-grid">
