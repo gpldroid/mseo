@@ -1,1 +1,15 @@
-{"name":"fastseo-hugo-assets","private":true,"version":"1.0.0","scripts":{"build:css":"tailwindcss -i ./assets/css/tailwind.css -o ./static/assets/css/legacy-utilities.css --minify"},"devDependencies":{"tailwindcss":"3.4.17"}}
+{
+  "name": "fastseo-hugo-assets",
+  "private": true,
+  "version": "1.1.0",
+  "scripts": {
+    "build:css": "tailwindcss -i ./assets/css/tailwind.css -o ./static/assets/css/legacy-utilities.css --minify",
+    "prepare:content": "node scripts/prepare-content.mjs",
+    "dev": "npm run build:css && npm run prepare:content && hugo server",
+    "build": "npm run build:css && npm run prepare:content && hugo --minify --destination ./dist && node scripts/verify-build.mjs ./dist",
+    "verify": "node scripts/verify-build.mjs ./dist"
+  },
+  "devDependencies": {
+    "tailwindcss": "3.4.17"
+  }
+}
