@@ -118,3 +118,32 @@
 @media(max-width:1100px){.header-actions{flex-basis:245px}.header-search{width:100%}}
 @media(max-width:900px){.header-actions{grid-column:2;grid-row:1;width:min(46vw,280px);flex-basis:auto}.header-search{width:100%}.header-search input{height:40px;font-size:.78rem;padding-inline-start:.55rem}.header-search-results{max-height:55vh}}
 @media(max-width:480px){.header-actions{width:min(43vw,190px)}.header-search input{font-size:.72rem;padding-inline-end:2.2rem}.header-search-submit{width:30px;height:30px}}
+
+
+/* Compact header search button: clear contrast and accessible focus */
+.header-search-submit,
+.header-actions .header-search-submit{
+  color:#fff;
+  background:var(--brand-strong);
+  border:1px solid var(--brand-strong);
+  box-shadow:0 2px 6px rgba(23,63,174,.2);
+  cursor:pointer;
+  transition:background-color .18s ease,border-color .18s ease,box-shadow .18s ease,transform .18s ease;
+}
+.header-search-submit svg{
+  stroke:#fff;
+  stroke-width:2.2;
+}
+.header-search-submit:hover{
+  color:#fff;
+  background:var(--accent);
+  border-color:var(--accent);
+  box-shadow:0 3px 10px rgba(18,168,155,.25);
+}
+.header-search-submit:active{
+  transform:translateY(-50%) scale(.96);
+}
+.header-search-submit:focus-visible{
+  outline:3px solid rgba(18,168,155,.35);
+  outline-offset:2px;
+}
